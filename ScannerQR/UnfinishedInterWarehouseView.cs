@@ -1,0 +1,317 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using TrendNET.WMS.Core.Data;
+using TrendNET.WMS.Device.App;
+using TrendNET.WMS.Device.Services;
+using static Android.App.ActionBar;
+using WebApp = TrendNET.WMS.Device.Services.WebApp;
+
+namespace ScannerQR
+{
+    [Activity(Label = "UnfinishedInterWarehouseView")]
+    public class UnfinishedInterWarehouseView : Activity
+
+    {
+
+        //lbInfo
+        //tbBusEvent
+        //tbIssueWarehouse
+        //tbReceiveWarehouse
+        //tbItemCount
+        //tbCreatedBy
+        //tbCreatedAt
+        //btNext
+        //btFinish
+        //btDelete
+        //btnNew    
+        //btnLogout
+        // 27.12.2020
+        private TextView lbInfo;
+        private EditText tbBusEvent;
+        private EditText tbIssueWarehouse;
+        private EditText tbReceiveWarehouse;
+        private EditText tbItemCount;
+        private EditText tbCreatedBy;
+        private EditText tbCreatedAt;
+        private Button btNext;
+        private Button btFinish;
+        private Button btDelete;
+        private Button btnNew;
+        private Button btnLogout;
+
+/// <summary>
+/// ////////////////
+/// </summary>
+
+        private int displayedPosition = 0;
+        private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("InterWarehouseHeads");
+        private Dialog popupDialog;
+        private Button btnYes;
+        private Button btnNo;
+
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+            // Create your application here
+            SetContentView(Resource.Layout.UnfinishedInterWarehouseView);
+
+            lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
+            tbBusEvent = FindViewById<EditText>(Resource.Id.tbBusEvent);
+            tbIssueWarehouse = FindViewById<EditText>(Resource.Id.tbIssueWarehouse);
+            tbReceiveWarehouse = FindViewById<EditText>(Resource.Id.tbReceiveWarehouse);
+            tbItemCount = FindViewById<EditText>(Resource.Id.tbItemCount);
+            tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
+            tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
+            btNext = FindViewById<Button>(Resource.Id.btNext);
+            btFinish = FindViewById<Button>(Resource.Id.btFinish);
+            btnNew = FindViewById<Button>(Resource.Id.btnNew);
+            btnLogout = FindViewById<Button>(Resource.Id.btnLogout);
+            btDelete = FindViewById<Button>(Resource.Id.btDelete);
+            //
+            btNext.Click += BtNext_Click;
+            btFinish.Click += BtFinish_Click;
+            btDelete.Click += BtDelete_Click;
+            btnNew.Click += BtnNew_Click;
+            btnLogout.Click += BtnLogout_Click;
+            InUseObjects.Clear();
+
+            LoadPositions();
+
+        }
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            switch (keyCode)
+            {
+                // in smartphone
+                case Keycode.F1:
+                    BtNext_Click(this, null);
+                    break;
+                //return true;
+
+
+                case Keycode.F2:
+                    BtFinish_Click(this, null);
+                    break;
+
+
+                case Keycode.F3:
+                    BtDelete_Click(this, null);
+                    break;
+
+                case Keycode.F4:
+                    BtnNew_Click(this, null);
+                    break;
+
+
+                case Keycode.F5:
+                    BtnLogout_Click(this, null);
+                    break;
+
+
+               
+            }
+            return base.OnKeyDown(keyCode, e);
+        }
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
+        
+        private void BtnNew_Click(object sender, EventArgs e)
+        {
+            NameValueObject moveHead = new NameValueObject("MoveHead");
+            moveHead.SetBool("Saved", false);
+            InUseObjects.Set("MoveHead", moveHead);
+
+           StartActivity(typeof(InterWarehouseBusinessEventSetup));
+        }
+
+        private void BtDelete_Click(object sender, EventArgs e)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.YesNoPopUp);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
+
+            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+
+            btnYes.Click += BtnYes_Click;
+            btnNo.Click += BtnNo_Click;
+          
+        }
+
+        private void BtnNo_Click(object sender, EventArgs e)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Hide();
+        }
+
+        private void BtnYes_Click(object sender, EventArgs e)
+        {
+            var item = positions.Items[displayedPosition];
+            var id = item.GetInt("HeadID");
+
+         
+            try
+            {
+          
+                string result;
+                if (WebApp.Get("mode=delMoveHead&head=" + id.ToString() + "&deleter=" + Services.UserID().ToString(), out result))
+                {
+                    if (result == "OK!")
+                    {
+                        positions = null;
+                        LoadPositions();
+                        popupDialog.Dismiss();
+                        popupDialog.Hide();
+
+                    }
+                    else
+                    {
+                        string errorWebApp = string.Format("Napaka pri brisanju pozicije " + result);
+                        Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                        positions = null;
+                        LoadPositions();
+                        popupDialog.Dismiss();
+                        popupDialog.Hide();
+                        return;
+
+                    }
+                }
+                else
+                {
+                    string errorWebApp = string.Format("Napaka pri dostopu do web aplikacije. " + result);
+                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                    popupDialog.Dismiss();
+                    popupDialog.Hide();
+                    return;
+                }
+            }
+            finally
+            {
+                popupDialog.Dismiss();
+                popupDialog.Hide();
+            }
+
+
+        }
+
+        private void BtFinish_Click(object sender, EventArgs e)
+        {
+            var moveHead = positions.Items[displayedPosition];
+
+            string error;
+            if (!Services.TryLock("MoveHead" + moveHead.GetInt("HeadID").ToString(), out error))
+            {
+                string toast = string.Format("Napaka:" + error);
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                return;
+            }
+
+            moveHead.SetBool("Saved", true);
+            InUseObjects.Set("MoveHead", moveHead);
+
+            StartActivity(typeof(InterWarehouseEnteredPositionsView));
+           
+        }
+
+        private void BtNext_Click(object sender, EventArgs e)
+        {
+            displayedPosition++;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            FillDisplayedItem();
+        }
+
+        private void LoadPositions()
+        {       
+            try
+            {
+               
+                if (positions == null)
+                {
+                    var error = "";
+                    if (positions == null)
+                    {
+                        positions = Services.GetObjectList("mh", out error, "E");
+                        InUseObjects.Set("InterWarehouseHeads", positions);
+                    }
+                    if (positions == null)
+                    {
+                        string toast = string.Format("Napaka pri dostopu do web aplikacije" + error);
+                        Toast.MakeText(this, toast, ToastLength.Long).Show();
+                        System.Diagnostics.Process.GetCurrentProcess().Kill();
+                        return;
+                    }
+                }
+
+                displayedPosition = 0;
+                FillDisplayedItem();
+            }
+            finally
+            {
+               
+            }
+
+        }
+
+
+
+        private void FillDisplayedItem()
+        {
+            if ((positions != null) && (positions.Items.Count > 0))
+            {
+                lbInfo.Text = "Odprte medskladiščnice na čitalcu (" + (displayedPosition + 1).ToString() + "/" + positions.Items.Count + ")";
+                var item = positions.Items[displayedPosition];
+
+                tbBusEvent.Text = item.GetString("DocumentTypeName");
+                tbIssueWarehouse.Text = item.GetString("Issuer");
+                tbReceiveWarehouse.Text = item.GetString("Receiver");
+                tbItemCount.Text = item.GetInt("ItemCount").ToString();
+                tbCreatedBy.Text = item.GetString("ClerkName");
+
+                var created = item.GetDateTime("DateInserted");
+                tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+
+                btNext.Enabled = true;
+                btDelete.Enabled = true;
+                btFinish.Enabled = true;
+            }
+            else
+            {
+                lbInfo.Text = "Odprte medskladiščnice na čitalcu (ni)";
+
+                tbBusEvent.Text = "";
+                tbIssueWarehouse.Text = "";
+                tbReceiveWarehouse.Text = "";
+                tbItemCount.Text = "";
+                tbCreatedBy.Text = "";
+                tbCreatedAt.Text = "";
+                btNext.Enabled = false; 
+                btFinish.Enabled = false;
+                ///btNext.Enabled = false;
+                //btFinish.Enabled = false;
+                btDelete.Enabled = false;
+
+            }
+        }
+
+
+
+
+    }
+}

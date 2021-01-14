@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{122416d6-6b49-4ee2-a1e8-b825f31c79fe}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ScannerQR</RootNamespace>
+    <AssemblyName>ScannerQR</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>True</Deterministic>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DeviceAPI">
+      <HintPath>..\References\DeviceAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\adapter.cs" />
+    <Compile Include="App\Barcode2D.cs" />
+    <Compile Include="App\ComboBoxItem.cs" />
+    <Compile Include="App\Echo.cs" />
+    <Compile Include="App\IBarcodeResult.cs" />
+    <Compile Include="App\InUseObjects.cs" />
+    <Compile Include="App\Keyboard.cs" />
+    <Compile Include="App\Log.cs" />
+    <Compile Include="App\NameValue.cs" />
+    <Compile Include="App\NameValueList.cs" />
+    <Compile Include="App\NameValueObject.cs" />
+    <Compile Include="App\NameValueObjectList.cs" />
+    <Compile Include="App\Scanner.cs" />
+    <Compile Include="App\Trail.cs" />
+    <Compile Include="App\WebApp.cs" />
+    <Compile Include="App\WindowDispatcher.cs" />
+    <Compile Include="App\WMSDeviceConfig.cs" />
+    <Compile Include="CheckStock.cs" />
+    <Compile Include="InterWarehouseBusinessEventSetup.cs" />
+    <Compile Include="InterWarehouseEnteredPositionsView.cs" />
+    <Compile Include="InterWarehouseSerialOrSSCCEntry.cs" />
+    <Compile Include="InventoryConfirm.cs" />
+    <Compile Include="InventoryMenu.cs" />
+    <Compile Include="InventoryOpen.cs" />
+    <Compile Include="InventoryOpenDocument.cs" />
+    <Compile Include="InventoryPrint.cs" />
+    <Compile Include="InventoryProcess.cs" />
+    <Compile Include="IssuedGoodsBusinessEventSetup.cs" />
+    <Compile Include="IssuedGoodsEnteredPositionsView.cs" />
+    <Compile Include="IssuedGoodsIdentEntry.cs" />
+    <Compile Include="IssuedGoodsIdentEntryWithTrail.cs" />
+    <Compile Include="IssuedGoodsSerialOrSSCCEntry.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="MainMenu.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="PackagingEnteredPositionsView.cs" />
+    <Compile Include="PackagingSetContext.cs" />
+    <Compile Include="PackagingUnit.cs" />
+    <Compile Include="PackagingUnitList.cs" />
+    <Compile Include="PrintingInputControl.cs" />
+    <Compile Include="PrintingMenu.cs" />
+    <Compile Include="PrintingOutputControl.cs" />
+    <Compile Include="PrintingProcessControl.cs" />
+    <Compile Include="PrintingReprintLabels.cs" />
+    <Compile Include="PrintingSSCCCodes.cs" />
+    <Compile Include="Printing\PrintingCommon.cs" />
+    <Compile Include="ProductionCard.cs" />
+    <Compile Include="ProductionEnteredPositionsView.cs" />
+    <Compile Include="ProductionPalette.cs" />
+    <Compile Include="ProductionSerialOrSSCCEntry.cs" />
+    <Compile Include="ProductionWorkOrderSetup.cs" />
+    <Compile Include="receiver.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectSubjectBeforeFinish.cs" />
+    <Compile Include="Services\CommonData.cs" />
+    <Compile Include="Services\CompactSerializer.cs" />
+    <Compile Include="Services\Services.cs" />
+    <Compile Include="Services\WebApp.cs" />
+    <Compile Include="TakeOverBusinessEventSetup.cs" />
+    <Compile Include="TakeOverEnteredPositionsView.cs" />
+    <Compile Include="TakeOverIdentEntry.cs" />
+    <Compile Include="TakeOverSerialOrSSCCEntry.cs" />
+    <Compile Include="UnfinishedInterWarehouseView.cs" />
+    <Compile Include="UnfinishedIssuedGoodsView.cs" />
+    <Compile Include="UnfinishedProductionView.cs" />
+    <Compile Include="UnfinishedTakeoversView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_main.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
+    <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher_round.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.v7.CardView">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\MainMenu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\InterWarehouseBusinessEventSetup.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\InterWarehouseEnteredPositionsView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\IssuedGoodsBusinessEventSetup.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\InterWarehouseSerialOrSSCCEntry.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\IssuedGoodsEnteredPositionsView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\IssuedGoodsIdentEntry.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\IssuedGoodsSerialOrSSCCEntry.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\IssuedGoodsIdentEntryWithTrail.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\trendnet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\trendnet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\trendnet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-mdpi\trendnet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-hdpi\trendnet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\trendnet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ProductionCard.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ProductionEnteredPositionsView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ProductionPalette.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ProductionSerialOrSSCCEntry.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ProductionWorkOrderSetup.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SelectSubjectBeforeFinish.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon5.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon6.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon7.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon8.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon9.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon1.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon2.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon3.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon4.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon5.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon6.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon7.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon8.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon9.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon1.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon2.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon3.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon4.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon5.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon6.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon7.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon8.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon9.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon1.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon2.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon3.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon4.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon5.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon6.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon7.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon8.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon9.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon1.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon2.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon3.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon4.png" />
+    <AndroidResource Include="Resources\drawable\icon5.png" />
+    <AndroidResource Include="Resources\drawable\icon6.png" />
+    <AndroidResource Include="Resources\drawable\icon7.png" />
+    <AndroidResource Include="Resources\drawable\icon8.png" />
+    <AndroidResource Include="Resources\drawable\icon9.png" />
+    <AndroidResource Include="Resources\drawable\icon1.png" />
+    <AndroidResource Include="Resources\drawable\icon2.png" />
+    <AndroidResource Include="Resources\drawable\icon3.png" />
+    <AndroidResource Include="Resources\drawable\icon4.png" />
+    <AndroidResource Include="Resources\layout\TakeOverBusinessEventSetup.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\TakeOverEnteredPositionsView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\TakeOverIdentEntry.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\TakeOverSerialOrSSCCEntry.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\UnfinishedInterWarehouseView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\UnfinishedIssuedGoodsView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\UnfinishedProductionView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\UnfinishedTakeoversView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CheckStock.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\InventoryConfirm.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\InventoryMenu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\InventoryOpen.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\InventoryOpenDocument.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\InventoryPrint.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\InventoryProcess.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PrintingInputControl.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PrintingMenu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PrintingOutputControl.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PrintingProcessControl.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PrintingReprintLabels.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PrintingSSCCCodes.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PackagingEnteredPositionsView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PackagingSetContext.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PackagingUnit.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PackagingUnitList.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\YesNoPopUp.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bin.png" />
+    <AndroidResource Include="Resources\drawable\android.png" />
+    <AndroidResource Include="Resources\drawable\icon.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\android.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\android.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\android.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\android.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\android.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\android.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable\barcode.png" />
+    <AndroidResource Include="Resources\drawable\home.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\barcode.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\home.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\barcode.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\home.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\barcode.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\home.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\barcode.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\home.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\barcode.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\home.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\barcode.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\home.png" />
+    <AndroidResource Include="Resources\drawable\beep.wav" />
+    <AndroidResource Include="Resources\layout\ReceiverLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ListViewTrail.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <Content Include="WMS.config.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+    Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+  -->
+</Project>

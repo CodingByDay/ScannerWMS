@@ -1,0 +1,30 @@
+********************************************************************************************** 
+**********************************************************************************************
+**********************************************************************************************
+*if (btnPrint.Enabled) SetKey((int)Keys.F9, () => button8_Click(this, null));
+*if (btnInventory.Enabled) SetKey((int)Keys.F10, () => button9_Click(this, null));
+*if (goodsPackaging.Enabled) SetKey((int)Keys.F11, () => goodsPackaging_Click(this, null));
+*SetKey(48, () => logout_Click(this, null));
+goodsPackaging-----PackagingEnteredPositionsView();
+btnPrint-----------PrintingMenu();
+btnInventory-------InventoryMenu();
+btCheckStock-------CheckStock();
+logout-------------Close();
+
+   // btnInventory-------InventoryMenu();
+            // btCheckStock-------CheckStock();
+            // goodsPackaging-----PackagingEnteredPositionsView();
+            // logout-------------Close();
+
+
+PrintingReprintLabels());
+PrintingSSCCCodes());
+PrintingProcessControl());
+PrintingInputControl());
+PrintingOutputControl());
+
+InterWarehouseBussinesSetup
+
+cbDocType
+cbIssueWH
+cbReceiveWH

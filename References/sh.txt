@@ -1,0 +1,61 @@
+lbInfo
+tbPackNum
+tbSSCC
+tbItemCount
+tbCreatedBy
+btNext
+btUpdate
+btCreate
+btDelete
+btClose
+
+
+Helper snippets
+
+   var adapterDoc = new ArrayAdapter<ComboBoxItem>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, objectcbDocType);
+
+            adapterDoc.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            cbDocType.Adapter = adapterDoc;
+
+
+string toast = string.Format("Poslovni dogodek more bit izbran");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+
+
+
+ var item = positions.Items[displayedPosition];
+            var id = item.GetInt("HeadID");
+
+            try
+            {
+                
+                string result;
+                if (WebApp.Get("mode=delPackHead&head=" + id.ToString(), out result))
+                {
+                    if (result == "OK!")
+                    {
+                        positions = null;
+                        LoadPositions();
+                    }
+                    else
+                    {
+                       
+                        string toastDelete = string.Format("Napaka pri brisanju pozicije." + result);
+                        Toast.MakeText(this, toastDelete, ToastLength.Long).Show();
+                        return;
+                    }
+                }
+                else
+                {
+
+                    string toastError = string.Format("Napaka pri dostopu do web aplikacije." + result);
+                    Toast.MakeText(this, toastError, ToastLength.Long).Show();
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                    return;
+                }
+            }
+            finally
+            {
+
+            }

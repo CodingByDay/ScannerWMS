@@ -1,0 +1,81 @@
+
+2. Prevent long use. Services. preventdups(); ??
+3. Spinner event listeners, get selected item ID;
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+
+
+
+
+        public InterWarehouseSerialOrSSCCEntry()
+        {
+            InitializeComponent();
+            InitializeWMSFeatures();
+
+            SetKey((int)Keys.F1, () => button1_Click(this, null));
+            SetKey((int)Keys.F2, () => button2_Click(this, null));
+            SetKey((int)Keys.F3, () => button3_Click(this, null));
+            SetKey((int)Keys.F5, () => button4_Click(this, null));
+            SetKey((int)Keys.F4, () => button5_Click(this, null));
+
+            if (moveHead == null) { throw new ApplicationException("moveHead not known at this point?!"); }
+
+            docTypes = CommonData.ListDocTypes("I|N");
+
+            if (moveItem != null)
+            {
+                tbSerialNum.Text = moveItem.GetString("SerialNo");
+                tbPacking.Text = moveItem.GetDouble("Packing").ToString();
+                tbUnits.Text = moveItem.GetDouble("Factor").ToString();
+                tbSSCC.Text = moveItem.GetString("SSCC");
+                tbIdent.Text = moveItem.GetString("Ident");
+                ProcessIdent();
+                tbLocation.Text = moveItem.GetString("Location");
+                tbIssueLocation.Text = moveItem.GetString("IssueLocation");
+                btSaveOrUpdate.Text = "Spremeni serijsko št. - F2";
+
+                editMode = true;
+                tbSSCC.Enabled = false;
+            }
+
+            //new Scanner(tbSSCC);
+            //new Scanner(tbSerialNum);
+            //new Scanner(tbIdent);
+            //new Scanner(tbIssueLocation);
+            //new Scanner(tbLocation);
+            ScannerFactory.ReaderInstance.SetForControl(tbSSCC);
+            ScannerFactory.ReaderInstance.SetForControl(tbSerialNum);
+            ScannerFactory.ReaderInstance.SetForControl(tbIdent);
+            ScannerFactory.ReaderInstance.SetForControl(tbIssueLocation);
+            ScannerFactory.ReaderInstance.SetForControl(tbLocation);
+
+            if (editMode)
+            {
+                tbPacking.Focus();
+            }
+            else
+            {
+                tbSSCC.Focus();
+            }
+
+            if (string.IsNullOrEmpty(tbUnits.Text.Trim())) { tbUnits.Text = "1"; }
+            if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
+            {                
+                lbUnits.Visible = true;
+                tbUnits.Visible = true;
+            }
+        }
+
+        protected override void ProcessScannedData(string data)
+        {
+            if (tbSSCC.Focused) { readSSCC(data); }
+            else if (tbSerialNum.Focused) { readSerialNum(data); }
+            else if (tbIdent.Focused) { readIdent(data); }
+            else if (tbIssueLocation.Focused) { readIssueLocation(data); }
+            else if (tbLocation.Focused) { readLocation(data); }
+        }
+
+
