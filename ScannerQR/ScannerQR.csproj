@@ -71,6 +71,7 @@
     <Compile Include="App\adapter.cs" />
     <Compile Include="App\Barcode2D.cs" />
     <Compile Include="App\ComboBoxItem.cs" />
+    <Compile Include="App\DateTimeFragment.cs" />
     <Compile Include="App\Echo.cs" />
     <Compile Include="App\IBarcodeResult.cs" />
     <Compile Include="App\InUseObjects.cs" />

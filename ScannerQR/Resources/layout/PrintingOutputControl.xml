@@ -30,20 +30,21 @@
             android:paddingTop="5px"
             android:text="Datum" />
 
-        <DatePicker
-            android:layout_width="match_parent"
-            android:layout_height="64.0dp"
-            android:id="@+id/dtDate"
-            android:layout_marginBottom="13.5dp"
-            android:datePickerMode="spinner"
-            android:defaultFocusHighlightEnabled="true"
-         
-             />
         <EditText
-            android:inputType="date"
+             android:singleLine="true"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/editText1" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40px"
+            android:layout_weight="0.50"
+            android:paddingTop="5px"
+            android:id="@+id/dateText" />
+
+        <Button
+            android:text="Izberi"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/date" />
 
 
     </LinearLayout>
@@ -56,6 +57,7 @@
                                      >
 
         <TextView
+             android:singleLine="true"
             android:layout_width="114.5dp"
             android:layout_height="wrap_content"
             android:text="Uporabnik"
@@ -64,6 +66,7 @@
             android:id="@+id/textView1" />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -80,6 +83,7 @@
         android:paddingTop="5px">
 
         <TextView
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -106,6 +110,7 @@
             android:paddingLeft="10px"/>
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -129,6 +134,7 @@
             android:text="Serijska št." />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -156,6 +162,7 @@
             android:text="Ident" />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -178,6 +185,7 @@
             android:text="Naziv" />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -200,6 +208,7 @@
             android:text="Količina" />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"

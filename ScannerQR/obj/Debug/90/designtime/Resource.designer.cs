@@ -3556,37 +3556,37 @@ namespace ScannerQR
 			public const int customPanel = 2131230825;
 			
 			// aapt resource value: 0x7F08006A
-			public const int datePicker1 = 2131230826;
+			public const int date = 2131230826;
 			
 			// aapt resource value: 0x7F08006B
-			public const int decor_content_parent = 2131230827;
+			public const int datePicker1 = 2131230827;
 			
 			// aapt resource value: 0x7F08006C
-			public const int default_activity_button = 2131230828;
+			public const int dateText = 2131230828;
 			
 			// aapt resource value: 0x7F08006D
-			public const int design_bottom_sheet = 2131230829;
+			public const int decor_content_parent = 2131230829;
 			
 			// aapt resource value: 0x7F08006E
-			public const int design_menu_item_action_area = 2131230830;
+			public const int default_activity_button = 2131230830;
 			
 			// aapt resource value: 0x7F08006F
-			public const int design_menu_item_action_area_stub = 2131230831;
+			public const int design_bottom_sheet = 2131230831;
 			
 			// aapt resource value: 0x7F080070
-			public const int design_menu_item_text = 2131230832;
+			public const int design_menu_item_action_area = 2131230832;
 			
 			// aapt resource value: 0x7F080071
-			public const int design_navigation_view = 2131230833;
+			public const int design_menu_item_action_area_stub = 2131230833;
 			
 			// aapt resource value: 0x7F080072
-			public const int disableHome = 2131230834;
+			public const int design_menu_item_text = 2131230834;
 			
 			// aapt resource value: 0x7F080073
-			public const int dtDate = 2131230835;
+			public const int design_navigation_view = 2131230835;
 			
 			// aapt resource value: 0x7F080074
-			public const int editText1 = 2131230836;
+			public const int disableHome = 2131230836;
 			
 			// aapt resource value: 0x7F080075
 			public const int edit_query = 2131230837;

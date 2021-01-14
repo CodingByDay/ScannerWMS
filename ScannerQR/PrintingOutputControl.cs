@@ -44,7 +44,9 @@ namespace ScannerQR
         private Button btNext;
         private Button btPrint;
         private Button button3;
-
+        private EditText dateText;
+        private Button date;
+        public DateTime dateX;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -64,8 +66,11 @@ namespace ScannerQR
             btPrint = FindViewById<Button>(Resource.Id.btPrint);
             button3 = FindViewById<Button>(Resource.Id.button3);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
-            dtDate = FindViewById<DatePicker>(Resource.Id.dtDate);
-
+            dateText = FindViewById<EditText>(Resource.Id.dateText);
+            date = FindViewById<Button>(Resource.Id.date);
+            dateX = DateTime.Now;
+            date.Click += Date_Click;
+         
             btNext.Click += BtNext_Click;
             btPrint.Click += BtPrint_Click;
             button3.Click += Button3_Click;
@@ -73,12 +78,21 @@ namespace ScannerQR
 
             tbUser.Text = Services.UserName();
 
-            
-            dtDate.DateTime = DateTime.Today;
+           
             GetOutputControls();
 
 
 
+        }
+
+        private void Date_Click(object sender, EventArgs e)
+        {
+            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
+            {
+                dateText.Text = time.ToLongDateString();
+                dateX = time;
+            });
+            frag.Show(FragmentManager, DatePickerFragment.TAG);
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -117,10 +131,11 @@ namespace ScannerQR
 
             try
             {
-           
+                
 
+                
                 string error;
-                positions = Services.GetObjectList("qhfbd", out error, "O|" + dtDate.DateTime.ToString("s"));
+                positions = Services.GetObjectList("qhfbd", out error, "O|" + dateX.ToString("s"));
                 if (positions == null)
                 {
                     Toast.MakeText(this, "Napaka pri prenosu podatkov: " + error, ToastLength.Long).Show();
