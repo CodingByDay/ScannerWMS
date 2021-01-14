@@ -238,6 +238,8 @@ namespace ScannerQR
             lbOrderInfo = FindViewById<TextView>(Resource.Id.lbOrderInfo);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             color();
+            btNext.Enabled = false;
+            btConfirm.Enabled = false;
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();

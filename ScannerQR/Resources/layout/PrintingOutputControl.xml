@@ -17,14 +17,14 @@
         android:paddingLeft="10px"
         android:paddingTop="5px"
         android:text="Tiskanje - končna kontrola" />
-     <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="93.0dp"
+            android:layout_width="138.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -32,8 +32,18 @@
 
         <DatePicker
             android:layout_width="match_parent"
-            android:layout_height="32.0dp"
-            android:id="@+id/datePicker1" />
+            android:layout_height="64.0dp"
+            android:id="@+id/dtDate"
+            android:layout_marginBottom="13.5dp"
+            android:datePickerMode="spinner"
+            android:defaultFocusHighlightEnabled="true"
+         
+             />
+        <EditText
+            android:inputType="date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/editText1" />
 
 
     </LinearLayout>
@@ -46,12 +56,54 @@
                                      >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="114.5dp"
             android:layout_height="wrap_content"
             android:text="Uporabnik"
             android:paddingTop="5px"
             android:paddingLeft="10px"
             android:id="@+id/textView1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40px"
+            android:layout_weight="0.50"
+            android:paddingTop="5px"
+            android:id="@+id/tbUser" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Končna kontrola"
+            android:layout_marginBottom="14.5dp"
+            android:id="@id/lbInfo" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px"
+                                     >
+
+        <TextView
+            android:layout_width="118.0dp"
+            android:layout_height="wrap_content"
+            android:text="SSCC koda"
+            android:paddingTop="5px"
+            android:paddingLeft="10px"/>
 
         <EditText
             android:layout_width="wrap_content"
@@ -70,48 +122,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:text="Končna kontrola"
-            android:layout_marginBottom="14.5dp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="5px"
-                                     >
-
-        <TextView
-            android:layout_width="88.0dp"
-            android:layout_height="wrap_content"
-            android:text="SSCC koda"
-            android:paddingTop="5px"
-            android:paddingLeft="10px"/>
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40px"
-            android:layout_weight="0.50"
-            android:paddingTop="5px"
-            android:id="@+id/tbQty" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="5px">
-
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="117.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -123,7 +134,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbLocation" />
+            android:id="@+id/tbSerialNum" />
 
 
 
@@ -138,7 +149,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="116.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -150,7 +161,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIden1t" />
+            android:id="@+id/tbIdent" />
 
     </LinearLayout>
     <LinearLayout
@@ -160,7 +171,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="115.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -172,7 +183,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIden1t" />
+            android:id="@+id/tbTitle" />
 
     </LinearLayout>
     <LinearLayout
@@ -182,7 +193,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="112.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -194,26 +205,26 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIden1t" />
+            android:id="@+id/tbQty" />
 
     </LinearLayout>
     <Button
         android:text="Naslednja kontrola - F2"
         android:layout_width="match_parent"
         android:layout_height="41.0dp"
-        android:id="@+id/button5"
+        android:id="@+id/btNext"
         android:layout_marginBottom="7.0dp" />
     <Button
         android:text="Tiskaj - F3"
         android:layout_width="match_parent"
         android:layout_height="42.0dp"
-        android:id="@+id/button6"
+        android:id="@+id/btPrint"
         android:layout_marginBottom="1.0dp" />
     <Button
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button7" />
+        android:id="@+id/button3" />
 
 
 </LinearLayout>
