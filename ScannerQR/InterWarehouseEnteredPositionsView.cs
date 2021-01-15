@@ -75,7 +75,7 @@ namespace ScannerQR
             button4.Click += Button4_Click;
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
-
+            button5.Click += Button5_Click;
             ////////////////////////////////////////////////////////////////
             InUseObjects.ClearExcept(new string[] { "MoveHead" });
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
@@ -85,7 +85,10 @@ namespace ScannerQR
 
         }
 
-
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -100,20 +103,20 @@ namespace ScannerQR
                     BtUpdate_Click(this, null);
                     break;
 
-                case Keycode.F3:
-                    BtShowStock_Click(this, null);
+                case Keycode.F3://
+                    Button4_Click(this, null);
                     break;
 
                 case Keycode.F4:
-                    BtShowStock_Click(this, null);
+                    BtFinish_Click(this, null);
                     break;
 
                 case Keycode.F5:
-                    BtShowStock_Click(this, null);
+                    BtDelete_Click(this, null);
                     break;
 
                 case Keycode.F6:
-                    BtShowStock_Click(this, null);
+                    Button5_Click(this, null);
                     break;
 
 
