@@ -458,6 +458,7 @@ namespace ScannerQR
             button1.Click += Button1_Click;
             check.Click += Check_Click;
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
+            tbIdent.FocusChange += TbIdent_FocusChange;
             lbIdentName = FindViewById<EditText>(Resource.Id.lbIdentName);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
@@ -520,6 +521,11 @@ namespace ScannerQR
 
            
 
+        }
+
+        private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessIdent();
         }
 
         private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
