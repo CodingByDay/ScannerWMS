@@ -44,7 +44,7 @@ namespace ScannerQR
             docTypes = CommonData.ListDocTypes("E|");
             docTypes.Items.ForEach(dt =>
             { //
-
+                
             objectDocType.Add( new ComboBoxItem { ID = dt.GetString("Code"), Text = dt.GetString("Code") + " " + dt.GetString("Name") });
             
         });
@@ -92,6 +92,10 @@ namespace ScannerQR
             Button confirm = FindViewById<Button>(Resource.Id.btnConfirm);
             confirm.Click += Confirm_Click;
         }
+
+
+
+
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -108,20 +112,40 @@ namespace ScannerQR
             }
             return base.OnKeyDown(keyCode, e);
         }
+
+
+        private void PrefillWarehouses(string id)
+        {
+            //Log.Write(new LogEntry("PrefillWarehouses: " + id));
+            if (string.IsNullOrEmpty(id)) { return; }
+            var dt = docTypes.Items.FirstOrDefault(x => x.GetString("Code") == id);
+            if (dt != null)
+            {
+                ComboBoxItem.Select(cbDocType, objectDocType, id);
+                ComboBoxItem.Select(cbIssueWH, objectIssueWH, dt.GetString("IssueWarehouse"));
+                cbIssueWH.Enabled = dt.GetBool("CanChangeIssueWarehouse");
+                ComboBoxItem.Select(cbReceiveWH, objectReceiveWH, dt.GetString("ReceiveWarehouse"));
+                cbReceiveWH.Enabled = dt.GetBool("CanChangeReceiveWarehouse");
+            }
+        }
         private void Confirm_Click(object sender, EventArgs e)
         {
             var dt = objectDocType.ElementAt(temporaryPositionDoc);
             var iwh = objectIssueWH.ElementAt(temporaryPositionIssue);
-            var rwh = objectIssueWH.ElementAt(temporaryPositionIssue);
+            var rwh = objectReceiveWH.ElementAt(temporaryPositionReceive);
+
+             var doc = dt.ID;
+            var issue = iwh.ID;
+            var receive = rwh.ID;
           
 
-           NameValueObject moveHead = new NameValueObject();
-            // moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
+        //   NameValueObject moveHead = new NameValueObject();
+            NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
 
-                moveHead.SetString("DocumentType", dt.ID);
+                moveHead.SetString("DocumentType", doc);
                 moveHead.SetString("Type", "E");
-                moveHead.SetString("Issuer", iwh.ID);
-                moveHead.SetString("Receiver", rwh.ID);
+                moveHead.SetString("Issuer", issue);
+                moveHead.SetString("Receiver", receive);
                 moveHead.SetString("LinkKey", "");
                 moveHead.SetInt("LinkNo", 0);
                 moveHead.SetInt("Clerk", Services.UserID());
@@ -201,7 +225,8 @@ private void CbReceiveWH_ItemSelected(object sender, AdapterView.ItemSelectedEve
                 string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
                 Toast.MakeText(this, toast, ToastLength.Long).Show();     
                temporaryPositionDoc = e.Position;
-               
+                var id = objectDocType.ElementAt(e.Position).ID;
+                PrefillWarehouses(id);
 
 
             }

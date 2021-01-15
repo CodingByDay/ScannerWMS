@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.Services;
+using Android.Widget;
 
 namespace TrendNET.WMS.Device.Services
 {
@@ -92,17 +93,17 @@ namespace TrendNET.WMS.Device.Services
         {
             var wh = ListWarehouses()
                 .Items
-                .FirstOrDefault(x => x.GetString ("Subject") == warehouse);
+                .FirstOrDefault(x => x.GetString("Subject") == warehouse);
             if (wh == null)
             {
-                //Program.Exit(() =>
-                {
-                    //  MessageBox.Show("Kritična napaka: Skladišča '" + (warehouse ?? "null").Trim () + "' ni mogoče najti, oz. za dostop do tega skladišča nimate nastavljenih pravic v PA!");
-                } 
-            }
-            return null;
-        }
 
+
+                
+
+
+            }
+            return wh;
+        }
         public static NameValueObjectList ListWarehouses()
         {
             if (warehouses == null)
@@ -126,6 +127,7 @@ namespace TrendNET.WMS.Device.Services
             }
             return warehouses;
         }
+     
 
         public static NameValueObjectList ListShifts()
         {

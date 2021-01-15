@@ -60,6 +60,7 @@ namespace ScannerQR
             btnOrder.Click += BtnOrder_Click;
             btnOrderMode.Click += BtnOrderMode_Click;
             btnLogout.Click += BtnLogout_Click;
+          
             // next
             var warehouses = CommonData.ListWarehouses();
             warehouses.Items.ForEach(wh =>

@@ -322,12 +322,8 @@ namespace ScannerQR
 
     private double GetStock(string warehouse, string location, string sscc, string serialNum, string ident)
         {
-            string SuccessMessage = string.Format("warehouse  " + warehouse);
-            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-            wh = CommonData.GetWarehouse(warehouse);
-      
+            var wh = CommonData.GetWarehouse(warehouse);
             if (!wh.GetBool("HasStock"))
-            {
                 if (tbSerialNum.Enabled)
                 {
                     return LoadStockFromPAStockSerialNo(warehouse, ident, serialNum);
@@ -336,8 +332,8 @@ namespace ScannerQR
                 {
                     return LoadStockFromPAStock(warehouse, ident);
                 }
-            }
-            else
+   
+      else
             {
                 return LoadStockFromStockSerialNo(warehouse, location, sscc, serialNum, ident);
             }
@@ -452,6 +448,7 @@ namespace ScannerQR
             button5 = FindViewById<Button>(Resource.Id.button5);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button6 = FindViewById<Button>(Resource.Id.button6);
+          
             color();
             tbPacking.FocusChange += TbPacking_FocusChange;
             button6.Click += Button6_Click;
@@ -479,8 +476,10 @@ namespace ScannerQR
 
             if (InterWarehouseBusinessEventSetup.success == true)
             {
-                string SuccessMessage = string.Format("Uspešno poslani podatki.");
-                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                string toast = string.Format(moveHead.GetString("Issuer"));
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+               // string SuccessMessage = string.Format("Uspešno poslani podatki.");
+             //   Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
             }
             
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point?!"); }
