@@ -69,6 +69,7 @@ namespace ScannerQR
             dateText = FindViewById<EditText>(Resource.Id.dateText);
             date = FindViewById<Button>(Resource.Id.date);
             dateX = DateTime.Now;
+            dateText.Text = DateTime.Now.ToShortDateString();
             date.Click += Date_Click;
          
             btNext.Click += BtNext_Click;
@@ -89,7 +90,7 @@ namespace ScannerQR
         {
             DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
             {
-                dateText.Text = time.ToLongDateString();
+                dateText.Text = time.ToShortDateString();
                 dateX = time;
             });
             frag.Show(FragmentManager, DatePickerFragment.TAG);

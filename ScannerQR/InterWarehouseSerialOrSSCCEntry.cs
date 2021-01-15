@@ -51,6 +51,7 @@ namespace ScannerQR
         private Button check;
         SoundPool soundPool;
         int soundPoolId;
+        private NameValueObject wh;
 
         // here...
         public void GetBarcode(string barcode)
@@ -321,7 +322,10 @@ namespace ScannerQR
 
     private double GetStock(string warehouse, string location, string sscc, string serialNum, string ident)
         {
-            var wh = CommonData.GetWarehouse(warehouse);
+            string SuccessMessage = string.Format("warehouse  " + warehouse);
+            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+            wh = CommonData.GetWarehouse(warehouse);
+      
             if (!wh.GetBool("HasStock"))
             {
                 if (tbSerialNum.Enabled)
@@ -337,6 +341,7 @@ namespace ScannerQR
             {
                 return LoadStockFromStockSerialNo(warehouse, location, sscc, serialNum, ident);
             }
+          
         }
 
         private Double LoadStockFromStockSerialNo(string warehouse, string location, string sscc, string serialNum, string ident)
@@ -440,12 +445,15 @@ namespace ScannerQR
             check = FindViewById<Button>(Resource.Id.check);
             // Buttons
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
+            wh = new NameValueObject();
+
             button1 = FindViewById<Button>(Resource.Id.button1);
             button3 = FindViewById<Button>(Resource.Id.button3);
             button5 = FindViewById<Button>(Resource.Id.button5);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button6 = FindViewById<Button>(Resource.Id.button6);
             color();
+            tbPacking.FocusChange += TbPacking_FocusChange;
             button6.Click += Button6_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
@@ -507,12 +515,17 @@ namespace ScannerQR
             if (string.IsNullOrEmpty(tbUnits.Text.Trim())) { tbUnits.Text = "1"; }
             if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
             {
-                lbUnits.Visibility = ViewStates.Invisible;
-                tbUnits.Visibility = ViewStates.Invisible;
+                lbUnits.Visibility = ViewStates.Visible;
+                tbUnits.Visibility = ViewStates.Visible;
             }
 
            
 
+        }
+
+        private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessQty();
         }
 
         private void Check_Click(object sender, EventArgs e)
