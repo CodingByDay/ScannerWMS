@@ -70,7 +70,7 @@ namespace ScannerQR
             button2 = FindViewById<Button>(Resource.Id.button2);
             check = FindViewById<Button>(Resource.Id.check);
             color();
-            check.Click += Check_Click;
+            tbWorkOrder.FocusChange += TbWorkOrder_FocusChange;
             btCard.Click += BtCard_Click;
             btConfirm.Click += BtConfirm_Click;
             btPalette.Click += BtPalette_Click;
@@ -86,6 +86,11 @@ namespace ScannerQR
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
             
+        }
+
+        private void TbWorkOrder_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessWorkOrder();
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -133,10 +138,6 @@ namespace ScannerQR
             StartActivity(typeof(ProductionCard));
         }
 
-        private void Check_Click(object sender, EventArgs e)
-        {
-            ProcessWorkOrder();
-        }
 
         private bool SaveMoveHead()
         {
@@ -248,13 +249,7 @@ namespace ScannerQR
                   BtPalette_Click(this, null);
                     break;
 
-                case Keycode.F5:
-                    Check_Click(this, null);
-                    break;
-
-                case Keycode.F6:
-                    Check_Click(this, null);
-                    break;
+            
                  
             }
             return base.OnKeyDown(keyCode, e);

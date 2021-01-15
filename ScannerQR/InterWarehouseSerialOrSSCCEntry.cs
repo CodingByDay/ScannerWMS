@@ -48,7 +48,6 @@ namespace ScannerQR
         private EditText lbIdentName;
         private Button finish;
         private IBarcodeResult result;
-        private Button check;
         SoundPool soundPool;
         int soundPoolId;
         private NameValueObject wh;
@@ -438,7 +437,7 @@ namespace ScannerQR
             // labels
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
-            check = FindViewById<Button>(Resource.Id.check);
+   
             // Buttons
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             wh = new NameValueObject();
@@ -456,7 +455,7 @@ namespace ScannerQR
             button5.Click += Button5_Click;
             button3.Click += Button3_Click;
             button1.Click += Button1_Click;
-            check.Click += Check_Click;
+
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             tbIdent.FocusChange += TbIdent_FocusChange;
             lbIdentName = FindViewById<EditText>(Resource.Id.lbIdentName);
@@ -533,10 +532,7 @@ namespace ScannerQR
             ProcessQty();
         }
 
-        private void Check_Click(object sender, EventArgs e)
-        {
-            ProcessIdent();
-        }
+      
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -693,11 +689,6 @@ namespace ScannerQR
                 case Keycode.F8:
                     Button6_Click(this, null);
                     break;
-
-                case Keycode.F6:
-                    Check_Click(this, null);
-                    break;
-
 
 
             }

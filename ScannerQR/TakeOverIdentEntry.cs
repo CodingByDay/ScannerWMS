@@ -40,7 +40,7 @@ namespace ScannerQR
         private Button button5;
         SoundPool soundPool;
         int soundPoolId;
-        private Button check;
+  
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -59,14 +59,14 @@ namespace ScannerQR
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button5 = FindViewById<Button>(Resource.Id.button5);
-            check = FindViewById<Button>(Resource.Id.check);
+         
 
-            check.Click += Check_Click;
+  
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
-
+            tbIdent.FocusChange += TbIdent_FocusChange;
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
             displayedOrder = 0;
             FillDisplayedOrderInfo();
@@ -78,7 +78,7 @@ namespace ScannerQR
 
         }
 
-        private void Check_Click(object sender, EventArgs e)
+        private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessIdent();
         }
@@ -336,9 +336,7 @@ namespace ScannerQR
                     Button5_Click(this, null);
                     break;
 
-                case Keycode.F5:
-                    Check_Click(this, null);
-                    break;
+           
 
 
             }

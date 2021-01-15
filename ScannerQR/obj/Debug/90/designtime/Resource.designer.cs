@@ -3411,11 +3411,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F080039
 			public const int btNegate = 2131230777;
 			
-			// aapt resource value: 0x7F08003A
-			public const int btNew = 2131230778;
-			
 			// aapt resource value: 0x7F08004B
 			public const int btnew = 2131230795;
+			
+			// aapt resource value: 0x7F08003A
+			public const int btNew = 2131230778;
 			
 			// aapt resource value: 0x7F08003B
 			public const int btNext = 2131230779;
