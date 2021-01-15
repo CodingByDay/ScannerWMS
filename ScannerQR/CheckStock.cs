@@ -101,7 +101,7 @@ namespace ScannerQR
         {
 
             tbIdent.SetBackgroundColor(Android.Graphics.Color.Aqua);
-
+            tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
         }
 
         private void Sound()
@@ -117,6 +117,11 @@ namespace ScannerQR
                 case Keycode.F2:
                     BtShowStock_Click(this, null);
                     break;
+
+                case Keycode.F9:
+                    Button1_Click(this, null);
+                    break;
+
                 //return true;
 
 
@@ -128,32 +133,9 @@ namespace ScannerQR
         {
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
+            // Create your application here.
             SetContentView(Resource.Layout.CheckStock);
-            lbStock = FindViewById<TextView>(Resource.Id.lbStock);
-          
-            cbWarehouses = FindViewById<Spinner>(Resource.Id.cbWarehouses);
-
-            var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
-            Android.Resource.Layout.SimpleSpinnerItem, spinnerAdapterList);
-            adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            cbWarehouses.Adapter = adapterWarehouse;
-            tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
-            tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
-            btShowStock = FindViewById<Button>(Resource.Id.btShowStock);
-            btShowStock.Click += BtShowStock_Click;
-            button1 = FindViewById<Button>(Resource.Id.button1);
-            button1.Click += Button1_Click;
-      
-            lbStock = FindViewById<TextView>(Resource.Id.lbStock);
-          
-            cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;
-            color();
-            soundPool = new SoundPool(10, Stream.Music, 0);
-            soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
-            Barcode2D barcode2D = new Barcode2D();
-            barcode2D.open(this, this);
-
+            // First load the warehouses.
             var whs = CommonData.ListWarehouses();
 
             whs.Items.ForEach(wh =>
@@ -165,18 +147,45 @@ namespace ScannerQR
             {
                 ComboBoxItem.Select(cbWarehouses, spinnerAdapterList, dw);
                 tbIdent.RequestFocus();
-            } else
+            }
+            else
             {
                 //pass wms select first, nothing happens anyway, 'cause the first one would have already been selected anyway.
             }
+            lbStock = FindViewById<TextView>(Resource.Id.lbStock);         
+            cbWarehouses = FindViewById<Spinner>(Resource.Id.cbWarehouses);
 
-            
+            var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, spinnerAdapterList);
+            adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            cbWarehouses.Adapter = adapterWarehouse;
+            tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
+            tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
+            btShowStock = FindViewById<Button>(Resource.Id.btShowStock);
+            btShowStock.Click += BtShowStock_Click;
+            button1 = FindViewById<Button>(Resource.Id.button1);
+            button1.Click += Button1_Click;       
+           
+            lbStock = FindViewById<TextView>(Resource.Id.lbStock);
+          
+            cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;
+            color();
+            soundPool = new SoundPool(10, Stream.Music, 0);
+            soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
+            Barcode2D barcode2D = new Barcode2D();
+            barcode2D.open(this, this);
+
+        
+
+
 
         }
 
+  
+
         private void Button1_Click(object sender, System.EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            this.Finish();
         }
 
         private void BtShowStock_Click(object sender, System.EventArgs e)

@@ -24,6 +24,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:singleLine="true"
             android:layout_width="67.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -36,7 +37,8 @@
             android:id="@+id/cbWarehouses"
             android:gravity="center"
             android:layout_marginLeft="22.5dp"
-            android:layout_marginRight="27.0dp" />
+            android:layout_marginRight="27.0dp"
+            android:spinnerMode="dialog" />
 
 
     </LinearLayout>
@@ -49,6 +51,7 @@
                                      >
 
         <TextView
+            android:singleLine="true"
             android:layout_width="97.5dp"
             android:layout_height="wrap_content"
             android:text="Lokacija"
@@ -57,6 +60,7 @@
             android:id="@+id/textView1" />
 
         <EditText
+              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -85,6 +89,7 @@
             android:text="Ident" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -95,7 +100,7 @@
 
     </LinearLayout>
     <TextView
-        android:layout_width="389.0dp"
+        android:layout_width="296.0dp"
         android:layout_height="250.5dp"
         android:layout_gravity="center"
         android:paddingLeft="10px"
