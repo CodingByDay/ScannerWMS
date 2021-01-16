@@ -269,6 +269,63 @@ namespace ScannerQR
                 //used to be a wait form.
             }
         }
+
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            switch (keyCode)
+            {
+                // Setting F2 to method ProccesStock()
+                case Keycode.F1:
+                    if (btNext.Enabled == true)
+                    {
+                        BtNext_Click(this, null);
+                    }
+                    break;
+
+                case Keycode.F2:
+                    if (btUpdate.Enabled == true)
+                    {
+                        BtUpdate_Click(this, null);
+                    }
+                    break;
+
+                case Keycode.F3://
+                    if (button4.Enabled == true)
+                    {
+                        Button4_Click(this, null);
+                    }
+                    break;
+
+                case Keycode.F4:
+                    if (btFinish.Enabled == true)
+                    {
+                        BtFinish_Click(this, null);
+                    }
+                    break;
+
+                case Keycode.F5:
+                    if (btDelete.Enabled == true)
+                    {
+                        BtDelete_Click(this, null);
+                    }
+                    break;
+
+                case Keycode.F6:
+                    if (button5.Enabled == true)
+                    {
+                        Button5_Click(this, null);
+                    }
+                    break;
+
+
+                    //return true;
+
+
+
+            }
+            return base.OnKeyDown(keyCode, e);
+        }
+
         private void FillDisplayedItem()
         {
             if ((positions != null) && (displayedPosition < positions.Items.Count))
