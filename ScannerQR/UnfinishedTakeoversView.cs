@@ -90,27 +90,42 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F1:
-                    BtNext_Click(this, null);
+                    if (btNext.Enabled == true)
+                    {
+                        BtNext_Click(this, null);
+                    }
                     break;
                 //return true;
 
 
                 case Keycode.F2:
-                    BtFinish_Click(this, null);
+                    if (btFinish.Enabled == true)
+                    {
+                        BtFinish_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F3:
-                   BtDelete_Click(this, null);
+                    if (btDelete.Enabled == true)
+                    {
+                        BtDelete_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F4:
-                    BtNew_Click(this, null);
+                    if (btNew.Enabled == true)
+                    {
+                        BtNew_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F5:
-                    BtLogout_Click(this, null);
+                    if (btLogout.Enabled == true)
+                    {
+                        BtLogout_Click(this, null);
+                    }
                     break;
 
 
@@ -278,6 +293,15 @@ namespace ScannerQR
                 tbCreatedBy.Enabled = false;
                 tbCreatedAt.Enabled = false;
 
+
+                tbBusEvent.SetTextColor(Android.Graphics.Color.Black);
+                tbOrder.SetTextColor(Android.Graphics.Color.Black);
+                tbSupplier.SetTextColor(Android.Graphics.Color.Black);
+                tbItemCount.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
+
+
                 btNext.Enabled = true;
                 btDelete.Enabled = true;
                 btFinish.Enabled = true;
@@ -300,6 +324,15 @@ namespace ScannerQR
                 tbCreatedBy.Enabled = false;
                 tbCreatedAt.Enabled = false;
 
+
+
+
+                tbBusEvent.SetTextColor(Android.Graphics.Color.Black);
+                tbOrder.SetTextColor(Android.Graphics.Color.Black);
+                tbSupplier.SetTextColor(Android.Graphics.Color.Black);
+                tbItemCount.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
 
                 btNext.Enabled = false;
                 btDelete.Enabled = false;
