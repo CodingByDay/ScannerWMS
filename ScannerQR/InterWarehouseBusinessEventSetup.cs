@@ -34,6 +34,7 @@ namespace ScannerQR
         private int temporaryPositionReceive;    
         public static bool success = false;
         public static string objectTest;
+        private Button confirm;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,7 +47,8 @@ namespace ScannerQR
             cbIssueWH = FindViewById<Spinner>(Resource.Id.cbIssueWH);
             cbReceiveWH = FindViewById<Spinner>(Resource.Id.cbRecceiveWH);
          
-            // Developers in the future updati
+            // Developers in the future updating this application. This can save you some time. Spinner components ALWAYS have a selection. To go around this, I programmaticaly set its 
+            // default value to 2, coresponding to the second item in the objectDocType dataset, which fires onSelected item method which "locks" down further selection based on settings.
             // Action listener for the button
             objectDocType.Add(new ComboBoxItem { ID = "Default", Text = "           Izberite poslovni dogodek." });
          
@@ -102,7 +104,7 @@ namespace ScannerQR
           
             // confirm button
             
-            Button confirm = FindViewById<Button>(Resource.Id.btnConfirm);
+            confirm = FindViewById<Button>(Resource.Id.btnConfirm);
             confirm.Click += Confirm_Click;
         }
 
@@ -235,17 +237,29 @@ private void CbReceiveWH_ItemSelected(object sender, AdapterView.ItemSelectedEve
 
         private void CbDocType_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
+            // avoids Default value selection.
+            if(e.Position == 0)
+            {
+                cbIssueWH.Visibility = ViewStates.Invisible;
+                cbReceiveWH.Visibility = ViewStates.Invisible;
+                confirm.Enabled = false;
+                string errorWebApp = string.Format("Poslovni dogodek mora biti izbran.");
+                Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+
+
+
+            } else { 
             cbIssueWH.Enabled = true;
             cbReceiveWH.Enabled = true;
             Spinner spinner = (Spinner)sender;
-            if (e.Position != 0)
-            {
-                string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
-                Toast.MakeText(this, toast, ToastLength.Long).Show();     
-               temporaryPositionDoc = e.Position;
-                var id = objectDocType.ElementAt(e.Position).ID;
-                PrefillWarehouses(id);
-
+                if (e.Position != 0)
+                {
+                    string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
+                    Toast.MakeText(this, toast, ToastLength.Long).Show();
+                    temporaryPositionDoc = e.Position;
+                    var id = objectDocType.ElementAt(e.Position).ID;
+                    PrefillWarehouses(id);
+                }
 
             }
         }
