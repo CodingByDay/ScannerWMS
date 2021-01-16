@@ -54,7 +54,7 @@ namespace ScannerQR
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
-            tbSerialNumber = FindViewById<EditText>(Resource.Id.tbSerialNum);
+            tbSerialNumber = FindViewById<EditText>(Resource.Id.tbSerialNumber);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);

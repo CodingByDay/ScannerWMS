@@ -112,7 +112,8 @@
             android:layout_marginLeft="40px"
             android:layout_weight="0.50"
             android:paddingTop="5px"
-            android:id="@+id/tbQty" />
+            android:id="@+id/tbQty"
+            android:hint="@+id/tbSerialNumber" />
 
     </LinearLayout>
     <LinearLayout
