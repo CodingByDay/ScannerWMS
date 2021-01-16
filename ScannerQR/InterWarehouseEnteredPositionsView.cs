@@ -192,7 +192,7 @@ namespace ScannerQR
             }
             finally
             {
-           // used to be a windows form...
+           // used to be a 
             }
 
             string WebError = string.Format("Pozicija zbrisana.");
@@ -331,6 +331,7 @@ namespace ScannerQR
 
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;
+                btNext.Enabled = false;
             }
         }
     }
