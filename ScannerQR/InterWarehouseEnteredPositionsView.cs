@@ -192,7 +192,7 @@ namespace ScannerQR
             }
             finally
             {
-           //
+           // used to be a windows form...
             }
 
             string WebError = string.Format("Pozicija zbrisana.");

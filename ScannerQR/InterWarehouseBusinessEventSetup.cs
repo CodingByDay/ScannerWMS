@@ -12,6 +12,10 @@ using Android.Widget;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.Services;
+using static Android.Widget.AdapterView;
+/// <summary>
+/// Next thing to implement is the item changed on bussiness event...
+/// </summary>
 
 namespace ScannerQR
 {
@@ -38,6 +42,7 @@ namespace ScannerQR
             SetContentView(Resource.Layout.InterWarehouseBusinessEventSetup);
             // Views
             cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
+          
             cbIssueWH = FindViewById<Spinner>(Resource.Id.cbIssueWH);
             cbReceiveWH = FindViewById<Spinner>(Resource.Id.cbRecceiveWH);
             // action listener for the button
@@ -52,14 +57,15 @@ namespace ScannerQR
              Aditional comment area. */
             var adapter = new ArrayAdapter<ComboBoxItem>(this,
              Android.Resource.Layout.SimpleSpinnerItem, objectDocType);
-            ///* 22.12.2020---------------------------------------------------------------
+            ///* 
             ///* Documentation for the spinner objects add method with an adapter...
             ///*---------------------------------------------------
             ///
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbDocType.Adapter = adapter;
+            cbDocType.SetSelection(0);
             // Next thing... var warehouses = CommonData.ListWarehouses();
-            //cbIssueWH
+            // cbIssueWH
             var warehouses = CommonData.ListWarehouses();
             if (warehouses != null)
             {
@@ -87,8 +93,9 @@ namespace ScannerQR
             cbDocType.ItemSelected += CbDocType_ItemSelected;
             cbIssueWH.ItemSelected += CbIssueWH_ItemSelected;
             cbReceiveWH.ItemSelected += CbReceiveWH_ItemSelected;
+          
             // confirm button
-
+            
             Button confirm = FindViewById<Button>(Resource.Id.btnConfirm);
             confirm.Click += Confirm_Click;
         }
@@ -100,11 +107,11 @@ namespace ScannerQR
         {
             switch (keyCode)
             {
-                // in smartphone
+               
                 case Keycode.F3:
                     Confirm_Click(this, null);
                     break;
-                //return true;
+                // return true;
 
                 case Keycode.F9:
                     Logout_Click(this, null);
@@ -116,7 +123,7 @@ namespace ScannerQR
 
         private void PrefillWarehouses(string id)
         {
-            //Log.Write(new LogEntry("PrefillWarehouses: " + id));
+            // Log.Write(new LogEntry("PrefillWarehouses: " + id));
             if (string.IsNullOrEmpty(id)) { return; }
             var dt = docTypes.Items.FirstOrDefault(x => x.GetString("Code") == id);
             if (dt != null)
@@ -128,7 +135,10 @@ namespace ScannerQR
                 cbReceiveWH.Enabled = dt.GetBool("CanChangeReceiveWarehouse");
             }
         }
-        private void Confirm_Click(object sender, EventArgs e)
+
+
+
+            private void Confirm_Click(object sender, EventArgs e)
         {
             var dt = objectDocType.ElementAt(temporaryPositionDoc);
             var iwh = objectIssueWH.ElementAt(temporaryPositionIssue);
@@ -219,6 +229,8 @@ private void CbReceiveWH_ItemSelected(object sender, AdapterView.ItemSelectedEve
 
         private void CbDocType_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
+            cbIssueWH.Enabled = true;
+            cbReceiveWH.Enabled = true;
             Spinner spinner = (Spinner)sender;
             if (e.Position != 0)
             {
