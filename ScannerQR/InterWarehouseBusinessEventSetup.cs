@@ -50,7 +50,7 @@ namespace ScannerQR
             // Developers in the future updating this application. This can save you some time. Spinner components ALWAYS have a selection. To go around this, I programmaticaly set its 
             // default value to 2, coresponding to the second item in the objectDocType dataset, which fires onSelected item method which "locks" down further selection based on settings.
             // Action listener for the button
-            objectDocType.Add(new ComboBoxItem { ID = "Default", Text = "           Izberite poslovni dogodek." });
+            objectDocType.Add(new ComboBoxItem { ID = "Default", Text = "               Izberite poslovni dogodek." });
          
             docTypes = CommonData.ListDocTypes("E|");
             docTypes.Items.ForEach(dt =>
@@ -217,8 +217,7 @@ private void CbReceiveWH_ItemSelected(object sender, AdapterView.ItemSelectedEve
             Spinner spinner = (Spinner)sender;
             if (e.Position != 0)
             {
-                string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
+              
                 temporaryPositionReceive = e.Position;
 
             }
@@ -229,8 +228,7 @@ private void CbReceiveWH_ItemSelected(object sender, AdapterView.ItemSelectedEve
             Spinner spinner = (Spinner)sender;
             if (e.Position != 0)
             {
-                string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
+             
                 temporaryPositionIssue = e.Position;
             }
         }
@@ -248,7 +246,10 @@ private void CbReceiveWH_ItemSelected(object sender, AdapterView.ItemSelectedEve
 
 
 
-            } else { 
+            } else {
+            cbIssueWH.Visibility = ViewStates.Visible;
+            cbReceiveWH.Visibility = ViewStates.Visible;
+            confirm.Enabled = true;
             cbIssueWH.Enabled = true;
             cbReceiveWH.Enabled = true;
             Spinner spinner = (Spinner)sender;
