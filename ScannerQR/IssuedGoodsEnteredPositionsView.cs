@@ -50,7 +50,7 @@ namespace ScannerQR
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
-            tbSerialNumber = FindViewById<EditText>(Resource.Id.tbSerialNum);
+            tbSerialNumber = FindViewById<EditText>(Resource.Id.tbSerialNumber);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
@@ -353,6 +353,16 @@ namespace ScannerQR
                 var created = item.GetDateTime("DateInserted");
                 tbCreatedBy.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.") + " " + item.GetString("ClerkName");
 
+
+                tbIdent.Enabled = false;
+                tbSSCC.Enabled = false;
+                tbSerialNumber.Enabled = false;
+                tbQty.Enabled = false;
+                tbLocation.Enabled = false;
+                tbCreatedBy.Enabled = false;
+
+
+
                 btUpdate.Enabled = true;
                 btDelete.Enabled = true;
             }
@@ -366,6 +376,15 @@ namespace ScannerQR
                 tbQty.Text = "";
                 tbLocation.Text = "";
                 tbCreatedBy.Text = "";
+
+
+                tbIdent.Enabled = false; 
+                tbSSCC.Enabled = false;
+                tbSerialNumber.Enabled = false;
+                tbQty.Enabled = false;
+                tbLocation.Enabled = false;
+                tbCreatedBy.Enabled = false;
+
 
                 btNext.Enabled = false;
                 btUpdate.Enabled = false;

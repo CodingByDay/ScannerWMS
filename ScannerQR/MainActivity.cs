@@ -27,15 +27,15 @@ namespace ScannerQR
             bool valid = false;
 
 
-            // var wf = new WaitForm();
+      
             try
             {
-                // wf.Start("Preverjam uporabnika...");
+             
                 valid = Services.IsValidUser(Password.Text.Trim(), out error);
             }
             finally
             {
-                //  wf.Stop();
+           
                 
             }
 
@@ -47,7 +47,7 @@ namespace ScannerQR
 
 
                     StartActivity(typeof(MainMenu));
-                    //  form.ShowDialog();
+              
                     Password.Text = "";
                     isValid = true;
                     this.Finish();
@@ -59,25 +59,26 @@ namespace ScannerQR
                 {
 
                     Password.Text = "";
-                    //
-                    //  Password.Focus(); 
+                    
+   
                     isValid = false;
                     string toast = new string("Napačno geslo.");
                     Toast.MakeText(this, toast, ToastLength.Long).Show();
 
+                    progressBar1.Visibility = ViewStates.Invisible;
 
 
                 }
             }
             else
             {
-                //   MessageForm.Show("Prijava ni uspela! Napaka: " + error);
+
                 Password.Text = "";
                 isValid = false;
                 string toast = new string("Napačno geslo.");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                //  Password.Focus();
-                
+                progressBar1.Visibility = ViewStates.Invisible;
+
 
 
             }

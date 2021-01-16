@@ -331,6 +331,14 @@ namespace ScannerQR
                 var created = item.GetDateTime("DateInserted");
                 tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
 
+                tbSSCC.Enabled = false;
+                tbSerialNumber.Enabled = false;
+                tbQty.Enabled = false;
+                tbLocation.Enabled = false;
+                tbCreatedBy.Enabled = false;
+                tbCreatedAt.Enabled = false;
+
+
                 btUpdate.Enabled = true;
                 btDelete.Enabled = true;
             }
@@ -344,6 +352,16 @@ namespace ScannerQR
                 tbLocation.Text = "";
                 tbCreatedBy.Text = "";
                 tbCreatedAt.Text = "";
+
+
+                tbSSCC.Enabled = false;
+                tbSerialNumber.Enabled = false;
+                tbQty.Enabled = false;
+                tbLocation.Enabled = false;
+                tbCreatedBy.Enabled = false;
+                tbCreatedAt.Enabled = false;
+
+
 
                 btNext.Enabled = false;
                 btUpdate.Enabled = false;

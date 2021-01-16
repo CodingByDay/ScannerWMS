@@ -96,27 +96,45 @@ namespace ScannerQR
             {
                 // Setting F2 to method ProccesStock()
                 case Keycode.F1:
-                    BtNext_Click(this, null);
+                    if (btNext.Enabled == true)
+                    {
+                        BtNext_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F2:
-                    BtUpdate_Click(this, null);
+                    if (btUpdate.Enabled == true)
+                    {
+                        BtUpdate_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F3://
-                    Button4_Click(this, null);
+                    if (button4.Enabled == true)
+                    {
+                        Button4_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F4:
-                    BtFinish_Click(this, null);
+                    if (btFinish.Enabled == true)
+                    {
+                        BtFinish_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F5:
-                    BtDelete_Click(this, null);
+                    if (btDelete.Enabled == true)
+                    {
+                        BtDelete_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F6:
-                    Button5_Click(this, null);
+                    if (button5.Enabled == true)
+                    {
+                        Button5_Click(this, null);
+                    }
                     break;
 
 
@@ -315,6 +333,15 @@ namespace ScannerQR
                 var created = item.GetDateTime("DateInserted");
                 tbCreatedBy.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.") + " " + item.GetString("ClerkName");
 
+
+                tbIdent.Enabled = false;
+                tbSSCC.Enabled = false;
+                tbSerialNumber.Enabled = false;
+                tbQty.Enabled = false;
+                tbLocation.Enabled = false;
+                tbCreatedBy.Enabled = false;
+
+
                 btUpdate.Enabled = true;
                 btDelete.Enabled = true;
             }
@@ -328,6 +355,15 @@ namespace ScannerQR
                 tbQty.Text = "";
                 tbLocation.Text = "";
                 tbCreatedBy.Text = "";
+
+
+                tbIdent.Enabled = false;
+                tbSSCC.Enabled = false;
+                tbSerialNumber.Enabled = false;
+                tbQty.Enabled = false;
+                tbLocation.Enabled = false;
+                tbCreatedBy.Enabled = false;
+
 
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;

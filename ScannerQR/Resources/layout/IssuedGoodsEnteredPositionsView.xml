@@ -101,7 +101,7 @@
         <TextView
             android:layout_width="88.0dp"
             android:layout_height="wrap_content"
-            android:text="Izd. lokacija"
+            android:text="Količina"
             android:paddingTop="5px"
             android:paddingLeft="10px"/>
 
@@ -126,7 +126,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Prej. lokacija" />
+            android:text="Lokacija" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -161,7 +161,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIden1t" />
+            android:id="@+id/tbCreatedBy" />
 
     </LinearLayout>
 
