@@ -338,6 +338,13 @@ namespace ScannerQR
                 tbCreatedBy.Enabled = false;
                 tbCreatedAt.Enabled = false;
 
+                tbSSCC.SetTextColor(Android.Graphics.Color.Black);
+                tbSerialNumber.SetTextColor(Android.Graphics.Color.Black);
+                tbQty.SetTextColor(Android.Graphics.Color.Black);
+                tbLocation.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
+
 
                 btUpdate.Enabled = true;
                 btDelete.Enabled = true;
@@ -361,6 +368,12 @@ namespace ScannerQR
                 tbCreatedBy.Enabled = false;
                 tbCreatedAt.Enabled = false;
 
+                tbSSCC.SetTextColor(Android.Graphics.Color.Black);
+                tbSerialNumber.SetTextColor(Android.Graphics.Color.Black);
+                tbQty.SetTextColor(Android.Graphics.Color.Black);
+                tbLocation.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
 
 
                 btNext.Enabled = false;

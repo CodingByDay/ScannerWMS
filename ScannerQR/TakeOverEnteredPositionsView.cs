@@ -349,6 +349,24 @@ namespace ScannerQR
                 var created = item.GetDateTime("DateInserted");
                 tbCreatedBy.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.") + " " + item.GetString("ClerkName");
 
+
+
+                tbIdent.Enabled = false;
+                tbSSCC.Enabled = false;
+                tbSerialNumber.Enabled = false;
+                tbQty.Enabled = false;
+                tbLocation.Enabled = false;
+                tbCreatedBy.Enabled = false;
+
+
+                tbIdent.SetTextColor(Android.Graphics.Color.Black);
+                tbSSCC.SetTextColor(Android.Graphics.Color.Black);
+                tbQty.SetTextColor(Android.Graphics.Color.Black);
+                tbQty.SetTextColor(Android.Graphics.Color.Black);
+                tbLocation.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+
+
                 btUpdate.Enabled = true;
                 btDelete.Enabled = true;
             }
@@ -362,6 +380,22 @@ namespace ScannerQR
                 tbQty.Text = "";
                 tbLocation.Text = "";
                 tbCreatedBy.Text = "";
+
+
+                tbIdent.Enabled = false;
+                tbSSCC.Enabled = false;
+                tbSerialNumber.Enabled = false;
+                tbQty.Enabled = false;
+                tbLocation.Enabled = false;
+                tbCreatedBy.Enabled = false;
+
+
+                tbIdent.SetTextColor(Android.Graphics.Color.Black);
+                tbSSCC.SetTextColor(Android.Graphics.Color.Black);
+                tbQty.SetTextColor(Android.Graphics.Color.Black);
+                tbQty.SetTextColor(Android.Graphics.Color.Black);
+                tbLocation.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
 
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;

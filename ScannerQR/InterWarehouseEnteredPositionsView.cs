@@ -341,9 +341,14 @@ namespace ScannerQR
                 tbLocation.Enabled = false;
                 tbCreatedBy.Enabled = false;
 
-
-                btUpdate.Enabled = true;
-                btDelete.Enabled = true;
+                tbIdent.SetTextColor(Android.Graphics.Color.Black);
+                tbSSCC.SetTextColor(Android.Graphics.Color.Black);
+                tbSerialNumber.SetTextColor(Android.Graphics.Color.Black);
+                tbQty.SetTextColor(Android.Graphics.Color.Black);
+                tbLocation.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+                btUpdate.SetTextColor(Android.Graphics.Color.Black);
+                btDelete.SetTextColor(Android.Graphics.Color.Black);
             }
             else
             {
@@ -364,6 +369,13 @@ namespace ScannerQR
                 tbLocation.Enabled = false;
                 tbCreatedBy.Enabled = false;
 
+                tbIdent.SetTextColor(Android.Graphics.Color.Black);
+                tbSSCC.SetTextColor(Android.Graphics.Color.Black);
+                tbSerialNumber.SetTextColor(Android.Graphics.Color.Black);
+                tbQty.SetTextColor(Android.Graphics.Color.Black);
+                tbLocation.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+         
 
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;

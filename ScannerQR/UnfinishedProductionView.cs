@@ -275,7 +275,15 @@ namespace ScannerQR
                 tbIdent.Enabled = false;
                 tbItemCount.Enabled = false;
                 tbCreatedBy.Enabled = false;
-                tbCreatedAt.Enabled = false; 
+                tbCreatedAt.Enabled = false;
+
+
+                tbWorkOrder.SetTextColor(Android.Graphics.Color.Black);
+                tbClient.SetTextColor(Android.Graphics.Color.Black);
+                tbIdent.SetTextColor(Android.Graphics.Color.Black);
+                tbItemCount.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
 
                 btNext.Enabled = true;
                 btDelete.Enabled = true;
@@ -298,6 +306,14 @@ namespace ScannerQR
                 tbItemCount.Enabled = false;
                 tbCreatedBy.Enabled = false;
                 tbCreatedAt.Enabled = false;
+
+                tbWorkOrder.SetTextColor(Android.Graphics.Color.Black);
+                tbClient.SetTextColor(Android.Graphics.Color.Black);
+                tbIdent.SetTextColor(Android.Graphics.Color.Black);
+                tbItemCount.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
+
 
                 btNext.Enabled = false;
                 btDelete.Enabled = false;

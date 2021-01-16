@@ -286,6 +286,20 @@ namespace ScannerQR
 
                 var created = item.GetDateTime("DateInserted");
                 tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                tbBusEvent.Enabled = false;
+                tbIssueWarehouse.Enabled = false;
+                tbReceiveWarehouse.Enabled = false;
+                tbItemCount.Enabled = false;
+                tbCreatedBy.Enabled = false;
+                tbCreatedAt.Enabled = false;
+
+
+                tbBusEvent.SetTextColor(Android.Graphics.Color.Black);
+                tbIssueWarehouse.SetTextColor(Android.Graphics.Color.Black);
+                tbReceiveWarehouse.SetTextColor(Android.Graphics.Color.Black);
+                tbItemCount.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
 
                 btNext.Enabled = true;
                 btDelete.Enabled = true;
@@ -301,10 +315,26 @@ namespace ScannerQR
                 tbItemCount.Text = "";
                 tbCreatedBy.Text = "";
                 tbCreatedAt.Text = "";
+
+                tbBusEvent.Enabled = false;
+                tbIssueWarehouse.Enabled = false;
+                tbReceiveWarehouse.Enabled = false;
+                tbItemCount.Enabled = false;
+                tbCreatedBy.Enabled = false;
+                tbCreatedAt.Enabled = false;
+
+
+                tbBusEvent.SetTextColor(Android.Graphics.Color.Black);
+                tbIssueWarehouse.SetTextColor(Android.Graphics.Color.Black);
+                tbReceiveWarehouse.SetTextColor(Android.Graphics.Color.Black);
+                tbItemCount.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
+
+
                 btNext.Enabled = false; 
                 btFinish.Enabled = false;
-                ///btNext.Enabled = false;
-                //btFinish.Enabled = false;
+        
                 btDelete.Enabled = false;
 
             }
