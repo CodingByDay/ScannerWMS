@@ -16,7 +16,8 @@
         android:layout_gravity="center"
         android:paddingLeft="10px"
         android:paddingTop="5px"
-        android:text="Vnešene pozicije na prevzemu" />
+        android:text="Vnešene pozicije na prevzemu"
+        android:id="@+id/lbInfo" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -24,7 +25,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="106.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -36,7 +37,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIdent" />
+            android:id="@+id/tbSSCC" />
 
 
     </LinearLayout>
@@ -49,7 +50,7 @@
                                      >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="108.0dp"
             android:layout_height="wrap_content"
             android:text="Serijska št."
             android:paddingTop="5px"
@@ -63,7 +64,7 @@
             android:layout_marginLeft="40px"
             android:layout_weight="0.50"
             android:paddingTop="5px"
-            android:id="@+id/tbSSCC" />
+            android:id="@+id/tbSerialNumber" />
 
     </LinearLayout>
     <LinearLayout
@@ -73,7 +74,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="106.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -85,7 +86,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbSerialNumber" />
+            android:id="@+id/tbQty" />
 
 
     </LinearLayout>
@@ -98,7 +99,7 @@
                                      >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="106.0dp"
             android:layout_height="wrap_content"
             android:text="Lokacija"
             android:paddingTop="5px"
@@ -111,7 +112,7 @@
             android:layout_marginLeft="40px"
             android:layout_weight="0.50"
             android:paddingTop="5px"
-            android:id="@+id/tbQty" />
+            android:id="@+id/tbLocation" />
 
     </LinearLayout>
     <LinearLayout
@@ -121,7 +122,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="104.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -133,7 +134,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbLocation" />
+            android:id="@+id/tbCreatedBy" />
 
 
 
@@ -160,7 +161,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIden1t" />
+            android:id="@+id/tbCreatedAt" />
 
     </LinearLayout>
 
@@ -169,12 +170,12 @@
         android:text="Naslednja pozicija - F1"
         android:layout_width="match_parent"
         android:layout_height="39.0dp"
-        android:id="@+id/button2" />
+        android:id="@+id/btNext" />
     <Button
         android:text="Popravi izbrano pozicijo - F2"
         android:layout_width="match_parent"
         android:layout_height="42.5dp"
-        android:id="@+id/button3" />
+        android:id="@+id/btUpdate" />
     <Button
         android:text="Kreiraj novo pozicijo - F3"
         android:layout_width="match_parent"
@@ -184,19 +185,19 @@
         android:text="Zaključi prevzem - F4"
         android:layout_width="match_parent"
         android:layout_height="41.0dp"
-        android:id="@+id/button5"
+        android:id="@+id/btFinish"
         android:layout_marginBottom="7.0dp" />
     <Button
         android:text="Izbriši izbrano pozicijo - F5"
         android:layout_width="match_parent"
         android:layout_height="42.0dp"
-        android:id="@+id/button6"
+        android:id="@+id/btDelete"
         android:layout_marginBottom="1.0dp" />
     <Button
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button7" />
+        android:id="@+id/button5" />
 
 
 </LinearLayout>

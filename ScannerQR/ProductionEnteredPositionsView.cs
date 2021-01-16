@@ -55,18 +55,18 @@ namespace ScannerQR
 
 
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
-            tbSerialNumber = FindViewById<EditText>(Resource.Id.tbSSCC);
-            tbQty = FindViewById<EditText>(Resource.Id.tbSSCC);
-            tbLocation = FindViewById<EditText>(Resource.Id.tbSSCC);
-            tbCreatedBy = FindViewById<EditText>(Resource.Id.tbSSCC);
-            tbCreatedAt = FindViewById<EditText>(Resource.Id.tbSSCC);
+            tbSerialNumber = FindViewById<EditText>(Resource.Id.tbSerialNumber);
+            tbQty = FindViewById<EditText>(Resource.Id.tbQty);
+            tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
+            tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
+            tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
 
             btNext = FindViewById<Button>(Resource.Id.btNext);
-            btUpdate = FindViewById<Button>(Resource.Id.btNext);
-            button4 = FindViewById<Button>(Resource.Id.btNext);
-            btFinish = FindViewById<Button>(Resource.Id.btNext);
-            btDelete = FindViewById<Button>(Resource.Id.btNext);
-            button5 = FindViewById<Button>(Resource.Id.btNext);
+            btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
+            button4 = FindViewById<Button>(Resource.Id.button4);
+            btFinish = FindViewById<Button>(Resource.Id.btFinish);
+            btDelete = FindViewById<Button>(Resource.Id.btDelete);
+            button5 = FindViewById<Button>(Resource.Id.button5);
             btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             button4.Click += Button4_Click;
