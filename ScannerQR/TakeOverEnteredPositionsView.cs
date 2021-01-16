@@ -308,6 +308,7 @@ namespace ScannerQR
 
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;
+                btNext.Enabled = false;
             }
         }
     }
