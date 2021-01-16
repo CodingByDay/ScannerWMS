@@ -45,7 +45,11 @@ namespace ScannerQR
           
             cbIssueWH = FindViewById<Spinner>(Resource.Id.cbIssueWH);
             cbReceiveWH = FindViewById<Spinner>(Resource.Id.cbRecceiveWH);
-            // action listener for the button
+         
+            // Developers in the future updati
+            // Action listener for the button
+            objectDocType.Add(new ComboBoxItem { ID = "Default", Text = "           Izberite poslovni dogodek." });
+         
             docTypes = CommonData.ListDocTypes("E|");
             docTypes.Items.ForEach(dt =>
             { //
@@ -63,7 +67,7 @@ namespace ScannerQR
             ///
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbDocType.Adapter = adapter;
-            cbDocType.SetSelection(0);
+           
             // Next thing... var warehouses = CommonData.ListWarehouses();
             // cbIssueWH
             var warehouses = CommonData.ListWarehouses();
@@ -85,6 +89,8 @@ namespace ScannerQR
             adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbIssueWH.Adapter = adapterIssue;
             cbReceiveWH.Adapter = adapterReceive;
+            cbDocType.SetSelection(2);
+           
             // next thing are the event listeners
             //for the logout
             Button logout = FindViewById<Button>(Resource.Id.logout);
