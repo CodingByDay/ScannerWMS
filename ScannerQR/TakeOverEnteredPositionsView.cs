@@ -12,6 +12,8 @@ using Android.Widget;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
+using static Android.App.ActionBar;
+using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace ScannerQR
 {
@@ -36,6 +38,9 @@ namespace ScannerQR
         private int displayedPosition = 0;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObjectList positions = null;
+        private Dialog popupDialog;
+        private Button btnYes;
+        private Button btnNo;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -58,13 +63,181 @@ namespace ScannerQR
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
+            btDelete = FindViewById<Button>(Resource.Id.btDelete);
+            button5 = FindViewById<Button>(Resource.Id.button5);
 
+            btNext.Click += BtNext_Click;
+            btUpdate.Click += BtUpdate_Click;
+            button4.Click += Button4_Click;
+            btFinish.Click += BtFinish_Click;
+            btDelete.Click += BtDelete_Click;
+            button5.Click += Button5_Click;
 
             InUseObjects.ClearExcept(new string[] { "MoveHead" });
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
 
             LoadPositions();
         }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
+
+        private void BtDelete_Click(object sender, EventArgs e)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.YesNoPopUp);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloGreenDark);
+
+            // Access Popup layout fields like below
+            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+            btnYes.Click += BtnYes_Click;
+            btnNo.Click += BtnNo_Click;
+        }
+
+        private void BtnNo_Click(object sender, EventArgs e)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Hide();
+        }
+
+        private void BtnYes_Click(object sender, EventArgs e)
+        {
+
+            {
+                var item = positions.Items[displayedPosition];
+                var id = item.GetInt("ItemID");
+
+
+                try
+                {
+ 
+                    string result;
+                    if (WebApp.Get("mode=delMoveItem&item=" + id.ToString() + "&deleter=" + Services.UserID().ToString(), out result))
+                    {
+                        if (result == "OK!")
+                        {
+                            positions = null;
+                            LoadPositions();
+                            popupDialog.Dismiss();
+                            popupDialog.Hide();
+                        }
+                        else
+                        {
+                            Toast.MakeText(this, "Napaka pri brisanju pozicije: " + result, ToastLength.Long).Show();
+                            positions = null;
+                            LoadPositions();
+                            popupDialog.Dismiss();
+                            popupDialog.Hide();
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        Toast.MakeText(this, "Napaka pri dostopu do web aplikacije: " + result, ToastLength.Long).Show();
+                        popupDialog.Dismiss();
+                        popupDialog.Hide();
+                        return;
+                    }
+                }
+                finally
+                {
+                    popupDialog.Dismiss();
+                    popupDialog.Hide();
+                }
+          
+            }
+
+        }
+
+        private void BtFinish_Click(object sender, EventArgs e)
+        {
+        
+            try
+            {
+
+                var headID = moveHead.GetInt("HeadID");
+
+                string result;
+                if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+                {
+                    if (result.StartsWith("OK!"))
+                    {
+                        var id = result.Split('+')[1];
+                        Toast.MakeText(this, "Zaključevanje uspešno! Št. prevzema:\r\n" + id, ToastLength.Long).Show();
+
+                   
+                    }
+                    else
+                    {
+                        Toast.MakeText(this, "Napaka pri zaključevanju: " + result, ToastLength.Long).Show();
+          
+                    }
+                }
+                else
+                {
+                    Toast.MakeText(this, "Napaka pri klicu web aplikacije:  " + result, ToastLength.Long).Show();
+
+                }
+            }
+            finally
+            {
+               //wf
+            }
+
+         
+ 
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            // new
+            StartActivity(typeof(TakeOverIdentEntry));
+        }
+
+        private void BtUpdate_Click(object sender, EventArgs e)
+        {
+            var item = positions.Items[displayedPosition];
+            InUseObjects.Set("MoveItem", item);
+
+            
+            try
+            {
+              
+
+                string error;
+                var openIdent = Services.GetObject("id", item.GetString("Ident"), out error);
+                if (openIdent == null)
+                {
+                    Toast.MakeText(this, "Napaka pri dostopu do web aplikacije: " + error, ToastLength.Long).Show();
+                }
+                else
+                {
+                    item.SetString("Ident", openIdent.GetString("Code"));
+                    InUseObjects.Set("OpenIdent", openIdent);
+                   StartActivity(typeof(TakeOverSerialOrSSCCEntry));
+                
+                }
+            }
+            finally
+            {
+               // used to be a wf form
+            }
+        }
+
+        private void BtNext_Click(object sender, EventArgs e)
+        {
+            displayedPosition++;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            FillDisplayedItem();
+        }
+
         private void LoadPositions()
         {
            
@@ -83,7 +256,7 @@ namespace ScannerQR
                     if (positions == null)
                     {
                         Toast.MakeText(this, "Napaka pri dostopu do web aplikacije: " + error, ToastLength.Long).Show();
-                        Program.Exit(() => { MessageForm.Show("Napaka pri dostopu do web aplikacije: " + error); });
+            
                         return;
                     }
                 }
@@ -93,9 +266,49 @@ namespace ScannerQR
             }
             finally
             {
-                wf.Stop();
+                //used to be a wait form.
             }
         }
+        private void FillDisplayedItem()
+        {
+            if ((positions != null) && (displayedPosition < positions.Items.Count))
+            {
+                var item = positions.Items[displayedPosition];
+                lbInfo.Text = "Vnešene pozicije na naročilu (" + (displayedPosition + 1).ToString() + "/" + positions.Items.Count + ")";
 
+                tbIdent.Text = item.GetString("IdentName");
+                tbSSCC.Text = item.GetString("SSCC");
+                tbSerialNumber.Text = item.GetString("SerialNo");
+                if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
+                {
+                    tbQty.Text = item.GetDouble("Factor").ToString() + " x " + item.GetDouble("Packing").ToString();
+                }
+                else
+                {
+                    tbQty.Text = item.GetDouble("Qty").ToString();
+                }
+                tbLocation.Text = item.GetString("LocationName");
+
+                var created = item.GetDateTime("DateInserted");
+                tbCreatedBy.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.") + " " + item.GetString("ClerkName");
+
+                btUpdate.Enabled = true;
+                btDelete.Enabled = true;
+            }
+            else
+            {
+                lbInfo.Text = "Vnešene pozicije na naročilu (ni)";
+
+                tbIdent.Text = "";
+                tbSSCC.Text = "";
+                tbSerialNumber.Text = "";
+                tbQty.Text = "";
+                tbLocation.Text = "";
+                tbCreatedBy.Text = "";
+
+                btUpdate.Enabled = false;
+                btDelete.Enabled = false;
+            }
+        }
     }
 }
