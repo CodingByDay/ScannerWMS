@@ -96,7 +96,9 @@ namespace ScannerQR
             cbDocType.Adapter = adapterDoc;
 
 
-       
+            cbDocType.ItemSelected += CbDocType_ItemSelected;
+            cbSubject.ItemSelected += CbSubject_ItemSelected;
+            cbWarehouse.ItemSelected += CbWarehouse_ItemSelected;
 
 
         }
@@ -225,9 +227,7 @@ namespace ScannerQR
                   
                 }
             }
-            cbDocType.ItemSelected += CbDocType_ItemSelected;
-            cbSubject.ItemSelected += CbSubject_ItemSelected;
-            cbWarehouse.ItemSelected += CbWarehouse_ItemSelected;
+         
         }
 
         private void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
