@@ -41,7 +41,42 @@ namespace ScannerQR
         int soundPoolId;
 
 
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            switch (keyCode)
+            {
+                // Setting F2 to method ProccesStock()
+                case Keycode.F2:
+                    if (btSaveOrUpdate.Enabled == true)
+                    {
+                        BtSaveOrUpdate_Click(this, null);
+                    }
+                    break;
 
+                case Keycode.F3:
+                    if (button3.Enabled == true)
+                    {
+                        Button3_Click(this, null);
+                    }
+                    break;
+
+                case Keycode.F4://
+                    if (button4.Enabled == true)
+                    {
+                        Button4_Click(this, null);
+                    }
+                    break;
+
+                case Keycode.F8:
+                    if (button5.Enabled == true)
+                    {
+                        Button5_Click(this, null);
+                    }
+                    break;
+
+            }
+            return base.OnKeyDown(keyCode, e);
+        }
         public void GetBarcode(string barcode)
         {
             //if (tbSSCC.Focused) { readSSCC(data); }
@@ -428,7 +463,7 @@ namespace ScannerQR
 
             private void Button5_Click(object sender, EventArgs e)
         {
-            //here?
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
         private void Button4_Click(object sender, EventArgs e)
@@ -483,7 +518,14 @@ namespace ScannerQR
 
         private void BtSaveOrUpdate_Click(object sender, EventArgs e)
         {
-           //here
+            if (editMode)
+            {
+                StartActivity(typeof(ProductionEnteredPositionsView));
+            }
+            else
+            {
+                StartActivity(typeof(ProductionSerialOrSSCCEntry));
+            }
         }
     }
 }

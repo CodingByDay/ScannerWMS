@@ -48,6 +48,7 @@ Button;obj\Debug\90\res\layout\unfinishedproductionview.xml
 Button;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 Button;obj\Debug\90\res\layout\yesnogeneric.xml
 Button;obj\Debug\90\res\layout\yesnopopup.xml
+Button;obj\Debug\90\res\layout\yesnoproductioncard.xml
 cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\37\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\90\res\values\colors.xml
 color;obj\Debug\90\res\values\ic_launcher_background.xml
@@ -98,6 +99,7 @@ ImageView;obj\Debug\90\res\layout\activity_main.xml
 ImageView;obj\Debug\90\res\layout\transportpopup.xml
 ImageView;obj\Debug\90\res\layout\yesnogeneric.xml
 ImageView;obj\Debug\90\res\layout\yesnopopup.xml
+ImageView;obj\Debug\90\res\layout\yesnoproductioncard.xml
 item;obj\Debug\90\res\values\styles.xml
 LinearLayout;obj\Debug\90\res\layout\activity_main.xml
 LinearLayout;obj\Debug\90\res\layout\checkstock.xml
@@ -147,6 +149,7 @@ LinearLayout;obj\Debug\90\res\layout\unfinishedproductionview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 LinearLayout;obj\Debug\90\res\layout\yesnogeneric.xml
 LinearLayout;obj\Debug\90\res\layout\yesnopopup.xml
+LinearLayout;obj\Debug\90\res\layout\yesnoproductioncard.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\productionpalette.xml
 paths;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\37\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
@@ -212,3 +215,4 @@ TextView;obj\Debug\90\res\layout\unfinishedproductionview.xml
 TextView;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 TextView;obj\Debug\90\res\layout\yesnogeneric.xml
 TextView;obj\Debug\90\res\layout\yesnopopup.xml
+TextView;obj\Debug\90\res\layout\yesnoproductioncard.xml

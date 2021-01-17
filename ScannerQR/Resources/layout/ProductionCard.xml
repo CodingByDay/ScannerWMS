@@ -18,11 +18,12 @@
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="89.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="DN" />
+            android:text="DN"
+            android:layout_marginRight="14.0dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -30,7 +31,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIdent123" />
+            android:id="@+id/tbWorkOrder" />
 
 
     </LinearLayout>
@@ -43,7 +44,7 @@
                                      >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="102.0dp"
             android:layout_height="wrap_content"
             android:text="Ident"
             android:paddingTop="5px"
@@ -57,7 +58,7 @@
             android:layout_marginLeft="40px"
             android:layout_weight="0.50"
             android:paddingTop="5px"
-            android:id="@+id/tbSSCC" />
+            android:id="@+id/tbIdent" />
 
     </LinearLayout>
     <TextView
@@ -73,7 +74,7 @@
                                      >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="98.0dp"
             android:layout_height="wrap_content"
             android:text="Št. kartona"
             android:paddingTop="5px"
@@ -87,7 +88,7 @@
             android:layout_marginLeft="40px"
             android:layout_weight="0.50"
             android:paddingTop="5px"
-            android:id="@+id/tbSSCC1" />
+            android:id="@+id/tbCardNum" />
 
     </LinearLayout>
     <LinearLayout
@@ -98,7 +99,7 @@
                                      >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="97.0dp"
             android:layout_height="wrap_content"
             android:text="Serijska št."
             android:paddingTop="5px"
@@ -112,7 +113,7 @@
             android:layout_marginLeft="40px"
             android:layout_weight="0.50"
             android:paddingTop="5px"
-            android:id="@+id/tbS4SCC1" />
+            android:id="@+id/tbSerialNum" />
 
     </LinearLayout>
     <LinearLayout
@@ -123,7 +124,7 @@
                                      >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="94.5dp"
             android:layout_height="wrap_content"
             android:text="Količina"
             android:paddingTop="5px"
@@ -137,7 +138,7 @@
             android:layout_marginLeft="40px"
             android:layout_weight="0.50"
             android:paddingTop="5px"
-            android:id="@+id/tbSS4CC" />
+            android:id="@+id/tbQty" />
 
     </LinearLayout>
     <TextView
@@ -148,12 +149,12 @@
     <Button
         android:text="Potrdi karton - F4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button1" />
+        android:layout_height="52.0dp"
+        android:id="@+id/btConfirm" />
     <Button
         android:text="Izhod - F9"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2" />
+        android:layout_height="52.0dp"
+        android:id="@+id/btExit" />
 
 </LinearLayout>

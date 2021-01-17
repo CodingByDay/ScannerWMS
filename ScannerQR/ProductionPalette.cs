@@ -49,6 +49,7 @@ namespace ScannerQR
                 Sound();
                 tbSerialNum.Text = barcode;
                 ProcessSerialNum();
+                lvCardList.RequestFocus();
 
             } else if(lvCardList.HasFocus)
             {
@@ -57,6 +58,15 @@ namespace ScannerQR
             }
         }
 
+
+
+        private void color()
+        {
+            tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            lvCardList.SetBackgroundColor(Android.Graphics.Color.Aqua);
+
+
+        }
         private void ProcessSerialNum()
         {
   
@@ -274,7 +284,7 @@ namespace ScannerQR
 
             lvCardList.Adapter = adapter;
             lvCardList.ItemLongClick += LvCardList_ItemLongClick;
-
+            tbSerialNum.RequestFocus();
         }
 
         private void LvCardList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
