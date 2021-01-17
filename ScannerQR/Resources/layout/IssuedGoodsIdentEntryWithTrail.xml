@@ -177,7 +177,9 @@
             android:divider="@android:color/black"
             android:dividerHeight="1px"
             android:defaultFocusHighlightEnabled="true"
-            android:scrollbars="horizontal|vertical" 
+            android:scrollbars="horizontal|vertical"
+            android:layout_marginRight="0.0dp"
+            android:listSelector="@android:color/holo_blue_bright" 
         />
 </HorizontalScrollView>
 

@@ -39,16 +39,17 @@ namespace ScannerQR
         private ListView ivTrail;
         private List<Trail> ChosenOnes = new List<Trail>();
         private Button btConfirm;
-        private Button button5;
-        private Button logout;
+        private Button btDisplayPositions;
+        private Button btLogout;
         SoundPool soundPool;
         int soundPoolId;
         private List <Trail> trails;
         private int temporaryPositionSubject;
+        public int selected;
 
         public void GetBarcode(string barcode)
         {
-            //implement the way to scan here
+            // Implement the way to scan here. Chinese sdk part.
          
 
             if(tbIdentFilter.HasFocus)
@@ -60,6 +61,7 @@ namespace ScannerQR
             {
                 Sound();
                 tbLocationFilter.Text = barcode;
+                ProcessIdent();
             }
         }
 
@@ -146,8 +148,8 @@ namespace ScannerQR
         
            
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
-            button5 = FindViewById<Button>(Resource.Id.button5);
-            logout = FindViewById<Button>(Resource.Id.logout);
+            btDisplayPositions = FindViewById<Button>(Resource.Id.button5);
+            btLogout = FindViewById<Button>(Resource.Id.logout);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
@@ -155,18 +157,16 @@ namespace ScannerQR
 
             trails = new List <Trail>();
         
-            trails.Add(new Trail { Ident = "1", Location = "Ve", Qty = "12", Name = "Ko" });
-            trails.Add(new Trail { Ident = "1", Location = "Ve", Qty = "12", Name = "Ko" });
-            trails.Add(new Trail { Ident = "1", Location = "Ve", Qty = "12", Name = "Ko" });
-            trails.Add(new Trail { Ident = "11111111111111111", Location = "Veeeeeeeeeeeeeeeeeee", Qty = "122222222222222", Name = "Kooooooooooooooo" });
-            trails.Add(new Trail { Ident = "11111111111111111", Location = "Veeeeeeeeeeeeeeeeeee", Qty = "122222222222222", Name = "Kooooooooooooooo" });
+       
 
             adapter adapter = new adapter(this, trails);
-            // that is solved ie the reading.
+          
             ivTrail.Adapter = adapter;
 
             ivTrail.ItemClick += IvTrail_ItemClick;
-            
+            btConfirm.Click += BtConfirm_Click;
+            btDisplayPositions.Click += BtDisplayPositions_Click;
+            btLogout.Click += BtLogout_Click;
             // if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
             //if (openOrder == null) { throw new ApplicationException("openOrder not known at this point!?"); }
             
@@ -176,41 +176,59 @@ namespace ScannerQR
                 tbLocationFilter.Text = trailFilters.GetString("Location");
             }
 
+            FillDisplayedOrderInfo();
+
             
+        }
 
-            //new Scanner(tbIdent);
+        private void BtLogout_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
 
+        private void BtDisplayPositions_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+        }
 
+        private void BtConfirm_Click(object sender, EventArgs e)
+        {
+            if (SaveMoveHead())
+            {
+                if (trails.Count == 1)
+                {
+                    var lastItem = new NameValueObject("LastItem");
+                    lastItem.SetBool("IsLastItem", true);
+                    InUseObjects.Set("LastItem", lastItem);
+                }
 
-            // trail controls
+                StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
 
-           
-            // Starting point
+            }
         }
 
         private void IvTrail_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            
+           
 
-                var selected = e.Position;
+            selected = e.Position;
             string toast = string.Format("Izbrali ste: {0}", trails.ElementAt(selected).Location.ToString());
             Toast.MakeText(this, toast, ToastLength.Long).Show();
-            View view = ivTrail.GetChildAt(selected);
-            view.SetBackgroundColor(Android.Graphics.Color.Aqua);
+          
 
 
         }
 
         private bool SaveMoveHead()
         {
-            if (ChosenOnes.Count != 1)
+            if (selected == 1)
             {
-                string WebError = string.Format("Izbran ni noben(ali več kot en) ident/lokacija!");
+                string WebError = string.Format("Kritična napaka.");
                 Toast.MakeText(this, WebError, ToastLength.Long).Show();
                 return false;
             }
 
-            var obj = ChosenOnes.ElementAt(0);
+            var obj = trails.ElementAt(selected);
             var ident = obj.Ident;
             var location = obj.Location;
             var qty = Convert.ToDouble(obj.Qty);
