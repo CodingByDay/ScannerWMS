@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -159,15 +160,27 @@
 
 
     </LinearLayout>
-    <ListView
-        android:background="?android:attr/activatedBackgroundIndicator"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="155.0dp"
-        android:id="@+id/ivTrail"
-        android:choiceMode="singleChoice"
-        android:drawSelectorOnTop="true" />
+     <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ListView
+            android:background="?android:attr/activatedBackgroundIndicator"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="wrap_content"
+            android:layout_height="155.0dp"
+            android:id="@+id/ivTrail"
+            android:choiceMode="singleChoice"
+            android:isScrollContainer="true"
+            android:scrollbarSize="100px"
+            android:drawSelectorOnTop="true"
+            android:divider="@android:color/black"
+            android:dividerHeight="1px"
+            android:defaultFocusHighlightEnabled="true"
+            android:scrollbars="horizontal|vertical" 
+        />
+</HorizontalScrollView>
+
     <Button
         android:text="Potrdi - F3"
         android:layout_width="match_parent"

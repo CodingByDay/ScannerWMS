@@ -94,31 +94,46 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F1:
-                    BtNext_Click(this, null);
+                    if (btNext.Enabled == true)
+                    {
+                        BtNext_Click(this, null);
+                    }
                     break;
                 //return true;
 
 
                 case Keycode.F2:
-                    BtFinish_Click(this, null);
+                    if (btFinish.Enabled == true)
+                    {
+                        BtFinish_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F3:
-                    BtDelete_Click(this, null);
+                    if (btDelete.Enabled == true)
+                    {
+                        BtDelete_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F4:
-                    BtnNew_Click(this, null);
+                    if (btnNew.Enabled == true)
+                    {
+                        BtnNew_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F5:
-                    BtnLogout_Click(this, null);
+                    if (btnLogout.Enabled == true)
+                    {
+                        BtnLogout_Click(this, null);
+                    }
                     break;
 
 
-               
+
             }
             return base.OnKeyDown(keyCode, e);
         }

@@ -284,6 +284,54 @@ namespace ScannerQR
                 btFinish.Enabled = false;
             }
         }
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            switch (keyCode)
+            {
+                // in smartphone
+                case Keycode.F1:
+                    if (btNext.Enabled == true)
+                    {
+                        BtNext_Click(this, null);
+                    }
+                    break;
+                //return true;
 
+
+                case Keycode.F2:
+                    if (btFinish.Enabled == true)
+                    {
+                        BtFinish_Click(this, null);
+                    }
+                    break;
+
+
+                case Keycode.F3:
+                    if (btDelete.Enabled == true)
+                    {
+                        BtDelete_Click(this, null);
+                    }
+                    break;
+
+                case Keycode.F4:
+                    if (btNew.Enabled == true)
+                    {
+                        BtNew_Click(this, null);
+                    }
+                    break;
+
+
+                case Keycode.F5:
+                    if (btLogout.Enabled == true)
+                    {
+                        BtLogout_Click(this, null);
+                    }
+                    break;
+
+
+
+            }
+            return base.OnKeyDown(keyCode, e);
+        }
     }
 }

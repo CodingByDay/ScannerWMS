@@ -117,11 +117,15 @@ namespace ScannerQR
             {
                
                 case Keycode.F3:
-                    Confirm_Click(this, null);
+                    if (confirm.Enabled == true)
+                    {
+                        Confirm_Click(this, null);
+                    }
                     break;
                 // return true;
 
                 case Keycode.F9:
+                    
                     Logout_Click(this, null);
                     break;
             }
@@ -215,22 +219,22 @@ namespace ScannerQR
 private void CbReceiveWH_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            if (e.Position != 0)
-            {
+         
+            
               
                 temporaryPositionReceive = e.Position;
 
-            }
+            
         }
 
         private void CbIssueWH_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            if (e.Position != 0)
-            {
+          
+            
              
                 temporaryPositionIssue = e.Position;
-            }
+            
         }
 
         private void CbDocType_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)

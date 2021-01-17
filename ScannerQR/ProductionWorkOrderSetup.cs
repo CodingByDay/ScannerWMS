@@ -70,7 +70,7 @@ namespace ScannerQR
             button2 = FindViewById<Button>(Resource.Id.button2);
             check = FindViewById<Button>(Resource.Id.check);
             color();
-            tbWorkOrder.FocusChange += TbWorkOrder_FocusChange;
+            tbOpenQty.FocusChange += TbOpenQty_FocusChange;
             btCard.Click += BtCard_Click;
             btConfirm.Click += BtConfirm_Click;
             btPalette.Click += BtPalette_Click;
@@ -88,10 +88,12 @@ namespace ScannerQR
             
         }
 
-        private void TbWorkOrder_FocusChange(object sender, View.FocusChangeEventArgs e)
+        private void TbOpenQty_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessWorkOrder();
         }
+
+    
 
         private void Button2_Click(object sender, EventArgs e)
         {

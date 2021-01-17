@@ -29,6 +29,7 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Android.Support.Interpolator.dll",
 		"Xamarin.Android.Support.Loader.dll",
 		"Xamarin.Android.Support.LocalBroadcastManager.dll",
+		"Xamarin.Android.Support.Percent.dll",
 		"Xamarin.Android.Support.Print.dll",
 		"Xamarin.Android.Support.SlidingPaneLayout.dll",
 		"Xamarin.Android.Support.SwipeRefreshLayout.dll",

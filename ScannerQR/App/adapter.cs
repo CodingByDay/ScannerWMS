@@ -36,7 +36,7 @@ namespace ScannerQR.App
 
         public override Java.Lang.Object GetItem(int position)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public override long GetItemId(int position)
@@ -66,14 +66,16 @@ namespace ScannerQR.App
 
                 TextView Name = row.FindViewById<TextView>(Resource.Id.Name);
                 Name.Text = sList[position].Name;
-
+               
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
             finally { }
+            
             return row;
+
         }
         
         public void NotifyDataSetChanged()

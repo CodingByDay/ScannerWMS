@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+mD2GadTanJcBpUcLToVhZJpNRCN5zTqlVabfx6+fe8usNqS+jgLUDAZXHEPr2KT1MMkS9SVMfhHJGMdKz2pIg==",
+  "dgSpecHash": "J+tNM4lISSWXvnAAHj5N/KZbwJCwXHxW1NaBF9AWJ07tZMZmbA/V2RJ6710qR4ZT24jJ1Pq5kgNSCAPtvmi7VA==",
   "success": true,
   "projectFilePath": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\ScannerQR.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.interpolator\\28.0.0.3\\xamarin.android.support.interpolator.28.0.0.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.loader\\28.0.0.3\\xamarin.android.support.loader.28.0.0.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.localbroadcastmanager\\28.0.0.3\\xamarin.android.support.localbroadcastmanager.28.0.0.3.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.percent\\28.0.0.3\\xamarin.android.support.percent.28.0.0.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.print\\28.0.0.3\\xamarin.android.support.print.28.0.0.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.slidingpanelayout\\28.0.0.3\\xamarin.android.support.slidingpanelayout.28.0.0.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.swiperefreshlayout\\28.0.0.3\\xamarin.android.support.swiperefreshlayout.28.0.0.3.nupkg.sha512",

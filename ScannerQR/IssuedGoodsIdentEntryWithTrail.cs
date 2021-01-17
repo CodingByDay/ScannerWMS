@@ -44,6 +44,7 @@ namespace ScannerQR
         SoundPool soundPool;
         int soundPoolId;
         private List <Trail> trails;
+        private int temporaryPositionSubject;
 
         public void GetBarcode(string barcode)
         {
@@ -153,12 +154,19 @@ namespace ScannerQR
             barcode2D.open(this, this);
 
             trails = new List <Trail>();
-            trails.Add(new Trail { Ident = "123456", Location = "Velenje", Qty = "123kg", Name = "Kovine" });
+        
+            trails.Add(new Trail { Ident = "1", Location = "Ve", Qty = "12", Name = "Ko" });
+            trails.Add(new Trail { Ident = "1", Location = "Ve", Qty = "12", Name = "Ko" });
+            trails.Add(new Trail { Ident = "1", Location = "Ve", Qty = "12", Name = "Ko" });
+            trails.Add(new Trail { Ident = "11111111111111111", Location = "Veeeeeeeeeeeeeeeeeee", Qty = "122222222222222", Name = "Kooooooooooooooo" });
+            trails.Add(new Trail { Ident = "11111111111111111", Location = "Veeeeeeeeeeeeeeeeeee", Qty = "122222222222222", Name = "Kooooooooooooooo" });
 
             adapter adapter = new adapter(this, trails);
             // that is solved ie the reading.
             ivTrail.Adapter = adapter;
+
             ivTrail.ItemClick += IvTrail_ItemClick;
+            
             // if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
             //if (openOrder == null) { throw new ApplicationException("openOrder not known at this point!?"); }
             
@@ -168,7 +176,7 @@ namespace ScannerQR
                 tbLocationFilter.Text = trailFilters.GetString("Location");
             }
 
-
+            
 
             //new Scanner(tbIdent);
 
@@ -176,10 +184,22 @@ namespace ScannerQR
 
             // trail controls
 
-            ivTrail.RequestFocus();
+           
             // Starting point
         }
 
+        private void IvTrail_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            
+
+                var selected = e.Position;
+            string toast = string.Format("Izbrali ste: {0}", trails.ElementAt(selected).Location.ToString());
+            Toast.MakeText(this, toast, ToastLength.Long).Show();
+            View view = ivTrail.GetChildAt(selected);
+            view.SetBackgroundColor(Android.Graphics.Color.Aqua);
+
+
+        }
 
         private bool SaveMoveHead()
         {
@@ -263,17 +283,7 @@ namespace ScannerQR
                 return true;
             }
         }
-        private void IvTrail_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            
-            ChosenOnes.Add(trails.ElementAt(e.Position));
-            
-
-
-          
-         
-
-        }
+    
 
         private void Sound()
         {

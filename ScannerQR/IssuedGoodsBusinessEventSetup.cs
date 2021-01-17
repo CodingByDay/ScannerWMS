@@ -122,34 +122,33 @@ namespace ScannerQR
         private void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            if (e.Position != 0)
-            {
+           
+            
                 string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 temporaryPositionWarehouse = e.Position; 
-            }
+            
         }
 
         private void CbExtra_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            if (e.Position != 0)
-            {
+     
+            
                 string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 temporaryPositionExtra = e.Position;
-            }
+            
         }
 
         private void CbDocType_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            if (e.Position != 0)
-            {
+      
                 string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 temporaryPositionDoc = e.Position;
-            }
+         
         }
 
         private void UpdateForm()

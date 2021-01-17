@@ -59,8 +59,8 @@ namespace ScannerQR
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button5 = FindViewById<Button>(Resource.Id.button5);
-         
 
+            color();
   
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
@@ -309,8 +309,11 @@ namespace ScannerQR
         }
 
 
-
-
+        // color
+        private void color()
+        {
+            tbIdent.SetBackgroundColor(Android.Graphics.Color.Aqua);
+        }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -318,22 +321,36 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F2:
-                    BtNext_Click(this, null);
+                    if (btNext.Enabled == true)
+                    {
+                        BtNext_Click(this, null);
+                    }
                     break;
                 //return true;
 
 
                 case Keycode.F3:
-                    BtConfirm_Click(this, null);
+                    if (btConfirm.Enabled == true)
+                    {
+                        BtConfirm_Click(this, null);
+
+                    }
                     break;
 
 
                 case Keycode.F4:
-                    Button4_Click(this, null);
+                    if (button4.Enabled == true)
+                    {
+                        Button4_Click(this, null);
+
+                    }
                     break;
 
                 case Keycode.F9:
-                    Button5_Click(this, null);
+                    if (button5.Enabled == true)
+                    {
+                        Button5_Click(this, null);
+                    }
                     break;
 
            
