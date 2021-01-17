@@ -18,12 +18,14 @@
         android:paddingTop="5px"
         android:text="Prevzem iz proizvodnje" />
     <LinearLayout
+           android:singleLine="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="5px">
 
         <TextView
+                android:singleLine="true"
             android:layout_width="43.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -32,7 +34,7 @@
             android:layout_marginRight="72.0dp" />
 
         <EditText
-            android:singleLine="true"
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -44,6 +46,7 @@
     </LinearLayout>
 
     <LinearLayout
+            android:singleLine="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -51,6 +54,7 @@
                                      >
 
         <TextView
+                android:singleLine="true"
             android:layout_width="90.0dp"
             android:layout_height="wrap_content"
             android:text="Odprta kol."

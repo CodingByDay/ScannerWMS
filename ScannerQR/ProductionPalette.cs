@@ -35,12 +35,13 @@ namespace ScannerQR
          private Button button2;
         private NameValueObject cardInfo = (NameValueObject)InUseObjects.Get("CardInfo");
         private double totalQty = 0.0;
-        private List<ListViewItem> listItems;
+        private List<ListViewItem> listItems = new List<ListViewItem>();
         private Dialog popupDialog;
         private Button btnYes;
         private Button btnNo;
         private TextView lbTotalQty;
         private bool result;
+        private bool target;
 
         public void GetBarcode(string barcode)
         {
@@ -179,7 +180,39 @@ namespace ScannerQR
                 }
             }
         }
-            private bool popupResponse()
+
+
+        private bool deleteResponse()
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.YesNoGeneric);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
+            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+
+            btnNo.Click += BtnNo_Click1;
+            btnYes.Click += BtnYes_Click1;
+
+
+
+            return target;
+        }
+
+        private void BtnYes_Click1(object sender, EventArgs e)
+        {
+            target = true;
+        }
+
+        private void BtnNo_Click1(object sender, EventArgs e)
+        {
+            target = false;
+        }
+
+        private bool popupResponse()
            {
             popupDialog = new Dialog(this);
             popupDialog.SetContentView(Resource.Layout.TransportPopup);
@@ -200,6 +233,7 @@ namespace ScannerQR
         private void BtnYes_Click(object sender, EventArgs e)
         {
             result = true;
+            
         }
 
         private void BtnNo_Click(object sender, EventArgs e)
@@ -239,8 +273,16 @@ namespace ScannerQR
             adapterListViewItem adapter = new adapterListViewItem(this, listItems);
 
             lvCardList.Adapter = adapter;
+            lvCardList.ItemLongClick += LvCardList_ItemLongClick;
 
+        }
 
+        private void LvCardList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            if(deleteResponse())
+            {
+                listItems.RemoveAt(e.Position);
+            }
         }
 
         private void Button2_Click(object sender, EventArgs e)

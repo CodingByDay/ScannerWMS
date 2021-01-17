@@ -11,8 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Java.Lang;
 using Exception = Java.Lang.Exception;
-using TrendNET.WMS.Core.Data;
-using ScannerQR.App;
+
 namespace ScannerQR.App
 {
     public class adapterListViewItem : BaseAdapter
@@ -22,10 +21,9 @@ namespace ScannerQR.App
 
 
 
-
-        public adapterListViewItem(Context context, List<ListViewItem> target)
+        public adapterListViewItem(Context context, List<ListViewItem> list)
         {
-            sList = target;
+            sList = list;
             sContext = context;
         }
 
@@ -55,7 +53,7 @@ namespace ScannerQR.App
             {
                 if (row == null)
                 {
-                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.ListViewItem, null, false);
+                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.ListViewTrail, null, false);
                 }
                 TextView tbSerialNumber = row.FindViewById<TextView>(Resource.Id.tbSerialNumber);
                 tbSerialNumber.Text = sList[position].stKartona;
@@ -63,8 +61,6 @@ namespace ScannerQR.App
 
                 TextView tbQuantity = row.FindViewById<TextView>(Resource.Id.tbQuantity);
                 tbQuantity.Text = sList[position].quantity;
-
-             
 
             }
             catch (Exception ex)
