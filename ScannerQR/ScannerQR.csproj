@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\adapter.cs" />
+    <Compile Include="App\adapterListViewItem.cs" />
     <Compile Include="App\Barcode2D.cs" />
     <Compile Include="App\ComboBoxItem.cs" />
     <Compile Include="App\DateTimeFragment.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="App\IBarcodeResult.cs" />
     <Compile Include="App\InUseObjects.cs" />
     <Compile Include="App\Keyboard.cs" />
+    <Compile Include="App\ListViewItem.cs" />
     <Compile Include="App\Log.cs" />
     <Compile Include="App\NameValue.cs" />
     <Compile Include="App\NameValueList.cs" />
@@ -429,6 +431,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ListViewTrail.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ListViewItem.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <Content Include="WMS.config.txt" />
