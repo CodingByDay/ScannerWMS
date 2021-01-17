@@ -41,10 +41,12 @@ Button;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 Button;obj\Debug\90\res\layout\takeoverenteredpositionsview.xml
 Button;obj\Debug\90\res\layout\takeoveridententry.xml
 Button;obj\Debug\90\res\layout\takeoverserialorssccentry.xml
+Button;obj\Debug\90\res\layout\transportpopup.xml
 Button;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
 Button;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 Button;obj\Debug\90\res\layout\unfinishedproductionview.xml
 Button;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
+Button;obj\Debug\90\res\layout\yesnogeneric.xml
 Button;obj\Debug\90\res\layout\yesnopopup.xml
 cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\37\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\90\res\values\colors.xml
@@ -93,6 +95,8 @@ foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 HorizontalScrollView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 HorizontalScrollView;obj\Debug\90\res\layout\productionpalette.xml
 ImageView;obj\Debug\90\res\layout\activity_main.xml
+ImageView;obj\Debug\90\res\layout\transportpopup.xml
+ImageView;obj\Debug\90\res\layout\yesnogeneric.xml
 ImageView;obj\Debug\90\res\layout\yesnopopup.xml
 item;obj\Debug\90\res\values\styles.xml
 LinearLayout;obj\Debug\90\res\layout\activity_main.xml
@@ -136,10 +140,12 @@ LinearLayout;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverenteredpositionsview.xml
 LinearLayout;obj\Debug\90\res\layout\takeoveridententry.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverserialorssccentry.xml
+LinearLayout;obj\Debug\90\res\layout\transportpopup.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedproductionview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
+LinearLayout;obj\Debug\90\res\layout\yesnogeneric.xml
 LinearLayout;obj\Debug\90\res\layout\yesnopopup.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\productionpalette.xml
@@ -199,8 +205,10 @@ TextView;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 TextView;obj\Debug\90\res\layout\takeoverenteredpositionsview.xml
 TextView;obj\Debug\90\res\layout\takeoveridententry.xml
 TextView;obj\Debug\90\res\layout\takeoverserialorssccentry.xml
+TextView;obj\Debug\90\res\layout\transportpopup.xml
 TextView;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
 TextView;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 TextView;obj\Debug\90\res\layout\unfinishedproductionview.xml
 TextView;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
+TextView;obj\Debug\90\res\layout\yesnogeneric.xml
 TextView;obj\Debug\90\res\layout\yesnopopup.xml

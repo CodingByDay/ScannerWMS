@@ -4,6 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -27,6 +30,9 @@
 
 
     </LinearLayout>
+
+
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -50,6 +56,9 @@
 
 
     </LinearLayout>
+
+
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -74,6 +83,9 @@
 
 
     </LinearLayout>
+
+
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -98,6 +110,9 @@
 
 
     </LinearLayout>
+
+
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -108,6 +123,8 @@
 
 
     </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -133,11 +150,10 @@
             android:text="Količina"
             android:layout_marginRight="28.0dp"
             android:id="@+id/Location" />
-
-
-
-
     </LinearLayout>
+
+
+
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -161,6 +177,16 @@
             android:layout_marginBottom="25.5dp" 
         />
     </HorizontalScrollView>
+
+
+
+    <TextView
+        android:layout_width="375.5dp"
+        android:layout_height="35.0dp"
+        android:paddingLeft="10px"
+        android:paddingTop="5px"
+        android:text=""
+        android:id="@+id/lbTotalQty"/>
     <Button
         android:text="Potrdi paleto-f4"
         android:layout_width="match_parent"
