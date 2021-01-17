@@ -264,17 +264,7 @@ namespace ScannerQR
             }
         }
 
-        private void BtScan_Click(object sender, EventArgs e)
-        {
-            /// A method for startActivityforResult();
-            /// 
-            /// 
-            /// 
-            ///
-            Intent intent = new Intent(this, typeof(receiver));
-            StartActivityForResult(intent, 2);
-
-        }
+ 
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {

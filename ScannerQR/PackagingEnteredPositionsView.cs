@@ -82,7 +82,7 @@ namespace ScannerQR
 
 
         }
-
+      
         private void BtClose_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.GetCurrentProcess().Kill();

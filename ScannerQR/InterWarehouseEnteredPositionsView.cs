@@ -145,6 +145,7 @@ namespace ScannerQR
             }
             return base.OnKeyDown(keyCode, e);
         }
+  
         private void BtDelete_Click(object sender, EventArgs e)
         {
             popupDialog = new Dialog(this);
