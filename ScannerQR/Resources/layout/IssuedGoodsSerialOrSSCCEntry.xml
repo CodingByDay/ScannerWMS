@@ -26,6 +26,7 @@
             android:layout_marginRight="71.5dp" />
 
         <EditText
+                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -53,6 +54,7 @@
             android:layout_marginRight="33.0dp" />
 
         <EditText
+                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -77,6 +79,7 @@
             android:layout_marginRight="31.5dp" />
 
         <EditText
+                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -103,6 +106,7 @@
             android:layout_marginRight="26.0dp" />
 
         <EditText
+                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -128,6 +132,7 @@
             android:id="@+id/lbQty" />
 
         <EditText
+                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -157,7 +162,9 @@
             android:layout_marginRight="49.5dp"
             android:id="@+id/lbUnits" />
 
+
         <EditText
+                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -186,6 +193,7 @@
             android:id="@+id/lbPalette" />
 
         <EditText
+                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"

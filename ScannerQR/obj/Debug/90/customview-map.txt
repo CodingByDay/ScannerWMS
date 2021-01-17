@@ -92,6 +92,7 @@ foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 HorizontalScrollView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 HorizontalScrollView;obj\Debug\90\res\layout\listviewtrail.xml
+HorizontalScrollView;obj\Debug\90\res\layout\productionpalette.xml
 ImageView;obj\Debug\90\res\layout\activity_main.xml
 ImageView;obj\Debug\90\res\layout\yesnopopup.xml
 item;obj\Debug\90\res\values\styles.xml

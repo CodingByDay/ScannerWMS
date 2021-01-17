@@ -108,18 +108,27 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F2:
-                    BtnOrder_Click(this, null);
+                    if (btnOrder.Enabled == true)
+                    {
+                        BtnOrder_Click(this, null);
+                    }
                     break;
                 //return true;
 
 
                 case Keycode.F3:
-                    BtnOrderMode_Click(this, null);
+                    if (btnOrderMode.Enabled == true)
+                    {
+                        BtnOrderMode_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F9:
-                    Logout_Click(this, null);
+                    if (logout.Enabled == true)
+                    {
+                        Logout_Click(this, null);
+                    }
                     break;
 
 

@@ -20,7 +20,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="78.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -44,7 +44,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="80.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -52,6 +52,7 @@
             android:layout_marginRight="25.5dp" />
 
         <EditText
+                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -68,7 +69,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="57.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -76,6 +77,8 @@
             android:layout_marginRight="47.5dp" />
 
         <EditText
+            
+                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -96,10 +99,11 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Ident"
+            android:text="Lokacija"
             android:layout_marginRight="47.5dp" />
 
         <EditText
+                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -192,11 +196,11 @@
         android:text="Pregled unesenih pozicij - F4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button4" />
+        android:id="@+id/btDisplayPositions" />
     <Button
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button5" />
+        android:id="@+id/btLogout" />
     
 </LinearLayout>

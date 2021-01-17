@@ -47,6 +47,47 @@ namespace ScannerQR
         private int temporaryPositionSubject;
         public int selected;
 
+
+
+
+
+
+
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            switch (keyCode)
+            {
+                // in smartphone
+                case Keycode.F3:
+                    if (btConfirm.Enabled == true)
+                    {
+                        BtConfirm_Click(this, null);
+                    }
+                    break;
+                //return true;
+
+
+                case Keycode.F4:
+                    if (btDisplayPositions.Enabled == true)
+                    {
+                        BtDisplayPositions_Click(this, null);
+                    }
+                    break;
+
+
+                case Keycode.F9:
+                    if (btLogout.Enabled == true)
+                    {
+                        BtLogout_Click(this, null);
+                    }
+                    break;
+
+
+
+
+            }
+            return base.OnKeyDown(keyCode, e);
+        }
         public void GetBarcode(string barcode)
         {
             // Implement the way to scan here. Chinese sdk part.
@@ -64,6 +105,10 @@ namespace ScannerQR
                 ProcessIdent();
             }
         }
+
+
+
+
 
         private void ProcessIdent()
         {
@@ -148,17 +193,18 @@ namespace ScannerQR
         
            
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
-            btDisplayPositions = FindViewById<Button>(Resource.Id.button5);
-            btLogout = FindViewById<Button>(Resource.Id.logout);
+            btDisplayPositions = FindViewById<Button>(Resource.Id.btDisplayPositions);
+            btLogout = FindViewById<Button>(Resource.Id.btLogout);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
-
+            color();
+            tbLocationFilter.FocusChange += TbLocationFilter_FocusChange;
             trails = new List <Trail>();
         
        
-
+            // Developers use this custom adapter for the listview that I made. It's an industry standard.
             adapter adapter = new adapter(this, trails);
           
             ivTrail.Adapter = adapter;
@@ -167,9 +213,14 @@ namespace ScannerQR
             btConfirm.Click += BtConfirm_Click;
             btDisplayPositions.Click += BtDisplayPositions_Click;
             btLogout.Click += BtLogout_Click;
-            // if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
-            //if (openOrder == null) { throw new ApplicationException("openOrder not known at this point!?"); }
+
+
+
+            if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
+            if (openOrder == null) { throw new ApplicationException("openOrder not known at this point!?"); }
             
+
+
             if (trailFilters != null)
             {
                 tbIdentFilter.Text = trailFilters.GetString("Ident");
@@ -181,6 +232,17 @@ namespace ScannerQR
             
         }
 
+        private void TbLocationFilter_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessIdent();
+        }
+
+        private void color()
+        {
+            tbIdentFilter.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbLocationFilter.SetBackgroundColor(Android.Graphics.Color.Aqua);
+
+        }
         private void BtLogout_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.GetCurrentProcess().Kill();

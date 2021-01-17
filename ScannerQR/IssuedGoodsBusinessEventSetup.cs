@@ -161,7 +161,7 @@ namespace ScannerQR
                 {
                     lbExtra.Visibility = ViewStates.Visible;
                     cbExtra.Visibility = ViewStates.Visible;
-               //   cbExtra.Text = byClient;
+                 //   cbExtra.Text = byClient;
                     lbExtra.Text = "Naročilo:";
                 }
                 else
@@ -257,6 +257,7 @@ namespace ScannerQR
                     }
                     else
                     {
+                    
                         StartActivity(typeof(IssuedGoodsIdentEntry));
                         
                     }
