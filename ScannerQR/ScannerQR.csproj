@@ -442,6 +442,9 @@
     <AndroidResource Include="Resources\layout\YesNoGeneric.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\YesNoProductionCard.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="WMS.config.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

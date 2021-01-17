@@ -14,7 +14,22 @@ namespace ScannerQR
 {
     [Activity(Label = "PackagingUnitList")]
     public class PackagingUnitList : Activity
+ 
     {
+        private TextView lbInfo;
+
+
+        private EditText tbIdent;
+        private EditText;
+        private EditText tbSerialNo;
+        private EditText tbQty;
+        private EditText tbLocation;
+        private EditText tbCreatedBy;
+
+        private Button btNext;
+        private Button btUpdate;
+        private Button btDelete;
+        private Button btCreate;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
