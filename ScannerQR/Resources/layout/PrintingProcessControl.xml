@@ -17,23 +17,34 @@
         android:paddingLeft="10px"
         android:paddingTop="5px"
         android:text="Tiskanje - procesna kontrola" />
-     <LinearLayout
+        <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="5px">
 
         <TextView
-            android:layout_width="93.0dp"
+            android:layout_width="138.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
             android:text="Datum" />
 
-        <DatePicker
-            android:layout_width="match_parent"
-            android:layout_height="32.0dp"
-            android:id="@+id/datePicker1" />
+        <EditText
+            android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40px"
+            android:layout_weight="0.50"
+            android:paddingTop="5px"
+            android:id="@+id/dtDate" />
+
+        <Button
+            android:text="Izberi"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/dateChoice" />
 
 
     </LinearLayout>
@@ -51,7 +62,8 @@
             android:text="Uporabnik"
             android:paddingTop="5px"
             android:paddingLeft="10px"
-            android:id="@+id/textView1" />
+            android:id="@+id/textView1"
+            android:layout_marginRight="58.5dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -60,7 +72,7 @@
             android:layout_marginLeft="40px"
             android:layout_weight="0.50"
             android:paddingTop="5px"
-            android:id="@+id/tbSSCC" />
+            android:id="@+id/tbUser" />
 
     </LinearLayout>
     <LinearLayout
@@ -92,7 +104,8 @@
             android:layout_height="wrap_content"
             android:text="Izmena"
             android:paddingTop="5px"
-            android:paddingLeft="10px"/>
+            android:paddingLeft="10px"
+            android:layout_marginRight="36.5dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -101,7 +114,7 @@
             android:layout_marginLeft="40px"
             android:layout_weight="0.50"
             android:paddingTop="5px"
-            android:id="@+id/tbQty" />
+            android:id="@+id/tbShift" />
 
     </LinearLayout>
     <LinearLayout
@@ -115,7 +128,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Delavec" />
+            android:text="Delavec"
+            android:layout_marginRight="68.0dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -123,7 +137,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbLocation" />
+            android:id="@+id/tbWorker" />
 
 
 
@@ -142,7 +156,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="SSCC koda" />
+            android:text="SSCC koda"
+            android:layout_marginRight="48.0dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -150,7 +165,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIden1t" />
+            android:id="@+id/tbSSCC" />
 
     </LinearLayout>
     <LinearLayout
@@ -164,7 +179,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Ident" />
+            android:text="Ident"
+            android:layout_marginRight="84.0dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -172,7 +188,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIden13t" />
+            android:id="@+id/tbIdent" />
 
     </LinearLayout>
     <LinearLayout
@@ -186,7 +202,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Naziv" />
+            android:text="Naziv"
+            android:layout_marginRight="79.5dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -194,26 +211,26 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIden1t2" />
+            android:id="@+id/tbTitle" />
 
     </LinearLayout>
     <Button
         android:text="Naslednja kontrola - F2"
         android:layout_width="match_parent"
         android:layout_height="41.0dp"
-        android:id="@+id/button5"
+        android:id="@+id/btNext"
         android:layout_marginBottom="7.0dp" />
     <Button
         android:text="Tiskaj - F3"
         android:layout_width="match_parent"
         android:layout_height="42.0dp"
-        android:id="@+id/button6"
+        android:id="@+id/btPrint"
         android:layout_marginBottom="1.0dp" />
     <Button
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button7" />
+        android:id="@+id/button3" />
 
 
 </LinearLayout>

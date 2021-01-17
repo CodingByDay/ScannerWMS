@@ -131,6 +131,7 @@ namespace ScannerQR
             color();
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
+            tbTitle.FocusChange += TbTitle_FocusChange;
             btPrint.Click += BtPrint_Click;
             button2.Click += Button2_Click;
             tbSSCC.FocusChange += TbSSCC_FocusChange;
@@ -170,6 +171,11 @@ namespace ScannerQR
             tbIdent.RequestFocus();
 
 
+        }
+
+        private void TbTitle_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessIdent();
         }
 
         private void CbSubject_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
