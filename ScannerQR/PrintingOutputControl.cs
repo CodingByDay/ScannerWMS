@@ -34,7 +34,7 @@ namespace ScannerQR
         private int displayedPosition = 0;
         private NameValueObjectList positions = null;
         private EditText tbUser;
-        private DatePicker dtDate;
+  
         private EditText tbSSCC;
         private EditText tbSerialNum;
         private EditText tbIdent;
