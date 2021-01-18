@@ -325,7 +325,7 @@ namespace ScannerQR
             }
             else
             {
-            
+                tbIdent.Text = "";
                 Toast.MakeText(this, "Ident ni pravilen.", ToastLength.Long).Show();
 
             }
