@@ -16,7 +16,8 @@
         android:layout_gravity="center"
         android:paddingLeft="10px"
         android:paddingTop="5px"
-        android:text="Tiskanje - končna kontrola" />
+        android:text="Tiskanje - končna kontrola"
+        android:id="@+id/lbInfo" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

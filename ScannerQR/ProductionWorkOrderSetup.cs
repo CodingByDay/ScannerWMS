@@ -68,7 +68,7 @@ namespace ScannerQR
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             btPalette = FindViewById<Button>(Resource.Id.btPalette);
             button2 = FindViewById<Button>(Resource.Id.button2);
-            check = FindViewById<Button>(Resource.Id.check);
+         
             color();
             tbOpenQty.FocusChange += TbOpenQty_FocusChange;
             btCard.Click += BtCard_Click;

@@ -62,6 +62,7 @@
             android:layout_marginRight="82.0dp" />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -86,6 +87,7 @@
             android:layout_marginRight="32.5dp" />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"

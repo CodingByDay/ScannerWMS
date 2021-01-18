@@ -32,6 +32,8 @@ namespace ScannerQR
         private Button btNext;
         private Button btPrint;
         private Button button3;
+        private DateTime dateX;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -55,12 +57,12 @@ namespace ScannerQR
             btNext.Click += BtNext_Click;
             btPrint.Click += BtPrint_Click;
             button3.Click += Button3_Click;
-
+            dateX = DateTime.Today;
 
             tbUser.Text = Services.UserName();
             dateChoice.Click += DateChoice_Click;
             dtDate.Text = DateTime.Today.ToShortDateString();
-            var date = DateTime.Today;
+            dateX = DateTime.Today;
             GetInputControls();
         }
 
@@ -69,6 +71,7 @@ namespace ScannerQR
             DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
             {
                 dtDate.Text = time.ToShortDateString();
+                dateX = time;
               
             });
             frag.Show(FragmentManager, DatePickerFragment.TAG);
@@ -146,7 +149,7 @@ namespace ScannerQR
               
 
                 string error;
-                positions = Services.GetObjectList("qhfbd", out error, "I|" + dtDate);
+                positions = Services.GetObjectList("qhfbd", out error, "I|" + dateX.ToString("s"));
                 if (positions == null)
                 {
                     string WebError = string.Format("Napaka pri prenosu podatkov" + error);

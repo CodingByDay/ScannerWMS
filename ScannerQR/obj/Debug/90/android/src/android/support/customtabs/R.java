@@ -94,7 +94,7 @@ public final class R {
 		public static final int browser_actions_menu_item_text = 0x7f080029;
 		public static final int browser_actions_menu_items = 0x7f08002a;
 		public static final int browser_actions_menu_view = 0x7f08002b;
-		public static final int chronometer = 0x7f080061;
+		public static final int chronometer = 0x7f080060;
 		public static final int end = 0x7f080079;
 		public static final int forever = 0x7f080084;
 		public static final int icon = 0x7f080097;

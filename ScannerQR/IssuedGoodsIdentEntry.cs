@@ -237,6 +237,7 @@ namespace ScannerQR
             button5 = FindViewById<Button>(Resource.Id.button5);
             lbOrderInfo = FindViewById<TextView>(Resource.Id.lbOrderInfo);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
+            tbNaziv.FocusChange += TbNaziv_FocusChange1;
             color();
             btNext.Enabled = false;
             btConfirm.Enabled = false;
@@ -249,6 +250,11 @@ namespace ScannerQR
             btConfirm.Click += BtConfirm_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
+        }
+
+        private void TbNaziv_FocusChange1(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessIdent();
         }
 
         private void TbNaziv_FocusChange(object sender, View.FocusChangeEventArgs e)

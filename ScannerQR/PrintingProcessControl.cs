@@ -34,7 +34,7 @@ namespace ScannerQR
 
         private int displayedPosition = 0;
         private NameValueObjectList positions = null;
-
+        private DateTime dateX;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -65,7 +65,7 @@ namespace ScannerQR
 
 
             tbUser.Text = Services.UserName();
-
+            dateX = DateTime.Today;
             dtDate.Text= DateTime.Today.ToShortDateString();
 
             GetProcessControls();
@@ -78,6 +78,7 @@ namespace ScannerQR
             DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
             {
                 dtDate.Text = time.ToShortDateString();
+                dateX = time;
       
             });
             frag.Show(FragmentManager, DatePickerFragment.TAG);
@@ -121,7 +122,7 @@ namespace ScannerQR
               // Comment 1, 1, 2, 3, 5, 8, 13------->+-1.68-->lim.infinity
 
                 string error;
-                positions = Services.GetObjectList("qhfbd", out error, "P|" + dtDate);
+                positions = Services.GetObjectList("qhfbd", out error, "P|" + dateX.ToString("s"));
                 if (positions == null)
                 {
                     Toast.MakeText(this, "Napaka pri prenosu podatkov: " + error, ToastLength.Long).Show();
@@ -134,7 +135,7 @@ namespace ScannerQR
             }
             finally
             {
-               //used to be a wait form.
+               
             }
         }
 

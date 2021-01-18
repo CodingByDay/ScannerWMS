@@ -628,8 +628,8 @@ public final class R {
 		public static final int blocking = 0x7f080025;
 		public static final int bottom = 0x7f080026;
 		public static final int buttonPanel = 0x7f080054;
-		public static final int checkbox = 0x7f080060;
-		public static final int chronometer = 0x7f080061;
+		public static final int checkbox = 0x7f08005f;
+		public static final int chronometer = 0x7f080060;
 		public static final int content = 0x7f080066;
 		public static final int contentPanel = 0x7f080067;
 		public static final int custom = 0x7f080069;

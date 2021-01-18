@@ -103,9 +103,11 @@ namespace ScannerQR
                 tbSSCC.Enabled = ident == null ? false : ident.GetBool("isSSCC");
                 tbSerialNo.Enabled = ident == null ? false : ident.GetBool("HasSerialNumber");
                 color();
+                tbLocation.RequestFocus();
             } else
             {
                 Toast.MakeText(this, "Napačen ident.", ToastLength.Long).Show();
+                tbIdent.Text = "";
             }
         }
         private bool HasData()
@@ -306,19 +308,19 @@ namespace ScannerQR
             btList = FindViewById<Button>(Resource.Id.btList);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btExit = FindViewById<Button>(Resource.Id.btExit);
-            check = FindViewById<Button>(Resource.Id.check);
+            tbQty.FocusChange += TbQty_FocusChange;
 
             btNew.Click += BtNew_Click;
             btList.Click += BtList_Click;
             btFinish.Click += BtFinish_Click;
             btExit.Click += BtExit_Click;
             btNegate.Click += BtNegate_Click;
-            check.Click += Check_Click;
+          
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
-
+            tbIdentName.FocusChange += TbIdentName_FocusChange;
             if (item != null)
             {
                 tbIdent.Text = item.GetString("Ident");
@@ -336,6 +338,16 @@ namespace ScannerQR
 
             tbIdent.RequestFocus();
 
+        }
+
+        private void TbQty_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessQty();
+        }
+
+        private void TbIdentName_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessIdent();
         }
 
         private void Check_Click(object sender, EventArgs e)

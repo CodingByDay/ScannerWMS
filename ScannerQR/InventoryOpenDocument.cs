@@ -22,12 +22,13 @@ namespace ScannerQR
         private Spinner cbWarehouse;
         private EditText dtDate;
         private Button select;
-        private Button btConfirm;
+        private Button confirm;
+        private Button logout;
        
         private List<ComboBoxItem> warehousesAdapter = new List<ComboBoxItem>();
         private int temporaryPositionWarehouse;
         private DateTime datex;
-
+      
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -38,10 +39,13 @@ namespace ScannerQR
             cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
             dtDate = FindViewById<EditText>(Resource.Id.dtDate);
             select = FindViewById<Button>(Resource.Id.select);
-            btConfirm = FindViewById<Button>(Resource.Id.button2);
+            confirm = FindViewById<Button>(Resource.Id.confirm);
+            logout = FindViewById<Button>(Resource.Id.logout);
          
             select.Click += Select_Click;
-            btConfirm.Click += BtConfirm_Click;
+            confirm.Click += Confirm_Click;
+            logout.Click += Logout_Click;
+            
          
             cbWarehouse.ItemSelected += CbWarehouse_ItemSelected;
                  
@@ -71,13 +75,12 @@ namespace ScannerQR
 
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void Logout_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.GetCurrentProcess().Kill();
-
         }
 
-        private void BtConfirm_Click(object sender, EventArgs e)
+        private void Confirm_Click(object sender, EventArgs e)
         {
             var warehouse = warehousesAdapter.ElementAt(temporaryPositionWarehouse);
             if (warehouse == null)
@@ -88,7 +91,7 @@ namespace ScannerQR
                 return;
             }
 
- 
+
             try
             {
 
@@ -120,10 +123,10 @@ namespace ScannerQR
                         return;
                     }
                     Toast.MakeText(this, "Dokument inventure shranjen!", ToastLength.Long).Show();
-      
 
-                   StartActivity(typeof(InventoryMenu));
-                 
+
+                    StartActivity(typeof(InventoryMenu));
+
                 }
                 else
                 {
@@ -134,10 +137,13 @@ namespace ScannerQR
             }
             finally
             {
-               
-            }
 
+            }
         }
+
+      
+
+      
 
         private void Select_Click(object sender, EventArgs e)
         {

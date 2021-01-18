@@ -348,7 +348,9 @@ namespace ScannerQR
             }
             finally
             {
-               /// yayy :)
+                /// yayy :)
+                string toast = string.Format("Poslani podatki.");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
             }
   
         }

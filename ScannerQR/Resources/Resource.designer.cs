@@ -3550,22 +3550,22 @@ namespace ScannerQR
 			public const int center_vertical = 2131230814;
 			
 			// aapt resource value: 0x7F08005F
-			public const int check = 2131230815;
+			public const int checkbox = 2131230815;
 			
 			// aapt resource value: 0x7F080060
-			public const int checkbox = 2131230816;
+			public const int chronometer = 2131230816;
 			
 			// aapt resource value: 0x7F080061
-			public const int chronometer = 2131230817;
+			public const int clip_horizontal = 2131230817;
 			
 			// aapt resource value: 0x7F080062
-			public const int clip_horizontal = 2131230818;
+			public const int clip_vertical = 2131230818;
 			
 			// aapt resource value: 0x7F080063
-			public const int clip_vertical = 2131230819;
+			public const int collapseActionView = 2131230819;
 			
 			// aapt resource value: 0x7F080064
-			public const int collapseActionView = 2131230820;
+			public const int confirm = 2131230820;
 			
 			// aapt resource value: 0x7F080065
 			public const int container = 2131230821;

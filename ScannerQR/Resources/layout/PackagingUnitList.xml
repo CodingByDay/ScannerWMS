@@ -186,7 +186,7 @@
     <Button
         android:text="Popravi izbrano pozicijo - F3"
         android:layout_width="match_parent"
-        android:layout_height="42.5dp"
+        android:layout_height="40.5dp"
         android:id="@+id/btUpdate" />
     <Button
         android:text="Izbriši izbrano pozicijo - F4"

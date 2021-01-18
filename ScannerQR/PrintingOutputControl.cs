@@ -79,7 +79,7 @@ namespace ScannerQR
 
             tbUser.Text = Services.UserName();
 
-           
+            dateX = DateTime.Today;
             GetOutputControls();
             dateText.Text = DateTime.Today.ToShortDateString();
 

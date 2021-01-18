@@ -68,14 +68,14 @@ namespace ScannerQR
 
 
             // Permisions.
-            buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
-            buttonIssued.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND", "R");
-            buttonUnfinished.Enabled = Services.HasPermission("TNET_WMS_BLAG_PROD", "R");
-            button.Enabled = Services.HasPermission("TNET_WMS_BLAG_ACQ", "R");
-            btnPackaging.Enabled = Services.HasPermission("TNET_WMS_BLAG_PKG", "R");
+            //buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
+            //buttonIssued.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND", "R");
+            //buttonUnfinished.Enabled = Services.HasPermission("TNET_WMS_BLAG_PROD", "R");
+            //button.Enabled = Services.HasPermission("TNET_WMS_BLAG_ACQ", "R");
+            //btnPackaging.Enabled = Services.HasPermission("TNET_WMS_BLAG_PKG", "R");
 
-            buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
-            btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
+            //buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
+            //btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
 
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
