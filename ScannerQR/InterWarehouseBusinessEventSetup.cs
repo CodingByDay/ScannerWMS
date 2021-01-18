@@ -131,7 +131,7 @@ namespace ScannerQR
             }
             return base.OnKeyDown(keyCode, e);
         }
-
+       
 
         private void PrefillWarehouses(string id)
         {

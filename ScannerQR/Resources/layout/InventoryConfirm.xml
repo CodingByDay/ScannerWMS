@@ -16,7 +16,8 @@
         android:layout_gravity="center"
         android:paddingLeft="10px"
         android:paddingTop="5px"
-        android:text="Vnešene pozicije na prevzemu" />
+        android:text="Odprte inventure"
+        android:id="@+id/lbInfo" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -28,7 +29,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Skladišče" />
+            android:text="Skladišče"
+            android:layout_marginRight="53.5dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -36,7 +38,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIdent" />
+            android:id="@+id/tbWarehouse" />
 
 
     </LinearLayout>
@@ -54,7 +56,8 @@
             android:text="Naziv"
             android:paddingTop="5px"
             android:paddingLeft="10px"
-            android:id="@+id/textView1" />
+            android:id="@+id/textView1"
+            android:layout_marginRight="77.0dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -63,7 +66,7 @@
             android:layout_marginLeft="40px"
             android:layout_weight="0.50"
             android:paddingTop="5px"
-            android:id="@+id/tbSSCC" />
+            android:id="@+id/tbTitle" />
 
     </LinearLayout>
     <LinearLayout
@@ -77,7 +80,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Datum inv." />
+            android:text="Datum inv."
+            android:layout_marginRight="44.0dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -85,7 +89,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbSerialNumber" />
+            android:id="@+id/tbDate" />
 
 
     </LinearLayout>
@@ -102,7 +106,8 @@
             android:layout_height="wrap_content"
             android:text="Št. popisov"
             android:paddingTop="5px"
-            android:paddingLeft="10px"/>
+            android:paddingLeft="10px"
+            android:layout_marginRight="39.0dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -111,7 +116,7 @@
             android:layout_marginLeft="40px"
             android:layout_weight="0.50"
             android:paddingTop="5px"
-            android:id="@+id/tbQty" />
+            android:id="@+id/tbItems" />
 
     </LinearLayout>
     <LinearLayout
@@ -125,7 +130,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Kreiral" />
+            android:text="Kreiral"
+            android:layout_marginRight="67.0dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -133,7 +139,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbLocation" />
+            android:id="@+id/tbCreatedBy" />
 
 
 
@@ -152,7 +158,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Datum kreiranja" />
+            android:text="Datum kreiranja"
+            android:layout_marginRight="7.0dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -160,26 +167,26 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/tbIden1t" />
+            android:id="@+id/tbCreatedAt" />
 
     </LinearLayout>
 
 
     <Button
-        android:text="Naslednja pozicija - F1"
+        android:text="Naslednja pozicija - F2"
         android:layout_width="match_parent"
         android:layout_height="39.0dp"
-        android:id="@+id/button2" />
+        android:id="@+id/btNext" />
     <Button
-        android:text="Popravi izbrano pozicijo - F2"
+        android:text="potrdi izbrano inventuro-f3"
         android:layout_width="match_parent"
         android:layout_height="42.5dp"
-        android:id="@+id/button3" />
+        android:id="@+id/btConfirm" />
     <Button
-        android:text="Kreiraj novo pozicijo - F3"
+        android:text="izhod-f8"
         android:layout_width="match_parent"
         android:layout_height="40.5dp"
-        android:id="@+id/button4" />
+        android:id="@+id/button3" />
 
 
 </LinearLayout>

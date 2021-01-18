@@ -244,11 +244,16 @@ namespace ScannerQR
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
-
+            tbNaziv.FocusChange += TbNaziv_FocusChange;
             btNext.Click += BtNext_Click;
             btConfirm.Click += BtConfirm_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
+        }
+
+        private void TbNaziv_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessIdent();
         }
 
         private void Button5_Click(object sender, EventArgs e)

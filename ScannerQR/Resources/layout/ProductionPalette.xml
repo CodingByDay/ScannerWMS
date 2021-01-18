@@ -21,6 +21,7 @@
             android:text="DN" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -47,6 +48,7 @@
             android:text="Ident" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"

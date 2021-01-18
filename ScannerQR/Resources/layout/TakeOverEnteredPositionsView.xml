@@ -32,6 +32,7 @@
             android:text="Ident" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -58,6 +59,7 @@
             android:id="@+id/textView1" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -81,6 +83,7 @@
             android:text="Serijska št." />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -106,6 +109,7 @@
             android:paddingLeft="10px"/>
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -130,6 +134,7 @@
             android:text="Lokacija" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -157,6 +162,7 @@
             android:text="Kreiral" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"

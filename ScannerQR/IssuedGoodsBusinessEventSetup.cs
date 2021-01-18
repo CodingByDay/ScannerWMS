@@ -102,7 +102,37 @@ namespace ScannerQR
 
 
         }
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            switch (keyCode)
+            {
+                // Setting F2 to method ProccesStock()
+                case Keycode.F1:
+                    if (btnOrderMode.Enabled == true)
+                    {
+                       BtnOrderMode_Click(this, null);
+                    }
+                    break;
 
+                case Keycode.F2:
+                    if (btnOrder.Enabled == true)
+                    {
+                        BtnOrder_Click(this, null);
+                    }
+                    break;
+
+                case Keycode.F3://
+                    if (btnLogout.Enabled == true)
+                    {
+                        BtnLogout_Click(this, null);
+                    }
+                    break;
+
+
+
+            }
+            return base.OnKeyDown(keyCode, e);
+        }
         private void BtnLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainActivity));

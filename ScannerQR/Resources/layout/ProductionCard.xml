@@ -26,6 +26,7 @@
             android:layout_marginRight="14.0dp" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -52,6 +53,7 @@
             android:id="@+id/textView1" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -82,6 +84,7 @@
             android:id="@+id/textView11" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -107,6 +110,7 @@
             android:id="@+id/textView131" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -132,6 +136,7 @@
             android:id="@+id/tex1tView1" />
 
         <EditText
+               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
