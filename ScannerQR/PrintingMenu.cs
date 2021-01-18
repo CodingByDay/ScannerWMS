@@ -53,12 +53,12 @@ namespace ScannerQR
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingInputControl));
+            StartActivity(typeof(PrintingProcessControl));
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingProcessControl));
+            StartActivity(typeof(PrintingInputControl));
         }
 
         private void Button_Click(object sender, EventArgs e)

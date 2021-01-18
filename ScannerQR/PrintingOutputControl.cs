@@ -81,6 +81,7 @@ namespace ScannerQR
 
            
             GetOutputControls();
+            dateText.Text = DateTime.Today.ToShortDateString();
 
 
 
