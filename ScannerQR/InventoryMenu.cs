@@ -45,6 +45,42 @@ namespace ScannerQR
 
         }
 
+
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            switch (keyCode)
+            {
+                // in smartphone
+                case Keycode.F2:
+                    Button1_Click(this, null);
+                    break;
+                //return true;
+
+
+                case Keycode.F3:
+                    Button2_Click(this, null);
+                    break;
+
+
+                case Keycode.F4:
+                    Button3_Click(this, null);
+                    break;
+
+                case Keycode.F5:
+                    Button4_Click(this, null);
+                    break;
+
+                case Keycode.F6:
+                    Button7_Click(this, null);
+                    break;
+
+                case Keycode.F8:
+                    Logout_Click(this, null);
+                    break;
+
+            }
+            return base.OnKeyDown(keyCode, e);
+        }
         private void Logout_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.GetCurrentProcess().Kill();

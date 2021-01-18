@@ -5,10 +5,12 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Media;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using BarCode2D_Receiver;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -60,7 +62,9 @@ namespace ScannerQR
         private bool editMode = false;
         private bool isPackaging = false;
         private TextView lbUnits;
-        private TextView lbPalette;
+        private TextView lbPalette; 
+        SoundPool soundPool;
+        int soundPoolId;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -86,6 +90,12 @@ namespace ScannerQR
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
             lbPalette = FindViewById<TextView>(Resource.Id.lbPalette);
+            soundPool = new SoundPool(10, Stream.Music, 0);
+            soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
+            Barcode2D barcode2D = new Barcode2D();
+            barcode2D.open(this, this);
+
+
             button1.Click += Button1_Click;
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             button4.Click += Button4_Click;
@@ -563,7 +573,7 @@ namespace ScannerQR
 
             tbPacking.RequestFocus();
         }
-
+   
 
         private void Button3_Click(object sender, EventArgs e)
         {
@@ -578,15 +588,23 @@ namespace ScannerQR
 
             if(tbSSCC.HasFocus)
             {
+                Sound();
                 tbSSCC.Text = barcode;
             } else if(tbSerialNum.HasFocus)
             {
+                Sound();
                 tbSerialNum.Text = barcode;
             } else if (tbLocation.HasFocus)
             {
+                Sound();
                 tbLocation.Text = barcode;
                 ProcessQty();
             }
+        }
+
+        private void Sound()
+        {
+            soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
         }
     }
 }

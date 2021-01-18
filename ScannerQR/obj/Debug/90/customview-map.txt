@@ -164,6 +164,7 @@ Spinner;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
 Spinner;obj\Debug\90\res\layout\inventoryopen.xml
 Spinner;obj\Debug\90\res\layout\inventoryopendocument.xml
 Spinner;obj\Debug\90\res\layout\inventoryprint.xml
+Spinner;obj\Debug\90\res\layout\inventoryprocess.xml
 Spinner;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetup.xml
 Spinner;obj\Debug\90\res\layout\packagingsetcontext.xml
 Spinner;obj\Debug\90\res\layout\printingreprintlabels.xml

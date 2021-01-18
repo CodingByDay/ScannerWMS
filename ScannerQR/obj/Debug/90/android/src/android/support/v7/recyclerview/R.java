@@ -121,11 +121,11 @@ public final class R {
 		public static final int tag_transition_group = 0x7f0800fc;
 		public static final int tag_unhandled_key_event_manager = 0x7f0800fd;
 		public static final int tag_unhandled_key_listeners = 0x7f0800fe;
-		public static final int text = 0x7f08012f;
-		public static final int text2 = 0x7f080130;
-		public static final int time = 0x7f080140;
-		public static final int title = 0x7f080141;
-		public static final int top = 0x7f080144;
+		public static final int text = 0x7f08012d;
+		public static final int text2 = 0x7f08012e;
+		public static final int time = 0x7f08013e;
+		public static final int title = 0x7f08013f;
+		public static final int top = 0x7f080142;
 	}
 	public static final class integer {
 		public static final int status_bar_notification_info_maxnum = 0x7f09000e;
