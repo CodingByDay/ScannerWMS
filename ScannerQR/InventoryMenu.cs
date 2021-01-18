@@ -31,7 +31,7 @@ namespace ScannerQR
             button2 = FindViewById<Button>(Resource.Id.button2);
             button3 = FindViewById<Button>(Resource.Id.button3);
             button4 = FindViewById<Button>(Resource.Id.button4);
-            button7 = FindViewById<Button>(Resource.Id.button5);
+            button7 = FindViewById<Button>(Resource.Id.button7);
             logout = FindViewById<Button>(Resource.Id.logout);
 
 

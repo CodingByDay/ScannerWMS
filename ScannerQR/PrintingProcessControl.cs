@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using ScannerQR.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.Services;
 
@@ -57,6 +58,10 @@ namespace ScannerQR
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btPrint = FindViewById<Button>(Resource.Id.btPrint);
             button3 = FindViewById<Button>(Resource.Id.button3);
+            btNext.Click += BtNext_Click;
+            btPrint.Click += BtPrint_Click;
+            button3.Click += Button3_Click;
+            dateChoice.Click += DateChoice_Click;
 
 
             tbUser.Text = Services.UserName();
@@ -64,11 +69,49 @@ namespace ScannerQR
             dtDate.Text= DateTime.Today.ToShortDateString();
 
             GetProcessControls();
-
-
+         
 
         }
 
+        private void DateChoice_Click(object sender, EventArgs e)
+        {
+            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
+            {
+                dtDate.Text = time.ToShortDateString();
+      
+            });
+            frag.Show(FragmentManager, DatePickerFragment.TAG);
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
+
+        private void BtPrint_Click(object sender, EventArgs e)
+        {
+ 
+            try
+            {
+       
+                var nvo = new NameValueObject("PrintProcessControl");
+                PrintingCommon.SetNVOCommonData(ref nvo);
+                nvo.SetInt("QualityHead", positions.Items[displayedPosition].GetInt("HeadID"));
+                PrintingCommon.SendToServer(nvo);
+ 
+            }
+            finally
+            {
+            
+            }
+        }
+
+        private void BtNext_Click(object sender, EventArgs e)
+        {
+            displayedPosition++;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            FillDisplayedItem();
+        }
 
         private void GetProcessControls()
         {

@@ -62,6 +62,7 @@ EditText;obj\Debug\90\res\layout\interwarehouseenteredpositionsview.xml
 EditText;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
 EditText;obj\Debug\90\res\layout\inventoryconfirm.xml
 EditText;obj\Debug\90\res\layout\inventoryopen.xml
+EditText;obj\Debug\90\res\layout\inventoryopendocument.xml
 EditText;obj\Debug\90\res\layout\inventoryprint.xml
 EditText;obj\Debug\90\res\layout\inventoryprocess.xml
 EditText;obj\Debug\90\res\layout\issuedgoodsenteredpositionsview.xml
