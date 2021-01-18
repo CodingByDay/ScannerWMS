@@ -143,7 +143,6 @@ namespace ScannerQR
             }
         }
 
-
         private void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
@@ -154,8 +153,6 @@ namespace ScannerQR
                 temporaryPositionWarehouse = e.Position;
             }
         }
-
-
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {

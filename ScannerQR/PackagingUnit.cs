@@ -294,19 +294,6 @@ namespace ScannerQR
             SetContentView(Resource.Layout.PackagingUnit);
 
 
-            //            //tbIdent
-            //tbIdentName
-            //tbLocation
-            //tbSSCC
-            //tbSerialNo
-            //tbQty
-
-            //btNegate
-
-            //btNew
-            //btList
-            //btFinish
-            //
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbIdentName = FindViewById<EditText>(Resource.Id.tbIdentName);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
@@ -411,7 +398,7 @@ namespace ScannerQR
                 }
                 finally
                 {
-                 //pass
+                 
 
                 }
             }
@@ -425,9 +412,7 @@ namespace ScannerQR
                 case Keycode.F2:
                     BtNew_Click(this, null);
                     break;
-                //return true;
-
-
+            
                 case Keycode.F3:
 
                     BtList_Click(this, null);

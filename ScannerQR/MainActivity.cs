@@ -45,7 +45,6 @@ namespace ScannerQR
                 bool valid = false;
 
 
-
                 try
                 {
 
@@ -54,15 +53,12 @@ namespace ScannerQR
                 finally
                 {
 
-
                 }
 
                 if (valid)
                 {
                     if (Services.HasPermission("TNET_WMS", "R"))
                     {
-
-
 
                         StartActivity(typeof(MainMenu));
 
