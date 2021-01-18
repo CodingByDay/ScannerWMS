@@ -104,6 +104,8 @@ namespace ScannerQR
             {
                 string toast = new string("Ni internetne povezave...");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
+                progressBar1.Visibility = ViewStates.Invisible;
+               
             }
 
         }

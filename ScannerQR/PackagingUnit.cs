@@ -345,6 +345,7 @@ namespace ScannerQR
 
 
 
+            tbIdent.SetBackgroundColor(Android.Graphics.Color.Aqua);
 
             tbIdent.RequestFocus();
 
