@@ -10,11 +10,16 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using ScannerQR;
+using TrendNET.WMS.Device.Services;
+
 namespace ScannerQR
 {
     [Activity(Label = "MainMenu")]
     public class MainMenu : Activity
     {
+
+
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -60,7 +65,17 @@ namespace ScannerQR
             // logout-------------Close();
             Button btnLogout = FindViewById<Button>(Resource.Id.logout);
             btnLogout.Click += BtnLogout_Click;
-           
+
+
+            // Permisions.
+            buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
+            buttonIssued.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND", "R");
+            buttonUnfinished.Enabled = Services.HasPermission("TNET_WMS_BLAG_PROD", "R");
+            button.Enabled = Services.HasPermission("TNET_WMS_BLAG_ACQ", "R");
+            btnPackaging.Enabled = Services.HasPermission("TNET_WMS_BLAG_PKG", "R");
+
+            buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
+            btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
 
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

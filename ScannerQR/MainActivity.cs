@@ -5,6 +5,8 @@ using Android.Runtime;
 using Android.Widget;
 using Android.Views;
 using TrendNET.WMS.Device.Services;
+using Android.Net;
+
 namespace ScannerQR
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/barcode")]
@@ -13,75 +15,97 @@ namespace ScannerQR
         public static bool isValid;
         private EditText Password;
         public static ProgressBar progressBar1;
-
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+        }
         private void ProcessRegistration()
 
         {
-            Password = FindViewById<EditText>(Resource.Id.password);
-
-            if (string.IsNullOrEmpty(Password.Text.Trim())) { return; }
-
-            Services.ClearUserInfo();
-
-            string error;
-            bool valid = false;
-
-
-      
-            try
+            if (IsOnline())
             {
-             
-                valid = Services.IsValidUser(Password.Text.Trim(), out error);
-            }
-            finally
-            {
-           
-                
-            }
 
-            if (valid)
-            {
-                if (Services.HasPermission("TNET_WMS", "R"))
+                Password = FindViewById<EditText>(Resource.Id.password);
+
+                if (string.IsNullOrEmpty(Password.Text.Trim())) { return; }
+
+                Services.ClearUserInfo();
+
+                string error;
+                bool valid = false;
+
+
+
+                try
+                {
+
+                    valid = Services.IsValidUser(Password.Text.Trim(), out error);
+                }
+                finally
                 {
 
 
+                }
 
-                    StartActivity(typeof(MainMenu));
-              
-                    Password.Text = "";
-                    isValid = true;
-                    this.Finish();
+                if (valid)
+                {
+                    if (Services.HasPermission("TNET_WMS", "R"))
+                    {
 
 
 
+                        StartActivity(typeof(MainMenu));
+
+                        Password.Text = "";
+                        isValid = true;
+                        this.Finish();
+
+
+
+                    }
+                    else
+                    {
+
+                        Password.Text = "";
+
+
+                        isValid = false;
+                        string toast = new string("Napačno geslo.");
+                        Toast.MakeText(this, toast, ToastLength.Long).Show();
+
+                        progressBar1.Visibility = ViewStates.Invisible;
+
+
+                    }
                 }
                 else
                 {
 
                     Password.Text = "";
-                    
-   
                     isValid = false;
                     string toast = new string("Napačno geslo.");
                     Toast.MakeText(this, toast, ToastLength.Long).Show();
-
                     progressBar1.Visibility = ViewStates.Invisible;
 
 
+
                 }
-            }
-            else
+            } else
             {
-
-                Password.Text = "";
-                isValid = false;
-                string toast = new string("Napačno geslo.");
+                string toast = new string("Ni internetne povezave...");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                progressBar1.Visibility = ViewStates.Invisible;
-
-
-
             }
+
         }
         protected override void OnCreate(Bundle savedInstanceState)
         {
