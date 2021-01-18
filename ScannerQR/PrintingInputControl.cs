@@ -40,7 +40,7 @@ namespace ScannerQR
             SetContentView(Resource.Layout.PrintingInputControl);
             dtDate = FindViewById<EditText>(Resource.Id.dtDate);
 
-             tbUser = FindViewById<EditText>(Resource.Id.dtDate);
+            tbUser = FindViewById<EditText>(Resource.Id.dtDate);
 
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
 
@@ -55,6 +55,8 @@ namespace ScannerQR
             btNext.Click += BtNext_Click;
             btPrint.Click += BtPrint_Click;
             button3.Click += Button3_Click;
+
+
             tbUser.Text = Services.UserName();
             dateChoice.Click += DateChoice_Click;
             dtDate.Text = DateTime.Today.ToShortDateString();
