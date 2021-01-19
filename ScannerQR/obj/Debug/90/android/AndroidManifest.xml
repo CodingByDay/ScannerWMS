@@ -45,6 +45,8 @@
     <activity android:label="ProductionWorkOrderSetup" android:name="crc640b2286ca4f1c700f.ProductionWorkOrderSetup" />
     <activity android:label="receiver" android:name="crc640b2286ca4f1c700f.receiver" />
     <activity android:label="SelectSubjectBeforeFinish" android:name="crc640b2286ca4f1c700f.SelectSubjectBeforeFinish" />
+    <activity android:label="TakeOver2Main" android:name="crc640b2286ca4f1c700f.TakeOver2Main" />
+    <activity android:label="TakeOver2Orders" android:name="crc640b2286ca4f1c700f.TakeOver2Orders" />
     <activity android:label="TakeOverBusinessEventSetup" android:name="crc640b2286ca4f1c700f.TakeOverBusinessEventSetup" />
     <activity android:label="TakeOverEnteredPositionsView" android:name="crc640b2286ca4f1c700f.TakeOverEnteredPositionsView" />
     <activity android:label="TakeOverIdentEntry" android:name="crc640b2286ca4f1c700f.TakeOverIdentEntry" />
@@ -53,13 +55,6 @@
     <activity android:label="UnfinishedIssuedGoodsView" android:name="crc640b2286ca4f1c700f.UnfinishedIssuedGoodsView" />
     <activity android:label="UnfinishedProductionView" android:name="crc640b2286ca4f1c700f.UnfinishedProductionView" />
     <activity android:label="UnfinishedTakeoversView" android:name="crc640b2286ca4f1c700f.UnfinishedTakeoversView" />
-    <service android:name="crc64a98abb514ffad9f1.KeepAliveService" />
-    <receiver android:enabled="true" android:exported="false" android:label="Essentials Battery Broadcast Receiver" android:name="crc64a0e0a82d0db9a07d.BatteryBroadcastReceiver" />
-    <receiver android:enabled="true" android:exported="false" android:label="Essentials Energy Saver Broadcast Receiver" android:name="crc64a0e0a82d0db9a07d.EnergySaverBroadcastReceiver" />
-    <receiver android:enabled="true" android:exported="false" android:label="Essentials Connectivity Broadcast Receiver" android:name="crc64a0e0a82d0db9a07d.ConnectivityBroadcastReceiver" />
-    <provider android:authorities="com.companyname.scannerqr.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="xamarin.essentials.fileProvider">
-      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/xamarin_essentials_fileprovider_file_paths" />
-    </provider>
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="1999999999" android:authorities="com.companyname.scannerqr.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">

@@ -421,7 +421,7 @@ namespace ScannerQR
                   soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
         
         }
-
+      
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
