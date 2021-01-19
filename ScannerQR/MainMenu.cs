@@ -128,9 +128,7 @@ namespace ScannerQR
         private void BtnLogout_Click(object sender, EventArgs e)
         {
 
-           // StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
-            StartActivity(typeof(TakeOver2Orders));
-            //System.Diagnostics.Process.GetCurrentProcess().Kill(); // start activity
+            System.Diagnostics.Process.GetCurrentProcess().Kill(); // start activity
         }
 
         private void BtnPackaging_Click(object sender, EventArgs e)

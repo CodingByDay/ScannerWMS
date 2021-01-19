@@ -81,6 +81,7 @@ namespace ScannerQR
         private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessIdent();
+            
         }
 
         private void Button5_Click(object sender, EventArgs e)

@@ -10,8 +10,8 @@ namespace TrendNET.WMS.Device.Services
 {
     public class CommonData
     {
-        public static string Version = "1.0.71l";
-
+    
+        public static string Version = "1.0.73b";
         private static NameValueObjectList warehouses = null;
         private static NameValueObjectList shifts = null;
         private static NameValueObjectList subjects = null;

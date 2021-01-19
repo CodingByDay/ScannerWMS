@@ -214,6 +214,7 @@
             android:layout_marginRight="79.5dp" />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"

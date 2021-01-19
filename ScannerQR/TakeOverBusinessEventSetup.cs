@@ -27,7 +27,7 @@ namespace ScannerQR
 
 
 
-        
+
         private Button btnOrder;
         private Button btnOrderMode;
         private Button logout;
@@ -75,7 +75,7 @@ namespace ScannerQR
                 });
             }
 
-            
+
 
             var adapter = new ArrayAdapter<ComboBoxItem>(this,
              Android.Resource.Layout.SimpleSpinnerItem, objectcbWarehouse);
@@ -144,9 +144,20 @@ namespace ScannerQR
 
         private void BtnOrderMode_Click(object sender, EventArgs e)
         {
-            byOrder = !byOrder;
-            UpdateForm();
+            if (byOrder && (CommonData.GetSetting("UseDirectTakeOver") == "1"))
+            {
+                StartActivity(typeof(TakeOver2Main));
+             
+
+            }
+            else
+            {
+                byOrder = !byOrder;
+                UpdateForm();
+
+            }
         }
+    
 
         private void BtnOrder_Click(object sender, EventArgs e)
         {
@@ -155,42 +166,54 @@ namespace ScannerQR
 
         private void UpdateForm()
         {
-
-            objectcbDocType.Clear();
-
-            if (byOrder)
+       
+           
+            try
             {
-                lbSubject.Visibility = ViewStates.Invisible;
-                cbSubject.Visibility = ViewStates.Invisible;
+              
+      
+                objectcbDocType.Clear();
 
-                docTypes = CommonData.ListDocTypes("I|N");
-
-                btnOrderMode.Text = "Brez naročila - F3";
-            }
-            else
-            {
-                lbSubject.Visibility = ViewStates.Visible;
-                cbSubject.Visibility = ViewStates.Visible;
-
-                if (cbSubject.Count == 0)
+                if (byOrder)
                 {
-                    var subjects = CommonData.ListSubjects();
-                    subjects.Items.ForEach(s =>
+                    lbSubject.Visibility = ViewStates.Invisible;
+                    cbSubject.Visibility = ViewStates.Invisible;
+
+                    docTypes = CommonData.ListDocTypes("I|N");
+
+                    btnOrderMode.Text = "Brez naročila - F3";
+                }
+                else
+                {
+                    lbSubject.Visibility = ViewStates.Visible;
+                    cbSubject.Visibility = ViewStates.Visible;
+
+                    if (cbSubject.Count == 0)
                     {
-                        objectcbSubject.Add(new ComboBoxItem { ID = s.GetString("ID"), Text = s.GetString("ID") });
-                    });
+                        var subjects = CommonData.ListSubjects();
+                        subjects.Items.ForEach(s =>
+                        {
+                            objectcbSubject.Add(new ComboBoxItem { ID = s.GetString("ID"), Text = s.GetString("ID") });
+                        });
+                    }
+
+                    docTypes = CommonData.ListDocTypes("P|F");
+
+                    btnOrderMode.Text = "Z naročilom - F3";
                 }
 
-                docTypes = CommonData.ListDocTypes("P|F");
-
-                btnOrderMode.Text = "Z naročilom - F3";
+                docTypes.Items.ForEach(dt =>
+                {
+                    objectcbDocType.Add(new ComboBoxItem { ID = dt.GetString("Code"), Text = dt.GetString("Code") + " " + dt.GetString("Name") });
+                });
             }
-
-            docTypes.Items.ForEach(dt =>
+            finally
             {
-               objectcbDocType.Add(new ComboBoxItem { ID = dt.GetString("Code"), Text = dt.GetString("Code") + " " + dt.GetString("Name") });
-            });
+                //
+            }
         }
+
+
         private void NextStep()
         {
            var itemDT = objectcbDocType.ElementAt(temporaryPositioncbDoc); 

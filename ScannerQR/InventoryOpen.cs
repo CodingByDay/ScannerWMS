@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
+using Microsoft.AppCenter.Crashes;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -213,7 +214,7 @@ namespace ScannerQR
                     if (!WebApp.Get("mode=reopenInventory&id=" + moveHead.GetInt("HeadID").ToString(), out error))
                     {
                         Toast.MakeText(this, "Napaka pri odpiranju inventure: " + error, ToastLength.Long).Show();
-
+                     
                         return;
                     }
                     else

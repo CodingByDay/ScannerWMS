@@ -63,7 +63,7 @@ namespace ScannerQR
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
-            tbTitle.FocusChange += TbTitle_FocusChange;
+         
             cbWarehouse.ItemSelected += CbWarehouse_ItemSelected;
             btPrint.Click += BtPrint_Click;
             button1.Click += Button1_Click;
@@ -72,8 +72,8 @@ namespace ScannerQR
             tbIdent.FocusChange += TbIdent_FocusChange;
             tbSSCC.FocusChange += TbSSCC_FocusChange;
             tbUnits.FocusChange += TbUnits_FocusChange;
+            tbIdent.KeyPress += TbIdent_KeyPress;
          
-     
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
 
@@ -110,10 +110,18 @@ namespace ScannerQR
             color();
         }
 
-        private void TbTitle_FocusChange(object sender, View.FocusChangeEventArgs e)
+        private void TbIdent_KeyPress(object sender, View.KeyEventArgs e)
         {
-            ProcessIdent();
+            e.Handled = false;
+            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            {
+                //add your logic here 
+                ProcessIdent();
+                e.Handled = true;
+            }
         }
+
+      
 
         private void TbUnits_FocusChange(object sender, View.FocusChangeEventArgs e)
         {

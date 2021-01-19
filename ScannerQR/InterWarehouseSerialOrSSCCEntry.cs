@@ -442,6 +442,8 @@ namespace ScannerQR
             // Buttons
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             wh = new NameValueObject();
+            tbIdent.KeyPress += TbIdent_KeyPress;
+            tbPacking.KeyPress += TbPacking_KeyPress;
 
             button1 = FindViewById<Button>(Resource.Id.button1);
             button3 = FindViewById<Button>(Resource.Id.button3);
@@ -450,7 +452,7 @@ namespace ScannerQR
             button6 = FindViewById<Button>(Resource.Id.button6);
           
             color();
-            tbPacking.FocusChange += TbPacking_FocusChange;
+           
             button6.Click += Button6_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
@@ -458,7 +460,7 @@ namespace ScannerQR
             button1.Click += Button1_Click;
 
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
-            tbIdent.FocusChange += TbIdent_FocusChange;
+           
             lbIdentName = FindViewById<EditText>(Resource.Id.lbIdentName);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
@@ -523,15 +525,29 @@ namespace ScannerQR
 
         }
 
-        private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
+        private void TbPacking_KeyPress(object sender, View.KeyEventArgs e)
         {
-            ProcessIdent();
+            e.Handled = false;
+            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            {
+                //add your logic here 
+                ProcessIdent();
+                e.Handled = true;
+            }
         }
 
-        private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
+        private void TbIdent_KeyPress(object sender, View.KeyEventArgs e)
         {
-            ProcessQty();
+            e.Handled = false;
+            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            {
+                //add your logic here 
+                ProcessIdent();
+                e.Handled = true;
+            }
         }
+
+      
 
       
 

@@ -12,6 +12,7 @@
         android:minHeight="25px"
         android:id="@+id/lbExtra" />
     <Spinner
+          android:spinnerMode="dialog"
         android:layout_width="match_parent"
         android:layout_height="42.0dp"
         android:id="@+id/cbWarehouse" />

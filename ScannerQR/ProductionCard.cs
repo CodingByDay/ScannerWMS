@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Microsoft.AppCenter.Crashes;
 using ScannerQR.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -173,6 +174,7 @@ namespace ScannerQR
                 if (nvo == null)
                 {
                     string SuccessMessage = string.Format("Shranjevanje neuspešno, napaka: " + error);
+                    
                     Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
 
                 }

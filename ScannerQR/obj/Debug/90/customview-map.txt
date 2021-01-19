@@ -37,6 +37,7 @@ Button;obj\Debug\90\res\layout\productionserialorssccentry.xml
 Button;obj\Debug\90\res\layout\productionworkordersetup.xml
 Button;obj\Debug\90\res\layout\receiverlayout.xml
 Button;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
+Button;obj\Debug\90\res\layout\settingspopup.xml
 Button;obj\Debug\90\res\layout\takeover2main.xml
 Button;obj\Debug\90\res\layout\takeover2orders.xml
 Button;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
@@ -51,7 +52,7 @@ Button;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 Button;obj\Debug\90\res\layout\yesnogeneric.xml
 Button;obj\Debug\90\res\layout\yesnopopup.xml
 Button;obj\Debug\90\res\layout\yesnoproductioncard.xml
-cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\37\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\90\res\values\colors.xml
 color;obj\Debug\90\res\values\ic_launcher_background.xml
 EditText;obj\Debug\90\res\layout\activity_main.xml
@@ -81,6 +82,7 @@ EditText;obj\Debug\90\res\layout\productionenteredpositionsview.xml
 EditText;obj\Debug\90\res\layout\productionpalette.xml
 EditText;obj\Debug\90\res\layout\productionserialorssccentry.xml
 EditText;obj\Debug\90\res\layout\productionworkordersetup.xml
+EditText;obj\Debug\90\res\layout\settingspopup.xml
 EditText;obj\Debug\90\res\layout\takeover2main.xml
 EditText;obj\Debug\90\res\layout\takeover2orders.xml
 EditText;obj\Debug\90\res\layout\takeoverenteredpositionsview.xml
@@ -90,13 +92,14 @@ EditText;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
 EditText;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 EditText;obj\Debug\90\res\layout\unfinishedproductionview.xml
 EditText;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
-external-cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\37\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-external-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\37\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 HorizontalScrollView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 HorizontalScrollView;obj\Debug\90\res\layout\productionpalette.xml
 ImageView;obj\Debug\90\res\layout\activity_main.xml
+ImageView;obj\Debug\90\res\layout\settingspopup.xml
 ImageView;obj\Debug\90\res\layout\transportpopup.xml
 ImageView;obj\Debug\90\res\layout\yesnogeneric.xml
 ImageView;obj\Debug\90\res\layout\yesnopopup.xml
@@ -139,6 +142,7 @@ LinearLayout;obj\Debug\90\res\layout\productionserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\productionworkordersetup.xml
 LinearLayout;obj\Debug\90\res\layout\receiverlayout.xml
 LinearLayout;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
+LinearLayout;obj\Debug\90\res\layout\settingspopup.xml
 LinearLayout;obj\Debug\90\res\layout\takeover2main.xml
 LinearLayout;obj\Debug\90\res\layout\takeover2orders.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
@@ -155,8 +159,11 @@ LinearLayout;obj\Debug\90\res\layout\yesnopopup.xml
 LinearLayout;obj\Debug\90\res\layout\yesnoproductioncard.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\productionpalette.xml
-paths;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\37\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+paths;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Debug\90\res\layout\activity_main.xml
+resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\2\jl\res\values\strings.xml
+resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\5\jl\res\values\strings.xml
+resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\6\jl\res\values\strings.xml
 resources;obj\Debug\90\res\values\colors.xml
 resources;obj\Debug\90\res\values\ic_launcher_background.xml
 resources;obj\Debug\90\res\values\strings.xml
@@ -208,6 +215,7 @@ TextView;obj\Debug\90\res\layout\productionserialorssccentry.xml
 TextView;obj\Debug\90\res\layout\productionworkordersetup.xml
 TextView;obj\Debug\90\res\layout\receiverlayout.xml
 TextView;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
+TextView;obj\Debug\90\res\layout\settingspopup.xml
 TextView;obj\Debug\90\res\layout\takeover2main.xml
 TextView;obj\Debug\90\res\layout\takeover2orders.xml
 TextView;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml

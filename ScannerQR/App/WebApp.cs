@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AppCenter.Crashes;
 
 namespace TrendNET.WMS.Device.App
 {
@@ -15,8 +16,8 @@ namespace TrendNET.WMS.Device.App
         public static bool Get (string rqURL, out string result) {
             try {
                 // var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
-                var rootURL = "http://wms.in-sist.si";
-                var url = rootURL + "/Services/Device/Echo.aspx";
+            
+                var url = Services.WebApp.rootURL + "/Services/Device/Echo.aspx";
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "GET";
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -32,6 +33,7 @@ namespace TrendNET.WMS.Device.App
                 result = Encoding.UTF8.GetString(ms.ToArray (), 0, (int) ms.Length);
                 return true;
             } catch (Exception ex) {
+                Crashes.TrackError(ex);
                 result = ex.Message;
                 return false;
             }

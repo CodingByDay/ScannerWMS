@@ -198,36 +198,57 @@ namespace ScannerQR
         private void Button4_Click(object sender, EventArgs e)
         {
             // new
+            if (CommonData.GetSetting("UseDirectTakeOver") == "1")
+            {
+                InUseObjects.Set("MoveHead", moveHead);
+                InUseObjects.Set("MoveItem", null);
+                StartActivity(typeof(TakeOver2Main));
+              
+                return;
+            } else
+
             StartActivity(typeof(TakeOverIdentEntry));
+      
         }
 
         private void BtUpdate_Click(object sender, EventArgs e)
         {
+
             var item = positions.Items[displayedPosition];
             InUseObjects.Set("MoveItem", item);
 
-            
+            if (CommonData.GetSetting("UseDirectTakeOver") == "1")
+            {
+                InUseObjects.Set("MoveHead", moveHead);
+                StartActivity(typeof(TakeOver2Main));
+               
+                return;
+            }
+
+      
             try
             {
-              
+                Toast.MakeText(this, "Nalagam ident...  ", ToastLength.Long).Show();
 
                 string error;
                 var openIdent = Services.GetObject("id", item.GetString("Ident"), out error);
                 if (openIdent == null)
                 {
-                    Toast.MakeText(this, "Napaka pri dostopu do web aplikacije: " + error, ToastLength.Long).Show();
+
+                    Toast.MakeText(this, "Napaka pri preverjanju identa.  " + error, ToastLength.Long).Show();
+  
                 }
                 else
                 {
                     item.SetString("Ident", openIdent.GetString("Code"));
                     InUseObjects.Set("OpenIdent", openIdent);
-                   StartActivity(typeof(TakeOverSerialOrSSCCEntry));
-                
+                    StartActivity(typeof(TakeOverSerialOrSSCCEntry));
+      
                 }
             }
             finally
             {
-               // used to be a wf form
+             //
             }
         }
 

@@ -66,10 +66,10 @@ namespace ScannerQR
             button5.Click += Button5_Click;
 
 
-            //if (moveItem == null)
-            //{
-            //    throw new ApplicationException("moveItem not known at this point!?");
-            //}
+            if (moveItem == null)
+            {
+                throw new ApplicationException("moveItem not known at this point!?");
+            }
 
             var ident = CommonData.LoadIdent(moveItem.GetString("Ident"));
             if (ident == null)

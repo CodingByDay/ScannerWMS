@@ -33,6 +33,7 @@
             android:layout_marginRight="51.5dp" />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -60,6 +61,7 @@
             android:layout_marginRight="61.0dp" />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -86,6 +88,7 @@
             android:layout_marginRight="67.0dp" />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -110,6 +113,7 @@
             android:layout_marginRight="86.5dp" />
 
         <EditText
+             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"

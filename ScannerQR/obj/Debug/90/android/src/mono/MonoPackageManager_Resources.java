@@ -4,6 +4,13 @@ public class MonoPackageManager_Resources {
 		/* We need to ensure that "ScannerQR.dll" comes first in this list. */
 		"ScannerQR.dll",
 		"DeviceAPI.dll",
+		"HtmlAgilityPack.dll",
+		"Microsoft.AppCenter.Analytics.Android.Bindings.dll",
+		"Microsoft.AppCenter.Analytics.dll",
+		"Microsoft.AppCenter.Android.Bindings.dll",
+		"Microsoft.AppCenter.Crashes.Android.Bindings.dll",
+		"Microsoft.AppCenter.Crashes.dll",
+		"Microsoft.AppCenter.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Core.Runtime.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",
