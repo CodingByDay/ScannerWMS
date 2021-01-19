@@ -19,6 +19,7 @@ Button;obj\Debug\90\res\layout\issuedgoodsidententry.xml
 Button;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 Button;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
 Button;obj\Debug\90\res\layout\mainmenu.xml
+Button;obj\Debug\90\res\layout\mainmenu1.xml
 Button;obj\Debug\90\res\layout\menu.xml
 Button;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 Button;obj\Debug\90\res\layout\packagingsetcontext.xml
@@ -52,7 +53,7 @@ Button;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 Button;obj\Debug\90\res\layout\yesnogeneric.xml
 Button;obj\Debug\90\res\layout\yesnopopup.xml
 Button;obj\Debug\90\res\layout\yesnoproductioncard.xml
-cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\90\res\values\colors.xml
 color;obj\Debug\90\res\values\ic_launcher_background.xml
 EditText;obj\Debug\90\res\layout\activity_main.xml
@@ -92,8 +93,8 @@ EditText;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
 EditText;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 EditText;obj\Debug\90\res\layout\unfinishedproductionview.xml
 EditText;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
-external-cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-external-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 HorizontalScrollView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
@@ -124,7 +125,9 @@ LinearLayout;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\listviewitem.xml
 LinearLayout;obj\Debug\90\res\layout\listviewtrail.xml
 LinearLayout;obj\Debug\90\res\layout\mainmenu.xml
+LinearLayout;obj\Debug\90\res\layout\mainmenu1.xml
 LinearLayout;obj\Debug\90\res\layout\menu.xml
+LinearLayout;obj\Debug\90\res\layout\newmenu.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 LinearLayout;obj\Debug\90\res\layout\packagingsetcontext.xml
 LinearLayout;obj\Debug\90\res\layout\packagingunit.xml
@@ -159,7 +162,7 @@ LinearLayout;obj\Debug\90\res\layout\yesnopopup.xml
 LinearLayout;obj\Debug\90\res\layout\yesnoproductioncard.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\productionpalette.xml
-paths;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+paths;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Debug\90\res\layout\activity_main.xml
 resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\2\jl\res\values\strings.xml
 resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\5\jl\res\values\strings.xml
@@ -199,6 +202,7 @@ TextView;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
 TextView;obj\Debug\90\res\layout\listviewitem.xml
 TextView;obj\Debug\90\res\layout\listviewtrail.xml
 TextView;obj\Debug\90\res\layout\mainmenu.xml
+TextView;obj\Debug\90\res\layout\mainmenu1.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 TextView;obj\Debug\90\res\layout\packagingsetcontext.xml
 TextView;obj\Debug\90\res\layout\packagingunit.xml

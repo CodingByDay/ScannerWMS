@@ -10,12 +10,12 @@ using System.Net;
 using System;
 using Android.Util;
 using Android.Content;
-using HtmlAgilityPack;
+using Plugin.Settings.Abstractions;
 using System.Linq;
 
 
 
-// Crashes analyticss and automatic updating.
+// Crashes, analytics and automatic updating.
 
 
 
@@ -38,6 +38,7 @@ namespace ScannerQR
         private EditText rootURL;
         private EditText ID;
         private ImageView img;
+        private TextView deviceURL;
         // These are methods for updating the app.
 
         //public string TAG { get; private set; }
@@ -205,13 +206,14 @@ namespace ScannerQR
             SetContentView(Resource.Layout.activity_main);
             progressBar1 = FindViewById<ProgressBar>(Resource.Id.progressBar1);
             
+
             // Registering first event..
             Button btnRegistrationEvent = FindViewById<Button>(Resource.Id.btnRegistration);
             img = FindViewById<ImageView>(Resource.Id.img);
             img.Click += Img_Click;
             btnRegistrationEvent.Click += BtnRegistrationEvent_Click;
-
-
+            deviceURL = FindViewById<TextView>(Resource.Id.deviceURL);
+            deviceURL.Text = new String("URL strežnika: " + App.settings.RootURL);/* 19.01.2021 */
 
 
         }
@@ -225,18 +227,22 @@ namespace ScannerQR
             popupDialog.Show();
 
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloGreenDark);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.DarkerGray);
 
             // Access Popup layout fields like below
             ok = popupDialog.FindViewById<Button>(Resource.Id.ok);
             rootURL = popupDialog.FindViewById<EditText>(Resource.Id.rootURL);
             ID = popupDialog.FindViewById<EditText>(Resource.Id.ID);
+       
             ok.Click += Ok_Click;
         }
         /**"http://wms.in-sist.si"*/
         private void Ok_Click(object sender, EventArgs e)
         {
-            WebApp.rootURL = rootURL.Text;
+            App.settings.RootURL = rootURL.Text;
+            App.settings.ID = ID.Text;
+           
+            deviceURL.Text = App.settings.RootURL;
             popupDialog.Dismiss();
             popupDialog.Hide();
 

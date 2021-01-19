@@ -5,7 +5,7 @@ using System.Net;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.AppCenter.Crashes;
-
+using ScannerQR.App;
 namespace TrendNET.WMS.Device.App
 {
     public class WebApp
@@ -17,7 +17,7 @@ namespace TrendNET.WMS.Device.App
             try {
                 // var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
             
-                var url = Services.WebApp.rootURL + "/Services/Device/Echo.aspx";
+                var url = settings.RootURL + "/Services/Device/Echo.aspx"; /* Settings library */
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "GET";
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();

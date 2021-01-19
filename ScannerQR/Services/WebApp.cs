@@ -5,10 +5,10 @@ using System.Net;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
-
+ 
 
 using TrendNET.WMS.Device.App;
-
+using ScannerQR.App;
 
 namespace TrendNET.WMS.Device.Services
 {
@@ -18,7 +18,7 @@ namespace TrendNET.WMS.Device.Services
 
         private static DateTime skipPingsUntil = DateTime.MinValue;
         private static object pingLock = new object();
-        public static string rootURL = "http://wms.in-sist.si";
+        
         public static void WaitForPing()
         {
             lock (pingLock)
@@ -64,7 +64,7 @@ namespace TrendNET.WMS.Device.Services
 
                     //var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost
                  
-                    throw new ApplicationException("Dlančnik ima težave z vzpostavitvijo povezave do strežnika (" + rootURL + ")! Napaka: " + result);
+                    throw new ApplicationException("Dlančnik ima težave z vzpostavitvijo povezave do strežnika (" + settings.RootURL + ")! Napaka: " + result);
                 }
                 finally
                 {
@@ -157,7 +157,7 @@ namespace TrendNET.WMS.Device.Services
                 }
                 finally
                 {
-                    Log.Write(new LogEntry("END REQUEST: [Device/PostAzure] '" + url + "';" + (DateTime.Now - startedAt).TotalMilliseconds.ToString()));
+                    Log.Write(new LogEntry("END REQUEST: [Device/PostAzure] '" + url + "';" + (DateTime.Now - startedAt).TotalMilliseconds.ToString())); /* post to App centar */
                 }
             }
             catch (Exception ex)
@@ -176,7 +176,7 @@ namespace TrendNET.WMS.Device.Services
               
                 //var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
                 var device = WMSDeviceConfig.GetString("ID", "");
-                var url = RandomizeURL (rootURL + "/Services/Device/?" + rqURL + "&device=" + device);
+                var url = RandomizeURL (settings.RootURL + "/Services/Device/?" + rqURL + "&device=" + device);
                 var startedAt = DateTime.Now;
                 try
                 {
@@ -263,7 +263,7 @@ namespace TrendNET.WMS.Device.Services
                 // var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
                
                 var device = WMSDeviceConfig.GetString("ID", "");
-                var url = RandomizeURL(rootURL + "/Services/Device/?" + rqURL + "&device=" + device);
+                var url = RandomizeURL(settings.RootURL + "/Services/Device/?" + rqURL + "&device=" + device);
                 var startedAt = DateTime.Now;
                 try
                 {
@@ -311,7 +311,7 @@ namespace TrendNET.WMS.Device.Services
                 //var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
               
                 var device = WMSDeviceConfig.GetString("ID", "");
-                var url = RandomizeURL (rootURL + "/Services/Device/?mode=ping&device=" + device);
+                var url = RandomizeURL (settings.RootURL + "/Services/Device/?mode=ping&device=" + device);
                 var startedAt = DateTime.Now;
                 try
                 {

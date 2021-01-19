@@ -36,7 +36,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
@@ -54,13 +54,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
-    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DeviceAPI">
@@ -90,6 +91,7 @@
     <Compile Include="App\NameValueObject.cs" />
     <Compile Include="App\NameValueObjectList.cs" />
     <Compile Include="App\Scanner.cs" />
+    <Compile Include="App\settings.cs" />
     <Compile Include="App\Trail.cs" />
     <Compile Include="App\WebApp.cs" />
     <Compile Include="App\WindowDispatcher.cs" />
@@ -180,14 +182,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack">
-      <Version>1.11.29</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>4.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>4.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Settings">
+      <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
@@ -198,10 +200,10 @@
     <PackageReference Include="Xamarin.Android.Support.v7.CardView">
       <Version>28.0.0.3</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\MainMenu.xml">
+    <AndroidResource Include="Resources\layout\MainMenu1.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -246,16 +248,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\trendnet.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxhdpi\trendnet.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\trendnet.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\trendnet.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-hdpi\trendnet.png" />
@@ -309,24 +302,9 @@
     <AndroidResource Include="Resources\mipmap-hdpi\icon2.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\icon3.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\icon4.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\icon5.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\icon6.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\icon7.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\icon8.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\icon9.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\icon1.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\icon2.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\icon3.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\icon4.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon5.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon6.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon7.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon8.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\icon9.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon1.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon2.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon3.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon4.png" />
     <AndroidResource Include="Resources\drawable\icon7.png" />
     <AndroidResource Include="Resources\drawable\icon8.png" />
     <AndroidResource Include="Resources\drawable\icon9.png" />
@@ -415,10 +393,7 @@
     <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\android.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\android.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\android.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\android.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\android.png" />
@@ -466,6 +441,25 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\settings.png" />
+    <AndroidResource Include="Resources\layout\MainMenu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\factory.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\factory.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\factory.png" />
+    <AndroidResource Include="Resources\layout\newmenu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\inventory.png" />
+    <AndroidResource Include="Resources\drawable\location.png" />
+    <AndroidResource Include="Resources\drawable\logout.png" />
+    <AndroidResource Include="Resources\drawable\packaging.png" />
+    <AndroidResource Include="Resources\drawable\printer.png" />
+    <AndroidResource Include="Resources\drawable\shipped.png" />
+    <AndroidResource Include="Resources\drawable\supplier.png" />
+    <AndroidResource Include="Resources\drawable\takeover.png" />
+    <AndroidResource Include="Resources\drawable\warehouse.png" />
+    <AndroidResource Include="Resources\drawable\factory.png" />
     <Content Include="WMS.config.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

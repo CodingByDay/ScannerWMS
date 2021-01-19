@@ -23,7 +23,7 @@
         android:textStyle="bold|italic" />
     <TextView
         android:layout_width="121.5dp"
-        android:layout_height="65.0dp"
+        android:layout_height="41.5dp"
         android:layout_gravity="center"
         android:paddingLeft="10px"
         android:paddingTop="5px"
@@ -92,7 +92,7 @@
         <Button
             android:text="Ok."
             android:layout_width="381.5dp"
-            android:layout_height="match_parent"
+            android:layout_height="67.0dp"
             android:id="@+id/ok" />
 
        
