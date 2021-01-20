@@ -7,10 +7,9 @@
     android:background="@android:color/background_light">
     <TextView
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
+        android:layout_width="198.0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-        android:layout_marginTop="31.5dp" />
+        android:id="@+id/deviceURL" />
     <ImageView
         android:src="@drawable/barcode"
         android:layout_width="match_parent"
@@ -62,12 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView4" />
-    <TextView
-        android:text="URL"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="198.0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/deviceURL" />
+   
     <ProgressBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

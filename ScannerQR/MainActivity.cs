@@ -33,7 +33,6 @@ namespace ScannerQR
         public static bool isValid;
         private EditText Password;
         public static ProgressBar progressBar1;
-        private Button settings;
         private Button ok;
         private EditText rootURL;
         private EditText ID;
@@ -213,7 +212,7 @@ namespace ScannerQR
             img.Click += Img_Click;
             btnRegistrationEvent.Click += BtnRegistrationEvent_Click;
             deviceURL = FindViewById<TextView>(Resource.Id.deviceURL);
-            deviceURL.Text = new String("URL strežnika: " + App.settings.RootURL);/* 19.01.2021 */
+            deviceURL.Text = new String(App.settings.RootURL);/* 19.01.2021 */
 
 
         }

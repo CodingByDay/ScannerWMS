@@ -26,9 +26,9 @@ namespace ScannerQR
         private EditText tbItems;
         private EditText tbCreatedBy;
         private EditText tbCreatedAt;
-
+        private ProgressBar progres;
         private Button btNext;
-        private Button btConfirm;
+        private Button target;
         private Button button3;
         private int displayedPosition = 0;
 
@@ -49,13 +49,15 @@ namespace ScannerQR
             tbItems = FindViewById<EditText>(Resource.Id.tbItems);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
-
+            target = FindViewById<Button>(Resource.Id.target);
+            target.Click += Target_Click;
             btNext = FindViewById<Button>(Resource.Id.btNext);
-            btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
+            progres = FindViewById<ProgressBar>(Resource.Id.progres);
+            progres.Visibility = ViewStates.Invisible;
             button3 = FindViewById<Button>(Resource.Id.button3);
 
             btNext.Click += BtNext_Click;
-            btConfirm.Click += BtConfirm_Click;
+            target.Click += Target_Click;
             button3.Click += Button3_Click;
 
             InUseObjects.Clear();
@@ -63,10 +65,52 @@ namespace ScannerQR
             LoadPositions();
 
         }
+       
+
+        private void Target_Click(object sender, EventArgs e)
+        {
+            progres.Visibility = ViewStates.Visible;
+            
+            var moveHead = positions.Items[displayedPosition];
+
+            try
+            {
+               
+                var headID = moveHead.GetInt("HeadID");
+
+                string result;
+                if (WebApp.Get("mode=finish&id=" + headID.ToString(), out result))
+                {
+                    if (result.StartsWith("OK!"))
+                    {
+                        var id = result.Split('+')[1];
+                        Toast.MakeText(this, "Potrjevanje uspešno! Št. potrditve: " + id, ToastLength.Long).Show();
+               
+                        StartActivity(typeof(InventoryConfirm));
+                   
+                    }
+                    else
+                    {
+                        Toast.MakeText(this, "Napaka pri potrjevanju: " + result, ToastLength.Long).Show();
+
+                    }
+                }
+                else
+                {
+                    Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
+
+                }
+            }
+            finally
+            {
+                progres.Visibility = ViewStates.Invisible;
+            }
+    
+        }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
 
@@ -84,9 +128,9 @@ namespace ScannerQR
                 // return true;
 
                 case Keycode.F3:
-                    if (btConfirm.Enabled == true)
+                    if (target.Enabled == true)
                     {
-                        BtConfirm_Click(this, null);
+                        Target_Click(this, null);
                     }
                     break;
 
@@ -98,35 +142,7 @@ namespace ScannerQR
             return base.OnKeyDown(keyCode, e);
         }
       
-        private void BtConfirm_Click(object sender, EventArgs e)
-        {
-
-            var moveHead = positions.Items[displayedPosition];
-            var headID = moveHead.GetInt("HeadID");
-
-            string result;
-            if (WebApp.Get("mode=finish&id=" + headID.ToString(), out result))
-            {
-                if (result.StartsWith("OK!"))
-                {
-                    var id = result.Split('+')[1];
-                    Toast.MakeText(this, "Potrjevanje uspešno! Št. potrditve: " + id, ToastLength.Long).Show();
-  
-                   StartActivity(typeof(InventoryConfirm));
-                  
-                }
-                else
-                {
-                    Toast.MakeText(this, "Napaka pri potrjevanju: " + result, ToastLength.Long).Show();
-
-                }
-            }
-            else
-            {
-                Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
-
-            }
-        }
+    
 
         private void BtNext_Click(object sender, EventArgs e)
         {
@@ -184,7 +200,7 @@ namespace ScannerQR
                 tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
 
                 btNext.Enabled = true;
-                btConfirm.Enabled = true;
+                target.Enabled = true;
 
                 tbWarehouse.Enabled = false;
                 tbTitle.Enabled = false;
@@ -213,7 +229,7 @@ namespace ScannerQR
                 tbCreatedAt.Text = "";
 
                 btNext.Enabled = false;
-                btConfirm.Enabled = false;
+                target.Enabled = false;
 
 
                 tbWarehouse.Enabled = false;
