@@ -57,7 +57,7 @@ namespace ScannerQR
             button3 = FindViewById<Button>(Resource.Id.button3);
 
             btNext.Click += BtNext_Click;
-            target.Click += Target_Click;
+          
             button3.Click += Button3_Click;
 
             InUseObjects.Clear();
@@ -86,7 +86,7 @@ namespace ScannerQR
                         var id = result.Split('+')[1];
                         Toast.MakeText(this, "Potrjevanje uspešno! Št. potrditve: " + id, ToastLength.Long).Show();
                
-                        StartActivity(typeof(InventoryConfirm));
+                        StartActivity(typeof(MainMenu));
                    
                     }
                     else
