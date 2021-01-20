@@ -1,3 +1,10 @@
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\build.props
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\adb.props
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csprojAssemblyReference.cache
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res.flag
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\ScannerQR.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\ScannerQR.pdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\com.companyname.scannerqr.apk
@@ -8,13 +15,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\com.companyname.scan
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.pdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll.mdb
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\build.props
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\adb.props
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csprojAssemblyReference.cache
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res.flag
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.cs.flag
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csproj.CoreCompileInputs.cache
@@ -168,6 +168,13 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\supp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\takeover.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\warehouse.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\factory.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\repeat.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\note.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\open.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\focus.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\confirmation.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\delete.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\newitem.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\uploadflags.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\resolvedassemblies.hash
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\assets\DeviceAPI.dll
@@ -447,3 +454,7 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_ConvertRes
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\inventorymenu1.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\printingmenu1.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\nicelookingbutton.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\common.xml

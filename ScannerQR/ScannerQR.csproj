@@ -338,7 +338,7 @@
     <AndroidResource Include="Resources\layout\InventoryConfirm.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\InventoryMenu.xml">
+    <AndroidResource Include="Resources\layout\InventoryMenu1.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\InventoryOpen.xml">
@@ -356,7 +356,7 @@
     <AndroidResource Include="Resources\layout\PrintingInputControl.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\PrintingMenu.xml">
+    <AndroidResource Include="Resources\layout\PrintingMenu1.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\PrintingOutputControl.xml">
@@ -460,6 +460,23 @@
     <AndroidResource Include="Resources\drawable\takeover.png" />
     <AndroidResource Include="Resources\drawable\warehouse.png" />
     <AndroidResource Include="Resources\drawable\factory.png" />
+    <AndroidResource Include="Resources\drawable\repeat.png" />
+    <AndroidResource Include="Resources\drawable\note.png" />
+    <AndroidResource Include="Resources\drawable\open.png" />
+    <AndroidResource Include="Resources\drawable\focus.png" />
+    <AndroidResource Include="Resources\drawable\confirmation.png" />
+    <AndroidResource Include="Resources\drawable\delete.png" />
+    <AndroidResource Include="Resources\drawable\newItem.png" />
+    <AndroidResource Include="Resources\layout\InventoryMenu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PrintingMenu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\nicelookingbutton.xml" />
+    <AndroidResource Include="Resources\layout\common.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="WMS.config.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

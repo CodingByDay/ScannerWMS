@@ -75,7 +75,7 @@ namespace ScannerQR
 
             try
             {
-               
+
                 var headID = moveHead.GetInt("HeadID");
 
                 string result;
@@ -85,9 +85,9 @@ namespace ScannerQR
                     {
                         var id = result.Split('+')[1];
                         Toast.MakeText(this, "Potrjevanje uspešno! Št. potrditve: " + id, ToastLength.Long).Show();
-               
+
                         StartActivity(typeof(MainMenu));
-                   
+
                     }
                     else
                     {
@@ -105,7 +105,7 @@ namespace ScannerQR
             {
                 progres.Visibility = ViewStates.Invisible;
             }
-    
+
         }
 
         private void Button3_Click(object sender, EventArgs e)

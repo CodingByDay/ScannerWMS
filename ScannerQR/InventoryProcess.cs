@@ -70,7 +70,7 @@ namespace ScannerQR
             btDelete.Click += BtDelete_Click;
             button2.Click += Button2_Click;
             tbIdent.FocusChange += TbIdent_FocusChange;
-            tbSSCC.FocusChange += TbSSCC_FocusChange;
+           
             tbUnits.FocusChange += TbUnits_FocusChange;
             tbIdent.KeyPress += TbIdent_KeyPress;
          
@@ -79,7 +79,7 @@ namespace ScannerQR
 
             barcode2D.open(this, this);
 
-            cbWarehouse.RequestFocus();
+          
             var warehouses = CommonData.ListWarehouses();
             if (warehouses != null)
             {
@@ -128,10 +128,7 @@ namespace ScannerQR
             ProcessStock();
         }
 
-        private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)
-        {
-            ProcessIdent();
-        }
+       
 
         private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
@@ -140,7 +137,7 @@ namespace ScannerQR
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtDelete_Click(object sender, EventArgs e)

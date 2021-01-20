@@ -9,7 +9,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="198.0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/deviceURL" />
+        android:id="@+id/deviceURL"
+        android:layout_gravity="center" />
     <ImageView
         android:src="@drawable/barcode"
         android:layout_width="match_parent"

@@ -1,38 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button
-        android:text="Ponovno tiskanje etiket - F2"
-        android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+  
+    android:padding="16dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="65.0dp"
+        android:layout_gravity="center"
+        android:paddingLeft="10px"
+        android:paddingTop="5px"
+        android:text="Meni tiskanja"
+        android:layout_marginTop="0.0dp"
+        android:textStyle="bold|italic"
+        android:textSize="20px" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button1" />
-    <Button
-        android:text="Tiskanje SSCC kod - F3"
-        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:bottomLeftRadius="7dp"
+            android:bottomRightRadius="7dp"
+            android:topLeftRadius="7dp"
+            android:topRightRadius="7dp"
+            android:layout_width="165.0dp"
+            android:layout_height="74.0dp"
+            android:background="@android:color/holo_green_dark"
+            android:paddingBottom="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="20dp"
+            android:paddingTop="8dp"
+            android:drawableLeft="@drawable/repeat"
+            android:text="ponovno tiskanje -f2"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"
+            android:id="@+id/button1" />
+
+        <Button
+            android:bottomLeftRadius="7dp"
+            android:bottomRightRadius="7dp"
+            android:topLeftRadius="7dp"
+            android:topRightRadius="7dp"
+            android:layout_width="157.0dp"
+            android:layout_height="72.0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/holo_blue_light"
+            android:drawableLeft="@drawable/note"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="20dp"
+            android:paddingTop="8dp"
+            android:text="printanje SSCC kod"
+            android:textColor="#000000"
+            android:id="@+id/button2" />
+
+        
+
+
+    </LinearLayout>
+
+
+       <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button2" />
-    <Button
-        android:text="Tiskanje dok. vhodne kont. - F4"
-        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:bottomLeftRadius="7dp"
+            android:bottomRightRadius="7dp"
+            android:topLeftRadius="7dp"
+            android:topRightRadius="7dp"
+            android:layout_width="161.0dp"
+            android:layout_height="69.0dp"
+            android:background="@android:color/holo_orange_light"
+            android:drawableLeft="@drawable/warehouse"
+            android:paddingBottom="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="20dp"
+            android:paddingTop="8dp"
+            android:text="Vhodna kontrola-f4"
+            android:layout_marginBottom="0.0dp"
+            android:textColor="#000000"
+            android:id="@+id/button3"
+            android:layout_marginTop="0.0dp" />
+
+        <Button
+            android:bottomLeftRadius="7dp"
+            android:bottomRightRadius="7dp"
+            android:topLeftRadius="7dp"
+            android:topRightRadius="7dp"
+            android:layout_width="157.0dp"
+            android:layout_height="72.0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#ffac9996"
+            android:drawableLeft="@drawable/factory"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="20dp"
+            android:paddingTop="8dp"
+            android:text="procesna kontrola-f5"
+            android:textColor="#000000"
+            android:id="@+id/button4" />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button3" />
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:bottomLeftRadius="7dp"
+            android:bottomRightRadius="7dp"
+            android:topLeftRadius="7dp"
+            android:topRightRadius="7dp"
+            android:layout_width="165.0dp"
+            android:layout_height="74.0dp"
+            android:background="@android:color/holo_blue_dark"
+            android:drawableLeft="@drawable/packaging"
+            android:paddingBottom="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="20dp"
+            android:paddingTop="8dp"
+            android:text="končna kontrola-f6"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"
+            android:id="@+id/button5" />
+
+
+
+
+    </LinearLayout>
+
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="115.0dp"
+        android:layout_gravity="center"
+        android:paddingLeft="10px"
+        android:paddingTop="5px"
+        android:layout_marginTop="0.0dp"
+        android:textStyle="bold|italic"
+        android:textSize="20px" />
     <Button
-        android:text="Tiskanje dok. procesne kont. - F5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button4" />
-    <Button
-        android:text="Tiskanje dok. končne kont. - F6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button5" />
-    <Button
-        android:text="Izhod - F9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button6" />
+        android:bottomLeftRadius="7dp"
+        android:bottomRightRadius="7dp"
+        android:topLeftRadius="7dp"
+        android:topRightRadius="7dp"
+        android:text="Odjava "
+        android:layout_width="338.5dp"
+        android:layout_height="67.0dp"
+        android:id="@+id/button6"
+        android:layout_marginLeft="4.0dp"
+        android:drawableLeft="@drawable/logout"
+        android:layout_marginRight="0.0dp"
+        android:background="#ff006064" />
 
 </LinearLayout>

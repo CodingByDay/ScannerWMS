@@ -17,6 +17,7 @@ namespace ScannerQR
     [Activity(Label = "MainMenu")]
     public class MainMenu : Activity
     {
+        private TextView datetime;
 
 
 
@@ -65,7 +66,8 @@ namespace ScannerQR
             // logout-------------Close();
             Button btnLogout = FindViewById<Button>(Resource.Id.logout);
             btnLogout.Click += BtnLogout_Click;
-
+            datetime = FindViewById<TextView>(Resource.Id.dateTime);
+            datetime.Text = DateTime.Today.ToLongDateString();
 
             // Permisions.
             //buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");

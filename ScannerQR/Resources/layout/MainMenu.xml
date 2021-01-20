@@ -225,5 +225,13 @@
         android:drawableLeft="@drawable/logout"
         android:layout_marginRight="0.0dp"
         android:background="#ff006064" />
+   
+    <TextView
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="160.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/dateTime"
+        android:layout_gravity="center" />
 
 </LinearLayout>
