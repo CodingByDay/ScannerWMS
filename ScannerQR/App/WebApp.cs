@@ -33,8 +33,10 @@ namespace TrendNET.WMS.Device.App
                 result = Encoding.UTF8.GetString(ms.ToArray (), 0, (int) ms.Length);
                 return true;
             } catch (Exception ex) {
-                Crashes.TrackError(ex);
+               
+
                 result = ex.Message;
+                Crashes.TrackError(ex);
                 return false;
             }
         }
