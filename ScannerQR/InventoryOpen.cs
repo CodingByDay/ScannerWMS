@@ -60,9 +60,6 @@ namespace ScannerQR
             btOpen.Click += BtOpen_Click;
             dtInventory.Text = DateTime.Today.ToShortDateString();
 
-
-
-
             var warehouses = CommonData.ListWarehouses();
             if (warehouses != null)
             {
@@ -73,6 +70,8 @@ namespace ScannerQR
             }
             var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
              Android.Resource.Layout.SimpleSpinnerItem, warehousesObjectsAdapter);
+
+
             ///* 22.12.2020---------------------------------------------------------------
             ///* Documentation for the spinner objects add method with an adapter...
             ///*---------------------------------------------------
@@ -136,6 +135,7 @@ namespace ScannerQR
                 }
             }
         }
+
         private void ClearFields()
         {
             tbItems.Text = "";
@@ -144,12 +144,14 @@ namespace ScannerQR
             btOpen.Enabled = false;
         }
 
+
         private void ClearFieldsError(string err)
         {
             ClearFields();
             lastError = err;
             return;
         }
+
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -176,7 +178,7 @@ namespace ScannerQR
         }
         private void BtLogout_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtOpen_Click(object sender, EventArgs e)

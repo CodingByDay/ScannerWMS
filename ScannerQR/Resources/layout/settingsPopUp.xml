@@ -90,6 +90,7 @@
         android:paddingTop="5px">
 
         <Button
+            android:background="@drawable/nicelookingbutton"
             android:text="Ok."
             android:layout_width="381.5dp"
             android:layout_height="67.0dp"

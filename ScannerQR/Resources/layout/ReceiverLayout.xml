@@ -23,12 +23,14 @@
             android:layout_height="match_parent"
             android:id="@+id/linearLayout2">
             <Button
+                android:background="@drawable/nicelookingbutton"
                 android:text="Skeniraj"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/button1"
                 android:layout_weight="1" />
             <Button
+                android:background="@drawable/nicelookingbutton"
                 android:text="Vredu"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

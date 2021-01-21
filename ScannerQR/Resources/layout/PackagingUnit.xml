@@ -191,21 +191,25 @@
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Nova pozicija - F2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btNew" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Pregled vnešenih pozicij - F3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btList" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Zaključi pakiranje - F4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btFinish" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

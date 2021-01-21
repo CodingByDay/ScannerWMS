@@ -185,26 +185,31 @@
     </LinearLayout>
 
     <Button
+         android:background="@drawable/nicelookingbutton"
         android:text="Vnesi serijsko št. - F2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btSaveOrUpdate" />
     <Button
+         android:background="@drawable/nicelookingbutton"
         android:text="Pregled vnesenih pozicij - F3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button4" />
     <Button
+         android:background="@drawable/nicelookingbutton"
         android:text="Zaključi prevzem - F4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button6" />
     <Button
+         android:background="@drawable/nicelookingbutton"
         android:text="Pregled vnesenih pozicij - F5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button5" />
     <Button
+         android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

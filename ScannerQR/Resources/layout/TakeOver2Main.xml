@@ -99,26 +99,31 @@
 
     </LinearLayout>
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Naročila kupcev-f2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button1" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Potrdi-f3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button2" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="SS Etiketa-f4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button3" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Pregled unešenih pozicij-f5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button4" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="izhod-f9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

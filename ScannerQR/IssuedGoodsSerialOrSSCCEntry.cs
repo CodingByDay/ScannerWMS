@@ -21,21 +21,7 @@ namespace ScannerQR
     [Activity(Label = "IssuedGoodsSerialOrSSCCEntry")]
     public class IssuedGoodsSerialOrSSCCEntry : Activity, IBarcodeResult
     {
-        //        tbIdent
-        //tbSSCC
-        //tbSerialNum
-        //tbLocation
-        //tbPacking
-        //tbUnits
-        //tbPalette
-
-        //button1
-
-        //btSaveOrUpdate
-        //button4
-        //button6
-        //button5
-        //button7
+      
         private EditText tbIdent;
         private EditText tbSSCC;
         private EditText tbSerialNum;
@@ -157,16 +143,11 @@ namespace ScannerQR
 
         }
 
-
-
             private void InvalidateAndClose()
             {
                 InUseObjects.Invalidate("ExtraData");
             
             }
-
-
-
 
         private void Button6_Click(object sender, EventArgs e)
         {
@@ -288,9 +269,7 @@ namespace ScannerQR
             }
             else
             {
-                //new Scanner(tbSSCC);
-                //new Scanner(tbSerialNum);
-                //new Scanner(tbLocation);
+                /**{Nothing}*/
         
             }
 
@@ -582,9 +561,7 @@ namespace ScannerQR
 
         public void GetBarcode(string barcode)
         {
-            //if (tbSSCC.Focused) { readSSCC(data); }
-            //else if (tbSerialNum.Focused) { readSerialNum(data); }
-            //else if (tbLocation.Focused) { readLocation(data); }
+     
 
             if(tbSSCC.HasFocus)
             {

@@ -29,7 +29,6 @@ namespace ScannerQR
         private EditText tbConsignee;
         private EditText tbDeliveryDeadline;
         private EditText tbQty;
-
         private Button btNext;
         private Button btConfirm;
         private Button button4;
@@ -77,7 +76,7 @@ namespace ScannerQR
                 openIdent = Services.GetObject("id", ident, out error);
                 if (openIdent == null)
                 {
-                    //MessageForm.Show("Napaka pri preverjanju ident-a: " + error);
+                   
 
                     string SuccessMessage = string.Format("Napaka pri preverjanju identa." + error);
                     Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
@@ -265,7 +264,7 @@ namespace ScannerQR
         private void Button5_Click(object sender, EventArgs e)
         {
             //logout
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
              
     }
 
@@ -304,22 +303,34 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F2:
-                    BtNext_Click(this, null);
+                    if (btNext.Enabled == true)
+                    {
+                        BtNext_Click(this, null);
+                    }
                     break;
                 //return true;
 
 
                 case Keycode.F3:
-                    BtConfirm_Click(this, null);
+                    if (btConfirm.Enabled == true)
+                    {
+                        BtConfirm_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F4:
-                    Button4_Click(this, null);
+                    if (button4.Enabled == true)
+                    {
+                        Button4_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F9:
-                    Button5_Click(this, null);
+                    if (button5.Enabled == true)
+                    {
+                        Button5_Click(this, null);
+                    }
                     break;
 
             }

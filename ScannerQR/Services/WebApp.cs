@@ -9,6 +9,7 @@ using System.Threading;
 
 using TrendNET.WMS.Device.App;
 using ScannerQR.App;
+using Microsoft.AppCenter.Crashes;
 
 namespace TrendNET.WMS.Device.Services
 {
@@ -54,23 +55,23 @@ namespace TrendNET.WMS.Device.Services
                         }
                         else
                         {
-                            //if (wf == null)
+                       
                             {
-                            //    wf = new WaitForm();
-                                //wf.Start("Čakam na vzpostavitev povezave do strežnika...");
+                         
+                              
                             }
                         }
                     }
 
-                    //var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost
+                   
                  
                     throw new ApplicationException("Dlančnik ima težave z vzpostavitvijo povezave do strežnika (" + settings.RootURL + ")! Napaka: " + result);
                 }
                 finally
                 {
-                  //  if (wf != null)
+            
                     {
-                     //   wf.Stop();
+                   
                     }
                 }
             }
@@ -162,8 +163,9 @@ namespace TrendNET.WMS.Device.Services
             }
             catch (Exception ex)
             {
-                Services.ReportException(ex);
+               
                 result = ex.Message;
+                Crashes.TrackError(ex);
                 return false;
             }
         }
@@ -216,9 +218,11 @@ namespace TrendNET.WMS.Device.Services
             }
             catch (Exception ex)
             {
-                Services.ReportException(ex);
+              
                 result = ex.Message;
+                Crashes.TrackError(ex);
                 return false;
+
             }
         }
 
@@ -249,7 +253,7 @@ namespace TrendNET.WMS.Device.Services
             }
             finally
             {
-   //             Power.ExitUnattendedMode();
+   //            Power.ExitUnattendedMode();
             }
             result = threadResult;
             return success;
@@ -298,8 +302,9 @@ namespace TrendNET.WMS.Device.Services
             }
             catch (Exception ex)
             {
-                Services.ReportException(ex);
+              
                 result = ex.Message;
+                Crashes.TrackError(ex);
                 return false;
             }
         }
@@ -346,7 +351,9 @@ namespace TrendNET.WMS.Device.Services
             }
             catch (Exception ex)
             {
+            
                 result = ex.Message;
+                Crashes.TrackError(ex);
                 return false;
             }
         }
@@ -413,8 +420,9 @@ namespace TrendNET.WMS.Device.Services
             }
             catch (Exception ex)
             {
-                Services.ReportException(ex);
+               
                 result = ex.Message;
+                Crashes.TrackError(ex);
                 return false;
             }
         }

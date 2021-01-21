@@ -108,11 +108,13 @@
         android:id="@+id/lbStock" />
 
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Prikaži zalogo - F2"
         android:layout_width="match_parent"
         android:layout_height="54.5dp"
         android:id="@+id/btShowStock" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="51.5dp"

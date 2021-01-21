@@ -170,31 +170,37 @@
 
     </LinearLayout>
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Naslednja pozicija - F1"
         android:layout_width="match_parent"
         android:layout_height="43.0dp"
         android:id="@+id/btNext" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Popravi izbrano pozicijo - F2"
         android:layout_width="match_parent"
         android:layout_height="43.0dp"
         android:id="@+id/btUpdate" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Kreiraj novo pozicijo - F3"
         android:layout_width="match_parent"
         android:layout_height="41.0dp"
         android:id="@+id/button4" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Zaključi medskl. - F4"
         android:layout_width="match_parent"
         android:layout_height="37.5dp"
         android:id="@+id/btFinish" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Izbriši izbrano pozicijo - F5"
         android:layout_width="match_parent"
         android:layout_height="44.0dp"
         android:id="@+id/btDelete" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="39.5dp"

@@ -37,9 +37,6 @@ namespace ScannerQR
         private Button btnOrderMode;
         private Button btnLogout;
 
-
-
-
         private NameValueObjectList positions = null;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -69,7 +66,7 @@ namespace ScannerQR
             });
 
             var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
-         Android.Resource.Layout.SimpleSpinnerItem, objectWarehouse);
+            Android.Resource.Layout.SimpleSpinnerItem, objectWarehouse);
             ///* 22.12.2020---------------------------------------------------------------
             ///* Documentation for the spinner objects add method with an adapter...
             ///*---------------------------------------------------
@@ -82,7 +79,7 @@ namespace ScannerQR
             UpdateForm();
 
             var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
- Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
+            Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
             ///* 22.12.2020---------------------------------------------------------------
             ///* Documentation for the spinner objects add method with an adapter...
             ///*---------------------------------------------------
@@ -91,7 +88,7 @@ namespace ScannerQR
             cbExtra.Adapter = adapterExtra;
 
             var adapterDocType = new ArrayAdapter<ComboBoxItem>(this,
- Android.Resource.Layout.SimpleSpinnerItem, objectDocType);
+            Android.Resource.Layout.SimpleSpinnerItem, objectDocType);
             ///* 22.12.2020---------------------------------------------------------------
             ///* Documentation for the spinner objects add method with an adapter...
             ///*---------------------------------------------------
@@ -191,7 +188,6 @@ namespace ScannerQR
                 {
                     lbExtra.Visibility = ViewStates.Visible;
                     cbExtra.Visibility = ViewStates.Visible;
-                 //   cbExtra.Text = byClient;
                     lbExtra.Text = "Naročilo:";
                 }
                 else
@@ -255,7 +251,6 @@ namespace ScannerQR
                             return;
                         }
                     }
-
                     NameValueObject moveHead = new NameValueObject("MoveHead");
                     moveHead.SetString("DocumentType", itemDT.ID);
                     moveHead.SetString("Wharehouse", itemWH.ID);
@@ -265,7 +260,6 @@ namespace ScannerQR
                         moveHead.SetString("Receiver", itemSubj.ID);
                     }
                     InUseObjects.Set("MoveHead", moveHead);
-
                     NameValueObject order = null;
                     if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                     {
@@ -276,7 +270,6 @@ namespace ScannerQR
                             Toast.MakeText(this, toast, ToastLength.Long).Show();
                             return;
                         }
-
                         order = positions.Items.First(p => p.GetString("Key") == objectExtra.ElementAt(temporaryPositionExtra).ID);
                         InUseObjects.Set("OpenOrder", order);
                     }
@@ -286,10 +279,8 @@ namespace ScannerQR
                         StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
                     }
                     else
-                    {
-                    
-                        StartActivity(typeof(IssuedGoodsIdentEntry));
-                        
+                    {                    
+                        StartActivity(typeof(IssuedGoodsIdentEntry));                       
                     }
 
                

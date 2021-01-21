@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Microsoft.AppCenter.Analytics;
 using ScannerQR;
 using TrendNET.WMS.Device.Services;
 
@@ -130,7 +131,7 @@ namespace ScannerQR
         private void BtnLogout_Click(object sender, EventArgs e)
         {
 
-            System.Diagnostics.Process.GetCurrentProcess().Kill(); // start activity
+            this.Finish(); // start activity
         }
 
         private void BtnPackaging_Click(object sender, EventArgs e)
@@ -154,6 +155,7 @@ namespace ScannerQR
         {
             
             StartActivity(typeof(PrintingMenu));
+            Analytics.TrackEvent("Printing");
         }
 
         private void ButtonIssued_Click(object sender, EventArgs e)

@@ -227,6 +227,18 @@ namespace ScannerQR
 
                 btUpdate.Enabled = true;
                 btDelete.Enabled = true;
+
+                tbPackNum.Enabled = false;
+                tbSSCC.Enabled = false;
+                tbItemCount.Enabled = false;
+                tbCreatedBy.Enabled = false;
+
+
+
+                tbPackNum.SetTextColor(Android.Graphics.Color.Black);
+                tbSSCC.SetTextColor(Android.Graphics.Color.Black);
+                tbItemCount.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
             }
             else
             {
@@ -240,6 +252,19 @@ namespace ScannerQR
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;
                 btNext.Enabled = false;
+
+                tbPackNum.Enabled = false;
+                tbSSCC.Enabled = false;
+                tbItemCount.Enabled = false;
+                tbCreatedBy.Enabled = false;
+
+
+
+                tbPackNum.SetTextColor(Android.Graphics.Color.Black);
+                tbSSCC.SetTextColor(Android.Graphics.Color.Black);
+                tbItemCount.SetTextColor(Android.Graphics.Color.Black);
+                tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
+
             }
         }
 

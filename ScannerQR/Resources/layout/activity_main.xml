@@ -48,6 +48,7 @@
 
 
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Prijava"
         android:layout_width="145.5dp"
         android:layout_height="82.0dp"

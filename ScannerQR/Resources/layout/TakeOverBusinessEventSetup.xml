@@ -50,16 +50,19 @@
         android:layout_height="125.0dp"
         android:id="@+id/textView3" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Potrdi-f2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnOrder" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Brez naročila - F3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnOrderMode" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="izhod-f9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

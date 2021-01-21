@@ -21,9 +21,7 @@ namespace ScannerQR
 
 
     [Activity(Label = "IssuedGoodsIdentEntryWithTrail")]
-    public class IssuedGoodsIdentEntryWithTrail : Activity, IBarcodeResult
-
-   
+    public class IssuedGoodsIdentEntryWithTrail : Activity, IBarcodeResult 
     {
 
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
@@ -44,7 +42,7 @@ namespace ScannerQR
         SoundPool soundPool;
         int soundPoolId;
         private List <Trail> trails;
-        private int temporaryPositionSubject;
+
         public int selected;
 
 
@@ -370,7 +368,7 @@ namespace ScannerQR
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
         }
 
-        // trail controls first name the things from the design.
+      
 
     }
 }

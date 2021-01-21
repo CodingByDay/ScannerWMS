@@ -79,7 +79,7 @@ namespace TrendNET.WMS.Device.Services
         {
             if (obtainedLocks.Count > 0)
             {
-               // var wf = new WaitForm();
+             
                 try
                 {
                 //    wf.Start("Sproščam dostope");
@@ -90,7 +90,7 @@ namespace TrendNET.WMS.Device.Services
                 }
                 finally
                 {
-                  //  wf.Stop();
+                  
                 }
             }
         }
@@ -127,7 +127,7 @@ namespace TrendNET.WMS.Device.Services
             }
             finally
             {
-              //  wf.Stop();
+              
             }
         }
 
@@ -154,6 +154,7 @@ namespace TrendNET.WMS.Device.Services
                 catch (Exception ex)
                 {
                     error = "Napaka pri tolmačenju odziva web strežnika: " + ex.Message;
+                    Services.ReportException(ex);
                     return false;
                 }
             }
@@ -180,6 +181,7 @@ namespace TrendNET.WMS.Device.Services
                 catch (Exception ex)
                 {
                     error = "Napaka pri tolmačenju odziva web strežnika: " + ex.Message;
+                    
                     return null;
                 }
             }
@@ -206,6 +208,7 @@ namespace TrendNET.WMS.Device.Services
                 catch (Exception ex)
                 {
                     error = "Napaka pri tolmačenju odziva web strežnika: " + ex.Message;
+                    Services.ReportException(ex);
                     return null;
                 }
             }
@@ -235,6 +238,7 @@ namespace TrendNET.WMS.Device.Services
                 catch (Exception ex)
                 {
                     error = "Napaka pri tolmačenju odziva web strežnika: " + ex.Message;
+                    Services.ReportException(ex);
                     return null;
                 }
             }
@@ -251,6 +255,7 @@ namespace TrendNET.WMS.Device.Services
             while (ex.InnerException != null)
             {
                 ex = ex.InnerException;
+                Services.ReportException(ex);
                 data += " --- " + ex.ToString();
             }
 

@@ -174,7 +174,6 @@ namespace ScannerQR
                //
             }
         }
-
         private void Button1_Click(object sender, EventArgs e)
         {
             double packing, units, qty;
@@ -184,12 +183,8 @@ namespace ScannerQR
             string serNo;
             string sscc;
             if (!CheckData(out packing, out units, out qty, out warehouse, out location, out ident, out serNo, out sscc)) { return; }
-
-           
             try
             {
-      
-
                 string result;
                 if (WebApp.Get("mode=getInventoryHead&wh=" + warehouse.ID, out result))
                 {
@@ -272,9 +267,7 @@ namespace ScannerQR
             string ident;
             string serNo;
             string sscc;
-            if (!CheckData(out packing, out units, out qty, out warehouse, out location, out ident, out serNo, out sscc)) { return; }
-
-          
+            if (!CheckData(out packing, out units, out qty, out warehouse, out location, out ident, out serNo, out sscc)) { return; }       
             try
             {
              
@@ -336,8 +329,6 @@ namespace ScannerQR
             }
         }
 
-
-
         private void ClearData()
         {
             tbSSCC.Text = "";
@@ -346,8 +337,6 @@ namespace ScannerQR
             tbIdent.Text = "";
             tbTitle.Text = "";
         }
-
-
 
         private void ProcessStock()
         {
@@ -436,7 +425,6 @@ namespace ScannerQR
                 //
             }
         }
-
         public void GetBarcode(string barcode)
         {
             if (tbSSCC.HasFocus)
@@ -476,7 +464,6 @@ namespace ScannerQR
             tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Aqua);
                 
-
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -485,25 +472,30 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F2:
-                    BtPrint_Click(this, null);
+                    if (btPrint.Enabled == true)
+                    {
+                        BtPrint_Click(this, null);
+                    }
                     break;
-                //return true;
-
-
+                
                 case Keycode.F3:
-                    Button1_Click(this, null);
+                    if (button1.Enabled == true)
+                    {
+                        Button1_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F4:
-                    BtDelete_Click(this, null);
+                    if (btDelete.Enabled == true)
+                    {
+                        BtDelete_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F8:
                     Button2_Click(this, null);
                     break;
-
-            
 
             }
             return base.OnKeyDown(keyCode, e);
@@ -524,7 +516,6 @@ namespace ScannerQR
             if (warehouse == null)
             {
                 Toast.MakeText(this, "Skladišče ni izbrano!", ToastLength.Long).Show();
-
                 return false;
             }
 
@@ -532,15 +523,13 @@ namespace ScannerQR
             if (!CommonData.IsValidLocation(warehouse.ID, location))
             {
                 Toast.MakeText(this, "Lokacija '" + location + "' ni veljavna za skladišče '" + warehouse.ID + "'!", ToastLength.Long).Show();
-
                 return false;
             }
 
             sscc = tbSSCC.Text.Trim();
             if (tbSSCC.Enabled && string.IsNullOrEmpty(sscc))
             {
-                Toast.MakeText(this, "SSCC koda ni vpisana!", ToastLength.Long).Show();
-   
+                Toast.MakeText(this, "SSCC koda ni vpisana!", ToastLength.Long).Show();  
                 return false;
             }
 
@@ -548,7 +537,6 @@ namespace ScannerQR
             if (string.IsNullOrEmpty(ident))
             {
                 Toast.MakeText(this, "Ident ni vpisan!", ToastLength.Long).Show();
-
                 return false;
             }
 
@@ -556,7 +544,6 @@ namespace ScannerQR
             if (tbSerialNum.Enabled && string.IsNullOrEmpty(serNo))
             {
                 Toast.MakeText(this, "Serijska št. ni vpisana!", ToastLength.Long).Show();
-
                 return false;
             }
 
@@ -568,8 +555,7 @@ namespace ScannerQR
             }
             catch (Exception ex)
             {
-                Toast.MakeText(this, "Količina ni vpisana ali ni število: " + ex.Message, ToastLength.Long).Show();
-   
+                Toast.MakeText(this, "Količina ni vpisana ali ni število: " + ex.Message, ToastLength.Long).Show(); 
                 return false;
             }
 
@@ -580,7 +566,6 @@ namespace ScannerQR
             catch (Exception ex)
             {
                 Toast.MakeText(this, "Št. enot ni vpisano ali ni število: " + ex.Message, ToastLength.Long).Show();
-
                 return false;
             }
 
@@ -608,12 +593,10 @@ namespace ScannerQR
                 tbLocation.RequestFocus();
                 return;
             }
-
-            ClearData();
-         
+            ClearData();       
         }
 
-        private void Sound()
+        private void Sound() /*Sdk contains this method in one class. Probably alot of other possible functionality too. Good resource. */
         {
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
         }

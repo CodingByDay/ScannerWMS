@@ -189,16 +189,19 @@
 </HorizontalScrollView>
 
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Potrdi - F3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btConfirm" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Pregled unesenih pozicij - F4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btDisplayPositions" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

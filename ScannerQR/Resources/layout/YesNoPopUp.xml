@@ -39,12 +39,14 @@
         android:paddingTop="5px">
 
         <Button
+            android:background="@drawable/nicelookingbutton"
             android:text="Da"
             android:layout_width="167.5dp"
             android:layout_height="match_parent"
             android:id="@+id/btnYes" />
 
         <Button
+            android:background="@drawable/nicelookingbutton"
             android:text="Ne"
             android:layout_width="match_parent"
             android:layout_height="81.5dp"

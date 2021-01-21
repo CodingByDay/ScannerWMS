@@ -62,11 +62,13 @@
 
     </LinearLayout>
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Potrdi - F3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/confirm" />
     <Button
+        android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

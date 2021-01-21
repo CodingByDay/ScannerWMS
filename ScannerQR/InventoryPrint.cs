@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -19,11 +18,8 @@ namespace ScannerQR
     [Activity(Label = "InventoryPrint")]
     public class InventoryPrint : Activity, IBarcodeResult
     {
-
-
         private Spinner cbWarehouse;
         private EditText tbLocation;
-
         private Button btPrint;
         private Button button2;
         private List<ComboBoxItem> objectsAdapter = new List<ComboBoxItem>();
@@ -45,12 +41,12 @@ namespace ScannerQR
             SetContentView(Resource.Layout.InventoryPrint);
             cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
-
             btPrint = FindViewById<Button>(Resource.Id.btPrint);
             button2 = FindViewById<Button>(Resource.Id.button2);
             cbWarehouse.ItemSelected += CbWarehouse_ItemSelected;
             btPrint.Click += BtPrint_Click;
             button2.Click += Button2_Click;
+
             var warehouses = CommonData.ListWarehouses();
             warehouses.Items.ForEach(wh =>
             {
@@ -60,7 +56,7 @@ namespace ScannerQR
 
 
             var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
-        Android.Resource.Layout.SimpleSpinnerItem, objectsAdapter);
+            Android.Resource.Layout.SimpleSpinnerItem, objectsAdapter);
             ///* 22.12.2020---------------------------------------------------------------
             ///* Documentation for the spinner objects add method with an adapter...
             ///*---------------------------------------------------
@@ -108,8 +104,7 @@ namespace ScannerQR
 
             if (!CommonData.IsValidLocation(wh.ID, tbLocation.Text.Trim()))
             {
-                Toast.MakeText(this, "Lokacija '" + tbLocation.Text.Trim() + "' ni veljavna za skladišče '" + wh.ID + "'!", ToastLength.Long).Show();
- 
+                Toast.MakeText(this, "Lokacija '" + tbLocation.Text.Trim() + "' ni veljavna za skladišče '" + wh.ID + "'!", ToastLength.Long).Show(); 
                 return;
             }
 
@@ -135,7 +130,7 @@ namespace ScannerQR
         {
 
             Spinner spinner = (Spinner)sender;
-
+            /* */
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
             temporaryPositionWarehouse = e.Position;

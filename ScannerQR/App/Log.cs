@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+
 using System.Text;
 
 namespace TrendNET.WMS.Device.App {
@@ -113,6 +114,8 @@ namespace TrendNET.WMS.Device.App {
                 catch (Exception e)
                 {
                     Log.Write(new LogEntry("Log Dumper failed: " + e.ToString()));
+
+                  
                 }
             }
         }

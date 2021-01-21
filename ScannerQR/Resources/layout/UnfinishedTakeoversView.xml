@@ -177,33 +177,38 @@
         android:text="Naslednji prevzem - F1"
         android:layout_width="match_parent"
         android:layout_height="45.0dp"
+        android:background="@drawable/nicelookingbutton"
         android:id="@+id/btNext" />
     <Button
-        android:background="@android:drawable/divider_horizontal_bright"
+      
         android:text="Zaključi/popravi izb. prevzem - F2"
         android:layout_width="match_parent"
         android:layout_height="38.0dp"
+         android:background="@drawable/nicelookingbutton"
         android:id="@+id/btFinish" />
     <Button
-        android:background="@android:drawable/divider_horizontal_bright"
+      
         android:text="Izbriši izbran prevzem - F3"
         android:layout_width="match_parent"
         android:layout_height="41.0dp"
         android:id="@+id/btDelete"
         android:layout_marginBottom="7.0dp"
+         android:background="@drawable/nicelookingbutton"
         android:layout_marginTop="5.5dp" />
     <Button
-        android:background="@android:drawable/divider_horizontal_bright"
+   
         android:text="Kreiraj nov prevzem - F4"
         android:layout_width="match_parent"
         android:layout_height="36.5dp"
         android:id="@+id/btnew"
+         android:background="@drawable/nicelookingbutton"
         android:layout_marginBottom="1.0dp" />
     <Button
-        android:background="@android:drawable/divider_horizontal_bright"
+   
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="38.5dp"
+         android:background="@drawable/nicelookingbutton"
         android:id="@+id/logout" />
 
 

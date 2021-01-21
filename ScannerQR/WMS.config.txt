@@ -1,4 +1,0 @@
-﻿WebApp: http://10.55.49.203
-ID: 0001
-EnableLog: No
-ScannerType: SYMBOL
