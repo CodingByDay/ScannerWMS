@@ -223,6 +223,11 @@
             android:id="@+id/tbTitle" />
 
     </LinearLayout>
+    <TextView
+        android:layout_width="138.0dp"
+        android:layout_height="28.0dp"
+        android:paddingLeft="10px"
+        android:paddingTop="5px"/>
     <Button
         android:background="@drawable/nicelookingbutton"
         android:text="Naslednja kontrola - F2"

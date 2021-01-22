@@ -87,6 +87,7 @@ namespace ScannerQR
             }
             return base.OnKeyDown(keyCode, e);
         }
+
         private void Button2_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainActivity));
@@ -130,7 +131,7 @@ namespace ScannerQR
         {
 
             Spinner spinner = (Spinner)sender;
-            /* */
+            /* Spinner item selected object. */
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
             temporaryPositionWarehouse = e.Position;

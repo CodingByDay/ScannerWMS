@@ -82,9 +82,9 @@ namespace ScannerQR
                 {
                     Sound();
                     tbIssueLocation.Text = barcode;
-                    ProcessQty();
                     tbLocation.RequestFocus();
-                   
+                    ProcessQty();
+
 
                 } else if (tbLocation.HasFocus)
                 {
@@ -93,6 +93,7 @@ namespace ScannerQR
                         Sound();
                         tbLocation.Text = barcode;
                         tbPacking.RequestFocus();
+                        ProcessQty();
                     }
                 }
 
@@ -444,7 +445,8 @@ namespace ScannerQR
             wh = new NameValueObject();
             tbIdent.KeyPress += TbIdent_KeyPress;
             tbPacking.KeyPress += TbPacking_KeyPress;
-
+            tbIssueLocation.KeyPress += TbIssueLocation_KeyPress;
+            tbLocation.KeyPress += TbLocation_KeyPress;
             button1 = FindViewById<Button>(Resource.Id.button1);
             button3 = FindViewById<Button>(Resource.Id.button3);
             button5 = FindViewById<Button>(Resource.Id.button5);
@@ -523,6 +525,28 @@ namespace ScannerQR
 
            
 
+        }
+
+        private void TbLocation_KeyPress(object sender, View.KeyEventArgs e)
+        {
+            e.Handled = false;
+            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            {
+                //add your logic here 
+                ProcessQty();
+                e.Handled = true;
+            }
+        }
+
+        private void TbIssueLocation_KeyPress(object sender, View.KeyEventArgs e)
+        {
+            e.Handled = false;
+            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            {
+                //add your logic here 
+                ProcessQty();
+                e.Handled = true;
+            }
         }
 
         private void TbPacking_KeyPress(object sender, View.KeyEventArgs e)

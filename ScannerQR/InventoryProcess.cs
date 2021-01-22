@@ -553,11 +553,14 @@ namespace ScannerQR
             {
                 packing = Convert.ToDouble(tbPacking.Text);
             }
+
             catch (Exception ex)
+
             {
                 Toast.MakeText(this, "Količina ni vpisana ali ni število: " + ex.Message, ToastLength.Long).Show(); 
                 return false;
             }
+
 
             try
             {
@@ -596,7 +599,7 @@ namespace ScannerQR
             ClearData();       
         }
 
-        private void Sound() /*Sdk contains this method in one class. Probably alot of other possible functionality too. Good resource. */
+        private void Sound() /* Sdk contains this method in one class. Probably alot of other possible functionality too. Good resource. */
         {
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
         }

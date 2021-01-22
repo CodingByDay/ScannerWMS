@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -57,7 +56,6 @@ namespace ScannerQR
             btnOrder.Click += BtnOrder_Click;
             btnOrderMode.Click += BtnOrderMode_Click;
             btnLogout.Click += BtnLogout_Click;
-          
             // next
             var warehouses = CommonData.ListWarehouses();
             warehouses.Items.ForEach(wh =>
@@ -73,26 +71,14 @@ namespace ScannerQR
             ///
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouse.Adapter = adapterWarehouse;
-
-
             // Function update form...
             UpdateForm();
-
             var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
-            ///* 22.12.2020---------------------------------------------------------------
-            ///* Documentation for the spinner objects add method with an adapter...
-            ///*---------------------------------------------------
-            ///
             adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbExtra.Adapter = adapterExtra;
-
             var adapterDocType = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectDocType);
-            ///* 22.12.2020---------------------------------------------------------------
-            ///* Documentation for the spinner objects add method with an adapter...
-            ///*---------------------------------------------------
-            ///
             adapterDocType.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbDocType.Adapter = adapterDocType;
             btnOrderMode.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND_NORDER", "R");
@@ -282,11 +268,8 @@ namespace ScannerQR
                     {                    
                         StartActivity(typeof(IssuedGoodsIdentEntry));                       
                     }
-
-               
                 }
             }
         }
-
     }
 }

@@ -149,7 +149,7 @@
     <TextView
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="161.0dp"
         android:id="@+id/textView3" />
     <Button
         android:background="@drawable/nicelookingbutton"
