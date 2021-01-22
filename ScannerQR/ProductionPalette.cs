@@ -297,7 +297,7 @@ namespace ScannerQR
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)

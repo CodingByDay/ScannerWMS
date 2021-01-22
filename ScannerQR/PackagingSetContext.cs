@@ -95,7 +95,7 @@ namespace ScannerQR
 
         private void BtExit_Click(object sender, EventArgs e)
         {
-            this.Finish();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
@@ -164,8 +164,13 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F2:
-                    BtConfirm_Click(this, null);
-                    break;
+                    if (btConfirm.Enabled == true)
+                    {
+                        BtConfirm_Click(this, null);
+                    }
+                        break;
+                    
+             
                 //return true;
 
 

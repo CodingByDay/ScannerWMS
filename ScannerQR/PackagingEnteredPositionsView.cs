@@ -21,16 +21,7 @@ namespace ScannerQR
     public class PackagingEnteredPositionsView : Activity
 
     {
-        //lbInfo
-        //tbPackNum
-        //tbSSCC
-        //tbItemCount
-        //tbCreatedBy
-        //btNext
-        //btUpdate
-        //btCreate
-        //btDelete
-        //btClose 
+        
         private Dialog popupDialog;
 
         private TextView lbInfo;
@@ -85,7 +76,7 @@ namespace ScannerQR
       
         private void BtClose_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
 
         }
 
@@ -177,7 +168,7 @@ namespace ScannerQR
             FillDisplayedItem();
         }
 
-        // LoadPositions()
+        
         private void LoadPositions()
         {
          
@@ -210,7 +201,7 @@ namespace ScannerQR
             }
             //
         }
-        // next method
+        // 
         private void FillDisplayedItem()
         {
             if ((positions != null) && (displayedPosition < positions.Items.Count))

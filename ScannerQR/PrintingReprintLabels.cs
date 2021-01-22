@@ -93,7 +93,7 @@ namespace ScannerQR
                 tbTitle.Text = identObj.GetString("Name");
                 tbSSCC.Enabled = identObj.GetBool("isSSCC");
                 tbSerialNum.Enabled = identObj.GetBool("HasSerialNumber");
-                tbSSCC.RequestFocus();
+              
             }
             else
             {
@@ -139,6 +139,10 @@ namespace ScannerQR
             cbSubject.ItemSelected += CbSubject_ItemSelected;
             var warehouses = CommonData.ListWarehouses();
 
+
+
+
+
             warehouses.Items.ForEach(w =>
             {
             warehouseAdapter.Add(new ComboBoxItem { ID = w.GetString("Subject"), Text = w.GetString("Name") });
@@ -157,10 +161,6 @@ namespace ScannerQR
 
             adapterWarehouses.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouse.Adapter = adapterWarehouses;
-
-
-
-
             var adapterSubjects = new ArrayAdapter<ComboBoxItem>(this,
                        Android.Resource.Layout.SimpleSpinnerItem, subjectsAdapter);
 

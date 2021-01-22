@@ -422,15 +422,23 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F2:
-                    BtNew_Click(this, null);
+                    if (btNew.Enabled == true)
+                    {
+                        BtNew_Click(this, null);
+                    }
                     break;
             
                 case Keycode.F3:
-
-                    BtList_Click(this, null);
+                    if (btList.Enabled == true)
+                    {
+                        BtList_Click(this, null);
+                    }
                     break;
                 case Keycode.F4:
-                    BtFinish_Click(this, null);
+                    if (btFinish.Enabled == true)
+                    {
+                        BtFinish_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F9:

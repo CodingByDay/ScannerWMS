@@ -22,7 +22,44 @@ namespace ScannerQR
         private Spinner cbSubject;
         private Button btConfirm;
         List<ComboBoxItem> objectSubjects = new List<ComboBoxItem>();
+        private int temporaryPositionReceive;
+        public static void ShowIfNeeded(int headID)
+        {
+            if ((CommonData.GetSetting("WorkOrderFinishWithSubject") ?? "0") == "1")
+            {
+                NameValueObjectList data;
 
+          
+              
+                try
+                {
+                    string error;
+                    data = Services.GetObjectList("hs", out error, headID.ToString());
+                    if (data == null)
+                    {
+                        string errorWebApp = string.Format("Napaka pri pridobivanju možnih subjektov: " + error);
+                      
+     
+                        return;
+                    }
+                }
+                finally
+                {
+                   
+                }
+
+                if (data.Items.Count == 0) { return; }
+
+                var form = new SelectSubjectBeforeFinish();
+                form.SetHeadID(headID);
+                form.objectSubjects.Clear();
+                form.objectSubjects.Add(new ComboBoxItem { Text = ""});
+                data.Items.ForEach(i => form.objectSubjects.Add(new ComboBoxItem {Text = i.GetString("Subject") }));
+                form.cbSubject.SetSelection(1);
+                form.ShowDialog(1, null);
+
+            }
+        }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -32,56 +69,91 @@ namespace ScannerQR
 
             cbSubject = FindViewById<Spinner>(Resource.Id.cbSubject);
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
+            cbSubject.ItemSelected += CbSubject_ItemSelected;
+            btConfirm.Click += BtConfirm_Click;
+
+
+ 
+            var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
+                  Android.Resource.Layout.SimpleSpinnerItem, objectSubjects);
+       
+            adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            cbSubject.Adapter = adapterWarehouse;
 
         }
-        public SelectSubjectBeforeFinish()
+
+        private void BtConfirm_Click(object sender, EventArgs e)
         {
-
-
-
-
-            // constructor
-        }
-
-        public static void ShowIfNeeded(int headID)
-        {
-            if ((CommonData.GetSetting("WorkOrderFinishWithSubject") ?? "0") == "1")
+            var subject = objectSubjects.ElementAt(temporaryPositionReceive).ToString();
+            if (!string.IsNullOrEmpty(subject))
             {
-                NameValueObjectList data;
-
-
+       
+         
                 try
                 {
+                    NameValueObject data = new NameValueObject("SetHeadSubject");
+                    data.SetInt("HeadID", HeadID);
+                    data.SetString("Subject", subject);
                     string error;
-                    data = Services.GetObjectList("hs", out error, headID.ToString());
-                    if (data == null)
-                    {
-                        string SuccessMessage = string.Format("Napaka pri dobivanju možnih subjektov" + error);
 
+                    var result = Services.SetObject("hs", data, out error);
+                    if (result == null)
+                    {
+                        string errorWebApp = string.Format("Napaka pri nastavljanje subjekta" + error);
+                        Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                     
+                    }
+                    else
+                    {
+               
                     }
                 }
                 finally
                 {
-
+                  
                 }
-
-                if (data.Items.Count == 0) { return; }
-
-                //var form = new SelectSubjectBeforeFinish();
-                //form.SetHeadID(headID);
-                //form.cbSubject.Items.Clear();
-                //form.cbSubject.Items.Add("");
-                //data.Items.ForEach(i => form.cbSubject.Items.Add(i.GetString("Subject")));
-                //form.cbSubject.SelectedIndex = 1;
-                //form.ShowDialog();
-
+            }
+            else
+            {
+           
             }
 
         }
 
-        private void SetHeadID(int headID)
+
+
+
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
-            throw new NotImplementedException();
+            switch (keyCode)
+            {
+                // Setting F2 to method ProccesStock()
+                case Keycode.F1:
+                    if (btConfirm.Enabled == true)
+                    {
+                        BtConfirm_Click(this, null);
+                    }
+                    break;
+
+            }
+            return base.OnKeyDown(keyCode, e);
+        }
+
+        private void CbSubject_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+            {
+                Spinner spinner = (Spinner)sender;
+
+
+
+                temporaryPositionReceive = e.Position;
+            }
+
+
+        public void SetHeadID(int headID)
+        {
+            HeadID = headID;
         }
     }
-}
+
+
+    }

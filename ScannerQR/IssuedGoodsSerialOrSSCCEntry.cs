@@ -168,6 +168,19 @@ namespace ScannerQR
 
                             Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
                             InvalidateAndClose();
+                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                            alert.SetTitle("Zaključevanje uspešno");
+                            alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                            {
+                                alert.Dispose();
+                            });
+
+
+
+                            Dialog dialog = alert.Create();
+                            dialog.Show();
                         }
                         else
                         {

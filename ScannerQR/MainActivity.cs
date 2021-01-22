@@ -180,7 +180,10 @@ namespace ScannerQR
         {
             progressBar1.Visibility = ViewStates.Visible;
             ProcessRegistration();
-           
+            Analytics.TrackEvent("Login");
+            
+
+
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

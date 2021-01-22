@@ -608,7 +608,19 @@ namespace ScannerQR
                             var id = result.Split('+')[1];
                             string SuccessMessage = string.Format("Zaključevanje uspešno! Št. prenosa: \r\n" + id);
                             Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                            alert.SetTitle("Zaključevanje uspešno");
+                            alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
 
+                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                            {
+                                alert.Dispose();
+                            });
+
+
+
+                            Dialog dialog = alert.Create();
+                            dialog.Show();
                         }
                         else
                         {
@@ -638,7 +650,7 @@ namespace ScannerQR
 
         private void Button6_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill(); // end method....
+            StartActivity(typeof(MainMenu));
         }
 
         private void ProcessIdent()

@@ -57,19 +57,14 @@ namespace ScannerQR
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
 
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             button5 = FindViewById<Button>(Resource.Id.button5);
-            /////////////////////////////////////////////////////////////
-            ///
+            ////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////
             btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             button4.Click += Button4_Click;
@@ -87,14 +82,14 @@ namespace ScannerQR
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
             {
-                // Setting F2 to method ProccesStock()
+                
                 case Keycode.F1:
                     if (btNext.Enabled == true)
                     {
@@ -137,11 +132,7 @@ namespace ScannerQR
                     }
                     break;
 
-
                     //return true;
-
-
-
             }
             return base.OnKeyDown(keyCode, e);
         }
@@ -211,7 +202,7 @@ namespace ScannerQR
             }
             finally
             {
-           // used to be a 
+          
             }
 
             string WebError = string.Format("Pozicija zbrisana.");

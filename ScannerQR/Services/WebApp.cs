@@ -10,6 +10,7 @@ using System.Threading;
 using TrendNET.WMS.Device.App;
 using ScannerQR.App;
 using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Analytics;
 
 namespace TrendNET.WMS.Device.Services
 {
@@ -347,7 +348,9 @@ namespace TrendNET.WMS.Device.Services
                 finally
                 {
                     Log.Write(new LogEntry("END REQUEST: [Device/Ping] '" + url + "';" + (DateTime.Now - startedAt).TotalMilliseconds.ToString()));
-                }
+                    Analytics.TrackEvent("Ping");
+                    
+                    }
             }
             catch (Exception ex)
             {

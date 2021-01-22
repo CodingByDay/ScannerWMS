@@ -97,18 +97,16 @@ namespace ScannerQR
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
 
 
         private void color()
         {
-
-
-
             tbWorkOrder.SetBackgroundColor(Android.Graphics.Color.Aqua);
         }
+
         private void BtPalette_Click(object sender, EventArgs e)
         {
             var cardInfo = new NameValueObject("CardInfo");
@@ -228,27 +226,33 @@ namespace ScannerQR
         }
 
 
-
-
-
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
             {
                 // in smartphone
                 case Keycode.F2:
-                    BtCard_Click(this, null);
+                    if (btCard.Enabled == true)
+                    {
+                        BtCard_Click(this, null);
+                    }
                     break;
                 //return true;
 
 
                 case Keycode.F3:
-                    BtConfirm_Click(this, null);
+                    if (btConfirm.Enabled == true)
+                    {
+                        BtConfirm_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F4:
-                  BtPalette_Click(this, null);
+                    if (btPalette.Enabled == true)
+                    {
+                        BtPalette_Click(this, null);
+                    }
                     break;
 
             

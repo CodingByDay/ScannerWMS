@@ -271,7 +271,7 @@ private void CbReceiveWH_ItemSelected(object sender, AdapterView.ItemSelectedEve
 
         private void Logout_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
     }
     

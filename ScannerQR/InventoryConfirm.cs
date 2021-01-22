@@ -135,8 +135,10 @@ namespace ScannerQR
                     break;
 
                 case Keycode.F8:
-
-                    Button3_Click(this, null);
+                    if (button3.Enabled == true)
+                    {
+                        Button3_Click(this, null);
+                    }
                     break;
             }
             return base.OnKeyDown(keyCode, e);
@@ -176,7 +178,7 @@ namespace ScannerQR
             }
             finally
             {
-               //wait form before...
+               
             }
         }
 
@@ -198,17 +200,14 @@ namespace ScannerQR
 
                 var created = item.GetDateTime("DateInserted");
                 tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
-
                 btNext.Enabled = true;
                 target.Enabled = true;
-
                 tbWarehouse.Enabled = false;
                 tbTitle.Enabled = false;
                 tbDate.Enabled = false;
                 tbItems.Enabled = false;
                 tbCreatedBy.Enabled = false;
                 tbCreatedAt.Enabled = false;
-
                 tbWarehouse.SetTextColor(Android.Graphics.Color.Black);
                 tbTitle.SetTextColor(Android.Graphics.Color.Black);
                 tbDate.SetTextColor(Android.Graphics.Color.Black);
@@ -227,21 +226,14 @@ namespace ScannerQR
                 tbItems.Text = "";
                 tbCreatedBy.Text = "";
                 tbCreatedAt.Text = "";
-
                 btNext.Enabled = false;
                 target.Enabled = false;
-
-
                 tbWarehouse.Enabled = false;
                 tbTitle.Enabled = false;
                 tbDate.Enabled = false;
                 tbItems.Enabled = false;
                 tbCreatedBy.Enabled = false;
                 tbCreatedAt.Enabled = false;
-
-
-
-
                 tbWarehouse.SetTextColor(Android.Graphics.Color.Black);
                 tbTitle.SetTextColor(Android.Graphics.Color.Black);
                 tbDate.SetTextColor(Android.Graphics.Color.Black);

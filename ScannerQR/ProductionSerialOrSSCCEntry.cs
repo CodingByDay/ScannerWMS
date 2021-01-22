@@ -486,7 +486,20 @@ namespace ScannerQR
                             var id = result.Split('+')[1];
                             string SuccessMessage = string.Format("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
                             Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                 
+                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                            alert.SetTitle("Zaključevanje uspešno");
+                            alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                            {
+                                alert.Dispose();
+                            });
+
+
+
+                            Dialog dialog = alert.Create();
+                            dialog.Show();
+
                         }
                         else
                         {

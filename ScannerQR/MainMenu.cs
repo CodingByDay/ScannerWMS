@@ -87,13 +87,14 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F1:
+
                     Button_Click(this, null);                 
                     break;
                 //return true;
 
-                 
                 case Keycode.F2:
                     ButtonInterWarehouse_Click(this, null);
+
                     break;
 
 

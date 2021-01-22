@@ -87,7 +87,7 @@ namespace ScannerQR
 
         private void BtLogout_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtCreate_Click(object sender, EventArgs e)

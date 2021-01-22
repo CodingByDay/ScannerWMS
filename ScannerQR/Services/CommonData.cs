@@ -85,7 +85,7 @@ namespace TrendNET.WMS.Device.Services
             }
             finally
             {
-           //     wf.Stop();
+  
             }
         }
 

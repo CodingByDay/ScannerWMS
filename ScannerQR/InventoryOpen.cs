@@ -48,10 +48,6 @@ namespace ScannerQR
             tbConfirmedBy = FindViewById<EditText>(Resource.Id.tbConfirmedBy);
             tbConfirmationDate = FindViewById<EditText>(Resource.Id.tbConfirmationDate);
             dtInventory = FindViewById<EditText>(Resource.Id.dtInventory);
-
-
-
-
             btOpen = FindViewById<Button>(Resource.Id.btOpen);
             button2 = FindViewById<Button>(Resource.Id.button2);
             cbWarehouse.ItemSelected += CbWarehouse_ItemSelected;
@@ -94,7 +90,6 @@ namespace ScannerQR
        
                 try
                 {
-                  
 
                     string result;
                     if (WebApp.Get("mode=getConfirmedInventoryHead&wh=" + warehouse + "&date=" + date.ToString("s"), out result))
@@ -143,8 +138,6 @@ namespace ScannerQR
             tbConfirmationDate.Text = "";
             btOpen.Enabled = false;
         }
-
-
         private void ClearFieldsError(string err)
         {
             ClearFields();
@@ -156,7 +149,7 @@ namespace ScannerQR
         {
             switch (keyCode)
             {
-                // Setting F2 to method ProccesStock()
+                
                 case Keycode.F3:
                     if (btOpen.Enabled == true)
                     {
@@ -167,7 +160,7 @@ namespace ScannerQR
                 case Keycode.F8:
                     if (button2.Enabled == true)
                     {
-                        System.Diagnostics.Process.GetCurrentProcess().Kill();
+                        StartActivity(typeof(MainMenu));
                     }
                     break;
 

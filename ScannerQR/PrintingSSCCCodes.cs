@@ -33,13 +33,7 @@ namespace ScannerQR
             button1.Click += Button1_Click;
             button2.Click += Button2_Click;
 
-            /// app
-        
-            
-            
-            /// 23.00
-            /// 
-
+     
 
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -48,24 +42,28 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F3:
-                    Button1_Click(this, null);
+                    if (button1.Enabled == true)
+                    {
+                        Button1_Click(this, null);
+                    }
                     break;
                 //return true;
 
 
                 case Keycode.F8:
-                    Button2_Click(this, null);
+                    if (button2.Enabled == true)
+                    {
+                        Button2_Click(this, null);
+                    }
                     break;
 
-
-          
 
             }
             return base.OnKeyDown(keyCode, e);
         }
         private void Button2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void Button1_Click(object sender, EventArgs e)
