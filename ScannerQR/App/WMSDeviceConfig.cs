@@ -108,7 +108,7 @@ namespace TrendNET.WMS.Device.App
             }
             catch (Exception ex)
             {
-                Services.Services.ReportException(ex);
+              
             }
         }
 

@@ -88,7 +88,7 @@ namespace ScannerQR
         }
         public void GetBarcode(string barcode)
         {
-            // Implement the way to scan here. Chinese sdk part.
+            // 
          
 
             if(tbIdentFilter.HasFocus)
@@ -202,7 +202,7 @@ namespace ScannerQR
             trails = new List <Trail>();
         
        
-            // Developers use this custom adapter for the listview that I made. It's an industry standard.
+            // Custom adapter that I wrote.
             adapter adapter = new adapter(this, trails);
           
             ivTrail.Adapter = adapter;

@@ -126,7 +126,7 @@ namespace ScannerQR
             }
             finally
             {
-           //pass
+           
             }
         }
 

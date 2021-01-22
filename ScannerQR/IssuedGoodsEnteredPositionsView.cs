@@ -23,7 +23,6 @@ namespace ScannerQR
         private int displayedPosition = 0;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObjectList positions = null;
-
         private TextView lbInfo;
         private EditText tbIdent;
         private EditText tbSSCC;
@@ -44,7 +43,6 @@ namespace ScannerQR
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
             SetContentView(Resource.Layout.IssuedGoodsEnteredPositionsView);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
@@ -54,7 +52,6 @@ namespace ScannerQR
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
-
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             btNew = FindViewById<Button>(Resource.Id.btNew);
@@ -81,7 +78,7 @@ namespace ScannerQR
         {
             switch (keyCode)
             {
-                // Setting F2 to method ProccesStock()
+                // 
                 case Keycode.F1:
                     if (btNext.Enabled == true)
                     {
@@ -136,23 +133,17 @@ namespace ScannerQR
         {
             StartActivity(typeof(MainMenu));
         }
-
         private void BtDelete_Click(object sender, EventArgs e)
         {
             popupDialog = new Dialog(this);
             popupDialog.SetContentView(Resource.Layout.YesNoPopUp);
             popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialog.Show();
-
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloGreenDark);
-
             // Access Popup layout fields like below
             btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
-
-
-
             btnYes.Click += BtnYes_Click;
             btnNo.Click += BtnNo_Click;        
         }
@@ -204,10 +195,10 @@ namespace ScannerQR
                 }
                 finally
                 {
-                //
+                
                 }
 
-           //
+           
             }
     
         private void BtFinish_Click(object sender, EventArgs e)
@@ -243,6 +234,7 @@ namespace ScannerQR
             }
             finally
             {
+
             }
         }
 
@@ -263,10 +255,10 @@ namespace ScannerQR
             var item = positions.Items[displayedPosition];
             InUseObjects.Set("MoveItem", item);
 
-          //
+          
             try
             {
-            //
+            
 
                 string error;
                 var openIdent = Services.GetObject("id", item.GetString("Ident"), out error);
@@ -285,7 +277,7 @@ namespace ScannerQR
             }
             finally
             {
-          //
+          
             }
         }
 
@@ -301,7 +293,7 @@ namespace ScannerQR
         
             try
             {
-               //
+               
                 if (positions == null)
                 {
                     var error = "";
@@ -324,7 +316,7 @@ namespace ScannerQR
             }
             finally
             {
-             //
+            
             }
         }
 

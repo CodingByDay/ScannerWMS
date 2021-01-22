@@ -178,7 +178,7 @@ namespace TrendNET.WMS.Device.Services
                 result = "";
               
                 //var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
-                var device = WMSDeviceConfig.GetString("ID", "");
+                var device = settings.ID;
                 var url = RandomizeURL (settings.RootURL + "/Services/Device/?" + rqURL + "&device=" + device);
                 var startedAt = DateTime.Now;
                 try
@@ -221,7 +221,7 @@ namespace TrendNET.WMS.Device.Services
             {
               
                 result = ex.Message;
-                Crashes.TrackError(ex);
+        
                 return false;
 
             }
@@ -266,8 +266,8 @@ namespace TrendNET.WMS.Device.Services
             {
                 result = "";
                 // var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
-               
-                var device = WMSDeviceConfig.GetString("ID", "");
+
+                var device = settings.ID;
                 var url = RandomizeURL(settings.RootURL + "/Services/Device/?" + rqURL + "&device=" + device);
                 var startedAt = DateTime.Now;
                 try
@@ -315,8 +315,8 @@ namespace TrendNET.WMS.Device.Services
             {
                 result = "";
                 //var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
-              
-                var device = WMSDeviceConfig.GetString("ID", "");
+
+                var device = settings.ID;
                 var url = RandomizeURL (settings.RootURL + "/Services/Device/?mode=ping&device=" + device);
                 var startedAt = DateTime.Now;
                 try
