@@ -24,7 +24,6 @@ namespace ScannerQR
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
         private NameValueObject openWorkOrder = null;
-
         private bool editMode = false;
         private EditText tbIdent;
         private EditText tbSSCC;
@@ -45,7 +44,7 @@ namespace ScannerQR
         {
             switch (keyCode)
             {
-                // Setting F2 to method ProccesStock()
+                
                 case Keycode.F2:
                     if (btSaveOrUpdate.Enabled == true)
                     {
@@ -79,10 +78,6 @@ namespace ScannerQR
         }
         public void GetBarcode(string barcode)
         {
-            //if (tbSSCC.Focused) { readSSCC(data); }
-            //else if (tbSerialNum.Focused) { readSerialNum(data); }
-            //else if (tbLocation.Focused) { readLocation(data); }
-
 
             if (tbSSCC.HasFocus)
             {
@@ -190,9 +185,7 @@ namespace ScannerQR
                 return false;
             }
 
-            string error;
-
-          
+            string error;       
             try
             {
              
@@ -216,9 +209,6 @@ namespace ScannerQR
                         return false;
                     }
                 }
-
-      
-
                 if (string.IsNullOrEmpty(tbPacking.Text.Trim()))
                 {
                 string SuccessMessage = string.Format("Količina je obvezan podatek");
@@ -322,10 +312,6 @@ namespace ScannerQR
             
             }
         }
-
-
-
-
         private void ProcessSerialNum()
         {
             if (string.IsNullOrEmpty(tbSerialNum.Text.Trim()))
@@ -340,17 +326,11 @@ namespace ScannerQR
             }
             GetWorkOrderDefaultQty();
             // ---
-
         } 
-
-
-
-            private bool CheckWorkOrderOpenQty()
+private bool CheckWorkOrderOpenQty()
         {
             if (checkWorkOrderOpenQty == null)
-            {
-              
-             
+            {       
                 try
                 {
                     string error;
@@ -384,16 +364,14 @@ namespace ScannerQR
             }
             finally
             {
-               
+               //
             }
         }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
             SetContentView(Resource.Layout.ProductionSerialOrSSCCEntry);
-
             //button --------->buttontest
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
@@ -402,7 +380,6 @@ namespace ScannerQR
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
-
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button3 = FindViewById<Button>(Resource.Id.button3);
             button4 = FindViewById<Button>(Resource.Id.button4);
@@ -417,8 +394,6 @@ namespace ScannerQR
             button5.Click += Button5_Click;
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
-
-
             try
             {
                 string SuccessMessage = string.Format("Preverjam povezovani DN");
@@ -433,13 +408,10 @@ namespace ScannerQR
             {
               //pass
             }
-
             var ident = CommonData.LoadIdent(openWorkOrder.GetString("Ident"));
             tbIdent.Text = ident.GetString("Code") + " " + ident.GetString("Name");
             tbSSCC.Enabled = ident.GetBool("isSSCC");
             tbSerialNum.Enabled = ident.GetBool("HasSerialNumber");
-
-
         }
 
 
@@ -447,23 +419,15 @@ namespace ScannerQR
         private void color()
         {
 
-
-
-
             tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
-
-
-
-
-
         }
 
 
             private void Button5_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void Button4_Click(object sender, EventArgs e)

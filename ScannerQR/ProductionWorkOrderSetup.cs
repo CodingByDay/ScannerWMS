@@ -34,11 +34,6 @@ namespace ScannerQR
         private Button button2;
         SoundPool soundPool;
         int soundPoolId;
-
-
-
-
-
         public void GetBarcode(string barcode)
         {
             if (tbWorkOrder.HasFocus)
@@ -68,7 +63,6 @@ namespace ScannerQR
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             btPalette = FindViewById<Button>(Resource.Id.btPalette);
             button2 = FindViewById<Button>(Resource.Id.button2);
-         
             color();
             tbOpenQty.FocusChange += TbOpenQty_FocusChange;
             btCard.Click += BtCard_Click;
@@ -87,20 +81,15 @@ namespace ScannerQR
             barcode2D.open(this, this);
             
         }
-
         private void TbOpenQty_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessWorkOrder();
         }
 
-    
-
         private void Button2_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
         }
-
-
 
         private void color()
         {
@@ -237,9 +226,7 @@ namespace ScannerQR
                         BtCard_Click(this, null);
                     }
                     break;
-                //return true;
-
-
+                
                 case Keycode.F3:
                     if (btConfirm.Enabled == true)
                     {
@@ -254,17 +241,13 @@ namespace ScannerQR
                         BtPalette_Click(this, null);
                     }
                     break;
-
-            
-                 
+               
             }
             return base.OnKeyDown(keyCode, e);
         }
 
-
         private void ProcessWorkOrder()
         {
-            // here
             tbOpenQty.Text = "";
             tbClient.Text = "";
             tbIdent.Text = "";

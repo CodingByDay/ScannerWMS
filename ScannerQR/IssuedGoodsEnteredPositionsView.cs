@@ -210,7 +210,6 @@ namespace ScannerQR
            //
             }
     
-
         private void BtFinish_Click(object sender, EventArgs e)
         {
     
@@ -244,7 +243,6 @@ namespace ScannerQR
             }
             finally
             {
-             // Used to be a WaitForm.stop() . Ignore this final{ } or implement progressBar.Visibility = ViewStates.Invisible-> here. The wait time is so low tho that it doesn't make alot of sense.. :)
             }
         }
 

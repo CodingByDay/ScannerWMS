@@ -50,11 +50,7 @@ namespace ScannerQR
 
         public void GetBarcode(string barcode)
         {
-            // implement getting the informmation here
-            //if (tbSSCC.Focused) { readSSCC(data); }
-            //else if (tbLocation.Focused) { readLocation(data); }
-            //else if (tbIdent.Focused) { readIdent(data); }
-            //else if (tbSerialNo.Focused) { readSerialNo(data); }
+      
             if (!string.IsNullOrEmpty(barcode))
             {
 
@@ -373,7 +369,7 @@ namespace ScannerQR
 
         private void BtExit_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtFinish_Click(object sender, EventArgs e)

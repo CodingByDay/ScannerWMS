@@ -26,7 +26,6 @@ namespace ScannerQR
         private EditText tbCardNum;
         private EditText tbSerialNum;
         private EditText tbQty;
-
         private Button btConfirm;
         private Button btExit;
         private NameValueObject cardInfo = (NameValueObject)InUseObjects.Get("CardInfo");
@@ -41,17 +40,12 @@ namespace ScannerQR
             popupDialog.SetContentView(Resource.Layout.YesNoProductionCard);
             popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialog.Show();
-
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
             btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
-
             btnNo.Click += BtnNo_Click;
             btnYes.Click += BtnYes_Click;
-
-
-
             return target;
         }
 
@@ -64,11 +58,12 @@ namespace ScannerQR
         {
             target = true;
         }
+
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
             {
-                // Setting F2 to method ProccesStock()
+                
                 case Keycode.F4:
                     if (btConfirm.Enabled == true)
                     {
@@ -77,16 +72,11 @@ namespace ScannerQR
                     break;
 
                 case Keycode.F8:
-                 //
+                 
    
                         BtExit_Click(this, null);
  
                     break;
-
-
-
-                    //return true;
-
 
 
             }
@@ -152,7 +142,7 @@ namespace ScannerQR
 
         private void BtExit_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)

@@ -60,7 +60,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\lp\38\jl\files.
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\lp\39\jl\files.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\lp\40\jl\files.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\lp\44\jl\files.cache
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\aapt_rules.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\R.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\R.cs.flag
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\ScannerQR.csproj.CoreCompileInputs.cache

@@ -39,21 +39,12 @@ namespace ScannerQR
         private int tempPositionSubject;
         private int tempPositionWarehouse;
 
-
-
-
-
-
         private void color()
         {
-
             tbIdent.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
-
-
-
         }
 
 
@@ -123,7 +114,6 @@ namespace ScannerQR
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             cbSubject = FindViewById<Spinner>(Resource.Id.cbSubject);
-
             btPrint = FindViewById<Button>(Resource.Id.btPrint);
             button2 = FindViewById<Button>(Resource.Id.button2);
             soundPool = new SoundPool(10, Stream.Music, 0);
@@ -138,10 +128,6 @@ namespace ScannerQR
             cbWarehouse.ItemSelected += CbWarehouse_ItemSelected;
             cbSubject.ItemSelected += CbSubject_ItemSelected;
             var warehouses = CommonData.ListWarehouses();
-
-
-
-
 
             warehouses.Items.ForEach(w =>
             {
@@ -283,17 +269,12 @@ namespace ScannerQR
                     }
                     break;
 
-
-          
-
-
-
             }
             return base.OnKeyDown(keyCode, e);
         }
         private void Button2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtPrint_Click(object sender, EventArgs e)

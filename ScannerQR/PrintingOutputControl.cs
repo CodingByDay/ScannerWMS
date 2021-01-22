@@ -18,23 +18,10 @@ namespace ScannerQR
     [Activity(Label = "PrintingOutputControl")]
     public class PrintingOutputControl : Activity
     {
-//        dtDate
-//tbUser
-//tbSSCC
-//tbSerialNum
-//tbIdent
-//tbTitle
-//tbQty
 
-//btNext
-
-//btPrint
-
-//button3
         private int displayedPosition = 0;
         private NameValueObjectList positions = null;
         private EditText tbUser;
-  
         private EditText tbSSCC;
         private EditText tbSerialNum;
         private EditText tbIdent;
@@ -99,7 +86,7 @@ namespace ScannerQR
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtPrint_Click(object sender, EventArgs e)
@@ -116,7 +103,7 @@ namespace ScannerQR
             }
             finally
             {
-       //
+       
             }
 
         }
@@ -168,6 +155,17 @@ namespace ScannerQR
 
                 btNext.Enabled = true;
                 btPrint.Enabled = true;
+                tbSSCC.Enabled = false;
+                tbSerialNum.Enabled = false;
+                tbIdent.Enabled = false;
+                tbTitle.Enabled = false;
+                tbQty.Enabled = false;
+                tbSSCC.SetTextColor(Android.Graphics.Color.Black);
+                tbSerialNum.SetTextColor(Android.Graphics.Color.Black);
+                tbIdent.SetTextColor(Android.Graphics.Color.Black);
+                tbTitle.SetTextColor(Android.Graphics.Color.Black);
+                tbQty.SetTextColor(Android.Graphics.Color.Black);
+
             }
             else
             {
@@ -181,6 +179,17 @@ namespace ScannerQR
 
                 btNext.Enabled = false;
                 btPrint.Enabled = false;
+
+                tbSSCC.Enabled = false;
+                tbSerialNum.Enabled = false;
+                tbIdent.Enabled = false;
+                tbTitle.Enabled = false;
+                tbQty.Enabled = false;
+                tbSSCC.SetTextColor(Android.Graphics.Color.Black);
+                tbSerialNum.SetTextColor(Android.Graphics.Color.Black);
+                tbIdent.SetTextColor(Android.Graphics.Color.Black);
+                tbTitle.SetTextColor(Android.Graphics.Color.Black);
+                tbQty.SetTextColor(Android.Graphics.Color.Black);
             }
         }
     }

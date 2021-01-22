@@ -32,7 +32,7 @@
             android:text="SSCC koda" />
 
         <EditText
-              android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -59,7 +59,7 @@
             android:id="@+id/textView1" />
 
         <EditText
-              android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -83,7 +83,7 @@
             android:text="Količina" />
 
         <EditText
-              android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -109,7 +109,7 @@
             android:paddingLeft="10px"/>
 
         <EditText
-              android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -133,7 +133,7 @@
             android:text="Kreiral" />
 
         <EditText
-              android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -161,7 +161,7 @@
             android:text="Datum kreiranja" />
 
         <EditText
-              android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -196,7 +196,7 @@
         android:layout_width="match_parent"
         android:layout_height="41.0dp"
         android:id="@+id/btFinish"
-        android:layout_marginBottom="7.0dp" />
+        android:layout_marginBottom="0.0dp" />
     <Button
         android:background="@drawable/nicelookingbutton"
         android:text="Izbriši izbrano pozicijo - F5"
@@ -209,7 +209,8 @@
         android:text="Izhod - F9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button5" />
+        android:id="@+id/button5"
+        android:layout_marginTop="0.0dp" />
 
 
 </LinearLayout>

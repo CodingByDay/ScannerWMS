@@ -24,7 +24,6 @@ namespace ScannerQR
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
             SetContentView(Resource.Layout.PrintingSSCCCodes);
             tbNum = FindViewById<EditText>(Resource.Id.tbNum);
@@ -32,9 +31,6 @@ namespace ScannerQR
             button2 = FindViewById<Button>(Resource.Id.button2);
             button1.Click += Button1_Click;
             button2.Click += Button2_Click;
-
-     
-
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {

@@ -27,11 +27,9 @@ namespace ScannerQR
         private EditText tbSSCC;
         private EditText tbIdent;
         private EditText tbTitle;
-
         private Button btNext;
         private Button btPrint;
         private Button button3;
-
         private int displayedPosition = 0;
         private NameValueObjectList positions = null;
         private DateTime dateX;
@@ -52,9 +50,7 @@ namespace ScannerQR
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbTitle = FindViewById<EditText>(Resource.Id.tbTitle);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
-
             dateChoice = FindViewById<Button>(Resource.Id.dateChoice);
-
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btPrint = FindViewById<Button>(Resource.Id.btPrint);
             button3 = FindViewById<Button>(Resource.Id.button3);
@@ -62,15 +58,11 @@ namespace ScannerQR
             btPrint.Click += BtPrint_Click;
             button3.Click += Button3_Click;
             dateChoice.Click += DateChoice_Click;
-
-
             tbUser.Text = Services.UserName();
             dateX = DateTime.Today;
             dtDate.Text= DateTime.Today.ToShortDateString();
-
             GetProcessControls();
          
-
         }
 
         private void DateChoice_Click(object sender, EventArgs e)
@@ -86,7 +78,7 @@ namespace ScannerQR
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtPrint_Click(object sender, EventArgs e)
@@ -119,7 +111,7 @@ namespace ScannerQR
         
             try
             {
-              // Comment 1, 1, 2, 3, 5, 8, 13------->+-1.68-->lim.infinity
+              // Comment 1, 1, 2, 3, 5, 8, 13------->+-1.68-->lim.infinity X1/x2 lim inf
 
                 string error;
                 positions = Services.GetObjectList("qhfbd", out error, "P|" + dateX.ToString("s"));
@@ -138,23 +130,17 @@ namespace ScannerQR
                
             }
         }
-
-
         private void FillDisplayedItem()
         {
             if ((positions != null) && (positions.Items.Count > 0))
             {
                 lbInfo.Text = "Procesna kontrola (" + (displayedPosition + 1).ToString() + "/" + positions.Items.Count + ")";
                 var item = positions.Items[displayedPosition];
-
                 tbShift.Text = item.GetString("Shift");
                 tbWorker.Text = item.GetString("Worker");
                 tbSSCC.Text = item.GetString("SSCC");
                 tbIdent.Text = item.GetString("Ident");
                 tbTitle.Text = "???";
-
-
-
                 tbShift.Enabled = false;
                 tbWorker.Enabled = false;
                 tbSSCC.Enabled = false;
@@ -162,9 +148,6 @@ namespace ScannerQR
                 tbTitle.Enabled = false;
                 btNext.Enabled = true;
                 btPrint.Enabled = true;
-
-
-
                 tbShift.SetTextColor(Android.Graphics.Color.Black);
                 tbWorker.SetTextColor(Android.Graphics.Color.Black);
                 tbSSCC.SetTextColor(Android.Graphics.Color.Black);
@@ -174,26 +157,18 @@ namespace ScannerQR
             else
             {
                 lbInfo.Text = "Procesna kontrola (ni)";
-
                 tbShift.Text = "";
                 tbWorker.Text = "";
                 tbSSCC.Text = "";
                 tbIdent.Text = "";
                 tbTitle.Text = "";
-
                 btNext.Enabled = false;
                 btPrint.Enabled = false;
-
-
-
                 tbShift.Enabled = false;
                 tbWorker.Enabled = false;
                 tbSSCC.Enabled = false;
                 tbIdent.Enabled = false;
                 tbTitle.Enabled = false;
-
-
-
                 tbShift.SetTextColor(Android.Graphics.Color.Black);
                 tbWorker.SetTextColor(Android.Graphics.Color.Black);
                 tbSSCC.SetTextColor(Android.Graphics.Color.Black);

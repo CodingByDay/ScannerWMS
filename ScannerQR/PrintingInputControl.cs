@@ -180,6 +180,19 @@ namespace ScannerQR
 
                 btNext.Enabled = true;
                 btPrint.Enabled = true;
+
+
+
+
+                tbTakeOver.Enabled = false;
+                tbSupplier.Enabled = false;
+                tbTakeOverDate.Enabled = false;
+
+
+                tbTakeOver.SetTextColor(Android.Graphics.Color.Black);
+                tbSupplier.SetTextColor(Android.Graphics.Color.Black);
+                tbTakeOverDate.SetTextColor(Android.Graphics.Color.Black);
+
             }
             else
             {
@@ -191,6 +204,17 @@ namespace ScannerQR
 
                 btNext.Enabled = false;
                 btPrint.Enabled = false;
+
+
+                tbTakeOver.Enabled = false;
+                tbSupplier.Enabled = false;
+                tbTakeOverDate.Enabled = false;
+
+
+                tbTakeOver.SetTextColor(Android.Graphics.Color.Black);
+                tbSupplier.SetTextColor(Android.Graphics.Color.Black);
+                tbTakeOverDate.SetTextColor(Android.Graphics.Color.Black);
+
             }
         }
 
