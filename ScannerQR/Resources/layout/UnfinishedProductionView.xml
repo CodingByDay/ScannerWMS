@@ -176,41 +176,82 @@
         android:layout_gravity="center"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Naslednji prevzem - F1"
-        android:layout_width="match_parent"
-        android:layout_height="42.5dp"
-        android:id="@+id/btNext"
-        android:layout_marginBottom="0.0dp" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Zaključi/popravi izb. prevzem - F2"
-        android:layout_width="match_parent"
-        android:layout_height="40.5dp"
-        android:id="@+id/btFinish"
-        android:layout_marginBottom="0.0dp" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Izbriši izbran prevzem - F3"
-        android:layout_width="match_parent"
-        android:layout_height="41.0dp"
-        android:id="@+id/btDelete"
-        android:layout_marginBottom="0.0dp" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Kreiraj nov prevzem - F4"
-        android:layout_width="match_parent"
-        android:layout_height="42.0dp"
-        android:id="@+id/btNew"
-        android:layout_marginBottom="0.0dp" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Izhod - F9"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="109.5dp"
+        android:layout_height="41.5dp"
+        android:paddingLeft="10px"
+        android:paddingTop="5px"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Naslednja medskladiščnica-f1"
+            android:layout_width="184.5dp"
+            android:layout_height="59.5dp"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/next"
+            android:id="@+id/btNext"
+            android:layout_marginBottom="0.0dp" />
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Zaključi/popravi medskl.f2"
+            android:layout_width="match_parent"
+            android:layout_height="56.5dp"
+            android:drawableLeft="@drawable/shipped"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:id="@+id/btFinish"
+            android:layout_marginBottom="0.0dp" />
+
+
+    </LinearLayout>
+
+
+ <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Izbriši medskl.-f3"
+            android:layout_width="184.5dp"
+            android:layout_height="59.5dp"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/delete"
+            android:id="@+id/btDelete" />
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Kreiraj novo-f4"
+            android:layout_width="match_parent"
+            android:layout_height="56.5dp"
+            android:textSize="16px"
+            android:drawableLeft="@drawable/newitem"
+            android:paddingLeft="10px"
+            android:id="@+id/btNew"
+            android:layout_marginTop="0.0dp"
+            android:layout_marginBottom="0.0dp" />
+
+
+    </LinearLayout>
+    <Button
+        android:background="@drawable/nicelookingbutton"
+        android:text="Izhod - F8"
+        android:layout_width="match_parent"
+        android:layout_height="56.5dp"
+        android:textSize="16px"
+        android:drawableLeft="@drawable/logout"
+        android:paddingLeft="10px"
         android:id="@+id/btLogout"
         android:layout_marginTop="0.0dp" />
-
 
 </LinearLayout>

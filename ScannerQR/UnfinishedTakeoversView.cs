@@ -45,18 +45,7 @@ namespace ScannerQR
 
             // Create your application here
             SetContentView(Resource.Layout.UnfinishedTakeoversView);
-            // Definining all the elements on the screen with ID's.
-
-            // tbBusEvent   
-            // tbOrder
-            // tbSupplier
-            // tbItemCount
-            // tbCreatedBy
-            // tbCreatedAt
-            // btNext
-            // btFinish
-            // btDelete
-            //
+        
             
             tbBusEvent = FindViewById<EditText>(Resource.Id.tbBusEvent);
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);
@@ -135,7 +124,7 @@ namespace ScannerQR
         }
         private void BtLogout_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtNew_Click(object sender, EventArgs e)
