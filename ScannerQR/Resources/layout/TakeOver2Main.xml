@@ -98,35 +98,83 @@
 
 
     </LinearLayout>
+    <TextView
+        android:layout_width="141.5dp"
+        android:layout_height="211.5dp"
+        android:paddingLeft="10px"
+        android:paddingTop="5px"
+        android:layout_marginRight="0.0dp" />
+  <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Naročila kupcev-f2"
+            android:layout_width="184.5dp"
+            android:layout_height="59.5dp"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/newitem"
+            android:id="@+id/button1"
+            android:layout_marginBottom="0.0dp" />
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Potrdi-f3"
+            android:layout_width="match_parent"
+            android:layout_height="56.5dp"
+            android:drawableLeft="@drawable/confirmation"
+           android:textSize="16px"
+            android:paddingLeft="10px"
+            android:id="@+id/button2"
+            android:layout_marginBottom="0.0dp" />
+
+
+    </LinearLayout>
+
+
+ <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="SS Etiketa-f4"
+            android:layout_width="184.5dp"
+            android:layout_height="59.5dp"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/sticker"
+            android:id="@+id/button3" />
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Pregled unešenih pozicij-f5"
+            android:layout_width="match_parent"
+            android:layout_height="56.5dp"
+            android:textSize="16px"
+            android:drawableLeft="@drawable/focus"
+            android:paddingLeft="10px"
+            android:id="@+id/button4"
+            android:layout_marginTop="0.0dp"
+            android:layout_marginBottom="0.0dp" />
+
+
+    </LinearLayout>
     <Button
         android:background="@drawable/nicelookingbutton"
-        android:text="Naročila kupcev-f2"
+        android:text="Izhod - F8"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button1" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Potrdi-f3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="SS Etiketa-f4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button3" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Pregled unešenih pozicij-f5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button4" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="izhod-f9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button5" />
+        android:layout_height="56.5dp"
+       android:textSize="16px"
+        android:drawableLeft="@drawable/logout"
+        android:paddingLeft="10px"
+        android:id="@+id/button5"
+        android:layout_marginTop="0.0dp" />
 </LinearLayout>
  

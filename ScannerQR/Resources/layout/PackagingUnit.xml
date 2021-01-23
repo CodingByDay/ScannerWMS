@@ -188,34 +188,70 @@
     <TextView
         android:singleLine="true"
         android:layout_width="wrap_content"
-        android:layout_height="43.0dp"
+        android:layout_height="99.5dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"
         android:layout_marginRight="42.0dp" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Nova pozicija - F2"
-        android:layout_width="match_parent"
+   <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btNew" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Pregled vnešenih pozicij - F3"
-        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Nova pozicij-f2"
+            android:layout_width="184.5dp"
+            android:layout_height="59.5dp"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/newitem"
+            android:id="@+id/btNew" />
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Pregled pozicij-f3"
+            android:layout_width="match_parent"
+            android:layout_height="56.5dp"
+            android:textSize="16px"
+            android:drawableLeft="@drawable/focus"
+            android:paddingLeft="10px"
+            android:id="@+id/btList"
+            android:layout_marginTop="0.0dp"
+            android:layout_marginBottom="0.0dp" />
+
+
+    </LinearLayout>
+     <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btList" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Zaključi pakiranje - F4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btFinish" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Izhod - F9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btExit" />
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="zaključi pakiranje-f4"
+            android:layout_width="184.5dp"
+            android:layout_height="59.5dp"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/confirmation"
+            android:id="@+id/btFinish" />
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="izhod-f9"
+            android:layout_width="match_parent"
+            android:layout_height="56.5dp"
+            android:textSize="16px"
+            android:drawableLeft="@drawable/logout"
+            android:paddingLeft="10px"
+            android:id="@+id/btExit"
+            android:layout_marginTop="0.0dp"
+            android:layout_marginBottom="0.0dp" />
+
+
+    </LinearLayout>
 
 
 </LinearLayout>

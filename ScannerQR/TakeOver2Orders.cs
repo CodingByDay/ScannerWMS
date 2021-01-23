@@ -37,6 +37,7 @@ namespace ScannerQR
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
         private NameValueObjectList moveItemDivision;
         private int displayOrder = 0;
+        private Button logout;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -53,7 +54,7 @@ namespace ScannerQR
             tbKolicinaOdprta = FindViewById<EditText>(Resource.Id.tbKolicinaOdprta);
             tbKolicinaPrevzetaDoSedaj = FindViewById<EditText>(Resource.Id.tbKolicinaPrevzetaDoSedaj);
             tbKolicinaPrevzetaNova = FindViewById<EditText>(Resource.Id.tbKolicinaPrevzetaNova);
-            
+            logout = FindViewById<Button>(Resource.Id.button6);
             button1 = FindViewById<Button>(Resource.Id.button1);
             button2 = FindViewById<Button>(Resource.Id.button2);
             button3 = FindViewById<Button>(Resource.Id.button3);
@@ -64,7 +65,7 @@ namespace ScannerQR
             button3.Click += Button3_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
-
+            logout.Click += Logout_Click;
 
             if (moveItem == null)
             {
@@ -94,6 +95,11 @@ namespace ScannerQR
 
 
 
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(MainMenu));
         }
 
         private void Button5_Click(object sender, EventArgs e)

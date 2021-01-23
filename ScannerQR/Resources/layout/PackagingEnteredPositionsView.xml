@@ -126,41 +126,80 @@
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="79.5dp"
+        android:layout_height="145.0dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:layout_width="match_parent"
-        android:layout_height="50.5dp"
-        android:id="@id/btNext"
-        android:text="Naslednje pakiranje - F1" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Popravi izbrano pakiranje - F2"
-        android:layout_width="match_parent"
-        android:layout_height="51.0dp"
-        android:id="@+id/btUpdate"
-        android:layout_marginBottom="0.0dp" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Kreiraj novo pakiranje - F3"
-        android:layout_width="match_parent"
-        android:layout_height="54.5dp"
-        android:id="@+id/btCreate"
-        android:layout_marginBottom="0.0dp" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Izbriši izbrano pakiranje - F4"
-        android:layout_width="match_parent"
-        android:layout_height="53.5dp"
-        android:id="@+id/btDelete" />
+     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Nasled. pakiranje - F1"
+            android:layout_width="184.5dp"
+            android:layout_height="59.5dp"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/next"
+            android:id="@id/btNext"
+            android:layout_marginBottom="0.0dp" />
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Popravi pakiranje - F2"
+            android:layout_width="match_parent"
+            android:layout_height="56.5dp"
+            android:drawableLeft="@drawable/fix"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:id="@+id/btUpdate"
+            android:layout_marginBottom="0.0dp" />
+
+
+    </LinearLayout>
+
+
+ <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Novo pakiranje - F3"
+            android:layout_width="184.5dp"
+            android:layout_height="59.5dp"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/newitem"
+            android:id="@+id/btCreate" />
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Izbriši pakiranje - F4"
+            android:layout_width="match_parent"
+            android:layout_height="56.5dp"
+            android:textSize="16px"
+            android:drawableLeft="@drawable/delete"
+            android:paddingLeft="10px"
+            android:id="@+id/btDelete"
+            android:layout_marginTop="0.0dp"
+            android:layout_marginBottom="0.0dp" />
+
+
+    </LinearLayout>
     <Button
         android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
-        android:layout_height="47.0dp"
-        android:id="@+id/btClose" />
-
+        android:layout_height="56.5dp"
+       android:textSize="16px"
+        android:drawableLeft="@drawable/logout"
+        android:paddingLeft="10px"
+        android:id="@+id/btClose"
+        android:layout_marginTop="0.0dp" />
 
 </LinearLayout>
