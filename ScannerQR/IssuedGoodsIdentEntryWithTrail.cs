@@ -186,10 +186,7 @@ namespace ScannerQR
             tbReceiver = FindViewById<EditText>(Resource.Id.tbReceiver);
             tbIdentFilter = FindViewById<EditText>(Resource.Id.tbIdentFilter);
             tbLocationFilter = FindViewById<EditText>(Resource.Id.tbLocationFilter);
-
             ivTrail = FindViewById<ListView>(Resource.Id.ivTrail);
-        
-           
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             btDisplayPositions = FindViewById<Button>(Resource.Id.btDisplayPositions);
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
@@ -278,7 +275,7 @@ namespace ScannerQR
 
 
         }
-
+        /* Save move head method. */
         private bool SaveMoveHead()
         {
             if (selected == 1)

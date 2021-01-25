@@ -141,6 +141,7 @@ namespace ScannerQR
                 tbSSCC.Text = item.GetString("SSCC");
                 tbIdent.Text = item.GetString("Ident");
                 tbTitle.Text = "???";
+
                 tbShift.Enabled = false;
                 tbWorker.Enabled = false;
                 tbSSCC.Enabled = false;
@@ -148,6 +149,7 @@ namespace ScannerQR
                 tbTitle.Enabled = false;
                 btNext.Enabled = true;
                 btPrint.Enabled = true;
+
                 tbShift.SetTextColor(Android.Graphics.Color.Black);
                 tbWorker.SetTextColor(Android.Graphics.Color.Black);
                 tbSSCC.SetTextColor(Android.Graphics.Color.Black);
@@ -162,6 +164,7 @@ namespace ScannerQR
                 tbSSCC.Text = "";
                 tbIdent.Text = "";
                 tbTitle.Text = "";
+
                 btNext.Enabled = false;
                 btPrint.Enabled = false;
                 tbShift.Enabled = false;
@@ -169,6 +172,7 @@ namespace ScannerQR
                 tbSSCC.Enabled = false;
                 tbIdent.Enabled = false;
                 tbTitle.Enabled = false;
+
                 tbShift.SetTextColor(Android.Graphics.Color.Black);
                 tbWorker.SetTextColor(Android.Graphics.Color.Black);
                 tbSSCC.SetTextColor(Android.Graphics.Color.Black);

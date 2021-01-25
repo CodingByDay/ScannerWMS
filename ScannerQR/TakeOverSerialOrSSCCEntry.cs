@@ -240,7 +240,7 @@ namespace ScannerQR
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
 
@@ -528,30 +528,48 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F1:
-                    Button1_Click(this, null);
+                    if (button1.Enabled == true)
+                    {
+                        Button1_Click(this, null);
+                    }
                     break;
                 //return true;
 
 
                 case Keycode.F2:
-                    BtSaveOrUpdate_Click(this, null);
+                    if (btSaveOrUpdate.Enabled == true)
+                    {
+                        BtSaveOrUpdate_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F3:
-                    Button4_Click(this, null);
+                    if (button4.Enabled == true)
+                    {
+                        Button4_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F4:
-                    Button6_Click(this, null);
+                    if (button6.Enabled == true)
+                    {
+                        Button6_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F5:
-                    Button5_Click(this, null);
+                    if (button5.Enabled == true)
+                    {
+                        Button5_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F9:
-                    Button7_Click(this, null);
+                    if (button7.Enabled == true)
+                    {
+                        Button7_Click(this, null);
+                    }
                     break;
 
             }

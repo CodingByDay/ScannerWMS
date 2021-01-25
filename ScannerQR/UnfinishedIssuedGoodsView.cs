@@ -20,19 +20,7 @@ namespace ScannerQR
     [Activity(Label = "UnfinishedIssuedGoodsView")]
     public class UnfinishedIssuedGoodsView : Activity
     {
-        //lbInfo
-        //tbBusEvent
-        //tbOrder
-        //tbClient
-        //tbItemCount
-        //tbCreatedBy
-        //tbCreatedAt
-
-        //btNext
-        //btFinish
-        //btDelete
-        //btNew
-        //btLogout
+    
         private TextView lbInfo;
         private EditText tbBusEvent;
         private EditText tbOrder;
@@ -84,7 +72,7 @@ namespace ScannerQR
 
         private void BtLogout_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
 
         }
 

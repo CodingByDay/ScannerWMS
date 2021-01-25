@@ -218,6 +218,11 @@ namespace ScannerQR
                 return false;
             }
         }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
         private void ProcessQty()
         {
             var ident = tbIdent.Text.Trim();
@@ -442,7 +447,10 @@ namespace ScannerQR
                     break;
 
                 case Keycode.F5:
-                    Check_Click(this, null);
+                    if (check.Enabled == true)
+                    {
+                        Check_Click(this, null);
+                    }
                     break;
 
 

@@ -26,8 +26,6 @@ namespace ScannerQR
         private EditText tbQty;
         private EditText tbLocation;
         private EditText tbCreatedBy;
-
-
         private Button btNext;
         private Button btUpdate;
         private Button button4;

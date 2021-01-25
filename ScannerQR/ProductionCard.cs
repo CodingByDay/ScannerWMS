@@ -72,9 +72,11 @@ namespace ScannerQR
                     break;
 
                 case Keycode.F8:
-                 
-   
+                    if (btExit.Enabled == true)
+                    {
+
                         BtExit_Click(this, null);
+                    }
  
                     break;
 

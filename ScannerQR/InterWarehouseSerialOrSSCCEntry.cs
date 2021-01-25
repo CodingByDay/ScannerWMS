@@ -471,13 +471,7 @@ namespace ScannerQR
 
             barcode2D.open(this, this);
 
-            //tbIdent
-            //       tbSSCC
-            //        tbSerialNum
-            //        tbIssueLocation
-            //        tbLocation
-           
-            // Action listener for the button
+      
 
             if (InterWarehouseBusinessEventSetup.success == true)
             {
@@ -711,27 +705,42 @@ namespace ScannerQR
             {
                 // in smartphone
                 case Keycode.F1:
-                   Button1_Click(this, null);
+                    if (button1.Enabled == true)
+                    {
+                        Button1_Click(this, null);
+                    }
                     break;
                 //return true;
 
 
                 case Keycode.F2:
-                    BtSaveOrUpdate_Click(this, null);
+                    if (btSaveOrUpdate.Enabled == true)
+                    {
+                        BtSaveOrUpdate_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F3:
-                    Button3_Click(this, null);
+                    if (button3.Enabled == true)
+                    {
+                        Button3_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F4:
-                    Button5_Click(this, null);
+                    if (button5.Enabled == true)
+                    {
+                        Button5_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F8:
-                    Button6_Click(this, null);
+                    if (button6.Enabled == true)
+                    {
+                        Button6_Click(this, null);
+                    }
                     break;
 
 

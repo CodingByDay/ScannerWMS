@@ -217,7 +217,7 @@
             android:drawableLeft="@drawable/next"
             android:paddingLeft="10px"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+            android:layout_height="70.0dp"
             android:id="@+id/button1" />
 
         <Button
@@ -227,7 +227,7 @@
             android:drawableLeft="@drawable/left"
             android:paddingLeft="10px"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+            android:layout_height="70.0dp"
             android:id="@+id/button2" />
 
 
@@ -247,7 +247,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="natisni etiketo-f4"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/sticker"
@@ -257,7 +257,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="tiskaj za količino-f5"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+            android:layout_height="70.0dp"
             android:drawableLeft="@drawable/printer"
             android:textSize="16px"
             android:paddingLeft="10px"
@@ -277,7 +277,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="naslednji ident-f6"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/ident"
@@ -287,7 +287,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Izhod - F8"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+           android:layout_height="70.0dp"
            android:textSize="16px"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10px"

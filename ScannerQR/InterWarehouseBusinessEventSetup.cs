@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -14,7 +13,7 @@ using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.Services;
 using static Android.Widget.AdapterView;
 /// <summary>
-/// Next thing to implement is the item changed on bussiness event...
+/// 
 /// </summary>
 
 namespace ScannerQR
@@ -47,9 +46,6 @@ namespace ScannerQR
             cbIssueWH = FindViewById<Spinner>(Resource.Id.cbIssueWH);
             cbReceiveWH = FindViewById<Spinner>(Resource.Id.cbRecceiveWH);
          
-            // Developers in the future updating this application. This can save you some time. Spinner components ALWAYS have a selection. To go around this, I programmaticaly set its 
-            // default value to 2, coresponding to the second item in the objectDocType dataset, which fires onSelected item method which "locks" down further selection based on settings.
-            // Action listener for the button
             objectDocType.Add(new ComboBoxItem { ID = "Default", Text = "               Izberite poslovni dogodek." });
          
             docTypes = CommonData.ListDocTypes("E|");
@@ -91,8 +87,7 @@ namespace ScannerQR
             adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbIssueWH.Adapter = adapterIssue;
             cbReceiveWH.Adapter = adapterReceive;
-            cbDocType.SetSelection(2);
-           
+            cbDocType.SetSelection(2);         
             // next thing are the event listeners
             //for the logout
             Button logout = FindViewById<Button>(Resource.Id.logout);
@@ -107,9 +102,6 @@ namespace ScannerQR
             confirm = FindViewById<Button>(Resource.Id.btnConfirm);
             confirm.Click += Confirm_Click;
         }
-
-
-
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -132,7 +124,6 @@ namespace ScannerQR
             return base.OnKeyDown(keyCode, e);
         }
        
-
         private void PrefillWarehouses(string id)
         {
             // Log.Write(new LogEntry("PrefillWarehouses: " + id));
@@ -172,7 +163,7 @@ namespace ScannerQR
                 moveHead.SetInt("LinkNo", 0);
                 moveHead.SetInt("Clerk", Services.UserID());
            
-            // next
+            
             string error;
      
             try
@@ -185,7 +176,7 @@ namespace ScannerQR
                     Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
                     // show a message
                     // terminate
-                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                   
                 }
                 else
                 {
@@ -208,8 +199,7 @@ namespace ScannerQR
             } finally
             {
                 success = true;
-            }
-     
+            }   
         }
         
 
@@ -219,20 +209,12 @@ namespace ScannerQR
 private void CbReceiveWH_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-         
-            
-              
-                temporaryPositionReceive = e.Position;
-
-            
+                temporaryPositionReceive = e.Position;           
         }
 
         private void CbIssueWH_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            Spinner spinner = (Spinner)sender;
-          
-            
-             
+            Spinner spinner = (Spinner)sender;            
                 temporaryPositionIssue = e.Position;
             
         }

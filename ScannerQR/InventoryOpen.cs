@@ -38,10 +38,8 @@ namespace ScannerQR
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
             SetContentView(Resource.Layout.InventoryOpen);
-
             cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
             btChoose = FindViewById<Button>(Resource.Id.btChoose);
             tbItems = FindViewById<EditText>(Resource.Id.tbItems);
@@ -217,13 +215,11 @@ namespace ScannerQR
                         Toast.MakeText(this, "Inventura odprta!", ToastLength.Long).Show();
               
                         StartActivity(typeof(InventoryConfirm));
-               
                     }
                 }
                 else
                 {
                     Toast.MakeText(this, "Napaka pri preverjanju zapisa inventure: " + error, ToastLength.Long).Show();
- 
                     return;
                 }
             }
@@ -231,20 +227,18 @@ namespace ScannerQR
             {
               
             }
-
         }
 
         private void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-          
-
             Spinner spinner = (Spinner)sender;
-
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
             temporaryPositionWarehouse = e.Position;
          
         }
+
+
 
         private void BtChoose_Click(object sender, EventArgs e)
         {

@@ -190,7 +190,7 @@
         android:paddingTop="5px"/>
     <TextView
         android:layout_width="113.0dp"
-        android:layout_height="69.0dp"
+        android:layout_height="57.5dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
     <LinearLayout
@@ -203,7 +203,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Naslednje naročilo-f2"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/next"
@@ -213,7 +213,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="potrdi-f3"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:drawableLeft="@drawable/confirmation"
             android:paddingLeft="10px"
@@ -233,7 +233,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="pregled pozicij-f4"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/focus"
@@ -243,7 +243,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="izhod-f9"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10px"

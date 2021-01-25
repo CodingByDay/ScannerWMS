@@ -178,7 +178,7 @@
         android:paddingTop="5px"/>
     <TextView
         android:layout_width="109.5dp"
-        android:layout_height="41.5dp"
+        android:layout_height="2.5dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
     <LinearLayout
@@ -191,7 +191,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Naslednja medskladiščnica-f1"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/next"
@@ -202,7 +202,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Zaključi/popravi medskl.f2"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+            android:layout_height="70.0dp"
             android:drawableLeft="@drawable/shipped"
             android:textSize="16px"
             android:paddingLeft="10px"
@@ -223,7 +223,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Izbriši medskl.-f3"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/delete"
@@ -233,7 +233,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Kreiraj novo-f4"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+           android:layout_height="70.0dp"
             android:textSize="16px"
             android:drawableLeft="@drawable/newitem"
             android:paddingLeft="10px"
@@ -247,7 +247,7 @@
         android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F8"
         android:layout_width="match_parent"
-        android:layout_height="56.5dp"
+        android:layout_height="70.0dp"
         android:textSize="16px"
         android:drawableLeft="@drawable/logout"
         android:paddingLeft="10px"

@@ -23,19 +23,7 @@ namespace ScannerQR
      
 
     {
-        //lbInfo
-        //tbWorkOrder
-        //tbClient
-        //tbIdent
-        //tbItemCount
-        //tbCreatedBy
-        //tbCreatedAt
-
-        //btNext
-        //btFinish
-        //btDelete
-        //btNew
-        //btLogout
+  
         private TextView lbInfo;
         private EditText tbWorkOrder;
         private EditText tbClient;
@@ -146,7 +134,7 @@ namespace ScannerQR
 
         private void BtLogout_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtDelete_Click(object sender, EventArgs e)

@@ -324,7 +324,7 @@ namespace ScannerQR
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu))
         }
 
         private void Button4_Click(object sender, EventArgs e)

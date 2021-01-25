@@ -100,7 +100,7 @@
 
 	/* 8: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.long	1211392
+	.long	1214464
 	/* loaded */
 	.byte	0
 	/* data */
@@ -136,7 +136,7 @@
 
 	/* 12: ScannerQR.dll */
 	/* uncompressed_file_size */
-	.long	312832
+	.long	313856
 	/* loaded */
 	.byte	0
 	/* data */
@@ -532,7 +532,7 @@
 
 	/* 56: mscorlib.dll */
 	/* uncompressed_file_size */
-	.long	1948160
+	.long	1948672
 	/* loaded */
 	.byte	0
 	/* data */

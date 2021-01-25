@@ -173,7 +173,7 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="64.0dp"
+        android:layout_height="28.0dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
 
@@ -190,7 +190,7 @@
             android:drawableLeft="@drawable/next"
             android:paddingLeft="10px"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+            android:layout_height="70.0dp"
             android:id="@+id/btNext" />
 
         <Button
@@ -200,7 +200,7 @@
             android:drawableLeft="@drawable/fix"
             android:paddingLeft="10px"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+            android:layout_height="70.0dp"
             android:id="@+id/btUpdate" />
 
 
@@ -220,7 +220,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Izbriši pozicijo-f4"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/delete"
@@ -230,7 +230,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Kreiraj pozicijo-f5"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+            android:layout_height="70.0dp"
             android:drawableLeft="@drawable/newitem"
             android:textSize="16px"
             android:paddingLeft="10px"
@@ -244,7 +244,7 @@
         android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F8"
         android:layout_width="match_parent"
-        android:layout_height="56.5dp"
+        android:layout_height="70.0dp"
         android:textSize="16px"
         android:drawableLeft="@drawable/logout"
         android:paddingLeft="10px"

@@ -160,6 +160,7 @@ namespace ScannerQR
                 tbIdent.Enabled = false;
                 tbTitle.Enabled = false;
                 tbQty.Enabled = false;
+
                 tbSSCC.SetTextColor(Android.Graphics.Color.Black);
                 tbSerialNum.SetTextColor(Android.Graphics.Color.Black);
                 tbIdent.SetTextColor(Android.Graphics.Color.Black);
@@ -179,12 +180,12 @@ namespace ScannerQR
 
                 btNext.Enabled = false;
                 btPrint.Enabled = false;
-
                 tbSSCC.Enabled = false;
                 tbSerialNum.Enabled = false;
                 tbIdent.Enabled = false;
                 tbTitle.Enabled = false;
                 tbQty.Enabled = false;
+
                 tbSSCC.SetTextColor(Android.Graphics.Color.Black);
                 tbSerialNum.SetTextColor(Android.Graphics.Color.Black);
                 tbIdent.SetTextColor(Android.Graphics.Color.Black);

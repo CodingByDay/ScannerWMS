@@ -60,7 +60,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\lp\38\jl\files.
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\lp\39\jl\files.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\lp\40\jl\files.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\lp\44\jl\files.cache
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\aapt_rules.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\R.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\R.cs.flag
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\ScannerQR.csproj.CoreCompileInputs.cache
@@ -175,7 +174,7 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\mipmap-xxhd
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\mipmap-xxhdpi\icon.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\mipmap-xxxhdpi\android.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\mipmap-xxxhdpi\icon.png
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\barcode.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\ident.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\home.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\mipmap-anydpi-v26\barcode.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\mipmap-anydpi-v26\home.png
@@ -227,6 +226,13 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\layout\prin
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\nicelookingbutton.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\layout\common.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\fix.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\card.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\wholesale.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\order.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\printer2.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\sticker.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\left.png
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\res\drawable\barcode.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\uploadflags.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\resolvedassemblies.hash
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\link.flag

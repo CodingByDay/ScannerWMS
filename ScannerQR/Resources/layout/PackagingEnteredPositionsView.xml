@@ -126,7 +126,7 @@
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="145.0dp"
+        android:layout_height="112.5dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
      <LinearLayout
@@ -139,7 +139,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Nasled. pakiranje - F1"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/next"
@@ -150,7 +150,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Popravi pakiranje - F2"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+            android:layout_height="70.0dp"
             android:drawableLeft="@drawable/fix"
             android:textSize="16px"
             android:paddingLeft="10px"
@@ -171,7 +171,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Novo pakiranje - F3"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/newitem"
@@ -181,7 +181,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Izbriši pakiranje - F4"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:drawableLeft="@drawable/delete"
             android:paddingLeft="10px"
@@ -195,7 +195,7 @@
         android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
-        android:layout_height="56.5dp"
+        android:layout_height="70.0dp"
        android:textSize="16px"
         android:drawableLeft="@drawable/logout"
         android:paddingLeft="10px"

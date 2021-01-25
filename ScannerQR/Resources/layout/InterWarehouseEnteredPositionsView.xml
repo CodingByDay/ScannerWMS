@@ -173,7 +173,7 @@
 
     <TextView
         android:layout_width="91.0dp"
-        android:layout_height="60.0dp"
+        android:layout_height="18.5dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
 
@@ -191,7 +191,7 @@
             android:drawableLeft="@drawable/next"
             android:paddingLeft="10px"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+             android:layout_height="70.0dp"
             android:id="@+id/btNext" />
 
         <Button
@@ -201,7 +201,7 @@
             android:drawableLeft="@drawable/fix"
             android:paddingLeft="10px"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+            android:layout_height="70.0dp"
             android:id="@+id/btUpdate" />
 
 
@@ -221,7 +221,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Kreiraj pozicijo - F3"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+             android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/newitem"
@@ -231,7 +231,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Zaključi medskl. - F4"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+           android:layout_height="70.0dp"
             android:drawableLeft="@drawable/confirmation"
             android:textSize="16px"
             android:paddingLeft="10px"
@@ -251,7 +251,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Izbriši pozicijo - F5"
             android:layout_width="184.5dp"
-            android:layout_height="59.5dp"
+             android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/delete"
@@ -261,7 +261,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Izhod - F9"
             android:layout_width="match_parent"
-            android:layout_height="56.5dp"
+           android:layout_height="70.0dp"
            android:textSize="16px"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10px"

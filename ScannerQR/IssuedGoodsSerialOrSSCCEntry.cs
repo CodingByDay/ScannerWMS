@@ -56,7 +56,6 @@ namespace ScannerQR
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
             SetContentView(Resource.Layout.IssuedGoodsSerialOrSSCCEntry);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
@@ -66,7 +65,6 @@ namespace ScannerQR
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
             tbPalette = FindViewById<EditText>(Resource.Id.tbPalette);
-
             button1 = FindViewById<Button>(Resource.Id.button1);
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
@@ -80,8 +78,6 @@ namespace ScannerQR
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
-
-
             button1.Click += Button1_Click;
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             button4.Click += Button4_Click;

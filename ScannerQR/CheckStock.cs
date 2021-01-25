@@ -61,7 +61,7 @@ namespace ScannerQR
             }
             finally
             {
-               // wait form wms old...
+               // 
             }
         }
 
@@ -122,7 +122,7 @@ namespace ScannerQR
                     Button1_Click(this, null);
                     break;
 
-                //return true;
+                // return true;
 
 
 
@@ -150,7 +150,7 @@ namespace ScannerQR
             }
             else
             {
-                //pass wms select first, nothing happens anyway, 'cause the first one would have already been selected anyway.
+                // pass wms select first, nothing happens anyway, 'cause the first one would have already been selected anyway.
             }
             lbStock = FindViewById<TextView>(Resource.Id.lbStock);         
             cbWarehouses = FindViewById<Spinner>(Resource.Id.cbWarehouses);

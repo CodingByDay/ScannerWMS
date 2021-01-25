@@ -22,19 +22,7 @@ namespace ScannerQR
 
     {
 
-        //lbInfo
-        //tbBusEvent
-        //tbIssueWarehouse
-        //tbReceiveWarehouse
-        //tbItemCount
-        //tbCreatedBy
-        //tbCreatedAt
-        //btNext
-        //btFinish
-        //btDelete
-        //btnNew    
-        //btnLogout
-        // 27.12.2020
+ 
         private TextView lbInfo;
         private EditText tbBusEvent;
         private EditText tbIssueWarehouse;
@@ -139,7 +127,7 @@ namespace ScannerQR
         }
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
         
         private void BtnNew_Click(object sender, EventArgs e)

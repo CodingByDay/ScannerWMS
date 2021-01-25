@@ -117,17 +117,38 @@
 
 
     </LinearLayout>
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Odpri - F3"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="190.0dp"
+        android:paddingLeft="10px"
+        android:paddingTop="5px"/>
+  <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btOpen" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Izhod - F9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2" />
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <Button
+            android:textSize="16px"
+            android:background="@drawable/nicelookingbutton"
+            android:text="Potrdi-F3"
+            android:drawableLeft="@drawable/confirmation"
+            android:paddingLeft="10px"
+            android:layout_width="184.5dp"
+            android:layout_height="70.0dp"
+            android:id="@+id/btOpen" />
+
+        <Button
+           android:textSize="16px"
+            android:background="@drawable/nicelookingbutton"
+            android:text="Izhod-f8"
+            android:drawableLeft="@drawable/logout"
+            android:paddingLeft="10px"
+            android:layout_width="match_parent"
+            android:layout_height="70.0dp"
+            android:id="@+id/button2" />
+
+
+    </LinearLayout>
  
 </LinearLayout>

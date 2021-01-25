@@ -357,8 +357,6 @@ namespace ScannerQR
                 tbQty.SetTextColor(Android.Graphics.Color.Black);
                 tbLocation.SetTextColor(Android.Graphics.Color.Black);
                 tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
-
-
                 btUpdate.Enabled = true;
                 btDelete.Enabled = true;
             }
