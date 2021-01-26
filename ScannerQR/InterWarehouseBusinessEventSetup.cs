@@ -96,9 +96,7 @@ namespace ScannerQR
             cbDocType.ItemSelected += CbDocType_ItemSelected;
             cbIssueWH.ItemSelected += CbIssueWH_ItemSelected;
             cbReceiveWH.ItemSelected += CbReceiveWH_ItemSelected;
-          
-            // confirm button
-            
+            // confirm button          
             confirm = FindViewById<Button>(Resource.Id.btnConfirm);
             confirm.Click += Confirm_Click;
         }

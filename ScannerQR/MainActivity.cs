@@ -120,16 +120,12 @@ namespace ScannerQR
             AppCenter.Start("b6dbedcc-9d96-451f-9206-c2ab38cc7568", /*Change to your ID*/
                    typeof(Analytics), typeof(Crashes));
                    Crashes.NotifyUserConfirmation(UserConfirmation.AlwaysSend); /* Always send crash reports */ /*https://appcenter.ms/apps */
-
-
             /// Solved anylitics...
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
             progressBar1 = FindViewById<ProgressBar>(Resource.Id.progressBar1);
-            
-
             // Registering first event..
             Button btnRegistrationEvent = FindViewById<Button>(Resource.Id.btnRegistration);
             img = FindViewById<ImageView>(Resource.Id.img);

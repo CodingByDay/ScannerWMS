@@ -33,7 +33,7 @@ namespace ScannerQR
             {
                 string toast = new string("Uspešna prijava.");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                
+                MainActivity.isValid = false; 
                 MainActivity.progressBar1.Visibility = ViewStates.Invisible;
             
             }
@@ -135,7 +135,7 @@ namespace ScannerQR
         private void BtnLogout_Click(object sender, EventArgs e)
         {
 
-            this.Finish(); // start activity
+            StartActivity(typeof(MainActivity));
         }
 
         private void BtnPackaging_Click(object sender, EventArgs e)

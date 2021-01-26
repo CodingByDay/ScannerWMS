@@ -20,10 +20,8 @@ namespace ScannerQR
     [Activity(Label = "PackagingEnteredPositionsView")]
     public class PackagingEnteredPositionsView : Activity
 
-    {
-        
+    {    
         private Dialog popupDialog;
-
         private TextView lbInfo;
         private EditText tbPackNum;
         private EditText tbSSCC;
@@ -38,7 +36,6 @@ namespace ScannerQR
         private NameValueObjectList positions = null;
         private Button btnYes;
         private Button btnNo;
-
         /// <summary>
         /// /////////////////////////
         /// </summary>
@@ -66,18 +63,13 @@ namespace ScannerQR
             btDelete.Click += BtDelete_Click;
             btCreate.Click += BtCreate_Click;
             btClose.Click += BtClose_Click;
-
             // LoadPosition()
-
             LoadPositions();
-
-
         }
       
         private void BtClose_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
-
         }
 
         private void BtCreate_Click(object sender, EventArgs e)

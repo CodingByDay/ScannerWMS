@@ -24,8 +24,6 @@ namespace ScannerQR
 
     {
         private TextView lbInfo;
-
-
         private EditText tbIdent;
         private EditText tbSSCC;
         private EditText tbSerialNo;
@@ -39,7 +37,6 @@ namespace ScannerQR
         private Button btLogout;
         private int displayedPosition = 0;
         private NameValueObjectList positions = null;
-
         private NameValueObject head = (NameValueObject)InUseObjects.Get("PackagingHead");
         private Dialog popupDialog;
         private Button btnYes;
@@ -52,15 +49,12 @@ namespace ScannerQR
             // Create your application here
             SetContentView(Resource.Layout.PackagingUnitList);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
-
-
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSerialNo = FindViewById<EditText>(Resource.Id.tbSerialNo);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
-
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
@@ -75,12 +69,6 @@ namespace ScannerQR
             if (head == null) { throw new ApplicationException("head not known at this point!?"); }
 
             LoadPositions();
-
-
-
-
-
-
 
         }
 
@@ -147,10 +135,8 @@ namespace ScannerQR
             popupDialog.SetContentView(Resource.Layout.YesNoPopUp);
             popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialog.Show();
-
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloRedLight);
-
             // Access Popup layout fields like below
             btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
@@ -321,10 +307,6 @@ namespace ScannerQR
                 tbQty.SetTextColor(Android.Graphics.Color.Black);
                 tbLocation.SetTextColor(Android.Graphics.Color.Black);
                 tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
-
-
-
-
             }
         }
     }

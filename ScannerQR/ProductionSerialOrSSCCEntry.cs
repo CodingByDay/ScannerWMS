@@ -38,8 +38,6 @@ namespace ScannerQR
         private Button button5;
         SoundPool soundPool;
         int soundPoolId;
-
-
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -327,7 +325,7 @@ namespace ScannerQR
             GetWorkOrderDefaultQty();
             // ---
         } 
-private bool CheckWorkOrderOpenQty()
+    private bool CheckWorkOrderOpenQty()
         {
             if (checkWorkOrderOpenQty == null)
             {       
@@ -364,7 +362,7 @@ private bool CheckWorkOrderOpenQty()
             }
             finally
             {
-               //
+               // wf
             }
         }
         protected override void OnCreate(Bundle savedInstanceState)
@@ -406,7 +404,7 @@ private bool CheckWorkOrderOpenQty()
             }
             finally
             {
-              //pass
+              // Used to be a wait form.
             }
             var ident = CommonData.LoadIdent(openWorkOrder.GetString("Ident"));
             tbIdent.Text = ident.GetString("Code") + " " + ident.GetString("Name");

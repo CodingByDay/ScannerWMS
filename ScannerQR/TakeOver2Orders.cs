@@ -88,13 +88,6 @@ namespace ScannerQR
             UpdateForm();
 
 
-
-
-
-
-
-
-
         }
 
         private void Logout_Click(object sender, EventArgs e)
@@ -163,6 +156,7 @@ namespace ScannerQR
                     nvo.SetString("Order", tbNarocilo.Text.Trim());
                     nvo.SetDouble("Qty", 1.0);
                     PrintingCommon.SendToServer(nvo);
+                    Toast.MakeText(this, "Uspešno poslani podatki... ", ToastLength.Long).Show();
                 }
                 finally
                 {
@@ -170,8 +164,6 @@ namespace ScannerQR
                 }
             }
         }
-
-
 
 
         private bool SaveState()

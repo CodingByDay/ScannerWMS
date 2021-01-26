@@ -140,10 +140,8 @@ namespace ScannerQR
                 tbOrder.Text = order.GetString("Key") + " / " + order.GetInt("No");
                 tbConsignee.Text = order.GetString("Consignee");
                 tbQty.Text = order.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture());
-
                 var deadLine = order.GetDateTime("DeliveryDeadline");
                 tbDeliveryDeadline.Text = deadLine == null ? "" : ((DateTime)deadLine).ToString("dd.MM.yyyy");
-
                 btNext.Enabled = true;
                 btConfirm.Enabled = true;
             }
@@ -155,7 +153,6 @@ namespace ScannerQR
                 tbConsignee.Text = "";
                 tbQty.Text = "";
                 tbDeliveryDeadline.Text = "";
-
                 btNext.Enabled = false;
                 btConfirm.Enabled = false;
             }
@@ -223,7 +220,6 @@ namespace ScannerQR
 
             // Create your application here
             SetContentView(Resource.Layout.IssuedGoodsIdentEntry);
-
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbNaziv = FindViewById<EditText>(Resource.Id.tbNaziv);

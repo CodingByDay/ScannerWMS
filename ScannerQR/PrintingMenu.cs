@@ -43,7 +43,7 @@ namespace ScannerQR
 
         private void Button6_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenu)); /* */
         }
 
         private void Button5_Click(object sender, EventArgs e)

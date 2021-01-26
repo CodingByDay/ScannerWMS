@@ -49,7 +49,6 @@ namespace ScannerQR
             btOpen = FindViewById<Button>(Resource.Id.btOpen);
             button2 = FindViewById<Button>(Resource.Id.button2);
             cbWarehouse.ItemSelected += CbWarehouse_ItemSelected;
-
             btChoose.Click += BtChoose_Click;
             btOpen.Click += BtOpen_Click;
             dtInventory.Text = DateTime.Today.ToShortDateString();

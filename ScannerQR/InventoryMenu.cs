@@ -33,9 +33,6 @@ namespace ScannerQR
             button4 = FindViewById<Button>(Resource.Id.button4);
             button7 = FindViewById<Button>(Resource.Id.button7);
             logout = FindViewById<Button>(Resource.Id.logout);
-
-
-
             button1.Click += Button1_Click;
             button2.Click += Button2_Click;
             button3.Click += Button3_Click;

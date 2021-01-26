@@ -91,7 +91,7 @@ namespace ScannerQR
                 PrintingCommon.SetNVOCommonData(ref nvo);
                 nvo.SetInt("Copies", num);
                 PrintingCommon.SendToServer(nvo);
-         
+                Toast.MakeText(this, "Uspešno poslani podatki...", ToastLength.Long).Show();
             }
             finally
             {

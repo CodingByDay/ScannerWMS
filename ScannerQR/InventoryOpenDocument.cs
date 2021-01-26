@@ -112,7 +112,7 @@ namespace ScannerQR
             }
             finally
             {
-                /*  */
+                /*  random comment number x */
             }
         }
         private void Select_Click(object sender, EventArgs e)

@@ -27,13 +27,10 @@ namespace ScannerQR
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject openOrder = (NameValueObject)InUseObjects.Get("OpenOrder");
         private NameValueObject trailFilters = (NameValueObject)InUseObjects.Get("TrailFilters");
-
-
         private EditText tbOrder;
         private EditText tbReceiver;
         private EditText tbIdentFilter;
         private EditText tbLocationFilter;
-
         private ListView ivTrail;
         private List<Trail> ChosenOnes = new List<Trail>();
         private Button btConfirm;
@@ -42,15 +39,7 @@ namespace ScannerQR
         SoundPool soundPool;
         int soundPoolId;
         private List <Trail> trails;
-
         public int selected;
-
-
-
-
-
-
-
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -63,16 +52,12 @@ namespace ScannerQR
                     }
                     break;
                 //return true;
-
-
                 case Keycode.F4:
                     if (btDisplayPositions.Enabled == true)
                     {
                         BtDisplayPositions_Click(this, null);
                     }
                     break;
-
-
                 case Keycode.F9:
                     if (btLogout.Enabled == true)
                     {
@@ -80,17 +65,13 @@ namespace ScannerQR
                     }
                     break;
 
-
-
-
             }
             return base.OnKeyDown(keyCode, e);
         }
+
         public void GetBarcode(string barcode)
         {
             // 
-         
-
             if(tbIdentFilter.HasFocus)
             {
                 Sound();
@@ -106,7 +87,9 @@ namespace ScannerQR
 
 
 
-
+        /// <summary>
+        ///  Process ident method.
+        /// </summary>
 
         private void ProcessIdent()
         {
@@ -175,7 +158,10 @@ namespace ScannerQR
         }
 
       
-
+        /// <summary>
+        /// Entrz  point for the application.
+        /// </summary>
+        /// <param name="savedInstanceState"></param>
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

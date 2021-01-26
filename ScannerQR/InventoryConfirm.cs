@@ -65,50 +65,45 @@ namespace ScannerQR
             LoadPositions();
 
         }
-       
+       // 
 
         private void Target_Click(object sender, EventArgs e)
         {
             progres.Visibility = ViewStates.Visible;
             
             var moveHead = positions.Items[displayedPosition];
-            if (moveHead != null)
+
+            try
             {
-                try
+
+                var headID = moveHead.GetInt("HeadID");
+
+                string result;
+                if (WebApp.Get("mode=finish&id=" + headID.ToString(), out result))
                 {
-
-                    var headID = moveHead.GetInt("HeadID");
-
-                    string result;
-                    if (WebApp.Get("mode=finish&id=" + headID.ToString(), out result))
+                    if (result.StartsWith("OK!"))
                     {
-                        if (result.StartsWith("OK!"))
-                        {
-                            var id = result.Split('+')[1];
-                            Toast.MakeText(this, "Potrjevanje uspešno! Št. potrditve: " + id, ToastLength.Long).Show();
+                        var id = result.Split('+')[1];
+                        Toast.MakeText(this, "Potrjevanje uspešno! Št. potrditve: " + id, ToastLength.Long).Show();
 
-                            StartActivity(typeof(MainMenu));
+                        StartActivity(typeof(MainMenu));
 
-                        }
-                        else
-                        {
-                            Toast.MakeText(this, "Napaka pri potrjevanju: " + result, ToastLength.Long).Show();
-
-                        }
                     }
                     else
                     {
-                        Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
+                        Toast.MakeText(this, "Napaka pri potrjevanju: " + result, ToastLength.Long).Show();
 
                     }
                 }
-                finally
+                else
                 {
-                    progres.Visibility = ViewStates.Invisible;
+                    Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
+
                 }
-            } else
+            }
+            finally
             {
-                Toast.MakeText(this, "Napaka pri dobijanju moveHead ", ToastLength.Long).Show();
+                progres.Visibility = ViewStates.Invisible;
             }
 
         }
@@ -186,7 +181,7 @@ namespace ScannerQR
                
             }
         }
-          /* Fill displayed items. */
+        /* Fill displayed items. */
 
 
 
@@ -203,9 +198,9 @@ namespace ScannerQR
                 tbDate.Text = date == null ? "" : ((DateTime)date).ToString("dd.MM.yyyy");
                 tbItems.Text = item.GetInt("ItemCount").ToString();
                 tbCreatedBy.Text = item.GetString("ClerkName");
+
                 var created = item.GetDateTime("DateInserted");
                 tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
-
                 btNext.Enabled = true;
                 target.Enabled = true;
                 tbWarehouse.Enabled = false;
@@ -214,7 +209,6 @@ namespace ScannerQR
                 tbItems.Enabled = false;
                 tbCreatedBy.Enabled = false;
                 tbCreatedAt.Enabled = false;
-
                 tbWarehouse.SetTextColor(Android.Graphics.Color.Black);
                 tbTitle.SetTextColor(Android.Graphics.Color.Black);
                 tbDate.SetTextColor(Android.Graphics.Color.Black);
@@ -233,7 +227,6 @@ namespace ScannerQR
                 tbItems.Text = "";
                 tbCreatedBy.Text = "";
                 tbCreatedAt.Text = "";
-
                 btNext.Enabled = false;
                 target.Enabled = false;
                 tbWarehouse.Enabled = false;
@@ -242,7 +235,6 @@ namespace ScannerQR
                 tbItems.Enabled = false;
                 tbCreatedBy.Enabled = false;
                 tbCreatedAt.Enabled = false;
-
                 tbWarehouse.SetTextColor(Android.Graphics.Color.Black);
                 tbTitle.SetTextColor(Android.Graphics.Color.Black);
                 tbDate.SetTextColor(Android.Graphics.Color.Black);

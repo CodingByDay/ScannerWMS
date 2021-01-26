@@ -29,7 +29,6 @@ namespace ScannerQR
         private EditText tbPacking;
         private EditText tbUnits;
         private EditText tbPalette;
-
         private Button button1;
         private Button btSaveOrUpdate;
         private Button button4;

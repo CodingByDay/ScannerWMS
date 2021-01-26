@@ -37,20 +37,15 @@ namespace ScannerQR
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
             SetContentView(Resource.Layout.PrintingInputControl);
             dtDate = FindViewById<EditText>(Resource.Id.dtDate);
-
             tbUser = FindViewById<EditText>(Resource.Id.dtDate);
-
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
-
             tbTakeOver = FindViewById<EditText>(Resource.Id.tbTakeOver);
             tbSupplier = FindViewById<EditText>(Resource.Id.tbSupplier);
             tbTakeOverDate = FindViewById<EditText>(Resource.Id.tbTakeOverDate);
             dateChoice = FindViewById<Button>(Resource.Id.dateChoice);
-
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btPrint = FindViewById<Button>(Resource.Id.btPrint);
             button3 = FindViewById<Button>(Resource.Id.button3);
@@ -58,7 +53,6 @@ namespace ScannerQR
             btPrint.Click += BtPrint_Click;
             button3.Click += Button3_Click;
             dateX = DateTime.Today;
-
             tbUser.Text = Services.UserName();
             dateChoice.Click += DateChoice_Click;
             dtDate.Text = DateTime.Today.ToShortDateString();
@@ -217,6 +211,7 @@ namespace ScannerQR
 
             }
         }
+        ///
 
         
 

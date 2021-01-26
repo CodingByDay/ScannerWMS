@@ -120,12 +120,7 @@ namespace ScannerQR
                         BtLogout_Click(this, null);
                     }
                     break;
-
-
                     //return true;
-
-
-
             }
             return base.OnKeyDown(keyCode, e);
         }
@@ -156,11 +151,8 @@ namespace ScannerQR
 
         private void BtnYes_Click(object sender, EventArgs e)
         {
-  
                 var item = positions.Items[displayedPosition];
                 var id = item.GetInt("ItemID");
-
-
                 try
                 {
                 
@@ -198,7 +190,6 @@ namespace ScannerQR
                 
                 }
 
-           
             }
     
         private void BtFinish_Click(object sender, EventArgs e)

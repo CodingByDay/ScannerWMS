@@ -24,6 +24,7 @@ namespace ScannerQR
         private TextView lbStock;
         private List<ComboBoxItem> spinnerAdapterList = new List<ComboBoxItem>();
         private int temporaryPositionWarehouse;
+        private string stock;
 
         public void GetBarcode(string barcode)
         {
@@ -32,6 +33,7 @@ namespace ScannerQR
                 Sound();
                 tbIdent.Text = barcode;
                 ProcessStock();
+
             } else if (tbLocation.HasFocus)
             {
                 Sound();
@@ -41,11 +43,8 @@ namespace ScannerQR
 
         private string LoadStockFromStockSerialNo(string warehouse, string location, string ident)
         {
- 
             try
             {
-
-
                 string error;
                 var stock = Services.GetObjectList("str", out error, warehouse + "|" + location + "|" + ident);
                 if (stock == null)
@@ -92,10 +91,33 @@ namespace ScannerQR
                 return;
             }
 
-            var stock = LoadStockFromStockSerialNo(wh.ID, tbLocation.Text.Trim(), tbIdent.Text.Trim());
+            stock = LoadStockFromStockSerialNo(wh.ID, tbLocation.Text.Trim(), tbIdent.Text.Trim());
             lbStock.Text = "Zaloga:\r\n" + stock;
+            isEmptyStock();
+
+
         }
 
+
+
+
+
+
+
+        private void isEmptyStock()
+        {
+
+          
+            if(stock != "")
+            {
+                lbStock.SetBackgroundColor(Android.Graphics.Color.Green);
+            } else
+            {
+                lbStock.SetBackgroundColor(Android.Graphics.Color.Red);
+            }
+
+
+        }
 
         private void color()
         {
@@ -123,8 +145,6 @@ namespace ScannerQR
                     break;
 
                 // return true;
-
-
 
             }
             return base.OnKeyDown(keyCode, e);
@@ -176,9 +196,6 @@ namespace ScannerQR
             barcode2D.open(this, this);
 
         
-
-
-
         }
 
   

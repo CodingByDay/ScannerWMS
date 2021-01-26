@@ -103,7 +103,6 @@ namespace ScannerQR
                 //moveHead.SetString("Document1", order.GetString("Document1"));
                 //moveHead.SetDateTime("Document1Date", order.GetDateTime("Document1Date"));
                 //moveHead.SetString("Note", order.GetString("Note"));
-
                 string error;
                 var savedMoveHead = Services.SetObject("mh", moveHead, out error);
                 if (savedMoveHead == null)
@@ -161,15 +160,12 @@ namespace ScannerQR
                 catch (Exception ex)
                 {
                     Toast.MakeText(this, "Količina mora biti število (" + ex.Message + ")!", ToastLength.Long).Show();
-
                     tbKolicinaNova.RequestFocus();
                     return null;
                 }
 
                 try
                 {
-                  
-
                     if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
                     moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
                     moveItem.SetString("LinkKey", ""); // TODO
@@ -177,15 +173,12 @@ namespace ScannerQR
                     moveItem.SetString("Ident", ident.GetString("Code"));
                     //moveItem.SetString("SSCC", tbSSCC.Text.Trim());
                     //moveItem.SetString("SerialNo", tbSerialNum.Text.Trim());
-
                     moveItem.SetDouble("Packing", 0.0);
                     moveItem.SetDouble("Factor", 1.0);
                     moveItem.SetDouble("Qty", kol);
                     moveItem.SetInt("MorePrints", 0);
-
                     moveItem.SetInt("Clerk", Services.UserID());
                     //moveItem.SetString("Location", tbLocation.Text.Trim());
-
                     //moveItem.SetBool("PrintNow", CommonData.GetSetting("ImmediatePrintOnReceive") == "1");
                     moveItem.SetInt("UserID", Services.UserID());
                     moveItem.SetString("DeviceID", WMSDeviceConfig.GetString("ID", ""));
@@ -250,24 +243,17 @@ namespace ScannerQR
                 tbKolicinaNova.Text = "";
                 tbKolicinaNova.RequestFocus();
             }
-
-
-
-
         }
         private void Sound()
         {
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
 
-        }
-       
-
+        }      
          public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
             {
-                // in smartphone
-                
+                // in smartphone        
                 case Keycode.F1:
                     if (button1.Enabled == true)
                     {
@@ -275,7 +261,6 @@ namespace ScannerQR
                     }
                     break;
                 //return true;
-
 
                 case Keycode.F2:
                     if (button2.Enabled == true)
@@ -324,7 +309,7 @@ namespace ScannerQR
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu))
+            StartActivity(typeof(MainMenu));
         }
 
         private void Button4_Click(object sender, EventArgs e)
@@ -352,7 +337,6 @@ namespace ScannerQR
                 }
             }
         }
-
         private void Button2_Click(object sender, EventArgs e)
         {
             if (SaveItem(false) != null)
@@ -362,7 +346,7 @@ namespace ScannerQR
 
             }
         }
-
+        
         private void Button1_Click(object sender, EventArgs e)
         {
             if (SaveItem(false) != null)

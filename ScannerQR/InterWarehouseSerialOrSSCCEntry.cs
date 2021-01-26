@@ -237,7 +237,6 @@ namespace ScannerQR
                 moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
                 moveItem.SetString("LinkKey", "");
                 moveItem.SetInt("LinkNo", 0);
-
                 moveItem.SetString("Ident", tbIdent.Text.Trim());
                 moveItem.SetString("SSCC", tbSSCC.Text.Trim());
                 moveItem.SetString("SerialNo", tbSerialNum.Text.Trim());
@@ -333,7 +332,7 @@ namespace ScannerQR
                     return LoadStockFromPAStock(warehouse, ident);
                 }
    
-      else
+            else
             {
                 return LoadStockFromStockSerialNo(warehouse, location, sscc, serialNum, ident);
             }
@@ -345,8 +344,6 @@ namespace ScannerQR
   
             try
             {
-             
-
                 string error;
                 var stock = Services.GetObject("str", warehouse + "|" + location + "|" + sscc + "|" + serialNum + "|" + ident, out error);
                 if (stock == null)
@@ -370,11 +367,8 @@ namespace ScannerQR
 
         private Double LoadStockFromPAStock(string warehouse, string ident)
         {
-          
             try
             {
-  
-
                 string error;
                 var stock = Services.GetObject("pas", warehouse + "|" + ident, out error);
                 if (stock == null)

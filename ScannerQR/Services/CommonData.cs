@@ -63,7 +63,7 @@ namespace TrendNET.WMS.Device.Services
         public static string GetNextSSCC()
         {
        
-           // wf.Start("Pridobivam SSCC kodo.");
+          
             try
             {
                 string error;
