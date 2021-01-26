@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -33,6 +33,7 @@ namespace ScannerQR
         private int displayedPosition = 0;
 
         private NameValueObjectList positions = null;
+        private int output;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -65,48 +66,113 @@ namespace ScannerQR
             LoadPositions();
 
         }
-       // 
+        // 
 
-        private void Target_Click(object sender, EventArgs e)
+
+
+        /// <summary>
+        /// Implementacija asihrone metode ker normalna sinhrona metoa crasha aplikacijo. Sam zaradi overall user expirience funkcionlanost ne obstaja [e
+        /// </summary>
+        /// <returns></returns>
+        public async Task DoWorkAsync()
         {
-            progres.Visibility = ViewStates.Visible;
-            
-            var moveHead = positions.Items[displayedPosition];
+            await Task.Run(() => {
 
-            try
-            {
+                var moveHead = positions.Items[displayedPosition];
 
-                var headID = moveHead.GetInt("HeadID");
-
-                string result;
-                if (WebApp.Get("mode=finish&id=" + headID.ToString(), out result))
+                try
                 {
-                    if (result.StartsWith("OK!"))
+
+                    var headID = moveHead.GetInt("HeadID");
+
+                    string result;
+                    if (WebApp.Get("mode=finish&id=" + headID.ToString(), out result))
                     {
-                        var id = result.Split('+')[1];
-                        Toast.MakeText(this, "Potrjevanje uspešno! Št. potrditve: " + id, ToastLength.Long).Show();
+                        if (result.StartsWith("OK!"))
+                        {
+                            var id = result.Split('+')[1];
+                            //  Toast.MakeText(this, "Potrjevanje uspešno! Št. potrditve: " + id, ToastLength.Long).Show();
+                             output = 1;
+                            StartActivity(typeof(MainMenu));
 
-                        StartActivity(typeof(MainMenu));
+                        }
+                        else
+                        {
 
+                            output = 2;
+                           // Toast.MakeText(this, "Napaka pri potrjevanju: " + result, ToastLength.Long).Show();
+
+                        }
                     }
                     else
                     {
-                        Toast.MakeText(this, "Napaka pri potrjevanju: " + result, ToastLength.Long).Show();
+                      //  Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
 
                     }
                 }
-                else
+                finally
                 {
-                    Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
-
+                    progres.Visibility = ViewStates.Invisible;
                 }
-            }
-            finally
+            });
+        }
+
+
+
+        private async void Target_Click(object sender, EventArgs e)
+        {
+
+            await DoWorkAsync();
+            if(output == 1)
             {
-                progres.Visibility = ViewStates.Invisible;
+                Toast.MakeText(this, "Potrjevanje uspešno!: ", ToastLength.Long).Show();
+            } else
+            {
+                Toast.MakeText(this, "Potrjevanje neuspešno.: ", ToastLength.Long).Show();
             }
 
         }
+
+        //private void Target_Click(object sender, EventArgs e)
+        //{
+        //    progres.Visibility = ViewStates.Visible;
+
+        //    var moveHead = positions.Items[displayedPosition];
+
+        //    try
+        //    {
+
+        //        var headID = moveHead.GetInt("HeadID");
+
+        //        string result;
+        //        if (WebApp.Get("mode=finish&id=" + headID.ToString(), out result))
+        //        {
+        //            if (result.StartsWith("OK!"))
+        //            {
+        //                var id = result.Split('+')[1];
+        //                Toast.MakeText(this, "Potrjevanje uspešno! Št. potrditve: " + id, ToastLength.Long).Show();
+
+        //                StartActivity(typeof(MainMenu));
+
+        //            }
+        //            else
+        //            {
+        //                Toast.MakeText(this, "Napaka pri potrjevanju: " + result, ToastLength.Long).Show();
+
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
+
+        //        }
+        //    }
+        //    finally
+        //    {
+        //        progres.Visibility = ViewStates.Invisible;
+        //    }
+
+        //}
 
         private void Button3_Click(object sender, EventArgs e)
         {

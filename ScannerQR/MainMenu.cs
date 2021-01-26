@@ -136,6 +136,7 @@ namespace ScannerQR
         {
 
             StartActivity(typeof(MainActivity));
+            this.Finish();
         }
 
         private void BtnPackaging_Click(object sender, EventArgs e)

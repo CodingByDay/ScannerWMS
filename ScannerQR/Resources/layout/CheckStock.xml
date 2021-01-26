@@ -101,8 +101,13 @@
 
     </LinearLayout>
     <TextView
+        android:layout_width="95.5dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10px"
+        android:paddingTop="5px"/>
+    <TextView
         android:layout_width="296.0dp"
-        android:layout_height="273.0dp"
+        android:layout_height="247.0dp"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textSize="30px"
