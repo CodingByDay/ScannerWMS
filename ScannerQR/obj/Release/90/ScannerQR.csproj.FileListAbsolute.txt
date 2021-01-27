@@ -440,3 +440,5 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\stamp\_ConvertR
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\ScannerQR.csprojAssemblyReference.cache
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\aapt_rules.txt

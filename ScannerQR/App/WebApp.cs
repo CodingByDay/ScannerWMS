@@ -10,7 +10,9 @@ namespace TrendNET.WMS.Device.App
 {
     public class WebApp
     {
-
+        /// <summary>
+        /// device config
+        /// </summary>
 
 
      public static string rootURL = WMSDeviceConfig.GetString("WebApp", "http://wms.in-sist.si");

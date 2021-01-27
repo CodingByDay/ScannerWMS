@@ -1,5 +1,6 @@
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 Button;obj\Debug\90\res\layout\activity_main.xml
@@ -53,6 +54,7 @@ Button;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
 Button;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 Button;obj\Debug\90\res\layout\unfinishedproductionview.xml
 Button;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
+Button;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 Button;obj\Debug\90\res\layout\yesnogeneric.xml
 Button;obj\Debug\90\res\layout\yesnopopup.xml
 Button;obj\Debug\90\res\layout\yesnoproductioncard.xml
@@ -97,6 +99,7 @@ EditText;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
 EditText;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 EditText;obj\Debug\90\res\layout\unfinishedproductionview.xml
 EditText;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
+EditText;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 external-cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
@@ -166,11 +169,13 @@ LinearLayout;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedproductionview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
+LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\yesnogeneric.xml
 LinearLayout;obj\Debug\90\res\layout\yesnopopup.xml
 LinearLayout;obj\Debug\90\res\layout\yesnoproductioncard.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\productionpalette.xml
+ListView;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 padding;obj\Debug\90\res\drawable\nicelookingbutton.xml
 paths;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Debug\90\res\layout\activity_main.xml
@@ -248,6 +253,7 @@ TextView;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
 TextView;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 TextView;obj\Debug\90\res\layout\unfinishedproductionview.xml
 TextView;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
+TextView;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 TextView;obj\Debug\90\res\layout\yesnogeneric.xml
 TextView;obj\Debug\90\res\layout\yesnopopup.xml
 TextView;obj\Debug\90\res\layout\yesnoproductioncard.xml

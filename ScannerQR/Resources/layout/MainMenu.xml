@@ -7,7 +7,7 @@
     android:padding="16dp">
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="65.0dp"
+        android:layout_height="33.5dp"
         android:layout_gravity="center"
         android:paddingLeft="10px"
         android:paddingTop="5px"
@@ -17,59 +17,7 @@
         android:textStyle="bold|italic"
         android:textSize="20px" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <Button
-            android:fontFamily="Roboto"
-            android:bottomLeftRadius="7dp"
-            android:bottomRightRadius="7dp"
-            android:topLeftRadius="7dp"
-            android:topRightRadius="7dp"
-            android:layout_width="165.0dp"
-            android:layout_height="74.0dp"
-            android:background="@android:color/holo_red_light"
-            android:paddingBottom="5dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="20dp"
-            android:paddingTop="8dp"
-             android:textSize="16px"
-            android:drawableLeft="@drawable/takeover"
-            android:text="Prevzem blaga-F1"
-            android:layout_marginBottom="5dp"
-            android:textColor="#000000"
-            android:id="@+id/goodsTakeOver" />
-
-        <Button
-            android:bottomLeftRadius="7dp"
-            android:bottomRightRadius="7dp"
-            android:topLeftRadius="7dp"
-            android:topRightRadius="7dp"
-             android:layout_width="165.0dp"
-            android:layout_height="72.0dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-             android:textSize="16px"
-            android:background="@android:color/holo_green_dark"
-            android:drawableLeft="@drawable/warehouse"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="20dp"
-            android:paddingTop="8dp"
-            android:text="Medskladiščnica-F2"
-            android:textColor="#000000"
-            android:id="@+id/goodsInterWarehouse" />
-
-
-
-
-    </LinearLayout>
-
-
+     
        <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -81,48 +29,45 @@
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
             android:topRightRadius="7dp"
-             android:layout_width="165.0dp"
-            android:layout_height="69.0dp"
-            android:background="#FFEB3B"
-            android:drawableLeft="@drawable/factory"
+            android:layout_width="165.0dp"
+            android:layout_height="89.0dp"
+            android:background="#80d8ff"
+            android:drawableLeft="@drawable/takeover"
             android:paddingBottom="5dp"
+             android:textSize="14px"
             android:paddingLeft="16dp"
-             android:textSize="16px"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
-            android:text="Prevzem iz proizv.-f3"
-            android:layout_marginBottom="0.0dp"
+            android:text="Prevz. blaga-F1"
+            android:layout_marginBottom="5dp"
             android:textColor="#000000"
-            android:id="@+id/goodsProduction"
-            android:layout_marginTop="0.0dp" />
-
+             android:id="@+id/goodsTakeOver" />
         <Button
             android:bottomLeftRadius="7dp"
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
             android:topRightRadius="7dp"
              android:layout_width="165.0dp"
-            android:layout_height="72.0dp"
-            android:layout_marginLeft="5dp"
-             android:textSize="16px"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="#ff969eac"
-            android:drawableLeft="@drawable/shipped"
+            android:layout_height="89.0dp"
+            android:background="@android:color/holo_green_dark"
+            android:drawableLeft="@drawable/warehouse"
             android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
+            android:paddingLeft="16dp"
+             android:textSize="14px"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
-            android:text="Odprema blaga-F4"
+            android:text="Medskldš.-F2"
+            android:layout_marginBottom="5dp"
             android:textColor="#000000"
-            android:id="@+id/goodsIssued" />
+            android:layout_marginLeft="6.0dp"
+            android:layout_marginRight="6.0dp"
+            android:id="@+id/goodsInterWarehouse" />
 
 
 
 
     </LinearLayout>
-
-     <LinearLayout
+       <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -133,39 +78,87 @@
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
             android:topRightRadius="7dp"
-             android:layout_width="165.0dp"
-            android:layout_height="74.0dp"
-            android:background="@android:color/holo_orange_dark"
-            android:drawableLeft="@drawable/packaging"
+            android:layout_width="165.0dp"
+            android:layout_height="89.0dp"
+           android:background="#FFEB3B"
+            android:drawableLeft="@drawable/factory"
             android:paddingBottom="5dp"
+             android:textSize="14px"
             android:paddingLeft="16dp"
             android:paddingRight="20dp"
-             android:textSize="16px"
             android:paddingTop="8dp"
-            android:text="Pakiranje-F5"
+            android:text="Prevz. iz proizv.-f3"
             android:layout_marginBottom="5dp"
             android:textColor="#000000"
-            android:id="@+id/goodsPackaging" />
+            android:id="@+id/goodsProduction" />
+        <Button
+            android:bottomLeftRadius="7dp"
+            android:bottomRightRadius="7dp"
+            android:topLeftRadius="7dp"
+            android:topRightRadius="7dp"
+            android:layout_width="165.0dp"
+            android:layout_height="89.0dp"
+            android:background="#ff969eac"
+            android:drawableLeft="@drawable/shipped"
+            android:paddingBottom="5dp"
+            android:paddingLeft="16dp"
+             android:textSize="14px"
+            android:paddingRight="20dp"
+            android:paddingTop="8dp"
+            android:text="Odprema blaga-F4"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"
+            android:layout_marginLeft="6.0dp"
+            android:layout_marginRight="6.0dp"
+            android:id="@+id/goodsIssued"  />
+
+
+
+
+    </LinearLayout>
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <Button
             android:bottomLeftRadius="7dp"
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
             android:topRightRadius="7dp"
-             android:layout_width="165.0dp"
-            android:layout_height="72.0dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_width="165.0dp"
+            android:layout_height="89.0dp"
+            android:background="@android:color/holo_orange_dark"
+            android:drawableLeft="@drawable/packaging"
+            android:paddingBottom="5dp"
+             android:textSize="14px"
+            android:paddingLeft="16dp"
+            android:paddingRight="20dp"
+            android:paddingTop="8dp"
+            android:text="Inventura-f7"
             android:layout_marginBottom="5dp"
-             android:textSize="16px"
+            android:textColor="#000000"
+            android:id="@+id/goodsPackaging" />
+        <Button
+            android:bottomLeftRadius="7dp"
+            android:bottomRightRadius="7dp"
+            android:topLeftRadius="7dp"
+            android:topRightRadius="7dp"
+             android:layout_width="165.0dp"
+            android:layout_height="89.0dp"
             android:background="#03A9F4"
             android:drawableLeft="@drawable/printer"
             android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
+            android:paddingLeft="16dp"
+             android:textSize="14px"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
             android:text="Tiskanje-f6"
+            android:layout_marginBottom="5dp"
             android:textColor="#000000"
+            android:layout_marginLeft="6.0dp"
+            android:layout_marginRight="6.0dp"
             android:id="@+id/btnPrint" />
 
 
@@ -189,7 +182,7 @@
             android:background="#689F38"
             android:drawableLeft="@drawable/inventory"
             android:paddingBottom="5dp"
-             android:textSize="16px"
+             android:textSize="14px"
             android:paddingLeft="16dp"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
@@ -208,7 +201,7 @@
             android:drawableLeft="@drawable/location"
             android:paddingBottom="5dp"
             android:paddingLeft="16dp"
-             android:textSize="16px"
+             android:textSize="14px"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
             android:text="Zaloga-f8"
@@ -229,10 +222,10 @@
         android:topLeftRadius="7dp"
         android:topRightRadius="7dp"
         android:text="Odjava "
-         android:textSize="16px"
         android:layout_width="338.5dp"
         android:layout_height="67.0dp"
         android:id="@+id/logout"
+         android:textSize="14px"
         android:layout_marginLeft="4.0dp"
         android:drawableLeft="@drawable/logout"
         android:layout_marginRight="0.0dp"
@@ -245,5 +238,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/dateTime"
         android:layout_gravity="center" />
+
+     
 
 </LinearLayout>
