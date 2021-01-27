@@ -55,7 +55,7 @@ namespace ScannerQR
 
             // Create your application here.
             SetContentView(Resource.Layout.TakeOverSerialOrSSCCEntry);
-            // Find view by ID definitions.
+            // 
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSerialNum = FindViewById<EditText>(Resource.Id.tbSerialNum);
@@ -77,9 +77,6 @@ namespace ScannerQR
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
-          
-         
-
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             button4.Click += Button4_Click;
             button6.Click += Button6_Click;

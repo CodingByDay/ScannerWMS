@@ -87,6 +87,7 @@ namespace ScannerQR
 
                     string result;
                     if (WebApp.Get("mode=finish&id=" + headID.ToString(), out result))
+                    
                     {
                         if (result.StartsWith("OK!"))
                         {
@@ -112,7 +113,7 @@ namespace ScannerQR
                 }
                 finally
                 {
-                    progres.Visibility = ViewStates.Invisible;
+                    
                 }
             });
         }
@@ -123,6 +124,7 @@ namespace ScannerQR
         {
 
             await DoWorkAsync();
+           
             if(output == 1)
             {
                 Toast.MakeText(this, "Potrjevanje uspešno!: ", ToastLength.Long).Show();

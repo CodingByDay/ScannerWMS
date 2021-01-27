@@ -1,14 +1,14 @@
 	.section	.rodata.map_aname.0,"aMS",@progbits,1
 	.type	.L.map_aname.0, @object
 .L.map_aname.0:
-	.asciz	"Microsoft.AppCenter.Analytics.Android.Bindings"
-	.size	.L.map_aname.0, 47
+	.asciz	"Mono.Android"
+	.size	.L.map_aname.0, 13
 
 	.section	.rodata.map_aname.1,"aMS",@progbits,1
 	.type	.L.map_aname.1, @object
 .L.map_aname.1:
-	.asciz	"ScannerQR"
-	.size	.L.map_aname.1, 10
+	.asciz	"Microsoft.AppCenter.Analytics.Android.Bindings"
+	.size	.L.map_aname.1, 47
 
 	.section	.rodata.map_aname.2,"aMS",@progbits,1
 	.type	.L.map_aname.2, @object
@@ -79,20 +79,20 @@
 	.section	.rodata.map_aname.13,"aMS",@progbits,1
 	.type	.L.map_aname.13, @object
 .L.map_aname.13:
-	.asciz	"Mono.Android"
-	.size	.L.map_aname.13, 13
+	.asciz	"Microsoft.AppCenter.Android.Bindings"
+	.size	.L.map_aname.13, 37
 
 	.section	.rodata.map_aname.14,"aMS",@progbits,1
 	.type	.L.map_aname.14, @object
 .L.map_aname.14:
-	.asciz	"Microsoft.AppCenter.Android.Bindings"
-	.size	.L.map_aname.14, 37
+	.asciz	"Xamarin.Android.Arch.Lifecycle.ViewModel"
+	.size	.L.map_aname.14, 41
 
 	.section	.rodata.map_aname.15,"aMS",@progbits,1
 	.type	.L.map_aname.15, @object
 .L.map_aname.15:
-	.asciz	"Xamarin.Android.Arch.Lifecycle.ViewModel"
-	.size	.L.map_aname.15, 41
+	.asciz	"ScannerQR"
+	.size	.L.map_aname.15, 10
 
 	.section	.rodata.map_aname.16,"aMS",@progbits,1
 	.type	.L.map_aname.16, @object

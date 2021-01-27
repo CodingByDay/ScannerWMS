@@ -94,7 +94,6 @@ namespace ScannerQR
             tbCardNum = FindViewById<EditText>(Resource.Id.tbCardNum);
             tbSerialNum = FindViewById<EditText>(Resource.Id.tbSerialNum);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
-
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             btExit = FindViewById<Button>(Resource.Id.btExit);
             tbWorkOrder.Text = cardInfo.GetString("WorkOrder").Trim();
@@ -136,7 +135,7 @@ namespace ScannerQR
             }
             finally
             {
-               // Used to be a wait form...
+               // 
             }
 
 
@@ -158,7 +157,7 @@ namespace ScannerQR
             nvo.SetInt("ClerkIns", Services.UserID());
 
            
-       //
+       
             try
             {
                 string error;
@@ -182,7 +181,7 @@ namespace ScannerQR
             }
             finally
             {
-            //wf.stop
+            
             }
 
         }

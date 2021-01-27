@@ -17,7 +17,8 @@ namespace TrendNET.WMS.Device.Services
     public class WebApp
     {
         private const int x16kb = 16 * 1024;
-
+        public static string rootURL = WMSDeviceConfig.GetString("WebApp", "http://wms.in-sist.si");
+        public static string device = WMSDeviceConfig.GetString("ID", "");
         private static DateTime skipPingsUntil = DateTime.MinValue;
         private static object pingLock = new object();
         
@@ -166,7 +167,7 @@ namespace TrendNET.WMS.Device.Services
             {
                
                 result = ex.Message;
-                Crashes.TrackError(ex);
+                Crashes.TrackError(ex); /* Crash report */
                 return false;
             }
         }
@@ -178,8 +179,8 @@ namespace TrendNET.WMS.Device.Services
                 result = "";
               
                 //var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
-                var device = settings.ID;
-                var url = RandomizeURL (settings.RootURL + "/Services/Device/?" + rqURL + "&device=" + device);
+            
+                var url = RandomizeURL (rootURL + "/Services/Device/?" + rqURL + "&device=" + device);
                 var startedAt = DateTime.Now;
                 try
                 {
@@ -267,8 +268,7 @@ namespace TrendNET.WMS.Device.Services
                 result = "";
                 // var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
 
-                var device = settings.ID;
-                var url = RandomizeURL(settings.RootURL + "/Services/Device/?" + rqURL + "&device=" + device);
+                var url = RandomizeURL(rootURL + "/Services/Device/?" + rqURL + "&device=" + device);
                 var startedAt = DateTime.Now;
                 try
                 {
@@ -316,8 +316,8 @@ namespace TrendNET.WMS.Device.Services
                 result = "";
                 //var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
 
-                var device = settings.ID;
-                var url = RandomizeURL (settings.RootURL + "/Services/Device/?mode=ping&device=" + device);
+           
+                var url = RandomizeURL (rootURL + "/Services/Device/?mode=ping&device=" + device);
                 var startedAt = DateTime.Now;
                 try
                 {
