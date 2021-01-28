@@ -4912,46 +4912,49 @@ namespace ScannerQR
 			public const int TakeOverEnteredPositionsView = 2131427433;
 			
 			// aapt resource value: 0x7F0B006A
-			public const int TakeOverIdentEntry = 2131427434;
+			public const int TakeOverEnteredPositionsViewTablet = 2131427434;
 			
 			// aapt resource value: 0x7F0B006B
-			public const int TakeOverIdentEntryTablet = 2131427435;
+			public const int TakeOverIdentEntry = 2131427435;
 			
 			// aapt resource value: 0x7F0B006C
-			public const int TakeOverSerialOrSSCCEntry = 2131427436;
+			public const int TakeOverIdentEntryTablet = 2131427436;
 			
 			// aapt resource value: 0x7F0B006D
-			public const int TransportPopup = 2131427437;
+			public const int TakeOverSerialOrSSCCEntry = 2131427437;
 			
 			// aapt resource value: 0x7F0B006E
-			public const int UnfinishedInterWarehouseView = 2131427438;
+			public const int TransportPopup = 2131427438;
 			
 			// aapt resource value: 0x7F0B006F
-			public const int UnfinishedIssuedGoodsView = 2131427439;
+			public const int UnfinishedInterWarehouseView = 2131427439;
 			
 			// aapt resource value: 0x7F0B0070
-			public const int UnfinishedIssuedGoodsViewTablet = 2131427440;
+			public const int UnfinishedIssuedGoodsView = 2131427440;
 			
 			// aapt resource value: 0x7F0B0071
-			public const int UnfinishedProductionView = 2131427441;
+			public const int UnfinishedIssuedGoodsViewTablet = 2131427441;
 			
 			// aapt resource value: 0x7F0B0072
-			public const int UnfinishedProductionViewTablet = 2131427442;
+			public const int UnfinishedProductionView = 2131427442;
 			
 			// aapt resource value: 0x7F0B0073
-			public const int UnfinishedTakeoversView = 2131427443;
+			public const int UnfinishedProductionViewTablet = 2131427443;
 			
 			// aapt resource value: 0x7F0B0074
-			public const int UnfinishedTakeoversViewTablet = 2131427444;
+			public const int UnfinishedTakeoversView = 2131427444;
 			
 			// aapt resource value: 0x7F0B0075
-			public const int YesNoGeneric = 2131427445;
+			public const int UnfinishedTakeoversViewTablet = 2131427445;
 			
 			// aapt resource value: 0x7F0B0076
-			public const int YesNoPopUp = 2131427446;
+			public const int YesNoGeneric = 2131427446;
 			
 			// aapt resource value: 0x7F0B0077
-			public const int YesNoProductionCard = 2131427447;
+			public const int YesNoPopUp = 2131427447;
+			
+			// aapt resource value: 0x7F0B0078
+			public const int YesNoProductionCard = 2131427448;
 			
 			static Layout()
 			{

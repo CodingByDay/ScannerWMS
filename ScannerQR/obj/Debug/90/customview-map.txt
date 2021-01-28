@@ -183,6 +183,7 @@ LinearLayout;obj\Debug\90\res\layout\takeover2main.xml
 LinearLayout;obj\Debug\90\res\layout\takeover2orders.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverenteredpositionsview.xml
+LinearLayout;obj\Debug\90\res\layout\takeoverenteredpositionsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\takeoveridententry.xml
 LinearLayout;obj\Debug\90\res\layout\takeoveridententrytablet.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverserialorssccentry.xml
