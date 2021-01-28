@@ -146,6 +146,7 @@ LinearLayout;obj\Debug\90\res\layout\inventoryprint.xml
 LinearLayout;obj\Debug\90\res\layout\inventoryprocess.xml
 LinearLayout;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetup.xml
 LinearLayout;obj\Debug\90\res\layout\issuedgoodsenteredpositionsview.xml
+LinearLayout;obj\Debug\90\res\layout\issuedgoodsenteredpositionsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\issuedgoodsidententry.xml
 LinearLayout;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 LinearLayout;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
