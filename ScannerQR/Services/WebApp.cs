@@ -97,13 +97,13 @@ namespace TrendNET.WMS.Device.Services
             t.IsBackground = true;
             t.Start();
             var cnt = timeout / 1500 + 5;
-          //  Power.EnterUnattendedMode ();
+          //Power.EnterUnattendedMode ();
             try
             {
                 while (--cnt > 0 && !t.Join(1500))
                 {
-                   // Power.SystemIdleTimerReset();
-                 //   Application.DoEvents();
+                   //Power.SystemIdleTimerReset();
+                 //Application.DoEvents();
                 }
                 if (cnt <= 0)
                 {
@@ -114,7 +114,7 @@ namespace TrendNET.WMS.Device.Services
             }
             finally
             {
-           //     Power.ExitUnattendedMode();
+           //Power.ExitUnattendedMode();
             }
             result = threadResult;
             return success;

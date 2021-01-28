@@ -21,6 +21,35 @@ namespace TrendNET.WMS.Device.Services
             UserInfo.Clear();
         }
 
+
+
+
+        /// <summary>
+        /// Method for determaning what type is the device.
+        /// </summary>
+        /// <returns></returns>
+
+        public static bool isTablet()
+        {
+
+           var device = WMSDeviceConfig.GetString("DeviceType", "");
+
+           if(device == "PHONE")
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+
+
+        }
+
+
+
+
+
+
         public static bool HasPermission(string perm, string minLevel)
         {
             var usePerm = CommonData.GetSetting("UsePermissions");

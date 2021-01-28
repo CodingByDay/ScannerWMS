@@ -5,7 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+   
+
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_widthPercent="100%"
+        android:layout_toRightOf="@id/app"
+        android:id="@id/list"
+        android:layout_below="@id/text"
+        />
+     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -22,7 +34,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Dokument"
+            android:text="Naročilo"
             android:layout_marginRight="28.0dp"
             android:id="@+id/document"
             android:layout_width="match_parent" />
@@ -33,7 +45,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Kreiral"
+            android:text="Naročnik"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/provider" />
@@ -53,16 +65,6 @@
             android:id="@+id/date" />
 
     </LinearLayout>
-
-
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_widthPercent="100%"
-        android:layout_toRightOf="@id/app"
-        android:layout_below="@id/text"
-        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -215,12 +217,12 @@
         android:orientation="horizontal"
         android:paddingTop="5px">
 
-        <TextView
-            android:layout_width="109.5dp"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:text="Datum kreiranja" />
+            <TextView
+                android:layout_width="109.5dp"
+                android:layout_height="44.0dp"
+                android:paddingLeft="10px"
+                android:paddingTop="5px"
+                android:text="Datum kreiranja" />
 
         <EditText
               android:singleLine="true"
@@ -249,27 +251,27 @@
         android:orientation="horizontal"
         android:paddingTop="5px">
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Naslednja medskladiščnica-f1"
-            android:layout_width="184.5dp"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/next"
-            android:id="@+id/btNext"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Naslednji prevzem - F1"
+                android:layout_width="184.5dp"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/next"
+                android:id="@+id/btNext"
+                android:layout_marginBottom="0.0dp" />
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Zaključi/popravi medskl.f2"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:drawableLeft="@drawable/shipped"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:id="@+id/btFinish"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Zaključi/popravi izb. prevzem - F2"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:drawableLeft="@drawable/shipped"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:id="@+id/btFinish"
+                android:layout_marginBottom="0.0dp" />
 
 
     </LinearLayout>
@@ -281,27 +283,27 @@
         android:orientation="horizontal"
         android:paddingTop="5px">
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Izbriši medskl.-f3"
-            android:layout_width="184.5dp"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/delete"
-            android:id="@+id/btDelete" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Izbriši prevz. - F3"
+                android:layout_width="184.5dp"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/delete"
+                android:id="@+id/btDelete" />
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Kreiraj novo-f4"
-            android:layout_width="match_parent"
-           android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:drawableLeft="@drawable/newitem"
-            android:paddingLeft="10px"
-            android:id="@+id/btNew"
-            android:layout_marginTop="0.0dp"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Kreiraj nov-f4"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:drawableLeft="@drawable/newitem"
+                android:paddingLeft="10px"
+                android:id="@+id/btNew"
+                android:layout_marginTop="0.0dp"
+                android:layout_marginBottom="0.0dp" />
 
 
     </LinearLayout>

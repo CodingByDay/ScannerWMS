@@ -35,9 +35,18 @@ namespace ScannerQR
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 MainActivity.isValid = false; 
                 MainActivity.progressBar1.Visibility = ViewStates.Invisible;
-            
+                var result = Services.isTablet();
+                if(result == true)
+                {
+                    string toaster = new string("TABLET");
+                    Toast.MakeText(this, toast, ToastLength.Long).Show();
+                } else
+                {
+                    string toastt = new string("TALEFON");
+                    Toast.MakeText(this, toast, ToastLength.Long).Show();
+                }
             }
-
+            // Testing the config reading ...
 
 
             // First event...
