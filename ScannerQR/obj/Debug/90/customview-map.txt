@@ -1,5 +1,6 @@
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeoveridententrytablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
@@ -12,6 +13,7 @@ Button;obj\Debug\90\res\layout\checkstock.xml
 Button;obj\Debug\90\res\layout\common.xml
 Button;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
 Button;obj\Debug\90\res\layout\interwarehouseenteredpositionsview.xml
+Button;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 Button;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
 Button;obj\Debug\90\res\layout\inventoryconfirm.xml
 Button;obj\Debug\90\res\layout\inventorymenu.xml
@@ -73,6 +75,7 @@ corners;obj\Debug\90\res\drawable\nicelookingbutton.xml
 EditText;obj\Debug\90\res\layout\activity_main.xml
 EditText;obj\Debug\90\res\layout\checkstock.xml
 EditText;obj\Debug\90\res\layout\interwarehouseenteredpositionsview.xml
+EditText;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 EditText;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
 EditText;obj\Debug\90\res\layout\inventoryconfirm.xml
 EditText;obj\Debug\90\res\layout\inventoryopen.xml
@@ -132,6 +135,7 @@ LinearLayout;obj\Debug\90\res\layout\checkstock.xml
 LinearLayout;obj\Debug\90\res\layout\common.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsview.xml
+LinearLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\inventoryconfirm.xml
 LinearLayout;obj\Debug\90\res\layout\inventorymenu.xml
@@ -189,6 +193,7 @@ LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\yesnogeneric.xml
 LinearLayout;obj\Debug\90\res\layout\yesnopopup.xml
 LinearLayout;obj\Debug\90\res\layout\yesnoproductioncard.xml
+ListView;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 ListView;obj\Debug\90\res\layout\productionpalette.xml
@@ -229,6 +234,7 @@ TextView;obj\Debug\90\res\layout\checkstock.xml
 TextView;obj\Debug\90\res\layout\common.xml
 TextView;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
 TextView;obj\Debug\90\res\layout\interwarehouseenteredpositionsview.xml
+TextView;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 TextView;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
 TextView;obj\Debug\90\res\layout\inventoryconfirm.xml
 TextView;obj\Debug\90\res\layout\inventorymenu.xml

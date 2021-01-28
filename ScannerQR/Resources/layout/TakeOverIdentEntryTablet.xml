@@ -365,7 +365,7 @@
         android:id="@+id/test"
         android:layout_toRightOf="@id/app"
         android:layout_below="@id/text"
-        android:text="                               *Pritiskom na en ident se bo otprlo okno."
+        android:text="                                                                          *Pritiskom na en ident se bo otprlo okno."
         />
 
 
