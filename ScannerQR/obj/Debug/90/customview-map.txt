@@ -190,6 +190,7 @@ padding;obj\Debug\90\res\drawable\nicelookingbutton.xml
 paths;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Debug\90\res\layout\activity_main.xml
 ProgressBar;obj\Debug\90\res\layout\inventoryconfirm.xml
+RelativeLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\2\jl\res\values\strings.xml
 resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\5\jl\res\values\strings.xml
 resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\6\jl\res\values\strings.xml

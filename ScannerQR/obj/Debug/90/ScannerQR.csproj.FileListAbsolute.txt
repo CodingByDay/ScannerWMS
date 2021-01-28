@@ -11,7 +11,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll.mdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\build.props
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\adb.props
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csprojAssemblyReference.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res.flag

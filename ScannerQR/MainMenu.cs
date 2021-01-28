@@ -19,7 +19,11 @@ namespace ScannerQR
     public class MainMenu : Activity
     {
         private TextView datetime;
-        public bool result = Services.isTablet();
+        public bool result = Services.isTablet(); /* Checks to see if the device is a tablet
+                                                   *  or a phone to show
+                                                   *  different layouts. 
+                                                   *  Use this method for navigation. 
+                                                   *  Wms add on for preview. 28.1.2021 */
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -31,17 +35,16 @@ namespace ScannerQR
             // welcome string
             if (MainActivity.isValid == true)
             {
-                string toast = new string(result.ToString());
+                string toast = new string("Uspešna prijava.");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 MainActivity.isValid = false; 
                 MainActivity.progressBar1.Visibility = ViewStates.Invisible;
-                
-
+                var result = Services.isTablet();
            
                 
                
             }
-            // Testing the config reading ...
+            // Testing the config reading ... It works... :)
 
 
             // First event...
@@ -75,14 +78,14 @@ namespace ScannerQR
             datetime.Text = DateTime.Today.ToLongDateString();
 
             // Permisions.
-            //buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
-            //buttonIssued.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND", "R");
-            //buttonUnfinished.Enabled = Services.HasPermission("TNET_WMS_BLAG_PROD", "R");
-            //button.Enabled = Services.HasPermission("TNET_WMS_BLAG_ACQ", "R");
-            //btnPackaging.Enabled = Services.HasPermission("TNET_WMS_BLAG_PKG", "R");
+            // buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
+            // buttonIssued.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND", "R");
+            // buttonUnfinished.Enabled = Services.HasPermission("TNET_WMS_BLAG_PROD", "R");
+            // button.Enabled = Services.HasPermission("TNET_WMS_BLAG_ACQ", "R");
+            // btnPackaging.Enabled = Services.HasPermission("TNET_WMS_BLAG_PKG", "R");
 
-            //buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
-            //btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
+            // buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
+            // btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
 
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -92,9 +95,7 @@ namespace ScannerQR
                 // in smartphone
                 case Keycode.F1:
                   
-               
-                        Button_Click(this, null);
-                                 
+                        Button_Click(this, null);                               
                     break;
                 //return true;
 

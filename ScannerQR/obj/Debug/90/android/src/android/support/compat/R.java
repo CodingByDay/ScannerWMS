@@ -90,10 +90,10 @@ public final class R {
 		public static final int tag_transition_group = 0x7f08010b;
 		public static final int tag_unhandled_key_event_manager = 0x7f08010c;
 		public static final int tag_unhandled_key_listeners = 0x7f08010d;
-		public static final int text = 0x7f080147;
-		public static final int text2 = 0x7f080148;
-		public static final int time = 0x7f08015c;
-		public static final int title = 0x7f08015d;
+		public static final int text = 0x7f080148;
+		public static final int text2 = 0x7f080149;
+		public static final int time = 0x7f08015d;
+		public static final int title = 0x7f08015e;
 	}
 	public static final class integer {
 		public static final int status_bar_notification_info_maxnum = 0x7f09000e;
