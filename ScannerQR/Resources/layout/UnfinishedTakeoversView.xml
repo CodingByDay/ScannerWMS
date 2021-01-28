@@ -186,7 +186,7 @@
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Naslednji prevzem - F1"
+            android:text="Naslednji prev. - F1"
             android:layout_width="184.5dp"
             android:layout_height="70.0dp"
             android:textSize="16px"
@@ -197,7 +197,7 @@
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Zaključi/popravi prevzem - F2"
+            android:text="Zaključi/popravi - F2"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:drawableLeft="@drawable/shipped"
@@ -218,7 +218,7 @@
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Izbriši izbrani prevzem - F3"
+            android:text="Izbriši prevzem - F3"
             android:layout_width="184.5dp"
             android:layout_height="70.0dp"
             android:textSize="16px"

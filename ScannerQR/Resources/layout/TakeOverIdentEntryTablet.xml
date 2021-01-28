@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_toRightOf="@id/app"
-        android:layout_above="@id/list"
+        android:layout_above="@id/listView1"
         android:weightSum="5"
         android:id="@+id/text"
         android:paddingTop="5px">

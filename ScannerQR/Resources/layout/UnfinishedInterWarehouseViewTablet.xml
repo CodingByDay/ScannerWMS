@@ -35,7 +35,7 @@
         android:orientation="horizontal"
 
         android:layout_toRightOf="@id/app"
-        android:layout_above="@id/list"
+       
         android:weightSum="3"
         android:id="@+id/text"
         android:paddingTop="5px">

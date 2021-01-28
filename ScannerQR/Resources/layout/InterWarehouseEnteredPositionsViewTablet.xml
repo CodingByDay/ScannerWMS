@@ -5,17 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
 
 
-    
-     <TextView
+
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/test"
         android:layout_toRightOf="@id/app"
         android:layout_below="@id/text"
-        android:text="                               *Pritiskom na gumb se bo otprlo okno na katerem lahko vidite otprte prevzeme."
+        android:text="                               *Pritiskom na gumb se bo odprlo okno na katerem lahko vidite podrobnejše informacije."
         />
 
 
@@ -35,7 +35,7 @@
         android:orientation="horizontal"
 
         android:layout_toRightOf="@id/app"
-        android:layout_above="@id/list"
+      
         android:weightSum="6"
         android:id="@+id/text"
         android:paddingTop="5px">
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="sscc"
+            android:text="SSCC"
             android:layout_marginRight="28.0dp"
             android:id="@+id/sscc" />
 
@@ -355,15 +355,15 @@
         android:orientation="horizontal"
         android:paddingTop="5px">
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Izbriši pozicijo - F5"
-            android:layout_width="184.5dp"
-             android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/delete"
-            android:id="@+id/btDelete" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Izbriši - F5"
+                android:layout_width="184.5dp"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/delete"
+                android:id="@+id/btDelete" />
 
         <Button
             android:background="@drawable/nicelookingbutton"

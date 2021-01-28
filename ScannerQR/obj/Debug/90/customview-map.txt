@@ -1,6 +1,7 @@
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\issuedgoodsenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeoveridententrytablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
@@ -24,6 +25,7 @@ Button;obj\Debug\90\res\layout\inventoryprint.xml
 Button;obj\Debug\90\res\layout\inventoryprocess.xml
 Button;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetup.xml
 Button;obj\Debug\90\res\layout\issuedgoodsenteredpositionsview.xml
+Button;obj\Debug\90\res\layout\issuedgoodsenteredpositionsviewtablet.xml
 Button;obj\Debug\90\res\layout\issuedgoodsidententry.xml
 Button;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 Button;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
@@ -83,6 +85,7 @@ EditText;obj\Debug\90\res\layout\inventoryopendocument.xml
 EditText;obj\Debug\90\res\layout\inventoryprint.xml
 EditText;obj\Debug\90\res\layout\inventoryprocess.xml
 EditText;obj\Debug\90\res\layout\issuedgoodsenteredpositionsview.xml
+EditText;obj\Debug\90\res\layout\issuedgoodsenteredpositionsviewtablet.xml
 EditText;obj\Debug\90\res\layout\issuedgoodsidententry.xml
 EditText;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 EditText;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
@@ -195,6 +198,7 @@ LinearLayout;obj\Debug\90\res\layout\yesnogeneric.xml
 LinearLayout;obj\Debug\90\res\layout\yesnopopup.xml
 LinearLayout;obj\Debug\90\res\layout\yesnoproductioncard.xml
 ListView;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
+ListView;obj\Debug\90\res\layout\issuedgoodsenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 ListView;obj\Debug\90\res\layout\productionpalette.xml
@@ -206,7 +210,6 @@ padding;obj\Debug\90\res\drawable\nicelookingbutton.xml
 paths;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Debug\90\res\layout\activity_main.xml
 ProgressBar;obj\Debug\90\res\layout\inventoryconfirm.xml
-RelativeLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\2\jl\res\values\strings.xml
 resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\5\jl\res\values\strings.xml
 resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\6\jl\res\values\strings.xml
@@ -245,6 +248,7 @@ TextView;obj\Debug\90\res\layout\inventoryprint.xml
 TextView;obj\Debug\90\res\layout\inventoryprocess.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetup.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsenteredpositionsview.xml
+TextView;obj\Debug\90\res\layout\issuedgoodsenteredpositionsviewtablet.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsidententry.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
