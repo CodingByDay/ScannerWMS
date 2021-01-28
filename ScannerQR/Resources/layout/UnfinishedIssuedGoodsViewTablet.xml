@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         app:layout_widthPercent="100%"
         android:layout_toRightOf="@id/app"
-        android:id="@id/list"
+        android:id="@+id/list"
         android:layout_below="@id/text"
         />
      <LinearLayout
@@ -24,7 +24,7 @@
         android:layout_toRightOf="@id/app"
         android:layout_above="@id/list"
         android:weightSum="3"
-        android:id="@id/text"
+        android:id="@+id/text"
         android:paddingTop="5px">
 
         <TextView
