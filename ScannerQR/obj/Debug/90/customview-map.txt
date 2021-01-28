@@ -1,5 +1,6 @@
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeoveridententrytablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
@@ -31,6 +32,7 @@ Button;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 Button;obj\Debug\90\res\layout\packagingsetcontext.xml
 Button;obj\Debug\90\res\layout\packagingunit.xml
 Button;obj\Debug\90\res\layout\packagingunitlist.xml
+Button;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 Button;obj\Debug\90\res\layout\printinginputcontrol.xml
 Button;obj\Debug\90\res\layout\printingmenu.xml
 Button;obj\Debug\90\res\layout\printingmenu1.xml
@@ -85,6 +87,7 @@ EditText;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 EditText;obj\Debug\90\res\layout\packagingsetcontext.xml
 EditText;obj\Debug\90\res\layout\packagingunit.xml
 EditText;obj\Debug\90\res\layout\packagingunitlist.xml
+EditText;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 EditText;obj\Debug\90\res\layout\printinginputcontrol.xml
 EditText;obj\Debug\90\res\layout\printingoutputcontrol.xml
 EditText;obj\Debug\90\res\layout\printingprocesscontrol.xml
@@ -152,6 +155,7 @@ LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 LinearLayout;obj\Debug\90\res\layout\packagingsetcontext.xml
 LinearLayout;obj\Debug\90\res\layout\packagingunit.xml
 LinearLayout;obj\Debug\90\res\layout\packagingunitlist.xml
+LinearLayout;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 LinearLayout;obj\Debug\90\res\layout\printinginputcontrol.xml
 LinearLayout;obj\Debug\90\res\layout\printingmenu.xml
 LinearLayout;obj\Debug\90\res\layout\printingmenu1.xml
@@ -186,6 +190,7 @@ LinearLayout;obj\Debug\90\res\layout\yesnogeneric.xml
 LinearLayout;obj\Debug\90\res\layout\yesnopopup.xml
 LinearLayout;obj\Debug\90\res\layout\yesnoproductioncard.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
+ListView;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 ListView;obj\Debug\90\res\layout\productionpalette.xml
 ListView;obj\Debug\90\res\layout\takeoveridententrytablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
@@ -244,6 +249,7 @@ TextView;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 TextView;obj\Debug\90\res\layout\packagingsetcontext.xml
 TextView;obj\Debug\90\res\layout\packagingunit.xml
 TextView;obj\Debug\90\res\layout\packagingunitlist.xml
+TextView;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 TextView;obj\Debug\90\res\layout\printinginputcontrol.xml
 TextView;obj\Debug\90\res\layout\printingmenu.xml
 TextView;obj\Debug\90\res\layout\printingoutputcontrol.xml
