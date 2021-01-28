@@ -5,19 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
-
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_widthPercent="100%"
         android:layout_toRightOf="@id/app"
         android:layout_above="@id/list"
-         android:weightSum="3"
+        android:weightSum="3"
         android:id="@id/text"
         android:paddingTop="5px">
 
@@ -27,7 +22,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Št. kartona "
+            android:text="Dokument"
             android:layout_marginRight="28.0dp"
             android:id="@+id/document"
             android:layout_width="match_parent" />
@@ -38,8 +33,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Količina"
-            android:layout_width="match_parent" 
+            android:text="Dobavitelj"
+            android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/provider" />
 
@@ -48,37 +43,36 @@
 
         <TextView
             android:layout_weight="1"
-            android:layout_width="match_parent" 
+            android:layout_width="match_parent"
             android:textStyle="bold"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Količina"
+            android:text="Datum"
             android:layout_marginRight="28.0dp"
             android:id="@+id/date" />
 
-
-
-
-
-
     </LinearLayout>
+
+
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/list"
-        android:layout_toRightOf="@id/app"/>/>
+        app:layout_widthPercent="100%"
+        android:layout_toRightOf="@id/app"
+        android:layout_below="@id/text"
+        />
     <LinearLayout
-        android:layout_width="app"
-        android:layout_height="app"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_widthPercent="30%"
-        app:layout_heigthPercent="100%"
         android:layout_gravity="center"
         android:orientation="vertical"
         android:id="@+id/app"
         tools:context=".LinearLayout"
         android:foregroundGravity="center">
-   
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -138,6 +132,8 @@
                 android:id="@+id/tbOrder" />
 
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -159,8 +155,6 @@
                 android:layout_marginLeft="40px"
                 android:paddingTop="5px"
                 android:id="@+id/tbSupplier" />
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -168,6 +162,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingTop="5px">
+
+
             <TextView
                 android:layout_width="151.0dp"
                 android:layout_height="wrap_content"
@@ -185,6 +181,8 @@
                 android:paddingTop="5px"
                 android:id="@+id/tbItemCount" />
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -233,6 +231,8 @@
                 android:inputType="text" />
 
         </LinearLayout>
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="19.5dp"
@@ -247,47 +247,48 @@
             android:layout_height="0.0dp"
             android:paddingLeft="10px"
             android:paddingTop="5px"/>
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="5px">
+
+ <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Naslednji prevzem - F1"
+            android:layout_width="184.5dp"
+            android:layout_height="70.0dp"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/next"
+            android:id="@+id/btNext"
+            android:layout_marginBottom="0.0dp" />
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Zaključi/popravi prevzem - F2"
+            android:layout_width="match_parent"
+            android:layout_height="70.0dp"
+            android:drawableLeft="@drawable/shipped"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:id="@+id/btFinish"
+            android:layout_marginBottom="0.0dp" />
+
+
+    </LinearLayout>
+
+
+ <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Naslednja medskldš.-f1"
-                android:layout_width="184.5dp"
-                android:layout_height="70.0dp"
-                android:textSize="16px"
-                android:paddingLeft="10px"
-                android:drawableLeft="@drawable/next"
-                android:id="@+id/btNext"
-                android:layout_marginBottom="0.0dp" />
-
-            <Button
-                android:background="@drawable/nicelookingbutton"
-                android:text="Zaključi/popravi medskl.f2"
-                android:layout_width="match_parent"
-                android:layout_height="70.0dp"
-                android:drawableLeft="@drawable/shipped"
-                android:textSize="16px"
-                android:paddingLeft="10px"
-                android:id="@+id/btFinish"
-                android:layout_marginBottom="0.0dp" />
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="5px">
-
-            <Button
-                android:background="@drawable/nicelookingbutton"
-                android:text="Izbriši medskl.-f3"
+                android:text="Izbriši - F3"
                 android:layout_width="184.5dp"
                 android:layout_height="70.0dp"
                 android:textSize="16px"
@@ -295,37 +296,38 @@
                 android:drawableLeft="@drawable/delete"
                 android:id="@+id/btDelete" />
 
-            <Button
-                android:background="@drawable/nicelookingbutton"
-                android:text="Kreiraj novo-f4"
-                android:layout_width="match_parent"
-                android:layout_height="70.0dp"
-                android:textSize="16px"
-                android:drawableLeft="@drawable/newitem"
-                android:paddingLeft="10px"
-                android:id="@+id/btnew"
-                android:layout_marginTop="0.0dp"
-                android:layout_marginBottom="0.0dp" />
-
-
-        </LinearLayout>
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Izhod - F8"
+            android:text="Kreiraj nov-f4"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:textSize="16px"
-            android:drawableLeft="@drawable/logout"
+            android:drawableLeft="@drawable/newitem"
             android:paddingLeft="10px"
-            android:id="@+id/logout"
-            android:layout_marginTop="0.0dp" />
+            android:id="@+id/btnew"
+            android:layout_marginTop="0.0dp"
+            android:layout_marginBottom="0.0dp" />
+
+
+    </LinearLayout>
+    <Button
+        android:background="@drawable/nicelookingbutton"
+        android:text="Izhod - F8"
+        android:layout_width="match_parent"
+        android:layout_height="70.0dp"
+        android:textSize="16px"
+        android:drawableLeft="@drawable/logout"
+        android:paddingLeft="10px"
+        android:id="@+id/logout"
+        android:layout_marginTop="0.0dp" />
+
 
 
 
     </LinearLayout>
- 
 
-  
+
+
 
 
 
