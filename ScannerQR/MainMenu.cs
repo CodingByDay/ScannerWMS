@@ -19,7 +19,7 @@ namespace ScannerQR
     public class MainMenu : Activity
     {
         private TextView datetime;
-
+        public bool result = Services.isTablet();
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -31,20 +31,15 @@ namespace ScannerQR
             // welcome string
             if (MainActivity.isValid == true)
             {
-                string toast = new string("Uspešna prijava.");
+                string toast = new string(result.ToString());
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 MainActivity.isValid = false; 
                 MainActivity.progressBar1.Visibility = ViewStates.Invisible;
-                var result = Services.isTablet();
-                if(result == true)
-                {
-                    string toaster = new string("TABLET");
-                    Toast.MakeText(this, toast, ToastLength.Long).Show();
-                } else
-                {
-                    string toastt = new string("TALEFON");
-                    Toast.MakeText(this, toast, ToastLength.Long).Show();
-                }
+                
+
+           
+                
+               
             }
             // Testing the config reading ...
 
