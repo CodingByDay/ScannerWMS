@@ -182,19 +182,22 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
         <Button
+            android:layout_weight="1"
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
             android:text="Naslednja pozicija - F1"
             android:drawableLeft="@drawable/next"
             android:paddingLeft="10px"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
              android:layout_height="70.0dp"
             android:id="@+id/btNext" />
 
         <Button
+            android:layout_weight="1"
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
             android:text="Popravi pozicijo - F2"
@@ -215,15 +218,17 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
         <Button
             android:background="@drawable/nicelookingbutton"
             android:text="Kreiraj pozicijo - F3"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
              android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
+            android:layout_weight="1"
             android:drawableLeft="@drawable/newitem"
             android:id="@+id/button4" />
 
@@ -232,6 +237,7 @@
             android:text="Zaključi medskl. - F4"
             android:layout_width="match_parent"
            android:layout_height="70.0dp"
+            android:layout_weight="1"
             android:drawableLeft="@drawable/confirmation"
             android:textSize="16px"
             android:paddingLeft="10px"
@@ -245,19 +251,22 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
         <Button
             android:background="@drawable/nicelookingbutton"
             android:text="Izbriši pozicijo - F5"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
              android:layout_height="70.0dp"
+            android:layout_weight="1"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/delete"
             android:id="@+id/btDelete" />
 
         <Button
+            android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
             android:text="Izhod - F9"
             android:layout_width="match_parent"
