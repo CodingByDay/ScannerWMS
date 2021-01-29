@@ -67,18 +67,18 @@ public final class R {
 		public static final int notification_top_pad_large_text = 0x7f0600d0;
 	}
 	public static final class drawable {
-		public static final int notification_action_background = 0x7f070080;
-		public static final int notification_bg = 0x7f070081;
-		public static final int notification_bg_low = 0x7f070082;
-		public static final int notification_bg_low_normal = 0x7f070083;
-		public static final int notification_bg_low_pressed = 0x7f070084;
-		public static final int notification_bg_normal = 0x7f070085;
-		public static final int notification_bg_normal_pressed = 0x7f070086;
-		public static final int notification_icon_background = 0x7f070087;
-		public static final int notification_template_icon_bg = 0x7f070088;
-		public static final int notification_template_icon_low_bg = 0x7f070089;
-		public static final int notification_tile_bg = 0x7f07008a;
-		public static final int notify_panel_notification_icon_bg = 0x7f07008b;
+		public static final int notification_action_background = 0x7f070081;
+		public static final int notification_bg = 0x7f070082;
+		public static final int notification_bg_low = 0x7f070083;
+		public static final int notification_bg_low_normal = 0x7f070084;
+		public static final int notification_bg_low_pressed = 0x7f070085;
+		public static final int notification_bg_normal = 0x7f070086;
+		public static final int notification_bg_normal_pressed = 0x7f070087;
+		public static final int notification_icon_background = 0x7f070088;
+		public static final int notification_template_icon_bg = 0x7f070089;
+		public static final int notification_template_icon_low_bg = 0x7f07008a;
+		public static final int notification_tile_bg = 0x7f07008b;
+		public static final int notify_panel_notification_icon_bg = 0x7f07008c;
 	}
 	public static final class id {
 		public static final int action_container = 0x7f080012;
@@ -128,12 +128,12 @@ public final class R {
 	public static final class layout {
 		public static final int browser_actions_context_menu_page = 0x7f0b001d;
 		public static final int browser_actions_context_menu_row = 0x7f0b001e;
-		public static final int notification_action = 0x7f0b0048;
-		public static final int notification_action_tombstone = 0x7f0b0049;
-		public static final int notification_template_custom_big = 0x7f0b004a;
-		public static final int notification_template_icon_group = 0x7f0b004b;
-		public static final int notification_template_part_chronometer = 0x7f0b004c;
-		public static final int notification_template_part_time = 0x7f0b004d;
+		public static final int notification_action = 0x7f0b0049;
+		public static final int notification_action_tombstone = 0x7f0b004a;
+		public static final int notification_template_custom_big = 0x7f0b004b;
+		public static final int notification_template_icon_group = 0x7f0b004c;
+		public static final int notification_template_part_chronometer = 0x7f0b004d;
+		public static final int notification_template_part_time = 0x7f0b004e;
 	}
 	public static final class string {
 		public static final int status_bar_notification_info_overflow = 0x7f0d0037;

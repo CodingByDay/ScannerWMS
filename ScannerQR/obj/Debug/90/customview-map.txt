@@ -1,7 +1,9 @@
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\issuedgoodsenteredpositionsviewtablet.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\productionenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeoverenteredpositionsviewtablet.xml
@@ -15,6 +17,7 @@ Button;obj\Debug\90\res\layout\activity_main.xml
 Button;obj\Debug\90\res\layout\checkstock.xml
 Button;obj\Debug\90\res\layout\common.xml
 Button;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
+Button;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 Button;obj\Debug\90\res\layout\interwarehouseenteredpositionsview.xml
 Button;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 Button;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
@@ -35,6 +38,7 @@ Button;obj\Debug\90\res\layout\mainmenu.xml
 Button;obj\Debug\90\res\layout\mainmenu1.xml
 Button;obj\Debug\90\res\layout\menu.xml
 Button;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
+Button;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 Button;obj\Debug\90\res\layout\packagingsetcontext.xml
 Button;obj\Debug\90\res\layout\packagingunit.xml
 Button;obj\Debug\90\res\layout\packagingunitlist.xml
@@ -94,6 +98,7 @@ EditText;obj\Debug\90\res\layout\issuedgoodsidententry.xml
 EditText;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 EditText;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
 EditText;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
+EditText;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 EditText;obj\Debug\90\res\layout\packagingsetcontext.xml
 EditText;obj\Debug\90\res\layout\packagingunit.xml
 EditText;obj\Debug\90\res\layout\packagingunitlist.xml
@@ -143,9 +148,11 @@ LinearLayout;obj\Debug\90\res\layout\activity_main.xml
 LinearLayout;obj\Debug\90\res\layout\checkstock.xml
 LinearLayout;obj\Debug\90\res\layout\common.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
+LinearLayout;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsview.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
+LinearLayout;obj\Debug\90\res\layout\interwarehouseserialorssccentrytablet.xml
 LinearLayout;obj\Debug\90\res\layout\inventoryconfirm.xml
 LinearLayout;obj\Debug\90\res\layout\inventorymenu.xml
 LinearLayout;obj\Debug\90\res\layout\inventorymenu1.xml
@@ -166,6 +173,7 @@ LinearLayout;obj\Debug\90\res\layout\mainmenu1.xml
 LinearLayout;obj\Debug\90\res\layout\menu.xml
 LinearLayout;obj\Debug\90\res\layout\newmenu.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
+LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\packagingsetcontext.xml
 LinearLayout;obj\Debug\90\res\layout\packagingunit.xml
 LinearLayout;obj\Debug\90\res\layout\packagingunitlist.xml
@@ -205,9 +213,11 @@ LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\yesnogeneric.xml
 LinearLayout;obj\Debug\90\res\layout\yesnopopup.xml
 LinearLayout;obj\Debug\90\res\layout\yesnoproductioncard.xml
+ListView;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 ListView;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
+ListView;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\packagingunitlisttablet.xml
 ListView;obj\Debug\90\res\layout\productionenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\productionpalette.xml
@@ -232,6 +242,7 @@ shape;obj\Debug\90\res\drawable\nicelookingbutton.xml
 solid;obj\Debug\90\res\drawable\nicelookingbutton.xml
 Spinner;obj\Debug\90\res\layout\checkstock.xml
 Spinner;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
+Spinner;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 Spinner;obj\Debug\90\res\layout\inventoryopen.xml
 Spinner;obj\Debug\90\res\layout\inventoryopendocument.xml
 Spinner;obj\Debug\90\res\layout\inventoryprint.xml
@@ -247,6 +258,7 @@ TextView;obj\Debug\90\res\layout\activity_main.xml
 TextView;obj\Debug\90\res\layout\checkstock.xml
 TextView;obj\Debug\90\res\layout\common.xml
 TextView;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
+TextView;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 TextView;obj\Debug\90\res\layout\interwarehouseenteredpositionsview.xml
 TextView;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 TextView;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
@@ -267,6 +279,7 @@ TextView;obj\Debug\90\res\layout\listviewtrail.xml
 TextView;obj\Debug\90\res\layout\mainmenu.xml
 TextView;obj\Debug\90\res\layout\mainmenu1.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
+TextView;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 TextView;obj\Debug\90\res\layout\packagingsetcontext.xml
 TextView;obj\Debug\90\res\layout\packagingunit.xml
 TextView;obj\Debug\90\res\layout\packagingunitlist.xml

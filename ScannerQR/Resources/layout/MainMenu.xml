@@ -132,11 +132,11 @@
             android:background="@android:color/holo_orange_dark"
             android:drawableLeft="@drawable/packaging"
             android:paddingBottom="5dp"
-             android:textSize="14px"
+            android:textSize="14px"
             android:paddingLeft="16dp"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
-            android:text="Inventura-f7"
+            android:text="Pakiranje-f7"
             android:layout_marginBottom="5dp"
             android:textColor="#000000"
             android:id="@+id/goodsPackaging" />
