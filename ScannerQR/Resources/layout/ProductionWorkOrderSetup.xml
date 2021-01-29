@@ -162,14 +162,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
         <Button
             android:background="@drawable/nicelookingbutton"
             android:text="Karton-f2"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:textSize="16px"
+            android:layout_weight="1"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/card"
             android:id="@+id/btCard"
@@ -178,6 +180,7 @@
         <Button
             android:background="@drawable/nicelookingbutton"
             android:text="potrdi-f3"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:drawableLeft="@drawable/confirmation"
@@ -194,14 +197,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
         <Button
             android:background="@drawable/nicelookingbutton"
             android:text="paletiranje-f4"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:textSize="16px"
+            android:layout_weight="1"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/wholesale"
             android:id="@+id/btPalette" />
@@ -209,6 +214,7 @@
         <Button
             android:background="@drawable/nicelookingbutton"
             android:text="izhod-f8"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:textSize="16px"

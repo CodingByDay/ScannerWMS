@@ -235,6 +235,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
         <Button
@@ -243,8 +244,9 @@
             android:text="Tiskaj-f3"
             android:drawableLeft="@drawable/printer"
             android:paddingLeft="10px"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
             android:layout_height="70.0dp"
+            android:layout_weight="1"
             android:id="@id/btPrint" />
 
         <Button
@@ -253,6 +255,7 @@
             android:text="Izhod-f8"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10px"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:id="@+id/button2" />
