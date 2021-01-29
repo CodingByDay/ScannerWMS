@@ -4926,26 +4926,23 @@ namespace ScannerQR
 			// aapt resource value: 0x7F0B002C
 			public const int ReceiverLayout = 2131427372;
 			
-			// aapt resource value: 0x7F0B0079
-			public const int resize = 2131427449;
-			
 			// aapt resource value: 0x7F0B002D
 			public const int SelectSubjectBeforeFinish = 2131427373;
 			
+			// aapt resource value: 0x7F0B0079
+			public const int select_dialog_item_material = 2131427449;
+			
 			// aapt resource value: 0x7F0B007A
-			public const int select_dialog_item_material = 2131427450;
+			public const int select_dialog_multichoice_material = 2131427450;
 			
 			// aapt resource value: 0x7F0B007B
-			public const int select_dialog_multichoice_material = 2131427451;
+			public const int select_dialog_singlechoice_material = 2131427451;
 			
 			// aapt resource value: 0x7F0B007C
-			public const int select_dialog_singlechoice_material = 2131427452;
+			public const int settingsPopUp = 2131427452;
 			
 			// aapt resource value: 0x7F0B007D
-			public const int settingsPopUp = 2131427453;
-			
-			// aapt resource value: 0x7F0B007E
-			public const int support_simple_spinner_dropdown_item = 2131427454;
+			public const int support_simple_spinner_dropdown_item = 2131427453;
 			
 			// aapt resource value: 0x7F0B002E
 			public const int TakeOver2Main = 2131427374;

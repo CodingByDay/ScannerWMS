@@ -5,6 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light">
+
+    <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+     android:layout_gravity="center_vertical"
+      >
+      
+  
+      
+ 
     <TextView
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="198.0dp"
@@ -76,4 +87,5 @@
         android:textSize="25sp"
         android:textColor="@android:color/background_light"
         android:gravity="center" />
+        </LinearLayout>
 </LinearLayout> 

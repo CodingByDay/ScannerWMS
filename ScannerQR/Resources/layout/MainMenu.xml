@@ -4,8 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginBottom="50dp"
-  
+   android:gravity="center_vertical"
     android:padding="16dp">
+  
+        
+        
+        
+  
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="33.5dp"
@@ -258,6 +263,6 @@
         android:id="@+id/dateTime"
         android:layout_gravity="center" />
 
-     
+       </LinearLayout>
 
 </LinearLayout>
