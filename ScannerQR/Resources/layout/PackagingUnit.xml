@@ -196,19 +196,22 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
         <Button
             android:background="@drawable/nicelookingbutton"
             android:text="Nova pozicij-f2"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:textSize="16px"
+            android:layout_weight="1"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/newitem"
             android:id="@+id/btNew" />
 
         <Button
+            android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
             android:text="Pregled pozicij-f3"
             android:layout_width="match_parent"
@@ -223,6 +226,7 @@
 
     </LinearLayout>
      <LinearLayout
+        android:weightSum="2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -231,7 +235,8 @@
         <Button
             android:background="@drawable/nicelookingbutton"
             android:text="zaključi pakiranje-f4"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
             android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
@@ -246,6 +251,7 @@
             android:textSize="16px"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10px"
+            android:layout_weight="1"
             android:id="@+id/btExit"
             android:layout_marginTop="0.0dp"
             android:layout_marginBottom="0.0dp" />
