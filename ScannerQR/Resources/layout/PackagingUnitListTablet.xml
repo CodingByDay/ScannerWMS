@@ -108,7 +108,7 @@
 
       
 
- <TextView
+  <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -123,7 +123,6 @@
         android:paddingTop="5px">
 
         <TextView
-            android:singleLine="true"
             android:layout_width="75.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -203,7 +202,8 @@
                                      >
 
         <TextView
-             android:singleLine="true"
+            
+              android:singleLine="true"
             android:layout_width="73.0dp"
             android:layout_height="wrap_content"
             android:text="Količina"
@@ -228,7 +228,7 @@
         android:paddingTop="5px">
 
         <TextView
-              android:singleLine="true"    
+              android:singleLine="true"
             android:layout_width="71.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -257,7 +257,7 @@
         android:paddingTop="5px">
 
         <TextView
-              android:singleLine="true"    
+              android:singleLine="true"
             android:layout_width="69.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -285,20 +285,23 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
         <Button
+            android:layout_weight="1"
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
             android:text="Naslednja pozicija - F1"
             android:drawableLeft="@drawable/next"
             android:paddingLeft="10px"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:id="@+id/btNext" />
 
         <Button
             android:textSize="16px"
+            android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
             android:text="Popravi pozicijo - F2"
             android:drawableLeft="@drawable/fix"
@@ -318,27 +321,30 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
-
-            <Button
-                android:background="@drawable/nicelookingbutton"
-                android:text="Izbriši -f4"
-                android:layout_width="184.5dp"
-                android:layout_height="70.0dp"
-                android:textSize="16px"
-                android:paddingLeft="10px"
-                android:drawableLeft="@drawable/delete"
-                android:id="@+id/btDelete" />
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Kreiraj pozicijo-f5"
+            android:text="Izbriši pozicijo-f4"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-            android:drawableLeft="@drawable/newitem"
             android:textSize="16px"
+            android:layout_weight="1"
             android:paddingLeft="10px"
-            android:id="@+id/btCreate" />
+            android:drawableLeft="@drawable/delete"
+            android:id="@+id/btDelete" />
+
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Kreiraj poz.-f5"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/newitem"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:id="@+id/btCreate" />
 
 
     </LinearLayout>
@@ -355,10 +361,7 @@
         android:id="@+id/btExit" />
 
 
-
-
    
-
 
 
 

@@ -38,7 +38,6 @@ Button;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 Button;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
 Button;obj\Debug\90\res\layout\mainmenu.xml
 Button;obj\Debug\90\res\layout\mainmenu1.xml
-Button;obj\Debug\90\res\layout\menu.xml
 Button;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 Button;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 Button;obj\Debug\90\res\layout\packagingsetcontext.xml
@@ -173,8 +172,6 @@ LinearLayout;obj\Debug\90\res\layout\listviewitem.xml
 LinearLayout;obj\Debug\90\res\layout\listviewtrail.xml
 LinearLayout;obj\Debug\90\res\layout\mainmenu.xml
 LinearLayout;obj\Debug\90\res\layout\mainmenu1.xml
-LinearLayout;obj\Debug\90\res\layout\menu.xml
-LinearLayout;obj\Debug\90\res\layout\newmenu.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\packagingsetcontext.xml
@@ -281,7 +278,6 @@ TextView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
 TextView;obj\Debug\90\res\layout\listviewitem.xml
 TextView;obj\Debug\90\res\layout\listviewtrail.xml
-TextView;obj\Debug\90\res\layout\mainmenu.xml
 TextView;obj\Debug\90\res\layout\mainmenu1.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml

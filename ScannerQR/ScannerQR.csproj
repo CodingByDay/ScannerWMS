@@ -124,7 +124,6 @@
     <Compile Include="IssuedGoodsSerialOrSSCCEntry.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainMenu.cs" />
-    <Compile Include="Menu.cs" />
     <Compile Include="PackagingEnteredPositionsView.cs" />
     <Compile Include="PackagingSetContext.cs" />
     <Compile Include="PackagingUnit.cs" />
@@ -285,9 +284,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Menu.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\ProductionSerialOrSSCCEntry.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -460,9 +456,6 @@
     <AndroidResource Include="Resources\mipmap-anydpi-v26\factory.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\factory.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\factory.png" />
-    <AndroidResource Include="Resources\layout\newmenu.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\drawable\inventory.png" />
     <AndroidResource Include="Resources\drawable\location.png" />
     <AndroidResource Include="Resources\drawable\logout.png" />

@@ -11,7 +11,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll.mdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\build.props
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\adb.props
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csprojAssemblyReference.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res.flag
@@ -76,7 +75,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\mipmap-anydpi
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\productioncard.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\productionenteredpositionsview.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\productionpalette.xml
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\menu.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\productionserialorssccentry.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\productionworkordersetup.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
@@ -171,7 +169,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\mainme
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\mipmap-anydpi-v26\factory.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\mipmap-hdpi\factory.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\mipmap-mdpi\factory.png
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\newmenu.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\inventory.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\location.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\logout.png
@@ -347,7 +344,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc64
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\IssuedGoodsSerialOrSSCCEntry.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\MainActivity.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\MainMenu.java
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\Menu.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\PackagingEnteredPositionsView.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\PackagingSetContext.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\PackagingUnit.java

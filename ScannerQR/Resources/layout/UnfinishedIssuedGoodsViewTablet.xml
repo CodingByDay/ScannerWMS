@@ -272,7 +272,7 @@
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Naslednja medskl.-f1"
+                android:text="Naslednja odprema-f1"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:textSize="16px"
@@ -282,17 +282,17 @@
                 android:id="@+id/btNext"
                 android:layout_marginBottom="0.0dp" />
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Zaključi/popravi medskl.f2"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:drawableLeft="@drawable/shipped"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:id="@+id/btFinish"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Zaključi/popravi odpr.-f2"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:drawableLeft="@drawable/shipped"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:id="@+id/btFinish"
+                android:layout_marginBottom="0.0dp" />
 
 
     </LinearLayout>
@@ -305,16 +305,16 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Izbriši medskl.-f3"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:layout_weight="1"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/delete"
-            android:id="@+id/btDelete" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Izbriši odpr.-f3"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:layout_weight="1"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/delete"
+                android:id="@+id/btDelete" />
 
         <Button
             android:background="@drawable/nicelookingbutton"

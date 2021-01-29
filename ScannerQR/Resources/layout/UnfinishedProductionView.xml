@@ -190,7 +190,7 @@
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Naslednja medskladiščnica-f1"
+            android:text="Naslednji prevzem-f1"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="70.0dp"
@@ -203,7 +203,7 @@
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Zaključi/popravi medskl.f2"
+            android:text="Zaključi/popravi prev..f2"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:drawableLeft="@drawable/shipped"
@@ -226,7 +226,7 @@
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Izbriši medskl.-f3"
+            android:text="Izbriši prevzem.-f3"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:textSize="16px"
@@ -237,9 +237,9 @@
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Kreiraj novo-f4"
+            android:text="Kreiraj nov-f4"
             android:layout_width="match_parent"
-           android:layout_height="70.0dp"
+            android:layout_height="70.0dp"
             android:textSize="16px"
             android:drawableLeft="@drawable/newitem"
             android:paddingLeft="10px"

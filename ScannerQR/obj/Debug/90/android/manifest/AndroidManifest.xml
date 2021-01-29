@@ -58,7 +58,6 @@
       </intent-filter>
     </activity>
     <activity android:label="MainMenu" android:name="crc640b2286ca4f1c700f.MainMenu" />
-    <activity android:label="Menu" android:name="crc640b2286ca4f1c700f.Menu" />
     <activity android:label="PackagingEnteredPositionsView" android:name="crc640b2286ca4f1c700f.PackagingEnteredPositionsView" />
     <activity android:label="PackagingSetContext" android:name="crc640b2286ca4f1c700f.PackagingSetContext" />
     <activity android:label="PackagingUnit" android:name="crc640b2286ca4f1c700f.PackagingUnit" />
