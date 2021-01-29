@@ -27,7 +27,7 @@
       
         android:layout_toRightOf="@id/app"
         android:id="@+id/listView1"
-         android:drawableCenter="@drawable/cancel"
+        
         />
    
     <LinearLayout
