@@ -86,8 +86,7 @@
         android:id="@+id/app"
         tools:context=".LinearLayout"
         android:foregroundGravity="center">
-
-       <TextView
+ <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -269,22 +268,25 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
-            <Button
-                android:background="@drawable/nicelookingbutton"
-                android:text="Naslednja medskl.-f1"
-                android:layout_width="184.5dp"
-                android:layout_height="70.0dp"
-                android:textSize="16px"
-                android:paddingLeft="10px"
-                android:drawableLeft="@drawable/next"
-                android:id="@+id/btNext"
-                android:layout_marginBottom="0.0dp" />
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Naslednja medskladiščnica-f1"
+            android:layout_width="match_parent"
+            android:layout_height="70.0dp"
+            android:layout_weight="1"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/next"
+            android:id="@+id/btNext"
+            android:layout_marginBottom="0.0dp" />
 
         <Button
             android:background="@drawable/nicelookingbutton"
             android:text="Zaključi/popravi medskl.f2"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:drawableLeft="@drawable/shipped"
@@ -301,12 +303,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
         <Button
+            android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
             android:text="Izbriši medskl.-f3"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
@@ -317,6 +321,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Kreiraj novo-f4"
             android:layout_width="match_parent"
+            android:layout_weight="1"
             android:layout_height="70.0dp"
             android:textSize="16px"
             android:drawableLeft="@drawable/newitem"

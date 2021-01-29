@@ -49,6 +49,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
         <Button
@@ -57,8 +58,9 @@
             android:text="Potrdi-f3"
             android:drawableLeft="@drawable/confirmation"
             android:paddingLeft="10px"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
             android:layout_height="70.0dp"
+            android:layout_weight="1"
             android:id="@+id/btnOrder" />
 
         <Button
@@ -67,6 +69,7 @@
             android:text="Brez naročila-f3"
             android:drawableLeft="@drawable/order"
             android:paddingLeft="10px"
+            android:layout_weight="1"
             android:layout_width="match_parent"
            android:layout_height="70.0dp"
             android:id="@+id/btnOrderMode" />

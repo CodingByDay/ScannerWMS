@@ -126,6 +126,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         android:paddingTop="5px">
 
         <Button
@@ -134,11 +135,13 @@
             android:text="Potrdi-F3"
             android:drawableLeft="@drawable/confirmation"
             android:paddingLeft="10px"
-            android:layout_width="184.5dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
             android:layout_height="70.0dp"
             android:id="@+id/btOpen" />
 
         <Button
+            android:layout_weight="1"
            android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
             android:text="Izhod-f8"
