@@ -3438,11 +3438,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F080023
 			public const int app = 2131230755;
 			
-			// aapt resource value: 0x7F080024
-			public const int application_name = 2131230756;
-			
 			// aapt resource value: 0x7F080001
 			public const int APPLICATION_NAME = 2131230721;
+			
+			// aapt resource value: 0x7F080024
+			public const int application_name = 2131230756;
 			
 			// aapt resource value: 0x7F080025
 			public const int async = 2131230757;
@@ -3522,11 +3522,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F08003D
 			public const int btNegate = 2131230781;
 			
-			// aapt resource value: 0x7F080051
-			public const int btnew = 2131230801;
-			
 			// aapt resource value: 0x7F08003E
 			public const int btNew = 2131230782;
+			
+			// aapt resource value: 0x7F080051
+			public const int btnew = 2131230801;
 			
 			// aapt resource value: 0x7F08003F
 			public const int btNext = 2131230783;
@@ -3936,11 +3936,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F0800C4
 			public const int list_item = 2131230916;
 			
-			// aapt resource value: 0x7F080006
-			public const int Location = 2131230726;
-			
 			// aapt resource value: 0x7F0800C5
 			public const int location = 2131230917;
+			
+			// aapt resource value: 0x7F080006
+			public const int Location = 2131230726;
 			
 			// aapt resource value: 0x7F0800C6
 			public const int logout = 2131230918;
@@ -3975,11 +3975,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F0800CF
 			public const int multiply = 2131230927;
 			
-			// aapt resource value: 0x7F0800D0
-			public const int name = 2131230928;
-			
 			// aapt resource value: 0x7F080008
 			public const int Name = 2131230728;
+			
+			// aapt resource value: 0x7F0800D0
+			public const int name = 2131230928;
 			
 			// aapt resource value: 0x7F0800D1
 			public const int navigation_header_container = 2131230929;
@@ -4407,14 +4407,14 @@ namespace ScannerQR
 			// aapt resource value: 0x7F08015B
 			public const int text2 = 2131231067;
 			
-			// aapt resource value: 0x7F08016C
-			public const int textinput_counter = 2131231084;
-			
-			// aapt resource value: 0x7F08016D
-			public const int textinput_error = 2131231085;
-			
 			// aapt resource value: 0x7F08016E
-			public const int textinput_helper_text = 2131231086;
+			public const int textinput_counter = 2131231086;
+			
+			// aapt resource value: 0x7F08016F
+			public const int textinput_error = 2131231087;
+			
+			// aapt resource value: 0x7F080170
+			public const int textinput_helper_text = 2131231088;
 			
 			// aapt resource value: 0x7F08015C
 			public const int textSpacerNoButtons = 2131231068;
@@ -4453,79 +4453,85 @@ namespace ScannerQR
 			public const int textView2 = 2131231079;
 			
 			// aapt resource value: 0x7F080168
-			public const int textView22 = 2131231080;
+			public const int textView21 = 2131231080;
 			
 			// aapt resource value: 0x7F080169
-			public const int textView3 = 2131231081;
+			public const int textView22 = 2131231081;
 			
 			// aapt resource value: 0x7F08016A
-			public const int textView4 = 2131231082;
+			public const int textView3 = 2131231082;
 			
 			// aapt resource value: 0x7F08016B
-			public const int text_input_password_toggle = 2131231083;
+			public const int textView31 = 2131231083;
 			
-			// aapt resource value: 0x7F08016F
-			public const int time = 2131231087;
+			// aapt resource value: 0x7F08016C
+			public const int textView4 = 2131231084;
 			
-			// aapt resource value: 0x7F080170
-			public const int title = 2131231088;
+			// aapt resource value: 0x7F08016D
+			public const int text_input_password_toggle = 2131231085;
 			
 			// aapt resource value: 0x7F080171
-			public const int titleDividerNoCustom = 2131231089;
+			public const int time = 2131231089;
 			
 			// aapt resource value: 0x7F080172
-			public const int title_template = 2131231090;
+			public const int title = 2131231090;
 			
 			// aapt resource value: 0x7F080173
-			public const int top = 2131231091;
+			public const int titleDividerNoCustom = 2131231091;
 			
 			// aapt resource value: 0x7F080174
-			public const int topPanel = 2131231092;
+			public const int title_template = 2131231092;
 			
 			// aapt resource value: 0x7F080175
-			public const int touch_outside = 2131231093;
+			public const int top = 2131231093;
 			
 			// aapt resource value: 0x7F080176
-			public const int transition_current_scene = 2131231094;
+			public const int topPanel = 2131231094;
 			
 			// aapt resource value: 0x7F080177
-			public const int transition_layout_save = 2131231095;
+			public const int touch_outside = 2131231095;
 			
 			// aapt resource value: 0x7F080178
-			public const int transition_position = 2131231096;
+			public const int transition_current_scene = 2131231096;
 			
 			// aapt resource value: 0x7F080179
-			public const int transition_scene_layoutid_cache = 2131231097;
+			public const int transition_layout_save = 2131231097;
 			
 			// aapt resource value: 0x7F08017A
-			public const int transition_transform = 2131231098;
+			public const int transition_position = 2131231098;
 			
 			// aapt resource value: 0x7F08017B
-			public const int uniform = 2131231099;
+			public const int transition_scene_layoutid_cache = 2131231099;
 			
 			// aapt resource value: 0x7F08017C
-			public const int unlabeled = 2131231100;
+			public const int transition_transform = 2131231100;
 			
 			// aapt resource value: 0x7F08017D
-			public const int up = 2131231101;
+			public const int uniform = 2131231101;
 			
 			// aapt resource value: 0x7F08017E
-			public const int useLogo = 2131231102;
+			public const int unlabeled = 2131231102;
 			
 			// aapt resource value: 0x7F08017F
-			public const int view_offset_helper = 2131231103;
+			public const int up = 2131231103;
 			
 			// aapt resource value: 0x7F080180
-			public const int visible = 2131231104;
+			public const int useLogo = 2131231104;
 			
 			// aapt resource value: 0x7F080181
-			public const int warehouse = 2131231105;
+			public const int view_offset_helper = 2131231105;
 			
 			// aapt resource value: 0x7F080182
-			public const int withText = 2131231106;
+			public const int visible = 2131231106;
 			
 			// aapt resource value: 0x7F080183
-			public const int wrap_content = 2131231107;
+			public const int warehouse = 2131231107;
+			
+			// aapt resource value: 0x7F080184
+			public const int withText = 2131231108;
+			
+			// aapt resource value: 0x7F080185
+			public const int wrap_content = 2131231109;
 			
 			static Id()
 			{

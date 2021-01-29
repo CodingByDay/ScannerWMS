@@ -123,9 +123,9 @@ public final class R {
 		public static final int tag_unhandled_key_listeners = 0x7f080117;
 		public static final int text = 0x7f080152;
 		public static final int text2 = 0x7f080153;
-		public static final int time = 0x7f080167;
-		public static final int title = 0x7f080168;
-		public static final int top = 0x7f08016b;
+		public static final int time = 0x7f080169;
+		public static final int title = 0x7f08016a;
+		public static final int top = 0x7f08016d;
 	}
 	public static final class integer {
 		public static final int status_bar_notification_info_maxnum = 0x7f09000e;
