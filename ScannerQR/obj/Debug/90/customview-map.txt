@@ -3,6 +3,7 @@ adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\issuedgoodsenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingunitlisttablet.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\productionenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeoverenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeoveridententrytablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
@@ -47,6 +48,7 @@ Button;obj\Debug\90\res\layout\printingreprintlabels.xml
 Button;obj\Debug\90\res\layout\printingsscccodes.xml
 Button;obj\Debug\90\res\layout\productioncard.xml
 Button;obj\Debug\90\res\layout\productionenteredpositionsview.xml
+Button;obj\Debug\90\res\layout\productionenteredpositionsviewtablet.xml
 Button;obj\Debug\90\res\layout\productionpalette.xml
 Button;obj\Debug\90\res\layout\productionserialorssccentry.xml
 Button;obj\Debug\90\res\layout\productionworkordersetup.xml
@@ -103,6 +105,7 @@ EditText;obj\Debug\90\res\layout\printingreprintlabels.xml
 EditText;obj\Debug\90\res\layout\printingsscccodes.xml
 EditText;obj\Debug\90\res\layout\productioncard.xml
 EditText;obj\Debug\90\res\layout\productionenteredpositionsview.xml
+EditText;obj\Debug\90\res\layout\productionenteredpositionsviewtablet.xml
 EditText;obj\Debug\90\res\layout\productionpalette.xml
 EditText;obj\Debug\90\res\layout\productionserialorssccentry.xml
 EditText;obj\Debug\90\res\layout\productionworkordersetup.xml
@@ -206,6 +209,7 @@ ListView;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\packagingunitlisttablet.xml
+ListView;obj\Debug\90\res\layout\productionenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\productionpalette.xml
 ListView;obj\Debug\90\res\layout\takeoverenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\takeoveridententrytablet.xml
@@ -275,6 +279,7 @@ TextView;obj\Debug\90\res\layout\printingreprintlabels.xml
 TextView;obj\Debug\90\res\layout\printingsscccodes.xml
 TextView;obj\Debug\90\res\layout\productioncard.xml
 TextView;obj\Debug\90\res\layout\productionenteredpositionsview.xml
+TextView;obj\Debug\90\res\layout\productionenteredpositionsviewtablet.xml
 TextView;obj\Debug\90\res\layout\productionpalette.xml
 TextView;obj\Debug\90\res\layout\productionserialorssccentry.xml
 TextView;obj\Debug\90\res\layout\productionworkordersetup.xml
