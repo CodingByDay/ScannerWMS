@@ -59,6 +59,7 @@ Button;obj\Debug\90\res\layout\productionpalette.xml
 Button;obj\Debug\90\res\layout\productionserialorssccentry.xml
 Button;obj\Debug\90\res\layout\productionworkordersetup.xml
 Button;obj\Debug\90\res\layout\receiverlayout.xml
+Button;obj\Debug\90\res\layout\resize.xml
 Button;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 Button;obj\Debug\90\res\layout\settingspopup.xml
 Button;obj\Debug\90\res\layout\takeover2main.xml
@@ -195,6 +196,7 @@ LinearLayout;obj\Debug\90\res\layout\productionpalette.xml
 LinearLayout;obj\Debug\90\res\layout\productionserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\productionworkordersetup.xml
 LinearLayout;obj\Debug\90\res\layout\receiverlayout.xml
+LinearLayout;obj\Debug\90\res\layout\resize.xml
 LinearLayout;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 LinearLayout;obj\Debug\90\res\layout\settingspopup.xml
 LinearLayout;obj\Debug\90\res\layout\takeover2main.xml
@@ -302,6 +304,7 @@ TextView;obj\Debug\90\res\layout\productionpalette.xml
 TextView;obj\Debug\90\res\layout\productionserialorssccentry.xml
 TextView;obj\Debug\90\res\layout\productionworkordersetup.xml
 TextView;obj\Debug\90\res\layout\receiverlayout.xml
+TextView;obj\Debug\90\res\layout\resize.xml
 TextView;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 TextView;obj\Debug\90\res\layout\settingspopup.xml
 TextView;obj\Debug\90\res\layout\takeover2main.xml
