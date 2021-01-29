@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginBottom="50dp"
   
     android:padding="16dp">
     <TextView
@@ -17,11 +18,17 @@
         android:textStyle="bold|italic"
         android:textSize="20px" />
 
-     
+ 
+      
+   
+      
+  
        <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:weightSum="2"
+        
         android:orientation="horizontal">
 
         <Button
@@ -35,7 +42,8 @@
             android:drawableLeft="@drawable/takeover"
             android:paddingBottom="5dp"
              android:textSize="14px"
-            android:paddingLeft="16dp"
+            android:layout_weight="1"
+             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
             android:text="Prevz. blaga-F1"
@@ -43,6 +51,7 @@
             android:textColor="#000000"
              android:id="@+id/goodsTakeOver" />
         <Button
+              android:layout_weight="1"
             android:bottomLeftRadius="7dp"
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
@@ -52,7 +61,7 @@
             android:background="@android:color/holo_green_dark"
             android:drawableLeft="@drawable/warehouse"
             android:paddingBottom="5dp"
-            android:paddingLeft="16dp"
+             android:paddingLeft="20dp"
              android:textSize="14px"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
@@ -68,12 +77,14 @@
 
     </LinearLayout>
        <LinearLayout
+         android:weightSum="2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
+             android:layout_weight="1"
             android:bottomLeftRadius="7dp"
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
@@ -84,7 +95,7 @@
             android:drawableLeft="@drawable/factory"
             android:paddingBottom="5dp"
              android:textSize="14px"
-            android:paddingLeft="16dp"
+             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
             android:text="Prevz. iz proizv.-f3"
@@ -92,6 +103,7 @@
             android:textColor="#000000"
             android:id="@+id/goodsProduction" />
         <Button
+             android:layout_weight="1"
             android:bottomLeftRadius="7dp"
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
@@ -101,7 +113,7 @@
             android:background="#ff969eac"
             android:drawableLeft="@drawable/shipped"
             android:paddingBottom="5dp"
-            android:paddingLeft="16dp"
+            android:paddingLeft="20dp"
              android:textSize="14px"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
@@ -117,12 +129,14 @@
 
     </LinearLayout>
       <LinearLayout
+         android:weightSum="2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
+             android:layout_weight="1"
             android:bottomLeftRadius="7dp"
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
@@ -133,7 +147,7 @@
             android:drawableLeft="@drawable/packaging"
             android:paddingBottom="5dp"
             android:textSize="14px"
-            android:paddingLeft="16dp"
+            android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
             android:text="Pakiranje-f7"
@@ -141,6 +155,7 @@
             android:textColor="#000000"
             android:id="@+id/goodsPackaging" />
         <Button
+             android:layout_weight="1"
             android:bottomLeftRadius="7dp"
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
@@ -150,7 +165,7 @@
             android:background="#03A9F4"
             android:drawableLeft="@drawable/printer"
             android:paddingBottom="5dp"
-            android:paddingLeft="16dp"
+           android:paddingLeft="20dp"
              android:textSize="14px"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
@@ -167,12 +182,14 @@
     </LinearLayout>
 
      <LinearLayout
+         android:weightSum="2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
+             android:layout_weight="1"
             android:bottomLeftRadius="7dp"
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
@@ -183,7 +200,7 @@
             android:drawableLeft="@drawable/inventory"
             android:paddingBottom="5dp"
              android:textSize="14px"
-            android:paddingLeft="16dp"
+             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
             android:text="Inventura-f7"
@@ -191,6 +208,7 @@
             android:textColor="#000000"
             android:id="@+id/btnInventory" />
         <Button
+             android:layout_weight="1"
             android:bottomLeftRadius="7dp"
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
@@ -200,7 +218,7 @@
             android:background="#E64A19"
             android:drawableLeft="@drawable/location"
             android:paddingBottom="5dp"
-            android:paddingLeft="16dp"
+            android:paddingLeft="20dp"
              android:textSize="14px"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
@@ -216,19 +234,20 @@
 
     </LinearLayout>
     <Button
+        
         android:paddingLeft="10px"
         android:bottomLeftRadius="7dp"
         android:bottomRightRadius="7dp"
         android:topLeftRadius="7dp"
         android:topRightRadius="7dp"
         android:text="Odjava "
-        android:layout_width="338.5dp"
+        android:layout_width="match_parent"
         android:layout_height="67.0dp"
         android:id="@+id/logout"
          android:textSize="14px"
-        android:layout_marginLeft="4.0dp"
+        android:layout_marginLeft="0.0dp"
         android:drawableLeft="@drawable/logout"
-        android:layout_marginRight="0.0dp"
+        android:layout_marginRight="5.0dp"
         android:background="#ff006064" />
    
     <TextView
