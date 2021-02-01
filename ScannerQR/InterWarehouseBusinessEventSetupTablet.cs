@@ -39,7 +39,7 @@ namespace ScannerQR
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.InterWarehouseBusinessEventSetup);
+            SetContentView(Resource.Layout.InterWarehouseBusinessEventSetupTablet);
             // Views
             cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
 

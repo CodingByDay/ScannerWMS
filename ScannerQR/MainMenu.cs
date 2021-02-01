@@ -138,8 +138,8 @@ namespace ScannerQR
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-
-            StartActivity(typeof(MainActivity));
+            StartActivity(typeof(InterWarehouseBusinessEventSetupTablet));
+            //StartActivity(typeof(MainActivity));
             this.Finish();
         }
 
