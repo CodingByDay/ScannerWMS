@@ -203,7 +203,7 @@
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Zaključi/popravi prev..f2"
+            android:text="Zaključi/popravi f2"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:drawableLeft="@drawable/shipped"
