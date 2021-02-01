@@ -148,6 +148,7 @@ item;obj\Debug\90\res\values\styles.xml
 layer-list;obj\Debug\90\res\drawable\nicelookingbutton.xml
 LinearLayout;obj\Debug\90\res\layout\activity_main.xml
 LinearLayout;obj\Debug\90\res\layout\checkstock.xml
+LinearLayout;obj\Debug\90\res\layout\checkstocktablet.xml
 LinearLayout;obj\Debug\90\res\layout\common.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
@@ -156,6 +157,7 @@ LinearLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xm
 LinearLayout;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseserialorssccentrytablet.xml
 LinearLayout;obj\Debug\90\res\layout\inventoryconfirm.xml
+LinearLayout;obj\Debug\90\res\layout\inventoryconfirmtablet.xml
 LinearLayout;obj\Debug\90\res\layout\inventorymenu.xml
 LinearLayout;obj\Debug\90\res\layout\inventorymenu1.xml
 LinearLayout;obj\Debug\90\res\layout\inventoryopen.xml
