@@ -50,7 +50,7 @@ namespace ScannerQR
 
                 if (data.Items.Count == 0) { return; }
 
-                var form = new SelectSubjectBeforeFinish();
+                var form = new SelectSubjectBeforeFinishTablet();
                 form.SetHeadID(headID);
                 form.objectSubjects.Clear();
                 form.objectSubjects.Add(new ComboBoxItem { Text = "" });
