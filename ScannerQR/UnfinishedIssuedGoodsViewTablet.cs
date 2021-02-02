@@ -44,7 +44,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.UnfinishedIssuedGoodsView);
+            SetContentView(Resource.Layout.UnfinishedIssuedGoodsViewTablet);
 
             tbBusEvent = FindViewById<EditText>(Resource.Id.tbBusEvent);
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);

@@ -138,20 +138,31 @@ namespace ScannerQR
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InterWarehouseBusinessEventSetupTablet));
-            //StartActivity(typeof(MainActivity));
+           
+            StartActivity(typeof(MainActivity));
             this.Finish();
         }
 
         private void BtnPackaging_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PackagingEnteredPositionsView));
+            if (result)
+            {
+                StartActivity(typeof(PackagingEnteredPositionsViewTablet));
+            } else
+            {
+                StartActivity(typeof(PackagingEnteredPositionsView));
+            }
         }
 
         private void BtnCheckStock_Click(object sender, EventArgs e)
         {
-
-            StartActivity(typeof(CheckStock));
+            if (result)
+            {
+                StartActivity(typeof(CheckStock));
+            } else
+            {
+                StartActivity(typeof(CheckStockTablet));
+            }
         }
 
         private void BtnInventory_Click(object sender, EventArgs e)
@@ -162,30 +173,60 @@ namespace ScannerQR
 
         private void ButtonPrint_Click(object sender, EventArgs e)
         {
-            
+     
             StartActivity(typeof(PrintingMenu));
-            Analytics.TrackEvent("Printing");
+           
         }
 
         private void ButtonIssued_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(UnfinishedIssuedGoodsView));
+            if (result)
+            {
+                StartActivity(typeof(UnfinishedIssuedGoodsViewTablet));
+            }
+            else
+            {
+                StartActivity(typeof(UnfinishedIssuedGoodsView));
+            }
         }
 
         private void ButtonUnfinished_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(UnfinishedProductionView));
+            if (result)
+            {
+                StartActivity(typeof(UnfinishedProductionViewTablet));
+            }
+            else
+            {
+                StartActivity(typeof(UnfinishedProductionView));
+            }
         }
-
+        /// <summary>
+        ///  An error somwhere in this part of code something  returns null. But i dont know what exactly.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonInterWarehouse_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(UnfinishedInterWarehouseView));
+            if (result) {
+                StartActivity(typeof(UnfinishedInterWarehouseViewTablet));
+            }
+            else
+            {
+                StartActivity(typeof(UnfinishedInterWarehouseView));
+            }
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
-
-            StartActivity(typeof(UnfinishedTakeoversView));
+            if (result)
+            {
+                StartActivity(typeof(UnfinishedTakeoversViewTablet));
+            }
+            else
+            {
+                StartActivity(typeof(UnfinishedTakeoversView));
+            }
         }
     }
 }
