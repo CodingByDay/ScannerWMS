@@ -426,7 +426,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
             // Create your application here
             // Create your application here
-            SetContentView(Resource.Layout.InterWarehouseSerialOrSSCCEntry);
+            SetContentView(Resource.Layout.InterWarehouseSerialOrSSCCEntryTablet);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSerialNum = FindViewById<EditText>(Resource.Id.tbSerialNum);

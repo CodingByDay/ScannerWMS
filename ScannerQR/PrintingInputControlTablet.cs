@@ -38,7 +38,7 @@ namespace ScannerQR
         {
             base.OnCreate(savedInstanceState);
             // Create your application here
-            SetContentView(Resource.Layout.PrintingInputControl);
+            SetContentView(Resource.Layout.PrintingInputControlTablet);
             dtDate = FindViewById<EditText>(Resource.Id.dtDate);
             tbUser = FindViewById<EditText>(Resource.Id.dtDate);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);

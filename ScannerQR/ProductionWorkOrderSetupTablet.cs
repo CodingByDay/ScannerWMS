@@ -49,7 +49,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.ProductionWorkOrderSetup);
+            SetContentView(Resource.Layout.ProductionWorkOrderSetupTablet);
             // sound library
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);

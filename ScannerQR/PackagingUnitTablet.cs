@@ -297,7 +297,7 @@ namespace ScannerQR
 
             // Create your application here
 
-            SetContentView(Resource.Layout.PackagingUnit);
+            SetContentView(Resource.Layout.PackagingUnitTablet);
 
 
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);

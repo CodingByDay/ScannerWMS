@@ -219,7 +219,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.IssuedGoodsIdentEntry);
+            SetContentView(Resource.Layout.IssuedGoodsIdentEntryTablet);
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbNaziv = FindViewById<EditText>(Resource.Id.tbNaziv);

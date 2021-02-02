@@ -108,7 +108,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.PrintingReprintLabels);
+            SetContentView(Resource.Layout.PrintingReprintLabelsTablet);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbTitle = FindViewById<EditText>(Resource.Id.tbTitle);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);

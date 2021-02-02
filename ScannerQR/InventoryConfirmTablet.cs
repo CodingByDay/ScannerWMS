@@ -40,7 +40,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.InventoryConfirm);
+            SetContentView(Resource.Layout.InventoryConfirmTablet);
 
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
 

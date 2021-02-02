@@ -25,7 +25,7 @@ namespace ScannerQR
         {
             base.OnCreate(savedInstanceState);
             // Create your application here
-            SetContentView(Resource.Layout.PrintingSSCCCodes);
+            SetContentView(Resource.Layout.PrintingSSCCCodesTablet);
             tbNum = FindViewById<EditText>(Resource.Id.tbNum);
             button1 = FindViewById<Button>(Resource.Id.button1);
             button2 = FindViewById<Button>(Resource.Id.button2);

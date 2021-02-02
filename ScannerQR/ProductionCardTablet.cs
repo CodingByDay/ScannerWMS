@@ -88,7 +88,7 @@ namespace ScannerQR
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.ProductionCard);
+            SetContentView(Resource.Layout.ProductionCardTablet);
             tbWorkOrder = FindViewById<EditText>(Resource.Id.tbWorkOrder);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbCardNum = FindViewById<EditText>(Resource.Id.tbCardNum);

@@ -49,7 +49,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.ProductionEnteredPositionsView);
+            SetContentView(Resource.Layout.ProductionEnteredPositionsViewTablet);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             /////////////////////
 

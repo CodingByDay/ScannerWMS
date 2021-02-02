@@ -44,7 +44,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.TakeOver2Orders);
+            SetContentView(Resource.Layout.TakeOver2OrdersTablet);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbNaziv = FindViewById<EditText>(Resource.Id.tbNaziv);
             tbKolicinaPrevzema = FindViewById<EditText>(Resource.Id.tbKolicinaPrevzema);

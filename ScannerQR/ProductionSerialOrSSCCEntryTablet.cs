@@ -372,7 +372,7 @@ namespace ScannerQR
         {
             base.OnCreate(savedInstanceState);
             // Create your application here
-            SetContentView(Resource.Layout.ProductionSerialOrSSCCEntry);
+            SetContentView(Resource.Layout.ProductionSerialOrSSCCEntryTablet);
             //button --------->buttontest
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);

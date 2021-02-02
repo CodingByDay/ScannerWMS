@@ -38,7 +38,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.InventoryPrint);
+            SetContentView(Resource.Layout.InventoryPrintTablet);
             cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             btPrint = FindViewById<Button>(Resource.Id.btPrint);

@@ -44,7 +44,7 @@ namespace ScannerQR
         {
             base.OnCreate(savedInstanceState);
             // Create your application here
-            SetContentView(Resource.Layout.IssuedGoodsEnteredPositionsView);
+            SetContentView(Resource.Layout.IssuedGoodsEnteredPositionsViewTablet);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);

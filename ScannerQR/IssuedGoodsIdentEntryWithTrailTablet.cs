@@ -168,7 +168,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.IssuedGoodsIdentEntryWithTrail);
+            SetContentView(Resource.Layout.IssuedGoodsIdentEntryWithTrailTablet);
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);
             tbReceiver = FindViewById<EditText>(Resource.Id.tbReceiver);
             tbIdentFilter = FindViewById<EditText>(Resource.Id.tbIdentFilter);

@@ -258,7 +258,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.ProductionPalette);
+            SetContentView(Resource.Layout.ProductionPaletteTablet);
             // Button name------------------>productionserial
 
 

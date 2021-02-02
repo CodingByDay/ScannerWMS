@@ -47,7 +47,7 @@ namespace ScannerQR
 
 
             // Create your application here
-            SetContentView(Resource.Layout.PackagingEnteredPositionsView);
+            SetContentView(Resource.Layout.PackagingEnteredPositionsViewTablet);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             tbPackNum = FindViewById<EditText>(Resource.Id.tbPackNum);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);

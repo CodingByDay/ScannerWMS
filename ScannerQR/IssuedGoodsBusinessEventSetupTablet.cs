@@ -42,7 +42,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.IssuedGoodsBusinessEventSetup);
+            SetContentView(Resource.Layout.IssuedGoodsBusinessEventSetupTablet);
             cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
             cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
             cbExtra = FindViewById<Spinner>(Resource.Id.cbExtra);

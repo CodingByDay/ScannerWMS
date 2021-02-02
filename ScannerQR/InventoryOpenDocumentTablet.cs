@@ -32,7 +32,7 @@ namespace ScannerQR
         {
             base.OnCreate(savedInstanceState);
             // Create your application here
-            SetContentView(Resource.Layout.InventoryOpenDocument);
+            SetContentView(Resource.Layout.InventoryOpenDocumentTablet);
             cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
             dtDate = FindViewById<EditText>(Resource.Id.dtDate);
             select = FindViewById<Button>(Resource.Id.select);

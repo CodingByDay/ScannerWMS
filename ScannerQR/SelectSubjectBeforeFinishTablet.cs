@@ -65,7 +65,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.SelectSubjectBeforeFinish);
+            SetContentView(Resource.Layout.SelectSubjectBeforeFinishTablet);
 
             cbSubject = FindViewById<Spinner>(Resource.Id.cbSubject);
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);

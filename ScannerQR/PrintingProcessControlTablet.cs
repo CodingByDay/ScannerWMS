@@ -39,7 +39,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.PrintingProcessControl);
+            SetContentView(Resource.Layout.PrintingProcessControlTablet);
 
 
             dtDate = FindViewById<EditText>(Resource.Id.dtDate);

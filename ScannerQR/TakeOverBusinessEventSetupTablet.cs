@@ -45,7 +45,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.TakeOverBusinessEventSetup);
+            SetContentView(Resource.Layout.TakeOverBusinessEventSetupTablet);
             // Declarations
             cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
             cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
@@ -139,7 +139,7 @@ namespace ScannerQR
         }
         private void Logout_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtnOrderMode_Click(object sender, EventArgs e)
