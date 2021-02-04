@@ -25,7 +25,7 @@ namespace ScannerQR
         int soundPoolId;
         private EditText tbIdent;
         private EditText tbNaziv;
-        private EditText tbKolicinaDoSedaj;
+        private EditText tbKolicinaDoSedaj; // RandomComment 
         private EditText tbKolicinaNova;
         private Button button1;
         private Button button2;
@@ -35,7 +35,7 @@ namespace ScannerQR
         private EditText tbLocation;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
-
+        
         public void GetBarcode(string barcode)
         {
            if(tbIdent.HasFocus)

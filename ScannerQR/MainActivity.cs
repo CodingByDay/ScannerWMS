@@ -18,11 +18,10 @@ using System.Linq;
 // Crashes, analytics and automatic updating.
 
 
-///////////////////////////////////////
-using Microsoft.AppCenter;////////////
-using Microsoft.AppCenter.Analytics;//
-using Microsoft.AppCenter.Crashes;////
-//////////////////////////////////////
+////////////////////////////////////
+using Microsoft.AppCenter;//////////
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using static Android.App.ActionBar;
 
 namespace ScannerQR
@@ -39,28 +38,21 @@ namespace ScannerQR
         private EditText ID;
         private ImageView img;
         private TextView deviceURL;
-        // Is connected method
+        // Internet connection method.
         public bool IsOnline()
         {
             var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
             return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
         }
         private void ProcessRegistration()
-
         {
             if (IsOnline())
             {
-
                 Password = FindViewById<EditText>(Resource.Id.password);
-
                 if (string.IsNullOrEmpty(Password.Text.Trim())) { return; }
-
                 Services.ClearUserInfo();
-
                 string error;
                 bool valid = false;
-
-
                 try
                 {
 
@@ -133,8 +125,6 @@ namespace ScannerQR
             btnRegistrationEvent.Click += BtnRegistrationEvent_Click;
             deviceURL = FindViewById<TextView>(Resource.Id.deviceURL);
             deviceURL.Text = new String(App.settings.RootURL);/* Settings modul */
-
-
         }
 
         private void Img_Click(object sender, EventArgs e)
@@ -144,15 +134,12 @@ namespace ScannerQR
             popupDialog.SetContentView(Resource.Layout.settingsPopUp);
             popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialog.Show();
-
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.DarkerGray);
-
             // Access Popup layout fields like below
             ok = popupDialog.FindViewById<Button>(Resource.Id.ok);
             rootURL = popupDialog.FindViewById<EditText>(Resource.Id.rootURL);
             ID = popupDialog.FindViewById<EditText>(Resource.Id.ID);
-       
             ok.Click += Ok_Click;
         }
        
@@ -177,9 +164,6 @@ namespace ScannerQR
             progressBar1.Visibility = ViewStates.Visible;
             ProcessRegistration();
             Analytics.TrackEvent("Login");
-            
-
-
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
