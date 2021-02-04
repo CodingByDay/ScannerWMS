@@ -1,10 +1,10 @@
 bundleassemblies=false
-aotassemblies=false
-androidaotmode=none
+aotassemblies=true
+androidaotmode=normal
 androidembedprofilers=
-androidenableprofiledaot=false
+androidenableprofiledaot=true
 androiddextool=d8
-androidlinktool=
+androidlinktool=r8
 androidpackageformat=apk
 usesharedruntime=false
 embedassembliesintoapk=true
@@ -19,7 +19,7 @@ xamarinandroidversion=11.1.0-26
 monosymbolarchive=false
 androiduselatestplatformsdk=false
 targetframeworkversion=v9.0
-androidcreatepackageperabi=
+androidcreatepackageperabi=false
 androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=false
@@ -27,4 +27,6 @@ androidpackagenamingpolicy=lowercasecrc64
 _nugetassetstimestamp=637478620922536712
 typemapkind=mvid
 androidsupportedabis=armeabi-v7a
+x86
+x86_64
 arm64-v8a

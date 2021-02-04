@@ -2,4 +2,4 @@
 ID: 0001
 EnableLog: No
 ScannerType: SYMBOL
-DeviceType: TABLET
+DeviceType: PHONE

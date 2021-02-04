@@ -158,10 +158,10 @@ namespace ScannerQR
         {
             if (result)
             {
-                StartActivity(typeof(CheckStock));
+                StartActivity(typeof(CheckStockTablet));
             } else
             {
-                StartActivity(typeof(CheckStockTablet));
+                StartActivity(typeof(CheckStock));
             }
         }
 

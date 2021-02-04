@@ -136,7 +136,7 @@
 
 	/* 12: ScannerQR.dll */
 	/* uncompressed_file_size */
-	.long	457728
+	.long	427008
 	/* loaded */
 	.byte	0
 	/* data */

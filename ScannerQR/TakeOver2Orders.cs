@@ -283,7 +283,7 @@ namespace ScannerQR
 
         private void UpdateForm()
         {
-            if (displayOrder < moveItemDivision.Items.Count)
+            if ((0 <= displayOrder) && (displayOrder < moveItemDivision.Items.Count))
             {
                 var mid = moveItemDivision.Items[displayOrder];
                 lblOrder.Text = "Naročilo (" + (displayOrder + 1).ToString() + "/" + moveItemDivision.Items.Count.ToString() + ")";

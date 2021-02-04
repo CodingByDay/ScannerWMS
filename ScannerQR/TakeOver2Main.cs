@@ -134,7 +134,7 @@ namespace ScannerQR
 
             if (!CommonData.IsValidLocation(CommonData.GetSetting("DefaultWarehouse"), tbLocation.Text.Trim()))
             {
-                Toast.MakeText(this,, "Ident ni podan!", ToastLength.Long).Show();
+                Toast.MakeText(this, "Ident ni podan!", ToastLength.Long).Show();
                 return null;
             }
 

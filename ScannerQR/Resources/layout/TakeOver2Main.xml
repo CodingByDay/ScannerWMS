@@ -109,9 +109,9 @@
                                      >
 
         <TextView
-            android:layout_width="83.0dp"
+            android:layout_width="79.0dp"
             android:layout_height="wrap_content"
-            android:text="Ident"
+            android:text="Locacija"
             android:paddingTop="5px"
             android:paddingLeft="10px"
             android:id="@+id/txtLocation"
@@ -130,7 +130,7 @@
     </LinearLayout>
     <TextView
         android:layout_width="141.5dp"
-        android:layout_height="183.5dp"
+        android:layout_height="146.0dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"
         android:layout_marginRight="0.0dp" />

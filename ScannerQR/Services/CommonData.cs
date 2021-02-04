@@ -120,7 +120,9 @@ namespace TrendNET.WMS.Device.Services
                 var whs = Services.GetObjectList("wh", out error, userID);
                 if (whs == null)
                 {
-        
+                  
+                  //
+                  //
                   // Toast is not a valid static method...
                     return null;
                 }
@@ -143,7 +145,7 @@ namespace TrendNET.WMS.Device.Services
             
                 try
                 {
-                 //   wf.Start("Nalagam seznam izmen iz strežnika...");
+                      //  wf.Start("Nalagam seznam izmen iz strežnika...");
                     string error;
                     shifts = Services.GetObjectList("sh", out error, "");
                     if (shifts == null)
