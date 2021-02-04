@@ -4453,31 +4453,34 @@ namespace ScannerQR
 			public const int transition_transform = 2131231083;
 			
 			// aapt resource value: 0x7F08016C
-			public const int uniform = 2131231084;
+			public const int txtLocation = 2131231084;
 			
 			// aapt resource value: 0x7F08016D
-			public const int unlabeled = 2131231085;
+			public const int uniform = 2131231085;
 			
 			// aapt resource value: 0x7F08016E
-			public const int up = 2131231086;
+			public const int unlabeled = 2131231086;
 			
 			// aapt resource value: 0x7F08016F
-			public const int useLogo = 2131231087;
+			public const int up = 2131231087;
 			
 			// aapt resource value: 0x7F080170
-			public const int view_offset_helper = 2131231088;
+			public const int useLogo = 2131231088;
 			
 			// aapt resource value: 0x7F080171
-			public const int visible = 2131231089;
+			public const int view_offset_helper = 2131231089;
 			
 			// aapt resource value: 0x7F080172
-			public const int warehouse = 2131231090;
+			public const int visible = 2131231090;
 			
 			// aapt resource value: 0x7F080173
-			public const int withText = 2131231091;
+			public const int warehouse = 2131231091;
 			
 			// aapt resource value: 0x7F080174
-			public const int wrap_content = 2131231092;
+			public const int withText = 2131231092;
+			
+			// aapt resource value: 0x7F080175
+			public const int wrap_content = 2131231093;
 			
 			static Id()
 			{

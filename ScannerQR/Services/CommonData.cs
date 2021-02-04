@@ -11,8 +11,8 @@ namespace TrendNET.WMS.Device.Services
     public class CommonData
     {
     
-        public static string Version = "1.0.73b";
-        private static NameValueObjectList warehouses = null;
+        public static string Version = "1.0.73f";
+        private static Dictionary<string, NameValueObjectList> warehouses = new Dictionary<string, NameValueObjectList>();
         private static NameValueObjectList shifts = null;
         private static NameValueObjectList subjects = null;
         private static Dictionary<string, bool> locations = new Dictionary<string, bool>();
@@ -106,26 +106,33 @@ namespace TrendNET.WMS.Device.Services
         }
         public static NameValueObjectList ListWarehouses()
         {
-            if (warehouses == null)
+            var userID = Services.UserID().ToString();
+            if (warehouses.ContainsKey(userID))
             {
-            
-                try
-                {
-                  //  wf.Start("Nalagam seznam skladišč iz strežnika...");
-                    string error;
-                    warehouses = Services.GetObjectList("wh", out error, Services.UserID().ToString());
-                    if (warehouses == null)
-                    {
-                        //Program.Exit(() => { MessageForm.Show("Napaka pri dostopu do web aplikacije: " + error); });
-                        return null;
-                    }
-                }
-                finally
-                {
-                 
-                }
+                return warehouses[userID];
             }
-            return warehouses;
+
+          
+            try
+            {
+               
+                string error;
+                var whs = Services.GetObjectList("wh", out error, userID);
+                if (whs == null)
+                {
+        
+                  // Toast is not a valid static method...
+                    return null;
+                }
+
+                warehouses.Add(userID, whs);
+                return whs;
+            }
+            finally
+            {
+               // used to be a wait form.
+            }
+           
         }
      
 

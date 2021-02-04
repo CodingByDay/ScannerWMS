@@ -74,7 +74,6 @@ Button;obj\Release\90\res\layout\issuedgoodsserialorssccentry.xml
 Button;obj\Release\90\res\layout\issuedgoodsserialorssccentrytablet.xml
 Button;obj\Release\90\res\layout\mainmenu.xml
 Button;obj\Release\90\res\layout\mainmenu1.xml
-Button;obj\Release\90\res\layout\menu.xml
 Button;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 Button;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
 Button;obj\Release\90\res\layout\packagingsetcontext.xml
@@ -260,8 +259,6 @@ LinearLayout;obj\Release\90\res\layout\listviewitem.xml
 LinearLayout;obj\Release\90\res\layout\listviewtrail.xml
 LinearLayout;obj\Release\90\res\layout\mainmenu.xml
 LinearLayout;obj\Release\90\res\layout\mainmenu1.xml
-LinearLayout;obj\Release\90\res\layout\menu.xml
-LinearLayout;obj\Release\90\res\layout\newmenu.xml
 LinearLayout;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 LinearLayout;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
 LinearLayout;obj\Release\90\res\layout\packagingsetcontext.xml
@@ -431,7 +428,6 @@ TextView;obj\Release\90\res\layout\issuedgoodsserialorssccentry.xml
 TextView;obj\Release\90\res\layout\issuedgoodsserialorssccentrytablet.xml
 TextView;obj\Release\90\res\layout\listviewitem.xml
 TextView;obj\Release\90\res\layout\listviewtrail.xml
-TextView;obj\Release\90\res\layout\mainmenu.xml
 TextView;obj\Release\90\res\layout\mainmenu1.xml
 TextView;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 TextView;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml

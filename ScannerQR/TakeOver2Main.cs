@@ -32,6 +32,7 @@ namespace ScannerQR
         private Button button3;
         private Button button4;
         private Button button5;
+        private EditText tbLocation;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
 
@@ -42,6 +43,10 @@ namespace ScannerQR
                 Sound();
                 tbIdent.Text = barcode;
                 ProcessIdent();
+            } else if(tbLocation.HasFocus)
+            {
+                Sound();
+                tbLocation.Text = barcode;
             }
         }
         private void ProcessIdent()
@@ -93,7 +98,7 @@ namespace ScannerQR
                 {
                     throw new ApplicationException("Missing setting: DirectTakeOverDocType");
                 }
-                //moveHead.SetString("Wharehouse", itemWH.ID);
+                moveHead.SetString("DocumentType", CommonData.GetSetting("DefaultWarehouse"));
                 moveHead.SetBool("ByOrder", false);
                 //moveHead.SetString("Receiver", itemSubj.ID);
                 moveHead.SetInt("Clerk", Services.UserID());
@@ -123,6 +128,15 @@ namespace ScannerQR
         private NameValueObject SaveItem(bool allowEmpty)
         {
             if (allowEmpty && string.IsNullOrEmpty(tbIdent.Text.Trim())) { return null; }
+
+
+            // Added 4.2.2020. 
+
+            if (!CommonData.IsValidLocation(CommonData.GetSetting("DefaultWarehouse"), tbLocation.Text.Trim()))
+            {
+                Toast.MakeText(this,, "Ident ni podan!", ToastLength.Long).Show();
+                return null;
+            }
 
             if (SaveHead())
             {
@@ -159,11 +173,12 @@ namespace ScannerQR
                 }
                 catch (Exception ex)
                 {
+                    
                     Toast.MakeText(this, "Količina mora biti število (" + ex.Message + ")!", ToastLength.Long).Show();
                     tbKolicinaNova.RequestFocus();
                     return null;
                 }
-
+                Toast.MakeText(this, "Shranjujem pozicijo...", ToastLength.Long).Show();
                 try
                 {
                     if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
@@ -178,6 +193,7 @@ namespace ScannerQR
                     moveItem.SetDouble("Qty", kol);
                     moveItem.SetInt("MorePrints", 0);
                     moveItem.SetInt("Clerk", Services.UserID());
+                    moveItem.SetString("Location", tbLocation.Text.Trim()); // Added 4.2.2021
                     //moveItem.SetString("Location", tbLocation.Text.Trim());
                     //moveItem.SetBool("PrintNow", CommonData.GetSetting("ImmediatePrintOnReceive") == "1");
                     moveItem.SetInt("UserID", Services.UserID());
@@ -218,6 +234,7 @@ namespace ScannerQR
             button3 = FindViewById<Button>(Resource.Id.button3);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button5 = FindViewById<Button>(Resource.Id.button5);
+            tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
@@ -228,6 +245,8 @@ namespace ScannerQR
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
             tbIdent.KeyPress += TbIdent_KeyPress;
+            tbLocation.Text = CommonData.GetSetting("DefaultPaletteLocation");
+
             if (moveItem != null)
             {
 
