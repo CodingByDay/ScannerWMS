@@ -315,7 +315,7 @@ namespace ScannerQR
         private void Button4_Click(object sender, EventArgs e)
         {
             SaveItem(true);
-            StartActivity(typeof(TakeOverEnteredPositionsView));
+            StartActivity(typeof(TakeOverEnteredPositionsViewTablet));
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -342,7 +342,7 @@ namespace ScannerQR
             if (SaveItem(false) != null)
             {
                 InUseObjects.Set("MoveItem", null);
-                StartActivity(typeof(TakeOver2Main));
+                StartActivity(typeof(TakeOver2MainTablet));
 
             }
         }
@@ -352,7 +352,7 @@ namespace ScannerQR
             if (SaveItem(false) != null)
             {
                 InUseObjects.Set("MoveItem", moveItem);
-                StartActivity(typeof(TakeOver2Orders));
+                StartActivity(typeof(TakeOver2OrdersTablet));
 
             }
         }

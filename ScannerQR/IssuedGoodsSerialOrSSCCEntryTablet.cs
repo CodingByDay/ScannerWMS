@@ -132,7 +132,7 @@ namespace ScannerQR
         private void Button7_Click(object sender, EventArgs e)
         {
             {
-                StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+                StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
                 InvalidateAndClose();
             }
 
@@ -202,11 +202,11 @@ namespace ScannerQR
             {
                 if (editMode)
                 {
-                    StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+                    StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
                 }
                 else
                 {
-                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
                 }
 
             }
@@ -218,11 +218,11 @@ namespace ScannerQR
             {
                 if (editMode)
                 {
-                    StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+                    StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
                 }
                 else
                 {
-                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
                 }
 
             }
@@ -564,7 +564,7 @@ namespace ScannerQR
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
+            StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
         }
 
         public void GetBarcode(string barcode)

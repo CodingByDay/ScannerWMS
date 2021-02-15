@@ -242,7 +242,7 @@ namespace ScannerQR
 
                         selectedWarehouse = warehouse.ID;
 
-                        StartActivity(typeof(InventoryProcess));
+                        StartActivity(typeof(InventoryProcessTablet));
 
                     }
                 }

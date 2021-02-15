@@ -192,7 +192,7 @@ namespace ScannerQR
                     InUseObjects.Set("MoveHead", moveHead);
                 }
 
-                StartActivity(typeof(InterWarehouseSerialOrSSCCEntry));
+                StartActivity(typeof(InterWarehouseSerialOrSSCCEntryTablet));
 
             }
             finally

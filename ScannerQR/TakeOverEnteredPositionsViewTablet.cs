@@ -202,13 +202,13 @@ namespace ScannerQR
             {
                 InUseObjects.Set("MoveHead", moveHead);
                 InUseObjects.Set("MoveItem", null);
-                StartActivity(typeof(TakeOver2Main));
+                StartActivity(typeof(TakeOver2MainTablet));
 
                 return;
             }
             else
 
-                StartActivity(typeof(TakeOverIdentEntry));
+                StartActivity(typeof(TakeOverIdentEntryTablet));
 
         }
 
@@ -243,7 +243,7 @@ namespace ScannerQR
                 {
                     item.SetString("Ident", openIdent.GetString("Code"));
                     InUseObjects.Set("OpenIdent", openIdent);
-                    StartActivity(typeof(TakeOverSerialOrSSCCEntry));
+                    StartActivity(typeof(TakeOverSerialOrSSCCEntryTablet));
 
                 }
             }

@@ -466,7 +466,7 @@ namespace ScannerQR
             if (SavePackagingItem())
             {
                 InUseObjects.Set("PackagingItem", null);
-                StartActivity(typeof(PackagingUnitList));
+                StartActivity(typeof(PackagingUnitListTablet));
 
             }
 
@@ -477,7 +477,7 @@ namespace ScannerQR
             if (SavePackagingItem())
             {
                 InUseObjects.Set("PackagingItem", null);
-                StartActivity(typeof(PackagingUnit));
+                StartActivity(typeof(PackagingUnitTablet));
 
             }
         }

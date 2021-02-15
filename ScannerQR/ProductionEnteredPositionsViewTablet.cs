@@ -257,7 +257,7 @@ namespace ScannerQR
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(ProductionSerialOrSSCCEntry));
+            StartActivity(typeof(ProductionSerialOrSSCCEntryTablet));
         }
 
         private void BtUpdate_Click(object sender, EventArgs e)
@@ -265,7 +265,7 @@ namespace ScannerQR
             var item = positions.Items[displayedPosition];
             InUseObjects.Set("MoveItem", item);
 
-            StartActivity(typeof(ProductionSerialOrSSCCEntry));
+            StartActivity(typeof(ProductionSerialOrSSCCEntryTablet));
         }
 
         private void BtNext_Click(object sender, EventArgs e)

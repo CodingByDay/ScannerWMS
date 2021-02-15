@@ -102,27 +102,27 @@ namespace ScannerQR
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InventoryPrint));
+            StartActivity(typeof(InventoryPrintTablet));
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InventoryOpen));
+            StartActivity(typeof(InventoryOpenTablet));
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InventoryConfirm));
+            StartActivity(typeof(InventoryConfirmTablet));
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InventoryProcess));
+            StartActivity(typeof(InventoryProcessTablet));
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InventoryOpenDocument));
+            StartActivity(typeof(InventoryOpenDocumentTablet));
         }
     }
 }

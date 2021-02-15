@@ -96,7 +96,7 @@ namespace ScannerQR
                     {
                         if (SaveMoveHead())
                         {
-                            StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                            StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
 
                         }
                         return;
@@ -267,7 +267,7 @@ namespace ScannerQR
         private void Button4_Click(object sender, EventArgs e)
         {
             // F4
-            StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+            StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
 
         }
 
@@ -276,7 +276,7 @@ namespace ScannerQR
             // F3
             if (SaveMoveHead())
             {
-                StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
 
             }
 

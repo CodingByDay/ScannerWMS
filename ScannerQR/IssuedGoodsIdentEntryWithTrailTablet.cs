@@ -232,7 +232,7 @@ namespace ScannerQR
 
         private void BtDisplayPositions_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+            StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
@@ -246,7 +246,7 @@ namespace ScannerQR
                     InUseObjects.Set("LastItem", lastItem);
                 }
 
-                StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
 
             }
         }

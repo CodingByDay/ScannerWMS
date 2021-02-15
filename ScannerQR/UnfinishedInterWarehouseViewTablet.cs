@@ -51,7 +51,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.UnfinishedInterWarehouseView);
+            SetContentView(Resource.Layout.UnfinishedInterWarehouseViewTablet);
 
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             tbBusEvent = FindViewById<EditText>(Resource.Id.tbBusEvent);
@@ -87,7 +87,7 @@ namespace ScannerQR
                         BtNext_Click(this, null);
                     }
                     break;
-                //return true;
+                
 
 
                 case Keycode.F2:
@@ -136,7 +136,7 @@ namespace ScannerQR
             moveHead.SetBool("Saved", false);
             InUseObjects.Set("MoveHead", moveHead);
 
-            StartActivity(typeof(InterWarehouseBusinessEventSetup));
+            StartActivity(typeof(InterWarehouseBusinessEventSetupTablet));
         }
 
         private void BtDelete_Click(object sender, EventArgs e)
@@ -229,7 +229,7 @@ namespace ScannerQR
             moveHead.SetBool("Saved", true);
             InUseObjects.Set("MoveHead", moveHead);
 
-            StartActivity(typeof(InterWarehouseEnteredPositionsView));
+            StartActivity(typeof(InterWarehouseEnteredPositionsViewTablet));
 
         }
 

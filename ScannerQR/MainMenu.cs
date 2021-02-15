@@ -201,11 +201,7 @@ namespace ScannerQR
                 StartActivity(typeof(UnfinishedProductionView));
             }
         }
-        /// <summary>
-        ///  An error somwhere in this part of code something  returns null. But i dont know what exactly.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+      
         private void ButtonInterWarehouse_Click(object sender, EventArgs e)
         {
             if (result) {

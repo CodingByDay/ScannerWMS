@@ -129,7 +129,7 @@ namespace ScannerQR
 
         private void BtNew_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(ProductionWorkOrderSetup));
+            StartActivity(typeof(ProductionWorkOrderSetupTablet));
         }
 
         private void BtLogout_Click(object sender, EventArgs e)
@@ -216,7 +216,7 @@ namespace ScannerQR
             moveHead.SetBool("Saved", true);
             InUseObjects.Set("MoveHead", moveHead);
 
-            StartActivity(typeof(ProductionEnteredPositionsView));
+            StartActivity(typeof(ProductionEnteredPositionsViewTablet));
 
         }
 

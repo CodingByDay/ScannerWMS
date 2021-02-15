@@ -213,7 +213,7 @@ namespace ScannerQR
                     {
                         Toast.MakeText(this, "Inventura odprta!", ToastLength.Long).Show();
 
-                        StartActivity(typeof(InventoryConfirm));
+                        StartActivity(typeof(InventoryConfirmTablet));
                     }
                 }
                 else

@@ -246,7 +246,7 @@ namespace ScannerQR
             //
             if (SaveMoveItem())
             {
-                StartActivity(typeof(TakeOverIdentEntry));
+                StartActivity(typeof(TakeOverIdentEntryTablet));
 
             }
         }
@@ -258,11 +258,11 @@ namespace ScannerQR
             {
                 if (editMode)
                 {
-                    StartActivity(typeof(TakeOverEnteredPositionsView));
+                    StartActivity(typeof(TakeOverEnteredPositionsViewTablet));
                 }
                 else
                 {
-                    StartActivity(typeof(TakeOverSerialOrSSCCEntry));
+                    StartActivity(typeof(TakeOverSerialOrSSCCEntryTablet));
                 }
 
             }

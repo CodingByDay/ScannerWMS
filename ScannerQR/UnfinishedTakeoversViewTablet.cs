@@ -133,7 +133,7 @@ namespace ScannerQR
             moveHead.SetBool("Saved", false);
             InUseObjects.Set("MoveHead", moveHead);
 
-            StartActivity(typeof(TakeOverBusinessEventSetup));
+            StartActivity(typeof(TakeOverBusinessEventSetupTablet));
 
         }
 
@@ -216,7 +216,7 @@ namespace ScannerQR
             moveHead.SetBool("Saved", true);
             InUseObjects.Set("MoveHead", moveHead);
 
-            StartActivity(typeof(TakeOverEnteredPositionsView));
+            StartActivity(typeof(TakeOverEnteredPositionsViewTablet));
         }
 
         private void BtNext_Click(object sender, EventArgs e)

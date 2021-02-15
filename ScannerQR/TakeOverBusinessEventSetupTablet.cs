@@ -146,7 +146,7 @@ namespace ScannerQR
         {
             if (byOrder && (CommonData.GetSetting("UseDirectTakeOver") == "1"))
             {
-                StartActivity(typeof(TakeOver2Main));
+                StartActivity(typeof(TakeOver2MainTablet));
 
 
             }
@@ -255,7 +255,7 @@ namespace ScannerQR
                         moveHead.SetString("Receiver", itemSubj.ID);
                     }
 
-                    StartActivity(typeof(TakeOverIdentEntry));
+                    StartActivity(typeof(TakeOverIdentEntryTablet));
 
                 }
             }

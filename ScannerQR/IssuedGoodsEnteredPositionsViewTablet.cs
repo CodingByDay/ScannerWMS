@@ -233,11 +233,11 @@ namespace ScannerQR
         {
             if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
             {
-                StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
+                StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
             }
             else
             {
-                StartActivity(typeof(IssuedGoodsIdentEntry));
+                StartActivity(typeof(IssuedGoodsIdentEntryTablet));
             }
         }
 

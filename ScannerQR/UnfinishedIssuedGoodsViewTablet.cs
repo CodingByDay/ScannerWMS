@@ -81,7 +81,7 @@ namespace ScannerQR
             NameValueObject moveHead = new NameValueObject("MoveHead");
             moveHead.SetBool("Saved", false);
             InUseObjects.Set("MoveHead", moveHead);
-            StartActivity(typeof(IssuedGoodsBusinessEventSetup));
+            StartActivity(typeof(IssuedGoodsBusinessEventSetupTablet));
         }
 
         private void BtDelete_Click(object sender, EventArgs e)
@@ -165,7 +165,7 @@ namespace ScannerQR
             moveHead.SetBool("Saved", true);
             InUseObjects.Set("MoveHead", moveHead);
 
-            StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+            StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
         }
 
         private void BtNext_Click(object sender, EventArgs e)

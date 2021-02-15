@@ -82,7 +82,7 @@ namespace ScannerQR
         {
 
             InUseObjects.Set("PackagingItem", null);
-            StartActivity(typeof(PackagingUnit));
+            StartActivity(typeof(PackagingUnitTablet));
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -198,7 +198,7 @@ namespace ScannerQR
         {
             var item = positions.Items[displayedPosition];
             InUseObjects.Set("PackagingItem", item);
-            StartActivity(typeof(PackagingUnit));
+            StartActivity(typeof(PackagingUnitTablet));
         }
 
         private void BtNext_Click(object sender, EventArgs e)

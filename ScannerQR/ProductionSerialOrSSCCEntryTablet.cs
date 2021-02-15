@@ -491,18 +491,18 @@ namespace ScannerQR
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(ProductionEnteredPositionsView));
+            StartActivity(typeof(ProductionEnteredPositionsViewTablet));
         }
 
         private void BtSaveOrUpdate_Click(object sender, EventArgs e)
         {
             if (editMode)
             {
-                StartActivity(typeof(ProductionEnteredPositionsView));
+                StartActivity(typeof(ProductionEnteredPositionsViewTablet));
             }
             else
             {
-                StartActivity(typeof(ProductionSerialOrSSCCEntry));
+                StartActivity(typeof(ProductionSerialOrSSCCEntryTablet));
             }
         }
     }

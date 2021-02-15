@@ -75,7 +75,7 @@ namespace ScannerQR
         private void BtCreate_Click(object sender, EventArgs e)
         {
             InUseObjects.Set("PackagingHead", null);
-            StartActivity(typeof(PackagingSetContext));
+            StartActivity(typeof(PackagingSetContextTablet));
         }
 
         private void BtDelete_Click(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace ScannerQR
         {
             var item = positions.Items[displayedPosition];
             InUseObjects.Set("PackagingHead", item);
-            StartActivity(typeof(PackagingUnitList));
+            StartActivity(typeof(PackagingUnitListTablet));
         }
 
         private void BtNext_Click(object sender, EventArgs e)

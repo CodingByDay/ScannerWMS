@@ -364,7 +364,7 @@ namespace ScannerQR
             }
             finally
             {
-                //pass
+                // pass
             }
         }
 
@@ -387,7 +387,7 @@ namespace ScannerQR
             }
             finally
             {
-                //pass
+                // pass
             }
         }
 
@@ -578,12 +578,12 @@ namespace ScannerQR
             {
                 if (editMode)
                 {
-                    StartActivity(typeof(InterWarehouseEnteredPositionsView));
+                    StartActivity(typeof(InterWarehouseEnteredPositionsViewTablet));
                 }
                 else
                 {
 
-                    StartActivity(typeof(InterWarehouseSerialOrSSCCEntry));
+                    StartActivity(typeof(InterWarehouseSerialOrSSCCEntryTablet));
                 }
                 // Close();
             }
@@ -593,7 +593,7 @@ namespace ScannerQR
         {
             if (SaveMoveItem())
             {
-                StartActivity(typeof(InterWarehouseSerialOrSSCCEntry));
+                StartActivity(typeof(InterWarehouseSerialOrSSCCEntryTablet));
 
             }
         }
@@ -651,7 +651,7 @@ namespace ScannerQR
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InterWarehouseEnteredPositionsView));
+            StartActivity(typeof(InterWarehouseEnteredPositionsViewTablet));
         }
 
 
