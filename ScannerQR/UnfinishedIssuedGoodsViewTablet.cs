@@ -75,7 +75,30 @@ namespace ScannerQR
 
             LoadPositions();
         }
+        /// <summary>
+        /// Writting a method to fill in all the positions in the right third of the screen...
+        /// positions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
 
+
+        private void fillClickableList()
+        {
+            for(int i = 0;i<=positions.Items.Count; i++)
+            {
+                var item = positions.Items[i];
+
+                var created = item.GetDateTime("DateInserted");
+                var stringDate = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+
+                data.Add(new IssuedUnfinishedList { Document = item.GetString("DocumentTypeName"), Issuer = item.GetString("Receiver"), Date = stringDate});
+                
+            }
+
+
+        }
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
