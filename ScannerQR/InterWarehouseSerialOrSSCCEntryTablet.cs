@@ -708,7 +708,7 @@ namespace ScannerQR
                         Button1_Click(this, null);
                     }
                     break;
-                //return true;
+              
 
 
                 case Keycode.F2:

@@ -35,6 +35,7 @@ android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeoverbu
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeoverenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeoveridententrytablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeoverserialorssccentrytablet.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedinterwarehouseviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
@@ -122,6 +123,7 @@ Button;obj\Debug\90\res\layout\takeoverserialorssccentry.xml
 Button;obj\Debug\90\res\layout\takeoverserialorssccentrytablet.xml
 Button;obj\Debug\90\res\layout\transportpopup.xml
 Button;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
+Button;obj\Debug\90\res\layout\unfinishedinterwarehouseviewtablet.xml
 Button;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 Button;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 Button;obj\Debug\90\res\layout\unfinishedproductionview.xml
@@ -200,6 +202,7 @@ EditText;obj\Debug\90\res\layout\takeoveridententrytablet.xml
 EditText;obj\Debug\90\res\layout\takeoverserialorssccentry.xml
 EditText;obj\Debug\90\res\layout\takeoverserialorssccentrytablet.xml
 EditText;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
+EditText;obj\Debug\90\res\layout\unfinishedinterwarehouseviewtablet.xml
 EditText;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 EditText;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 EditText;obj\Debug\90\res\layout\unfinishedproductionview.xml
@@ -307,6 +310,8 @@ LinearLayout;obj\Debug\90\res\layout\takeoverserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverserialorssccentrytablet.xml
 LinearLayout;obj\Debug\90\res\layout\transportpopup.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
+LinearLayout;obj\Debug\90\res\layout\unfinishedinterwarehouseviewtablet.xml
+LinearLayout;obj\Debug\90\res\layout\unfinishedissued.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedproductionview.xml
@@ -353,6 +358,7 @@ ListView;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
 ListView;obj\Debug\90\res\layout\takeoverenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\takeoveridententrytablet.xml
 ListView;obj\Debug\90\res\layout\takeoverserialorssccentrytablet.xml
+ListView;obj\Debug\90\res\layout\unfinishedinterwarehouseviewtablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
@@ -476,6 +482,8 @@ TextView;obj\Debug\90\res\layout\takeoverserialorssccentry.xml
 TextView;obj\Debug\90\res\layout\takeoverserialorssccentrytablet.xml
 TextView;obj\Debug\90\res\layout\transportpopup.xml
 TextView;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
+TextView;obj\Debug\90\res\layout\unfinishedinterwarehouseviewtablet.xml
+TextView;obj\Debug\90\res\layout\unfinishedissued.xml
 TextView;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 TextView;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 TextView;obj\Debug\90\res\layout\unfinishedproductionview.xml

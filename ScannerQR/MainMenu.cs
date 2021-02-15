@@ -15,7 +15,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
-    [Activity(Label = "MainMenu")]
+    [Activity(Label = "MainMenu" )]
     public class MainMenu : Activity
     {
        

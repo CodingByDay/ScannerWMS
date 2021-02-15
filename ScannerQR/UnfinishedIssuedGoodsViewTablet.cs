@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -38,7 +39,8 @@ namespace ScannerQR
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("IssuedGoodHeads");
         private Button btnYes;
         private Button btnNo;
-
+        private ListView issuedData;
+        private List<IssuedUnfinishedList> data = new List<IssuedUnfinishedList>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -58,13 +60,15 @@ namespace ScannerQR
             btNew = FindViewById<Button>(Resource.Id.btNew);
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
+            issuedData = FindViewById<ListView>(Resource.Id.issuedData);
             btNext.Click += BtNext_Click;
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
             btNew.Click += BtNew_Click;
             btLogout.Click += BtLogout_Click;
             //
-
+            UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, data);
+            issuedData.Adapter = adapter;
             InUseObjects.Clear();
 
             LoadPositions();

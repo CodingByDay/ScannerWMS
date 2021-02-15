@@ -91,14 +91,14 @@ namespace ScannerQR
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(TakeOverEnteredPositionsView));
+            StartActivity(typeof(TakeOverEnteredPositionsViewTablet));
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
         {
             if (SaveMoveHead())
             {
-                StartActivity(typeof(TakeOverSerialOrSSCCEntry));
+                StartActivity(typeof(TakeOverSerialOrSSCCEntryTablet));
             }
         }
 
