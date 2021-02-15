@@ -18,7 +18,7 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace ScannerQR
 {
-    [Activity(Label = "TakeOverSerialOrSSCCEntryTablet")]
+    [Activity(Label = "TakeOverSerialOrSSCCEntryTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class TakeOverSerialOrSSCCEntryTablet : Activity, IBarcodeResult
     {
         private NameValueObject openIdent = (NameValueObject)InUseObjects.Get("OpenIdent");

@@ -16,7 +16,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
-    [Activity(Label = "TakeOver2OrdersTablet")]
+    [Activity(Label = "TakeOver2OrdersTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class TakeOver2OrdersTablet : Activity
     {
         private EditText tbIdent;

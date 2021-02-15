@@ -15,7 +15,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
-    [Activity(Label = "SelectSubjectBeforeFinishTablet")]
+    [Activity(Label = "SelectSubjectBeforeFinishTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class SelectSubjectBeforeFinishTablet : Activity
     {
         private int HeadID;

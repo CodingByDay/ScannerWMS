@@ -18,7 +18,7 @@ using static Android.App.ActionBar;
 
 namespace ScannerQR
 {
-    [Activity(Label = "ProductionCardTablet")]
+    [Activity(Label = "ProductionCardTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class ProductionCardTablet : Activity
     {
         private EditText tbWorkOrder;

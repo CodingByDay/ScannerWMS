@@ -20,7 +20,7 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace ScannerQR
 {
-    [Activity(Label = "InterWarehouseSerialOrSSCCEntryTablet")]
+    [Activity(Label = "InterWarehouseSerialOrSSCCEntryTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class InterWarehouseSerialOrSSCCEntryTablet : Activity, IBarcodeResult
     {
         public string barcode;

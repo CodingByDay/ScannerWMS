@@ -15,7 +15,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
-    [Activity(Label = "PrintingOutputControlTablet")]
+    [Activity(Label = "PrintingOutputControlTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class PrintingOutputControlTablet : Activity
     {
 

@@ -17,7 +17,7 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace ScannerQR
 {
-    [Activity(Label = "UnfinishedProductionViewTablet")]
+    [Activity(Label = "UnfinishedProductionViewTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class UnfinishedProductionViewTablet : Activity
 
 

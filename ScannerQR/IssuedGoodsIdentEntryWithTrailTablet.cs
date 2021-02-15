@@ -20,7 +20,7 @@ namespace ScannerQR
 {
 
 
-    [Activity(Label = "IssuedGoodsIdentEntryWithTrailTablet")]
+    [Activity(Label = "IssuedGoodsIdentEntryWithTrailTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class IssuedGoodsIdentEntryWithTrailTablet : Activity, IBarcodeResult
     {
 

@@ -26,7 +26,7 @@ using static Android.App.ActionBar;
 
 namespace ScannerQR
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/barcode")]
+    [Activity(Label = "@string/app_name",ScreenOrientation =Android.Content.PM.ScreenOrientation.Portrait, Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/barcode")]
     public class MainActivity : AppCompatActivity
     {
         private Dialog popupDialog;

@@ -16,7 +16,7 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace ScannerQR
 {
-    [Activity(Label = "InventoryConfirmTablet")]
+    [Activity(Label = "InventoryConfirmTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class InventoryConfirmTablet : Activity
     {
         private TextView lbInfo;

@@ -18,7 +18,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
-    [Activity(Label = "TakeOver2MainTablet")]
+    [Activity(Label = "TakeOver2MainTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class TakeOver2MainTablet : Activity, IBarcodeResult
     {
         SoundPool soundPool;

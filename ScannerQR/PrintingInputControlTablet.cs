@@ -15,7 +15,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
-    [Activity(Label = "PrintingInputControlTablet")]
+    [Activity(Label = "PrintingInputControlTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class PrintingInputControlTablet : Activity
     {
         private EditText dtDate;

@@ -16,7 +16,7 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace ScannerQR
 {
-    [Activity(Label = "InventoryOpenDocumentTablet")]
+    [Activity(Label = "InventoryOpenDocumentTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class InventoryOpenDocumentTablet : Activity
     {
         private Spinner cbWarehouse;

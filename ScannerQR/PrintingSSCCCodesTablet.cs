@@ -14,7 +14,7 @@ using TrendNET.WMS.Core.Data;
 
 namespace ScannerQR
 {
-    [Activity(Label = "PrintingSSCCCodesTablet")]
+    [Activity(Label = "PrintingSSCCCodesTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class PrintingSSCCCodesTablet : Activity
     {
         private EditText tbNum;

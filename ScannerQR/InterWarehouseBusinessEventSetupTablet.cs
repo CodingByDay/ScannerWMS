@@ -18,7 +18,7 @@ using static Android.Widget.AdapterView;
 
 namespace ScannerQR
 {
-    [Activity(Label = "InterWarehouseBusinessEventSetupTablet")]
+    [Activity(Label = "InterWarehouseBusinessEventSetupTablet", ScreenOrientation =Android.Content.PM.ScreenOrientation.Landscape)]
     public class InterWarehouseBusinessEventSetupTablet : Activity
     {
         private Spinner cbDocType;

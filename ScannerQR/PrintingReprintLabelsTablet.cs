@@ -18,7 +18,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
-    [Activity(Label = "PrintingReprintLabelsTablet")]
+    [Activity(Label = "PrintingReprintLabelsTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class PrintingReprintLabelsTablet : Activity, IBarcodeResult
     {
         private EditText tbIdent;

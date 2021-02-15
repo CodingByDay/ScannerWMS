@@ -18,7 +18,7 @@ using static Android.App.ActionBar;
 
 namespace ScannerQR
 {
-    [Activity(Label = "UnfinishedTakeoversViewTablet")]
+    [Activity(Label = "UnfinishedTakeoversViewTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class UnfinishedTakeoversViewTablet : Activity
     {
         private EditText tbBusEvent;

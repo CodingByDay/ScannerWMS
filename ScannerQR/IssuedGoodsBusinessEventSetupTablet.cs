@@ -14,7 +14,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
-    [Activity(Label = "IssuedGoodsBusinessEventSetupTablet")]
+    [Activity(Label = "IssuedGoodsBusinessEventSetupTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class IssuedGoodsBusinessEventSetupTablet : Activity
     {
         private Spinner cbDocType;

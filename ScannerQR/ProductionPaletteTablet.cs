@@ -19,7 +19,7 @@ using static Android.App.ActionBar;
 
 namespace ScannerQR
 {
-    [Activity(Label = "ProductionPaletteTablet")]
+    [Activity(Label = "ProductionPaletteTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class ProductionPaletteTablet : Activity, IBarcodeResult
 
     {

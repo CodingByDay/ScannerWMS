@@ -17,7 +17,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
-    [Activity(Label = "PackagingSetContextTablet")]
+    [Activity(Label = "PackagingSetContextTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class PackagingSetContextTablet : Activity, IBarcodeResult
     {
         private Spinner cbWarehouse;
