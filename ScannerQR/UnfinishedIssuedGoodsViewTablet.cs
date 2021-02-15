@@ -61,11 +61,13 @@ namespace ScannerQR
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             issuedData = FindViewById<ListView>(Resource.Id.issuedData);
-            btNext.Click += BtNext_Click;
-            btFinish.Click += BtFinish_Click;
-            btDelete.Click += BtDelete_Click;
-            btNew.Click += BtNew_Click;
-            btLogout.Click += BtLogout_Click;
+            btNext.Click += BtNext_Click;     //
+            btFinish.Click += BtFinish_Click; //
+            btDelete.Click += BtDelete_Click; // 
+            btNew.Click += BtNew_Click;       //
+            btLogout.Click += BtLogout_Click; //
+            // Adapter for the two thirds list view on the right.
+            //
             //
             UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, data);
             issuedData.Adapter = adapter;
