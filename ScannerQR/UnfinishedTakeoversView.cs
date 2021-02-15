@@ -15,6 +15,7 @@ using TrendNET.WMS.Device.Services;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 using static Android.App.ActionBar;
+using ScannerQR.App;
 
 namespace ScannerQR
 {
@@ -37,8 +38,9 @@ namespace ScannerQR
         private Button btnYes;
         private Button btnNo;
         private Button btNew;
-
+        private ListView dataList;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("TakeOverHeads");
+        private List<IssuedUnfinishedList> dataSource = new List<IssuedUnfinishedList>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -53,7 +55,7 @@ namespace ScannerQR
             tbItemCount = FindViewById<EditText>(Resource.Id.tbItemCount);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
-
+            
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
@@ -65,13 +67,13 @@ namespace ScannerQR
             btDelete.Click += BtDelete_Click;
             btNew.Click += BtNew_Click;
             btLogout.Click += BtLogout_Click;
-
+           
             InUseObjects.Clear();
 
             LoadPositions();
         }
 
-    
+  
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {

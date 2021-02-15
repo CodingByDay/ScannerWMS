@@ -15,6 +15,7 @@ using TrendNET.WMS.Device.Services;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 using static Android.App.ActionBar;
+using ScannerQR.App;
 
 namespace ScannerQR
 {
@@ -37,6 +38,8 @@ namespace ScannerQR
         private Button btnYes;
         private Button btnNo;
         private Button btNew;
+        private ListView dataList;
+        private List<IssuedUnfinishedList> dataSource = new List<IssuedUnfinishedList>();
 
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("TakeOverHeads");
         protected override void OnCreate(Bundle savedInstanceState)
@@ -53,7 +56,10 @@ namespace ScannerQR
             tbItemCount = FindViewById<EditText>(Resource.Id.tbItemCount);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
-
+            dataList = FindViewById<ListView>(Resource.Id.dataList);
+            UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, dataSource);
+            dataList.Adapter = adapter;
+          
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
@@ -69,9 +75,10 @@ namespace ScannerQR
             InUseObjects.Clear();
 
             LoadPositions();
+         
         }
 
-
+       
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -152,7 +159,8 @@ namespace ScannerQR
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
             btnYes.Click += BtnYes_Click;
             btnNo.Click += BtnNo_Click;
-
+            string errorWebApp = string.Format(positions.Items.Count.ToString());
+            Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
         }
 
         private void BtnNo_Click(object sender, EventArgs e)
@@ -294,6 +302,19 @@ namespace ScannerQR
                 btNext.Enabled = true;
                 btDelete.Enabled = true;
                 btFinish.Enabled = true;
+
+                for (int i = 1; i <= positions.Items.Count; i++)
+                {
+               
+                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    dataSource.Add(new IssuedUnfinishedList
+                    {
+                        Document = item.GetString("DocumentTypeName"),
+                        Issuer = item.GetString("Issuer"),
+                        Date =
+                        date
+                    });
+                }
             }
             else
             {

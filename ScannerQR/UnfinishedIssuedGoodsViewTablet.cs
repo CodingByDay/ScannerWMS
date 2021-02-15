@@ -47,6 +47,7 @@ namespace ScannerQR
 
             // Create your application here
             SetContentView(Resource.Layout.UnfinishedIssuedGoodsViewTablet);
+            
 
             tbBusEvent = FindViewById<EditText>(Resource.Id.tbBusEvent);
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);
@@ -66,14 +67,19 @@ namespace ScannerQR
             btDelete.Click += BtDelete_Click; // 
             btNew.Click += BtNew_Click;       //
             btLogout.Click += BtLogout_Click; //
+
             // Adapter for the two thirds list view on the right.
             //
             //
+            string errorWebAppIssued = string.Format(positions.Items.Count().ToString());
+            Toast.MakeText(this, errorWebAppIssued, ToastLength.Long).Show();
             UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, data);
             issuedData.Adapter = adapter;
+          
             InUseObjects.Clear();
 
             LoadPositions();
+         
         }
         /// <summary>
         /// Writting a method to fill in all the positions in the right third of the screen...
@@ -84,21 +90,7 @@ namespace ScannerQR
         /// 
 
 
-        private void fillClickableList()
-        {
-            for(int i = 0;i<=positions.Items.Count; i++)
-            {
-                var item = positions.Items[i];
-
-                var created = item.GetDateTime("DateInserted");
-                var stringDate = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
-
-                data.Add(new IssuedUnfinishedList { Document = item.GetString("DocumentTypeName"), Issuer = item.GetString("Receiver"), Date = stringDate});
-                
-            }
-
-
-        }
+   
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));

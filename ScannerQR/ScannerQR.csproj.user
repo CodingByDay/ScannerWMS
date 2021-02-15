@@ -3,7 +3,7 @@
   <PropertyGroup>
     <SelectedDevice>VIVAX TPC-102 4G</SelectedDevice>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
-    <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
+    <AndroidDesignerPreferredDevice>10.1in WXGA %28Tablet%29</AndroidDesignerPreferredDevice>
   </PropertyGroup>
   <PropertyGroup>
     <ReferencePath>
