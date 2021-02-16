@@ -5,14 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-   
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/test"
-      
         android:layout_toRightOf="@id/app"
-        android:id="@+id/listView1"
+        android:id="@+id/listData"
         />
 
 
@@ -32,7 +31,7 @@
  
         android:layout_toRightOf="@id/app"
        
-        android:weightSum="3"
+        android:weightSum="4"
         android:id="@+id/text"
         android:paddingTop="5px">
 
@@ -71,6 +70,19 @@
             android:text="Datum"
             android:layout_marginRight="28.0dp"
             android:id="@+id/date" />
+
+
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Štev. pozicija"
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/numberOfPositions" />
 
     </LinearLayout>
     

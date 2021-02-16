@@ -49,6 +49,7 @@ namespace ScannerQR.App
                 {
                     row = LayoutInflater.From(sContext).Inflate(Resource.Layout.UnfinishedIssued, null, false);
                 }
+               
                 TextView Document = row.FindViewById<TextView>(Resource.Id.Document);
                 Document.Text = sList[position].Document;
 
@@ -58,6 +59,10 @@ namespace ScannerQR.App
 
                 TextView Date = row.FindViewById<TextView>(Resource.Id.Date);
                 Date.Text = sList[position].Date;
+
+
+                TextView NumberOfPositions = row.FindViewById<TextView>(Resource.Id.NumberOfPositions);
+                NumberOfPositions.Text = sList[position].NumberOfPositions;
 
 
 
@@ -71,17 +76,14 @@ namespace ScannerQR.App
             return row;
 
         }
+       
 
-        public void NotifyDataSetChanged()
+        public override void NotifyDataSetChanged()
         {
 
 
             NotifyDataSetChanged();
         }
-
-
-
-
 
     }
 }

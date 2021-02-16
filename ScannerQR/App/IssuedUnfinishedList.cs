@@ -17,6 +17,8 @@ namespace ScannerQR.App
         public string Issuer { get; set; }
         public string Date { get; set; }
 
+        public string NumberOfPositions { get; set; }
+
 
 
     }

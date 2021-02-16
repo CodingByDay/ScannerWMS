@@ -16,11 +16,12 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 using static Android.App.ActionBar;
 using ScannerQR.App;
+using System.ComponentModel;
 
 namespace ScannerQR
 {
     [Activity(Label = "UnfinishedTakeoversViewTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
-    public class UnfinishedTakeoversViewTablet : Activity
+    public class UnfinishedTakeoversViewTablet : Activity, INotifyPropertyChanged
     {
         private EditText tbBusEvent;
         private EditText tbOrder;
@@ -40,8 +41,13 @@ namespace ScannerQR
         private Button btNew;
         private ListView dataList;
         private List<IssuedUnfinishedList> dataSource = new List<IssuedUnfinishedList>();
-
+        public int selectedItem = 0;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("TakeOverHeads");
+        private int selected = 0;
+    
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -59,7 +65,7 @@ namespace ScannerQR
             dataList = FindViewById<ListView>(Resource.Id.dataList);
             UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, dataSource);
             dataList.Adapter = adapter;
-          
+
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
@@ -71,14 +77,29 @@ namespace ScannerQR
             btDelete.Click += BtDelete_Click;
             btNew.Click += BtNew_Click;
             btLogout.Click += BtLogout_Click;
-
+            selectedItem = -1;
+          
             InUseObjects.Clear();
-
+            dataList.ItemClick += DataList_ItemClick;
             LoadPositions();
-         
+            FillItemsList();
+          
+            
+            
         }
 
+     
+
+        private void DataList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
        
+            selected = e.Position;
+            Select(selected);
+            selectedItem = selected;
+            
+        }
+
+   
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -159,8 +180,7 @@ namespace ScannerQR
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
             btnYes.Click += BtnYes_Click;
             btnNo.Click += BtnNo_Click;
-            string errorWebApp = string.Format(positions.Items.Count.ToString());
-            Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+
         }
 
         private void BtnNo_Click(object sender, EventArgs e)
@@ -185,6 +205,8 @@ namespace ScannerQR
                     {
                         positions = null;
                         LoadPositions();
+                        dataSource.Clear();
+                        FillItemsList();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
                     }
@@ -226,13 +248,42 @@ namespace ScannerQR
 
             StartActivity(typeof(TakeOverEnteredPositionsViewTablet));
         }
-
-        private void BtNext_Click(object sender, EventArgs e)
+        private void Select(int postionOfTheItemInTheList)
         {
-            displayedPosition++;
-            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            displayedPosition = postionOfTheItemInTheList;
+            if(displayedPosition >= positions.Items.Count) { displayedPosition = 0;  }
             FillDisplayedItem();
         }
+        private void BtNext_Click(object sender, EventArgs e)
+        {
+            selectedItem++;
+
+            if (selectedItem <= (positions.Items.Count-1))
+            {
+                dataList.RequestFocusFromTouch();
+                dataList.SetSelection(selectedItem);
+                dataList.SetItemChecked(selectedItem, true);
+            } else
+            {
+                selectedItem = 0;
+                dataList.RequestFocusFromTouch();
+                dataList.SetSelection(selectedItem);
+                dataList.SetItemChecked(selectedItem, true);
+            }
+
+
+
+
+
+            displayedPosition++;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+
+             
+            FillDisplayedItem();
+        
+        }
+
+       
 
 
         // Load position method...
@@ -266,7 +317,36 @@ namespace ScannerQR
 
             }
         }
+        private void FillItemsList()
+        {
 
+            for (int i = 0; i < positions.Items.Count; i++)
+            {
+                if (i < positions.Items.Count && positions.Items.Count > 0)
+                {
+                    var item = positions.Items.ElementAt(i);
+                    var created = item.GetDateTime("DateInserted");
+                    tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+
+                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    dataSource.Add(new IssuedUnfinishedList
+                    {
+                        Document = item.GetString("DocumentTypeName"),
+                        Issuer = item.GetString("Issuer"),
+                        Date = date,
+                        NumberOfPositions = item.GetInt("ItemCount").ToString(),
+                        // tbItemCount.Text = item.GetInt("ItemCount").ToString();
+                    });
+                } else
+                {
+                    string errorWebApp = string.Format("Kritična napaka...");
+                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                }
+            
+            }
+
+
+        }
         private void FillDisplayedItem()
         {
             if ((positions != null) && (positions.Items.Count > 0))
@@ -303,18 +383,7 @@ namespace ScannerQR
                 btDelete.Enabled = true;
                 btFinish.Enabled = true;
 
-                for (int i = 1; i <= positions.Items.Count; i++)
-                {
                
-                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
-                    dataSource.Add(new IssuedUnfinishedList
-                    {
-                        Document = item.GetString("DocumentTypeName"),
-                        Issuer = item.GetString("Issuer"),
-                        Date =
-                        date
-                    });
-                }
             }
             else
             {
