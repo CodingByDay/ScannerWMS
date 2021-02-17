@@ -26,6 +26,8 @@
         android:layout_below="@id/test"
         android:layout_toRightOf="@id/app"
         android:id="@+id/dataList"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/holo_blue_light" 
         />
    
     <LinearLayout
@@ -35,7 +37,7 @@
 
         android:layout_toRightOf="@id/app"
        
-        android:weightSum="3"
+        android:weightSum="4"
         android:id="@+id/text"
         android:paddingTop="5px">
 
@@ -61,9 +63,6 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/provider" />
 
-
-
-
         <TextView
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -74,6 +73,18 @@
             android:text="Datum"
             android:layout_marginRight="28.0dp"
             android:id="@+id/date" />
+
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Št. pozicij"
+            android:layout_width="match_parent"
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/numberOfPositions" />
 
     </LinearLayout>
     <LinearLayout

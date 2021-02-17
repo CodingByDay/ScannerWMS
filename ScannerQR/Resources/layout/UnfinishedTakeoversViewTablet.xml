@@ -19,8 +19,8 @@
         android:id="@+id/dataList"
         android:choiceMode="multipleChoice"
         android:drawSelectorOnTop="false"
-        android:listSelector="@android:color/holo_blue_bright"
-        android:keyboardNavigationCluster="true" 
+        android:keyboardNavigationCluster="true"
+        android:listSelector="@android:color/holo_blue_light" 
         />
                                                
    

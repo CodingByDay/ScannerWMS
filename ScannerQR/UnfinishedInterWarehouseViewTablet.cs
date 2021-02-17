@@ -42,9 +42,9 @@ namespace ScannerQR
         private Dialog popupDialog;
         private Button btnYes;
         private Button btnNo;
-        private List<IssuedUnfinishedList> dataMapping = new List<IssuedUnfinishedList>();
+        private List<UnfinishedInterWarehouseList> dataMapping = new List<UnfinishedInterWarehouseList>();
         private int selected;
-        private int selectedItem;
+        private int selectedItem =-1;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -66,7 +66,7 @@ namespace ScannerQR
             btnLogout = FindViewById<Button>(Resource.Id.btnLogout);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             dataList = FindViewById<ListView>(Resource.Id.dataList);
-            UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, dataMapping);
+            UnfinishedInterwarehouseAdapter adapter = new UnfinishedInterwarehouseAdapter(this, dataMapping);
             dataList.Adapter = adapter;
             btNext.Click += BtNext_Click;
             btFinish.Click += BtFinish_Click;
@@ -197,7 +197,7 @@ namespace ScannerQR
                     {
                         positions = null;
                         LoadPositions();
-                        dataSource.Clear();
+                        dataMapping.Clear();
                         FillItemsList();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
@@ -264,10 +264,10 @@ namespace ScannerQR
                     tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
 
                     var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
-                    dataMapping.Add(new IssuedUnfinishedList
+                    dataMapping.Add(new UnfinishedInterWarehouseList
                     {
                         Document = item.GetString("DocumentTypeName"),
-                        Issuer = item.GetString("Issuer"),
+                        CreatedBy = item.GetString("ClerkName"),
                         Date = date,
                         NumberOfPositions = item.GetInt("ItemCount").ToString(),
                         // tbItemCount.Text = item.GetInt("ItemCount").ToString();

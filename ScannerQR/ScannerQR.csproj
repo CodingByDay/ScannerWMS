@@ -132,6 +132,8 @@
     <Compile Include="App\Scanner.cs" />
     <Compile Include="App\settings.cs" />
     <Compile Include="App\Trail.cs" />
+    <Compile Include="App\UnfinishedInterwarehouseAdapter.cs" />
+    <Compile Include="App\UnfinishedInterWarehouseList.cs" />
     <Compile Include="App\UnfinishedIssuedAdapter.cs" />
     <Compile Include="App\WebApp.cs" />
     <Compile Include="App\WindowDispatcher.cs" />
@@ -783,6 +785,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\UnfinishedIssued.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\UnfinishedInterWarehouseList.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
