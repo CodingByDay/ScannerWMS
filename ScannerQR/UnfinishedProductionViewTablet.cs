@@ -45,7 +45,7 @@ namespace ScannerQR
         private Button btnNo;
         private List<UnfinishedProductionList> data = new List<UnfinishedProductionList>();
         private int selected;
-        private int selectedItem;
+        private int selectedItem = -1;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -66,6 +66,8 @@ namespace ScannerQR
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             btNew = FindViewById<Button>(Resource.Id.btNew);
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
+            UnfinishedProductionAdapter adapter = new UnfinishedProductionAdapter(this, data);
+            listData.Adapter = adapter;
             btNext.Click += BtNext_Click;
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
