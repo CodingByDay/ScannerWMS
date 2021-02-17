@@ -121,6 +121,8 @@
     <Compile Include="App\Echo.cs" />
     <Compile Include="App\IBarcodeResult.cs" />
     <Compile Include="App\InUseObjects.cs" />
+    <Compile Include="App\UnfinishedIssuedAdapter.cs" />
+    <Compile Include="App\UnfinishedIssuedList.cs" />
     <Compile Include="App\UnfinishedTakeoverList.cs" />
     <Compile Include="App\Keyboard.cs" />
     <Compile Include="App\ListViewItem.cs" />
@@ -784,12 +786,17 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\UnfinishedIssued.xml">
+    <AndroidResource Include="Resources\layout\UnfinishedTakeover.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\UnfinishedInterWarehouseList.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\UnfinishedIssued.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

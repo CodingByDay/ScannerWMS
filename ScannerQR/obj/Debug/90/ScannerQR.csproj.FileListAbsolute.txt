@@ -557,3 +557,4 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_GenerateJa
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\UnfinishedTakeoverAdapter.java
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\unfinishedtakeover.xml
