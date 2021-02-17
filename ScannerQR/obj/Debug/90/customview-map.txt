@@ -317,6 +317,7 @@ LinearLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedproductionview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
+LinearLayout;obj\Debug\90\res\layout\unfinishedtakeover.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\yesnogeneric.xml
@@ -490,6 +491,7 @@ TextView;obj\Debug\90\res\layout\unfinishedissuedgoodsview.xml
 TextView;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 TextView;obj\Debug\90\res\layout\unfinishedproductionview.xml
 TextView;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
+TextView;obj\Debug\90\res\layout\unfinishedtakeover.xml
 TextView;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 TextView;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 TextView;obj\Debug\90\res\layout\yesnogeneric.xml

@@ -40,7 +40,7 @@ namespace ScannerQR
         private Button btnYes;
         private Button btnNo;
         private ListView issuedData;
-        private List<IssuedUnfinishedList> data = new List<IssuedUnfinishedList>();
+        private List<UnfinishedTakeoverList> data = new List<UnfinishedTakeoverList>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -71,10 +71,7 @@ namespace ScannerQR
             // Adapter for the two thirds list view on the right.
             //
             //
-            string errorWebAppIssued = string.Format(positions.Items.Count().ToString());
-            Toast.MakeText(this, errorWebAppIssued, ToastLength.Long).Show();
-            UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, data);
-            issuedData.Adapter = adapter;
+    
           
             InUseObjects.Clear();
 

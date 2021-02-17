@@ -121,7 +121,7 @@
     <Compile Include="App\Echo.cs" />
     <Compile Include="App\IBarcodeResult.cs" />
     <Compile Include="App\InUseObjects.cs" />
-    <Compile Include="App\IssuedUnfinishedList.cs" />
+    <Compile Include="App\UnfinishedTakeoverList.cs" />
     <Compile Include="App\Keyboard.cs" />
     <Compile Include="App\ListViewItem.cs" />
     <Compile Include="App\Log.cs" />
@@ -134,7 +134,7 @@
     <Compile Include="App\Trail.cs" />
     <Compile Include="App\UnfinishedInterwarehouseAdapter.cs" />
     <Compile Include="App\UnfinishedInterWarehouseList.cs" />
-    <Compile Include="App\UnfinishedIssuedAdapter.cs" />
+    <Compile Include="App\UnfinishedTakeoverAdapter.cs" />
     <Compile Include="App\WebApp.cs" />
     <Compile Include="App\WindowDispatcher.cs" />
     <Compile Include="App\WMSDeviceConfig.cs" />

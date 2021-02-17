@@ -28,9 +28,9 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Dobavitelj"
+            android:text="Kreiral"
             android:layout_marginRight="28.0dp"
-            android:id="@+id/Issuer" />
+            android:id="@+id/Orderer" />
 
 
         <TextView

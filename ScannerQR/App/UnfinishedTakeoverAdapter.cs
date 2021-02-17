@@ -11,11 +11,11 @@ using System.Text;
 
 namespace ScannerQR.App
 {
-    class UnfinishedIssuedAdapter : BaseAdapter
+    class UnfinishedTakeoverAdapter : BaseAdapter
     {
-        public List<IssuedUnfinishedList> sList;
+        public List<UnfinishedTakeoverList> sList;
         private Context sContext;
-        public UnfinishedIssuedAdapter(Context context, List<IssuedUnfinishedList> list)
+        public UnfinishedTakeoverAdapter(Context context, List<UnfinishedTakeoverList> list)
         {
             sList = list;
             sContext = context;
@@ -47,7 +47,7 @@ namespace ScannerQR.App
             {
                 if (row == null)
                 {
-                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.UnfinishedIssued, null, false);
+                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.UnfinishedTakeover, null, false);
                 }
                
                 TextView Document = row.FindViewById<TextView>(Resource.Id.Document);

@@ -28994,8 +28994,8 @@
 	.section	.rodata.java_type_name.4832,"aMS",@progbits,1
 	.type	.L.java_type_name.4832, @object
 .L.java_type_name.4832:
-	.asciz	"crc6409c71bcadc42b4aa/UnfinishedIssuedAdapter"
-	.size	.L.java_type_name.4832, 46
+	.asciz	"crc6409c71bcadc42b4aa/UnfinishedTakeoverAdapter"
+	.size	.L.java_type_name.4832, 48
 
 	.section	.rodata.java_type_name.4833,"aMS",@progbits,1
 	.type	.L.java_type_name.4833, @object
@@ -80292,8 +80292,8 @@
 	.section	.rodata.managed_type_name.7241,"aMS",@progbits,1
 	.type	.L.managed_type_name.7241, @object
 .L.managed_type_name.7241:
-	.asciz	"ScannerQR.App.UnfinishedIssuedAdapter, ScannerQR"
-	.size	.L.managed_type_name.7241, 49
+	.asciz	"ScannerQR.App.UnfinishedTakeoverAdapter, ScannerQR"
+	.size	.L.managed_type_name.7241, 51
 	.section	.rodata.managed_type_name.7242,"aMS",@progbits,1
 	.type	.L.managed_type_name.7242, @object
 .L.managed_type_name.7242:

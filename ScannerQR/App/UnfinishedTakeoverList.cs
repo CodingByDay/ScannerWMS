@@ -11,7 +11,7 @@ using System.Text;
 
 namespace ScannerQR.App
 {
-    class IssuedUnfinishedList
+    class UnfinishedTakeoverList
     {
         public string Document { get; set; }
         public string Issuer { get; set; }
