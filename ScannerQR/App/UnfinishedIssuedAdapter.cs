@@ -13,9 +13,9 @@ namespace ScannerQR.App
 {
     class UnfinishedIssuedAdapter : BaseAdapter
     {
-        public List<UnfinishedIssuedAdapter> sList;
+        public List<UnfinishedIssuedList> sList;
         private Context sContext;
-        public UnfinishedIssuedAdapter(Context context, List<UnfinishedIssuedAdapter> list)
+        public UnfinishedIssuedAdapter(Context context, List<UnfinishedIssuedList> list)
         {
             sList = list;
             sContext = context;

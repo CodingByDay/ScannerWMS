@@ -40,7 +40,10 @@ namespace ScannerQR
         private Button btnYes;
         private Button btnNo;
         private ListView issuedData;
-        private List<UnfinishedTakeoverList> data = new List<UnfinishedTakeoverList>();
+        private List<UnfinishedIssuedList> data = new List<UnfinishedIssuedList>();
+        private int selected;
+        private int selectedItem = -1; // -> [ x+1 > 0 starting "floating" index.]
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -62,6 +65,9 @@ namespace ScannerQR
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             issuedData = FindViewById<ListView>(Resource.Id.issuedData);
+            UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, data);
+            issuedData.Adapter = adapter;
+            issuedData.ItemClick += IssuedData_ItemClick;
             btNext.Click += BtNext_Click;     //
             btFinish.Click += BtFinish_Click; //
             btDelete.Click += BtDelete_Click; // 
@@ -76,8 +82,23 @@ namespace ScannerQR
             InUseObjects.Clear();
 
             LoadPositions();
-         
+            FillItemsList();
         }
+
+        private void IssuedData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selected = e.Position;
+            Select(selected);
+            selectedItem = selected;
+        }
+
+        private void Select(int postionOfTheItemInTheList)
+        {
+            displayedPosition = postionOfTheItemInTheList;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            FillDisplayedItem();
+        }
+
         /// <summary>
         /// Writting a method to fill in all the positions in the right third of the screen...
         /// positions
@@ -87,7 +108,7 @@ namespace ScannerQR
         /// 
 
 
-   
+
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
@@ -142,7 +163,8 @@ namespace ScannerQR
                     {
                         positions = null;
                         LoadPositions();
-
+                        data.Clear();
+                        FillItemsList();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
                     }
@@ -188,11 +210,60 @@ namespace ScannerQR
 
         private void BtNext_Click(object sender, EventArgs e)
         {
+
+
+            selectedItem++;
+
+            if (selectedItem <= (positions.Items.Count - 1))
+            {
+                issuedData.RequestFocusFromTouch();
+                issuedData.SetSelection(selectedItem);
+                issuedData.SetItemChecked(selectedItem, true);
+            }
+            else
+            {
+                selectedItem = 0;
+                issuedData.RequestFocusFromTouch();
+                issuedData.SetSelection(selectedItem);
+                issuedData.SetItemChecked(selectedItem, true);
+            }
+
+
             displayedPosition++;
             if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
             FillDisplayedItem();
         }
+        private void FillItemsList()
+        {
 
+            for (int i = 0; i < positions.Items.Count; i++)
+            {
+                if (i < positions.Items.Count && positions.Items.Count > 0)
+                {
+                    var item = positions.Items.ElementAt(i);
+                    var created = item.GetDateTime("DateInserted");
+                    tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+
+                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    data.Add(new UnfinishedIssuedList
+                    {
+                        Document = item.GetString("DocumentTypeName"),
+                        Orderer = item.GetString("Issuer"),
+                        Date = date,
+                        NumberOfPositions = item.GetInt("ItemCount").ToString(),
+                        // tbItemCount.Text = item.GetInt("ItemCount").ToString();
+                    });
+                }
+                else
+                {
+                    string errorWebApp = string.Format("Kritična napaka...");
+                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                }
+
+            }
+
+
+        }
         private void LoadPositions()
         {
 
