@@ -4,4 +4,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
+     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <TextView
+            android:layout_weight="25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Štev. pakiranja"
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/SerialNumber" />
+
+        <TextView
+            android:layout_weight="25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="SSCC koda"
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/ssccCode" />
+
+
+        <TextView
+            android:layout_weight="25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Kreiral"
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/CreatedBy" />
+
+
+        
+        <TextView
+            android:layout_weight="25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Št. pozicija"
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/NumberOfPositions" />
+
+    </LinearLayout>
+
 </LinearLayout>

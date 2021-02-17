@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -36,6 +37,11 @@ namespace ScannerQR
         private NameValueObjectList positions = null;
         private Button btnYes;
         private Button btnNo;
+        private List<UnfinishedPackagingList> data = new List<UnfinishedPackagingList>();
+        private ListView listData;
+        private int selected;
+        private int selectedItem = -1; // Starting index x+1=0>x=-1
+
         /// <summary>
         /// /////////////////////////
         /// </summary>
@@ -58,6 +64,10 @@ namespace ScannerQR
             btCreate = FindViewById<Button>(Resource.Id.btCreate);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             btClose = FindViewById<Button>(Resource.Id.btClose);
+            listData = FindViewById<ListView>(Resource.Id.listData);
+            UnfinishedPackagingAdapter adapter = new UnfinishedPackagingAdapter(this, data);
+            listData.Adapter = adapter;
+            listData.ItemClick += ListData_ItemClick;
             btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             btDelete.Click += BtDelete_Click;
@@ -65,6 +75,53 @@ namespace ScannerQR
             btClose.Click += BtClose_Click;
             // LoadPosition()
             LoadPositions();
+            FillItemsList();
+        
+            }
+
+        private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selected = e.Position;
+            Select(selected);
+            selectedItem = selected;
+        }
+        private void Select(int postionOfTheItemInTheList)
+        {
+            displayedPosition = postionOfTheItemInTheList;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            FillDisplayedItem();
+        }
+        private void FillItemsList()
+        {
+
+            for (int i = 0; i < positions.Items.Count; i++)
+            {
+                if (i < positions.Items.Count && positions.Items.Count > 0)
+                {
+                    var item = positions.Items.ElementAt(i);
+                    var created = item.GetDateTime("DateInserted");
+
+                    // item.GetInt("HeadID").ToString(); item.GetString("SSCC"); item.GetInt("ItemCount").ToString(); item.GetInt("ItemCount").ToString();
+
+                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    data.Add(new UnfinishedPackagingList
+                    {
+                        SerialNumber = item.GetInt("HeadID").ToString(),
+                        ssccCode = item.GetString("SSCC"),
+                        CreatedBy = item.GetInt("ItemCount").ToString(),
+                        NumberOfPositions = item.GetInt("ItemCount").ToString(),
+                        // tbItemCount.Text = item.GetInt("ItemCount").ToString();
+                    });
+                }
+                else
+                {
+                    string errorWebApp = string.Format("Kritična napaka...");
+                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                }
+
+            }
+
+
         }
 
         private void BtClose_Click(object sender, EventArgs e)
@@ -118,6 +175,8 @@ namespace ScannerQR
                     {
                         positions = null;
                         LoadPositions();
+                        data.Clear();
+                        FillItemsList();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
                     }
@@ -155,6 +214,24 @@ namespace ScannerQR
 
         private void BtNext_Click(object sender, EventArgs e)
         {
+
+            selectedItem++;
+
+            if (selectedItem <= (positions.Items.Count - 1))
+            {
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selectedItem);
+                listData.SetItemChecked(selectedItem, true);
+            }
+            else
+            {
+                selectedItem = 0;
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selectedItem);
+                listData.SetItemChecked(selectedItem, true);
+            }
+
+
             displayedPosition++;
             if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
             FillDisplayedItem();
@@ -193,7 +270,7 @@ namespace ScannerQR
             }
             //
         }
-        // 
+        // item.GetInt("HeadID").ToString(); item.GetString("SSCC"); item.GetInt("ItemCount").ToString(); item.GetInt("ItemCount").ToString();
         private void FillDisplayedItem()
         {
             if ((positions != null) && (displayedPosition < positions.Items.Count))

@@ -11,7 +11,80 @@ using System.Text;
 
 namespace ScannerQR.App
 {
-    class UnfinishedPackagingAdapter
+    class UnfinishedPackagingAdapter : BaseAdapter
     {
+
+        public List<UnfinishedPackagingList> sList;
+        private Context sContext;
+        public UnfinishedPackagingAdapter(Context context, List<UnfinishedPackagingList> list)
+        {
+            sList = list;
+            sContext = context;
+        }
+
+
+
+        public override int Count
+        {
+            get
+            {
+                return sList.Count;
+            }
+        }
+
+        public override Java.Lang.Object GetItem(int position)
+        {
+            return null;
+        }
+
+        public override long GetItemId(int position)
+        {
+            return position;
+        }
+        public override View GetView(int position, View convertView, ViewGroup parent)
+        {
+            View row = convertView;
+            try
+            {
+                if (row == null)
+                {
+                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.UnfinishedPackaging, null, false);
+                }
+
+                TextView SerialNumber = row.FindViewById<TextView>(Resource.Id.SerialNumber);
+                SerialNumber.Text = sList[position].SerialNumber;
+
+
+                TextView ssccCode = row.FindViewById<TextView>(Resource.Id.ssccCode);
+                ssccCode.Text = sList[position].ssccCode;
+
+                TextView CreatedBy = row.FindViewById<TextView>(Resource.Id.CreatedBy);
+                CreatedBy.Text = sList[position].CreatedBy;
+
+
+                TextView NumberOfPositions = row.FindViewById<TextView>(Resource.Id.NumberOfPositions);
+                NumberOfPositions.Text = sList[position].NumberOfPositions;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+            finally { }
+
+            return row;
+
+        }
+
+
+        public override void NotifyDataSetChanged()
+        {
+
+
+            NotifyDataSetChanged();
+        }
+
     }
 }
