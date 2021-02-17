@@ -19,14 +19,13 @@
         />
 
 
-    
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/test"
-      
         android:layout_toRightOf="@id/app"
-        android:id="@+id/listView1"
+        android:id="@+id/dataList"
         />
    
     <LinearLayout

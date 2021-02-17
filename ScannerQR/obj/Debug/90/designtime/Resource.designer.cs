@@ -3522,11 +3522,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F080041
 			public const int btNegate = 2131230785;
 			
-			// aapt resource value: 0x7F080055
-			public const int btnew = 2131230805;
-			
 			// aapt resource value: 0x7F080042
 			public const int btNew = 2131230786;
+			
+			// aapt resource value: 0x7F080055
+			public const int btnew = 2131230805;
 			
 			// aapt resource value: 0x7F080043
 			public const int btNext = 2131230787;
@@ -3717,11 +3717,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F080081
 			public const int disableHome = 2131230849;
 			
-			// aapt resource value: 0x7F080082
-			public const int document = 2131230850;
-			
 			// aapt resource value: 0x7F080004
 			public const int Document = 2131230724;
+			
+			// aapt resource value: 0x7F080082
+			public const int document = 2131230850;
 			
 			// aapt resource value: 0x7F080083
 			public const int dtDate = 2131230851;

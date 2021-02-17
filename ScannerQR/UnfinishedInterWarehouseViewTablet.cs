@@ -2,7 +2,10 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using ScannerQR.App;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -33,12 +36,15 @@ namespace ScannerQR
         /// <summary>
         /// ////////////////
         /// </summary>
-
+        private ListView dataList;
         private int displayedPosition = 0;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("InterWarehouseHeads");
         private Dialog popupDialog;
         private Button btnYes;
         private Button btnNo;
+        private List<IssuedUnfinishedList> dataMapping = new List<IssuedUnfinishedList>();
+        private int selected;
+        private int selectedItem;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -59,17 +65,35 @@ namespace ScannerQR
             btnNew = FindViewById<Button>(Resource.Id.btnNew);
             btnLogout = FindViewById<Button>(Resource.Id.btnLogout);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
-            //
+            dataList = FindViewById<ListView>(Resource.Id.dataList);
+            UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, dataMapping);
+            dataList.Adapter = adapter;
             btNext.Click += BtNext_Click;
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
             btnNew.Click += BtnNew_Click;
             btnLogout.Click += BtnLogout_Click;
+            dataList.ItemClick += DataList_ItemClick;
             InUseObjects.Clear();
 
             LoadPositions();
-
+            FillItemsList();
         }
+
+        private void DataList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selected = e.Position;
+            Select(selected);
+            selectedItem = selected;
+        }
+
+        private void Select(int postionOfTheItemInTheList)
+        {
+           displayedPosition = postionOfTheItemInTheList;
+            if(displayedPosition >= positions.Items.Count) { displayedPosition = 0;  }
+            FillDisplayedItem();
+        }
+
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -173,6 +197,8 @@ namespace ScannerQR
                     {
                         positions = null;
                         LoadPositions();
+                        dataSource.Clear();
+                        FillItemsList();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
 
@@ -226,9 +252,56 @@ namespace ScannerQR
             StartActivity(typeof(InterWarehouseEnteredPositionsViewTablet));
 
         }
+        private void FillItemsList()
+        {
 
+            for (int i = 0; i < positions.Items.Count; i++)
+            {
+                if (i < positions.Items.Count && positions.Items.Count > 0)
+                {
+                    var item = positions.Items.ElementAt(i);
+                    var created = item.GetDateTime("DateInserted");
+                    tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+
+                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    dataMapping.Add(new IssuedUnfinishedList
+                    {
+                        Document = item.GetString("DocumentTypeName"),
+                        Issuer = item.GetString("Issuer"),
+                        Date = date,
+                        NumberOfPositions = item.GetInt("ItemCount").ToString(),
+                        // tbItemCount.Text = item.GetInt("ItemCount").ToString();
+                    });
+                }
+                else
+                {
+                    string errorWebApp = string.Format("Kritična napaka...");
+                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                }
+
+            }
+
+
+        }
         private void BtNext_Click(object sender, EventArgs e)
         {
+            selectedItem++;
+
+            if (selectedItem <= (positions.Items.Count - 1))
+            {
+                dataList.RequestFocusFromTouch();
+                dataList.SetSelection(selectedItem);
+                dataList.SetItemChecked(selectedItem, true);
+            }
+            else
+            {
+                selectedItem = 0;
+                dataList.RequestFocusFromTouch();
+                dataList.SetSelection(selectedItem);
+                dataList.SetItemChecked(selectedItem, true);
+            }
+
+
             displayedPosition++;
             if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
             FillDisplayedItem();
