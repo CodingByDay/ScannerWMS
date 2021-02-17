@@ -280,7 +280,7 @@ namespace ScannerQR
                     data.Add(new UnfinishedProductionList
                     {
                         WorkOrder = tbWorkOrder.Text = item.GetString("LinkKey"),
-                        Orderer = item.GetString("Issuer"),
+                        Orderer = item.GetString("Receiver"),
                         Ident = item.GetString("FirstIdent"),
                         NumberOfPositions = item.GetInt("ItemCount").ToString(),
                         // tbItemCount.Text = item.GetInt("ItemCount").ToString();

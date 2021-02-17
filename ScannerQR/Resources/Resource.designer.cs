@@ -5047,31 +5047,34 @@ namespace ScannerQR
 			public const int UnfinishedIssuedGoodsViewTablet = 2131427472;
 			
 			// aapt resource value: 0x7F0B0091
-			public const int UnfinishedProduction = 2131427473;
+			public const int UnfinishedPackaging = 2131427473;
 			
 			// aapt resource value: 0x7F0B0092
-			public const int UnfinishedProductionView = 2131427474;
+			public const int UnfinishedProduction = 2131427474;
 			
 			// aapt resource value: 0x7F0B0093
-			public const int UnfinishedProductionViewTablet = 2131427475;
+			public const int UnfinishedProductionView = 2131427475;
 			
 			// aapt resource value: 0x7F0B0094
-			public const int UnfinishedTakeover = 2131427476;
+			public const int UnfinishedProductionViewTablet = 2131427476;
 			
 			// aapt resource value: 0x7F0B0095
-			public const int UnfinishedTakeoversView = 2131427477;
+			public const int UnfinishedTakeover = 2131427477;
 			
 			// aapt resource value: 0x7F0B0096
-			public const int UnfinishedTakeoversViewTablet = 2131427478;
+			public const int UnfinishedTakeoversView = 2131427478;
 			
 			// aapt resource value: 0x7F0B0097
-			public const int YesNoGeneric = 2131427479;
+			public const int UnfinishedTakeoversViewTablet = 2131427479;
 			
 			// aapt resource value: 0x7F0B0098
-			public const int YesNoPopUp = 2131427480;
+			public const int YesNoGeneric = 2131427480;
 			
 			// aapt resource value: 0x7F0B0099
-			public const int YesNoProductionCard = 2131427481;
+			public const int YesNoPopUp = 2131427481;
+			
+			// aapt resource value: 0x7F0B009A
+			public const int YesNoProductionCard = 2131427482;
 			
 			static Layout()
 			{
