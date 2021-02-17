@@ -40,7 +40,7 @@ namespace ScannerQR
         private Button btNew;
         private ListView dataList;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("TakeOverHeads");
-        private List<IssuedUnfinishedList> dataSource = new List<IssuedUnfinishedList>();
+        private List<UnfinishedTakeoverList> dataSource = new List<UnfinishedTakeoverList>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

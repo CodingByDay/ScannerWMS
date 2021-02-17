@@ -40,7 +40,7 @@ namespace ScannerQR
         private Button btnNo;
         private Button btNew;
         private ListView dataList;
-        private List<IssuedUnfinishedList> dataSource = new List<IssuedUnfinishedList>();
+        private List<UnfinishedTakeoverList> dataSource = new List<UnfinishedTakeoverList>();
         public int selectedItem = 0;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("TakeOverHeads");
         private int selected = 0;
@@ -63,7 +63,7 @@ namespace ScannerQR
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
             dataList = FindViewById<ListView>(Resource.Id.dataList);
-            UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, dataSource);
+            UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
             dataList.Adapter = adapter;
 
             btNext = FindViewById<Button>(Resource.Id.btNext);
@@ -329,7 +329,7 @@ namespace ScannerQR
                     tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
 
                     var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
-                    dataSource.Add(new IssuedUnfinishedList
+                    dataSource.Add(new UnfinishedTakeoverList
                     {
                         Document = item.GetString("DocumentTypeName"),
                         Issuer = item.GetString("Issuer"),
