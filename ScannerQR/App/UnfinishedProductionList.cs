@@ -14,6 +14,7 @@ namespace ScannerQR.App
     class UnfinishedProductionList
     {
         public string WorkOrder { get; set; }
+
         public string Orderer { get; set; }
 
         public string Ident { get; set; }

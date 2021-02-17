@@ -123,6 +123,8 @@
     <Compile Include="App\InUseObjects.cs" />
     <Compile Include="App\UnfinishedIssuedAdapter.cs" />
     <Compile Include="App\UnfinishedIssuedList.cs" />
+    <Compile Include="App\UnfinishedProductionAdapter.cs" />
+    <Compile Include="App\UnfinishedProductionList.cs" />
     <Compile Include="App\UnfinishedTakeoverList.cs" />
     <Compile Include="App\Keyboard.cs" />
     <Compile Include="App\ListViewItem.cs" />
@@ -797,6 +799,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\UnfinishedIssued.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\UnfinishedProduction.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

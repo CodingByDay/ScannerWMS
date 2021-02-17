@@ -21,7 +21,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll.mdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\build.props
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\adb.props
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csprojAssemblyReference.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res.flag
@@ -249,8 +248,10 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\takeov
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\takeoverserialorssccentrytablet.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\unfinishedinterwarehouseviewtablet.xml
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\unfinishedissued.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\unfinishedtakeover.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\unfinishedinterwarehouselist.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\unfinishedissued.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\unfinishedproduction.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\uploadflags.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\resolvedassemblies.hash
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\assets\DeviceAPI.dll
@@ -365,6 +366,8 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc64
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\adapterListViewItem.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\UnfinishedInterwarehouseAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\UnfinishedIssuedAdapter.java
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\UnfinishedProductionAdapter.java
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\UnfinishedTakeoverAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\CheckStock.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\CheckStockTablet.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\InterWarehouseBusinessEventSetup.java
@@ -556,5 +559,3 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_ConvertRes
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\UnfinishedTakeoverAdapter.java
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\unfinishedtakeover.xml

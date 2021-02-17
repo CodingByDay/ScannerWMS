@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -36,12 +37,15 @@ namespace ScannerQR
         private Button btDelete;
         private Button btNew;
         private Button btLogout;
-
+        private ListView listData;
         private int displayedPosition = 0;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("TakeOverHeads");
         private Dialog popupDialog;
         private Button btnYes;
         private Button btnNo;
+        private List<UnfinishedProductionList> data = new List<UnfinishedProductionList>();
+        private int selected;
+        private int selectedItem;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -56,7 +60,7 @@ namespace ScannerQR
             tbItemCount = FindViewById<EditText>(Resource.Id.tbItemCount);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
-
+            listData = FindViewById<ListView>(Resource.Id.listData);
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
@@ -67,11 +71,26 @@ namespace ScannerQR
             btDelete.Click += BtDelete_Click;
             btLogout.Click += BtLogout_Click;
             btNew.Click += BtNew_Click;
+            listData.ItemClick += ListData_ItemClick;
             InUseObjects.Clear();
-
             LoadPositions();
-
+            FillItemsList();
         }
+
+        private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selected = e.Position;
+            Select(selected);
+            selectedItem = selected;
+        }
+
+        private void Select(int postionOfTheItemInTheList)
+        {
+            displayedPosition = postionOfTheItemInTheList;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            FillDisplayedItem();
+        }
+
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -176,7 +195,8 @@ namespace ScannerQR
                     {
                         positions = null;
                         LoadPositions();
-
+                        data.Clear();
+                        FillItemsList();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
                     }
@@ -222,11 +242,58 @@ namespace ScannerQR
 
         private void BtNext_Click(object sender, EventArgs e)
         {
+
+            selectedItem++;
+
+            if (selectedItem <= (positions.Items.Count - 1))
+            {
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selectedItem);
+                listData.SetItemChecked(selectedItem, true);
+            }
+            else
+            {
+                selectedItem = 0;
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selectedItem);
+                listData.SetItemChecked(selectedItem, true);
+            }
+
             displayedPosition++;
             if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
             FillDisplayedItem();
         }
+        private void FillItemsList()
+        {
 
+            for (int i = 0; i < positions.Items.Count; i++)
+            {
+                if (i < positions.Items.Count && positions.Items.Count > 0)
+                {
+                    var item = positions.Items.ElementAt(i);
+                    var created = item.GetDateTime("DateInserted");
+                    tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+
+                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    data.Add(new UnfinishedProductionList
+                    {
+                        WorkOrder = tbWorkOrder.Text = item.GetString("LinkKey"),
+                        Orderer = item.GetString("Issuer"),
+                        Ident = item.GetString("FirstIdent"),
+                        NumberOfPositions = item.GetInt("ItemCount").ToString(),
+                        // tbItemCount.Text = item.GetInt("ItemCount").ToString();
+                    });
+                }
+                else
+                {
+                    string errorWebApp = string.Format("Kritična napaka...");
+                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                }
+
+            }
+
+
+        }
         private void LoadPositions()
         {
 
