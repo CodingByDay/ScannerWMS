@@ -121,6 +121,8 @@
     <Compile Include="App\Echo.cs" />
     <Compile Include="App\IBarcodeResult.cs" />
     <Compile Include="App\InUseObjects.cs" />
+    <Compile Include="App\TakeOverIdentAdapter.cs" />
+    <Compile Include="App\TakeOverIdentList.cs" />
     <Compile Include="App\UnfinishedIssuedAdapter.cs" />
     <Compile Include="App\UnfinishedIssuedList.cs" />
     <Compile Include="App\UnfinishedPackagingAdapter.cs" />
@@ -811,6 +813,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\UnfinishedPackaging.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TakeOverIdentListView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

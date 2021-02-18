@@ -139,7 +139,7 @@ namespace ScannerQR
         }
         private void Logout_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            StartActivity(typeof(MainMenu));
         }
 
         private void BtnOrderMode_Click(object sender, EventArgs e)

@@ -15,6 +15,7 @@ namespace TrendNET.WMS.Device.Services
         private static Dictionary<string, NameValueObjectList> warehouses = new Dictionary<string, NameValueObjectList>();
         private static NameValueObjectList shifts = null;
         private static NameValueObjectList subjects = null;
+        private static NameValueObjectList allIdents = null;
         private static Dictionary<string, bool> locations = new Dictionary<string, bool>();
         private static Dictionary<string, NameValueObjectList> docTypes = new Dictionary<string, NameValueObjectList>();
         private static Dictionary<string, NameValueObject> idents = new Dictionary<string, NameValueObject>();
@@ -121,9 +122,7 @@ namespace TrendNET.WMS.Device.Services
                 if (whs == null)
                 {
                   
-                  //
-                  //
-                  // Toast is not a valid static method...
+           
                     return null;
                 }
 
@@ -137,7 +136,29 @@ namespace TrendNET.WMS.Device.Services
            
         }
      
+        public static NameValueObjectList ListIdentsAndLocationsMethod()
+        {
+            if(allIdents == null)
+            {
 
+                try
+                {
+                    //  wf.Start("Nalagam seznam izmen iz strežnika...");
+                    string error;
+                    shifts = Services.GetObjectList("id", out error, "");
+                    if (shifts == null)
+                    {
+                        //  Program.Exit(() => { MessageForm.Show("Napaka pri dostopu do web aplikacije: " + error); });
+                        return null;
+                    }
+                }
+                finally
+                {
+                    //  wf.Stop();
+                }
+            }
+            return allIdents;
+        }
         public static NameValueObjectList ListShifts()
         {
             if (shifts == null)

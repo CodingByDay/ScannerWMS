@@ -70,10 +70,6 @@ namespace ScannerQR
 
 
 
-        /// <summary>
-        /// Implementacija asihrone metode ker normalna sinhrona metoa crasha aplikacijo. Sam zaradi overall user expirience funkcionlanost ne obstaja [e
-        /// </summary>
-        /// <returns></returns>
         public async Task DoWorkAsync()
         {
             await Task.Run(() => {

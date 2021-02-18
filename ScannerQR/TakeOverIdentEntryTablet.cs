@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -38,6 +39,8 @@ namespace ScannerQR
         private Button btConfirm;
         private Button button4;
         private Button button5;
+        private ListView listData;
+        private List<TakeOverIdentList> data = new List<TakeOverIdentList>();
         SoundPool soundPool;
         int soundPoolId;
 
@@ -59,7 +62,9 @@ namespace ScannerQR
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button5 = FindViewById<Button>(Resource.Id.button5);
-
+            listData = FindViewById<ListView>(Resource.Id.listData);
+            TakeOverIdentAdapter adapter = new TakeOverIdentAdapter(this, data);
+            listData.Adapter = adapter;
             color();
 
             soundPool = new SoundPool(10, Stream.Music, 0);
@@ -70,18 +75,52 @@ namespace ScannerQR
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
             displayedOrder = 0;
             FillDisplayedOrderInfo();
-
+            // uvWMSOpenOrder
             btNext.Click += BtNext_Click;
             btConfirm.Click += BtConfirm_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
 
         }
+   
 
         private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessIdent();
-
+           
+        }
+        private string LoadStockFromStock(string warehouse, string ident)
+        {
+            try
+            {
+                string error;
+                var stock = Services.GetObjectList("str", out error, warehouse + "|" + ident);
+                if (stock == null)
+                {
+                    string WebError = string.Format("Napaka pri preverjanju zaloge." + error);
+                    Toast.MakeText(this, WebError, ToastLength.Long).Show(); tbIdent.Text = "";
+                    return "";
+                }
+                else
+                {
+                    return string.Join("\r\n", stock.Items.Select(x => "L:" + x.GetString("Location") + " = " + x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())).ToArray());
+                }
+            }
+            finally
+            {
+                // 
+            }
+        }
+        private void QueryStockGetDataForIdent()
+        {
+            string error;
+            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wherehouse") + "||" + tbIdent.Text);
+            Toast.MakeText(this, stock.Items.ToString(), ToastLength.Long).Show();
+            //for (int i = 0; i < stock.Items.Count(); i++)
+            //{
+            //    var current = stock.Items.ElementAt(i);
+            //    data.Add(new TakeOverIdentList { Ident = "1", Location = current.GetString("Location"), Open = "1000", Ordered = "1000", Received = "1000" });
+            //}
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -192,6 +231,7 @@ namespace ScannerQR
                 {
                     ident = openIdent.GetString("Code");
                     tbIdent.Text = ident;
+                    QueryStockGetDataForIdent();
                     InUseObjects.Set("OpenIdent", openIdent);
 
                     var isPackaging = openIdent.GetBool("IsPackaging");
@@ -212,7 +252,7 @@ namespace ScannerQR
                         openOrders = Services.GetObjectList("oo", out error, ident + "|" + moveHead.GetString("DocumentType") + "|" + moveHead.GetInt("HeadID"));
                         if (openOrders == null)
                         {
-                            //Napaka pri pridobivanju odprtih naročil: " + error
+                            // Napaka pri pridobivanju odprtih naročil: " + error
                             Toast.MakeText(this, "Napaka pri pridobivanju odprtih naročil: " + error, ToastLength.Long).Show();
 
 
@@ -276,7 +316,7 @@ namespace ScannerQR
                     Toast.MakeText(this, data.Data.ToString(), ToastLength.Long).Show();
 
                     barcode = data.Data.ToString();
-                    tbIdent.Text = barcode;//change this later...
+                    tbIdent.Text = barcode; // change this later...
                 }
                 else
                 {

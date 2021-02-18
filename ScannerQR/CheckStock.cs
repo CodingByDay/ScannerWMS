@@ -64,6 +64,15 @@ namespace ScannerQR
             }
         }
 
+    
+
+
+
+
+
+
+
+
         private void ProcessStock()
         {
             var wh = spinnerAdapterList.ElementAt(temporaryPositionWarehouse);

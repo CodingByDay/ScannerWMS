@@ -75,7 +75,7 @@ namespace ScannerQR
             btConfirm.Click += BtConfirm_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
-
+            tbIdent.RequestFocus();
         }
 
         private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
@@ -275,7 +275,7 @@ namespace ScannerQR
                     Toast.MakeText(this, data.Data.ToString(), ToastLength.Long).Show();
 
                     barcode = data.Data.ToString();
-                    tbIdent.Text = barcode;//change this later...
+                    tbIdent.Text = barcode; // Change this later...
                 } else
                 {
                     Toast.MakeText(this, "Napačno branje", ToastLength.Long).Show();
@@ -300,7 +300,7 @@ namespace ScannerQR
         }
 
 
-        // color
+        // Color
         private void color()
         {
             tbIdent.SetBackgroundColor(Android.Graphics.Color.Aqua);
@@ -310,14 +310,14 @@ namespace ScannerQR
         {
             switch (keyCode)
             {
-                // in smartphone
+                // In smartphone.  
                 case Keycode.F2:
                     if (btNext.Enabled == true)
                     {
                         BtNext_Click(this, null);
                     }
                     break;
-                //return true;
+                // Return true;
 
 
                 case Keycode.F3:
