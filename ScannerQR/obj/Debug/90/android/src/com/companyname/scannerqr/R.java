@@ -4689,7 +4689,7 @@ public final class R {
     public static final int META=0x7f08000a;
     public static final int Name=0x7f08000b;
     public static final int NumberOfPositions=0x7f08000c;
-    public static final int Opened=0x7f08000d;
+    public static final int Open=0x7f08000d;
     public static final int Ordered=0x7f08000e;
     public static final int Orderer=0x7f08000f;
     public static final int Qty=0x7f080010;

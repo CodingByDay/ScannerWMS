@@ -112,7 +112,7 @@ namespace ScannerQR
         }
 
 
-
+      
         private bool SaveMoveItem()
         {
             if (string.IsNullOrEmpty(tbIdent.Text.Trim()) && string.IsNullOrEmpty(tbSerialNum.Text.Trim()) && string.IsNullOrEmpty(tbPacking.Text.Trim()))

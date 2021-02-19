@@ -149,6 +149,7 @@ namespace ScannerQR
             }
             else
             {
+                // Qty, OpenQty
                 tbIdent.Text = openIdent.GetString("Code") + " " + openIdent.GetString("Name");
             }
             //

@@ -1030,7 +1030,7 @@ int id Location 0x7f080009
 int id META 0x7f08000a
 int id Name 0x7f08000b
 int id NumberOfPositions 0x7f08000c
-int id Opened 0x7f08000d
+int id Open 0x7f08000d
 int id Ordered 0x7f08000e
 int id Orderer 0x7f08000f
 int id Qty 0x7f080010

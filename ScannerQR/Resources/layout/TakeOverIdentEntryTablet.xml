@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Naziv"
+            android:text="Lokacija"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/name" />
@@ -64,12 +64,24 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Naročeno"
+            android:text="Odprto"
             android:layout_marginRight="28.0dp"
             android:id="@+id/ordered" />
 
 
-               <TextView
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Naročeno"
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/received" />
+
+
+        <TextView
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -77,18 +89,6 @@
             android:paddingLeft="10px"
             android:paddingTop="5px"
             android:text="Prejeto"
-            android:layout_marginRight="28.0dp"
-            android:id="@+id/received" />
-
-
-               <TextView
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:textStyle="bold"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:text="Odprto"
             android:layout_marginRight="28.0dp"
             android:id="@+id/open" />
 

@@ -31,7 +31,7 @@
             android:paddingTop="5px"
             android:text="Datum"
             android:layout_marginRight="28.0dp"
-            android:id="@+id/Ordered" />
+            android:id="@+id/Location" />
 
 
         
@@ -43,7 +43,7 @@
             android:paddingTop="5px"
             android:text="Št. pozicija"
             android:layout_marginRight="28.0dp"
-            android:id="@+id/Received" />
+            android:id="@+id/Open" />
               <TextView
             android:layout_weight="20"
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
             android:paddingTop="5px"
             android:text="Št. pozicija"
             android:layout_marginRight="28.0dp"
-            android:id="@+id/Opened" />
+            android:id="@+id/Ordered" />
         
         <TextView
             android:layout_weight="20"
@@ -62,7 +62,7 @@
             android:paddingTop="5px"
             android:text="Kreiral"
             android:layout_marginRight="28.0dp"
-            android:id="@+id/Location" />
+            android:id="@+id/Received" />
 
 
     </LinearLayout>

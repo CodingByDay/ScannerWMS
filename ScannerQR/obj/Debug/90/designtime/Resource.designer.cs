@@ -4009,7 +4009,7 @@ namespace ScannerQR
 			public const int open = 2131230943;
 			
 			// aapt resource value: 0x7F08000E
-			public const int Opened = 2131230734;
+			public const int Open = 2131230734;
 			
 			// aapt resource value: 0x7F0800E0
 			public const int ordered = 2131230944;

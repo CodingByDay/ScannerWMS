@@ -21,7 +21,7 @@ namespace ScannerQR
     public class TakeOverIdentEntryTablet : Activity, IBarcodeResult
 
     {
-
+ 
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject openIdent = null;
         private NameValueObjectList openOrders = null;
@@ -43,7 +43,7 @@ namespace ScannerQR
         private List<TakeOverIdentList> data = new List<TakeOverIdentList>();
         SoundPool soundPool;
         int soundPoolId;
-
+        public static NameValueObject order;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -82,12 +82,12 @@ namespace ScannerQR
             button5.Click += Button5_Click;
 
         }
-   
+
 
         private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessIdent();
-           
+
         }
         private string LoadStockFromStock(string warehouse, string ident)
         {
@@ -111,17 +111,39 @@ namespace ScannerQR
                 // 
             }
         }
-        private void QueryStockGetDataForIdent()
+        private void GetDataForIdent(string identText) //  Qty, OpenQty"Wharehouse"
         {
             string error;
-            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wherehouse") + "||" + tbIdent.Text);
+            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + identText);
             Toast.MakeText(this, stock.Items.ToString(), ToastLength.Long).Show();
-            //for (int i = 0; i < stock.Items.Count(); i++)
-            //{
-            //    var current = stock.Items.ElementAt(i);
-            //    data.Add(new TakeOverIdentList { Ident = "1", Location = current.GetString("Location"), Open = "1000", Ordered = "1000", Received = "1000" });
-            //}
-        }
+            // tbQty.Text = order.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture());
+            // private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
+            var openIdent = Services.GetObjectList("oo", out error, identText + "|" + moveHead.GetString("DocumentType") + "|" + moveHead.GetInt("HeadID"));
+            var order = openOrders.Items[displayedOrder];
+
+
+            if (stock != null)
+            {
+                stock.Items.ForEach(x =>
+                {
+                    data.Add(new TakeOverIdentList
+                    {
+                        Ident = identText,
+                        Location = x.GetString("Location"),
+                        Open = order.GetDouble("OpenQty").ToString(),
+                        Ordered = (x.GetDouble("RealStock") + order.GetDouble("OpenQty")).ToString(),
+                        Received = x.GetDouble("RealStock").ToString()
+                    });
+                });
+             }
+
+          
+            else
+            {
+                Toast.MakeText(this, "Ni padatkov." + error, ToastLength.Long).Show();
+            }
+            
+        } 
 
         private void Button5_Click(object sender, EventArgs e)
         {
@@ -231,7 +253,7 @@ namespace ScannerQR
                 {
                     ident = openIdent.GetString("Code");
                     tbIdent.Text = ident;
-                    QueryStockGetDataForIdent();
+                    GetDataForIdent(ident);
                     InUseObjects.Set("OpenIdent", openIdent);
 
                     var isPackaging = openIdent.GetBool("IsPackaging");
@@ -247,7 +269,6 @@ namespace ScannerQR
                     else
                     {
                         tbNaziv.Text = openIdent.GetString("Name");
-
 
                         openOrders = Services.GetObjectList("oo", out error, ident + "|" + moveHead.GetString("DocumentType") + "|" + moveHead.GetInt("HeadID"));
                         if (openOrders == null)
@@ -279,7 +300,7 @@ namespace ScannerQR
             if ((openIdent != null) && (openOrders != null) && (openOrders.Items.Count > 0))
             {
                 lbOrderInfo.Text = "Naročilo (" + (displayedOrder + 1).ToString() + "/" + openOrders.Items.Count.ToString() + ")";
-                var order = openOrders.Items[displayedOrder];
+                order = openOrders.Items[displayedOrder];
                 InUseObjects.Set("OpenOrder", order);
                 tbOrder.Text = order.GetString("Key");
                 tbConsignee.Text = order.GetString("Consignee");
@@ -316,7 +337,7 @@ namespace ScannerQR
                     Toast.MakeText(this, data.Data.ToString(), ToastLength.Long).Show();
 
                     barcode = data.Data.ToString();
-                    tbIdent.Text = barcode; // change this later...
+                    tbIdent.Text = barcode; // Change this later...
                 }
                 else
                 {
