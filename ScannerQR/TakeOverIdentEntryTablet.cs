@@ -45,6 +45,8 @@ namespace ScannerQR
         int soundPoolId;
         public NameValueObject order;
         public string openQty;
+        private int selectedItem=-1;
+        public int selected;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -81,9 +83,13 @@ namespace ScannerQR
             btConfirm.Click += BtConfirm_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
-
+            listData.ItemClick += ListData_ItemClick;
         }
-
+      
+        private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selected = e.Position;
+        }
 
         private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
@@ -112,53 +118,7 @@ namespace ScannerQR
                 // 
             }
         }
-        private void GetDataForIdent(string identText) //  Qty, OpenQty"Wharehouse"
-        {
-            string error;
-            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + identText);
-
-          
-
-
-            if (stock != null)
-            {
-                stock.Items.ForEach(x =>
-                {
-                    data.Add(new TakeOverIdentList
-                    {
-                        Ident = identText,
-                        Location = x.GetString("Location"),
-                        Open =openQty,
-                        Ordered = x.GetDouble("RealStock").ToString(),
-                        Received = x.GetDouble("RealStock").ToString()
-                    });
-                });
- }
-            //if (stock != null)
-            //{
-            //    for (int i = 0; i < stock.Items.Count(); i++)
-            //    {
-            //        var current = stock.Items.ForEach(;
-            //        var temporaryQty = current.GetDouble("Qty");
-            //        var temporaryOpenQty = current.GetDouble("OpenQty");
-
-
-            //        data.Add(new TakeOverIdentList
-            //        {
-            //            Ident = identText,
-            //            Location = current.GetString("Location"),
-            //            Open = current.GetDouble("OpenQty").ToString(),
-            //            Ordered = current.GetDouble("Qty").ToString(),
-            //            Received = (temporaryQty - temporaryOpenQty).ToString()
-            //        }) ;
-            //    }
-            //}
-               else
-                {
-                    Toast.MakeText(this, "Ni padatkov." + error, ToastLength.Long).Show();
-                }
-            //}
-        }
+       
 
         private void Button5_Click(object sender, EventArgs e)
         {
@@ -180,6 +140,7 @@ namespace ScannerQR
 
         private void BtNext_Click(object sender, EventArgs e)
         {
+           
             displayedOrder++;
             if (displayedOrder >= openOrders.Items.Count) { displayedOrder = 0; }
             FillDisplayedOrderInfo();
@@ -268,9 +229,8 @@ namespace ScannerQR
                 {
                     ident = openIdent.GetString("Code");
                     tbIdent.Text = ident;
-                    GetDataForIdent(ident);
                     InUseObjects.Set("OpenIdent", openIdent);
-
+                    
                     var isPackaging = openIdent.GetBool("IsPackaging");
                     if (!moveHead.GetBool("ByOrder") || isPackaging)
                     {
@@ -305,10 +265,57 @@ namespace ScannerQR
                     }
                 }
                 FillDisplayedOrderInfo();
+                fillList(tbIdent.Text);
             }
             finally
             {
 
+            }
+        }
+
+
+        private void fillList(string ident)
+        {
+            string error;
+            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + tbIdent.Text);
+          //  var openOrder = Services.GetObjectList("oo", out error, tbIdent.Text + "|" + moveHead.GetString("DocumentType") + "|" + moveHead.GetInt("HeadID"));
+          
+            if (openOrders != null)
+            {
+                openOrders.Items.ForEach(x =>
+                {
+                    data.Add(new TakeOverIdentList
+                    {
+                        Ident = tbIdent.Text,
+                        Name = x.GetString("Name").Trim(),
+                        Open = x.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture()),
+                        Ordered = (x.GetDouble("QtyOrdered") + order.GetDouble("OpenQty")).ToString(),
+                        Received = x.GetDouble("QtyOrdered").ToString()
+                    });
+                });
+            }
+            //if (stock != null)
+            //{
+            //    for (int i = 0; i < stock.Items.Count(); i++)
+            //    {
+            //        var current = stock.Items.ForEach(;
+            //        var temporaryQty = current.GetDouble("Qty");
+            //        var temporaryOpenQty = current.GetDouble("OpenQty");
+
+
+            //        data.Add(new TakeOverIdentList
+            //        {
+            //            Ident = identText,
+            //            Location = current.GetString("Location"),
+            //            Open = current.GetDouble("OpenQty").ToString(),
+            //            Ordered = current.GetDouble("Qty").ToString(),
+            //            Received = (temporaryQty - temporaryOpenQty).ToString()
+            //        }) ;
+            //    }
+            //}
+            else
+            {
+                Toast.MakeText(this, "Ni padatkov." + error, ToastLength.Long).Show();
             }
         }
         private void FillDisplayedOrderInfo()
@@ -330,43 +337,7 @@ namespace ScannerQR
 
 
 
-                if (stock != null)
-                {
-                    stock.Items.ForEach(x =>
-                    {
-                        data.Add(new TakeOverIdentList
-                        {
-                            Ident = tbIdent.Text,
-                            Location = x.GetString("Location"),
-                            Open = order.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture()),
-                            Ordered = (x.GetDouble("RealStock") + order.GetDouble("OpenQty")).ToString(),
-                            Received = x.GetDouble("RealStock").ToString()
-                        });
-                    });
-                }
-                //if (stock != null)
-                //{
-                //    for (int i = 0; i < stock.Items.Count(); i++)
-                //    {
-                //        var current = stock.Items.ForEach(;
-                //        var temporaryQty = current.GetDouble("Qty");
-                //        var temporaryOpenQty = current.GetDouble("OpenQty");
-
-
-                //        data.Add(new TakeOverIdentList
-                //        {
-                //            Ident = identText,
-                //            Location = current.GetString("Location"),
-                //            Open = current.GetDouble("OpenQty").ToString(),
-                //            Ordered = current.GetDouble("Qty").ToString(),
-                //            Received = (temporaryQty - temporaryOpenQty).ToString()
-                //        }) ;
-                //    }
-                //}
-                else
-                {
-                    Toast.MakeText(this, "Ni padatkov." + error, ToastLength.Long).Show();
-                }
+             
                 btNext.Enabled = true;
                 btConfirm.Enabled = true;
             }

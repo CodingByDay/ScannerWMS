@@ -102,6 +102,9 @@ namespace ScannerQR
 
         }
 
+
+
+
         private void BtnNo_Click(object sender, EventArgs e)
         {
             popupDialog.Dismiss();

@@ -54,7 +54,7 @@ namespace ScannerQR
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
-
+            ////////////////////////////////////////////////////
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
@@ -69,7 +69,7 @@ namespace ScannerQR
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
             button5.Click += Button5_Click;
-            ////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////
             InUseObjects.ClearExcept(new string[] { "MoveHead" });
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
 

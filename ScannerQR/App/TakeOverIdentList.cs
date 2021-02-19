@@ -20,7 +20,7 @@ namespace ScannerQR.App
         public string Received{ get; set; }
 
         public string Open { get; set; }
-        public string Location { get; set; }
+        public string Name { get; set; }
  
     }
 }
