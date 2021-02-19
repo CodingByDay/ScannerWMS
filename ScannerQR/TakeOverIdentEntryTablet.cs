@@ -21,7 +21,7 @@ namespace ScannerQR
     public class TakeOverIdentEntryTablet : Activity, IBarcodeResult
 
     {
- 
+
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject openIdent = null;
         private NameValueObjectList openOrders = null;
@@ -43,7 +43,8 @@ namespace ScannerQR
         private List<TakeOverIdentList> data = new List<TakeOverIdentList>();
         SoundPool soundPool;
         int soundPoolId;
-        public static NameValueObject order;
+        public NameValueObject order;
+        public string openQty;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -115,11 +116,8 @@ namespace ScannerQR
         {
             string error;
             var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + identText);
-            Toast.MakeText(this, stock.Items.ToString(), ToastLength.Long).Show();
-            // tbQty.Text = order.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture());
-            // private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
-            var openIdent = Services.GetObjectList("oo", out error, identText + "|" + moveHead.GetString("DocumentType") + "|" + moveHead.GetInt("HeadID"));
-            var order = openOrders.Items[displayedOrder];
+
+          
 
 
             if (stock != null)
@@ -130,20 +128,37 @@ namespace ScannerQR
                     {
                         Ident = identText,
                         Location = x.GetString("Location"),
-                        Open = order.GetDouble("OpenQty").ToString(),
-                        Ordered = (x.GetDouble("RealStock") + order.GetDouble("OpenQty")).ToString(),
+                        Open =openQty,
+                        Ordered = x.GetDouble("RealStock").ToString(),
                         Received = x.GetDouble("RealStock").ToString()
                     });
                 });
-             }
+ }
+            //if (stock != null)
+            //{
+            //    for (int i = 0; i < stock.Items.Count(); i++)
+            //    {
+            //        var current = stock.Items.ForEach(;
+            //        var temporaryQty = current.GetDouble("Qty");
+            //        var temporaryOpenQty = current.GetDouble("OpenQty");
 
-          
-            else
-            {
-                Toast.MakeText(this, "Ni padatkov." + error, ToastLength.Long).Show();
-            }
-            
-        } 
+
+            //        data.Add(new TakeOverIdentList
+            //        {
+            //            Ident = identText,
+            //            Location = current.GetString("Location"),
+            //            Open = current.GetDouble("OpenQty").ToString(),
+            //            Ordered = current.GetDouble("Qty").ToString(),
+            //            Received = (temporaryQty - temporaryOpenQty).ToString()
+            //        }) ;
+            //    }
+            //}
+               else
+                {
+                    Toast.MakeText(this, "Ni padatkov." + error, ToastLength.Long).Show();
+                }
+            //}
+        }
 
         private void Button5_Click(object sender, EventArgs e)
         {
@@ -270,6 +285,7 @@ namespace ScannerQR
                     {
                         tbNaziv.Text = openIdent.GetString("Name");
 
+
                         openOrders = Services.GetObjectList("oo", out error, ident + "|" + moveHead.GetString("DocumentType") + "|" + moveHead.GetInt("HeadID"));
                         if (openOrders == null)
                         {
@@ -305,10 +321,52 @@ namespace ScannerQR
                 tbOrder.Text = order.GetString("Key");
                 tbConsignee.Text = order.GetString("Consignee");
                 tbQty.Text = order.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture());
-
+               
                 var deadLine = order.GetDateTime("DeliveryDeadline");
                 tbDeliveryDeadline.Text = deadLine == null ? "" : ((DateTime)deadLine).ToString("dd.MM.yyyy");
+                string error;
+                var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + tbIdent.Text);
 
+
+
+
+                if (stock != null)
+                {
+                    stock.Items.ForEach(x =>
+                    {
+                        data.Add(new TakeOverIdentList
+                        {
+                            Ident = tbIdent.Text,
+                            Location = x.GetString("Location"),
+                            Open = order.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture()),
+                            Ordered = (x.GetDouble("RealStock") + order.GetDouble("OpenQty")).ToString(),
+                            Received = x.GetDouble("RealStock").ToString()
+                        });
+                    });
+                }
+                //if (stock != null)
+                //{
+                //    for (int i = 0; i < stock.Items.Count(); i++)
+                //    {
+                //        var current = stock.Items.ForEach(;
+                //        var temporaryQty = current.GetDouble("Qty");
+                //        var temporaryOpenQty = current.GetDouble("OpenQty");
+
+
+                //        data.Add(new TakeOverIdentList
+                //        {
+                //            Ident = identText,
+                //            Location = current.GetString("Location"),
+                //            Open = current.GetDouble("OpenQty").ToString(),
+                //            Ordered = current.GetDouble("Qty").ToString(),
+                //            Received = (temporaryQty - temporaryOpenQty).ToString()
+                //        }) ;
+                //    }
+                //}
+                else
+                {
+                    Toast.MakeText(this, "Ni padatkov." + error, ToastLength.Long).Show();
+                }
                 btNext.Enabled = true;
                 btConfirm.Enabled = true;
             }
@@ -337,7 +395,7 @@ namespace ScannerQR
                     Toast.MakeText(this, data.Data.ToString(), ToastLength.Long).Show();
 
                     barcode = data.Data.ToString();
-                    tbIdent.Text = barcode; // Change this later...
+                    tbIdent.Text = barcode; // change this later...
                 }
                 else
                 {
