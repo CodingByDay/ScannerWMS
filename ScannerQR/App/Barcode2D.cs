@@ -26,18 +26,18 @@ namespace BarCode2D_Receiver
         {
             barcodeUtility = BarcodeUtility.Instance;//.getInstance();
         }
-        //开始扫码
+       
         public void startScan(Context context)
         {
             if (barcodeUtility != null)
             {
                 
-               // Debug..i(TAG, "ScanBarcode");
+              
                 barcodeUtility.StartScan(context, BarcodeUtility.ModuleType.Barcode2d);
             }
         }
 
-        //开始和停止扫描
+      
         public void EnableTrigger(Context context,bool enable)
         {
             if (barcodeUtility != null)
@@ -52,7 +52,7 @@ namespace BarCode2D_Receiver
                 }
             }
         }
-        //开关键盘助手总开关
+      
         public void EnableKeyboardemulator(Context context,bool enable)
         {
             if (barcodeUtility != null)
@@ -63,7 +63,7 @@ namespace BarCode2D_Receiver
                     barcodeUtility.CloseKeyboardHelper(context);
             }
         }
-        //是否播放声音
+   
         public void GoodReadNotificationSound(Context context,bool enable)
         {
             if (barcodeUtility != null)
@@ -76,7 +76,7 @@ namespace BarCode2D_Receiver
         }
 
 
-        //停止扫描
+        //
         public void stopScan(Context context)
         {
             if (barcodeUtility != null)
@@ -86,21 +86,21 @@ namespace BarCode2D_Receiver
             }
         }
 
-        //打开
+        //
         public void open(Context context, IBarcodeResult iBarcodeResult)
         {
             if (barcodeUtility != null)
             {
                 this.iBarcodeResult = iBarcodeResult;
-                barcodeUtility.SetOutputMode(context, 2);//设置广播接收数据
-                barcodeUtility.SetScanResultBroadcast(context, "com.scanner.broadcast", "data");//设置接收数据的广播
-                barcodeUtility.Open(context, BarcodeUtility.ModuleType.Barcode2d);//打开2D
-                barcodeUtility.SetReleaseScan(context, true);//设置松开扫描按键，不停止扫描
-                barcodeUtility.SetScanFailureBroadcast(context, true);//扫描失败也发送广播
-                barcodeUtility.EnableContinuousScan(context, false);//关闭键盘助手连续扫描
-                barcodeUtility.EnablePlayFailureSound(context, false);//关闭键盘助手 扫描失败的声音
-                barcodeUtility.EnablePlaySuccessSound(context, false);//关闭键盘助手 扫描成功的声音
-                barcodeUtility.EnableEnter(context, false);//关闭回车
+                barcodeUtility.SetOutputMode(context, 2);//
+                barcodeUtility.SetScanResultBroadcast(context, "com.scanner.broadcast", "data");
+                barcodeUtility.Open(context, BarcodeUtility.ModuleType.Barcode2d);//
+                barcodeUtility.SetReleaseScan(context, true);//
+                barcodeUtility.SetScanFailureBroadcast(context, true);//
+                barcodeUtility.EnableContinuousScan(context, false);//
+                barcodeUtility.EnablePlayFailureSound(context, false);//
+                barcodeUtility.EnablePlaySuccessSound(context, false);//
+                barcodeUtility.EnableEnter(context, false);//
 
               
                 if (barcodeDataReceiver == null)
@@ -112,7 +112,7 @@ namespace BarCode2D_Receiver
                 }
             }
         }
-        //关闭
+        //
         public void close(Context context)
         {
             if (barcodeUtility != null)

@@ -309,6 +309,7 @@ LinearLayout;obj\Debug\90\res\layout\takeoveridententrytablet.xml
 LinearLayout;obj\Debug\90\res\layout\takeoveridentlistview.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverserialorssccentrytablet.xml
+LinearLayout;obj\Debug\90\res\layout\takeoverserialorssccentryview.xml
 LinearLayout;obj\Debug\90\res\layout\transportpopup.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedinterwarehouselist.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
