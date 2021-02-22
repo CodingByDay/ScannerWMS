@@ -48,27 +48,27 @@ namespace ScannerQR
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingOutputControl));
+            StartActivity(typeof(PrintingOutputControlTablet));
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingProcessControl));
+            StartActivity(typeof(PrintingProcessControlTablet));
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingInputControl));
+            StartActivity(typeof(PrintingInputControlTablet));
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingSSCCCodes));
+            StartActivity(typeof(PrintingSSCCCodesTablet));
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingReprintLabels));
+            StartActivity(typeof(PrintingReprintLabelsTablet));
         }
     }
 }

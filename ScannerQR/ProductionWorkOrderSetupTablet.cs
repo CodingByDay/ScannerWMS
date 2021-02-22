@@ -105,14 +105,14 @@ namespace ScannerQR
             cardInfo.SetDouble("UM1toUM3", ident.GetDouble("UM1toUM3"));
             InUseObjects.Set("CardInfo", cardInfo);
 
-            StartActivity(typeof(ProductionPalette));
+            StartActivity(typeof(ProductionPaletteTablet));
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
         {
             if (SaveMoveHead())
             {
-                StartActivity(typeof(ProductionSerialOrSSCCEntry));
+                StartActivity(typeof(ProductionSerialOrSSCCEntryTablet));
             }
         }
 

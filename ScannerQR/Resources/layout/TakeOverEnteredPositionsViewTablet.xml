@@ -19,14 +19,15 @@
         />
 
 
-    
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/test"
-      
         android:layout_toRightOf="@id/app"
         android:id="@+id/dataList"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/holo_blue_light" 
         />
    
     <LinearLayout
@@ -36,7 +37,7 @@
 
         android:layout_toRightOf="@id/app"
     
-        android:weightSum="6"
+        android:weightSum="5"
         android:id="@+id/text"
         android:paddingTop="5px">
 
@@ -51,16 +52,6 @@
             android:id="@+id/ident"
             android:layout_width="match_parent" />
 
-        <TextView
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:text="Naziv"
-            android:layout_width="match_parent"
-            android:layout_marginRight="28.0dp"
-            android:id="@+id/name" />
 
           <TextView
             android:textStyle="bold"

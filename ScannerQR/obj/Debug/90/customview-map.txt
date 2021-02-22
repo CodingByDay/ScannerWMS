@@ -234,6 +234,7 @@ LinearLayout;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsview.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
+LinearLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtabletviewlist.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseserialorssccentrytablet.xml
 LinearLayout;obj\Debug\90\res\layout\inventoryconfirm.xml
@@ -416,6 +417,7 @@ TextView;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
 TextView;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 TextView;obj\Debug\90\res\layout\interwarehouseenteredpositionsview.xml
 TextView;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
+TextView;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtabletviewlist.xml
 TextView;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
 TextView;obj\Debug\90\res\layout\interwarehouseserialorssccentrytablet.xml
 TextView;obj\Debug\90\res\layout\inventoryconfirm.xml

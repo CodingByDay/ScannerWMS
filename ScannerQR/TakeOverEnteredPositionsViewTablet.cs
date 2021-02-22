@@ -44,6 +44,8 @@ namespace ScannerQR
         private Button btnNo;
         private List<TakeOverEnteredPositionsViewListItems> data= new List<TakeOverEnteredPositionsViewListItems>();
         private string tempUnit;
+        private int selected;
+        private int selectedItem=-1;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -76,7 +78,7 @@ namespace ScannerQR
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
             button5.Click += Button5_Click;
-
+            dataList.ItemClick += DataList_ItemClick;
             InUseObjects.ClearExcept(new string[] { "MoveHead" });
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
 
@@ -84,6 +86,18 @@ namespace ScannerQR
             fillList();
         }
 
+        private void DataList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selected = e.Position;
+            Select(selected);
+            selectedItem = selected;
+        }
+        private void Select(int postionOfTheItemInTheList)
+        {
+            displayedPosition = postionOfTheItemInTheList;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            FillDisplayedItem();
+        }
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
@@ -118,7 +132,7 @@ namespace ScannerQR
                     var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
                     data.Add(new TakeOverEnteredPositionsViewListItems
                     {
-                        Ident = item.GetString("IdentName"),
+                        Ident = item.GetString("IdentName").Trim(),
                         SerialNumber = item.GetString("SerialNo"),
                         SSCC = item.GetString("SSCC"),
                         Quantity = tempUnit,
@@ -177,6 +191,8 @@ namespace ScannerQR
                         {
                             positions = null;
                             LoadPositions();
+                            data.Clear();
+                            fillList();
                             popupDialog.Dismiss();
                             popupDialog.Hide();
                         }
@@ -307,6 +323,22 @@ namespace ScannerQR
 
         private void BtNext_Click(object sender, EventArgs e)
         {
+            selectedItem++;
+
+            if (selectedItem <= (positions.Items.Count - 1))
+            {
+                dataList.RequestFocusFromTouch();
+                dataList.SetSelection(selectedItem);
+                dataList.SetItemChecked(selectedItem, true);
+            }
+            else
+            {
+                selectedItem = 0;
+                dataList.RequestFocusFromTouch();
+                dataList.SetSelection(selectedItem);
+                dataList.SetItemChecked(selectedItem, true);
+            }
+
             displayedPosition++;
             if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
             FillDisplayedItem();

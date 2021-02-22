@@ -1202,18 +1202,18 @@ public final class R {
 		public static final int design_navigation_menu = 0x7f0b002d;
 		public static final int design_navigation_menu_item = 0x7f0b002e;
 		public static final int design_text_input_password_icon = 0x7f0b002f;
-		public static final int mtrl_layout_snackbar = 0x7f0b0050;
-		public static final int mtrl_layout_snackbar_include = 0x7f0b0051;
-		public static final int notification_action = 0x7f0b0052;
-		public static final int notification_action_tombstone = 0x7f0b0053;
-		public static final int notification_template_custom_big = 0x7f0b0054;
-		public static final int notification_template_icon_group = 0x7f0b0055;
-		public static final int notification_template_part_chronometer = 0x7f0b0056;
-		public static final int notification_template_part_time = 0x7f0b0057;
-		public static final int select_dialog_item_material = 0x7f0b0077;
-		public static final int select_dialog_multichoice_material = 0x7f0b0078;
-		public static final int select_dialog_singlechoice_material = 0x7f0b0079;
-		public static final int support_simple_spinner_dropdown_item = 0x7f0b007d;
+		public static final int mtrl_layout_snackbar = 0x7f0b0051;
+		public static final int mtrl_layout_snackbar_include = 0x7f0b0052;
+		public static final int notification_action = 0x7f0b0053;
+		public static final int notification_action_tombstone = 0x7f0b0054;
+		public static final int notification_template_custom_big = 0x7f0b0055;
+		public static final int notification_template_icon_group = 0x7f0b0056;
+		public static final int notification_template_part_chronometer = 0x7f0b0057;
+		public static final int notification_template_part_time = 0x7f0b0058;
+		public static final int select_dialog_item_material = 0x7f0b0078;
+		public static final int select_dialog_multichoice_material = 0x7f0b0079;
+		public static final int select_dialog_singlechoice_material = 0x7f0b007a;
+		public static final int support_simple_spinner_dropdown_item = 0x7f0b007e;
 	}
 	public static final class string {
 		public static final int abc_action_bar_home_description = 0x7f0d0000;
