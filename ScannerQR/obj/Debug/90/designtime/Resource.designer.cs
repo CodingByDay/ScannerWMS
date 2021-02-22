@@ -3663,11 +3663,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F08007B
 			public const int coordinator = 2131230843;
 			
-			// aapt resource value: 0x7F08007C
-			public const int createdBy = 2131230844;
-			
 			// aapt resource value: 0x7F080003
 			public const int CreatedBy = 2131230723;
+			
+			// aapt resource value: 0x7F08007C
+			public const int createdBy = 2131230844;
 			
 			// aapt resource value: 0x7F080002
 			public const int CTRL = 2131230722;
@@ -3813,11 +3813,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F080007
 			public const int ID = 2131230727;
 			
-			// aapt resource value: 0x7F080008
-			public const int Ident = 2131230728;
-			
 			// aapt resource value: 0x7F0800A8
 			public const int ident = 2131230888;
+			
+			// aapt resource value: 0x7F080008
+			public const int Ident = 2131230728;
 			
 			// aapt resource value: 0x7F0800A9
 			public const int ifRoom = 2131230889;
@@ -3930,11 +3930,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F0800CC
 			public const int list_item = 2131230924;
 			
-			// aapt resource value: 0x7F0800CD
-			public const int location = 2131230925;
-			
 			// aapt resource value: 0x7F08000A
 			public const int Location = 2131230730;
+			
+			// aapt resource value: 0x7F0800CD
+			public const int location = 2131230925;
 			
 			// aapt resource value: 0x7F0800CE
 			public const int logout = 2131230926;
@@ -3969,11 +3969,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F0800D7
 			public const int multiply = 2131230935;
 			
-			// aapt resource value: 0x7F0800D8
-			public const int name = 2131230936;
-			
 			// aapt resource value: 0x7F08000C
 			public const int Name = 2131230732;
+			
+			// aapt resource value: 0x7F0800D8
+			public const int name = 2131230936;
 			
 			// aapt resource value: 0x7F0800D9
 			public const int navigation_header_container = 2131230937;

@@ -234,7 +234,7 @@
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Zaključi medskl. - F4"
+            android:text="Zaključi prevzem. - F4"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:layout_weight="1"
