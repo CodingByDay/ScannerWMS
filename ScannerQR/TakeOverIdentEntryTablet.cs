@@ -236,7 +236,7 @@ namespace ScannerQR
                     {
                         if (SaveMoveHead())
                         {
-                            StartActivity(typeof(TakeOverSerialOrSSCCEntryTablet));
+                            StartActivity(typeof(TakeOverSerialOrSSCCEntry));
 
                         }
                         return;
@@ -279,21 +279,21 @@ namespace ScannerQR
             string error;
             var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + tbIdent.Text);
           //  var openOrder = Services.GetObjectList("oo", out error, tbIdent.Text + "|" + moveHead.GetString("DocumentType") + "|" + moveHead.GetInt("HeadID"));
-          
-            if (openOrders != null)
+          if(openOrders!=null)
             {
                 openOrders.Items.ForEach(x =>
                 {
                     data.Add(new TakeOverIdentList
                     {
                         Ident = tbIdent.Text,
-                        Name = x.GetString("Name").Trim(),
+                        Name = x.GetString("Name").Trim().Substring(0, 10),
                         Open = x.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture()),
-                        Ordered = (x.GetDouble("QtyOrdered") + order.GetDouble("OpenQty")).ToString(),
-                        Received = x.GetDouble("QtyOrdered").ToString()
-                    });
+                        Ordered = x.GetDouble("FullQty").ToString(),
+                        Received = (x.GetDouble("FullQty") - x.GetDouble("OpenQty")).ToString()
+                    }); ;
                 });
             }
+          
             //if (stock != null)
             //{
             //    for (int i = 0; i < stock.Items.Count(); i++)

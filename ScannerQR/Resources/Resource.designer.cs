@@ -5062,55 +5062,58 @@ namespace ScannerQR
 			public const int TakeOverSerialOrSSCCEntryView = 2131427469;
 			
 			// aapt resource value: 0x7F0B008E
-			public const int TransportPopup = 2131427470;
+			public const int TakeOverSerialOrSSCCListView = 2131427470;
 			
 			// aapt resource value: 0x7F0B008F
-			public const int UnfinishedInterWarehouseList = 2131427471;
+			public const int TransportPopup = 2131427471;
 			
 			// aapt resource value: 0x7F0B0090
-			public const int UnfinishedInterWarehouseView = 2131427472;
+			public const int UnfinishedInterWarehouseList = 2131427472;
 			
 			// aapt resource value: 0x7F0B0091
-			public const int UnfinishedInterWarehouseViewTablet = 2131427473;
+			public const int UnfinishedInterWarehouseView = 2131427473;
 			
 			// aapt resource value: 0x7F0B0092
-			public const int UnfinishedIssued = 2131427474;
+			public const int UnfinishedInterWarehouseViewTablet = 2131427474;
 			
 			// aapt resource value: 0x7F0B0093
-			public const int UnfinishedIssuedGoodsView = 2131427475;
+			public const int UnfinishedIssued = 2131427475;
 			
 			// aapt resource value: 0x7F0B0094
-			public const int UnfinishedIssuedGoodsViewTablet = 2131427476;
+			public const int UnfinishedIssuedGoodsView = 2131427476;
 			
 			// aapt resource value: 0x7F0B0095
-			public const int UnfinishedPackaging = 2131427477;
+			public const int UnfinishedIssuedGoodsViewTablet = 2131427477;
 			
 			// aapt resource value: 0x7F0B0096
-			public const int UnfinishedProduction = 2131427478;
+			public const int UnfinishedPackaging = 2131427478;
 			
 			// aapt resource value: 0x7F0B0097
-			public const int UnfinishedProductionView = 2131427479;
+			public const int UnfinishedProduction = 2131427479;
 			
 			// aapt resource value: 0x7F0B0098
-			public const int UnfinishedProductionViewTablet = 2131427480;
+			public const int UnfinishedProductionView = 2131427480;
 			
 			// aapt resource value: 0x7F0B0099
-			public const int UnfinishedTakeover = 2131427481;
+			public const int UnfinishedProductionViewTablet = 2131427481;
 			
 			// aapt resource value: 0x7F0B009A
-			public const int UnfinishedTakeoversView = 2131427482;
+			public const int UnfinishedTakeover = 2131427482;
 			
 			// aapt resource value: 0x7F0B009B
-			public const int UnfinishedTakeoversViewTablet = 2131427483;
+			public const int UnfinishedTakeoversView = 2131427483;
 			
 			// aapt resource value: 0x7F0B009C
-			public const int YesNoGeneric = 2131427484;
+			public const int UnfinishedTakeoversViewTablet = 2131427484;
 			
 			// aapt resource value: 0x7F0B009D
-			public const int YesNoPopUp = 2131427485;
+			public const int YesNoGeneric = 2131427485;
 			
 			// aapt resource value: 0x7F0B009E
-			public const int YesNoProductionCard = 2131427486;
+			public const int YesNoPopUp = 2131427486;
+			
+			// aapt resource value: 0x7F0B009F
+			public const int YesNoProductionCard = 2131427487;
 			
 			static Layout()
 			{
