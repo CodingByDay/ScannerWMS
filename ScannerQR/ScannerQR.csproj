@@ -123,6 +123,8 @@
     <Compile Include="App\InUseObjects.cs" />
     <Compile Include="App\TakeOverIdentAdapter.cs" />
     <Compile Include="App\TakeOverIdentList.cs" />
+    <Compile Include="App\TakeOverSerialOrSSCCEntryAdapter.cs" />
+    <Compile Include="App\TakeOverSerialOrSSCCEntryList.cs" />
     <Compile Include="App\UnfinishedIssuedAdapter.cs" />
     <Compile Include="App\UnfinishedIssuedList.cs" />
     <Compile Include="App\UnfinishedPackagingAdapter.cs" />
@@ -822,6 +824,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\layout\TakeOverSerialOrSSCCEntryView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="To do.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -303,6 +303,7 @@ LinearLayout;obj\Debug\90\res\layout\takeover2orderstablet.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverenteredpositionsview.xml
+LinearLayout;obj\Debug\90\res\layout\takeoverenteredpositionsviewadapterview.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverenteredpositionsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\takeoveridententry.xml
 LinearLayout;obj\Debug\90\res\layout\takeoveridententrytablet.xml
@@ -481,6 +482,7 @@ TextView;obj\Debug\90\res\layout\takeover2orderstablet.xml
 TextView;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 TextView;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
 TextView;obj\Debug\90\res\layout\takeoverenteredpositionsview.xml
+TextView;obj\Debug\90\res\layout\takeoverenteredpositionsviewadapterview.xml
 TextView;obj\Debug\90\res\layout\takeoverenteredpositionsviewtablet.xml
 TextView;obj\Debug\90\res\layout\takeoveridententry.xml
 TextView;obj\Debug\90\res\layout\takeoveridententrytablet.xml
