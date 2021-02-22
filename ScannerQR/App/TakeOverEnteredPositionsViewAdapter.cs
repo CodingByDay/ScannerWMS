@@ -11,6 +11,7 @@ using System.Text;
 
 namespace ScannerQR.App
 {
+
     class TakeOverEnteredPositionsViewAdapter : BaseAdapter
     {
         public List<TakeOverEnteredPositionsViewListItems> sList;
@@ -66,6 +67,7 @@ namespace ScannerQR.App
 
                 TextView SSCC = row.FindViewById<TextView>(Resource.Id.SSCC);
                 SSCC.Text = sList[position].SSCC;
+
 
 
 

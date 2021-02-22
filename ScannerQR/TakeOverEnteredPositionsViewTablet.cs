@@ -68,7 +68,7 @@ namespace ScannerQR
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             button5 = FindViewById<Button>(Resource.Id.button5);
-            TakeOverEnteredPositionsViewAdapter adapter = new TakeOverEnteredPositionsViewAdapter(this, null);
+            TakeOverEnteredPositionsViewAdapter adapter = new TakeOverEnteredPositionsViewAdapter(this, data);
             dataList.Adapter = adapter;
             btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
