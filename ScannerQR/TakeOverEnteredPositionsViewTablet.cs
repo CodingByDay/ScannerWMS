@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -28,7 +29,7 @@ namespace ScannerQR
         private EditText tbQty;
         private EditText tbLocation;
         private EditText tbCreatedBy;
-
+        private ListView dataList;
         private Button btNext;
         private Button btUpdate;
         private Button button4;
@@ -41,6 +42,8 @@ namespace ScannerQR
         private Dialog popupDialog;
         private Button btnYes;
         private Button btnNo;
+        private List<TakeOverEnteredPositionsViewListItems> data= new List<TakeOverEnteredPositionsViewListItems>();
+        private string tempUnit;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -58,14 +61,15 @@ namespace ScannerQR
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
-
+            dataList = FindViewById<ListView>(Resource.Id.dataList);
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             button5 = FindViewById<Button>(Resource.Id.button5);
-
+            TakeOverEnteredPositionsViewAdapter adapter = new TakeOverEnteredPositionsViewAdapter(this, null);
+            dataList.Adapter = adapter;
             btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             button4.Click += Button4_Click;
@@ -77,6 +81,7 @@ namespace ScannerQR
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
 
             LoadPositions();
+            fillList();
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -84,6 +89,53 @@ namespace ScannerQR
             StartActivity(typeof(MainMenu));
         }
 
+        private void fillList() {
+
+            for (int i = 0; i < positions.Items.Count; i++)
+            {
+                if (i < positions.Items.Count && positions.Items.Count > 0)
+                {
+                    var item = positions.Items.ElementAt(i);
+                    var created = item.GetDateTime("DateInserted");
+                    var numbering = i + 1;
+                    bool setting;
+
+                    if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
+                    {
+                        setting = false;
+                    } else
+                    {
+                        setting = true;
+                    }
+                    if(setting)
+                    {
+                        tempUnit = item.GetDouble("Qty").ToString();
+
+                    } else
+                    {
+                        tempUnit = item.GetDouble("Factor").ToString();
+                    }
+                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    data.Add(new TakeOverEnteredPositionsViewListItems
+                    {
+                        Ident = item.GetString("IdentName"),
+                        SerialNumber = item.GetString("SerialNo"),
+                        SSCC = item.GetString("SSCC"),
+                        Quantity = tempUnit,
+                        Position = numbering.ToString()
+
+
+                    }) ;
+                    ;
+                }
+                else
+                {
+                    string errorWebApp = string.Format("Kritična napaka...");
+                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                }
+
+            }
+        }
         private void BtDelete_Click(object sender, EventArgs e)
         {
             popupDialog = new Dialog(this);

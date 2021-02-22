@@ -121,6 +121,8 @@
     <Compile Include="App\Echo.cs" />
     <Compile Include="App\IBarcodeResult.cs" />
     <Compile Include="App\InUseObjects.cs" />
+    <Compile Include="App\TakeOverEnteredPositionsViewAdapter.cs" />
+    <Compile Include="App\TakeOverEnteredPositionsViewListItems.cs" />
     <Compile Include="App\TakeOverIdentAdapter.cs" />
     <Compile Include="App\TakeOverIdentList.cs" />
     <Compile Include="App\TakeOverSerialOrSSCCEntryAdapter.cs" />
@@ -825,6 +827,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\TakeOverSerialOrSSCCEntryView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\TakeOverEnteredPositionsViewAdapterView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <Content Include="To do.txt" />
