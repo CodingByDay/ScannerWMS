@@ -48,7 +48,7 @@ namespace ScannerQR.App
             {
                 if (row == null)
                 {
-                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.TakeOverEnteredPositionsViewAdapterView, null, false);
+                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.TakeOverSerialOrSSCCListView, null, false);
                 }
 
                 TextView Ident = row.FindViewById<TextView>(Resource.Id.Ident);

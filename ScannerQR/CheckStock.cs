@@ -64,14 +64,6 @@ namespace ScannerQR
             }
         }
 
-    
-
-
-
-
-
-
-
 
         private void ProcessStock()
         {
@@ -103,20 +95,11 @@ namespace ScannerQR
             stock = LoadStockFromStockSerialNo(wh.ID, tbLocation.Text.Trim(), tbIdent.Text.Trim());
             lbStock.Text = "Zaloga:\r\n" + stock;
             isEmptyStock();
-
-
         }
 
 
-
-
-
-
-
         private void isEmptyStock()
-        {
-
-          
+        { 
             if(stock != "")
             {
                 lbStock.SetBackgroundColor(Android.Graphics.Color.Green);
@@ -124,8 +107,6 @@ namespace ScannerQR
             {
                 lbStock.SetBackgroundColor(Android.Graphics.Color.Red);
             }
-
-
         }
 
         private void color()
@@ -203,7 +184,6 @@ namespace ScannerQR
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
-
         
         }
 

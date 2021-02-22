@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -45,10 +46,10 @@ namespace ScannerQR
         private TextView lbQty;
         private TextView lbUnits;
         private Button button1;
-
+        private ListView listData;
         SoundPool soundPool;
         int soundPoolId;
-
+        private List<TakeOverSerialOrSSCCEntryList> data = new List<TakeOverSerialOrSSCCEntryList>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -62,8 +63,11 @@ namespace ScannerQR
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
-
+            listData = FindViewById<ListView>(Resource.Id.listData);
             // Buttons.
+            TakeOverSerialOrSSCCEntryAdapter adapter = new TakeOverSerialOrSSCCEntryAdapter(this, data);
+            listData.Adapter = adapter;
+            fillItems(tbIdent.Text);
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button6 = FindViewById<Button>(Resource.Id.button6);
@@ -127,7 +131,7 @@ namespace ScannerQR
             {
                 tbIdent.Text = moveItem.GetString("IdentName");
                 tbSerialNum.Text = moveItem.GetString("SerialNo");
-
+                fillItems(tbIdent.Text);
                 if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
                 {
                     tbPacking.Text = moveItem.GetDouble("Packing").ToString();
@@ -206,8 +210,35 @@ namespace ScannerQR
                 lbUnits.Visibility = ViewStates.Invisible;
                 tbUnits.Visibility = ViewStates.Invisible;
             }
+     
+        }
+        private void fillItems(string ident)
+        {
+         
+           string error;
+            var stock = Services.GetObjectList("str", out error, moveItem.GetString("Wharehouse") + "||" + "9436");
+           if(stock!=null)
+            {
+                stock.Items.ForEach(x =>
+                {
+                    data.Add(new TakeOverSerialOrSSCCEntryList
+                    {
+                        Ident = x.GetString("IdentName"),
+                        Location = x.GetString("Location"),
+                        Qty = x.GetDouble("RealStock").ToString(),
+                        SerialNumber = x.GetString("SerialNo")
+
+                    }) ;
+                });
+               
+            }
+
+
 
         }
+
+
+
 
         private void Button5_Click(object sender, EventArgs e)
         {

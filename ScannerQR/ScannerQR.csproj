@@ -835,6 +835,9 @@
     <AndroidResource Include="Resources\layout\InterWarehouseEnteredPositionsViewTabletViewList.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\TakeOverSerialOrSSCCListView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="To do.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
