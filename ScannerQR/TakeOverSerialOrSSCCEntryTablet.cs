@@ -317,7 +317,7 @@ namespace ScannerQR
 
         private void Button6_Click(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Zaljučujem... Prosim počakajte.", ToastLength.Long).Show();
+            Toast.MakeText(this, "Zaljučujem... Prosim počakajte.", ToastLength.Long).Show(); //
             if (SaveMoveItem())
             {
 
