@@ -226,7 +226,7 @@ namespace ScannerQR
         {
          
            string error;
-            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + "9436");
+            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + ident);
             var number = stock.Items.Count();
 
           

@@ -51,7 +51,7 @@ namespace ScannerQR
         SoundPool soundPool;
         int soundPoolId;
         private NameValueObject wh;
-
+      
         // here...
         public void GetBarcode(string barcode)
         {
@@ -297,8 +297,11 @@ namespace ScannerQR
 
                 return;
             }
+            //var stockQty = LoadStockFromLocation(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), tbIdent.Text.Trim());
 
             var stockQty = GetStock(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), sscc, serialNo, ident);
+            string WebError = string.Format(stockQty.ToString());
+            Toast.MakeText(this, WebError, ToastLength.Long).Show();
             if (!Double.IsNaN(stockQty))
             {
                 tbPacking.Text = stockQty.ToString(CommonData.GetQtyPicture());
@@ -321,6 +324,30 @@ namespace ScannerQR
         //		InputMethodManager inputMethodManager = (InputMethodManager)Activity.GetSystemService(Context.InputMethodService);
         //      inputMethodManager.HideSoftInputFromWindow(currentFocus.WindowToken, HideSoftInputFlags.None);
         //	}
+        private Double LoadStockFromLocation(string warehouse, string location, string ident)
+        {
+
+            try
+            {
+                string error;
+                var stock = Services.GetObject("str", warehouse + "|" + location + "|" + ident, out error);
+                if (stock == null)
+                {
+                    string SuccessMessage = string.Format("Napaka pri preverjenju zaloge." + error);
+                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+
+                    return Double.NaN;
+                }
+                else
+                {
+                    return stock.GetDouble("RealStock");
+                }
+            }
+            finally
+            {
+                // pass
+            }
+        }
 
 
         private double GetStock(string warehouse, string location, string sscc, string serialNum, string ident)
@@ -329,6 +356,7 @@ namespace ScannerQR
             if (!wh.GetBool("HasStock"))
                 if (tbSerialNum.Enabled)
                 {
+            
                     return LoadStockFromPAStockSerialNo(warehouse, ident, serialNum);
                 }
                 else
@@ -338,9 +366,31 @@ namespace ScannerQR
 
             else
             {
-                return LoadStockFromStockSerialNo(warehouse, location, sscc, serialNum, ident);
+                return LoadStockFromStockSerialNo(warehouse, location, ident);
             }
 
+        }
+        private double LoadStockFromStockSerialNo(string warehouse, string location, string ident)
+        {
+            try
+            {
+                string error;
+                var stock = Services.GetObject("str", warehouse + "|" + location + "|" + ident, out error);
+                if (stock == null)
+                {
+                    string WebError = string.Format("Napaka pri preverjanju zaloge." + error);
+                    Toast.MakeText(this, WebError, ToastLength.Long).Show(); tbIdent.Text = "";
+                    return double.NaN;
+                }
+                else
+                {
+                    return stock.GetDouble("RealStock");
+                }
+            }
+            finally
+            {
+                // 
+            }
         }
 
         private Double LoadStockFromStockSerialNo(string warehouse, string location, string sscc, string serialNum, string ident)
@@ -437,14 +487,14 @@ namespace ScannerQR
             // labels
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
-
+          
             // Buttons
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             wh = new NameValueObject();
             tbIdent.KeyPress += TbIdent_KeyPress;
             tbPacking.KeyPress += TbPacking_KeyPress;
 
-            tbLocation.KeyPress += TbLocation_KeyPress;
+            tbPacking.FocusChange += TbPacking_FocusChange;
             button1 = FindViewById<Button>(Resource.Id.button1);
             button3 = FindViewById<Button>(Resource.Id.button3);
             button5 = FindViewById<Button>(Resource.Id.button5);
@@ -516,7 +566,14 @@ namespace ScannerQR
             }
 
 
+   
+        }
 
+     
+
+        private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessQty();
         }
 
         private void TbLocation_KeyPress(object sender, View.KeyEventArgs e)
