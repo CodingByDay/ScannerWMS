@@ -66,6 +66,11 @@ namespace ScannerQR.App
                 Qty.Text = sList[position].Qty;
 
 
+
+                TextView Filled = row.FindViewById<TextView>(Resource.Id.Filled);
+                Filled.Text = sList[position].Filled;
+
+
             }
             catch (Exception ex)
             {

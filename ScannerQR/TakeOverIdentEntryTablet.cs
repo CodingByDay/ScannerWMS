@@ -21,7 +21,7 @@ namespace ScannerQR
     public class TakeOverIdentEntryTablet : Activity, IBarcodeResult
 
     {
-
+        private bool preventingDups = false;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject openIdent = null;
         private NameValueObjectList openOrders = null;
@@ -93,7 +93,9 @@ namespace ScannerQR
 
         private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
+             // Preventing duplicate list filling with idents.
             ProcessIdent();
+          
 
         }
         private string LoadStockFromStock(string warehouse, string ident)
@@ -276,46 +278,53 @@ namespace ScannerQR
 
         private void fillList(string ident)
         {
-            string error;
-            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + tbIdent.Text);
-          //  var openOrder = Services.GetObjectList("oo", out error, tbIdent.Text + "|" + moveHead.GetString("DocumentType") + "|" + moveHead.GetInt("HeadID"));
-          if(openOrders!=null)
+            if (preventingDups == false)
             {
-                openOrders.Items.ForEach(x =>
+                string error;
+                var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + tbIdent.Text);
+                //  var openOrder = Services.GetObjectList("oo", out error, tbIdent.Text + "|" + moveHead.GetString("DocumentType") + "|" + moveHead.GetInt("HeadID"));
+                if (openOrders != null)
                 {
-                    data.Add(new TakeOverIdentList
+                    openOrders.Items.ForEach(x =>
                     {
-                        Ident = tbIdent.Text,
-                        Name = x.GetString("Name").Trim().Substring(0, 10),
-                        Open = x.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture()),
-                        Ordered = x.GetDouble("FullQty").ToString(),
-                        Received = (x.GetDouble("FullQty") - x.GetDouble("OpenQty")).ToString()
-                    }); ;
-                });
-            }
-          
-            //if (stock != null)
-            //{
-            //    for (int i = 0; i < stock.Items.Count(); i++)
-            //    {
-            //        var current = stock.Items.ForEach(;
-            //        var temporaryQty = current.GetDouble("Qty");
-            //        var temporaryOpenQty = current.GetDouble("OpenQty");
+                        data.Add(new TakeOverIdentList
+                        {
+                            Ident = tbIdent.Text,
+                            Name = x.GetString("Name").Trim().Substring(0, 10),
+                            Open = x.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture()),
+                            Ordered = x.GetDouble("FullQty").ToString(),
+                            Received = (x.GetDouble("FullQty") - x.GetDouble("OpenQty")).ToString()
+                        }); ;
+                    });
+                    preventingDups = true;
+                }
+
+                //if (stock != null)
+                //{
+                //    for (int i = 0; i < stock.Items.Count(); i++)
+                //    {
+                //        var current = stock.Items.ForEach(;
+                //        var temporaryQty = current.GetDouble("Qty");
+                //        var temporaryOpenQty = current.GetDouble("OpenQty");
 
 
-            //        data.Add(new TakeOverIdentList
-            //        {
-            //            Ident = identText,
-            //            Location = current.GetString("Location"),
-            //            Open = current.GetDouble("OpenQty").ToString(),
-            //            Ordered = current.GetDouble("Qty").ToString(),
-            //            Received = (temporaryQty - temporaryOpenQty).ToString()
-            //        }) ;
-            //    }
-            //}
-            else
+                //        data.Add(new TakeOverIdentList
+                //        {
+                //            Ident = identText,
+                //            Location = current.GetString("Location"),
+                //            Open = current.GetDouble("OpenQty").ToString(),
+                //            Ordered = current.GetDouble("Qty").ToString(),
+                //            Received = (temporaryQty - temporaryOpenQty).ToString()
+                //        }) ;
+                //    }
+                //}
+                else
+                {
+                    Toast.MakeText(this, "Ni padatkov." + error, ToastLength.Long).Show();
+                }
+            } else
             {
-                Toast.MakeText(this, "Ni padatkov." + error, ToastLength.Long).Show();
+                // pass
             }
         }
         private void FillDisplayedOrderInfo()

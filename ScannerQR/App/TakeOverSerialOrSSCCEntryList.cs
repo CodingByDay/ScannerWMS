@@ -26,5 +26,7 @@ namespace ScannerQR.App
 
 
         public string Qty { get; set; }
+
+        public string Filled { get; set; }
     }
 }

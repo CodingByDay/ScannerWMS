@@ -81,6 +81,7 @@ namespace ScannerQR
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
+            listData.ItemClick += ListData_ItemClick;
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             button4.Click += Button4_Click;
             button6.Click += Button6_Click;
@@ -212,25 +213,37 @@ namespace ScannerQR
             }
      
         }
+
+        private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selected = e.Position;
+            var item = data.ElementAt(selected);
+            tbLocation.Text = item.Location;
+
+        }
+
         private void fillItems(string ident)
         {
          
            string error;
-            var stock = Services.GetObjectList("str", out error, moveItem.GetString("Wharehouse") + "||" + "9436");
-           if(stock!=null)
+            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + "9436");
+            var number = stock.Items.Count();
+
+          
+            if (stock != null)
             {
                 stock.Items.ForEach(x =>
                 {
                     data.Add(new TakeOverSerialOrSSCCEntryList
                     {
-                        Ident = x.GetString("IdentName"),
+                        Ident = x.GetString("Ident"),
                         Location = x.GetString("Location"),
                         Qty = x.GetDouble("RealStock").ToString(),
                         SerialNumber = x.GetString("SerialNo")
-
-                    }) ;
+                       
+                    });
                 });
-               
+
             }
 
 
@@ -300,10 +313,11 @@ namespace ScannerQR
         }
 
         private static bool? checkTakeOverOpenQty = null;
+        private int selected;
 
         private void Button6_Click(object sender, EventArgs e)
         {
-
+            Toast.MakeText(this, "Zaljučujem... Prosim počakajte.", ToastLength.Long).Show();
             if (SaveMoveItem())
             {
 

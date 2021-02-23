@@ -15,7 +15,6 @@
         android:id="@+id/test"
         android:layout_toRightOf="@id/app"
         android:layout_below="@id/text"
-        android:text="                               *Pritiskom na gumb se bo odprlo okno na katerem lahko vidite podrobnejše informacije."
         />
 
 
@@ -27,7 +26,7 @@
         android:layout_toRightOf="@id/app"
         android:id="@+id/listData"
         android:choiceMode="singleChoice"
-        android:listSelector="@android:color/holo_blue_dark" 
+        android:listSelector="@android:color/holo_blue_light" 
         />
    
     <LinearLayout
@@ -58,7 +57,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Naziv"
+            android:text="Serij. štev."
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/name" />
@@ -69,7 +68,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Naročeno"
+            android:text="Lokacija"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
@@ -79,7 +78,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Prejeto"
+            android:text="Količina na lokaciji"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/position" />
@@ -92,7 +91,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Odprto"
+            android:text="Zasedenost(%)"
             android:layout_marginRight="28.0dp"
             android:id="@+id/serial" />
 
