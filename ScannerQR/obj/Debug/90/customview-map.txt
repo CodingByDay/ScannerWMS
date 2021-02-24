@@ -237,6 +237,7 @@ LinearLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xm
 LinearLayout;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtabletviewlist.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehouseserialorssccentrytablet.xml
+LinearLayout;obj\Debug\90\res\layout\interwarehouseserialorssccentryview.xml
 LinearLayout;obj\Debug\90\res\layout\inventoryconfirm.xml
 LinearLayout;obj\Debug\90\res\layout\inventoryconfirmtablet.xml
 LinearLayout;obj\Debug\90\res\layout\inventorymenu.xml
@@ -421,6 +422,7 @@ TextView;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtablet.xml
 TextView;obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtabletviewlist.xml
 TextView;obj\Debug\90\res\layout\interwarehouseserialorssccentry.xml
 TextView;obj\Debug\90\res\layout\interwarehouseserialorssccentrytablet.xml
+TextView;obj\Debug\90\res\layout\interwarehouseserialorssccentryview.xml
 TextView;obj\Debug\90\res\layout\inventoryconfirm.xml
 TextView;obj\Debug\90\res\layout\inventoryconfirmtablet.xml
 TextView;obj\Debug\90\res\layout\inventorymenu.xml

@@ -13,6 +13,7 @@ using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Barcode;
 using ScannerQR;
+using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -48,10 +49,13 @@ namespace ScannerQR
         private EditText lbIdentName;
         private Button finish;
         private IBarcodeResult result;
+        private ListView listData;
+        private List<InterWarehouseSerialOrSSCCList> data = new List<InterWarehouseSerialOrSSCCList>();
         SoundPool soundPool;
         int soundPoolId;
         private NameValueObject wh;
-      
+        private int selected;
+
         // here...
         public void GetBarcode(string barcode)
         {
@@ -97,6 +101,7 @@ namespace ScannerQR
                         Sound();
                         tbLocation.Text = barcode;
                         tbPacking.RequestFocus();
+                        fillItems();
                         ProcessQty();
                     }
                 }
@@ -314,6 +319,7 @@ namespace ScannerQR
             }
 
             tbPacking.RequestFocus();
+            fillItems();
         }
 
 
@@ -464,10 +470,12 @@ namespace ScannerQR
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
+            listData = FindViewById<ListView>(Resource.Id.listData);
             // labels
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
-          
+            InterwarehousSerialOrSCCCEntryAdapter adapter = new InterwarehousSerialOrSCCCEntryAdapter(this, data);
+            listData.Adapter = adapter;
             // Buttons
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             wh = new NameValueObject();
@@ -482,7 +490,7 @@ namespace ScannerQR
             button6 = FindViewById<Button>(Resource.Id.button6);
 
             color();
-
+            listData.ItemClick += ListData_ItemClick;
             button6.Click += Button6_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
@@ -549,7 +557,41 @@ namespace ScannerQR
    
         }
 
-     
+        private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selected = e.Position;
+            var item = data.ElementAt(selected);
+            tbLocation.Text = item.Location.ToString();
+        }
+
+        private void fillItems()
+        {
+
+            string error;
+            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Issuer") + "||" + tbIdent.Text); /* Defined at the beggining of the activity. */
+            var number = stock.Items.Count();
+            string SuccessMessage = string.Format(number.ToString());
+            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+
+            if (stock != null)
+            {
+                stock.Items.ForEach(x =>
+                {
+                    data.Add(new InterWarehouseSerialOrSSCCList
+                    {
+                        Ident = x.GetString("Ident"),
+                        Location = x.GetString("Location"),
+                        Qty = x.GetDouble("RealStock").ToString(),
+                        SerialNumber = x.GetString("SerialNo")
+
+                    });
+                });
+
+            }
+
+
+
+        }
 
         private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
         {

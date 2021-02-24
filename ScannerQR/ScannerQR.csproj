@@ -120,6 +120,7 @@
     <Compile Include="App\DateTimeFragment.cs" />
     <Compile Include="App\Echo.cs" />
     <Compile Include="App\IBarcodeResult.cs" />
+    <Compile Include="App\InterwarehouseSerialOrSCCCEntryAdapter.cs" />
     <Compile Include="App\InterWarehouseSerialOrSSCCList.cs" />
     <Compile Include="App\InUseObjects.cs" />
     <Compile Include="App\TakeOverEnteredPositionsViewAdapter.cs" />
@@ -837,6 +838,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\TakeOverSerialOrSSCCListView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\InterWarehouseSerialOrSSCCEntryView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <Content Include="To do.txt" />
