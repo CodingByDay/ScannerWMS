@@ -12,11 +12,11 @@ using System.Text;
 namespace ScannerQR.App
 {
 
-    class InterwarehousSerialOrSCCCEntryAdapter : BaseAdapter
+    class ProductionEnteredPositionViewAdapter : BaseAdapter
     {
-        public List<ProductionEnteredPositionViewList> sList;
+        public List<ProductionEnteredPositionList> sList;
         private Context sContext;
-        public InterwarehousSerialOrSCCCEntryAdapter(Context context, List<ProductionEnteredPositionViewList> list)
+        public ProductionEnteredPositionViewAdapter(Context context, List<ProductionEnteredPositionList> list)
         {
             sList = list;
             sContext = context;
@@ -48,25 +48,25 @@ namespace ScannerQR.App
             {
                 if (row == null)
                 {
-                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.InterWarehouseSerialOrSSCCEntryView, null, false);
+                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.ProductionEnteredPositionViewList, null, false);
                 }
 
                 TextView Ident = row.FindViewById<TextView>(Resource.Id.Ident);
                 Ident.Text = sList[position].Ident;
 
 
-                TextView SerialNumber = row.FindViewById<TextView>(Resource.Id.SerialNumber);
-                SerialNumber.Text = sList[position].SerialNumber;
+                TextView Quantity = row.FindViewById<TextView>(Resource.Id.Quantity);
+                Quantity.Text = sList[position].Quantity;
 
 
                 TextView Location = row.FindViewById<TextView>(Resource.Id.Location);
                 Location.Text = sList[position].Location;
 
-                TextView Qty = row.FindViewById<TextView>(Resource.Id.Qty);
-                Qty.Text = sList[position].Qty;
+                TextView SerialNumber = row.FindViewById<TextView>(Resource.Id.SerialNumber);
+                SerialNumber.Text = sList[position].SerialNumber;
 
-                TextView Filled = row.FindViewById<TextView>(Resource.Id.Filled);
-                Filled.Text = sList[position].Filled;
+                TextView SSCC = row.FindViewById<TextView>(Resource.Id.SSCC);
+                SSCC.Text = sList[position].SSCC;
 
 
 

@@ -50,7 +50,7 @@ namespace ScannerQR
         private Button finish;
         private IBarcodeResult result;
         private ListView listData;
-        private List<InterWarehouseSerialOrSSCCList> data = new List<InterWarehouseSerialOrSSCCList>();
+        private List<ProductionEnteredPositionViewList> data = new List<ProductionEnteredPositionViewList>();
         SoundPool soundPool;
         int soundPoolId;
         private NameValueObject wh;
@@ -577,7 +577,7 @@ namespace ScannerQR
             {
                 stock.Items.ForEach(x =>
                 {
-                    data.Add(new InterWarehouseSerialOrSSCCList
+                    data.Add(new ProductionEnteredPositionViewList
                     {
                         Ident = x.GetString("Ident"),
                         Location = x.GetString("Location"),

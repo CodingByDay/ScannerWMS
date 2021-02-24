@@ -172,7 +172,7 @@
     </LinearLayout>
     <TextView
         android:layout_width="119.5dp"
-        android:layout_height="98.0dp"
+        android:layout_height="95.0dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
  <LinearLayout
@@ -185,7 +185,7 @@
         <Button
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
-            android:text="Naslednja kontrola-F2"
+            android:text="Naslednja -F2"
             android:drawableLeft="@drawable/next"
             android:paddingLeft="10px"
             android:layout_weight="1"

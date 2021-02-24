@@ -190,7 +190,7 @@
         android:paddingTop="5px"/>
     <TextView
         android:layout_width="113.0dp"
-        android:layout_height="57.5dp"
+        android:layout_height="51.0dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
     <LinearLayout

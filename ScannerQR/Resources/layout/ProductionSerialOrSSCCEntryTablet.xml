@@ -18,14 +18,15 @@
         />
 
 
-    
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/test"
-      
         android:layout_toRightOf="@id/app"
-        android:id="@+id/listView1"
+        android:id="@+id/listData"
+        android:listSelector="@android:color/holo_blue_light"
+        android:choiceMode="singleChoice" 
         />
    
     <LinearLayout
@@ -35,7 +36,7 @@
 
         android:layout_toRightOf="@id/app"
       
-        android:weightSum="6"
+        android:weightSum="5"
         android:id="@+id/text"
         android:paddingTop="5px">
 
@@ -56,28 +57,28 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Naziv"
+            android:text="Serijska številka"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/name" />
 
-          <TextView
+        <TextView
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Lokacija"
+            android:layout_width="match_parent"
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/quantity" />
+        <TextView
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
             android:text="Količina"
-            android:layout_width="match_parent"
-            android:layout_marginRight="28.0dp"
-            android:id="@+id/quantity" />
-          <TextView
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:text="Pozicija"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/position" />
@@ -90,22 +91,12 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Serijska"
+            android:text="Zasedenost(%)"
             android:layout_marginRight="28.0dp"
             android:id="@+id/serial" />
 
 
 
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:textStyle="bold"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:text="SSCC"
-            android:layout_marginRight="28.0dp"
-            android:id="@+id/sscc" />
 
     </LinearLayout>
     <LinearLayout
@@ -329,7 +320,7 @@
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Zaljuči -f4"
+                android:text="Zaključi -f4"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="70.0dp"

@@ -11,10 +11,9 @@ using System.Text;
 
 namespace ScannerQR.App
 {
-    class ProductionEnteredPositionViewList { 
-
-
-       public string Ident { get; set; }
+    class ProductionSerialOrSSCCList
+    {
+        public string Ident { get; set; }
 
         public string SerialNumber { get; set; }
 
@@ -24,6 +23,5 @@ namespace ScannerQR.App
         public string Qty { get; set; }
 
         public string Filled { get; set; }
-
     }
 }

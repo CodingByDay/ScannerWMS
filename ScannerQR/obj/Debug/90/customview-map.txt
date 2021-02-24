@@ -289,10 +289,12 @@ LinearLayout;obj\Debug\90\res\layout\productioncard.xml
 LinearLayout;obj\Debug\90\res\layout\productioncardtablet.xml
 LinearLayout;obj\Debug\90\res\layout\productionenteredpositionsview.xml
 LinearLayout;obj\Debug\90\res\layout\productionenteredpositionsviewtablet.xml
+LinearLayout;obj\Debug\90\res\layout\productionenteredpositionviewlist.xml
 LinearLayout;obj\Debug\90\res\layout\productionpalette.xml
 LinearLayout;obj\Debug\90\res\layout\productionpalettetablet.xml
 LinearLayout;obj\Debug\90\res\layout\productionserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
+LinearLayout;obj\Debug\90\res\layout\productionserialorsscclistview.xml
 LinearLayout;obj\Debug\90\res\layout\productionworkordersetup.xml
 LinearLayout;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
 LinearLayout;obj\Debug\90\res\layout\receiverlayout.xml
@@ -472,10 +474,12 @@ TextView;obj\Debug\90\res\layout\productioncard.xml
 TextView;obj\Debug\90\res\layout\productioncardtablet.xml
 TextView;obj\Debug\90\res\layout\productionenteredpositionsview.xml
 TextView;obj\Debug\90\res\layout\productionenteredpositionsviewtablet.xml
+TextView;obj\Debug\90\res\layout\productionenteredpositionviewlist.xml
 TextView;obj\Debug\90\res\layout\productionpalette.xml
 TextView;obj\Debug\90\res\layout\productionpalettetablet.xml
 TextView;obj\Debug\90\res\layout\productionserialorssccentry.xml
 TextView;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
+TextView;obj\Debug\90\res\layout\productionserialorsscclistview.xml
 TextView;obj\Debug\90\res\layout\productionworkordersetup.xml
 TextView;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
 TextView;obj\Debug\90\res\layout\receiverlayout.xml

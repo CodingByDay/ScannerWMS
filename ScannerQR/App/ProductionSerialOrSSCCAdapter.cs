@@ -12,11 +12,11 @@ using System.Text;
 namespace ScannerQR.App
 {
 
-    class InterwarehousSerialOrSCCCEntryAdapter : BaseAdapter
+    class ProductionSerialOrSSCCAdapter : BaseAdapter
     {
-        public List<ProductionEnteredPositionViewList> sList;
+        public List<ProductionSerialOrSSCCList> sList;
         private Context sContext;
-        public InterwarehousSerialOrSCCCEntryAdapter(Context context, List<ProductionEnteredPositionViewList> list)
+        public ProductionSerialOrSSCCAdapter(Context context, List<ProductionSerialOrSSCCList> list)
         {
             sList = list;
             sContext = context;
@@ -48,7 +48,7 @@ namespace ScannerQR.App
             {
                 if (row == null)
                 {
-                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.InterWarehouseSerialOrSSCCEntryView, null, false);
+                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.ProductionSerialOrSSCCListView, null, false);
                 }
 
                 TextView Ident = row.FindViewById<TextView>(Resource.Id.Ident);

@@ -1,5 +1,0 @@
-﻿WebApp: http://wms.in-sist.si/
-ID: 0001
-EnableLog: No
-ScannerType: SYMBOL
-DeviceType: TABLET

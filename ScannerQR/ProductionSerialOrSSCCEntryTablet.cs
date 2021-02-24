@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -37,7 +38,11 @@ namespace ScannerQR
         private Button button4;
         private Button button5;
         SoundPool soundPool;
+        private ListView listData;
+        
+        private List<ProductionSerialOrSSCCList> data = new List<ProductionSerialOrSSCCList>();
         int soundPoolId;
+        private string ident;
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -105,6 +110,8 @@ namespace ScannerQR
 
 
         private static bool? getWorkOrderDefaultQty = null;
+        private string identCode;
+
         private void GetWorkOrderDefaultQty()
         {
             if (getWorkOrderDefaultQty == null)
@@ -385,6 +392,10 @@ namespace ScannerQR
             button3 = FindViewById<Button>(Resource.Id.button3);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button5 = FindViewById<Button>(Resource.Id.button5);
+            listData = FindViewById<ListView>(Resource.Id.listData);
+            ProductionSerialOrSSCCAdapter adapter = new ProductionSerialOrSSCCAdapter(this, data);
+            listData.Adapter = adapter;
+            listData.ItemClick += ListData_ItemClick;
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             color();
@@ -410,13 +421,50 @@ namespace ScannerQR
                 // Used to be a wait form.
             }
             var ident = CommonData.LoadIdent(openWorkOrder.GetString("Ident"));
+          
             tbIdent.Text = ident.GetString("Code") + " " + ident.GetString("Name");
-            tbSSCC.Enabled = ident.GetBool("isSSCC");
+            identCode = ident.GetString("Code");
+          tbSSCC.Enabled = ident.GetBool("isSSCC");
             tbSerialNum.Enabled = ident.GetBool("HasSerialNumber");
+            fillItems();
         }
 
+        private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var selected = e.Position;
+            var item = data.ElementAt(selected);
+            tbLocation.Text = item.Location;
+
+        }
+
+        private void fillItems()
+        {
+
+            string error;
+            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + identCode); /* Defined at the beggining of the activity. */
+            var number = stock.Items.Count();
+            string SuccessMessage = string.Format(number.ToString());
+            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+
+            if (stock != null)
+            {
+                stock.Items.ForEach(x =>
+                {
+                    data.Add(new ProductionSerialOrSSCCList
+                    {
+                        Ident = x.GetString("Ident"),
+                        Location = x.GetString("Location"),
+                        Qty = x.GetDouble("RealStock").ToString(),
+                        SerialNumber = x.GetString("SerialNo")
+
+                    });
+                });
+
+            }
 
 
+
+        }
         private void color()
         {
 
