@@ -11,6 +11,7 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\x86\Debug\DeviceAPI.dll.md
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\build.props
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\adb.props
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csprojAssemblyReference.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res.flag
@@ -259,6 +260,7 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\takeov
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\interwarehouseenteredpositionsviewtabletviewlist.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\takeoverserialorsscclistview.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\interwarehouseserialorssccentryview.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\interwarehouseenteredpositionviewlist.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\uploadflags.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\resolvedassemblies.hash
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\assets\DeviceAPI.dll
@@ -371,6 +373,7 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\andro
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\android\support\v7\widget\Toolbar_NavigationOnClickEventDispatcher.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\adapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\adapterListViewItem.java
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\InterWarehouseEnteredPositionViewAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\InterwarehousSerialOrSCCCEntryAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\TakeOverEnteredPositionsViewAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\TakeOverIdentAdapter.java

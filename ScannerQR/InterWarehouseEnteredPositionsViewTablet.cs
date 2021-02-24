@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -39,7 +40,8 @@ namespace ScannerQR
         private Dialog popupDialog;
         private Button btnYes;
         private Button btnNo;
-
+        private ListView listData;
+        private List<InterWarehouseEnteredPositionsViewList> data = new List<InterWarehouseEnteredPositionsViewList>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -61,6 +63,9 @@ namespace ScannerQR
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             button5 = FindViewById<Button>(Resource.Id.button5);
+            listData = FindViewById<ListView>(Resource.Id.listData);
+            InterWarehouseEnteredPositionViewAdapter adapter = new InterWarehouseEnteredPositionViewAdapter(this, data);
+            listData.Adapter = adapter;
             ////////////////////////////////////////////////////
             ////////////////////////////////////////////////////
             btNext.Click += BtNext_Click;
@@ -77,6 +82,11 @@ namespace ScannerQR
 
 
         }
+        private void fillItems()
+        {
+
+        }
+
 
         private void Button5_Click(object sender, EventArgs e)
         {
