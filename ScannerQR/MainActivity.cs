@@ -121,27 +121,13 @@ namespace ScannerQR
             // Registering first event..
             Button btnRegistrationEvent = FindViewById<Button>(Resource.Id.btnRegistration);
             img = FindViewById<ImageView>(Resource.Id.img);
-            img.Click += Img_Click;
+           
             btnRegistrationEvent.Click += BtnRegistrationEvent_Click;
             deviceURL = FindViewById<TextView>(Resource.Id.deviceURL);
-            deviceURL.Text = new String(App.settings.RootURL);/* Settings modul */
+            deviceURL.Text = new String(App.settings.RootURL); /* Settings module */
         }
 
-        private void Img_Click(object sender, EventArgs e)
-        {
-
-            popupDialog = new Dialog(this);
-            popupDialog.SetContentView(Resource.Layout.settingsPopUp);
-            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
-            popupDialog.Show();
-            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.DarkerGray);
-            // Access Popup layout fields like below
-            ok = popupDialog.FindViewById<Button>(Resource.Id.ok);
-            rootURL = popupDialog.FindViewById<EditText>(Resource.Id.rootURL);
-            ID = popupDialog.FindViewById<EditText>(Resource.Id.ID);
-            ok.Click += Ok_Click;
-        }
+   
        
         private void Ok_Click(object sender, EventArgs e)
         {
