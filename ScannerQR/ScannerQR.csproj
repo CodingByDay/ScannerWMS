@@ -120,6 +120,7 @@
     <Compile Include="App\DateTimeFragment.cs" />
     <Compile Include="App\Echo.cs" />
     <Compile Include="App\IBarcodeResult.cs" />
+    <Compile Include="App\InterWarehouseSerialOrSSCCList.cs" />
     <Compile Include="App\InUseObjects.cs" />
     <Compile Include="App\TakeOverEnteredPositionsViewAdapter.cs" />
     <Compile Include="App\TakeOverEnteredPositionsViewListItems.cs" />

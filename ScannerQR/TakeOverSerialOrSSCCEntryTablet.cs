@@ -49,6 +49,7 @@ namespace ScannerQR
         private ListView listData;
         SoundPool soundPool;
         int soundPoolId;
+        private string ident;
         private List<TakeOverSerialOrSSCCEntryList> data = new List<TakeOverSerialOrSSCCEntryList>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -56,6 +57,7 @@ namespace ScannerQR
 
             // Create your application here.
             SetContentView(Resource.Layout.TakeOverSerialOrSSCCEntryTablet);
+            ident = openOrder.GetString("Ident");
             // 
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
@@ -67,7 +69,7 @@ namespace ScannerQR
             // Buttons.
             TakeOverSerialOrSSCCEntryAdapter adapter = new TakeOverSerialOrSSCCEntryAdapter(this, data);
             listData.Adapter = adapter;
-            fillItems(tbIdent.Text);
+           
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button6 = FindViewById<Button>(Resource.Id.button6);
@@ -94,6 +96,7 @@ namespace ScannerQR
             if (openIdent == null) { throw new ApplicationException("openIdent not known at this point?!"); }
             //
             //
+            fillItems();
             try
             {
 
@@ -121,6 +124,7 @@ namespace ScannerQR
             }
             finally
             {
+            
                 Toast.MakeText(this, "Uspešno branje identa.", ToastLength.Long).Show();
             }
             // Next block.
@@ -132,7 +136,7 @@ namespace ScannerQR
             {
                 tbIdent.Text = moveItem.GetString("IdentName");
                 tbSerialNum.Text = moveItem.GetString("SerialNo");
-                fillItems(tbIdent.Text);
+            
                 if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
                 {
                     tbPacking.Text = moveItem.GetDouble("Packing").ToString();
@@ -155,6 +159,7 @@ namespace ScannerQR
             else
             {
                 tbIdent.Text = openIdent.GetString("Code") + " " + openIdent.GetString("Name");
+            
             }
             //
             lbQty.Text = "Količina (" + openOrder.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture()) + ")";
@@ -211,7 +216,7 @@ namespace ScannerQR
                 lbUnits.Visibility = ViewStates.Invisible;
                 tbUnits.Visibility = ViewStates.Invisible;
             }
-     
+           
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -222,11 +227,11 @@ namespace ScannerQR
 
         }
 
-        private void fillItems(string ident)
+        private void fillItems()
         {
          
            string error;
-            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + ident);
+            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + ident); /* Defined at the beggining of the activity. */
             var number = stock.Items.Count();
 
           
