@@ -366,32 +366,11 @@ namespace ScannerQR
 
             else
             {
-                return LoadStockFromStockSerialNo(warehouse, location, ident);
+                return LoadStockFromStockSerialNo(warehouse, location, sscc, serialNum, ident);
             }
 
         }
-        private double LoadStockFromStockSerialNo(string warehouse, string location, string ident)
-        {
-            try
-            {
-                string error;
-                var stock = Services.GetObject("str", warehouse + "|" + location + "|" + ident, out error);
-                if (stock == null)
-                {
-                    string WebError = string.Format("Napaka pri preverjanju zaloge." + error);
-                    Toast.MakeText(this, WebError, ToastLength.Long).Show(); tbIdent.Text = "";
-                    return double.NaN;
-                }
-                else
-                {
-                    return stock.GetDouble("RealStock");
-                }
-            }
-            finally
-            {
-                // 
-            }
-        }
+      
 
         private Double LoadStockFromStockSerialNo(string warehouse, string location, string sscc, string serialNum, string ident)
         {
@@ -409,6 +388,7 @@ namespace ScannerQR
                 }
                 else
                 {
+                    
                     return stock.GetDouble("RealStock");
                 }
             }
