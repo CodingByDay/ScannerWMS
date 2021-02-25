@@ -9,12 +9,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
     [Activity(Label = "PrintingMenu")]
     public class PrintingMenu : Activity
     {
+        public bool result = Services.isTablet(); /* Is the device tablet. */
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -48,27 +51,57 @@ namespace ScannerQR
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingOutputControlTablet));
+            if (result)
+            {
+                StartActivity(typeof(PrintingOutputControlTablet));
+            } else
+            {
+                StartActivity(typeof(PrintingOutputControl));
+            }
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingProcessControlTablet));
-        }
+            if (result)
+            {
+                StartActivity(typeof(PrintingProcessControlTablet));
+            } else
+            {
+                StartActivity(typeof(PrintingProcessControl));
+            }
+         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingInputControlTablet));
+            if (result)
+            {
+                StartActivity(typeof(PrintingInputControlTablet));
+            } else
+            {
+                StartActivity(typeof(PrintingInputControl));
+            } 
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingSSCCCodesTablet));
+            if (result)
+            {
+                StartActivity(typeof(PrintingSSCCCodesTablet));
+            } else
+            {
+                StartActivity(typeof(PrintingSSCCCodes));
+            }
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(PrintingReprintLabelsTablet));
+            if (result)
+            {
+                StartActivity(typeof(PrintingReprintLabelsTablet));
+            } else
+            {
+                StartActivity(typeof(PrintingReprintLabels));
+            }
         }
     }
 }

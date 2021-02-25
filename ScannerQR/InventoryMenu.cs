@@ -9,12 +9,14 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
     [Activity(Label = "InventoryMenu")]
     public class InventoryMenu : Activity
     {
+        public bool result = Services.isTablet(); /* Is the device tablet. */
         private Button button1;
         private Button button2;
         private Button button3;
@@ -102,27 +104,57 @@ namespace ScannerQR
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InventoryPrintTablet));
+            if (result)
+            {
+                StartActivity(typeof(InventoryPrintTablet));
+            } else
+            {
+                StartActivity(typeof(InventoryPrint));
+            }
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InventoryOpenTablet));
+            if (result)
+            {
+                StartActivity(typeof(InventoryOpenTablet));
+            } else
+            {
+                StartActivity(typeof(InventoryOpen));
+            }
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InventoryConfirmTablet));
+            if (result)
+            {
+                StartActivity(typeof(InventoryConfirmTablet));
+            } else
+            {
+                StartActivity(typeof(InventoryConfirm));
+            }
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InventoryProcessTablet));
+            if (result)
+            {
+                StartActivity(typeof(InventoryProcessTablet));
+            } else
+            {
+                StartActivity(typeof(InventoryProcess));
+            }
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(InventoryOpenDocumentTablet));
+            if (result)
+            {
+                StartActivity(typeof(InventoryOpenDocumentTablet));
+            } else
+            {
+                StartActivity(typeof(InventoryOpenDocument))
+            }
         }
     }
 }
