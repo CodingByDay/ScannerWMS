@@ -72,6 +72,7 @@ namespace ScannerQR
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouse.Adapter = adapterWarehouse;
             // Function update form...
+            
             UpdateForm();
             var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
@@ -83,6 +84,7 @@ namespace ScannerQR
             cbDocType.Adapter = adapterDocType;
             btnOrderMode.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND_NORDER", "R");
 
+            FillOpenOrders();
 
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -116,6 +118,56 @@ namespace ScannerQR
             }
             return base.OnKeyDown(keyCode, e);
         }
+
+
+        private void FillOpenOrders()
+        {
+            if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
+            {
+                string toast = string.Format("Pridobivam seznam odprtih naručila");
+            Toast.MakeText(this, toast, ToastLength.Long).Show();
+                
+                try
+                {
+                    objectExtra.Clear();
+                    var dt = objectDocType.ElementAt(temporaryPositionDoc);
+                    if (dt != null)
+                    {
+                        var wh = objectWarehouse.ElementAt(temporaryPositionWarehouse);
+                        if (wh != null && !string.IsNullOrEmpty(wh.ID))
+                        {
+                            string error;
+                            positions = Services.GetObjectList("oodtw", out error, dt.ID + "|" + wh.ID + "|" + byClient);
+                            if (positions == null)
+                            {
+                                string toasted = string.Format("Napaka pri pridobivanju odprtih naročil: " + error);
+                                Toast.MakeText(this, toasted, ToastLength.Long).Show();
+                           
+                                return;
+                            }
+
+                            positions.Items.ForEach(p =>
+                            {
+                                if (!string.IsNullOrEmpty(p.GetString("Key")))
+                                {
+                                    objectExtra.Add(new ComboBoxItem { ID = p.GetString("Key"), Text = p.GetString("ShortKey") + " " + p.GetString("FillPercStr") + " " + p.GetString("Receiver") });
+                                }
+                            });
+                            var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
+                            Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
+                            adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+                            cbExtra.Adapter = adapterExtra;
+
+                            cbExtra.RequestFocus();
+                        }
+                    }
+                }
+                finally
+                {
+                 //pass
+                }
+            }
+        }
         private void BtnLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainActivity));
@@ -134,13 +186,14 @@ namespace ScannerQR
 
         private void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
+            
             Spinner spinner = (Spinner)sender;
 
 
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
             temporaryPositionWarehouse = e.Position;
-
+            FillOpenOrders();
         }
 
         private void CbExtra_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -175,6 +228,8 @@ namespace ScannerQR
                     lbExtra.Visibility = ViewStates.Visible;
                     cbExtra.Visibility = ViewStates.Visible;
                     lbExtra.Text = "Naročilo:";
+                  
+
                 }
                 else
                 {
@@ -197,7 +252,10 @@ namespace ScannerQR
                 {
                     objectExtra.Add(new ComboBoxItem { ID = s.GetString("ID"), Text = s.GetString("ID") });
                 });
-
+                var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
+                Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
+                adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+                cbExtra.Adapter = adapterExtra;
                 docTypes = CommonData.ListDocTypes("I;M|F");
 
                 btnOrderMode.Text = "Z naročilom - F3";
@@ -252,7 +310,8 @@ namespace ScannerQR
                         itemSubj = objectExtra.ElementAt(temporaryPositionExtra);
                         if (itemSubj == null)
                         {
-                            string toast = string.Format("Poslovni dogodek more bit izbran");
+                         
+                            string toast = string.Format("Subjekt more biti izbran.");
                             Toast.MakeText(this, toast, ToastLength.Long).Show();
                             return;
                         }
