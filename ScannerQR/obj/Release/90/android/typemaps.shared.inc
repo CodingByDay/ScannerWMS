@@ -43,32 +43,32 @@
 	.section	.rodata.map_aname.7,"aMS",@progbits,1
 	.type	.L.map_aname.7, @object
 .L.map_aname.7:
-	.asciz	"ScannerQR"
-	.size	.L.map_aname.7, 10
+	.asciz	"Xamarin.Android.Arch.Lifecycle.LiveData.Core"
+	.size	.L.map_aname.7, 45
 
 	.section	.rodata.map_aname.8,"aMS",@progbits,1
 	.type	.L.map_aname.8, @object
 .L.map_aname.8:
-	.asciz	"Xamarin.Android.Arch.Lifecycle.LiveData.Core"
-	.size	.L.map_aname.8, 45
+	.asciz	"Xamarin.Android.Support.Compat"
+	.size	.L.map_aname.8, 31
 
 	.section	.rodata.map_aname.9,"aMS",@progbits,1
 	.type	.L.map_aname.9, @object
 .L.map_aname.9:
-	.asciz	"Xamarin.Android.Support.Compat"
-	.size	.L.map_aname.9, 31
+	.asciz	"Xamarin.Android.Support.v7.AppCompat"
+	.size	.L.map_aname.9, 37
 
 	.section	.rodata.map_aname.10,"aMS",@progbits,1
 	.type	.L.map_aname.10, @object
 .L.map_aname.10:
-	.asciz	"Xamarin.Android.Support.v7.AppCompat"
-	.size	.L.map_aname.10, 37
+	.asciz	"Xamarin.Essentials"
+	.size	.L.map_aname.10, 19
 
 	.section	.rodata.map_aname.11,"aMS",@progbits,1
 	.type	.L.map_aname.11, @object
 .L.map_aname.11:
-	.asciz	"Xamarin.Essentials"
-	.size	.L.map_aname.11, 19
+	.asciz	"ScannerQR"
+	.size	.L.map_aname.11, 10
 
 	.section	.rodata.map_aname.12,"aMS",@progbits,1
 	.type	.L.map_aname.12, @object

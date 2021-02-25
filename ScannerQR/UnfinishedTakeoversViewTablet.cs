@@ -44,7 +44,7 @@ namespace ScannerQR
         public int selectedItem = 0;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("TakeOverHeads");
         private int selected = 0;
-    
+        private string finalString;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -106,13 +106,15 @@ namespace ScannerQR
             switch (keyCode)
             {
                 // in smartphone
+
                 case Keycode.F1:
                     if (btNext.Enabled == true)
                     {
                         BtNext_Click(this, null);
                     }
                     break;
-                //return true;
+
+                // return true;
 
 
                 case Keycode.F2:
@@ -283,9 +285,6 @@ namespace ScannerQR
         
         }
 
-       
-
-
         // Load position method...
         private void LoadPositions()
         {
@@ -329,9 +328,16 @@ namespace ScannerQR
                     tbCreatedAt.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
 
                     var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    if (item.GetString("DocumentTypeName") == "")
+                    {
+                        finalString = "Brez ";
+                    }
+                    else
+                        finalString = item.GetString("DocumentTypeName").Substring(0,4);
                     dataSource.Add(new UnfinishedTakeoverList
                     {
-                        Document = item.GetString("DocumentTypeName"),
+                        
+                        Document = finalString,
                         Issuer = item.GetString("Issuer"),
                         Date = date,
                         NumberOfPositions = item.GetInt("ItemCount").ToString(),
