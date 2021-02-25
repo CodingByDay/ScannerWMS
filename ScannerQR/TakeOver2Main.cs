@@ -54,6 +54,8 @@ namespace ScannerQR
             var ident = CommonData.LoadIdent(tbIdent.Text.Trim());
             if (ident == null)
             {
+                Toast.MakeText(this, "Ident ne obstaja!", ToastLength.Long).Show();
+                //
                 tbIdent.Text = "";
                 tbIdent.RequestFocus();
                 return;
@@ -220,7 +222,11 @@ namespace ScannerQR
 
             return null;
         }
-
+        private void color()
+        {
+            tbIdent.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
+        }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -246,7 +252,7 @@ namespace ScannerQR
             button5.Click += Button5_Click;
             tbIdent.KeyPress += TbIdent_KeyPress;
             tbLocation.Text = CommonData.GetSetting("DefaultPaletteLocation");
-
+            color();
             if (moveItem != null)
             {
 
@@ -320,7 +326,7 @@ namespace ScannerQR
             e.Handled = false;
             if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
             {
-                //add your logic here 
+                // Add your logic here. 
                 ProcessIdent();
                 e.Handled = true;
             }
