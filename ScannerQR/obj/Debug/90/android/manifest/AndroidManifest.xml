@@ -38,7 +38,7 @@
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <application android:allowBackup="true" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:icon="@drawable/barcode" android:name="android.app.Application" android:debuggable="true" android:extractNativeLibs="true">
     <activity android:label="CheckStock" android:name="crc640b2286ca4f1c700f.CheckStock" />
-    <activity android:label="CheckStockTablet" android:name="crc640b2286ca4f1c700f.CheckStockTablet" />
+    <activity android:label="CheckStockTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.CheckStockTablet" />
     <activity android:label="InterWarehouseBusinessEventSetup" android:name="crc640b2286ca4f1c700f.InterWarehouseBusinessEventSetup" />
     <activity android:label="InterWarehouseBusinessEventSetupTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.InterWarehouseBusinessEventSetupTablet" />
     <activity android:label="InterWarehouseEnteredPositionsView" android:name="crc640b2286ca4f1c700f.InterWarehouseEnteredPositionsView" />

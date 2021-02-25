@@ -153,7 +153,7 @@ namespace ScannerQR
                 StartActivity(typeof(InventoryOpenDocumentTablet));
             } else
             {
-                StartActivity(typeof(InventoryOpenDocument))
+                StartActivity(typeof(InventoryOpenDocument));
             }
         }
     }

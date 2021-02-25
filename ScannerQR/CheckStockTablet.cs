@@ -11,7 +11,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
-    [Activity(Label = "CheckStockTablet")]
+    [Activity(Label = "CheckStockTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class CheckStockTablet : Activity, IBarcodeResult
     {
         private Spinner cbWarehouses;
@@ -157,6 +157,24 @@ namespace ScannerQR
 
             // Create your application here.
             SetContentView(Resource.Layout.CheckStockTablet);
+            cbWarehouses = FindViewById<Spinner>(Resource.Id.cbWarehouses);
+
+
+            tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
+            tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
+            btShowStock = FindViewById<Button>(Resource.Id.btShowStock);
+            btShowStock.Click += BtShowStock_Click;
+            button1 = FindViewById<Button>(Resource.Id.button1);
+            button1.Click += Button1_Click;
+
+            lbStock = FindViewById<TextView>(Resource.Id.lbStock);
+
+            cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;
+            color();
+            soundPool = new SoundPool(10, Stream.Music, 0);
+            soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
+            Barcode2D barcode2D = new Barcode2D();
+            barcode2D.open(this, this);
             // First load the warehouses.
             var whs = CommonData.ListWarehouses();
 
@@ -175,27 +193,11 @@ namespace ScannerQR
                 // pass wms select first, nothing happens anyway, 'cause the first one would have already been selected anyway.
             }
             lbStock = FindViewById<TextView>(Resource.Id.lbStock);
-            cbWarehouses = FindViewById<Spinner>(Resource.Id.cbWarehouses);
 
             var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
-            Android.Resource.Layout.SimpleSpinnerItem, spinnerAdapterList);
+         Android.Resource.Layout.SimpleSpinnerItem, spinnerAdapterList);
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouses.Adapter = adapterWarehouse;
-            tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
-            tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
-            btShowStock = FindViewById<Button>(Resource.Id.btShowStock);
-            btShowStock.Click += BtShowStock_Click;
-            button1 = FindViewById<Button>(Resource.Id.button1);
-            button1.Click += Button1_Click;
-
-            lbStock = FindViewById<TextView>(Resource.Id.lbStock);
-
-            cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;
-            color();
-            soundPool = new SoundPool(10, Stream.Music, 0);
-            soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
-            Barcode2D barcode2D = new Barcode2D();
-            barcode2D.open(this, this);
 
 
         }

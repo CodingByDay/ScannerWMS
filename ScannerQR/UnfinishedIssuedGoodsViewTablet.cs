@@ -247,7 +247,7 @@ namespace ScannerQR
                     var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
                     data.Add(new UnfinishedIssuedList
                     {
-                        Document = item.GetString("DocumentTypeName"),
+                        Document = item.GetString("DocumentTypeName").Substring(0, 5),
                         Orderer = item.GetString("Issuer"),
                         Date = date,
                         NumberOfPositions = item.GetInt("ItemCount").ToString(),
