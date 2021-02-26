@@ -372,7 +372,7 @@ namespace ScannerQR
             }
             finally
             {
-                //used to be a wait form.
+                // Used to be a wait form.
             }
         }
 
@@ -424,7 +424,7 @@ namespace ScannerQR
                     break;
 
 
-                    //return true;
+                    // return true;
 
 
 

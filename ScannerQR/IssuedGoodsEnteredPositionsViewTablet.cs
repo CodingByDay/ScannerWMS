@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -39,6 +40,11 @@ namespace ScannerQR
         private Button btLogout;
         private Button btnYes;
         private Button btnNo;
+        private ListView listData;
+        private List<IssuedEnteredPositionViewList> data = new List<IssuedEnteredPositionViewList>();
+        private string tempUnit;
+        private int selected;
+        private int selectedItem;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -58,13 +64,16 @@ namespace ScannerQR
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
+            listData = FindViewById<ListView>(Resource.Id.listData);
+            IssuedEnteredPositionsViewAdapter adapter = new IssuedEnteredPositionsViewAdapter(this, null);
+            listData.Adapter = adapter;
             btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             btNew.Click += BtNew_Click;
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
             btLogout.Click += BtLogout_Click;
-
+            listData.ItemClick += ListData_ItemClick;
             //app 
 
             InUseObjects.ClearExcept(new string[] { "MoveHead", "OpenOrder" });
@@ -72,8 +81,74 @@ namespace ScannerQR
 
             LoadPositions();
 
+            fillList();
 
         }
+        private void Select(int postionOfTheItemInTheList)
+        {
+            displayedPosition = postionOfTheItemInTheList;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            FillDisplayedItem();
+        }
+        private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selected = e.Position;
+            Select(selected);
+            selectedItem = selected;
+        }
+
+        private void fillList()
+        {
+
+            for (int i = 0; i < positions.Items.Count; i++)
+            {
+                if (i < positions.Items.Count && positions.Items.Count > 0)
+                {
+                    var item = positions.Items.ElementAt(i);
+                    var created = item.GetDateTime("DateInserted");
+                    var numbering = i + 1;
+                    bool setting;
+
+                    if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
+                    {
+                        setting = false;
+                    }
+                    else
+                    {
+                        setting = true;
+                    }
+                    if (setting)
+                    {
+                        tempUnit = item.GetDouble("Qty").ToString();
+
+                    }
+                    else
+                    {
+                        tempUnit = item.GetDouble("Factor").ToString();
+                    }
+                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    data.Add(new IssuedEnteredPositionViewList
+                    {
+                        Ident = item.GetString("IdentName").Trim(),
+                        SerialNumber = item.GetString("SerialNo"),
+                        SSCC = item.GetString("SSCC"),
+                        Quantity = tempUnit,
+                        Position = numbering.ToString()
+
+
+                    });
+                    ;
+                }
+                else
+                {
+                    string errorWebApp = string.Format("Kritična napaka...");
+                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                }
+
+            }
+        }
+
+
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -274,6 +349,22 @@ namespace ScannerQR
 
         private void BtNext_Click(object sender, EventArgs e)
         {
+            selectedItem++;
+
+            if (selectedItem <= (positions.Items.Count - 1))
+            {
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selectedItem);
+                listData.SetItemChecked(selectedItem, true);
+            }
+            else
+            {
+                selectedItem = 0;
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selectedItem);
+                listData.SetItemChecked(selectedItem, true);
+            }
+
             displayedPosition++;
             if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
             FillDisplayedItem();

@@ -251,6 +251,7 @@ LinearLayout;obj\Debug\90\res\layout\inventoryprint.xml
 LinearLayout;obj\Debug\90\res\layout\inventoryprinttablet.xml
 LinearLayout;obj\Debug\90\res\layout\inventoryprocess.xml
 LinearLayout;obj\Debug\90\res\layout\inventoryprocesstablet.xml
+LinearLayout;obj\Debug\90\res\layout\issuedenteredpositionsviewlist.xml
 LinearLayout;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetup.xml
 LinearLayout;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetuptablet.xml
 LinearLayout;obj\Debug\90\res\layout\issuedgoodsenteredpositionsview.xml
@@ -438,6 +439,7 @@ TextView;obj\Debug\90\res\layout\inventoryprint.xml
 TextView;obj\Debug\90\res\layout\inventoryprinttablet.xml
 TextView;obj\Debug\90\res\layout\inventoryprocess.xml
 TextView;obj\Debug\90\res\layout\inventoryprocesstablet.xml
+TextView;obj\Debug\90\res\layout\issuedenteredpositionsviewlist.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetup.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetuptablet.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsenteredpositionsview.xml
