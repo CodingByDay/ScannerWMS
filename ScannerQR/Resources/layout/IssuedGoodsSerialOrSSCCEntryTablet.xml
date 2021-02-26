@@ -327,18 +327,17 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Dodaj ser. številko-f2"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/newitem"
-            android:id="@+id/btSaveOrUpdate"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Dodaj ser. štev.-f2"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/newitem"
+                android:id="@+id/btSaveOrUpdate"
+                android:layout_marginBottom="0.0dp" />
 
         <Button
             android:layout_weight="1"

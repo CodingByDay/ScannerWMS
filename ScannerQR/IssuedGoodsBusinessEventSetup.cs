@@ -42,7 +42,7 @@ namespace ScannerQR
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.IssuedGoodsBusinessEventSetupTablet);
+            SetContentView(Resource.Layout.IssuedGoodsBusinessEventSetup);
             cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
             cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
             cbExtra = FindViewById<Spinner>(Resource.Id.cbExtra);
@@ -321,11 +321,11 @@ namespace ScannerQR
 
                     if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                     {
-                        StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
+                        StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
                     }
                     else
                     {
-                        StartActivity(typeof(IssuedGoodsIdentEntryTablet));
+                        StartActivity(typeof(IssuedGoodsIdentEntry));
                     }
                 }
             }
