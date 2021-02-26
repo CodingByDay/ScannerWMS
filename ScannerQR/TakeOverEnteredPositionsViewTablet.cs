@@ -129,14 +129,20 @@ namespace ScannerQR
                     {
                         tempUnit = item.GetDouble("Factor").ToString();
                     }
+                    string error;
+                    var ident = item.GetString("Ident").Trim();
+                    var openIdent = Services.GetObject("id", ident, out error);
+                    //  var ident = CommonData.LoadIdent(item.GetString("Ident"));
+                    var identName = openIdent.GetString("Name");
                     var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
                     data.Add(new TakeOverEnteredPositionsViewListItems
                     {
-                        Ident = item.GetString("IdentName").Trim(),
+                        Ident = item.GetString("Ident"),
                         SerialNumber = item.GetString("SerialNo"),
                         SSCC = item.GetString("SSCC"),
                         Quantity = tempUnit,
-                        Position = numbering.ToString()
+                        Position = numbering.ToString(),
+                        Name = identName.Trim(),
 
 
                     }) ;

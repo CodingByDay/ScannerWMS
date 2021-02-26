@@ -44,7 +44,7 @@ namespace ScannerQR
         private List<IssuedEnteredPositionViewList> data = new List<IssuedEnteredPositionViewList>();
         private string tempUnit;
         private int selected;
-        private int selectedItem;
+        private int selectedItem=-1;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -126,18 +126,21 @@ namespace ScannerQR
                     {
                         tempUnit = item.GetDouble("Factor").ToString();
                     }
-                    var ident = CommonData.LoadIdent(item.GetString("Ident"));
-                    var identName = ident.GetString("Name");
+                    string error;
+                    var ident = item.GetString("Ident").Trim();
+                     var openIdent = Services.GetObject("id", ident, out error);
+                  //  var ident = CommonData.LoadIdent(item.GetString("Ident"));
+                    var identName = openIdent.GetString("Name");
                     var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
                     data.Add(new IssuedEnteredPositionViewList
                     {
-                        Name = identName,
+                        
                         Ident = item.GetString("Ident").Trim(),
                         SerialNumber = item.GetString("SerialNo"),
                         SSCC = item.GetString("SSCC"),
                         Quantity = tempUnit,
-                        Position = numbering.ToString()
-                       
+                        Position = numbering.ToString(),
+                        Name = identName,
 
                     });
                     ;

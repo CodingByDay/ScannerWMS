@@ -54,6 +54,8 @@ namespace ScannerQR.App
                 TextView Ident = row.FindViewById<TextView>(Resource.Id.Ident);
                 Ident.Text = sList[position].Ident;
 
+                TextView Name = row.FindViewById<TextView>(Resource.Id.Name);
+                Name.Text = sList[position].Name;
 
                 TextView SerialNumber = row.FindViewById<TextView>(Resource.Id.SerialNumber);
                 SerialNumber.Text = sList[position].SerialNumber;

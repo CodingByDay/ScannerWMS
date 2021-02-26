@@ -84,7 +84,7 @@ namespace ScannerQR
         }
         private void fillItems()
         {
-
+            //
         }
 
 
