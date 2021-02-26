@@ -14,8 +14,9 @@
 
         <TextView
             android:layout_weight="25"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:singleLine="true"
             android:paddingLeft="10px"
             android:paddingTop="5px"
             android:text="Štev. pakiranja"
@@ -24,8 +25,9 @@
 
         <TextView
             android:layout_weight="25"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:singleLine="true"
             android:paddingLeft="10px"
             android:paddingTop="5px"
             android:text="SSCC koda"
@@ -35,8 +37,9 @@
 
         <TextView
             android:layout_weight="25"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:singleLine="true"
             android:paddingLeft="10px"
             android:paddingTop="5px"
             android:text="Kreiral"
@@ -47,8 +50,9 @@
         
         <TextView
             android:layout_weight="25"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:singleLine="true"
             android:paddingLeft="10px"
             android:paddingTop="5px"
             android:text="Št. pozicija"
