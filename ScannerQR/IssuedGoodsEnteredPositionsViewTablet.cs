@@ -65,7 +65,7 @@ namespace ScannerQR
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
             listData = FindViewById<ListView>(Resource.Id.listData);
-            IssuedEnteredPositionsViewAdapter adapter = new IssuedEnteredPositionsViewAdapter(this, null);
+            IssuedEnterAdapter adapter = new IssuedEnterAdapter(this, data);
             listData.Adapter = adapter;
             btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
@@ -126,15 +126,18 @@ namespace ScannerQR
                     {
                         tempUnit = item.GetDouble("Factor").ToString();
                     }
+                    var ident = CommonData.LoadIdent(item.GetString("Ident"));
+                    var identName = ident.GetString("Name");
                     var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
                     data.Add(new IssuedEnteredPositionViewList
                     {
-                        Ident = item.GetString("IdentName").Trim(),
+                        Name = identName,
+                        Ident = item.GetString("Ident").Trim(),
                         SerialNumber = item.GetString("SerialNo"),
                         SSCC = item.GetString("SSCC"),
                         Quantity = tempUnit,
                         Position = numbering.ToString()
-
+                       
 
                     });
                     ;

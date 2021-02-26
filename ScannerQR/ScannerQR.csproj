@@ -124,6 +124,8 @@
     <Compile Include="App\InterwarehouseSerialOrSCCCEntryAdapter.cs" />
     <Compile Include="App\InterWarehouseSerialOrSSCCList.cs" />
     <Compile Include="App\InUseObjects.cs" />
+    <Compile Include="App\IssuedEnterAdapter.cs" />
+    <Compile Include="App\IssuedEnteredPositionViewList.cs" />
     <Compile Include="App\ProductionEnteredPositionList.cs" />
     <Compile Include="App\ProductionEnteredPositionViewAdapter.cs" />
     <Compile Include="App\ProductionSerialOrSSCCAdapter.cs" />
@@ -859,6 +861,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\ProductionEnteredPositionViewList.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\IssuedEnteredPositionsViewList.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\IssuedEnteredPositionViewList.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
