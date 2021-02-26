@@ -126,6 +126,8 @@
     <Compile Include="App\InUseObjects.cs" />
     <Compile Include="App\IssuedEnterAdapter.cs" />
     <Compile Include="App\IssuedEnteredPositionViewList.cs" />
+    <Compile Include="App\PackagingList.cs" />
+    <Compile Include="App\packagingListAdapter.cs" />
     <Compile Include="App\ProductionEnteredPositionList.cs" />
     <Compile Include="App\ProductionEnteredPositionViewAdapter.cs" />
     <Compile Include="App\ProductionSerialOrSSCCAdapter.cs" />
@@ -871,6 +873,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\IssuedEnteredPositionViewList.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\PackagingListAdapterView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

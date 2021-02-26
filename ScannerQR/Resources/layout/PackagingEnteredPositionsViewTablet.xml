@@ -68,20 +68,21 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Sladišče"
+            android:text="Kreiral"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
-            android:id="@+id/warehouse" />
+            android:id="@+id/createdby" />
           <TextView
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Prejeta lokacija"
+            android:text="Števil. pozicija"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
-            android:id="@+id/received" />
+            android:id="@+id/numberofpositions" />
+        
 
 
       

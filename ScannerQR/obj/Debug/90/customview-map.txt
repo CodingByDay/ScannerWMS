@@ -269,6 +269,7 @@ LinearLayout;obj\Debug\90\res\layout\mainmenu.xml
 LinearLayout;obj\Debug\90\res\layout\mainmenu1.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
+LinearLayout;obj\Debug\90\res\layout\packaginglistadapterview.xml
 LinearLayout;obj\Debug\90\res\layout\packagingsetcontext.xml
 LinearLayout;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 LinearLayout;obj\Debug\90\res\layout\packagingunit.xml
@@ -457,6 +458,7 @@ TextView;obj\Debug\90\res\layout\listviewtrail.xml
 TextView;obj\Debug\90\res\layout\mainmenu1.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
+TextView;obj\Debug\90\res\layout\packaginglistadapterview.xml
 TextView;obj\Debug\90\res\layout\packagingsetcontext.xml
 TextView;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 TextView;obj\Debug\90\res\layout\packagingunit.xml
