@@ -5201,7 +5201,6 @@ namespace ScannerQR
 			public const int icon1 = 2131492872;
 			
 			// aapt resource value: 0x7F0C0009
-			public const int icon1_(1) = 2131492873;
 			
 			// aapt resource value: 0x7F0C000A
 			public const int icon2 = 2131492874;

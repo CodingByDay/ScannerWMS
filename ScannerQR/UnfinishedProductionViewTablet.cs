@@ -77,6 +77,7 @@ namespace ScannerQR
             InUseObjects.Clear();
             LoadPositions();
             FillItemsList();
+          
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

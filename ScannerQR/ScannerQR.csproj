@@ -119,6 +119,7 @@
     <Compile Include="App\DateTimeFragment.cs" />
     <Compile Include="App\Echo.cs" />
     <Compile Include="App\IBarcodeResult.cs" />
+    <Compile Include="App\InfinishedProductionListView.cs" />
     <Compile Include="App\InterWarehouseEnteredPositionsViewList.cs" />
     <Compile Include="App\InterWarehouseEnteredPositionViewAdapter.cs" />
     <Compile Include="App\InterwarehouseSerialOrSCCCEntryAdapter.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="App\PackagingList.cs" />
     <Compile Include="App\packagingListAdapter.cs" />
     <Compile Include="App\ProductionEnteredPositionList.cs" />
+    <Compile Include="App\ProductionEnteredPositionsViewList.cs" />
     <Compile Include="App\ProductionEnteredPositionViewAdapter.cs" />
     <Compile Include="App\ProductionSerialOrSSCCAdapter.cs" />
     <Compile Include="App\ProductionSerialOrSSCCList.cs" />
@@ -144,6 +146,7 @@
     <Compile Include="App\UnfinishedPackagingList.cs" />
     <Compile Include="App\UnfinishedProductionAdapter.cs" />
     <Compile Include="App\UnfinishedProductionList.cs" />
+    <Compile Include="App\UnfinishedProductionListAdapter.cs" />
     <Compile Include="App\UnfinishedTakeoverList.cs" />
     <Compile Include="App\Keyboard.cs" />
     <Compile Include="App\ListViewItem.cs" />

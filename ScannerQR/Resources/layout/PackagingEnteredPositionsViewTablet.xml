@@ -207,15 +207,14 @@
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
             android:id="@+id/tbCreatedBy" />
-
-
-
     </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="112.5dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
+
      <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -246,12 +245,11 @@
             android:paddingLeft="10px"
             android:id="@+id/btUpdate"
             android:layout_marginBottom="0.0dp" />
-
-
     </LinearLayout>
 
 
  <LinearLayout
+            
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -284,6 +282,7 @@
 
 
     </LinearLayout>
+
     <Button
         
         android:background="@drawable/nicelookingbutton"
