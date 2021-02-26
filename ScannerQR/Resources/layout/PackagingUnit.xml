@@ -167,7 +167,8 @@
             android:paddingLeft="10px"
             android:paddingTop="5px"
             android:text="Količina"
-            android:layout_marginRight="27.0dp" />
+            android:layout_marginRight="27.0dp" 
+              android:id="@+id/label" />
 
         <EditText
             android:singleLine="true"

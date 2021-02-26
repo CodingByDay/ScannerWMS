@@ -3,7 +3,7 @@
   <PropertyGroup>
     <SelectedDevice>HANDHELD</SelectedDevice>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
-    <AndroidDesignerPreferredDevice>10.1in WXGA %28Tablet%29</AndroidDesignerPreferredDevice>
+    <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
   </PropertyGroup>
   <PropertyGroup>
     <ReferencePath>

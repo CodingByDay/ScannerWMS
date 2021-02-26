@@ -39,7 +39,8 @@ namespace ScannerQR
         private Button check;
         SoundPool soundPool;
         int soundPoolId;
-        private TextView lbQty;
+      
+        private TextView label;
         
 
         private void Sound()
@@ -47,7 +48,7 @@ namespace ScannerQR
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
         }
 
-
+        
         public void GetBarcode(string barcode)
         {
       
@@ -65,8 +66,15 @@ namespace ScannerQR
                 {
                     Sound();
                     tbLocation.Text = barcode;
-                    tbSSCC.RequestFocus();
-                    if (!tbSSCC.Enabled && !tbSerialNo.Enabled) { ProcessQty(); }
+                    if (tbLocation.Text != "Scan fail")
+                    {
+                        tbSSCC.RequestFocus();
+                        if (!tbSSCC.Enabled && !tbSerialNo.Enabled) { ProcessQty(); }
+                    } else
+                    {
+                        tbLocation.Text = "";
+                        tbLocation.RequestFocus();
+                    }
                    
 
                 }
@@ -74,8 +82,17 @@ namespace ScannerQR
                 {
                     Sound();
                     tbIdent.Text = barcode;
-                    ProcessIdent();
-                    tbLocation.RequestFocus();
+                    if (tbIdent.Text != "Scan fail")
+                    {
+                        ProcessIdent();
+                        tbLocation.RequestFocus();
+                    }
+                    else
+                    {
+                        tbIdent.Text = "";
+                        tbIdent.RequestFocus();
+                    }
+                   
                 }
                 else if (tbSerialNo.HasFocus)
                 {
@@ -92,7 +109,7 @@ namespace ScannerQR
         }
         private void ProcessIdent()
         {
-            if (!string.IsNullOrEmpty(tbIdent.Text))
+            if (!string.IsNullOrEmpty(tbIdent.Text) )
             {
                 var ident = CommonData.LoadIdent(tbIdent.Text.Trim());
                 tbIdentName.Text = ident == null ? "" : ident.GetString("Name");
@@ -257,12 +274,12 @@ namespace ScannerQR
 
             if (LoadStock(warehouse, location, sscc, serialNo, ident))
             {
-                lbQty.Text = "Količina (" + stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture()) + "):";
+                label.Text = "Količina (" + stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture()) + "):";
                 tbQty.Text = stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture());
             }
             else
             {
-                lbQty.Text = "Količina:";
+                label.Text = "Količina:";
                 tbQty.Text = "";
             }
         }
@@ -303,12 +320,13 @@ namespace ScannerQR
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSerialNo = FindViewById<EditText>(Resource.Id.tbSerialNo);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
-            lbQty = FindViewById<TextView>(Resource.Id.lbQty);
+            label = FindViewById<TextView>(Resource.Id.label);
             btNegate = FindViewById<Button>(Resource.Id.btNegate);
             btNew = FindViewById<Button>(Resource.Id.btNew);
             btList = FindViewById<Button>(Resource.Id.btList);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btExit = FindViewById<Button>(Resource.Id.btExit);
+          
             tbQty.FocusChange += TbQty_FocusChange;
 
             btNew.Click += BtNew_Click;
