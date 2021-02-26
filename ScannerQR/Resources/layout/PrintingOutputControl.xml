@@ -234,7 +234,7 @@
         <Button
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
-            android:text="Naslednja kontrola-f3"
+            android:text="Naslednja kont.-f3"
             android:drawableLeft="@drawable/next"
             android:paddingLeft="10px"
             android:layout_width="match_parent"

@@ -111,7 +111,7 @@
         <TextView
             android:layout_width="79.0dp"
             android:layout_height="wrap_content"
-            android:text="Locacija"
+            android:text="Lokacija"
             android:paddingTop="5px"
             android:paddingLeft="10px"
             android:id="@+id/txtLocation"

@@ -49,14 +49,14 @@
 	.section	.rodata.map_aname.8,"aMS",@progbits,1
 	.type	.L.map_aname.8, @object
 .L.map_aname.8:
-	.asciz	"ScannerQR"
-	.size	.L.map_aname.8, 10
+	.asciz	"Xamarin.Android.Support.Compat"
+	.size	.L.map_aname.8, 31
 
 	.section	.rodata.map_aname.9,"aMS",@progbits,1
 	.type	.L.map_aname.9, @object
 .L.map_aname.9:
-	.asciz	"Xamarin.Android.Support.Compat"
-	.size	.L.map_aname.9, 31
+	.asciz	"ScannerQR"
+	.size	.L.map_aname.9, 10
 
 	.section	.rodata.map_aname.10,"aMS",@progbits,1
 	.type	.L.map_aname.10, @object
