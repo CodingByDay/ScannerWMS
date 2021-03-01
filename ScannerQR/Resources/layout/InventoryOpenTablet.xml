@@ -15,7 +15,6 @@
         android:id="@+id/test"
         android:layout_toRightOf="@id/app"
         android:layout_below="@id/text"
-        android:text="                               *Pritiskom na gumb se bo odprlo okno na katerem lahko vidite podrobnejše informacije."
         />
 
 
@@ -46,7 +45,6 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Ident"
             android:layout_marginRight="28.0dp"
             android:id="@+id/ident"
             android:layout_width="match_parent" />
@@ -57,7 +55,6 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Naziv"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/name" />
@@ -68,7 +65,6 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Naročeno"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
@@ -78,7 +74,6 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Prejeto"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/position" />
@@ -91,7 +86,6 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Odprto"
             android:layout_marginRight="28.0dp"
             android:id="@+id/serial" />
 
