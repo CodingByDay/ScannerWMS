@@ -15,7 +15,6 @@
         android:id="@+id/test"
         android:layout_toRightOf="@id/app"
         android:layout_below="@id/text"
-        android:text="                               *Pritiskom na gumb se bo odprlo okno na katerem lahko vidite podrobnejše informacije."
         />
 
 
@@ -261,13 +260,14 @@
         android:orientation="horizontal"
         android:paddingTop="5px">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:text="Količina"
-            android:layout_marginRight="27.0dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10px"
+                android:paddingTop="5px"
+                android:text="Količina"
+                android:layout_marginRight="27.0dp"
+                android:id="@+id/lbQty" />
 
         <EditText
             android:singleLine="true"
