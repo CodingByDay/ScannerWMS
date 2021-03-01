@@ -125,10 +125,16 @@ namespace ScannerQR
             btnRegistrationEvent.Click += BtnRegistrationEvent_Click;
             deviceURL = FindViewById<TextView>(Resource.Id.deviceURL);
             deviceURL.Text = new String(App.settings.RootURL); /* Settings module */
+
+            string error;
+            var stock = Services.GetObjectList("str", out error, "038300608700091078");
+
+            Toast.MakeText(this, "Identov je: " + stock.Items.Count, ToastLength.Long).Show();
+
         }
 
-   
-       
+
+
         private void Ok_Click(object sender, EventArgs e)
         {
             App.settings.RootURL = rootURL.Text;
