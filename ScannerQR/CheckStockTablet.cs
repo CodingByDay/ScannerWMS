@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using ScannerQR.App;
 using System.Collections.Generic;
 using System.Linq;
 using TrendNET.WMS.Device.App;
@@ -25,7 +26,8 @@ namespace ScannerQR
         private List<ComboBoxItem> spinnerAdapterList = new List<ComboBoxItem>();
         private int temporaryPositionWarehouse;
         private string stock;
-
+        private ListView listData;
+        private List<CheckStockAddonList> data = new List<CheckStockAddonList>();
         public void GetBarcode(string barcode)
         {
             if (tbIdent.HasFocus)
@@ -166,8 +168,10 @@ namespace ScannerQR
             btShowStock.Click += BtShowStock_Click;
             button1 = FindViewById<Button>(Resource.Id.button1);
             button1.Click += Button1_Click;
-
+            listData = FindViewById<ListView>(Resource.Id.listData);
             lbStock = FindViewById<TextView>(Resource.Id.lbStock);
+            CheckStockAddonAdapter adapter = new CheckStockAddonAdapter(this, data);
+            listData.Adapter = adapter;
 
             cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;
             color();
@@ -211,8 +215,39 @@ namespace ScannerQR
 
         private void BtShowStock_Click(object sender, System.EventArgs e)
         {
+            data.Clear();
+
             ProcessStock();
+            fillItemsOfList();
         }
+
+
+
+
+        private void fillItemsOfList()
+        {
+            var wh = spinnerAdapterList.ElementAt(temporaryPositionWarehouse);
+
+            string error;
+            var stock = Services.GetObjectList("str", out error, wh.ID + "||" + tbIdent.Text);
+            //return string.Join("\r\n", stock.Items.Select(x => "L:" + x.GetString("Location") + " = " + x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())).ToArray());
+            stock.Items.ForEach(x =>
+            {
+                data.Add(new CheckStockAddonList
+                {
+                    Ident = x.GetString("Ident"),
+                    Location = x.GetString("Location"),
+
+                    Quantity = x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())
+                });
+        });
+           
+
+
+        }
+
+
+
 
         private void CbWarehouses_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {

@@ -28,6 +28,9 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\38\jl\files.ca
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\39\jl\files.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\40\jl\files.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\files.cache
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.txt
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.cs.flag
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csproj.CoreCompileInputs.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\ScannerQR.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\ScannerQR.pdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\com.companyname.scannerqr.apk
@@ -38,9 +41,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\com.companyname.scan
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.pdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll.mdb
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.txt
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.cs.flag
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csproj.CoreCompileInputs.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csproj.CopyComplete
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.pdb
@@ -265,6 +265,8 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\produc
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\productionenteredpositionviewlist.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\issuedenteredpositionsviewlist.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\issuedenteredpositionviewlist.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\packaginglistadapterview.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\checkstockaddonview.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\uploadflags.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\resolvedassemblies.hash
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\assets\DeviceAPI.dll
@@ -377,9 +379,11 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\andro
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\android\support\v7\widget\Toolbar_NavigationOnClickEventDispatcher.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\adapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\adapterListViewItem.java
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\CheckStockAddonAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\InterWarehouseEnteredPositionViewAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\InterwarehousSerialOrSCCCEntryAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\IssuedEnterAdapter.java
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\packagingListAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\ProductionEnteredPositionViewAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\ProductionSerialOrSSCCAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\TakeOverEnteredPositionsViewAdapter.java
@@ -581,5 +585,3 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_ConvertRes
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\packaginglistadapterview.xml
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\packagingListAdapter.java

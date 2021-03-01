@@ -53,7 +53,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:singleLine="true"
-            android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
             android:text="Naziv"

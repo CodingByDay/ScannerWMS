@@ -228,6 +228,7 @@ item;obj\Debug\90\res\values\styles.xml
 layer-list;obj\Debug\90\res\drawable\nicelookingbutton.xml
 LinearLayout;obj\Debug\90\res\layout\activity_main.xml
 LinearLayout;obj\Debug\90\res\layout\checkstock.xml
+LinearLayout;obj\Debug\90\res\layout\checkstockaddonview.xml
 LinearLayout;obj\Debug\90\res\layout\checkstocktablet.xml
 LinearLayout;obj\Debug\90\res\layout\common.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
@@ -419,6 +420,7 @@ string;obj\Debug\90\res\values\strings.xml
 style;obj\Debug\90\res\values\styles.xml
 TextView;obj\Debug\90\res\layout\activity_main.xml
 TextView;obj\Debug\90\res\layout\checkstock.xml
+TextView;obj\Debug\90\res\layout\checkstockaddonview.xml
 TextView;obj\Debug\90\res\layout\checkstocktablet.xml
 TextView;obj\Debug\90\res\layout\common.xml
 TextView;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml

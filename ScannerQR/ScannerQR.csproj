@@ -115,6 +115,8 @@
     <Compile Include="App\adapter.cs" />
     <Compile Include="App\adapterListViewItem.cs" />
     <Compile Include="App\Barcode2D.cs" />
+    <Compile Include="App\CheckStockAddonAdapter.cs" />
+    <Compile Include="App\CheckStockAddonList.cs" />
     <Compile Include="App\ComboBoxItem.cs" />
     <Compile Include="App\DateTimeFragment.cs" />
     <Compile Include="App\Echo.cs" />
@@ -880,6 +882,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\PackagingListAdapterView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\CheckStockAddOnView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -108,7 +108,7 @@ namespace ScannerQR
                     {
                         SerialNumber = item.GetInt("HeadID").ToString(),
                         ssccCode = item.GetString("SSCC"),
-                        CreatedBy = item.GetInt("ItemCount").ToString(),
+                        CreatedBy = item.GetString("ClerkName"),
                         NumberOfPositions = item.GetInt("ItemCount").ToString(),
                         // tbItemCount.Text = item.GetInt("ItemCount").ToString();
                     });
