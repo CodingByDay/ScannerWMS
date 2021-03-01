@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -42,6 +43,12 @@ namespace ScannerQR
         private Dialog popupDialog;
         private Button btnYes;
         private Button btnNo;
+        private ListView listData;
+        private string tempUnit;
+        private List<ProductionEnteredPositionList> data = new List<ProductionEnteredPositionList>();
+        private int selected;
+        private int selectedItem;
+        private int postionOfTheItemInTheList;
 
         /////////////////////
         protected override void OnCreate(Bundle savedInstanceState)
@@ -52,7 +59,7 @@ namespace ScannerQR
             SetContentView(Resource.Layout.ProductionEnteredPositionsViewTablet);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             /////////////////////
-
+            
 
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSerialNumber = FindViewById<EditText>(Resource.Id.tbSerialNumber);
@@ -60,7 +67,7 @@ namespace ScannerQR
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
-
+            listData = FindViewById<ListView>(Resource.Id.listData);
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
@@ -73,16 +80,90 @@ namespace ScannerQR
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
             button5.Click += Button5_Click;
-
+            listData.ItemClick += ListData_ItemClick;
+            ProductionEnteredPositionViewAdapter adapter = new ProductionEnteredPositionViewAdapter(this, data);
+            listData.Adapter = adapter;
             /////////////////////
             InUseObjects.ClearExcept(new string[] { "MoveHead" });
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
 
             LoadPositions();
+            fillList();
+        }
+
+        private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selected = e.Position;
+            Select(selected);
+            selectedItem = selected;
+        }
+
+        private void Select(int selected)
+        {
+            displayedPosition = postionOfTheItemInTheList;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            FillDisplayedItem();
 
         }
 
+        private void fillList()
+        {
 
+            for (int i = 0; i < positions.Items.Count; i++)
+            {
+                if (i < positions.Items.Count && positions.Items.Count > 0)
+                {
+                    var item = positions.Items.ElementAt(i);
+                    var created = item.GetDateTime("DateInserted");
+                    var numbering = i + 1;
+                    bool setting;
+
+                    if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
+                    {
+                        setting = false;
+                    }
+                    else
+                    {
+                        setting = true;
+                    }
+                    if (setting)
+                    {
+                        tempUnit = item.GetDouble("Qty").ToString();
+
+                    }
+                    else
+                    {
+                        tempUnit = item.GetDouble("Factor").ToString();
+                    }
+                    string error;
+                    var ident = item.GetString("Ident").Trim();
+                    var openIdent = Services.GetObject("id", ident, out error);
+                    //  var ident = CommonData.LoadIdent(item.GetString("Ident"));
+                    var identName = openIdent.GetString("Name");
+                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    data.Add(new ProductionEnteredPositionList
+                    {
+                        Ident = item.GetString("Ident"),
+                        SerialNumber = item.GetString("SerialNo"),
+                        SSCC = item.GetString("SSCC"),
+                        Quantity = tempUnit,
+                        Location = item.GetString("LocationName")
+
+                    //Position = numbering.ToString(),
+                    //Name = identName.Trim(),
+
+
+                });
+                    ;
+                }
+                else
+                {
+                    string errorWebApp = string.Format("Kritična napaka...");
+                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                }
+
+            }
+        }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -271,6 +352,24 @@ namespace ScannerQR
 
         private void BtNext_Click(object sender, EventArgs e)
         {
+
+            selectedItem++;
+
+            if (selectedItem <= (positions.Items.Count - 1))
+            {
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selectedItem);
+                listData.SetItemChecked(selectedItem, true);
+            }
+            else
+            {
+                selectedItem = 0;
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selectedItem);
+                listData.SetItemChecked(selectedItem, true);
+            }
+
+
             displayedPosition++;
             if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
             FillDisplayedItem();
