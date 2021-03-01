@@ -130,7 +130,6 @@
     <Compile Include="App\PackagingList.cs" />
     <Compile Include="App\packagingListAdapter.cs" />
     <Compile Include="App\ProductionEnteredPositionList.cs" />
-    <Compile Include="App\ProductionEnteredPositionsViewList.cs" />
     <Compile Include="App\ProductionEnteredPositionViewAdapter.cs" />
     <Compile Include="App\ProductionSerialOrSSCCAdapter.cs" />
     <Compile Include="App\ProductionSerialOrSSCCList.cs" />
