@@ -57,7 +57,6 @@ namespace ScannerQR
 
             // Create your application here.
             SetContentView(Resource.Layout.TakeOverSerialOrSSCCEntryTablet);
-            ident = openOrder.GetString("Ident");
             // 
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
@@ -107,11 +106,15 @@ namespace ScannerQR
                     if ((moveItem == null) || string.IsNullOrEmpty(moveItem.GetString("LinkKey")))
                     {
                         openOrder = new NameValueObject("OpenOrder");
+                                    ident = openOrder.GetString("Ident");
+
                     }
                     else
                     {
                         editMode = true;
                         openOrder = Services.GetObject("oobl", moveItem.GetString("LinkKey") + "|" + moveItem.GetInt("LinkNo").ToString(), out error);
+                        ident = openOrder.GetString("Ident");
+
                         if (openOrder == null)
                         {
                             Toast.MakeText(this, "Napaka pri dostopu do web aplikacije." + error, ToastLength.Long).Show();
@@ -260,7 +263,7 @@ namespace ScannerQR
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(TakeOverEnteredPositionsView));
+            StartActivity(typeof(TakeOverEnteredPositionsViewTablet));
         }
 
         private void Button1_Click(object sender, EventArgs e)

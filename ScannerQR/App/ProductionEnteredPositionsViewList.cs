@@ -13,5 +13,21 @@ namespace ScannerQR.App
 {
     class ProductionEnteredPositionsViewList
     {
+
+
+
+        public string Ident { get; set; }
+
+        public string SerialNumber { get; set; }
+
+
+        public string Location { get; set; }
+
+
+        public string Quantity { get; set; }
+
+
+
+        public string  SSSCC { get; set; }
     }
 }

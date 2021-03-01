@@ -98,14 +98,14 @@ namespace ScannerQR
         {
             switch (keyCode)
             {
-                // in smartphone
+                // In smartphone
                 case Keycode.F1:
                     if (btNext.Enabled == true)
                     {
                         BtNext_Click(this, null);
                     }
                     break;
-                //return true;
+                // return true;
 
 
                 case Keycode.F2:
