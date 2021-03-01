@@ -80,6 +80,7 @@ namespace ScannerQR
             button1.Click += Button1_Click;
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             button4.Click += Button4_Click;
+            button5.Click += Button5_Click;
             button6.Click += Button6_Click;
             button7.Click += Button7_Click;
             if (moveHead == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); }
@@ -96,6 +97,12 @@ namespace ScannerQR
             LoadRelatedOrder();
             SetUpForm();
         }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+        }
+
         private void LoadRelatedOrder()
         {
 

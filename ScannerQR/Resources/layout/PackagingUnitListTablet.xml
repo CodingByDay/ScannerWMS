@@ -55,14 +55,14 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/name" />
 
-          <TextView
+        <TextView
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Štev. pozicije"
+            android:text="Količina"
             android:layout_marginRight="28.0dp"
             android:id="@+id/Number" />
 
@@ -74,33 +74,33 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="SSCC"
+            android:text="Pozicija"
             android:layout_marginRight="28.0dp"
             android:id="@+id/sscc" />
 
 
-          <TextView
+        <TextView
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Lokacija"
+            android:text="Serijska številka"
             android:layout_marginRight="28.0dp"
             android:id="@+id/location" />
 
 
 
-        
-          <TextView
+
+        <TextView
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Kreiral"
+            android:text="SSCC"
             android:layout_marginRight="28.0dp"
             android:id="@+id/createdBy" />
 
@@ -384,7 +384,6 @@
         android:id="@+id/test"
         android:layout_toRightOf="@id/app"
         android:layout_below="@id/text"
-        android:text="                               *Pritiskom na gumb se bo otprlo okno na katerem lahko vidite otprte prevzeme."
         />
 
 

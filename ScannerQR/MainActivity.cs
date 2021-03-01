@@ -109,9 +109,9 @@ namespace ScannerQR
         }
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            AppCenter.Start("b6dbedcc-9d96-451f-9206-c2ab38cc7568", /*Change to your ID*/
+            AppCenter.Start("ec2ca4ce-9e86-4620-9e90-6ecc5cda0e0e",
                    typeof(Analytics), typeof(Crashes));
-                   Crashes.NotifyUserConfirmation(UserConfirmation.AlwaysSend); /* Always send crash reports */ /*https://appcenter.ms/apps */
+            Crashes.NotifyUserConfirmation(UserConfirmation.AlwaysSend); /* Always send crash reports */ /*https://appcenter.ms/apps */
             /// Solved anylitics...
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
