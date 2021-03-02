@@ -30,6 +30,8 @@ namespace ScannerQR
         public static NameValueObject dataItem;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
+
+
         public void GetBarcode(string barcode)
         {
             throw new NotImplementedException();
@@ -49,6 +51,8 @@ namespace ScannerQR
             tbReceiveLocation = FindViewById<EditText>(Resource.Id.tbReceiveLocation);
             tbRealStock = FindViewById<EditText>(Resource.Id.tbRealStock);
             btConfirm.Click += BtConfirm_Click;
+            tbReceiveLocation.Enabled = false;
+
             tbIdent.Enabled = false;
             tbLocation.FocusChange += TbLocation_FocusChange;
             color();
@@ -136,6 +140,11 @@ namespace ScannerQR
                 string error;
                 var currentItem = Services.GetObject("id", dataItem.GetString("Ident"), out error);
 
+
+                if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
+
+
+
                 moveItem.SetInt("HeadID", currentItem.GetInt("HeadID"));
                 moveItem.SetString("LinkKey", "");
                 moveItem.SetInt("LinkNo", 0);
@@ -176,11 +185,7 @@ namespace ScannerQR
 
 
 
-        private void fillDisplayedItem(NameValueObject objectItem)
-        {
-            tbReceiveLocation.Text = objectItem.GetString("Location");
-            tbRealStock.Text = objectItem.GetDouble("RealStock").ToString();
-        }
+   
        
 
         private void ProcessSSCC()
@@ -206,6 +211,9 @@ namespace ScannerQR
                 else
                 {
                     tbIdent.Text = dataItem.GetString("Ident");
+                    tbReceiveLocation.Text = dataItem.GetString("Location");
+                    tbRealStock = dataItem.GetDouble("RealStock");
+                    
                   
 
                   
