@@ -265,19 +265,19 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
-    <TextView
-        android:layout_width="296.0dp"
-        android:layout_height="247.0dp"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:textSize="30px"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
-        android:id="@+id/lbStock"
-        android:foregroundGravity="center"
-        android:gravity="center" />
+        <TextView
+            android:layout_width="296.0dp"
+            android:layout_height="211.0dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="30px"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:id="@+id/lbStock"
+            android:foregroundGravity="center"
+            android:gravity="center" />
 
  <LinearLayout
         android:layout_width="fill_parent"

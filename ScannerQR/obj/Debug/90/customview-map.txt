@@ -135,7 +135,6 @@ Button;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 Button;obj\Debug\90\res\layout\yesnogeneric.xml
 Button;obj\Debug\90\res\layout\yesnopopup.xml
 Button;obj\Debug\90\res\layout\yesnoproductioncard.xml
-cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\90\res\values\colors.xml
 color;obj\Debug\90\res\values\ic_launcher_background.xml
 corners;obj\Debug\90\res\drawable\nicelookingbutton.xml
@@ -212,8 +211,6 @@ EditText;obj\Debug\90\res\layout\unfinishedproductionview.xml
 EditText;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
 EditText;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 EditText;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
-external-cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-external-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 HorizontalScrollView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
@@ -385,13 +382,9 @@ ListView;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 padding;obj\Debug\90\res\drawable\nicelookingbutton.xml
-paths;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Debug\90\res\layout\activity_main.xml
 ProgressBar;obj\Debug\90\res\layout\inventoryconfirm.xml
 ProgressBar;obj\Debug\90\res\layout\inventoryconfirmtablet.xml
-resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\2\jl\res\values\strings.xml
-resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\5\jl\res\values\strings.xml
-resources;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\6\jl\res\values\strings.xml
 resources;obj\Debug\90\res\values\colors.xml
 resources;obj\Debug\90\res\values\ic_launcher_background.xml
 resources;obj\Debug\90\res\values\strings.xml
