@@ -116,6 +116,94 @@
             android:paddingTop="5px"
             android:id="@+id/tbSSCC" />
 
+
+    </LinearLayout>
+
+      
+        
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px"
+                                     >
+
+            <TextView
+                android:singleLine="true"
+                android:layout_width="97.5dp"
+                android:layout_height="wrap_content"
+                android:text="Ident"
+                android:paddingTop="5px"
+                android:paddingLeft="10px"
+                android:id="@+id/Idents" />
+
+            <EditText
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="40px"
+                android:layout_weight="0.50"
+                android:paddingTop="5px"
+                android:id="@+id/tbIdent" />
+
+
+    </LinearLayout>
+           <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px"
+                                     >
+
+            <TextView
+                android:singleLine="true"
+                android:layout_width="97.5dp"
+                android:layout_height="wrap_content"
+                android:text="Prejemna Lokacija"
+                android:paddingTop="5px"
+                android:paddingLeft="10px"
+                android:id="@+id/receiveLocation" />
+
+        <EditText
+              android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40px"
+            android:layout_weight="0.50"
+            android:paddingTop="5px"
+            android:id="@+id/tbReceiveLocation" />
+
+
+    </LinearLayout>
+           <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px"
+                                     >
+
+            <TextView
+                android:singleLine="true"
+                android:layout_width="97.5dp"
+                android:layout_height="wrap_content"
+                android:text="Zaloga"
+                android:paddingTop="5px"
+                android:paddingLeft="10px"
+                android:id="@+id/tbStock" />
+
+        <EditText
+              android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40px"
+            android:layout_weight="0.50"
+            android:paddingTop="5px"
+            android:id="@+id/tbRealStock" />
+
+
     </LinearLayout>
           <LinearLayout
         android:layout_width="fill_parent"

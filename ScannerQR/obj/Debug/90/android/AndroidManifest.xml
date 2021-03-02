@@ -102,7 +102,7 @@
     <activity android:label="ProductionSerialOrSSCCEntryTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.ProductionSerialOrSSCCEntryTablet" />
     <activity android:label="ProductionWorkOrderSetup" android:name="crc640b2286ca4f1c700f.ProductionWorkOrderSetup" />
     <activity android:label="ProductionWorkOrderSetupTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.ProductionWorkOrderSetupTablet" />
-    <activity android:label="RapidTakeover" android:name="crc640b2286ca4f1c700f.RapidTakeover" />
+    <activity android:label="RapidTakeover" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.RapidTakeover" />
     <activity android:label="receiver" android:name="crc640b2286ca4f1c700f.receiver" />
     <activity android:label="SelectSubjectBeforeFinish" android:name="crc640b2286ca4f1c700f.SelectSubjectBeforeFinish" />
     <activity android:label="SelectSubjectBeforeFinishTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.SelectSubjectBeforeFinishTablet" />

@@ -21,7 +21,10 @@ namespace ScannerQR
         private EditText tbLocation;
         private Button btConfirm;
         private Button btLogout;
+        private EditText tbIdent;
         private List<ComboBoxItem> data = new List<ComboBoxItem>();
+        private EditText tbReceiveLocation;
+        private EditText tbRealStock;
         public void GetBarcode(string barcode)
         {
             throw new NotImplementedException();
@@ -31,16 +34,20 @@ namespace ScannerQR
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.RapidTakeover);
+            tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             // Create your application here
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             cbWarehouses = FindViewById<Spinner>(Resource.Id.cbWarehouses);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
-
+            tbReceiveLocation = FindViewById<EditText>(Resource.Id.tbReceiveLocation);
+            tbRealStock = FindViewById<EditText>(Resource.Id.tbRealStock);
+            tbIdent.Enabled = false;
+            tbLocation.FocusChange += TbLocation_FocusChange;
             color();
 
-            ProcessSSCC();
+      
 
 
             var whs = CommonData.ListWarehouses();
@@ -58,22 +65,67 @@ namespace ScannerQR
             cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;
         }
 
+        private void TbLocation_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessSSCC();
+        }
+
         private void CbWarehouses_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
            ////////////////
         }
 
+
+
+
+
         private void ProcessSSCC()
         {
-            string error;
 
-            var data = Services.GetObject("sscc", "20180316001", out error);
+            var sscc = tbSSCC.Text.Trim();
+            if (string.IsNullOrEmpty(sscc)) { return; }
 
-            var ident = data.GetString("Ident");
-            Toast.MakeText(this, "Ident je: " + ident, ToastLength.Long).Show();
+
+            try
+            {
+
+
+                string error;
+                var data = Services.GetObject("sscc", tbSSCC.Text, out error);
+                if (data == null)
+                {
+                    Toast.MakeText(this, "Napaka pri preverjanju sscc kode." + error, ToastLength.Long).Show();
+
+                    tbSSCC.Text = "";
+                    
+                }
+                else
+                {
+                    tbIdent.Text = data.GetString("Ident");
+                  
+
+                  
+                  
+                 
+                }
+            
+            }
+            finally
+            {
+
+            }
+
+
+
+
         }
 
+        //string error;
 
+        //var data = Services.GetObject("sscc", tbSSCC.Text, out error);
+
+        //var ident = data.GetString("Ident");
+        //Toast.MakeText(this, "Ident je: " + ident, ToastLength.Long).Show();
 
 
         private void color()
