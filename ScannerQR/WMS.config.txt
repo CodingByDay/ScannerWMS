@@ -2,3 +2,4 @@
 ID: 0001
 EnableLog: No
 ScannerType: SYMBOL
+  var stock = Services.GetObject("sts", tbSSCC.Text.Trim(), out error);

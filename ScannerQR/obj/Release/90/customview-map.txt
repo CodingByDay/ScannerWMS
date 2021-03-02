@@ -228,6 +228,7 @@ item;obj\Release\90\res\values\styles.xml
 layer-list;obj\Release\90\res\drawable\nicelookingbutton.xml
 LinearLayout;obj\Release\90\res\layout\activity_main.xml
 LinearLayout;obj\Release\90\res\layout\checkstock.xml
+LinearLayout;obj\Release\90\res\layout\checkstockaddonview.xml
 LinearLayout;obj\Release\90\res\layout\checkstocktablet.xml
 LinearLayout;obj\Release\90\res\layout\common.xml
 LinearLayout;obj\Release\90\res\layout\interwarehousebusinesseventsetup.xml
@@ -251,6 +252,8 @@ LinearLayout;obj\Release\90\res\layout\inventoryprint.xml
 LinearLayout;obj\Release\90\res\layout\inventoryprinttablet.xml
 LinearLayout;obj\Release\90\res\layout\inventoryprocess.xml
 LinearLayout;obj\Release\90\res\layout\inventoryprocesstablet.xml
+LinearLayout;obj\Release\90\res\layout\issuedenteredpositionsviewlist.xml
+LinearLayout;obj\Release\90\res\layout\issuedenteredpositionviewlist.xml
 LinearLayout;obj\Release\90\res\layout\issuedgoodsbusinesseventsetup.xml
 LinearLayout;obj\Release\90\res\layout\issuedgoodsbusinesseventsetuptablet.xml
 LinearLayout;obj\Release\90\res\layout\issuedgoodsenteredpositionsview.xml
@@ -267,6 +270,7 @@ LinearLayout;obj\Release\90\res\layout\mainmenu.xml
 LinearLayout;obj\Release\90\res\layout\mainmenu1.xml
 LinearLayout;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 LinearLayout;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
+LinearLayout;obj\Release\90\res\layout\packaginglistadapterview.xml
 LinearLayout;obj\Release\90\res\layout\packagingsetcontext.xml
 LinearLayout;obj\Release\90\res\layout\packagingsetcontexttablet.xml
 LinearLayout;obj\Release\90\res\layout\packagingunit.xml
@@ -416,6 +420,7 @@ string;obj\Release\90\res\values\strings.xml
 style;obj\Release\90\res\values\styles.xml
 TextView;obj\Release\90\res\layout\activity_main.xml
 TextView;obj\Release\90\res\layout\checkstock.xml
+TextView;obj\Release\90\res\layout\checkstockaddonview.xml
 TextView;obj\Release\90\res\layout\checkstocktablet.xml
 TextView;obj\Release\90\res\layout\common.xml
 TextView;obj\Release\90\res\layout\interwarehousebusinesseventsetup.xml
@@ -438,6 +443,8 @@ TextView;obj\Release\90\res\layout\inventoryprint.xml
 TextView;obj\Release\90\res\layout\inventoryprinttablet.xml
 TextView;obj\Release\90\res\layout\inventoryprocess.xml
 TextView;obj\Release\90\res\layout\inventoryprocesstablet.xml
+TextView;obj\Release\90\res\layout\issuedenteredpositionsviewlist.xml
+TextView;obj\Release\90\res\layout\issuedenteredpositionviewlist.xml
 TextView;obj\Release\90\res\layout\issuedgoodsbusinesseventsetup.xml
 TextView;obj\Release\90\res\layout\issuedgoodsbusinesseventsetuptablet.xml
 TextView;obj\Release\90\res\layout\issuedgoodsenteredpositionsview.xml
@@ -453,6 +460,7 @@ TextView;obj\Release\90\res\layout\listviewtrail.xml
 TextView;obj\Release\90\res\layout\mainmenu1.xml
 TextView;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 TextView;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
+TextView;obj\Release\90\res\layout\packaginglistadapterview.xml
 TextView;obj\Release\90\res\layout\packagingsetcontext.xml
 TextView;obj\Release\90\res\layout\packagingsetcontexttablet.xml
 TextView;obj\Release\90\res\layout\packagingunit.xml

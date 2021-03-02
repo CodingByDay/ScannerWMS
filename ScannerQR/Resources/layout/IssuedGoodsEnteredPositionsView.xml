@@ -127,6 +127,7 @@
         android:paddingTop="5px">
 
         <TextView
+              android:singleLine="true"
             android:layout_width="87.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -134,7 +135,7 @@
             android:text="Lokacija" />
 
         <EditText
-            android:singleLine="true"
+              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -155,6 +156,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:singleLine="true"
             android:layout_width="85.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"

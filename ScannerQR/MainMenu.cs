@@ -15,47 +15,44 @@ using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
 {
-    [Activity(Label = "MainMenu" )]
+    [Activity(Label = "MainMenu")]
     public class MainMenu : Activity
     {
-       
+
         public bool result = Services.isTablet(); /* Checks to see if the device is a tablet
                                                    *  or a phone to show
                                                    *  different layouts. 
                                                    *  Use this method for navigation. 
                                                    *  Wms add on for preview. 28.1.2021 */
-
+        private Button rapidTakeover;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
+
             // Create your application here
             SetContentView(Resource.Layout.MainMenu);
-            // welcome string
+            // Welcome string
             if (MainActivity.isValid == true)
             {
                 string toast = new string("Uspešna prijava.");
 
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                MainActivity.isValid = false; 
+                MainActivity.isValid = false;
                 MainActivity.progressBar1.Visibility = ViewStates.Invisible;
                 var result = Services.isTablet();
-                if (result == true)
-                {
-                    
-                }
-                
-               
+
+
+
             }
             // Testing the config reading ... It works... :)
 
-            Button rapidTakeover = FindViewById<Button>(Resource.Id.rapidTakeover);
-            if(result==false)
+            rapidTakeover = FindViewById<Button>(Resource.Id.rapidTakeover);
+            if (result == false)
             {
-                rapidTakeover.Visibility = ViewStates.Invisible;
+                rapidTakeover.Visibility = ViewStates.Gone;
             } else
             {
-                //pass
+                // Pass
             }
             // First event...
             Button button = FindViewById<Button>(Resource.Id.goodsTakeOver);
@@ -81,10 +78,10 @@ namespace ScannerQR
             // goodsPackaging-----PackagingEnteredPositionsView();
             Button btnPackaging = FindViewById<Button>(Resource.Id.goodsPackaging);
             btnPackaging.Click += BtnPackaging_Click;
-            // logout-------------Close();
+            // Logout-------------Close();
             Button btnLogout = FindViewById<Button>(Resource.Id.logout);
             btnLogout.Click += BtnLogout_Click;
-            
+
 
             // Permisions.
             // buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
@@ -97,7 +94,7 @@ namespace ScannerQR
             // btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
 
         }
-
+    
 
 
 
@@ -108,12 +105,12 @@ namespace ScannerQR
         {
             switch (keyCode)
             {
-                // in smartphone
+                // In smartphone
                 case Keycode.F1:
                   
                         Button_Click(this, null);                               
                     break;
-                //return true;
+                // Return true;
 
                 case Keycode.F2:
                     

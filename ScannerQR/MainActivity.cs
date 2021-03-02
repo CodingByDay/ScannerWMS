@@ -126,10 +126,11 @@ namespace ScannerQR
             deviceURL = FindViewById<TextView>(Resource.Id.deviceURL);
             deviceURL.Text = new String(App.settings.RootURL); /* Settings module */
 
-            string error;
-            var stock = Services.GetObjectList("str", out error, "038300608700091078");
-
-            Toast.MakeText(this, "Identov je: " + stock.Items.Count, ToastLength.Long).Show();
+           // string error;
+           //// var stock = Services.GetObjectList("str", out error, "||" + "038300608700091078" + );
+           
+           // var stock = Services.GetObject("sts", "038300608700091078", out error);
+           // Toast.MakeText(this, "Ident: " +  stock.GetDouble("Qty"), ToastLength.Long).Show();
 
         }
 
