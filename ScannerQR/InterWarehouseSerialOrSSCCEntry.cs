@@ -489,7 +489,7 @@ namespace ScannerQR
                 ProcessIdent();
                 tbLocation.Text = moveItem.GetString("Location");
                 tbIssueLocation.Text = moveItem.GetString("IssueLocation");
-                btSaveOrUpdate.Text = "Spremeni serijsko št. - F2";
+                btSaveOrUpdate.Text = "Spremeni ser. št. - F2";
 
                 editMode = true;
                 tbSSCC.Enabled = false;

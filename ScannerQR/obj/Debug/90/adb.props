@@ -1,2 +1,2 @@
-AdbTarget=
+AdbTarget=-s TPC1024G201000049
 AdbOptions=

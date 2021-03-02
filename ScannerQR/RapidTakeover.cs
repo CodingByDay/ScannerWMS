@@ -30,7 +30,7 @@ namespace ScannerQR
         public static NameValueObject dataItem;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
-
+        private NameValueObject moveItemFinal;
 
         public void GetBarcode(string barcode)
         {
@@ -52,7 +52,8 @@ namespace ScannerQR
             tbRealStock = FindViewById<EditText>(Resource.Id.tbRealStock);
             btConfirm.Click += BtConfirm_Click;
             tbReceiveLocation.Enabled = false;
-
+            tbRealStock.Enabled = false;
+            
             tbIdent.Enabled = false;
             tbLocation.FocusChange += TbLocation_FocusChange;
             color();
@@ -137,6 +138,7 @@ namespace ScannerQR
            
        
             {
+                var data = Services.Services.GetObject("sscc", "20180316001", out error);
                 string error;
                 var currentItem = Services.GetObject("id", dataItem.GetString("Ident"), out error);
 
@@ -148,21 +150,21 @@ namespace ScannerQR
                 moveItem.SetInt("HeadID", currentItem.GetInt("HeadID"));
                 moveItem.SetString("LinkKey", "");
                 moveItem.SetInt("LinkNo", 0);
-                moveItem.SetString("Ident", tbIdent.Text.Trim());
-                moveItem.SetString("SSCC", tbSSCC.Text.Trim());
-                moveItem.SetString("SerialNo", dataItem.GetString("SerialNo"));
-                moveItem.SetDouble("Packing", Convert.ToDouble(dataItem.GetDouble("RealStock")));
-                moveItem.SetDouble("Qty", Convert.ToDouble(dataItem.GetDouble("RealStock")));
+                moveItem.SetString("Ident", data.GetString("Ident"));
+                moveItem.SetString("SSCC", data.GetString("SSCC"));
+                moveItem.SetString("SerialNo", data.GetString("SerialNo"));
+                moveItem.SetDouble("Packing", Convert.ToDouble(data.GetDouble("RealStock")));
+                moveItem.SetDouble("Qty", Convert.ToDouble(data.GetDouble("RealStock")));
                 moveItem.SetInt("Clerk", Services.UserID());
                 moveItem.SetString("Location", tbLocation.Text.Trim());
-                moveItem.SetString("IssueLocation", dataItem.GetString("Location"));
+                moveItem.SetString("IssueLocation", data.GetString("Location"));
 
 
                 string error2;
-                moveItem = Services.SetObject("mi", moveItem, out error2); /* Save move item method */
+                moveItemFinal = Services.SetObject("mi", moveItem, out error2); /* Save move item method */
 
 
-                if(moveItem == null)
+                if(moveItemFinal == null)
                 {
                     Toast.MakeText(this, "Napaka pri dostopu do web aplikacije", ToastLength.Long).Show();
                     return false;
@@ -212,7 +214,7 @@ namespace ScannerQR
                 {
                     tbIdent.Text = dataItem.GetString("Ident");
                     tbReceiveLocation.Text = dataItem.GetString("Location");
-                    tbRealStock = dataItem.GetDouble("RealStock");
+                    tbRealStock.Text = dataItem.GetDouble("RealStock").ToString();
                     
                   
 
