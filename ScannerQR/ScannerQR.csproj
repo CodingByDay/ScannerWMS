@@ -226,6 +226,7 @@
     <Compile Include="ProductionSerialOrSSCCEntryTablet.cs" />
     <Compile Include="ProductionWorkOrderSetup.cs" />
     <Compile Include="ProductionWorkOrderSetupTablet.cs" />
+    <Compile Include="RapidTakeover.cs" />
     <Compile Include="receiver.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -892,6 +893,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RapidTakeover.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
