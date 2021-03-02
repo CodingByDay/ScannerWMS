@@ -31,7 +31,7 @@ namespace ScannerQR
 
             // Create your application here
             SetContentView(Resource.Layout.MainMenu);
-            // Welcome string
+            // Welcome String.
             if (MainActivity.isValid == true)
             {
                 string toast = new string("Uspešna prijava.");
@@ -81,7 +81,7 @@ namespace ScannerQR
             // Logout-------------Close();
             Button btnLogout = FindViewById<Button>(Resource.Id.logout);
             btnLogout.Click += BtnLogout_Click;
-
+            rapidTakeover.Click += RapidTakeover_Click;
 
             // Permisions.
             // buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
@@ -94,12 +94,11 @@ namespace ScannerQR
             // btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
 
         }
-    
 
-
-
-
-
+        private void RapidTakeover_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(RapidTakeover));
+        }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {

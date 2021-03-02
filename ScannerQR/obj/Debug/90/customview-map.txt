@@ -28,6 +28,7 @@ android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\production
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\productionpalettetablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\rapidtakeover.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeover2maintablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeover2orderstablet.xml
@@ -105,6 +106,7 @@ Button;obj\Debug\90\res\layout\productionserialorssccentry.xml
 Button;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
 Button;obj\Debug\90\res\layout\productionworkordersetup.xml
 Button;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
+Button;obj\Debug\90\res\layout\rapidtakeover.xml
 Button;obj\Debug\90\res\layout\receiverlayout.xml
 Button;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 Button;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
@@ -190,6 +192,7 @@ EditText;obj\Debug\90\res\layout\productionserialorssccentry.xml
 EditText;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
 EditText;obj\Debug\90\res\layout\productionworkordersetup.xml
 EditText;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
+EditText;obj\Debug\90\res\layout\rapidtakeover.xml
 EditText;obj\Debug\90\res\layout\settingspopup.xml
 EditText;obj\Debug\90\res\layout\takeover2main.xml
 EditText;obj\Debug\90\res\layout\takeover2maintablet.xml
@@ -301,6 +304,7 @@ LinearLayout;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
 LinearLayout;obj\Debug\90\res\layout\productionserialorsscclistview.xml
 LinearLayout;obj\Debug\90\res\layout\productionworkordersetup.xml
 LinearLayout;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
+LinearLayout;obj\Debug\90\res\layout\rapidtakeover.xml
 LinearLayout;obj\Debug\90\res\layout\receiverlayout.xml
 LinearLayout;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 LinearLayout;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
@@ -368,6 +372,7 @@ ListView;obj\Debug\90\res\layout\productionpalette.xml
 ListView;obj\Debug\90\res\layout\productionpalettetablet.xml
 ListView;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
 ListView;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
+ListView;obj\Debug\90\res\layout\rapidtakeover.xml
 ListView;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
 ListView;obj\Debug\90\res\layout\takeover2maintablet.xml
 ListView;obj\Debug\90\res\layout\takeover2orderstablet.xml
@@ -412,6 +417,7 @@ Spinner;obj\Debug\90\res\layout\packagingsetcontext.xml
 Spinner;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 Spinner;obj\Debug\90\res\layout\printingreprintlabels.xml
 Spinner;obj\Debug\90\res\layout\printingreprintlabelstablet.xml
+Spinner;obj\Debug\90\res\layout\rapidtakeover.xml
 Spinner;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 Spinner;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
 Spinner;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
@@ -490,6 +496,7 @@ TextView;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
 TextView;obj\Debug\90\res\layout\productionserialorsscclistview.xml
 TextView;obj\Debug\90\res\layout\productionworkordersetup.xml
 TextView;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
+TextView;obj\Debug\90\res\layout\rapidtakeover.xml
 TextView;obj\Debug\90\res\layout\receiverlayout.xml
 TextView;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 TextView;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
