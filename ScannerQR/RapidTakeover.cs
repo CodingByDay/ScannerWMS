@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 
@@ -77,7 +78,12 @@ namespace ScannerQR
 
 
 
-
+        private void fillDisplayedItem(NameValueObject objectItem)
+        {
+            tbReceiveLocation.Text = objectItem.GetString("Location");
+            tbRealStock.Text = objectItem.GetDouble("RealStock").ToString();
+        }
+       
 
         private void ProcessSSCC()
         {

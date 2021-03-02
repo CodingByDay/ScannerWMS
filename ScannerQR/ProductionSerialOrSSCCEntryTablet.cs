@@ -443,8 +443,7 @@ namespace ScannerQR
             string error;
             var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + identCode); /* Defined at the beggining of the activity. */
             var number = stock.Items.Count();
-            string SuccessMessage = string.Format(number.ToString());
-            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+         
 
             if (stock != null)
             {
