@@ -98,6 +98,8 @@
         tools:context=".LinearLayout"
         android:foregroundGravity="center">
   <TextView
+                 android:textSize="16px"
+            android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -112,6 +114,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="115.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -119,7 +123,9 @@
             android:text="DN" />
 
         <EditText
-              android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -138,6 +144,8 @@
                                      >
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="113.0dp"
             android:layout_height="wrap_content"
             android:text="Naročnik"
@@ -146,7 +154,9 @@
             android:id="@+id/textView1" />
 
         <EditText
-              android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -163,6 +173,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"   
             android:layout_width="112.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -170,7 +182,9 @@
             android:text="Ident" />
 
         <EditText
-              android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold" 
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -189,14 +203,19 @@
                                      >
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
             android:text="Št. pozicij"
             android:paddingTop="5px"
             android:paddingLeft="10px"/>
 
+
         <EditText
-              android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -213,6 +232,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="110.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -220,7 +241,9 @@
             android:text="Kreiral" />
 
         <EditText
-              android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -241,6 +264,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -248,7 +273,9 @@
             android:text="Datum kreiranja" />
 
         <EditText
-              android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -258,21 +285,27 @@
 
     </LinearLayout>
     <TextView
+        android:textSize="16px"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="22.5dp"
         android:layout_gravity="center"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
     <TextView
+        android:textSize="16px"
+        android:textStyle="bold"    
         android:layout_width="109.5dp"
         android:layout_height="2.5dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
     <LinearLayout
+        android:textSize="16px"
+        android:textStyle="bold"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-         android:weightSum="2"
+        android:weightSum="2"
         android:paddingTop="5px">
 
             <Button

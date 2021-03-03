@@ -52,20 +52,20 @@ namespace ScannerQR.App
 
                 TextView Ident = row.FindViewById<TextView>(Resource.Id.Ident);
                 Ident.Text = sList[position].Ident;
-
+                Ident.SetTextColor(Android.Graphics.Color.Black);
 
                 TextView Name = row.FindViewById<TextView>(Resource.Id.Name);
                 Name.Text = sList[position].Name;
-
+                Name.SetTextColor(Android.Graphics.Color.Black);
                 TextView Open = row.FindViewById<TextView>(Resource.Id.Open);
                 Open.Text = sList[position].Open;
-
+                Open.SetTextColor(Android.Graphics.Color.Black);
                 TextView Ordered = row.FindViewById<TextView>(Resource.Id.Ordered);
                 Ordered.Text = sList[position].Ordered;
-
+                Ordered.SetTextColor(Android.Graphics.Color.Black);
                 TextView Received = row.FindViewById<TextView>(Resource.Id.Received);
                 Received.Text = sList[position].Received;
-
+                Received.SetTextColor(Android.Graphics.Color.Black);
 
 
             }

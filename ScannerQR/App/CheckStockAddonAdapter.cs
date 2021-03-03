@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using System;
@@ -53,14 +54,14 @@ namespace ScannerQR.App
 
                 TextView Ident = row.FindViewById<TextView>(Resource.Id.Ident);
                 Ident.Text = sList[position].Ident;
-
+                Ident.SetTextColor(Android.Graphics.Color.Black);
 
                 TextView Location = row.FindViewById<TextView>(Resource.Id.Location);
                 Location.Text = sList[position].Location;
-
+                Location.SetTextColor(Android.Graphics.Color.Black);
                 TextView Quantity = row.FindViewById<TextView>(Resource.Id.Quantity);
                 Quantity.Text = sList[position].Quantity;
-
+                Quantity.SetTextColor(Android.Graphics.Color.Black);
 
 
 
@@ -71,6 +72,7 @@ namespace ScannerQR.App
             }
             finally { }
 
+       
             return row;
 
         }

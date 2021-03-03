@@ -53,18 +53,18 @@ namespace ScannerQR.App
 
                 TextView Document = row.FindViewById<TextView>(Resource.Id.Document);
                 Document.Text = sList[position].Document;
-
+                Document.SetTextColor(Android.Graphics.Color.Black);
 
                 TextView CreatedBy = row.FindViewById<TextView>(Resource.Id.CreatedBy);
                 CreatedBy.Text = sList[position].CreatedBy;
-
+                CreatedBy.SetTextColor(Android.Graphics.Color.Black);
                 TextView Date = row.FindViewById<TextView>(Resource.Id.Date);
                 Date.Text = sList[position].Date;
-
+                Date.SetTextColor(Android.Graphics.Color.Black);
 
                 TextView NumberOfPositions = row.FindViewById<TextView>(Resource.Id.NumberOfPositions);
                 NumberOfPositions.Text = sList[position].NumberOfPositions;
-
+                NumberOfPositions.SetTextColor(Android.Graphics.Color.Black);
 
 
             }

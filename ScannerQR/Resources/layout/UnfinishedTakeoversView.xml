@@ -25,6 +25,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="156.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -32,6 +34,8 @@
             android:text="Posl. dog. prevz." />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,6 +55,8 @@
                                      >
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="155.5dp"
             android:layout_height="wrap_content"
             android:text="Naročilo"
@@ -59,6 +65,8 @@
             android:id="@+id/textView1" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,6 +84,8 @@
         android:paddingTop="5px">
 
         <TextView
+             android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="153.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -83,6 +93,8 @@
             android:text="Dobavitelj" />
 
         <EditText
+             android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,6 +112,8 @@
         android:orientation="horizontal"
         android:paddingTop="5px"                                     >
         <TextView
+              android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="151.0dp"
             android:layout_height="wrap_content"
             android:text="Št. pozicij"
@@ -107,6 +121,8 @@
             android:paddingLeft="10px"/>
 
         <EditText
+              android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -123,6 +139,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="148.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -130,6 +148,8 @@
             android:text="Kreiral" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"      
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -155,6 +175,8 @@
             android:text="Datum kreiranja" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -165,6 +187,8 @@
 
     </LinearLayout>
     <TextView
+        android:textSize="16px"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="19.5dp"
         android:layout_gravity="center"

@@ -101,6 +101,8 @@
         tools:context=".LinearLayout"
         android:foregroundGravity="center">
  <TextView
+        android:textSize="16px"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -115,6 +117,8 @@
         android:paddingTop="5px">
 
         <TextView
+             android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -123,6 +127,8 @@
             android:layout_marginRight="28.5dp" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -142,6 +148,8 @@
                                      >
 
         <TextView
+             android:textSize="16px"
+            android:textStyle="bold"   
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Naročilo"
@@ -151,6 +159,8 @@
             android:layout_marginRight="72.0dp" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -168,6 +178,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -176,6 +188,8 @@
             android:layout_marginRight="68.0dp" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"    
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -195,6 +209,8 @@
                                      >
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Št. pozicij"
@@ -203,6 +219,8 @@
             android:layout_marginRight="61.0dp" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -220,6 +238,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -228,6 +248,8 @@
             android:layout_marginRight="80.5dp" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -249,6 +271,8 @@
         android:paddingTop="5px">
 
         <TextView
+                android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -257,6 +281,8 @@
             android:layout_marginRight="21.0dp" />
 
         <EditText
+                android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -267,6 +293,8 @@
 
     </LinearLayout>
     <TextView
+        android:textSize="16px"
+            android:textStyle="bold"    
         android:layout_width="wrap_content"
         android:layout_height="17.5dp"
         android:layout_gravity="center"
@@ -274,6 +302,8 @@
         android:paddingTop="5px"/>
 
     <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="9.5dp"
         android:paddingLeft="10px"

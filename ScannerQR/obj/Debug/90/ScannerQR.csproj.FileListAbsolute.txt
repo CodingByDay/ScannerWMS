@@ -27,9 +27,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\38\jl\files.ca
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\39\jl\files.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\40\jl\files.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\files.cache
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.txt
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.cs.flag
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csproj.CoreCompileInputs.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csprojAssemblyReference.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\ScannerQR.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\ScannerQR.pdb
@@ -41,6 +38,9 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\com.companyname.scan
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.pdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll.mdb
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.txt
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.cs.flag
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csproj.CoreCompileInputs.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csproj.CopyComplete
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.pdb
