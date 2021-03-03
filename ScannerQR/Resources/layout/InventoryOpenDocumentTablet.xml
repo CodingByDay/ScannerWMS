@@ -40,6 +40,8 @@
         android:paddingTop="5px">
 
         <TextView
+  
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -50,6 +52,7 @@
             android:layout_width="match_parent" />
 
         <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -60,6 +63,7 @@
             android:id="@+id/name" />
 
         <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -69,6 +73,7 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
         <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -80,6 +85,7 @@
 
 
         <TextView
+            android:textSize="16px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -112,6 +118,8 @@
         android:layout_height="37.0dp"
         android:minWidth="25px"
         android:minHeight="25px"
+        android:textStyle="bold"
+        android:textSize="16px"
         android:id="@+id/textView1" />
     <Spinner
         android:layout_width="match_parent"
@@ -124,6 +132,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"    
             android:layout_width="138.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -131,6 +141,8 @@
             android:text="Datum inventure." />
 
         <EditText
+            android:textStyle="bold"
+            android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -53,6 +53,8 @@
         tools:context=".LinearLayout"
         android:foregroundGravity="center">
 <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -67,6 +69,8 @@
         android:paddingTop="5px">
 
         <TextView
+                android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -75,6 +79,8 @@
             android:layout_marginRight="53.5dp" />
 
         <EditText
+            android:textStyle="bold"
+            android:textSize="16px"    
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -93,6 +99,8 @@
                                      >
 
         <TextView
+             android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Naziv"
@@ -102,6 +110,8 @@
             android:layout_marginRight="77.0dp" />
 
         <EditText
+            android:textStyle="bold"
+            android:textSize="16px"    
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -118,6 +128,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -126,6 +138,8 @@
             android:layout_marginRight="44.0dp" />
 
         <EditText
+             android:textStyle="bold"
+            android:textSize="16px"   
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -145,6 +159,8 @@
                                      >
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"    
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Št. popisov"
@@ -153,7 +169,9 @@
             android:layout_marginRight="39.0dp" />
 
         <EditText
-             android:singleLine="true"
+            android:textStyle="bold"
+            android:textSize="16px"    
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -170,6 +188,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"    
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -178,7 +198,9 @@
             android:layout_marginRight="67.0dp" />
 
         <EditText
-             android:singleLine="true"
+            android:textStyle="bold"
+            android:textSize="16px"    
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -199,6 +221,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -207,7 +231,9 @@
             android:layout_marginRight="7.0dp" />
 
         <EditText
-             android:singleLine="true"
+            android:textStyle="bold"
+            android:textSize="16px"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"

@@ -3666,11 +3666,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F08007F
 			public const int coordinator = 2131230847;
 			
-			// aapt resource value: 0x7F080003
-			public const int CreatedBy = 2131230723;
-			
 			// aapt resource value: 0x7F080081
 			public const int createdby = 2131230849;
+			
+			// aapt resource value: 0x7F080003
+			public const int CreatedBy = 2131230723;
 			
 			// aapt resource value: 0x7F080080
 			public const int createdBy = 2131230848;
@@ -4032,11 +4032,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F0800E8
 			public const int open = 2131230952;
 			
-			// aapt resource value: 0x7F0800E9
-			public const int ordered = 2131230953;
-			
 			// aapt resource value: 0x7F080013
 			public const int Ordered = 2131230739;
+			
+			// aapt resource value: 0x7F0800E9
+			public const int ordered = 2131230953;
 			
 			// aapt resource value: 0x7F080014
 			public const int Orderer = 2131230740;
