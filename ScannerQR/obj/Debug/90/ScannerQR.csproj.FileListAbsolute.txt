@@ -11,6 +11,7 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\x86\Debug\DeviceAPI.dll.md
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\build.props
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\adb.props
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csprojAssemblyReference.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res.flag
@@ -27,7 +28,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\38\jl\files.ca
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\39\jl\files.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\40\jl\files.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\files.cache
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csprojAssemblyReference.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\ScannerQR.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\ScannerQR.pdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\com.companyname.scannerqr.apk
@@ -38,7 +38,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\com.companyname.scan
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.pdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll.mdb
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.cs.flag
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csproj.CoreCompileInputs.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csproj.CopyComplete
@@ -269,6 +268,7 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\packag
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\checkstockaddonview.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\clock.png
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\rapidtakeover.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\uploadflags.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\resolvedassemblies.hash
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\assets\DeviceAPI.dll

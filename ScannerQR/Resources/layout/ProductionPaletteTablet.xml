@@ -41,6 +41,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -52,6 +53,7 @@
             android:layout_width="match_parent" />
 
         <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -63,6 +65,7 @@
             android:id="@+id/name" />
 
           <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -87,6 +90,7 @@
         <TextView
             android:layout_weight="1"
             android:layout_width="match_parent"
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -100,6 +104,7 @@
         <TextView
             android:layout_weight="1"
             android:layout_width="match_parent"
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -126,6 +131,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"   
             android:layout_width="92.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -133,7 +140,9 @@
             android:text="DN" />
 
         <EditText
-               android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -153,6 +162,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"    
             android:layout_width="90.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -160,7 +171,9 @@
             android:text="Ident" />
 
         <EditText
-               android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -187,7 +200,9 @@
             android:text="SSCC" />
 
         <EditText
-                android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -207,6 +222,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"    
             android:layout_width="88.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -214,7 +231,9 @@
             android:text="Serijska št." />
 
         <EditText
-                android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"    
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -246,6 +265,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"    
             android:layout_weight="25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -256,6 +277,8 @@
             android:id="@+id/Ident" />
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"    
             android:layout_weight="25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

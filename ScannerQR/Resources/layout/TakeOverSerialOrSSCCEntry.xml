@@ -11,6 +11,8 @@
     tools:context=".LinearLayout"
     android:foregroundGravity="center">
     <TextView
+        android:textSize="16px"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -24,6 +26,8 @@
         android:paddingTop="5px">
 
         <TextView
+              android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="80.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -31,6 +35,8 @@
             android:text="Ident" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,6 +57,9 @@
                                      >
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SSCC koda"
@@ -60,6 +69,8 @@
             android:layout_marginRight="6.0dp" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,6 +88,9 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -85,6 +99,8 @@
             android:layout_marginRight="6.5dp" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,6 +120,8 @@
                                      >
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,6 +131,8 @@
             android:layout_marginRight="23.0dp" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -132,6 +152,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -141,6 +163,8 @@
             android:id="@+id/lbQty" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -164,6 +188,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -173,6 +199,8 @@
             android:id="@+id/lbUnits" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -186,6 +214,8 @@
 
 
     <TextView
+        android:textSize="16px"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="25.0dp"
         android:paddingLeft="10px"

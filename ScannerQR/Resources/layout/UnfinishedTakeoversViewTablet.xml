@@ -274,7 +274,6 @@
 
             <TextView
                 android:textSize="16px"
-                android:textStyle="bold"
                 android:layout_width="148.0dp"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10px"

@@ -13,6 +13,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_weight="20"
              android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,6 +27,8 @@
 
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_weight="20"
            android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -38,6 +42,8 @@
 
         
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_weight="20"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,6 +56,8 @@
        
         
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_weight="20"
              android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -63,6 +71,8 @@
 
         
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_weight="20"
              android:layout_width="match_parent"
             android:layout_height="match_parent"

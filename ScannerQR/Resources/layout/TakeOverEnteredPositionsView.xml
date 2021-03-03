@@ -11,6 +11,8 @@
     tools:context=".LinearLayout"
     android:foregroundGravity="center">
     <TextView
+        android:textSize="16px"
+         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -25,6 +27,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="111.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -32,7 +36,9 @@
             android:text="Ident" />
 
         <EditText
-               android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -51,6 +57,8 @@
                                      >
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
             android:text="SSCC koda"
@@ -59,7 +67,9 @@
             android:id="@+id/textView1" />
 
         <EditText
-               android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -76,6 +86,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="108.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -83,7 +95,9 @@
             android:text="Serijska št." />
 
         <EditText
-               android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -102,6 +116,8 @@
                                      >
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="106.0dp"
             android:layout_height="wrap_content"
             android:text="Količina"
@@ -109,7 +125,9 @@
             android:paddingLeft="10px"/>
 
         <EditText
-               android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -127,6 +145,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="104.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -134,6 +154,8 @@
             android:text="Lokacija" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -39,6 +39,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -50,6 +52,8 @@
             android:layout_width="match_parent" />
 
         <TextView
+            android:textSize="16px"
+            
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -64,6 +68,7 @@
 
 
         <TextView
+            android:textSize="16px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -78,6 +83,7 @@
 
         
         <TextView
+            android:textSize="16px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"

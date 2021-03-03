@@ -18,6 +18,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="89.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -26,6 +28,8 @@
             android:layout_marginRight="14.0dp" />
 
         <EditText
+            android:textSize="16px"
+            android:textStyle="bold"
                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,6 +49,8 @@
                                      >
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="102.0dp"
             android:layout_height="wrap_content"
             android:text="Ident"
@@ -53,7 +59,9 @@
             android:id="@+id/textView1" />
 
         <EditText
-               android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -76,6 +84,8 @@
                                      >
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="98.0dp"
             android:layout_height="wrap_content"
             android:text="Št. kartona"
@@ -84,7 +94,9 @@
             android:id="@+id/textView11" />
 
         <EditText
-               android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -110,7 +122,9 @@
             android:id="@+id/textView131" />
 
         <EditText
-               android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -128,6 +142,8 @@
                                      >
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="94.5dp"
             android:layout_height="wrap_content"
             android:text="Količina"
@@ -136,7 +152,9 @@
             android:id="@+id/tex1tView1" />
 
         <EditText
-               android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

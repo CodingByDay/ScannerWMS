@@ -8,7 +8,6 @@
 
 
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,6 +41,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -51,6 +51,7 @@
             android:id="@+id/ident"
             android:layout_width="match_parent" />
         <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -60,6 +61,7 @@
             android:id="@+id/location"
             android:layout_width="match_parent" />
         <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -98,6 +100,8 @@
                                      >
 
             <TextView
+                android:textSize="16px"
+                android:textStyle="bold"
                 android:singleLine="true"
                 android:layout_width="97.5dp"
                 android:layout_height="wrap_content"
@@ -107,7 +111,9 @@
                 android:id="@+id/textView1" />
 
         <EditText
-              android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -129,6 +135,8 @@
                                      >
 
             <TextView
+                android:textSize="16px"
+                android:textStyle="bold"
                 android:singleLine="true"
                 android:layout_width="97.5dp"
                 android:layout_height="wrap_content"
@@ -138,6 +146,8 @@
                 android:id="@+id/Idents" />
 
             <EditText
+                android:textSize="16px"
+                android:textStyle="bold"
                 android:singleLine="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -157,6 +167,8 @@
                                      >
 
             <TextView
+                android:textSize="16px"
+                android:textStyle="bold"
                 android:singleLine="true"
                 android:layout_width="97.5dp"
                 android:layout_height="wrap_content"
@@ -166,7 +178,9 @@
                 android:id="@+id/receiveLocation" />
 
         <EditText
-              android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -185,6 +199,8 @@
                                      >
 
             <TextView
+                android:textSize="16px"
+                android:textStyle="bold"
                 android:singleLine="true"
                 android:layout_width="97.5dp"
                 android:layout_height="wrap_content"
@@ -194,7 +210,9 @@
                 android:id="@+id/tbStock" />
 
         <EditText
-              android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -212,6 +230,8 @@
         android:paddingTop="5px">
           
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="67.0dp"
             android:layout_height="wrap_content"
@@ -243,6 +263,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"    
             android:layout_width="95.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -250,7 +272,9 @@
             android:text="Lokacija" />
 
         <EditText
-               android:singleLine="true"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -266,12 +290,12 @@
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
         <TextView
+            android:textStyle="bold"
             android:layout_width="296.0dp"
             android:layout_height="188.0dp"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:textSize="30px"
-            android:textStyle="bold"
             android:textColor="@android:color/black"
             android:paddingLeft="10px"
             android:paddingTop="5px"
