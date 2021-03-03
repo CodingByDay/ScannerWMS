@@ -138,9 +138,10 @@ namespace ScannerQR
            
        
             {
-                var data = Services.Services.GetObject("sscc", "20180316001", out error);
+                string ssscError;
+                var data = Services.GetObject("sscc", tbSSCC.Text, out ssscError);
                 string error;
-                var currentItem = Services.GetObject("id", dataItem.GetString("Ident"), out error);
+                var currentItem = Services.GetObject("id", data.GetString("Ident"), out error);
 
 
                 if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
@@ -163,17 +164,12 @@ namespace ScannerQR
                 string error2;
                 moveItemFinal = Services.SetObject("mi", moveItem, out error2); /* Save move item method */
 
-
-                if(moveItemFinal == null)
-                {
-                    Toast.MakeText(this, "Napaka pri dostopu do web aplikacije", ToastLength.Long).Show();
-                    return false;
-                } else
-                {
+                Toast.MakeText(this, moveItemFinal.ToString(), ToastLength.Long).Show();
+               
                     InUseObjects.Invalidate("MoveItem");
                     return true;
                 } 
-            }
+            
         }
         private void TbLocation_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
