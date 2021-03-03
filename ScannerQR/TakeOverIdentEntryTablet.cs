@@ -22,7 +22,7 @@ namespace ScannerQR
 
     {
         private bool preventingDups = false;
-        private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
+        private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead"); //
         private NameValueObject openIdent = null;
         private NameValueObjectList openOrders = null;
         private int displayedOrder = -1;
