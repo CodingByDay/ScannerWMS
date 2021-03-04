@@ -19,31 +19,25 @@ namespace ScannerQR.App
 
         private static ISettings AppSettings =>
             CrossSettings.Current;
-        /// <summary>
-        /// //////////////////////////////////////////////////TestApp.Helpers{setting name} -> Usefull library.
-        /// </summary>
+       
 
 
 
         public static string ID
         {
-            get => AppSettings.GetValueOrDefault(nameof(ID), string.Empty);
+            get => AppSettings.GetValueOrDefault(nameof(ID), "0003");
             set => AppSettings.GetValueOrDefault(nameof(ID), value);
         }
 
-        public static string ScannerType
+      
+       
+        public static string device
         {
-            get => AppSettings.GetValueOrDefault(nameof(EnableLog), string.Empty);
-            set => AppSettings.GetValueOrDefault(nameof(EnableLog), value);
+            get => AppSettings.GetValueOrDefault(nameof(device), "TABLET");
+            set => AppSettings.GetValueOrDefault(nameof(device), value);
         }
 
-        
-
-        public static bool EnableLog
-        {
-            get => AppSettings.GetValueOrDefault(nameof(EnableLog), false);
-            set => AppSettings.GetValueOrDefault(nameof(EnableLog), value);
-        }
+    
 
 
         public static string RootURL

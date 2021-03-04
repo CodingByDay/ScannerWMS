@@ -14,7 +14,6 @@ namespace TrendNET.WMS.Device.App
         /// device config
         /// </summary>
 
-
      public static string rootURL = settings.RootURL;
         private const int x64kb = 64 * 1024;
      // var rootURL = "http://wms.in-sist.si";

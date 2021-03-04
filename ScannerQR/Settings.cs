@@ -18,6 +18,10 @@ namespace ScannerQR
         private EditText rootURL;
         private EditText device;
         private Button ok;
+        public static string deviceInfo;
+
+        public static string IDinfo; 
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -37,10 +41,14 @@ namespace ScannerQR
         private void Ok_Click(object sender, EventArgs e)
         {
             App.settings.RootURL = rootURL.Text;
+            App.settings.device = device.Text;
             App.settings.ID = ID.Text;
-            App.settings.ScannerType = device.Text;
+            deviceInfo = App.settings.device = device.Text;
+            IDinfo = App.settings.ID = ID.Text;
+           
+
             //deviceURL.Text = App.settings.RootURL
-            StartActivity(typeof(MainActivity));
+        StartActivity(typeof(MainActivity));
         }
     }
 }

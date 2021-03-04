@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Microsoft.AppCenter.Analytics;
 using ScannerQR;
+using ScannerQR.App;
 using TrendNET.WMS.Device.Services;
 
 namespace ScannerQR
@@ -19,7 +20,9 @@ namespace ScannerQR
     public class MainMenu : Activity
     {
 
-        public bool result = Services.isTablet(); /* Checks to see if the device is a tablet
+        public static string IDdevice;
+        public static string target;
+        public bool result; /* Checks to see if the device is a tablet
                                                    *  or a phone to show
                                                    *  different layouts. 
                                                    *  Use this method for navigation. 
@@ -40,6 +43,10 @@ namespace ScannerQR
                 MainActivity.isValid = false;
                 MainActivity.progressBar1.Visibility = ViewStates.Invisible;
                 var result = Services.isTablet();
+                IDdevice = settings.ID;
+                target = settings.device;
+                var message = new String(IDdevice);
+                Toast.MakeText(this, message, ToastLength.Long).Show();
 
 
 

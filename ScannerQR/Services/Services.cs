@@ -12,6 +12,8 @@ using ScannerQR.App;
 
 namespace TrendNET.WMS.Device.Services
 {
+
+    
     public class Services
     {
         public static List<NameValue> UserInfo = new List<NameValue>();
@@ -31,8 +33,8 @@ namespace TrendNET.WMS.Device.Services
 
         public static bool isTablet()
         {
-
-           var device = settings.ScannerType;
+         
+            var device = settings.device;
 
            if(device == "TABLET")
             {
