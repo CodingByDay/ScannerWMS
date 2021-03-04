@@ -43,6 +43,8 @@ namespace ScannerQR
         private ListView listData;
         private List<InterWarehouseEnteredPositionsViewList> data = new List<InterWarehouseEnteredPositionsViewList>();
         private string tempUnit;
+        private int selected;
+        private int selectedItem;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -79,11 +81,25 @@ namespace ScannerQR
             ////////////////////////////////////////////////////
             InUseObjects.ClearExcept(new string[] { "MoveHead" });
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
-
+            listData.ItemClick += ListData_ItemClick;
             LoadPositions();
-
+            fillItems();
 
         }
+
+        private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            selected = e.Position;
+            Select(selected);
+            selectedItem = selected;
+        }
+        private void Select(int postionOfTheItemInTheList)
+        {
+            displayedPosition = postionOfTheItemInTheList;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            FillDisplayedItem();
+        }
+
         private void fillItems()
         {
             for (int i = 0; i < positions.Items.Count; i++)
@@ -327,6 +343,23 @@ namespace ScannerQR
 
         private void BtNext_Click(object sender, EventArgs e)
         {
+
+            selectedItem++;
+
+            if (selectedItem <= (positions.Items.Count - 1))
+            {
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selectedItem);
+                listData.SetItemChecked(selectedItem, true);
+            }
+            else
+            {
+                selectedItem = 0;
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selectedItem);
+                listData.SetItemChecked(selectedItem, true);
+            }
+
             displayedPosition++;
             if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
             FillDisplayedItem();
