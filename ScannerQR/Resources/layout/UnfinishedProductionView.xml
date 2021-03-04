@@ -11,7 +11,7 @@
     tools:context=".LinearLayout"
     android:foregroundGravity="center">
     <TextView
-        android:textSize="16px"
+     
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+           
             android:textStyle="bold"
             android:layout_width="115.0dp"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:text="DN" />
 
         <EditText
-            android:textSize="16px"
+         
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+         
             android:textStyle="bold"
             android:layout_width="113.0dp"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
             android:id="@+id/textView1" />
 
         <EditText
-            android:textSize="16px"
+           
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -86,7 +86,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+           
             android:textStyle="bold"
             android:layout_width="112.0dp"
             android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
             android:text="Ident" />
 
         <EditText
-            android:textSize="16px"
+       
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -116,7 +116,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+           
             android:textStyle="bold"
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
             android:paddingLeft="10px"/>
 
         <EditText
-            android:textSize="16px"
+           
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -144,7 +144,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            
             android:textStyle="bold"
             android:layout_width="110.0dp"
             android:layout_height="wrap_content"
@@ -153,7 +153,7 @@
             android:text="Kreiral" />
 
         <EditText
-            android:textSize="16px"
+           
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -176,6 +176,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -183,7 +184,8 @@
             android:text="Datum kreiranja" />
 
         <EditText
-              android:singleLine="true"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:textStyle="bold"
         android:text="Posl. dog."
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
@@ -18,6 +19,8 @@
         android:layout_height="49.5dp"
         android:id="@+id/cbDocType" />
     <TextView
+        
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="38.0dp"
@@ -40,6 +43,8 @@
         android:layout_height="69.5dp"
         android:id="@+id/cbExtra" />
     <TextView
+    
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="122.5dp"

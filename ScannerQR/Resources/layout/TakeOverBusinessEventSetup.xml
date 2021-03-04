@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:textSize="16px"
+     
         android:textStyle="bold"
         android:text="Posl dog"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -20,7 +20,7 @@
         android:gravity="center" 
         android:spinnerMode="dialog"/>
     <TextView
-        android:textSize="16px"
+    
         android:textStyle="bold"
         android:text="Skladišče"
         android:textAppearance="?android:attr/textAppearanceMedium"

@@ -106,6 +106,7 @@
     <activity android:label="receiver" android:name="crc640b2286ca4f1c700f.receiver" />
     <activity android:label="SelectSubjectBeforeFinish" android:name="crc640b2286ca4f1c700f.SelectSubjectBeforeFinish" />
     <activity android:label="SelectSubjectBeforeFinishTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.SelectSubjectBeforeFinishTablet" />
+    <activity android:label="Settings" android:name="crc640b2286ca4f1c700f.Settings" />
     <activity android:label="TakeOver2Main" android:name="crc640b2286ca4f1c700f.TakeOver2Main" />
     <activity android:label="TakeOver2MainTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.TakeOver2MainTablet" />
     <activity android:label="TakeOver2Orders" android:name="crc640b2286ca4f1c700f.TakeOver2Orders" />

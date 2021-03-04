@@ -12,7 +12,6 @@
     android:foregroundGravity="center">
     <TextView
         android:textStyle="bold"
-            android:textSize="16px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -27,7 +26,6 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
             android:singleLine="true"
             android:layout_width="67.0dp"
             android:layout_height="wrap_content"
@@ -57,7 +55,6 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
             android:singleLine="true"
             android:layout_width="97.5dp"
             android:layout_height="wrap_content"
@@ -68,7 +65,6 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
               android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -81,7 +77,6 @@
     </LinearLayout>
     <TextView
         android:textStyle="bold"
-            android:textSize="16px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="10px"
@@ -94,7 +89,6 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
             android:layout_width="95.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -103,7 +97,6 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -116,20 +109,18 @@
     </LinearLayout>
     <TextView
         android:textStyle="bold"
-            android:textSize="16px"
         android:layout_width="95.5dp"
         android:layout_height="wrap_content"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
     <TextView
         android:textStyle="bold"
-            android:textSize="16px"
+         
         android:layout_width="296.0dp"
         android:layout_height="247.0dp"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textSize="30px"
-        android:textStyle="bold"
         android:textColor="@android:color/black"
         android:paddingLeft="10px"
         android:paddingTop="5px"

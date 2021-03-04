@@ -25,6 +25,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="138.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -32,7 +34,9 @@
             android:text="Datum" />
 
         <EditText
-             android:singleLine="true"
+            android:textStyle="bold"
+            android:textSize="16px"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -58,6 +62,8 @@
                                      >
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
              android:singleLine="true"
             android:layout_width="114.5dp"
             android:layout_height="wrap_content"
@@ -67,6 +73,8 @@
             android:id="@+id/textView1" />
 
         <EditText
+            android:textStyle="bold"
+            android:textSize="16px"
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,6 +92,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,7 +100,7 @@
             android:paddingTop="5px"
             android:text="Končna kontrola"
             android:layout_marginBottom="14.5dp"
-            android:id="@id/lbInfo" />
+            android:id="@+id/lbInfofinal" />
 
 
     </LinearLayout>
@@ -104,6 +113,7 @@
                                      >
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="118.0dp"
             android:layout_height="wrap_content"
             android:text="SSCC koda"
@@ -111,6 +121,7 @@
             android:paddingLeft="10px"/>
 
         <EditText
+            android:textStyle="bold"
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -128,6 +139,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="117.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -135,6 +147,7 @@
             android:text="Serijska št." />
 
         <EditText
+            android:textStyle="bold"
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -156,6 +169,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="116.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -163,6 +177,7 @@
             android:text="Ident" />
 
         <EditText
+            android:textStyle="bold"
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -179,6 +194,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="115.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -186,6 +202,7 @@
             android:text="Naziv" />
 
         <EditText
+            android:textStyle="bold"
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -202,6 +219,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="112.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -209,6 +227,7 @@
             android:text="Količina" />
 
         <EditText
+            android:textStyle="bold"
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

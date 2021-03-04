@@ -11,7 +11,6 @@
     tools:context=".LinearLayout"
     android:foregroundGravity="center">
     <TextView
-        android:textSize="16px"
         android:textStyle="bold"
         android:layout_width="97.5dp"
         android:layout_height="40.5dp"
@@ -28,7 +27,6 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
             android:textStyle="bold"
             android:layout_width="114.5dp"
             android:layout_height="wrap_content"
@@ -58,18 +56,16 @@
 
         <TextView
             
-            android:textSize="16px"
              android:textStyle="bold"
             android:layout_width="97.5dp"
             android:layout_height="wrap_content"
             android:text="Prej. lokacija:"
             android:paddingTop="5px"
             android:paddingLeft="10px"
-            android:id="@+id/textView1"
+            android:id="@+id/textView1Location"
             android:layout_marginRight="82.0dp" />
 
         <EditText
-            android:textSize="16px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -88,7 +84,6 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
             android:textStyle="bold"
             android:layout_width="148.0dp"
             android:layout_height="wrap_content"
@@ -98,7 +93,6 @@
             android:layout_marginRight="32.5dp" />
 
         <EditText
-            android:textSize="16px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -114,6 +108,7 @@
 
 
     <LinearLayout
+        android:textStyle="bold"
         android:layout_width="fill_parent"
         android:layout_height="6.5dp"
         android:orientation="horizontal"
@@ -125,6 +120,7 @@
 
     </LinearLayout>
     <TextView
+        android:textStyle="bold"
         android:layout_width="114.5dp"
         android:layout_height="44.5dp"
         android:paddingLeft="10px"

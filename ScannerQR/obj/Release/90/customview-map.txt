@@ -28,6 +28,7 @@ android.support.percent.PercentRelativeLayout;obj\Release\90\res\layout\producti
 android.support.percent.PercentRelativeLayout;obj\Release\90\res\layout\productionpalettetablet.xml
 android.support.percent.PercentRelativeLayout;obj\Release\90\res\layout\productionserialorssccentrytablet.xml
 android.support.percent.PercentRelativeLayout;obj\Release\90\res\layout\productionworkordersetuptablet.xml
+android.support.percent.PercentRelativeLayout;obj\Release\90\res\layout\rapidtakeover.xml
 android.support.percent.PercentRelativeLayout;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Release\90\res\layout\takeover2maintablet.xml
 android.support.percent.PercentRelativeLayout;obj\Release\90\res\layout\takeover2orderstablet.xml
@@ -105,6 +106,7 @@ Button;obj\Release\90\res\layout\productionserialorssccentry.xml
 Button;obj\Release\90\res\layout\productionserialorssccentrytablet.xml
 Button;obj\Release\90\res\layout\productionworkordersetup.xml
 Button;obj\Release\90\res\layout\productionworkordersetuptablet.xml
+Button;obj\Release\90\res\layout\rapidtakeover.xml
 Button;obj\Release\90\res\layout\receiverlayout.xml
 Button;obj\Release\90\res\layout\selectsubjectbeforefinish.xml
 Button;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml
@@ -190,6 +192,7 @@ EditText;obj\Release\90\res\layout\productionserialorssccentry.xml
 EditText;obj\Release\90\res\layout\productionserialorssccentrytablet.xml
 EditText;obj\Release\90\res\layout\productionworkordersetup.xml
 EditText;obj\Release\90\res\layout\productionworkordersetuptablet.xml
+EditText;obj\Release\90\res\layout\rapidtakeover.xml
 EditText;obj\Release\90\res\layout\settingspopup.xml
 EditText;obj\Release\90\res\layout\takeover2main.xml
 EditText;obj\Release\90\res\layout\takeover2maintablet.xml
@@ -224,6 +227,7 @@ ImageView;obj\Release\90\res\layout\yesnogeneric.xml
 ImageView;obj\Release\90\res\layout\yesnopopup.xml
 ImageView;obj\Release\90\res\layout\yesnoproductioncard.xml
 item;obj\Release\90\res\drawable\nicelookingbutton.xml
+item;obj\Release\90\res\layout\popup_action.xml
 item;obj\Release\90\res\values\styles.xml
 layer-list;obj\Release\90\res\drawable\nicelookingbutton.xml
 LinearLayout;obj\Release\90\res\layout\activity_main.xml
@@ -301,6 +305,7 @@ LinearLayout;obj\Release\90\res\layout\productionserialorssccentrytablet.xml
 LinearLayout;obj\Release\90\res\layout\productionserialorsscclistview.xml
 LinearLayout;obj\Release\90\res\layout\productionworkordersetup.xml
 LinearLayout;obj\Release\90\res\layout\productionworkordersetuptablet.xml
+LinearLayout;obj\Release\90\res\layout\rapidtakeover.xml
 LinearLayout;obj\Release\90\res\layout\receiverlayout.xml
 LinearLayout;obj\Release\90\res\layout\selectsubjectbeforefinish.xml
 LinearLayout;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml
@@ -321,6 +326,7 @@ LinearLayout;obj\Release\90\res\layout\takeoverserialorssccentry.xml
 LinearLayout;obj\Release\90\res\layout\takeoverserialorssccentrytablet.xml
 LinearLayout;obj\Release\90\res\layout\takeoverserialorssccentryview.xml
 LinearLayout;obj\Release\90\res\layout\takeoverserialorsscclistview.xml
+LinearLayout;obj\Release\90\res\layout\test.xml
 LinearLayout;obj\Release\90\res\layout\transportpopup.xml
 LinearLayout;obj\Release\90\res\layout\unfinishedinterwarehouselist.xml
 LinearLayout;obj\Release\90\res\layout\unfinishedinterwarehouseview.xml
@@ -368,6 +374,7 @@ ListView;obj\Release\90\res\layout\productionpalette.xml
 ListView;obj\Release\90\res\layout\productionpalettetablet.xml
 ListView;obj\Release\90\res\layout\productionserialorssccentrytablet.xml
 ListView;obj\Release\90\res\layout\productionworkordersetuptablet.xml
+ListView;obj\Release\90\res\layout\rapidtakeover.xml
 ListView;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml
 ListView;obj\Release\90\res\layout\takeover2maintablet.xml
 ListView;obj\Release\90\res\layout\takeover2orderstablet.xml
@@ -379,6 +386,7 @@ ListView;obj\Release\90\res\layout\unfinishedinterwarehouseviewtablet.xml
 ListView;obj\Release\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 ListView;obj\Release\90\res\layout\unfinishedproductionviewtablet.xml
 ListView;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
+menu;obj\Release\90\res\layout\popup_action.xml
 padding;obj\Release\90\res\drawable\nicelookingbutton.xml
 paths;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Release\90\res\layout\activity_main.xml
@@ -412,6 +420,7 @@ Spinner;obj\Release\90\res\layout\packagingsetcontext.xml
 Spinner;obj\Release\90\res\layout\packagingsetcontexttablet.xml
 Spinner;obj\Release\90\res\layout\printingreprintlabels.xml
 Spinner;obj\Release\90\res\layout\printingreprintlabelstablet.xml
+Spinner;obj\Release\90\res\layout\rapidtakeover.xml
 Spinner;obj\Release\90\res\layout\selectsubjectbeforefinish.xml
 Spinner;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml
 Spinner;obj\Release\90\res\layout\takeoverbusinesseventsetup.xml
@@ -490,6 +499,7 @@ TextView;obj\Release\90\res\layout\productionserialorssccentrytablet.xml
 TextView;obj\Release\90\res\layout\productionserialorsscclistview.xml
 TextView;obj\Release\90\res\layout\productionworkordersetup.xml
 TextView;obj\Release\90\res\layout\productionworkordersetuptablet.xml
+TextView;obj\Release\90\res\layout\rapidtakeover.xml
 TextView;obj\Release\90\res\layout\receiverlayout.xml
 TextView;obj\Release\90\res\layout\selectsubjectbeforefinish.xml
 TextView;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml

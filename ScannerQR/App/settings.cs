@@ -35,8 +35,9 @@ namespace ScannerQR.App
         {
             get => AppSettings.GetValueOrDefault(nameof(EnableLog), string.Empty);
             set => AppSettings.GetValueOrDefault(nameof(EnableLog), value);
-        } 
+        }
 
+        
 
         public static bool EnableLog
         {

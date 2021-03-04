@@ -13,6 +13,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,6 +25,8 @@
             android:id="@+id/Ident" />
 
          <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,6 +39,8 @@
 
         
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,6 +50,8 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/Quantity" />
               <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,6 +62,8 @@
             android:id="@+id/Position" />
         
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,6 +76,8 @@
 
 
           <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

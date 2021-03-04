@@ -248,6 +248,8 @@
         android:id="@+id/progres" />
 
     <TextView
+        android:textStyle="bold"
+        android:textSize="16px"
         android:layout_width="38.0dp"
         android:layout_height="47.5dp"
         android:paddingLeft="10px"

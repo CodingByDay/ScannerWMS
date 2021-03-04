@@ -20,6 +20,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="78.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -28,6 +29,7 @@
             android:layout_marginRight="28.0dp" />
 
         <EditText
+            android:textStyle="bold"
                android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,6 +47,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="80.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -53,7 +56,7 @@
             android:layout_marginRight="25.5dp" />
 
         <EditText
-                android:singleLine="true"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -70,6 +73,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="57.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -78,8 +82,8 @@
             android:layout_marginRight="47.5dp" />
 
         <EditText
-            
-                android:singleLine="true"
+            android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -96,6 +100,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -104,6 +109,8 @@
             android:layout_marginRight="47.5dp" />
 
         <EditText
+            android:textStyle="bold"
+          
                 android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -121,6 +128,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_weight="25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -131,6 +139,7 @@
             android:id="@+id/Ident" />
 
         <TextView
+            android:textStyle="bold"
             android:layout_weight="25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -141,6 +150,7 @@
             android:id="@+id/Location" />
 
         <TextView
+            android:textStyle="bold"
             android:layout_weight="25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -152,6 +162,7 @@
 
 
         <TextView
+            android:textStyle="bold"
             android:layout_weight="25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

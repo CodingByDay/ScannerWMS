@@ -17,8 +17,8 @@ namespace TrendNET.WMS.Device.Services
     public class WebApp
     {
         private const int x16kb = 16 * 1024;
-        public static string rootURL = WMSDeviceConfig.GetString("WebApp", "http://wms.in-sist.si");
-        public static string device = WMSDeviceConfig.GetString("ID", "");
+        public static string rootURL = settings.RootURL;
+        public static string device = settings.ID;
         private static DateTime skipPingsUntil = DateTime.MinValue;
         private static object pingLock = new object();
         

@@ -25,6 +25,8 @@
         android:paddingTop="5px">
 
         <TextView
+          
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,6 +36,7 @@
             android:layout_marginRight="42.0dp" />
 
         <EditText
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,6 +56,7 @@
                                      >
 
         <TextView
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,6 +67,7 @@
             android:layout_marginRight="38.0dp" />
 
         <EditText
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,6 +85,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,6 +95,7 @@
             android:layout_marginRight="21.0dp" />
 
         <EditText
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,6 +115,7 @@
                                      >
 
         <TextView
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -117,6 +125,7 @@
             android:layout_marginRight="3.5dp" />
 
         <EditText
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -135,6 +144,7 @@
                                      >
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Serijska št.:"
@@ -143,6 +153,7 @@
             android:layout_marginRight="5.0dp" />
 
         <EditText
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -162,6 +173,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -171,6 +183,7 @@
               android:id="@+id/label" />
 
         <EditText
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -187,6 +200,7 @@
 
     </LinearLayout>
     <TextView
+        android:textStyle="bold"
         android:singleLine="true"
         android:layout_width="wrap_content"
         android:layout_height="86.0dp"

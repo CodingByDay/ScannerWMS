@@ -227,6 +227,7 @@ ImageView;obj\Debug\90\res\layout\yesnogeneric.xml
 ImageView;obj\Debug\90\res\layout\yesnopopup.xml
 ImageView;obj\Debug\90\res\layout\yesnoproductioncard.xml
 item;obj\Debug\90\res\drawable\nicelookingbutton.xml
+item;obj\Debug\90\res\layout\popup_action.xml
 item;obj\Debug\90\res\values\styles.xml
 layer-list;obj\Debug\90\res\drawable\nicelookingbutton.xml
 LinearLayout;obj\Debug\90\res\layout\activity_main.xml
@@ -325,6 +326,7 @@ LinearLayout;obj\Debug\90\res\layout\takeoverserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverserialorssccentrytablet.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverserialorssccentryview.xml
 LinearLayout;obj\Debug\90\res\layout\takeoverserialorsscclistview.xml
+LinearLayout;obj\Debug\90\res\layout\test.xml
 LinearLayout;obj\Debug\90\res\layout\transportpopup.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedinterwarehouselist.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedinterwarehouseview.xml
@@ -384,6 +386,7 @@ ListView;obj\Debug\90\res\layout\unfinishedinterwarehouseviewtablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
+menu;obj\Debug\90\res\layout\popup_action.xml
 padding;obj\Debug\90\res\drawable\nicelookingbutton.xml
 paths;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Debug\90\res\layout\activity_main.xml

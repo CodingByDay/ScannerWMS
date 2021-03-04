@@ -13,6 +13,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,6 +26,8 @@
 
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,6 +40,8 @@
 
         
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,6 +53,8 @@
        
         
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,6 +67,8 @@
 
         
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

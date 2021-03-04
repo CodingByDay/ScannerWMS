@@ -32,8 +32,7 @@
         />
    
     <LinearLayout
-        android:textStyle="bold"
-        android:textSize="16px"
+        
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -45,6 +44,8 @@
         android:paddingTop="5px">
 
         <TextView
+          
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -56,6 +57,7 @@
             android:layout_width="match_parent" />
 
         <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -67,6 +69,7 @@
             android:id="@+id/name" />
 
         <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -77,6 +80,7 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
         <TextView
+            android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -89,9 +93,11 @@
 
 
         <TextView
+            android:textSize="16px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
+       
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -121,6 +127,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="134.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -129,6 +137,8 @@
             android:layout_marginRight="0.0dp" />
 
         <EditText
+            android:textStyle="bold"
+            android:textSize="16px"
             android:singleLine="true"
             android:layout_width="253.5dp"
             android:layout_height="wrap_content"
@@ -140,6 +150,8 @@
 
 
         <EditText
+            android:textStyle="bold"
+            android:textSize="16px"
             android:singleLine="true"
             android:layout_width="253.5dp"
             android:layout_height="wrap_content"
@@ -160,6 +172,8 @@
                                      >
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SSCC koda"
@@ -169,6 +183,8 @@
             android:layout_marginRight="41.5dp" />
 
         <EditText
+            android:textStyle="bold"
+            android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -186,6 +202,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -194,6 +212,8 @@
             android:layout_marginRight="41.5dp" />
 
         <EditText
+             android:textStyle="bold"
+            android:textSize="16px"    
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -213,6 +233,8 @@
                                      >
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Izd. lokacija"
@@ -221,6 +243,8 @@
             android:layout_marginRight="35.0dp" />
 
         <EditText
+            android:textStyle="bold"
+            android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -238,6 +262,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -246,6 +272,8 @@
             android:layout_marginRight="29.0dp" />
 
         <EditText
+             android:textStyle="bold"
+            android:textSize="16px"    
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -264,6 +292,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="59.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -273,6 +303,8 @@
             android:id="@+id/lbQty" />
 
         <EditText
+            android:textStyle="bold"
+            android:textSize="16px"    
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -296,6 +328,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="16px"
             android:layout_width="111.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -304,6 +338,8 @@
             android:id="@+id/lbUnits" />
 
         <EditText
+            android:textStyle="bold"
+            android:textSize="16px"   
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

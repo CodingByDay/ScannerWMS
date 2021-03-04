@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="318.0dp"
-        android:layout_height="167.5dp"
+        android:layout_width="329.0dp"
+        android:layout_height="38.0dp"
         android:id="@+id/bin"
         android:src="@drawable/settings"
         android:contentDescription=""
@@ -80,6 +80,32 @@
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
             android:id="@+id/ID" />
+
+
+    </LinearLayout>
+       <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <TextView
+            android:singleLine="true"
+            android:layout_width="77.0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Tip naprave(PHONE/TABLET)"
+            android:layout_marginRight="39.5dp" />
+
+        <EditText
+            android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:layout_marginLeft="40px"
+            android:paddingTop="5px"
+            android:id="@+id/device" />
 
 
     </LinearLayout>

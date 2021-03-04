@@ -12,7 +12,6 @@
 
         <TextView
             android:textStyle="bold"
-             android:textSize="16px"
             android:layout_width="120.0dp"
             android:layout_height="wrap_content"
             android:text="Ident"
@@ -23,7 +22,6 @@
 
         <EditText
             android:textStyle="bold"
-             android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +40,6 @@
 
         <TextView
             android:textStyle="bold"
-             android:textSize="16px"
             android:layout_width="120.0dp"
             android:layout_height="wrap_content"
             android:text="Naziv"
@@ -53,7 +50,6 @@
 
         <EditText
             android:textStyle="bold"
-             android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,7 +68,6 @@
 
         <TextView
             android:textStyle="bold"
-             android:textSize="16px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Količina prevzema"
@@ -83,7 +78,6 @@
 
         <EditText
             android:textStyle="bold"
-             android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,7 +96,6 @@
 
         <TextView
             android:textStyle="bold"
-             android:textSize="16px"
             android:layout_width="115.5dp"
             android:layout_height="wrap_content"
             android:text="Naročilo"
@@ -113,7 +106,6 @@
 
         <EditText
             android:textStyle="bold"
-             android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

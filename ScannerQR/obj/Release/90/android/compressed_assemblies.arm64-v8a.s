@@ -80,7 +80,7 @@
 
 	/* 8: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.word	1216000
+	.word	1218560
 	/* loaded */
 	.byte	0
 	/* data */
@@ -116,7 +116,7 @@
 
 	/* 12: ScannerQR.dll */
 	/* uncompressed_file_size */
-	.word	468480
+	.word	473088
 	/* loaded */
 	.byte	0
 	/* data */

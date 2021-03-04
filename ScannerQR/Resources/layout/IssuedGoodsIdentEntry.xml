@@ -11,6 +11,7 @@
     tools:context=".LinearLayout"
     android:foregroundGravity="center">
     <TextView
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="10px"
@@ -24,6 +25,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="102.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -31,6 +33,7 @@
             android:text="Ident" />
 
         <EditText
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,6 +52,7 @@
         android:paddingTop="5px"
                                      >
         <TextView
+            android:textStyle="bold"
             android:layout_width="99.5dp"
             android:layout_height="wrap_content"
             android:text="Naziv"
@@ -57,6 +61,7 @@
             android:id="@+id/textView1" />
 
         <EditText
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,6 +72,7 @@
             android:id="@+id/tbNaziv" />
     </LinearLayout>
     <TextView
+        android:textStyle="bold"
         android:text="Naročilo"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
@@ -82,6 +88,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="97.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -89,6 +96,7 @@
             android:text="Naročilo/poz." />
 
         <EditText
+            android:textStyle="bold"
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,6 +116,7 @@
                                      >
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="94.0dp"
             android:layout_height="wrap_content"
             android:text="Naročnik"
@@ -115,6 +124,7 @@
             android:paddingLeft="10px"/>
 
         <EditText
+            android:textStyle="bold"
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,6 +143,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -140,6 +151,7 @@
             android:text="Datum dobave" />
 
         <EditText
+            android:textStyle="bold"
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -158,6 +170,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="92.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -165,6 +178,7 @@
             android:text="Količina" />
 
         <EditText
+            android:textStyle="bold"
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

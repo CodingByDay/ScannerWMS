@@ -12,6 +12,8 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -21,6 +23,8 @@
             android:id="@id/tbSerialNumber" />
 
         <TextView
+            android:textSize="16px"
+            android:textStyle="bold"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"

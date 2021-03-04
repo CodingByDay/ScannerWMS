@@ -18,7 +18,7 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace ScannerQR
 {
-    [Activity(Label = "InterWarehouseEnteredPositionsViewTablet",ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(Label = "InterWarehouseEnteredPositionsViewTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class InterWarehouseEnteredPositionsViewTablet : Activity
     {
         private EditText tbIdent;
@@ -42,6 +42,8 @@ namespace ScannerQR
         private Button btnNo;
         private ListView listData;
         private List<InterWarehouseEnteredPositionsViewList> data = new List<InterWarehouseEnteredPositionsViewList>();
+        private string tempUnit;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -84,9 +86,60 @@ namespace ScannerQR
         }
         private void fillItems()
         {
-            //
-        }
+            for (int i = 0; i < positions.Items.Count; i++)
+            {
+                if (i < positions.Items.Count && positions.Items.Count > 0)
+                {
+                    var item = positions.Items.ElementAt(i);
+                    var created = item.GetDateTime("DateInserted");
+                    var numbering = i + 1;
+                    bool setting;
 
+                    if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
+                    {
+                        setting = false;
+                    }
+                    else
+                    {
+                        setting = true;
+                    }
+                    if (setting)
+                    {
+                        tempUnit = item.GetDouble("Qty").ToString();
+
+                    }
+                    else
+                    {
+                        tempUnit = item.GetDouble("Factor").ToString();
+                    }
+                    string error;
+                    var ident = item.GetString("Ident").Trim();
+                    var openIdent = Services.GetObject("id", ident, out error);
+                    //  var ident = CommonData.LoadIdent(item.GetString("Ident"));
+                    var identName = openIdent.GetString("Name");
+                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    data.Add(new InterWarehouseEnteredPositionsViewList
+                    {
+                        Ident = item.GetString("Ident"),
+                        SerialNumber = item.GetString("SerialNo"),
+                        SSCC = item.GetString("SSCC"),
+                        Quantity = tempUnit,
+                        Position = numbering.ToString(),
+                        Name = identName.Trim(),
+
+
+                    });
+                    ;
+                }
+                else
+                {
+                    string errorWebApp = string.Format("Kritična napaka...");
+                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                }
+
+            }
+        }
+    
 
         private void Button5_Click(object sender, EventArgs e)
         {

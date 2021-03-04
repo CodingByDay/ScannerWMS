@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="37.0dp"
         android:minWidth="25px"
+        android:textStyle="bold"
+        android:textSize="16px"
         android:minHeight="25px"
         android:id="@+id/textView1" />
     <Spinner
@@ -23,6 +25,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="138.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -30,6 +33,7 @@
             android:text="Datum inventure." />
 
         <EditText
+            android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

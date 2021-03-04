@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
-
+using ScannerQR.App;
 
 namespace TrendNET.WMS.Device.Services
 {
@@ -32,14 +32,14 @@ namespace TrendNET.WMS.Device.Services
         public static bool isTablet()
         {
 
-           var device = WMSDeviceConfig.GetString("DeviceType", "");
+           var device = settings.ScannerType;
 
-           if(device == "PHONE")
-            {
-                return false;
-            } else
+           if(device == "TABLET")
             {
                 return true;
+            } else
+            {
+                return false;
             }
 
 
@@ -100,7 +100,7 @@ namespace TrendNET.WMS.Device.Services
 
         public static int UserID () { return (int) UserInfo.First(x => x.Name == "UserID").IntValue; }
         public static string UserName() { return (string) UserInfo.First(x => x.Name == "FullName").StringValue; }
-        public static string DeviceUser() { return WMSDeviceConfig.GetString("ID", "") + "|" + UserID ().ToString(); }
+        public static string DeviceUser() { return settings.ID + "|" + UserID ().ToString(); }
 
         private static List<string> obtainedLocks = new List<string>();
 

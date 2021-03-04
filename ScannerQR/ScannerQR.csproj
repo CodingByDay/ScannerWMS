@@ -236,6 +236,7 @@
     <Compile Include="Services\CompactSerializer.cs" />
     <Compile Include="Services\Services.cs" />
     <Compile Include="Services\WebApp.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="TakeOver2Main.cs" />
     <Compile Include="TakeOver2MainTablet.cs" />
     <Compile Include="TakeOver2Orders.cs" />
@@ -896,6 +897,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\RapidTakeover.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\test.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResourceAnalysisConfig Include="Resources\values\popup_action.xml">
+      <SubType>Designer</SubType>
+    </AndroidResourceAnalysisConfig>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\popup_action.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

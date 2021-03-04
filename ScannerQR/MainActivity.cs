@@ -38,12 +38,20 @@ namespace ScannerQR
         private EditText ID;
         private ImageView img;
         private TextView deviceURL;
+
+        public object MenuInflaterFinal { get; private set; }
+
         // Internet connection method.
         public bool IsOnline()
         {
             var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
             return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
         }
+
+
+
+
+      
         private void ProcessRegistration()
         {
             if (IsOnline())
@@ -121,20 +129,45 @@ namespace ScannerQR
             // Registering first event..
             Button btnRegistrationEvent = FindViewById<Button>(Resource.Id.btnRegistration);
             img = FindViewById<ImageView>(Resource.Id.img);
-           
+            
             btnRegistrationEvent.Click += BtnRegistrationEvent_Click;
             deviceURL = FindViewById<TextView>(Resource.Id.deviceURL);
             deviceURL.Text = new String(App.settings.RootURL); /* Settings module */
+            // string error;
+            //// var stock = Services.GetObjectList("str", out error, "||" + "038300608700091078" + );
 
-           // string error;
-           //// var stock = Services.GetObjectList("str", out error, "||" + "038300608700091078" + );
-           
-           // var stock = Services.GetObject("sts", "038300608700091078", out error);
-           // Toast.MakeText(this, "Ident: " +  stock.GetDouble("Qty"), ToastLength.Long).Show();
+            // var stock = Services.GetObject("sts", "038300608700091078", out error);
+            // Toast.MakeText(this, "Ident: " +  stock.GetDouble("Qty"), ToastLength.Long).Show();
 
         }
 
 
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_setting1:
+                    {
+                        StartActivity(typeof(Settings));
+                        return true;
+                    }
+             
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
+        private void Listener_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(Settings));
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+           MenuInflater.Inflate(Resource.Layout.popup_action, menu);
+
+
+            return base.OnCreateOptionsMenu(menu);
+        }
 
         private void Ok_Click(object sender, EventArgs e)
         {

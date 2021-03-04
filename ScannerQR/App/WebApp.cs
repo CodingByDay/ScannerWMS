@@ -15,7 +15,7 @@ namespace TrendNET.WMS.Device.App
         /// </summary>
 
 
-     public static string rootURL = WMSDeviceConfig.GetString("WebApp", "http://wms.in-sist.si");
+     public static string rootURL = settings.RootURL;
         private const int x64kb = 64 * 1024;
      // var rootURL = "http://wms.in-sist.si";
         
@@ -23,7 +23,7 @@ namespace TrendNET.WMS.Device.App
             try {
                 // var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
             
-                var url = settings.RootURL + "/Services/Device/Echo.aspx"; /* Settings library */
+                var url = rootURL + "/Services/Device/Echo.aspx"; /* Settings library */
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "GET";
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
