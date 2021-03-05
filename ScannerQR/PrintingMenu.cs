@@ -16,7 +16,8 @@ namespace ScannerQR
     [Activity(Label = "PrintingMenu")]
     public class PrintingMenu : Activity
     {
-        public bool result = Services.isTablet(); /* Is the device tablet. */
+        public static string target = App.settings.device;
+        public bool result = Services.isTablet(target); /* Is the device tablet. */
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -51,7 +52,7 @@ namespace ScannerQR
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(PrintingOutputControlTablet));
             } else
@@ -62,7 +63,7 @@ namespace ScannerQR
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(PrintingProcessControlTablet));
             } else
@@ -73,7 +74,7 @@ namespace ScannerQR
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(PrintingInputControlTablet));
             } else
@@ -84,7 +85,7 @@ namespace ScannerQR
 
         private void Button_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(PrintingSSCCCodesTablet));
             } else
@@ -95,7 +96,7 @@ namespace ScannerQR
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(PrintingReprintLabelsTablet));
             } else

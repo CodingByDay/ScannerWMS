@@ -22,7 +22,7 @@ namespace ScannerQR
 
         public static string IDdevice;
         public static string target;
-        public bool result; /* Checks to see if the device is a tablet
+        public bool result;                        /* Checks to see if the device is a tablet
                                                    *  or a phone to show
                                                    *  different layouts. 
                                                    *  Use this method for navigation. 
@@ -34,26 +34,29 @@ namespace ScannerQR
 
             // Create your application here
             SetContentView(Resource.Layout.MainMenu);
+            var flag = Services.isTablet(App.settings.device);
             // Welcome String.
             if (MainActivity.isValid == true)
             {
                 string toast = new string("Uspešna prijava.");
-
+                
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 MainActivity.isValid = false;
                 MainActivity.progressBar1.Visibility = ViewStates.Invisible;
-                var result = Services.isTablet();
-                IDdevice = settings.ID;
-                target = settings.device;
-                var message = new String(IDdevice);
-                Toast.MakeText(this, message, ToastLength.Long).Show();
+
+                
 
 
 
             }
             // Testing the config reading ... It works... :)
-
+            IDdevice = settings.ID;
+            target = settings.device;
+            result = Services.isTablet(target);
+            
+          
             rapidTakeover = FindViewById<Button>(Resource.Id.rapidTakeover);
+         
             if (result == false)
             {
                 rapidTakeover.Visibility = ViewStates.Gone;
@@ -165,7 +168,7 @@ namespace ScannerQR
 
         private void BtnPackaging_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(PackagingEnteredPositionsViewTablet));
             } else
@@ -176,7 +179,7 @@ namespace ScannerQR
 
         private void BtnCheckStock_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(CheckStockTablet));
             } else
@@ -200,7 +203,7 @@ namespace ScannerQR
 
         private void ButtonIssued_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(UnfinishedIssuedGoodsViewTablet));
             }
@@ -212,7 +215,7 @@ namespace ScannerQR
 
         private void ButtonUnfinished_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(UnfinishedProductionViewTablet));
             }
@@ -224,7 +227,8 @@ namespace ScannerQR
       
         private void ButtonInterWarehouse_Click(object sender, EventArgs e)
         {
-            if (result) {
+            if (result == true)
+            {
                 StartActivity(typeof(UnfinishedInterWarehouseViewTablet));
             }
             else
@@ -235,7 +239,7 @@ namespace ScannerQR
 
         private void Button_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(UnfinishedTakeoversViewTablet));
             }

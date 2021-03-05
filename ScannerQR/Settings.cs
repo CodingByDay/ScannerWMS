@@ -19,8 +19,11 @@ namespace ScannerQR
         private EditText device;
         private Button ok;
         public static string deviceInfo;
-
-        public static string IDinfo; 
+        private Spinner cbDevice;
+        public static string IDinfo;
+        private String[] arrayData = { "Izberite tip naprave", "TABLET", "PHONE" }; // Spustni seznam.
+        private string item;
+        private int position;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,27 +31,45 @@ namespace ScannerQR
             SetContentView(Resource.Layout.settingsPopUp);
             ID = FindViewById<EditText>(Resource.Id.ID);
             rootURL = FindViewById<EditText>(Resource.Id.rootURL);
-            device = FindViewById<EditText>(Resource.Id.device);
+            cbDevice = FindViewById<Spinner>(Resource.Id.cbDevice);
             ok = FindViewById<Button>(Resource.Id.ok);
             ok.Click += Ok_Click;
+          
+            rootURL.Text = App.settings.RootURL;
+            ID.Text = App.settings.ID;
+            var adapter = new ArrayAdapter<String>(this,
+           Android.Resource.Layout.SimpleSpinnerItem, arrayData);
 
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            cbDevice.Adapter = adapter;
 
+            cbDevice.ItemSelected += CbDevice_ItemSelected;
 
 
             // Create your application here
         }
 
+        private void CbDevice_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+
+            Spinner spinner = (Spinner)sender;
+            position = e.Position;
+            App.settings.device = arrayData.ElementAt(position);
+            Toast.MakeText(this, App.settings.device, ToastLength.Long).Show();
+           
+        }
+
         private void Ok_Click(object sender, EventArgs e)
         {
+            App.settings.device = arrayData[position];
             App.settings.RootURL = rootURL.Text;
-            App.settings.device = device.Text;
             App.settings.ID = ID.Text;
-            deviceInfo = App.settings.device = device.Text;
-            IDinfo = App.settings.ID = ID.Text;
-           
+            
+
+
 
             //deviceURL.Text = App.settings.RootURL
-        StartActivity(typeof(MainActivity));
+            StartActivity(typeof(MainActivity));
         }
     }
 }

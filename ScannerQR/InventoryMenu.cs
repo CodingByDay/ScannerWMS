@@ -16,7 +16,11 @@ namespace ScannerQR
     [Activity(Label = "InventoryMenu")]
     public class InventoryMenu : Activity
     {
-        public bool result = Services.isTablet(); /* Is the device tablet. */
+
+
+        public static string target = App.settings.device;
+     
+        public bool result = Services.isTablet(target); /* Is the device tablet. */
         private Button button1;
         private Button button2;
         private Button button3;
@@ -104,7 +108,7 @@ namespace ScannerQR
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(InventoryPrintTablet));
             } else
@@ -115,7 +119,7 @@ namespace ScannerQR
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(InventoryOpenTablet));
             } else
@@ -137,7 +141,7 @@ namespace ScannerQR
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(InventoryProcessTablet));
             } else
@@ -148,7 +152,7 @@ namespace ScannerQR
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (result)
+            if (result == true)
             {
                 StartActivity(typeof(InventoryOpenDocumentTablet));
             } else

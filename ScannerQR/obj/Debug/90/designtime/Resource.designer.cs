@@ -3610,121 +3610,121 @@ namespace ScannerQR
 			public const int buttonPanel = 2131230828;
 			
 			// aapt resource value: 0x7F08006D
-			public const int cbDocType = 2131230829;
+			public const int cbDevice = 2131230829;
 			
 			// aapt resource value: 0x7F08006E
-			public const int cbExtra = 2131230830;
+			public const int cbDocType = 2131230830;
 			
 			// aapt resource value: 0x7F08006F
-			public const int cbIssueWH = 2131230831;
+			public const int cbExtra = 2131230831;
 			
 			// aapt resource value: 0x7F080070
-			public const int cbRecceiveWH = 2131230832;
+			public const int cbIssueWH = 2131230832;
 			
 			// aapt resource value: 0x7F080071
-			public const int cbSubject = 2131230833;
+			public const int cbRecceiveWH = 2131230833;
 			
 			// aapt resource value: 0x7F080072
-			public const int cbWarehouse = 2131230834;
+			public const int cbSubject = 2131230834;
 			
 			// aapt resource value: 0x7F080073
-			public const int cbWarehouses = 2131230835;
+			public const int cbWarehouse = 2131230835;
 			
 			// aapt resource value: 0x7F080074
-			public const int center = 2131230836;
+			public const int cbWarehouses = 2131230836;
 			
 			// aapt resource value: 0x7F080075
-			public const int center_horizontal = 2131230837;
+			public const int center = 2131230837;
 			
 			// aapt resource value: 0x7F080076
-			public const int center_vertical = 2131230838;
+			public const int center_horizontal = 2131230838;
 			
 			// aapt resource value: 0x7F080077
-			public const int checkbox = 2131230839;
+			public const int center_vertical = 2131230839;
 			
 			// aapt resource value: 0x7F080078
-			public const int chronometer = 2131230840;
+			public const int checkbox = 2131230840;
 			
 			// aapt resource value: 0x7F080079
-			public const int clip_horizontal = 2131230841;
+			public const int chronometer = 2131230841;
 			
 			// aapt resource value: 0x7F08007A
-			public const int clip_vertical = 2131230842;
+			public const int clip_horizontal = 2131230842;
 			
 			// aapt resource value: 0x7F08007B
-			public const int collapseActionView = 2131230843;
+			public const int clip_vertical = 2131230843;
 			
 			// aapt resource value: 0x7F08007C
-			public const int confirm = 2131230844;
+			public const int collapseActionView = 2131230844;
 			
 			// aapt resource value: 0x7F08007D
-			public const int container = 2131230845;
+			public const int confirm = 2131230845;
 			
 			// aapt resource value: 0x7F08007E
-			public const int content = 2131230846;
+			public const int container = 2131230846;
 			
 			// aapt resource value: 0x7F08007F
-			public const int contentPanel = 2131230847;
+			public const int content = 2131230847;
 			
 			// aapt resource value: 0x7F080080
-			public const int coordinator = 2131230848;
+			public const int contentPanel = 2131230848;
 			
 			// aapt resource value: 0x7F080081
-			public const int createdBy = 2131230849;
-			
-			// aapt resource value: 0x7F080082
-			public const int createdby = 2131230850;
+			public const int coordinator = 2131230849;
 			
 			// aapt resource value: 0x7F080003
 			public const int CreatedBy = 2131230723;
 			
+			// aapt resource value: 0x7F080083
+			public const int createdby = 2131230851;
+			
+			// aapt resource value: 0x7F080082
+			public const int createdBy = 2131230850;
+			
 			// aapt resource value: 0x7F080002
 			public const int CTRL = 2131230722;
 			
-			// aapt resource value: 0x7F080083
-			public const int custom = 2131230851;
-			
 			// aapt resource value: 0x7F080084
-			public const int customPanel = 2131230852;
+			public const int custom = 2131230852;
 			
 			// aapt resource value: 0x7F080085
-			public const int dataList = 2131230853;
+			public const int customPanel = 2131230853;
+			
+			// aapt resource value: 0x7F080086
+			public const int dataList = 2131230854;
+			
+			// aapt resource value: 0x7F080087
+			public const int date = 2131230855;
 			
 			// aapt resource value: 0x7F080004
 			public const int Date = 2131230724;
 			
-			// aapt resource value: 0x7F080086
-			public const int date = 2131230854;
-			
-			// aapt resource value: 0x7F080087
-			public const int dateChoice = 2131230855;
-			
 			// aapt resource value: 0x7F080088
-			public const int dateText = 2131230856;
+			public const int dateChoice = 2131230856;
 			
 			// aapt resource value: 0x7F080089
-			public const int decor_content_parent = 2131230857;
+			public const int dateText = 2131230857;
 			
 			// aapt resource value: 0x7F08008A
-			public const int default_activity_button = 2131230858;
+			public const int decor_content_parent = 2131230858;
 			
 			// aapt resource value: 0x7F08008B
-			public const int design_bottom_sheet = 2131230859;
+			public const int default_activity_button = 2131230859;
 			
 			// aapt resource value: 0x7F08008C
-			public const int design_menu_item_action_area = 2131230860;
+			public const int design_bottom_sheet = 2131230860;
 			
 			// aapt resource value: 0x7F08008D
-			public const int design_menu_item_action_area_stub = 2131230861;
+			public const int design_menu_item_action_area = 2131230861;
 			
 			// aapt resource value: 0x7F08008E
-			public const int design_menu_item_text = 2131230862;
+			public const int design_menu_item_action_area_stub = 2131230862;
 			
 			// aapt resource value: 0x7F08008F
-			public const int design_navigation_view = 2131230863;
+			public const int design_menu_item_text = 2131230863;
 			
 			// aapt resource value: 0x7F080090
-			public const int device = 2131230864;
+			public const int design_navigation_view = 2131230864;
 			
 			// aapt resource value: 0x7F080091
 			public const int deviceURL = 2131230865;
@@ -3768,11 +3768,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F08009D
 			public const int fill = 2131230877;
 			
-			// aapt resource value: 0x7F080007
-			public const int Filled = 2131230727;
-			
 			// aapt resource value: 0x7F0800A0
 			public const int filled = 2131230880;
+			
+			// aapt resource value: 0x7F080007
+			public const int Filled = 2131230727;
 			
 			// aapt resource value: 0x7F08009E
 			public const int fill_horizontal = 2131230878;

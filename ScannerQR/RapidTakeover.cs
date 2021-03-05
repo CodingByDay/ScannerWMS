@@ -34,11 +34,12 @@ namespace ScannerQR
 
         public void GetBarcode(string barcode)
         {
-            throw new NotImplementedException();
+          //
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.RapidTakeover);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
@@ -53,12 +54,9 @@ namespace ScannerQR
             btConfirm.Click += BtConfirm_Click;
             tbReceiveLocation.Enabled = false;
             tbRealStock.Enabled = false;
-            
             tbIdent.Enabled = false;
             tbLocation.FocusChange += TbLocation_FocusChange;
             color();
-
-      
 
 
             var whs = CommonData.ListWarehouses();
@@ -69,7 +67,7 @@ namespace ScannerQR
             });
 
             var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
-       Android.Resource.Layout.SimpleSpinnerItem, data);
+            Android.Resource.Layout.SimpleSpinnerItem, data);
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouses.Adapter = adapterWarehouse;
 
@@ -126,11 +124,8 @@ namespace ScannerQR
 
                 }
 
-
             }
         }
-
-
 
 
         private bool saveHead()
@@ -146,8 +141,6 @@ namespace ScannerQR
 
                 if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
 
-
-
                 moveItem.SetInt("HeadID", currentItem.GetInt("HeadID"));
                 moveItem.SetString("LinkKey", "");
                 moveItem.SetInt("LinkNo", 0);
@@ -160,7 +153,6 @@ namespace ScannerQR
                 moveItem.SetString("Location", tbLocation.Text.Trim());
                 moveItem.SetString("IssueLocation", data.GetString("Location"));
 
-
                 string error2;
                 moveItemFinal = Services.SetObject("mi", moveItem, out error2); /* Save move item method */
 
@@ -168,9 +160,9 @@ namespace ScannerQR
                
                     InUseObjects.Invalidate("MoveItem");
                     return true;
-                } 
-            
+                }    
         }
+
         private void TbLocation_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessSSCC();
@@ -181,14 +173,8 @@ namespace ScannerQR
            ////////////////
         }
 
-
-
-   
-       
-
         private void ProcessSSCC()
         {
-
             var sscc = tbSSCC.Text.Trim();
             if (string.IsNullOrEmpty(sscc)) { return; }
 
@@ -211,12 +197,7 @@ namespace ScannerQR
                     tbIdent.Text = dataItem.GetString("Ident");
                     tbReceiveLocation.Text = dataItem.GetString("Location");
                     tbRealStock.Text = dataItem.GetDouble("RealStock").ToString();
-                    
-                  
-
-                  
-                  
-                 
+                                                   
                 }
             
             }
@@ -225,17 +206,14 @@ namespace ScannerQR
 
             }
 
-
-
-
         }
 
-        //string error;
+        // string error;
 
-        //var data = Services.GetObject("sscc", tbSSCC.Text, out error);
+        // var data = Services.GetObject("sscc", tbSSCC.Text, out error);
 
-        //var ident = data.GetString("Ident");
-        //Toast.MakeText(this, "Ident je: " + ident, ToastLength.Long).Show();
+        // var ident = data.GetString("Ident");
+        // Toast.MakeText(this, "Ident je: " + ident, ToastLength.Long).Show();
 
 
         private void color()

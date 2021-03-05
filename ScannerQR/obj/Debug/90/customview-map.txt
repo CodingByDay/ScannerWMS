@@ -423,6 +423,7 @@ Spinner;obj\Debug\90\res\layout\printingreprintlabelstablet.xml
 Spinner;obj\Debug\90\res\layout\rapidtakeover.xml
 Spinner;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 Spinner;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
+Spinner;obj\Debug\90\res\layout\settingspopup.xml
 Spinner;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 Spinner;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
 string;obj\Debug\90\res\values\strings.xml

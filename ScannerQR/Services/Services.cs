@@ -31,18 +31,21 @@ namespace TrendNET.WMS.Device.Services
         /// </summary>
         /// <returns></returns>
 
-        public static bool isTablet()
+        public static bool isTablet(string target)
         {
-         
-            var device = settings.device;
 
-           if(device == "TABLET")
+      
+            if (target == "TABLET")
             {
                 return true;
-            } else
+            }
+            else
             {
                 return false;
             }
+
+
+          
 
 
         }

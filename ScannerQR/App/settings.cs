@@ -25,7 +25,7 @@ namespace ScannerQR.App
 
         public static string ID
         {
-            get => AppSettings.GetValueOrDefault(nameof(ID), "0003");
+            get => AppSettings.GetValueOrDefault(nameof(ID), string.Empty);
             set => AppSettings.GetValueOrDefault(nameof(ID), value);
         }
 
@@ -33,7 +33,7 @@ namespace ScannerQR.App
        
         public static string device
         {
-            get => AppSettings.GetValueOrDefault(nameof(device), "TABLET");
+            get => AppSettings.GetValueOrDefault(nameof(device), string.Empty);
             set => AppSettings.GetValueOrDefault(nameof(device), value);
         }
 
