@@ -21,12 +21,13 @@ namespace ScannerQR.App
             CrossSettings.Current;
        
 
+     
 
 
-        public static string ID
+    public static string ID
         {
             get => AppSettings.GetValueOrDefault(nameof(ID), string.Empty);
-            set => AppSettings.GetValueOrDefault(nameof(ID), value);
+            set => AppSettings.AddOrUpdateValue(nameof(ID), value);
         }
 
       
@@ -34,11 +35,15 @@ namespace ScannerQR.App
         public static string device
         {
             get => AppSettings.GetValueOrDefault(nameof(device), string.Empty);
-            set => AppSettings.GetValueOrDefault(nameof(device), value);
+            set => AppSettings.AddOrUpdateValue(nameof(device), value);
         }
 
     
-
+        public static bool tablet
+        {
+            get => AppSettings.GetValueOrDefault(nameof(tablet), false);
+            set => AppSettings.AddOrUpdateValue(nameof(tablet), value);
+        }
 
         public static string RootURL
         {

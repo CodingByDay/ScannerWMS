@@ -1025,7 +1025,7 @@ int id Date 0x7f080003
 int id Document 0x7f080004
 int id FUNCTION 0x7f080005
 int id Filled 0x7f080006
-int id ID 0x7f080007
+int id IDdevice 0x7f080007
 int id Ident 0x7f080008
 int id Idents 0x7f080009
 int id Issuer 0x7f08000a

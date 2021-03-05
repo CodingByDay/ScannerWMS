@@ -52,7 +52,7 @@ namespace ScannerQR
             // Testing the config reading ... It works... :)
             IDdevice = settings.ID;
             target = settings.device;
-            result = Services.isTablet(target);
+            result = settings.tablet;
             
           
             rapidTakeover = FindViewById<Button>(Resource.Id.rapidTakeover);

@@ -3826,7 +3826,7 @@ namespace ScannerQR
 			public const int icon_group = 2131230894;
 			
 			// aapt resource value: 0x7F080008
-			public const int ID = 2131230728;
+			public const int IDdevice = 2131230728;
 			
 			// aapt resource value: 0x7F080009
 			public const int Ident = 2131230729;

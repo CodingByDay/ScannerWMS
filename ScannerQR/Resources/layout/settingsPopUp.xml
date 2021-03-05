@@ -79,7 +79,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/ID" />
+            android:id="@+id/IDdevice" />
 
 
     </LinearLayout>

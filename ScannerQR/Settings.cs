@@ -16,7 +16,6 @@ namespace ScannerQR
     {
         private EditText ID;
         private EditText rootURL;
-        private EditText device;
         private Button ok;
         public static string deviceInfo;
         private Spinner cbDevice;
@@ -24,19 +23,20 @@ namespace ScannerQR
         private String[] arrayData = { "Izberite tip naprave", "TABLET", "PHONE" }; // Spustni seznam.
         private string item;
         private int position;
-
+        private string dev;
+        public static bool flag;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.settingsPopUp);
-            ID = FindViewById<EditText>(Resource.Id.ID);
+            ID = FindViewById<EditText>(Resource.Id.IDdevice);
             rootURL = FindViewById<EditText>(Resource.Id.rootURL);
             cbDevice = FindViewById<Spinner>(Resource.Id.cbDevice);
             ok = FindViewById<Button>(Resource.Id.ok);
             ok.Click += Ok_Click;
-          
-            rootURL.Text = App.settings.RootURL;
             ID.Text = App.settings.ID;
+
+            rootURL.Text = App.settings.RootURL;
             var adapter = new ArrayAdapter<String>(this,
            Android.Resource.Layout.SimpleSpinnerItem, arrayData);
 
@@ -44,9 +44,20 @@ namespace ScannerQR
             cbDevice.Adapter = adapter;
 
             cbDevice.ItemSelected += CbDevice_ItemSelected;
-
-
+            maintainSelection();
             // Create your application here
+        }
+
+
+        public void maintainSelection()
+        {
+            if(App.settings.tablet ==true)
+            {
+                cbDevice.SetSelection(1);
+            } else
+            {
+                cbDevice.SetSelection(2);
+            }
         }
 
         private void CbDevice_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -54,17 +65,23 @@ namespace ScannerQR
 
             Spinner spinner = (Spinner)sender;
             position = e.Position;
-            App.settings.device = arrayData.ElementAt(position);
-            Toast.MakeText(this, App.settings.device, ToastLength.Long).Show();
-           
+            dev = arrayData[position];
+            if (dev == "TABLET")
+            {
+                App.settings.tablet = true; 
+            } else
+            {
+                App.settings.tablet = false;
+            }
+         
         }
 
         private void Ok_Click(object sender, EventArgs e)
         {
-            App.settings.device = arrayData[position];
+            App.settings.device = dev;
             App.settings.RootURL = rootURL.Text;
             App.settings.ID = ID.Text;
-            
+            ID.Text = App.settings.ID;
 
 
 

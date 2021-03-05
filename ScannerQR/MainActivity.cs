@@ -126,6 +126,7 @@ namespace ScannerQR
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
             progressBar1 = FindViewById<ProgressBar>(Resource.Id.progressBar1);
+
             // Registering first event..
             Button btnRegistrationEvent = FindViewById<Button>(Resource.Id.btnRegistration);
             img = FindViewById<ImageView>(Resource.Id.img);
@@ -169,16 +170,7 @@ namespace ScannerQR
             return base.OnCreateOptionsMenu(menu);
         }
 
-        private void Ok_Click(object sender, EventArgs e)
-        {
-            App.settings.RootURL = rootURL.Text;
-            App.settings.ID = ID.Text;
-           
-            deviceURL.Text = App.settings.RootURL;
-            popupDialog.Dismiss();
-            popupDialog.Hide();
-
-        }
+      
 
         /// <summary>
         /// First navigation event.
