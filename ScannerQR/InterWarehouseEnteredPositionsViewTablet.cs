@@ -44,7 +44,7 @@ namespace ScannerQR
         private List<InterWarehouseEnteredPositionsViewList> data = new List<InterWarehouseEnteredPositionsViewList>();
         private string tempUnit;
         private int selected;
-        private int selectedItem;
+        private int selectedItem=-1;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

@@ -38,7 +38,7 @@
             android:singleLine="true"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Odprto"
+            android:text="Količina"
             android:layout_marginRight="28.0dp"
             android:id="@+id/Quantity" />
 
@@ -51,7 +51,7 @@
             android:singleLine="true"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Naročeno"
+            android:text="Pozicija"
             android:layout_marginRight="28.0dp"
             android:id="@+id/Position" />
         
@@ -64,7 +64,7 @@
             android:singleLine="true"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Prejeto"
+            android:text="Serijska številka"
             android:layout_marginRight="28.0dp"
             android:id="@+id/SerialNumber" />
 
@@ -79,7 +79,7 @@
             android:singleLine="true"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Prejeto"
+            android:text="SSCC"
             android:layout_marginRight="28.0dp"
             android:id="@+id/SSCC" />
 
