@@ -120,7 +120,7 @@ namespace ScannerQR
                         setting = true;
                     }
                     if (setting)
-                    {
+                    { // Saved data.
                         tempUnit = item.GetDouble("Qty").ToString();
 
                     }
