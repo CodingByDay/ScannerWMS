@@ -136,14 +136,13 @@ namespace ScannerQR
                 string ssscError;
                 var data = Services.GetObject("sscc", tbSSCC.Text, out ssscError);
                 string error;
-                var currentItem = Services.GetObject("id", data.GetString("Ident"), out error);
 
 
                 if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
 
-                moveItem.SetInt("HeadID", currentItem.GetInt("HeadID"));
-                moveItem.SetString("LinkKey", "");
-                moveItem.SetInt("LinkNo", 0);
+                moveItem.SetInt("HeadID", data.GetInt("HeadID"));
+                moveItem.SetString("LinkKey", data.GetString("LinkKey"));
+                moveItem.SetInt("LinkNo", data.GetInt("LinkNo"));
                 moveItem.SetString("Ident", data.GetString("Ident"));
                 moveItem.SetString("SSCC", data.GetString("SSCC"));
                 moveItem.SetString("SerialNo", data.GetString("SerialNo"));
