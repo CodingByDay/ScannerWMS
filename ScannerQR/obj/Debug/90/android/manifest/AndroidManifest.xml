@@ -39,6 +39,7 @@
   <application android:allowBackup="true" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:icon="@drawable/barcode" android:name="android.app.Application" android:debuggable="true" android:extractNativeLibs="true">
     <activity android:label="CheckStock" android:name="crc640b2286ca4f1c700f.CheckStock" />
     <activity android:label="CheckStockTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.CheckStockTablet" />
+    <activity android:label="choiceProduction" android:name="crc640b2286ca4f1c700f.choiceProduction" />
     <activity android:label="InterWarehouseBusinessEventSetup" android:name="crc640b2286ca4f1c700f.InterWarehouseBusinessEventSetup" />
     <activity android:label="InterWarehouseBusinessEventSetupTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.InterWarehouseBusinessEventSetupTablet" />
     <activity android:label="InterWarehouseEnteredPositionsView" android:name="crc640b2286ca4f1c700f.InterWarehouseEnteredPositionsView" />
@@ -103,6 +104,7 @@
     <activity android:label="ProductionWorkOrderSetup" android:name="crc640b2286ca4f1c700f.ProductionWorkOrderSetup" />
     <activity android:label="ProductionWorkOrderSetupTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.ProductionWorkOrderSetupTablet" />
     <activity android:label="RapidTakeover" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.RapidTakeover" />
+    <activity android:label="RapidTakeoverPhone" android:name="crc640b2286ca4f1c700f.RapidTakeoverPhone" />
     <activity android:label="receiver" android:name="crc640b2286ca4f1c700f.receiver" />
     <activity android:label="SelectSubjectBeforeFinish" android:name="crc640b2286ca4f1c700f.SelectSubjectBeforeFinish" />
     <activity android:label="SelectSubjectBeforeFinishTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.SelectSubjectBeforeFinishTablet" />

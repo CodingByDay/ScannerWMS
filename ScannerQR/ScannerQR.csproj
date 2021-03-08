@@ -167,6 +167,7 @@
     <Compile Include="App\WMSDeviceConfig.cs" />
     <Compile Include="CheckStock.cs" />
     <Compile Include="CheckStockTablet.cs" />
+    <Compile Include="choiceProduction.cs" />
     <Compile Include="InterWarehouseBusinessEventSetup.cs" />
     <Compile Include="InterWarehouseBusinessEventSetupTablet.cs" />
     <Compile Include="InterWarehouseEnteredPositionsView.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="ProductionWorkOrderSetup.cs" />
     <Compile Include="ProductionWorkOrderSetupTablet.cs" />
     <Compile Include="RapidTakeover.cs" />
+    <Compile Include="RapidTakeoverPhone.cs" />
     <Compile Include="receiver.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -912,6 +914,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\popup_action.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\choiceProduction.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RapidTakeoverPhone.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

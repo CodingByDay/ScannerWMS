@@ -45,6 +45,7 @@ background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 Button;obj\Debug\90\res\layout\activity_main.xml
 Button;obj\Debug\90\res\layout\checkstock.xml
 Button;obj\Debug\90\res\layout\checkstocktablet.xml
+Button;obj\Debug\90\res\layout\choiceproduction.xml
 Button;obj\Debug\90\res\layout\common.xml
 Button;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
 Button;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
@@ -107,6 +108,7 @@ Button;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
 Button;obj\Debug\90\res\layout\productionworkordersetup.xml
 Button;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
 Button;obj\Debug\90\res\layout\rapidtakeover.xml
+Button;obj\Debug\90\res\layout\rapidtakeoverphone.xml
 Button;obj\Debug\90\res\layout\receiverlayout.xml
 Button;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 Button;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
@@ -193,6 +195,7 @@ EditText;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
 EditText;obj\Debug\90\res\layout\productionworkordersetup.xml
 EditText;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
 EditText;obj\Debug\90\res\layout\rapidtakeover.xml
+EditText;obj\Debug\90\res\layout\rapidtakeoverphone.xml
 EditText;obj\Debug\90\res\layout\settingspopup.xml
 EditText;obj\Debug\90\res\layout\takeover2main.xml
 EditText;obj\Debug\90\res\layout\takeover2maintablet.xml
@@ -234,6 +237,7 @@ LinearLayout;obj\Debug\90\res\layout\activity_main.xml
 LinearLayout;obj\Debug\90\res\layout\checkstock.xml
 LinearLayout;obj\Debug\90\res\layout\checkstockaddonview.xml
 LinearLayout;obj\Debug\90\res\layout\checkstocktablet.xml
+LinearLayout;obj\Debug\90\res\layout\choiceproduction.xml
 LinearLayout;obj\Debug\90\res\layout\common.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
 LinearLayout;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
@@ -306,6 +310,7 @@ LinearLayout;obj\Debug\90\res\layout\productionserialorsscclistview.xml
 LinearLayout;obj\Debug\90\res\layout\productionworkordersetup.xml
 LinearLayout;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
 LinearLayout;obj\Debug\90\res\layout\rapidtakeover.xml
+LinearLayout;obj\Debug\90\res\layout\rapidtakeoverphone.xml
 LinearLayout;obj\Debug\90\res\layout\receiverlayout.xml
 LinearLayout;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 LinearLayout;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
@@ -421,6 +426,7 @@ Spinner;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 Spinner;obj\Debug\90\res\layout\printingreprintlabels.xml
 Spinner;obj\Debug\90\res\layout\printingreprintlabelstablet.xml
 Spinner;obj\Debug\90\res\layout\rapidtakeover.xml
+Spinner;obj\Debug\90\res\layout\rapidtakeoverphone.xml
 Spinner;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 Spinner;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
 Spinner;obj\Debug\90\res\layout\settingspopup.xml
@@ -432,6 +438,7 @@ TextView;obj\Debug\90\res\layout\activity_main.xml
 TextView;obj\Debug\90\res\layout\checkstock.xml
 TextView;obj\Debug\90\res\layout\checkstockaddonview.xml
 TextView;obj\Debug\90\res\layout\checkstocktablet.xml
+TextView;obj\Debug\90\res\layout\choiceproduction.xml
 TextView;obj\Debug\90\res\layout\common.xml
 TextView;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
 TextView;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
@@ -501,6 +508,7 @@ TextView;obj\Debug\90\res\layout\productionserialorsscclistview.xml
 TextView;obj\Debug\90\res\layout\productionworkordersetup.xml
 TextView;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
 TextView;obj\Debug\90\res\layout\rapidtakeover.xml
+TextView;obj\Debug\90\res\layout\rapidtakeoverphone.xml
 TextView;obj\Debug\90\res\layout\receiverlayout.xml
 TextView;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 TextView;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml

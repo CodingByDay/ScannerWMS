@@ -221,7 +221,8 @@ namespace ScannerQR
             }
             else
             {
-                StartActivity(typeof(UnfinishedProductionView));
+                // StartActivity(typeof(UnfinishedProductionView));
+                StartActivity(typeof(choiceProduction));
             }
         }
       

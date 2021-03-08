@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="202.0dp"
+        android:id="@+id/textView1" />
+    <LinearLayout
+     
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5.0dp"
+        android:layout_marginLeft="5.0dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:bottomLeftRadius="7dp"
+            android:bottomRightRadius="7dp"
+            android:topLeftRadius="7dp"
+            android:topRightRadius="7dp"
+            android:layout_width="165.0dp"
+            android:layout_height="89.0dp"
+            android:background="#80d8ff"
+            android:drawableLeft="@drawable/factory"
+            android:paddingBottom="5dp"
+            android:textSize="16px"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="8dp"
+            android:text="Prev. iz proizvodnje-F2"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"
+            android:id="@+id/production" />
+        <Button
+            android:layout_weight="1"
+            android:bottomLeftRadius="7dp"
+            android:bottomRightRadius="7dp"
+            android:topLeftRadius="7dp"
+            android:topRightRadius="7dp"
+            android:layout_width="165.0dp"
+            android:layout_height="89.0dp"
+            android:background="@android:color/holo_green_dark"
+            android:drawableLeft="@drawable/clock"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+           android:textSize="16px"
+            android:textStyle="bold"
+            android:paddingRight="20dp"
+            android:paddingTop="8dp"
+            android:text="Hitri prev.-F3"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"
+            android:layout_marginLeft="6.0dp"
+            android:layout_marginRight="6.0dp"
+            android:id="@+id/rapid" />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

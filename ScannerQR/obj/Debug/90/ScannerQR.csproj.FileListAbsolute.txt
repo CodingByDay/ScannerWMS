@@ -30,6 +30,7 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\44\jl\files.ca
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\R.cs.flag
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csproj.CoreCompileInputs.cache
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csprojAssemblyReference.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\ScannerQR.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\ScannerQR.pdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\com.companyname.scannerqr.apk
@@ -40,7 +41,6 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\com.companyname.scan
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.pdb
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\bin\Debug\DeviceAPI.dll.mdb
-C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csprojAssemblyReference.cache
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.csproj.CopyComplete
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.dll
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\ScannerQR.pdb
@@ -271,6 +271,8 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\drawable\cloc
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\rapidtakeover.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\test.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\popup_action.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\choiceproduction.xml
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\res\layout\rapidtakeoverphone.xml
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\uploadflags.txt
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\resolvedassemblies.hash
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\assets\DeviceAPI.dll
@@ -400,6 +402,7 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc64
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc6409c71bcadc42b4aa\UnfinishedTakeoverAdapter.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\CheckStock.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\CheckStockTablet.java
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\choiceProduction.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\InterWarehouseBusinessEventSetup.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\InterWarehouseBusinessEventSetupTablet.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\InterWarehouseEnteredPositionsView.java
@@ -459,6 +462,7 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc64
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\ProductionWorkOrderSetup.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\ProductionWorkOrderSetupTablet.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\RapidTakeover.java
+C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\RapidTakeoverPhone.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\receiver.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\receiver_InitTask.java
 C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\android\src\crc640b2286ca4f1c700f\SelectSubjectBeforeFinish.java
