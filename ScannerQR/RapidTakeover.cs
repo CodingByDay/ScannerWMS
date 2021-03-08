@@ -96,7 +96,7 @@ namespace ScannerQR
         {
 
             string error;
-            var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + tbIdent.Text); /* Defined at the beggining of the activity. */
+            var stock = Services.GetObjectList("str", out error, data.ElementAt(tempLocation).ID + "||" + tbIdent.Text); /* Defined at the beggining of the activity. */
             var number = stock.Items.Count();
 
 
@@ -179,7 +179,7 @@ namespace ScannerQR
             var warehouse = data.ElementAt(tempLocation);
             if (!CommonData.IsValidLocation(warehouse.ID, tbLocation.Text.Trim()))
             {
-                string WebError = string.Format("Prejemna lokacija" + tbLocation.Text.Trim() + "ni veljavna za sladišće" + moveHead.GetString("Receiver") + "!");
+                string WebError = string.Format("Prejemna lokacija" + tbLocation.Text.Trim() + "ni veljavna za sladišče:" + " " + data.ElementAt(tempLocation).Text + "!");
                 Toast.MakeText(this, WebError, ToastLength.Long).Show();
                 tbLocation.RequestFocus();
                 return false;
@@ -196,8 +196,8 @@ namespace ScannerQR
                     if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
 
                     moveItem.SetInt("HeadID", data.GetInt("HeadID"));
-                    moveItem.SetString("LinkKey", data.GetString("LinkKey"));
-                    moveItem.SetInt("LinkNo", data.GetInt("LinkNo"));
+                    moveItem.SetString("LinkKey", "");
+                    moveItem.SetInt("LinkNo", 0);
                     moveItem.SetString("Ident", data.GetString("Ident"));
                     moveItem.SetString("SSCC", data.GetString("SSCC"));
                     moveItem.SetString("SerialNo", data.GetString("SerialNo"));
