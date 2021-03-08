@@ -82,8 +82,9 @@ namespace ScannerQR
 
                 try
                 {
-
-                    var headID = moveHead.GetInt("HeadID");
+                    var  headID = moveItem.GetInt("HeadID");
+                    // move item 
+                  
 
                     string result;
                     if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
