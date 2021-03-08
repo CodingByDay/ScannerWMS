@@ -115,7 +115,7 @@ namespace ScannerQR
                     {
                         setting = false;
                     }
-                    else
+                    else // random comment number 23
                     {
                         setting = true;
                     }
