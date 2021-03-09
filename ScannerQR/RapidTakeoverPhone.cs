@@ -206,17 +206,18 @@ namespace ScannerQR
 
                     if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
 
+                
                     moveItem.SetInt("HeadID", data.GetInt("HeadID"));
-                    moveItem.SetString("LinkKey", "");
-                    moveItem.SetInt("LinkNo", 0);
+                    moveItem.SetString("LinkKey", data.GetString("Key"));
+                    moveItem.SetInt("LinkNo", data.GetInt("LinkNo"));
                     moveItem.SetString("Ident", data.GetString("Ident"));
-                    moveItem.SetString("SSCC", data.GetString("SSCC"));
+                    moveItem.SetString("SSCC", tbSSCC.Text.Trim());
                     moveItem.SetString("SerialNo", data.GetString("SerialNo"));
-                    moveItem.SetDouble("Packing", Convert.ToDouble(data.GetDouble("RealStock")));
-                    moveItem.SetDouble("Qty", Convert.ToDouble(data.GetDouble("RealStock")));
-                    moveItem.SetInt("Clerk", Services.UserID());
+                    moveItem.SetDouble("Packing", data.GetDouble("Packing"));
+                    moveItem.SetDouble("Factor", data.GetDouble("Factor"));
+                    moveItem.SetDouble("Qty", data.GetDouble("Qty"));
                     moveItem.SetString("Location", tbLocation.Text.Trim());
-                    moveItem.SetString("IssueLocation", data.GetString("Location")); // 
+                    moveItem.SetInt("Clerk", data.GetInt("Clerk"));
 
                     string error2;
                     moveItemFinal = Services.SetObject("mi", moveItem, out error2); /* Save move item method */

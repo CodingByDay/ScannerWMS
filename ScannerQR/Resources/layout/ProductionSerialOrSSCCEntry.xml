@@ -115,7 +115,6 @@
                                      >
 
         <TextView
-            android:textSize="16px"
             android:textStyle="bold"
             android:layout_width="89.5dp"
             android:layout_height="wrap_content"

@@ -73,14 +73,14 @@
 	.section	.rodata.map_aname.12,"aMS",%progbits,1
 	.type	.L.map_aname.12, %object
 .L.map_aname.12:
-	.asciz	"Microsoft.AppCenter.Android.Bindings"
-	.size	.L.map_aname.12, 37
+	.asciz	"Mono.Android"
+	.size	.L.map_aname.12, 13
 
 	.section	.rodata.map_aname.13,"aMS",%progbits,1
 	.type	.L.map_aname.13, %object
 .L.map_aname.13:
-	.asciz	"Mono.Android"
-	.size	.L.map_aname.13, 13
+	.asciz	"Microsoft.AppCenter.Android.Bindings"
+	.size	.L.map_aname.13, 37
 
 	.section	.rodata.map_aname.14,"aMS",%progbits,1
 	.type	.L.map_aname.14, %object
