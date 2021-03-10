@@ -168,24 +168,16 @@ namespace ScannerQR
 
         private void BtnPackaging_Click(object sender, EventArgs e)
         {
-            if (result == true)
-            {
-                StartActivity(typeof(PackagingEnteredPositionsViewTablet));
-            } else
-            {
+         
                 StartActivity(typeof(PackagingEnteredPositionsView));
-            }
+            
         }
 
         private void BtnCheckStock_Click(object sender, EventArgs e)
         {
-            if (result == true)
-            {
-                StartActivity(typeof(CheckStockTablet));
-            } else
-            {
+          
                 StartActivity(typeof(CheckStock));
-            }
+            
         }
 
         private void BtnInventory_Click(object sender, EventArgs e)
@@ -203,51 +195,32 @@ namespace ScannerQR
 
         private void ButtonIssued_Click(object sender, EventArgs e)
         {
-            if (result == true)
-            {
-                StartActivity(typeof(UnfinishedIssuedGoodsViewTablet));
-            }
-            else
-            {
+          
                 StartActivity(typeof(UnfinishedIssuedGoodsView));
-            }
+            
         }
 
         private void ButtonUnfinished_Click(object sender, EventArgs e)
         {
-            if (result == true)
-            {
-                StartActivity(typeof(UnfinishedProductionViewTablet));
-            }
-            else
-            {
+          
+        
                 // StartActivity(typeof(UnfinishedProductionView));
                 StartActivity(typeof(choiceProduction));
-            }
+            
         }
       
         private void ButtonInterWarehouse_Click(object sender, EventArgs e)
         {
-            if (result == true)
-            {
-                StartActivity(typeof(UnfinishedInterWarehouseViewTablet));
-            }
-            else
-            {
+        
                 StartActivity(typeof(UnfinishedInterWarehouseView));
-            }
+            
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
-            if (result == true)
-            {
-                StartActivity(typeof(UnfinishedTakeoversViewTablet));
-            }
-            else
-            {
+         
                 StartActivity(typeof(UnfinishedTakeoversView));
-            }
+            
         }
     }
 }

@@ -208,7 +208,7 @@ namespace ScannerQR
 
                 
                     moveItem.SetInt("HeadID", data.GetInt("HeadID"));
-                    moveItem.SetString("LinkKey", data.GetString("Key"));
+                    moveItem.SetString("LinkKey", data.GetString("LinkKey"));
                     moveItem.SetInt("LinkNo", data.GetInt("LinkNo"));
                     moveItem.SetString("Ident", data.GetString("Ident"));
                     moveItem.SetString("SSCC", tbSSCC.Text.Trim());

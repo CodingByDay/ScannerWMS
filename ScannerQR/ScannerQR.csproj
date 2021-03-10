@@ -135,6 +135,8 @@
     <Compile Include="App\ProductionEnteredPositionViewAdapter.cs" />
     <Compile Include="App\ProductionSerialOrSSCCAdapter.cs" />
     <Compile Include="App\ProductionSerialOrSSCCList.cs" />
+    <Compile Include="App\rapidTakeoverAdapter.cs" />
+    <Compile Include="App\rapidTakeoverList.cs" />
     <Compile Include="App\TakeOverEnteredPositionsViewAdapter.cs" />
     <Compile Include="App\TakeOverEnteredPositionsViewListItems.cs" />
     <Compile Include="App\TakeOverIdentAdapter.cs" />
@@ -197,6 +199,7 @@
     <Compile Include="IssuedGoodsSerialOrSSCCEntryTablet.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainMenu.cs" />
+    <Compile Include="MainMenuTablet.cs" />
     <Compile Include="PackagingEnteredPositionsView.cs" />
     <Compile Include="PackagingEnteredPositionsViewTablet.cs" />
     <Compile Include="PackagingSetContext.cs" />
@@ -929,6 +932,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\insist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\MainMenuTablet.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\rapidTakeoverListViewList.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

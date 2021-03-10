@@ -77,6 +77,7 @@ Button;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
 Button;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
 Button;obj\Debug\90\res\layout\mainmenu.xml
 Button;obj\Debug\90\res\layout\mainmenu1.xml
+Button;obj\Debug\90\res\layout\mainmenutablet.xml
 Button;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 Button;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 Button;obj\Debug\90\res\layout\packagingsetcontext.xml
@@ -276,6 +277,7 @@ LinearLayout;obj\Debug\90\res\layout\listviewitem.xml
 LinearLayout;obj\Debug\90\res\layout\listviewtrail.xml
 LinearLayout;obj\Debug\90\res\layout\mainmenu.xml
 LinearLayout;obj\Debug\90\res\layout\mainmenu1.xml
+LinearLayout;obj\Debug\90\res\layout\mainmenutablet.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\packaginglistadapterview.xml
@@ -310,6 +312,7 @@ LinearLayout;obj\Debug\90\res\layout\productionserialorsscclistview.xml
 LinearLayout;obj\Debug\90\res\layout\productionworkordersetup.xml
 LinearLayout;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
 LinearLayout;obj\Debug\90\res\layout\rapidtakeover.xml
+LinearLayout;obj\Debug\90\res\layout\rapidtakeoverlistviewlist.xml
 LinearLayout;obj\Debug\90\res\layout\rapidtakeoverphone.xml
 LinearLayout;obj\Debug\90\res\layout\receiverlayout.xml
 LinearLayout;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
@@ -364,6 +367,7 @@ ListView;obj\Debug\90\res\layout\issuedgoodsidententrytablet.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
+ListView;obj\Debug\90\res\layout\mainmenutablet.xml
 ListView;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 ListView;obj\Debug\90\res\layout\packagingunitlisttablet.xml
@@ -475,6 +479,7 @@ TextView;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
 TextView;obj\Debug\90\res\layout\listviewitem.xml
 TextView;obj\Debug\90\res\layout\listviewtrail.xml
 TextView;obj\Debug\90\res\layout\mainmenu1.xml
+TextView;obj\Debug\90\res\layout\mainmenutablet.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 TextView;obj\Debug\90\res\layout\packaginglistadapterview.xml
@@ -508,6 +513,7 @@ TextView;obj\Debug\90\res\layout\productionserialorsscclistview.xml
 TextView;obj\Debug\90\res\layout\productionworkordersetup.xml
 TextView;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
 TextView;obj\Debug\90\res\layout\rapidtakeover.xml
+TextView;obj\Debug\90\res\layout\rapidtakeoverlistviewlist.xml
 TextView;obj\Debug\90\res\layout\rapidtakeoverphone.xml
 TextView;obj\Debug\90\res\layout\receiverlayout.xml
 TextView;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml

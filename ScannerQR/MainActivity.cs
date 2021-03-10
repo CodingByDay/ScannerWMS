@@ -23,6 +23,7 @@ using Microsoft.AppCenter;//////////
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using static Android.App.ActionBar;
+using ScannerQR.App;
 
 namespace ScannerQR
 {
@@ -38,7 +39,7 @@ namespace ScannerQR
         private EditText ID;
         private ImageView img;
         private TextView deviceURL;
-
+        private bool tablet = settings.tablet;
         public object MenuInflaterFinal { get; private set; }
 
         // Internet connection method.
@@ -75,8 +76,14 @@ namespace ScannerQR
                 {
                     if (Services.HasPermission("TNET_WMS", "R"))
                     {
-
-                        StartActivity(typeof(MainMenu)); /* Entry point */
+                        if (tablet == true)
+                        {
+                            StartActivity(typeof(MainMenuTablet));
+                        } /* Entry point for the phone */
+                        else
+                        {
+                            StartActivity(typeof(MainMenu));
+                        }
                         Password.Text = "";
                         isValid = true;
                         this.Finish();
