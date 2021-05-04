@@ -74,7 +74,7 @@
       </intent-filter>
     </activity>
     <activity android:label="MainMenu" android:name="crc640b2286ca4f1c700f.MainMenu" />
-    <activity android:label="MainMenuTablet" android:name="crc640b2286ca4f1c700f.MainMenuTablet" />
+    <activity android:label="MainMenuTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.MainMenuTablet" />
     <activity android:label="PackagingEnteredPositionsView" android:name="crc640b2286ca4f1c700f.PackagingEnteredPositionsView" />
     <activity android:label="PackagingEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.PackagingEnteredPositionsViewTablet" />
     <activity android:label="PackagingSetContext" android:name="crc640b2286ca4f1c700f.PackagingSetContext" />

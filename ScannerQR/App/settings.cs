@@ -26,7 +26,7 @@ namespace ScannerQR.App
 
     public static string ID
         {
-            get => AppSettings.GetValueOrDefault(nameof(ID), string.Empty);
+            get => AppSettings.GetValueOrDefault(nameof(ID), "0003");
             set => AppSettings.AddOrUpdateValue(nameof(ID), value);
         }
 
@@ -47,7 +47,7 @@ namespace ScannerQR.App
 
         public static string RootURL
         {
-            get => AppSettings.GetValueOrDefault(nameof(RootURL), string.Empty);
+            get => AppSettings.GetValueOrDefault(nameof(RootURL), "http://10.1.1.8:81");
             set => AppSettings.AddOrUpdateValue(nameof(RootURL), value);
         }
     }

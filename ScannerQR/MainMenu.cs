@@ -36,10 +36,10 @@ namespace ScannerQR
             SetContentView(Resource.Layout.MainMenu);
             var flag = Services.isTablet(App.settings.device);
             // Welcome String.
+
             if (MainActivity.isValid == true)
             {
-                string toast = new string("Uspešna prijava.");
-                
+                string toast = new string("Uspešna prijava.");             
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 MainActivity.isValid = false;
                 MainActivity.progressBar1.Visibility = ViewStates.Invisible;

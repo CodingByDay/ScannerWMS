@@ -233,14 +233,11 @@ namespace ScannerQR
             dataX.Clear();
             var sscc = tbSSCC.Text.Trim();
             if (string.IsNullOrEmpty(sscc)) { return; }
-
-
             try
             {
-
-
+                
                 string error;
-                 dataItem = Services.GetObject("sscc", tbSSCC.Text, out error);
+                 dataItem = Services.GetObject("sscc", "20180316001", out error);
                 if (dataItem == null)
                 {
                     Toast.MakeText(this, "Napaka pri preverjanju sscc kode." + error, ToastLength.Long).Show();

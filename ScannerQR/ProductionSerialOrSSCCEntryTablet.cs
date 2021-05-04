@@ -372,7 +372,7 @@ namespace ScannerQR
             }
             finally
             {
-                // wf
+                
             }
         }
         protected override void OnCreate(Bundle savedInstanceState)
@@ -406,6 +406,7 @@ namespace ScannerQR
             button5.Click += Button5_Click;
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
+            tbSSCC.FocusChange += TbSSCC_FocusChange;
             try
             {
                 string SuccessMessage = string.Format("Preverjam povezovani DN");
@@ -424,9 +425,27 @@ namespace ScannerQR
           
             tbIdent.Text = ident.GetString("Code") + " " + ident.GetString("Name");
             identCode = ident.GetString("Code");
-          tbSSCC.Enabled = ident.GetBool("isSSCC");
+            tbSSCC.Enabled = ident.GetBool("isSSCC");
             tbSerialNum.Enabled = ident.GetBool("HasSerialNumber");
             fillItems();
+        }
+
+        private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+          fillSugestedLocation();         
+        }
+
+        private void fillSugestedLocation()
+        {
+            var warehouse = moveHead.GetString("Wharehouse");
+            var ident = openWorkOrder.GetString("Ident");
+
+            string result;
+            if (WebApp.Get("mode=bestloc&wh=" + warehouse + "&ident=" + ident + "&locMode=incomming", out result))
+            {
+                var test = result;
+                tbLocation.Text = test;
+            }
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
