@@ -441,11 +441,30 @@ namespace ScannerQR
             var ident = openWorkOrder.GetString("Ident");
 
             string result;
-            if (WebApp.Get("mode=bestloc&wh=" + warehouse + "&ident=" + ident + "&locMode=incomming", out result))
+            if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=incomming", out result))
             {
                 var test = result;
-                tbLocation.Text = test;
+                if (test != null && test != "")
+                {
+                    tbLocation.Text = result;
+                }
+                else
+                {
+                    // Pass for now ie not supported.
+                }
             }
+            
+
+
+
+
+            //string result;
+            //if (!WebApp.GetBin(App.settings.RootURL + "/Services/Image/?wh=" + warehouse, "warehouse.png", out result))
+            //{
+
+               
+
+
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

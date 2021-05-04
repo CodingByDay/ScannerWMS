@@ -112,8 +112,7 @@ namespace TrendNET.WMS.Device.Services
             {
                 return warehouses[userID];
             }
-
-          
+            
             try
             {
                
@@ -131,7 +130,7 @@ namespace TrendNET.WMS.Device.Services
             }
             finally
             {
-               // used to be a wait form.
+              
             }
            
         }
