@@ -177,7 +177,7 @@ namespace ScannerQR
 
         private void BtnOrder_Click(object sender, EventArgs e)
         {
-            // Going around a potential stupid click on the order without choosing an order.
+            // Going around a potential stupid click on the order without choosing an order...
             if (objectExtra.Count == 0)
             {
                 Toast.MakeText(this, "Morate izbrati naročilo.", ToastLength.Long).Show();
