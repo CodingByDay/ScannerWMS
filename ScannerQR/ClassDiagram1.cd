@@ -1,623 +1,623 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ScannerQR.App.adapter">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="37.75" Y="38.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\adapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.adapterListViewItem" Collapsed="true">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+  <Class Name="ScannerQR.App.adapterListViewItem">
+    <Position X="6.25" Y="10.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\adapterListViewItem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.CheckStockAddonAdapter" Collapsed="true">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+  <Class Name="ScannerQR.App.CheckStockAddonAdapter">
+    <Position X="23" Y="38.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\CheckStockAddonAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.CheckStockAddonList" Collapsed="true">
-    <Position X="11" Y="0.5" Width="1.5" />
+  <Class Name="ScannerQR.App.CheckStockAddonList">
+    <Position X="16.5" Y="14.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAgAgAAAAAA=</HashCode>
       <FileName>App\CheckStockAddonList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.InfinishedProductionListView" Collapsed="true">
-    <Position X="2.25" Y="1.5" Width="1.5" />
+  <Class Name="ScannerQR.App.InfinishedProductionListView">
+    <Position X="16.5" Y="41" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App\InfinishedProductionListView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.InterWarehouseEnteredPositionsViewList" Collapsed="true">
-    <Position X="9.25" Y="1.5" Width="1.5" />
+  <Class Name="ScannerQR.App.InterWarehouseEnteredPositionsViewList">
+    <Position X="40.25" Y="37.75" Width="3" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAgAAAAAAQAAAEAAAAAAAgAgAAAAAA=</HashCode>
       <FileName>App\InterWarehouseEnteredPositionsViewList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.InterWarehouseEnteredPositionViewAdapter" Collapsed="true">
-    <Position X="12.75" Y="1.5" Width="1.5" />
+  <Class Name="ScannerQR.App.InterWarehouseEnteredPositionViewAdapter">
+    <Position X="9.5" Y="38.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\InterWarehouseEnteredPositionViewAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.InterwarehousSerialOrSCCCEntryAdapter" Collapsed="true">
-    <Position X="18" Y="1.5" Width="1.5" />
+  <Class Name="ScannerQR.App.InterwarehousSerialOrSCCCEntryAdapter">
+    <Position X="36" Y="1" Width="3" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\InterwarehouseSerialOrSCCCEntryAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.ProductionEnteredPositionViewList" Collapsed="true">
-    <Position X="16.25" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.App.ProductionEnteredPositionViewList">
+    <Position X="47.25" Y="15.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAgAEQAAAAAAgAAAAAAAA=</HashCode>
       <FileName>App\InterWarehouseSerialOrSSCCList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.IssuedEnterAdapter" Collapsed="true">
-    <Position X="18" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.App.IssuedEnterAdapter">
+    <Position X="34" Y="1.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\IssuedEnterAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.IssuedEnteredPositionViewList" Collapsed="true">
-    <Position X="19.75" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.App.IssuedEnteredPositionViewList">
+    <Position X="28.5" Y="6" Width="2.25" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAgAAAAAAQAAAEAAAAAAAgAgAAAAAA=</HashCode>
       <FileName>App\IssuedEnteredPositionViewList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.ListViewItem" Collapsed="true">
-    <Position X="18" Y="3.5" Width="1.5" />
+  <Class Name="ScannerQR.App.ListViewItem">
+    <Position X="34" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>App\ListViewItem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.PackagingList" Collapsed="true">
-    <Position X="16.25" Y="4.5" Width="1.5" />
+  <Class Name="ScannerQR.App.PackagingList">
+    <Position X="25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAgAAAAAAQAAAEAAAAAAAgAgAAAAAA=</HashCode>
       <FileName>App\PackagingList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.packagingListAdapter" Collapsed="true">
-    <Position X="18" Y="4.5" Width="1.5" />
+  <Class Name="ScannerQR.App.packagingListAdapter">
+    <Position X="27.25" Y="14.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\packagingListAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.ProductionEnteredPositionList" Collapsed="true">
-    <Position X="9.25" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.App.ProductionEnteredPositionList">
+    <Position X="15" Y="9.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAgAgAAAAAA=</HashCode>
       <FileName>App\ProductionEnteredPositionList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.ProductionEnteredPositionViewAdapter" Collapsed="true">
-    <Position X="14.5" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.App.ProductionEnteredPositionViewAdapter">
+    <Position X="47.25" Y="12.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\ProductionEnteredPositionViewAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.ProductionSerialOrSSCCAdapter" Collapsed="true">
-    <Position X="21.5" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.App.ProductionSerialOrSSCCAdapter">
+    <Position X="39" Y="4.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\ProductionSerialOrSSCCAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.ProductionSerialOrSSCCList" Collapsed="true">
-    <Position X="4" Y="7.5" Width="1.5" />
+  <Class Name="ScannerQR.App.ProductionSerialOrSSCCList">
+    <Position X="7.5" Y="4.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAgAEQAAAAAAgAAAAAAAA=</HashCode>
       <FileName>App\ProductionSerialOrSSCCList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.rapidTakeoverAdapter" Collapsed="true">
-    <Position X="11" Y="7.5" Width="1.5" />
+  <Class Name="ScannerQR.App.rapidTakeoverAdapter">
+    <Position X="17.75" Y="8.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\rapidTakeoverAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.rapidTakeoverList" Collapsed="true">
-    <Position X="12.75" Y="7.5" Width="1.5" />
+  <Class Name="ScannerQR.App.rapidTakeoverList">
+    <Position X="22.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>App\rapidTakeoverList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ScannerQR.App.settings">
-    <Position X="0.5" Y="8.5" Width="1.5" />
+    <Position X="29.75" Y="38" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACQAAAgABAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>App\settings.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.TakeOverEnteredPositionsViewAdapter" Collapsed="true">
-    <Position X="16.25" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.App.TakeOverEnteredPositionsViewAdapter">
+    <Position X="47" Y="18.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\TakeOverEnteredPositionsViewAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.TakeOverEnteredPositionsViewListItems" Collapsed="true">
-    <Position X="18" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.App.TakeOverEnteredPositionsViewListItems">
+    <Position X="19" Y="21.25" Width="3" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAgAAAAAAQAAAEAAAAAAAgAgAAAAAA=</HashCode>
       <FileName>App\TakeOverEnteredPositionsViewListItems.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.TakeOverIdentAdapter" Collapsed="true">
-    <Position X="21.5" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.App.TakeOverIdentAdapter">
+    <Position X="41.25" Y="1" Width="2" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\TakeOverIdentAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.TakeOverIdentList" Collapsed="true">
-    <Position X="4" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.App.TakeOverIdentList">
+    <Position X="8.5" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAABAAAAIAAAAAAAAAQAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>App\TakeOverIdentList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.TakeOverSerialOrSSCCEntryAdapter" Collapsed="true">
-    <Position X="7.5" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.App.TakeOverSerialOrSSCCEntryAdapter">
+    <Position X="12" Y="12.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\TakeOverSerialOrSSCCEntryAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.TakeOverSerialOrSSCCEntryList" Collapsed="true">
-    <Position X="9.25" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.App.TakeOverSerialOrSSCCEntryList">
+    <Position X="7.25" Y="7.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAgAEQAAAAAAgAAAAAAAA=</HashCode>
       <FileName>App\TakeOverSerialOrSSCCEntryList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.Trail" Collapsed="true">
-    <Position X="12.75" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.App.Trail">
+    <Position X="17.25" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAAQAgAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>App\Trail.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.UnfinishedInterwarehouseAdapter" Collapsed="true">
-    <Position X="14.5" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.App.UnfinishedInterwarehouseAdapter">
+    <Position X="47.5" Y="22" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\UnfinishedInterwarehouseAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.UnfinishedInterWarehouseList" Collapsed="true">
-    <Position X="16.25" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.App.UnfinishedInterWarehouseList">
+    <Position X="24.25" Y="8.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAE=</HashCode>
       <FileName>App\UnfinishedInterWarehouseList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.UnfinishedIssuedAdapter" Collapsed="true">
-    <Position X="21.5" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.App.UnfinishedIssuedAdapter">
+    <Position X="34.25" Y="6.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\UnfinishedIssuedAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.UnfinishedIssuedList" Collapsed="true">
-    <Position X="4" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.App.UnfinishedIssuedList">
+    <Position X="8.5" Y="13.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AABAAAAAIAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAA=</HashCode>
       <FileName>App\UnfinishedIssuedList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.UnfinishedPackagingAdapter" Collapsed="true">
-    <Position X="5.75" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.App.UnfinishedPackagingAdapter">
+    <Position X="11.25" Y="3" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\UnfinishedPackagingAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.UnfinishedPackagingList" Collapsed="true">
-    <Position X="7.5" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.App.UnfinishedPackagingList">
+    <Position X="4.25" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAEAAACAAAAAAAAAAAE=</HashCode>
       <FileName>App\UnfinishedPackagingList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.UnfinishedProductionAdapter" Collapsed="true">
-    <Position X="9.25" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.App.UnfinishedProductionAdapter">
+    <Position X="4" Y="38" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\UnfinishedProductionAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.UnfinishedProductionList" Collapsed="true">
-    <Position X="11" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.App.UnfinishedProductionList">
+    <Position X="16.75" Y="17.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AABAAAAAIAAAAAAACAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>App\UnfinishedProductionList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.UnfinishedProductionListAdapter" Collapsed="true">
-    <Position X="12.75" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.App.UnfinishedProductionListAdapter">
+    <Position X="20" Y="10.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App\UnfinishedProductionListAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.UnfinishedTakeoverAdapter" Collapsed="true">
-    <Position X="18" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.App.UnfinishedTakeoverAdapter">
+    <Position X="28.5" Y="2.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAQBAAAAAAA=</HashCode>
       <FileName>App\UnfinishedTakeoverAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.App.UnfinishedTakeoverList" Collapsed="true">
-    <Position X="19.75" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.App.UnfinishedTakeoverList">
+    <Position X="26.25" Y="3" Width="2" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAIAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAA=</HashCode>
       <FileName>App\UnfinishedTakeoverList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BarCode2D_Receiver.Barcode2D" Collapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+  <Class Name="BarCode2D_Receiver.Barcode2D">
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CCAACCAAAgAAAAAAACACAAAABAAAAAAgAIAAAAAAAgA=</HashCode>
       <FileName>App\Barcode2D.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BarCode2D_Receiver.BarcodeDataReceiver" Collapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+  <Class Name="BarCode2D_Receiver.BarcodeDataReceiver">
+    <Position X="9.25" Y="0.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App\Barcode2D.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.App.ComboBoxItem" Collapsed="true">
-    <Position X="16.25" Y="0.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.App.ComboBoxItem">
+    <Position X="47.5" Y="32.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAEAAAAAAAAAAAAAAAAAAAASAAAAAA=</HashCode>
       <FileName>App\ComboBoxItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrendNET.WMS.Device.App.Echo">
-    <Position X="0.5" Y="1.5" Width="1.5" />
+    <Position X="12" Y="20.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>App\Echo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.App.InUseObjects" Collapsed="true">
-    <Position X="19.75" Y="1.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.App.InUseObjects">
+    <Position X="29.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAABABAAAAAAAAAAAAAAAQAAAAAAABIAAA=</HashCode>
       <FileName>App\InUseObjects.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.App.Keyboard" Collapsed="true">
-    <Position X="16.25" Y="3.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.App.Keyboard">
+    <Position X="31.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App\Keyboard.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.App.LogEntry" Collapsed="true">
-    <Position X="21.5" Y="3.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.App.LogEntry">
+    <Position X="42" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAiABIAgBAAAAAAAAAAAAAAAAAAAAAAgAEAAAAA=</HashCode>
       <FileName>App\Log.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.App.Log" Collapsed="true">
-    <Position X="19.75" Y="3.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.App.Log">
+    <Position X="27.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAgAAgAAAAAAAAAAAAAAAEAABA=</HashCode>
       <FileName>App\Log.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.App.WebApp" Collapsed="true">
-    <Position X="2.25" Y="11.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.App.WebApp">
+    <Position X="6.75" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAABAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>App\WebApp.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.App.WindowDispatcher" Collapsed="true">
-    <Position X="5.75" Y="11.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.App.WindowDispatcher">
+    <Position X="55.75" Y="2.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App\WindowDispatcher.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.App.WMSDeviceConfigItem" Collapsed="true">
-    <Position X="9.25" Y="11.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.App.WMSDeviceConfigItem">
+    <Position X="17" Y="20.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>App\WMSDeviceConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.App.WMSDeviceConfig" Collapsed="true">
-    <Position X="7.5" Y="11.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.App.WMSDeviceConfig">
+    <Position X="38" Y="40" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAACEAAAAAAAAAAAAAAABACAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>App\WMSDeviceConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DatePickerFragment" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="21.5" Y="0.5" Width="1.5" />
+  <Class Name="DatePickerFragment" BaseTypeListCollapsed="true">
+    <Position X="39.25" Y="1.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAABAAAAAAACAAAAAAAAACAAAI=</HashCode>
       <FileName>App\DateTimeFragment.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="TrendNET.WMS.Core.Data.NameValue" Collapsed="true">
-    <Position X="5.75" Y="4.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Core.Data.NameValue">
+    <Position X="10.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAQAAAQAAAAAAEAgAAAAAAAQAAA=</HashCode>
       <FileName>App\NameValue.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Core.Data.NameValueList" Collapsed="true">
-    <Position X="7.5" Y="4.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Core.Data.NameValueList">
+    <Position X="11.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAACABAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App\NameValueList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Core.Data.NameValueObject" Collapsed="true">
-    <Position X="9.25" Y="4.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Core.Data.NameValueObject">
+    <Position X="12.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AADAAAogAAAAAAAIAkAAJAAAAAAEAAAAAAAAAACCAAA=</HashCode>
       <FileName>App\NameValueObject.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Core.Data.NameValueObjectList" Collapsed="true">
-    <Position X="11" Y="4.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Core.Data.NameValueObjectList">
+    <Position X="17" Y="38.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAACAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App\NameValueObjectList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Core.Data.CompactSerializer" Collapsed="true">
-    <Position X="19.75" Y="0.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Core.Data.CompactSerializer">
+    <Position X="24.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Services\CompactSerializer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.CheckStock" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+  <Class Name="ScannerQR.CheckStock" BaseTypeListCollapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAASAkAQAAAAIAAAEAAACCIIUICANAoAQAAAAAA=</HashCode>
       <FileName>CheckStock.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.CheckStockTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="12.75" Y="0.5" Width="1.5" />
+  <Class Name="ScannerQR.CheckStockTablet" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAASAkAQBAAAIAAAEAgACCIIUICANAoQQAAAAAA=</HashCode>
       <FileName>CheckStockTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.choiceProduction" Collapsed="true">
-    <Position X="14.5" Y="0.5" Width="1.5" />
+  <Class Name="ScannerQR.choiceProduction">
+    <Position X="20.25" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAAAAAAAQAAAACICAAAACAAAAAAAAAA=</HashCode>
       <FileName>choiceProduction.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.InterWarehouseBusinessEventSetup" Collapsed="true">
-    <Position X="4" Y="1.5" Width="1.5" />
+  <Class Name="ScannerQR.InterWarehouseBusinessEventSetup">
+    <Position X="4.25" Y="3.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>CAAAgAABAQAAACkAEAAgAAAAACIAQCMAAAAAAoAQEAA=</HashCode>
       <FileName>InterWarehouseBusinessEventSetup.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.InterWarehouseBusinessEventSetupTablet" Collapsed="true">
-    <Position X="5.75" Y="1.5" Width="1.5" />
+  <Class Name="ScannerQR.InterWarehouseBusinessEventSetupTablet">
+    <Position X="34.25" Y="37.25" Width="3" />
     <TypeIdentifier>
       <HashCode>CAAAgAABAQAAACkAEAAgAAAAACIAQCMAAAAAAoAQEAA=</HashCode>
       <FileName>InterWarehouseBusinessEventSetupTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.InterWarehouseEnteredPositionsView" Collapsed="true">
-    <Position X="7.5" Y="1.5" Width="1.5" />
+  <Class Name="ScannerQR.InterWarehouseEnteredPositionsView">
+    <Position X="16" Y="0.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AgBhCADABoAAADgAABQAIAAAAOIAIAwAIEwABAAAAQA=</HashCode>
       <FileName>InterWarehouseEnteredPositionsView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.InterWarehouseEnteredPositionsViewTablet" Collapsed="true">
-    <Position X="11" Y="1.5" Width="1.5" />
+  <Class Name="ScannerQR.InterWarehouseEnteredPositionsViewTablet">
+    <Position X="19" Y="12.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AghhCADABoAABDgAABQAIAAACOIAIAwAIEwQRgAQAQA=</HashCode>
       <FileName>InterWarehouseEnteredPositionsViewTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.InterWarehouseSerialOrSSCCEntry" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="14.5" Y="1.5" Width="1.5" />
+  <Class Name="ScannerQR.InterWarehouseSerialOrSSCCEntry" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="1.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>EABAAQAACoAAABEAJEQgABAACPJpUA6ANAoADCiAgAA=</HashCode>
       <FileName>InterWarehouseSerialOrSSCCEntry.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.InterWarehouseSerialOrSSCCEntryTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.25" Y="1.5" Width="1.5" />
+  <Class Name="ScannerQR.InterWarehouseSerialOrSSCCEntryTablet" BaseTypeListCollapsed="true">
+    <Position X="3" Y="9.75" Width="3" />
     <TypeIdentifier>
       <HashCode>EAhAAQAADoAABBEAJERgABAACPJpUA6ANAoQDiiIgAA=</HashCode>
       <FileName>InterWarehouseSerialOrSSCCEntryTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.InventoryConfirm" Collapsed="true">
-    <Position X="21.5" Y="1.5" Width="1.5" />
+  <Class Name="ScannerQR.InventoryConfirm">
+    <Position X="30.25" Y="21.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAhAAAABhAAADAAIAAAIAAACCYgGIAAAIAABCEAAAA=</HashCode>
       <FileName>InventoryConfirm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ScannerQR.InventoryConfirmTablet">
-    <Position X="0.5" Y="2.5" Width="2" />
+    <Position X="19.5" Y="31.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AgAhAAAABhAAADAAIAAAIAAACCYgGIAAAIAABCEAAAA=</HashCode>
       <FileName>InventoryConfirmTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.InventoryMenu" Collapsed="true">
-    <Position X="2.25" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.InventoryMenu">
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAJAAgAAAAAGI6cAkAAAAAAAAAAAA=</HashCode>
       <FileName>InventoryMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.InventoryOpen" Collapsed="true">
-    <Position X="4" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.InventoryOpen">
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AADgAAACgAAQACCBAAABBCAAACIQAEAIIAAAIAEBAAA=</HashCode>
       <FileName>InventoryOpen.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.InventoryOpenDocument" Collapsed="true">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.InventoryOpenDocument">
+    <Position X="32" Y="37.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAQAQABiAEAAgAAAAACACAABAAAAAAAABAAI=</HashCode>
       <FileName>InventoryOpenDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.InventoryOpenDocumentTablet" Collapsed="true">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.InventoryOpenDocumentTablet">
+    <Position X="19.5" Y="38.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAQAQABiAEAAgAAAAACACAABAAAAAAAABAAI=</HashCode>
       <FileName>InventoryOpenDocumentTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.InventoryOpenTablet" Collapsed="true">
-    <Position X="9.25" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.InventoryOpenTablet">
+    <Position X="44.25" Y="37.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AADgAAACgAAQACCBAAABBCAAACIQAEAIIAAAIAEBAAA=</HashCode>
       <FileName>InventoryOpenTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.InventoryPrint" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.InventoryPrint" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="37.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAQAAAAAAAAAAAAACIQMAAAIAAACAARAAI=</HashCode>
       <FileName>InventoryPrint.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.InventoryPrintTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="12.75" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.InventoryPrintTablet" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="4.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAQAAAAAAAAAAAAACIQMAAAIAAACAARAAI=</HashCode>
       <FileName>InventoryPrintTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.InventoryProcess" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="14.5" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.InventoryProcess" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAADSAFCAEAAAAEQgABAAAKJYcACANIsAgAARgAI=</HashCode>
       <FileName>InventoryProcess.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.InventoryProcessTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.25" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.InventoryProcessTablet" BaseTypeListCollapsed="true">
+    <Position X="36.75" Y="4.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AABAAADSAFCAEAAAAEQgABAAAKJYcACANIsAgAARgAI=</HashCode>
       <FileName>InventoryProcessTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.IssuedGoodsBusinessEventSetup" Collapsed="true">
-    <Position X="21.5" Y="2.5" Width="1.5" />
+  <Class Name="ScannerQR.IssuedGoodsBusinessEventSetup">
+    <Position X="44.5" Y="9" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AIACwAQCQWAQAAEAAAAAICEAkCoAAKMAAAAAACAREAA=</HashCode>
       <FileName>IssuedGoodsBusinessEventSetup.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ScannerQR.IssuedGoodsBusinessEventSetupTablet">
-    <Position X="0.5" Y="3.5" Width="2.75" />
+    <Position X="16" Y="30" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AIACwAQCQWAQAAEAAAAAICEAkCoAAKMAAAAAACAREAA=</HashCode>
       <FileName>IssuedGoodsBusinessEventSetupTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.IssuedGoodsEnteredPositionsView" Collapsed="true">
-    <Position X="2.25" Y="3.5" Width="1.5" />
+  <Class Name="ScannerQR.IssuedGoodsEnteredPositionsView">
+    <Position X="51.25" Y="32.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>ggBhCIDABoAAADgAARQAIAAAAGIAIEAAIEwABAAAAQA=</HashCode>
       <FileName>IssuedGoodsEnteredPositionsView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.IssuedGoodsEnteredPositionsViewTablet" Collapsed="true">
-    <Position X="4" Y="3.5" Width="1.5" />
+  <Class Name="ScannerQR.IssuedGoodsEnteredPositionsViewTablet">
+    <Position X="52.25" Y="18" Width="3" />
     <TypeIdentifier>
       <HashCode>gghhCIDABoAABDgAARQAIAAACGIAIEAAIEwQRgEQAQA=</HashCode>
       <FileName>IssuedGoodsEnteredPositionsViewTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.IssuedGoodsIdentEntry" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="3.5" Width="1.5" />
+  <Class Name="ScannerQR.IssuedGoodsIdentEntry" BaseTypeListCollapsed="true">
+    <Position X="52.75" Y="10" Width="2" />
     <TypeIdentifier>
       <HashCode>IgDACAAQAkAAAAAAAAAAAAEBgOIgEAyAFgoEAECAgAE=</HashCode>
       <FileName>IssuedGoodsIdentEntry.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.IssuedGoodsIdentEntryTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.5" Y="3.5" Width="1.5" />
+  <Class Name="ScannerQR.IssuedGoodsIdentEntryTablet" BaseTypeListCollapsed="true">
+    <Position X="47" Y="35.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>IgDACAAQAkAAAAAAAAAAAAEBgOIgEAyAFgoEAECAgAE=</HashCode>
       <FileName>IssuedGoodsIdentEntryTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.IssuedGoodsIdentEntryWithTrail" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.25" Y="3.5" Width="1.5" />
+  <Class Name="ScannerQR.IssuedGoodsIdentEntryWithTrail" BaseTypeListCollapsed="true">
+    <Position X="50.25" Y="25.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AABBAIASAECAgCAABAAAAAEAACIAMECIFoIAAgARgIE=</HashCode>
       <FileName>IssuedGoodsIdentEntryWithTrail.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.IssuedGoodsIdentEntryWithTrailTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11" Y="3.5" Width="1.5" />
+  <Class Name="ScannerQR.IssuedGoodsIdentEntryWithTrailTablet" BaseTypeListCollapsed="true">
+    <Position X="31" Y="2.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AABBAIASAECAgCAABAAAAAEAACIAMECIFoIAAgARgIE=</HashCode>
       <FileName>IssuedGoodsIdentEntryWithTrailTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.IssuedGoodsSerialOrSSCCEntry" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="12.75" Y="3.5" Width="1.5" />
+  <Class Name="ScannerQR.IssuedGoodsSerialOrSSCCEntry" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="8.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AABAAQAACgAARBWQAESgABAAAORrUIsINAoAACgAAAA=</HashCode>
       <FileName>IssuedGoodsSerialOrSSCCEntry.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.IssuedGoodsSerialOrSSCCEntryTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="14.5" Y="3.5" Width="1.5" />
+  <Class Name="ScannerQR.IssuedGoodsSerialOrSSCCEntryTablet" BaseTypeListCollapsed="true">
+    <Position X="29.25" Y="11.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AABAAQAACgAARBWQAESgABAAAORrUI8INAoAACgAAAA=</HashCode>
       <FileName>IssuedGoodsSerialOrSSCCEntryTablet.cs</FileName>
@@ -625,50 +625,50 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ScannerQR.MainActivity">
-    <Position X="0.5" Y="4.5" Width="1.5" />
+    <Position X="27.75" Y="24" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AABAAAAQAIAAmABAIAAAAAAAgCKAgAADAEAEFAAAAQA=</HashCode>
       <FileName>MainActivity.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.MainMenu" Collapsed="true">
-    <Position X="2.25" Y="4.5" Width="1.5" />
+  <Class Name="ScannerQR.MainMenu">
+    <Position X="28" Y="38.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABIAAAAJAAAAAEAADICAIAQAIQAAAAACFA=</HashCode>
       <FileName>MainMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.MainMenuTablet" Collapsed="true">
-    <Position X="4" Y="4.5" Width="1.5" />
+  <Class Name="ScannerQR.MainMenuTablet">
+    <Position X="25.75" Y="37.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABIAQAAJAAAAAEAADICAIIQAIQQAAAACFA=</HashCode>
       <FileName>MainMenuTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PackagingEnteredPositionsView" Collapsed="true">
-    <Position X="12.75" Y="4.5" Width="1.5" />
+  <Class Name="ScannerQR.PackagingEnteredPositionsView">
+    <Position X="32.25" Y="10.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AgAhAADADoAAADIQABQAIAAAAGAAIAAAAEQCBAAAAAg=</HashCode>
       <FileName>PackagingEnteredPositionsView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PackagingEnteredPositionsViewTablet" Collapsed="true">
-    <Position X="14.5" Y="4.5" Width="1.5" />
+  <Class Name="ScannerQR.PackagingEnteredPositionsViewTablet">
+    <Position X="44" Y="1" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AgghAADADoAABLIQABQAIAAAAGAAIAAAAEQSRgAQAAg=</HashCode>
       <FileName>PackagingEnteredPositionsViewTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PackagingSetContext" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="19.75" Y="4.5" Width="1.5" />
+  <Class Name="ScannerQR.PackagingSetContext" BaseTypeListCollapsed="true">
+    <Position X="35" Y="10.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>EAAAAAACAEAQAAAAAAQIAAAAAKIAEAAAPAOAAAABAAE=</HashCode>
       <FileName>PackagingSetContext.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.PackagingSetContextTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="21.5" Y="4.5" Width="1.5" />
+  <Class Name="ScannerQR.PackagingSetContextTablet" BaseTypeListCollapsed="true">
+    <Position X="44.5" Y="16.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>EAAAAAACAEAQAAAAAAQIAAAAAKIAEAAAPAOAAAABAAE=</HashCode>
       <FileName>PackagingSetContextTablet.cs</FileName>
@@ -676,86 +676,86 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ScannerQR.PackagingUnit" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="5.5" Width="1.5" />
+    <Position X="25" Y="21.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>kIAACQIAgACIABgQIQSgAAAAIKIAEoCANAqABAAAgQA=</HashCode>
       <FileName>PackagingUnit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.PackagingUnitList" Collapsed="true">
-    <Position X="2.25" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.PackagingUnitList">
+    <Position X="20.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAhCIDAhoAAADAAABQAIAAAAGIAIkAAIEwCBAAAAAA=</HashCode>
       <FileName>PackagingUnitList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PackagingUnitListTablet" Collapsed="true">
-    <Position X="4" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.PackagingUnitListTablet">
+    <Position X="23" Y="11" Width="2" />
     <TypeIdentifier>
       <HashCode>AgghCIDAhoAABDAAABQAIAAACGIAIkAAIEwSRgEQAAA=</HashCode>
       <FileName>PackagingUnitListTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PackagingUnitTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.PackagingUnitTablet" BaseTypeListCollapsed="true">
+    <Position X="53.25" Y="0.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>kIAACQIAiACIAAgQIQSgAAAAIKIAEoCANAqABAAAgQA=</HashCode>
       <FileName>PackagingUnitTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.PrintingInputControl" Collapsed="true">
-    <Position X="9.25" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.PrintingInputControl">
+    <Position X="50.5" Y="14.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AhAgAAAAhgAAABEAAAABIAAAACIgkBAAAwAAAAAQAAI=</HashCode>
       <FileName>PrintingInputControl.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PrintingInputControlTablet" Collapsed="true">
-    <Position X="11" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.PrintingInputControlTablet">
+    <Position X="22.25" Y="19.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AhAgAAAAhgAAABEAAAABIAAAACIgkBAAAwAAAAAQAAI=</HashCode>
       <FileName>PrintingInputControlTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PrintingMenu" Collapsed="true">
-    <Position X="12.75" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.PrintingMenu">
+    <Position X="49.25" Y="32.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAJAAAAAEAACAAUA4AAAAAAAAAAAA=</HashCode>
       <FileName>PrintingMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PrintingOutputControl" Collapsed="true">
-    <Position X="14.5" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.PrintingOutputControl">
+    <Position X="37" Y="13.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>ChAhCAAABhAAABAAAAQBIBAAACAgEAAAABgAAQAQAAI=</HashCode>
       <FileName>PrintingOutputControl.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PrintingOutputControlTablet" Collapsed="true">
-    <Position X="16.25" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.PrintingOutputControlTablet">
+    <Position X="39.25" Y="8.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>ChAhCAAABhAAABAAAAQBIBAAACAgEAAAABgAAQAQAAI=</HashCode>
       <FileName>PrintingOutputControlTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PrintingProcessControl" Collapsed="true">
-    <Position X="18" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.PrintingProcessControl">
+    <Position X="34.5" Y="16.5" Width="2" />
     <TypeIdentifier>
       <HashCode>BhAgAAAABhAAABAAAAQBIAAAACAgEBAAAggAAAIwAAI=</HashCode>
       <FileName>PrintingProcessControl.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PrintingProcessControlTablet" Collapsed="true">
-    <Position X="19.75" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.PrintingProcessControlTablet">
+    <Position X="37" Y="19.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>BhAgAAAABhAAABAAAAQBIAAAACAgEBAAAggAAAIwAAI=</HashCode>
       <FileName>PrintingProcessControlTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PrintingReprintLabels" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="21.5" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.PrintingReprintLabels" BaseTypeListCollapsed="true">
+    <Position X="34.75" Y="22.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AIEACAACABAAEAAQABQhABAQAGIQMICANAoAAAARgAI=</HashCode>
       <FileName>PrintingReprintLabels.cs</FileName>
@@ -763,65 +763,68 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ScannerQR.PrintingReprintLabelsTablet" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="6.5" Width="2.25" />
+    <Position X="39.5" Y="14" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AIEACAACABAAEAAQABQhABAQAGIQMICANAoAAAARgAI=</HashCode>
       <FileName>PrintingReprintLabelsTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.PrintingSSCCCodes" Collapsed="true">
-    <Position X="2.25" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.PrintingSSCCCodes">
+    <Position X="13.75" Y="38.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAACIYYAAAAAAAAAAAAAA=</HashCode>
       <FileName>PrintingSSCCCodes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.PrintingSSCCCodesTablet" Collapsed="true">
-    <Position X="4" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.PrintingSSCCCodesTablet">
+    <Position X="8.25" Y="18.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAACIYYAAAAAAAAAAAAAA=</HashCode>
       <FileName>PrintingSSCCCodesTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.ProductionCard" Collapsed="true">
-    <Position X="5.75" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.ProductionCard">
+    <Position X="50.5" Y="20" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAKAAABMBAAAAAIBAAABAAAOIAAAAAAEiARAAAAAE=</HashCode>
       <FileName>ProductionCard.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.ProductionCardTablet" Collapsed="true">
-    <Position X="7.5" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.ProductionCardTablet">
+    <Position X="1.5" Y="37.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAKAAABMBAAAAAIBAAABAAAOIAAAAAAEiARAAAAAE=</HashCode>
       <FileName>ProductionCardTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.ProductionEnteredPositionsView" Collapsed="true">
-    <Position X="11" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.ProductionEnteredPositionsView">
+    <Position X="6.5" Y="22.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AgBhCADABoAAADgAABQAIAAAAOIAKAwAIEQABAAAAQA=</HashCode>
       <FileName>ProductionEnteredPositionsView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.ProductionEnteredPositionsViewTablet" Collapsed="true">
-    <Position X="12.75" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.ProductionEnteredPositionsViewTablet">
+    <Position X="0.5" Y="18.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AghhCADABoAABDgAABwAIAAACOIAKAwAIEQQRgEQAQA=</HashCode>
       <FileName>ProductionEnteredPositionsViewTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.ProductionPalette" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="18" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.ProductionPalette" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="9" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAMAAABMABAACAJRQAABAAAGAQMwCgFFoABABABAE=</HashCode>
       <FileName>ProductionPalette.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.ProductionPaletteTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="19.75" Y="6.5" Width="1.5" />
+  <Class Name="ScannerQR.ProductionPaletteTablet" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="24.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAMAAABMABAACAJRQAABAAAGAQMwCgFFoABABABAE=</HashCode>
       <FileName>ProductionPaletteTablet.cs</FileName>
@@ -829,55 +832,55 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="ScannerQR.ProductionSerialOrSSCCEntry" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="7.5" Width="2.25" />
+    <Position X="19.5" Y="23.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>QABAAAEAigAAABAAQEQgABAAAOIgUAyAdBoABAgAAAA=</HashCode>
       <FileName>ProductionSerialOrSSCCEntry.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.ProductionSerialOrSSCCEntryTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="2.25" Y="7.5" Width="1.5" />
+  <Class Name="ScannerQR.ProductionSerialOrSSCCEntryTablet" BaseTypeListCollapsed="true">
+    <Position X="14" Y="19.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>RAhAAAEAjgAABBAAQEQgABAAAOIgUAyAdBoQBAgIAAA=</HashCode>
+      <HashCode>RAhAAAEAjgAABBAAQEQgABAAAOIgUA2AdBoQBAgIAAA=</HashCode>
       <FileName>ProductionSerialOrSSCCEntryTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.ProductionWorkOrderSetup" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="7.5" Width="1.5" />
+  <Class Name="ScannerQR.ProductionWorkOrderSetup" BaseTypeListCollapsed="true">
+    <Position X="50.5" Y="1" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAjAIAAAAEAOIAIAAAAAQAAIACIQMACAFgoAAAIIAAE=</HashCode>
       <FileName>ProductionWorkOrderSetup.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.ProductionWorkOrderSetupTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.5" Y="7.5" Width="1.5" />
+  <Class Name="ScannerQR.ProductionWorkOrderSetupTablet" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="26" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAjAIAAAAEAOIAIAAAAAQAAIACIQMACAFgoAAAIIAAE=</HashCode>
       <FileName>ProductionWorkOrderSetupTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.RapidTakeover" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.25" Y="7.5" Width="1.5" />
+  <Class Name="ScannerQR.RapidTakeover" BaseTypeListCollapsed="true">
+    <Position X="50.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAhAAIACBEBABAAAAkQQAAAACSAgEACAIAgQAwAIAAE=</HashCode>
       <FileName>RapidTakeover.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.592" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.RapidTakeoverPhone" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="14.5" Y="7.5" Width="1.5" />
+  <Class Name="ScannerQR.RapidTakeoverPhone" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="16.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AABAAIACAEBABAAAAkQAAAAACSIgEECANAoQAwAMAAE=</HashCode>
       <FileName>RapidTakeoverPhone.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.receiver" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.25" Y="7.5" Width="1.5" />
+  <Class Name="ScannerQR.receiver" BaseTypeListCollapsed="true">
+    <Position X="26.75" Y="5.5" Width="1.5" />
     <NestedTypes>
       <Class Name="ScannerQR.receiver.InitTask" Collapsed="true">
         <TypeIdentifier>
@@ -891,204 +894,204 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.SelectSubjectBeforeFinish" Collapsed="true">
-    <Position X="18" Y="7.5" Width="1.5" />
+  <Class Name="ScannerQR.SelectSubjectBeforeFinish">
+    <Position X="22.25" Y="25.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAgAAAAABABAAAAQCIAACAAAAAAAAAAQIE=</HashCode>
       <FileName>SelectSubjectBeforeFinish.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.SelectSubjectBeforeFinishTablet" Collapsed="true">
-    <Position X="19.75" Y="7.5" Width="1.5" />
+  <Class Name="ScannerQR.SelectSubjectBeforeFinishTablet">
+    <Position X="37" Y="25.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAgAAAAABABAAAAQCIAACAAAAAAAAAAQIE=</HashCode>
       <FileName>SelectSubjectBeforeFinishTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.Settings" Collapsed="true">
-    <Position X="2.25" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.Settings">
+    <Position X="6.5" Y="18" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABACAAAAAAAggAAAIQCsAAAACAgAAAEAAAEAAAAAQA=</HashCode>
       <FileName>Settings.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.TakeOver2Main" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.TakeOver2Main" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="21.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAjAAEAAAAAAAAAIAEAAAAAAAOI4cAyANAoAAAAAgAA=</HashCode>
       <FileName>TakeOver2Main.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.TakeOver2MainTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.TakeOver2MainTablet" BaseTypeListCollapsed="true">
+    <Position X="12" Y="21.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAjAAEAAAAAAAAAIAEAAAAAAAOI4cAwAFAoAAAAAgAA=</HashCode>
       <FileName>TakeOver2MainTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.TakeOver2Orders" Collapsed="true">
-    <Position X="7.5" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.TakeOver2Orders">
+    <Position X="17.25" Y="22.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgCAAQACAEQAAAAAAEQqAAEAAOA6cAwBQAgAAAAABEA=</HashCode>
       <FileName>TakeOver2Orders.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.TakeOver2OrdersTablet" Collapsed="true">
-    <Position X="9.25" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.TakeOver2OrdersTablet">
+    <Position X="3.75" Y="22" Width="2" />
     <TypeIdentifier>
       <HashCode>AgCAAQACAEQAAAAAAEQqAAEAAOA6cAwBQAgAAAAABEA=</HashCode>
       <FileName>TakeOver2OrdersTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.TakeOverBusinessEventSetup" Collapsed="true">
-    <Position X="11" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.TakeOverBusinessEventSetup">
+    <Position X="41.75" Y="17.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>ACAAoAACEeAQABEAABAhAAEAACoCACAAAAAAAAAhEAA=</HashCode>
       <FileName>TakeOverBusinessEventSetup.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.TakeOverBusinessEventSetupTablet" Collapsed="true">
-    <Position X="12.75" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.TakeOverBusinessEventSetupTablet">
+    <Position X="44.25" Y="21.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>ACAAoAACEeAQABEAABAhAAEAACoCACAAAAAAAAAhEAA=</HashCode>
       <FileName>TakeOverBusinessEventSetupTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.TakeOverEnteredPositionsView" Collapsed="true">
-    <Position X="14.5" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.TakeOverEnteredPositionsView">
+    <Position X="34.75" Y="29.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AgBhCADABoAAADgAABQAIAAAAOIAIAwAIEwABAAAAQA=</HashCode>
       <FileName>TakeOverEnteredPositionsView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.TakeOverEnteredPositionsViewTablet" Collapsed="true">
-    <Position X="19.75" Y="8.5" Width="1.5" />
+  <Class Name="ScannerQR.TakeOverEnteredPositionsViewTablet">
+    <Position X="44.25" Y="28.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>QgBhCADABoAAADgAABQAIAAACOIAIAwAIEwQxgEQAQA=</HashCode>
       <FileName>TakeOverEnteredPositionsViewTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ScannerQR.TakeOverIdentEntry" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="9.5" Width="1.75" />
+    <Position X="27.75" Y="29.75" Width="2" />
     <TypeIdentifier>
       <HashCode>IgDACQAQAkAAAAAAAAAAAAEFkOIgEAyAFgsEAAAAgAE=</HashCode>
       <FileName>TakeOverIdentEntry.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.TakeOverIdentEntryTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="2.25" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.TakeOverIdentEntryTablet" BaseTypeListCollapsed="true">
+    <Position X="30.25" Y="27.75" Width="2" />
     <TypeIdentifier>
       <HashCode>IgjACQARAkAABAAAEAAAAAEFkOIgEAyAFgsWQgEQgAE=</HashCode>
       <FileName>TakeOverIdentEntryTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.TakeOverSerialOrSSCCEntry" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.TakeOverSerialOrSSCCEntry" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="29" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AADAAAAACgAAABEAAEQgABAAAOJrUI8INAoAAAgAAAA=</HashCode>
       <FileName>TakeOverSerialOrSSCCEntry.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.TakeOverSerialOrSSCCEntryTablet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.TakeOverSerialOrSSCCEntryTablet" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="27.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAjAAAAADgAABBEAAEQgABAAAOJrUI8INAoQAggIAAA=</HashCode>
       <FileName>TakeOverSerialOrSSCCEntryTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.UnfinishedInterWarehouseView" Collapsed="true">
-    <Position X="18" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.UnfinishedInterWarehouseView">
+    <Position X="41.25" Y="30.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>CgAhSADABoAAADgAABAAIAAAAGIACIgAAEAABCAAAUg=</HashCode>
       <FileName>UnfinishedInterWarehouseView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.UnfinishedInterWarehouseViewTablet" Collapsed="true">
-    <Position X="19.75" Y="9.5" Width="1.5" />
+  <Class Name="ScannerQR.UnfinishedInterWarehouseViewTablet">
+    <Position X="37.75" Y="29.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>SgAhSADABoAAALgAABAAIAAQAGIACIgAAEAAxiAQAUg=</HashCode>
       <FileName>UnfinishedInterWarehouseViewTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ScannerQR.UnfinishedIssuedGoodsView">
-    <Position X="0.5" Y="10.5" Width="2.25" />
+    <Position X="25" Y="30.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>ggghCIDABoAAADgAARAAIAEAAGIACEAAAEAABAAAAQg=</HashCode>
       <FileName>UnfinishedIssuedGoodsView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.UnfinishedIssuedGoodsViewTablet" Collapsed="true">
-    <Position X="2.25" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.UnfinishedIssuedGoodsViewTablet">
+    <Position X="22" Y="29.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>ggghCIDgBoAAALgAARAAIAEAQGIACEAAAEAQRgAQAQg=</HashCode>
       <FileName>UnfinishedIssuedGoodsViewTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.UnfinishedProductionView" Collapsed="true">
-    <Position X="14.5" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.UnfinishedProductionView">
+    <Position X="7.25" Y="30.5" Width="2" />
     <TypeIdentifier>
       <HashCode>ggghIIDABoAAADgAARAAIAAAAGIACEAAAEgABAAAAQg=</HashCode>
       <FileName>UnfinishedProductionView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.UnfinishedProductionViewTablet" Collapsed="true">
-    <Position X="16.25" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.UnfinishedProductionViewTablet">
+    <Position X="3.75" Y="29.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>ggghIIDABoAABLgAARAAIAAAAGIACEAAAEgQRgAQAQg=</HashCode>
       <FileName>UnfinishedProductionViewTablet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ScannerQR.UnfinishedTakeoversView" Collapsed="true">
-    <Position X="21.5" Y="10.5" Width="1.5" />
+  <Class Name="ScannerQR.UnfinishedTakeoversView">
+    <Position X="39.75" Y="21.5" Width="2" />
     <TypeIdentifier>
       <HashCode>ggAhCIDABoAAADkAARIAIAEAAGIACEAAAEAAhAAAAQg=</HashCode>
       <FileName>UnfinishedTakeoversView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ScannerQR.UnfinishedTakeoversViewTablet" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="11.5" Width="2.5" />
+    <Position X="10" Y="28.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>wgAhCIDABoAAALkAARIAoAEAgGIACEAAAEAAxgAQAQg=</HashCode>
       <FileName>UnfinishedTakeoversViewTablet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ScannerQR.Printing.PrintingCommon" Collapsed="true">
-    <Position X="7.5" Y="5.5" Width="1.5" />
+  <Class Name="ScannerQR.Printing.PrintingCommon">
+    <Position X="14.75" Y="18" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Printing\PrintingCommon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.Services.CommonData" Collapsed="true">
-    <Position X="18" Y="0.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.Services.CommonData">
+    <Position X="27.5" Y="18" Width="1.5" />
     <TypeIdentifier>
       <HashCode>YBAAgAAACECAAAEYiAAAAAACAACAAKAEAAAAIBEMAAA=</HashCode>
       <FileName>Services\CommonData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.Services.Services" Collapsed="true">
-    <Position X="21.5" Y="7.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.Services.Services">
+    <Position X="42.25" Y="24" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEQIBBAAAIAQACgAAQIgAASBAARABBUAAAAIAAAA=</HashCode>
       <FileName>Services\Services.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrendNET.WMS.Device.Services.WebApp" Collapsed="true">
-    <Position X="4" Y="11.5" Width="1.5" />
+  <Class Name="TrendNET.WMS.Device.Services.WebApp">
+    <Position X="32.75" Y="32.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABCCACCAAAAAABAIEEAIAAACAAUAAAAYAAAAAAACAA=</HashCode>
       <FileName>Services\WebApp.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="IBarcodeResult">
-    <Position X="0.5" Y="12.75" Width="1.5" />
+    <Position X="0.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>App\IBarcodeResult.cs</FileName>

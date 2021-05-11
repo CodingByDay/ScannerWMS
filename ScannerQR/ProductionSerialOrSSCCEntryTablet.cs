@@ -458,13 +458,12 @@ namespace ScannerQR
 
 
 
-            //string result;
-            //if (!WebApp.GetBin(App.settings.RootURL + "/Services/Image/?wh=" + warehouse, "warehouse.png", out result))
-            //{
-
-               
+          
 
 
+
+
+            
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

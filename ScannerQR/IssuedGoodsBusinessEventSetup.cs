@@ -24,9 +24,9 @@ namespace ScannerQR
         List<ComboBoxItem> objectDocType = new List<ComboBoxItem>();
         List<ComboBoxItem> objectWarehouse = new List<ComboBoxItem>();
         List<ComboBoxItem> objectExtra = new List<ComboBoxItem>();
-        private int temporaryPositionDoc;
-        private int temporaryPositionWarehouse;
-        private int temporaryPositionExtra;
+        private int temporaryPositionDoc=0;
+        private int temporaryPositionWarehouse=0;
+        private int temporaryPositionExtra=0;
         public static bool success = false;
         public static string objectTest;
         private bool byOrder = true;
@@ -40,7 +40,6 @@ namespace ScannerQR
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
             SetContentView(Resource.Layout.IssuedGoodsBusinessEventSetup);
             cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
@@ -62,7 +61,6 @@ namespace ScannerQR
             {
                 objectWarehouse.Add(new ComboBoxItem { ID = wh.GetString("Subject"), Text = wh.GetString("Name") });
             });
-
             var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectWarehouse);
             ///* 22.12.2020---------------------------------------------------------------
@@ -72,7 +70,6 @@ namespace ScannerQR
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouse.Adapter = adapterWarehouse;
             // Function update form...
-
             UpdateForm();
             var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
@@ -83,8 +80,6 @@ namespace ScannerQR
             adapterDocType.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbDocType.Adapter = adapterDocType;
             btnOrderMode.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND_NORDER", "R");
-
-            FillOpenOrders();
 
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -175,13 +170,22 @@ namespace ScannerQR
 
         private void BtnOrderMode_Click(object sender, EventArgs e)
         {
+            FillOpenOrders();
             byOrder = !byOrder;
             UpdateForm();
         }
 
         private void BtnOrder_Click(object sender, EventArgs e)
         {
-            NextStep();
+            // Going around a potential stupid click on the order without choosing an order.
+            if (objectExtra.Count == 0)
+            {
+                Toast.MakeText(this, "Morate izbrati naročilo.", ToastLength.Long).Show();
+            }
+            else
+            {
+                NextStep();
+            }
         }
 
         private void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -193,7 +197,8 @@ namespace ScannerQR
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
             temporaryPositionWarehouse = e.Position;
-            FillOpenOrders();
+
+             FillOpenOrders();
         }
 
         private void CbExtra_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -214,7 +219,7 @@ namespace ScannerQR
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
             temporaryPositionDoc = e.Position;
-
+            FillOpenOrders();
         }
 
         private void UpdateForm()
@@ -266,6 +271,21 @@ namespace ScannerQR
                 objectDocType.Add(new ComboBoxItem { ID = dt.GetString("Code"), Text = dt.GetString("Code") + " " + dt.GetString("Name") });
             });
         }
+
+
+        private bool isOrderLess()
+        {
+            if (btnOrderMode.Text == "Brez naročila - F3")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
         private void NextStep()
         {
             var itemDT = objectDocType.ElementAt(temporaryPositionDoc);
@@ -305,27 +325,31 @@ namespace ScannerQR
                     }
                     InUseObjects.Set("MoveHead", moveHead);
                     NameValueObject order = null;
-                    if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
+
                     {
-                        itemSubj = objectExtra.ElementAt(temporaryPositionExtra);
-                        if (itemSubj == null)
+                        if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                         {
+                            itemSubj = objectExtra.ElementAt(temporaryPositionExtra);
+                            if (itemSubj == null)
+                            {
 
-                            string toast = string.Format("Subjekt more biti izbran.");
-                            Toast.MakeText(this, toast, ToastLength.Long).Show();
-                            return;
+                                string toast = string.Format("Subjekt more biti izbran.");
+                                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                                return;
+                            }
+                            order = positions.Items.First(p => p.GetString("Key") == objectExtra.ElementAt(temporaryPositionExtra).ID);
+                            InUseObjects.Set("OpenOrder", order);
                         }
-                        order = positions.Items.First(p => p.GetString("Key") == objectExtra.ElementAt(temporaryPositionExtra).ID);
-                        InUseObjects.Set("OpenOrder", order);
-                    }
 
-                    if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
-                    {
-                        StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
-                    }
-                    else
-                    {
-                        StartActivity(typeof(IssuedGoodsIdentEntry));
+
+                        if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
+                        {
+                            StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
+                        }
+                        else
+                        {
+                            StartActivity(typeof(IssuedGoodsIdentEntry));
+                        }
                     }
                 }
             }
