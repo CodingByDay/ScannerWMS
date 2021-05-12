@@ -310,6 +310,25 @@ namespace ScannerQR
             
             }
         }
+        private void fillSugestedLocation()
+        {
+            var warehouse = moveHead.GetString("Wharehouse");
+            var ident = openWorkOrder.GetString("Ident");
+
+            string result;
+            if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=incomming", out result))
+            {
+                var test = result;
+                if (test != null && test != "")
+                {
+                    tbLocation.Text = result;
+                }
+                else
+                {
+                    // Pass for now ie not supported.
+                }
+            }
+        }
         private void ProcessSerialNum()
         {
             if (string.IsNullOrEmpty(tbSerialNum.Text.Trim()))
@@ -390,6 +409,7 @@ namespace ScannerQR
             button3.Click += Button3_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
+            tbSSCC.FocusChange += TbSSCC_FocusChange;
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
             try
@@ -412,7 +432,10 @@ namespace ScannerQR
             tbSerialNum.Enabled = ident.GetBool("HasSerialNumber");
         }
 
-
+        private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            fillSugestedLocation(); // Best location. 12.05.2021.
+        }
 
         private void color()
         {

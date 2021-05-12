@@ -452,18 +452,7 @@ namespace ScannerQR
                 {
                     // Pass for now ie not supported.
                 }
-            }
-            
-
-
-
-
-          
-
-
-
-
-            
+            }  
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
