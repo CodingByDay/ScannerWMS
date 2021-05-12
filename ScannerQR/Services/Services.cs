@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using ScannerQR.App;
-using Android.Media;
+using Java.Nio;
 
 namespace TrendNET.WMS.Device.Services
 {
@@ -31,19 +31,15 @@ namespace TrendNET.WMS.Device.Services
         /// Method for determaning what type is the device.
         /// </summary>
         /// <returns></returns>
-        public static Image GetImageFromServer(string warehouse)
+        public static Android.Graphics.Bitmap GetImageFromServer(string warehouse)
         {
             var webApp = settings.RootURL;
-
             var wc = new WebClient ();
             var image = wc.DownloadData(webApp + "/Services/Image/?wh=" + warehouse);
-
-            // Using statement.
-
-            using(var ms = new MemoryStream(image))
-            {
-                return Image.FromStream(ms);
-            }
+        
+            Android.Graphics.Bitmap bitmapImage = Android.Graphics.BitmapFactory.DecodeByteArray(image, 0, image.Length, null);
+            return bitmapImage;
+          
         }
         public static bool isTablet(string target)
         {

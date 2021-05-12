@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics.Drawables;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -51,6 +52,7 @@ namespace ScannerQR
         SoundPool soundPool;
         int soundPoolId;
         private NameValueObject wh;
+        private ImageView imagePNG;
 
         // here...
         public void GetBarcode(string barcode)
@@ -433,7 +435,7 @@ namespace ScannerQR
             // labels
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
-   
+            imagePNG = FindViewById<ImageView>(Resource.Id.imagePNG);
             // Buttons
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             wh = new NameValueObject();
@@ -465,7 +467,11 @@ namespace ScannerQR
 
             barcode2D.open(this, this);
 
-      
+            if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
+            {
+                showPicture();
+            }
+
 
             if (InterWarehouseBusinessEventSetup.success == true)
             {
@@ -538,7 +544,13 @@ namespace ScannerQR
                 e.Handled = true;
             }
         }
+        private void showPicture()
+        {
+            Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
+            Drawable d = new BitmapDrawable(Resources, show);
+            imagePNG.SetImageDrawable(d);
 
+        }
         private void TbIdent_KeyPress(object sender, View.KeyEventArgs e)
         {
             e.Handled = false;

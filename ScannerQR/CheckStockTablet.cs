@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Graphics.Drawables;
 using Android.Media;
 using Android.OS;
 using Android.Views;
@@ -28,6 +29,8 @@ namespace ScannerQR
         private string stock;
         private ListView listData;
         private List<CheckStockAddonList> data = new List<CheckStockAddonList>();
+        private ImageView imagePNG;
+
         public void GetBarcode(string barcode)
         {
             if (tbIdent.HasFocus)
@@ -172,9 +175,10 @@ namespace ScannerQR
             lbStock = FindViewById<TextView>(Resource.Id.lbStock);
             CheckStockAddonAdapter adapter = new CheckStockAddonAdapter(this, data);
             listData.Adapter = adapter;
-
+            imagePNG = FindViewById<ImageView>(Resource.Id.imagePNG);
             cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;
-            color();
+            color();                      
+            cbWarehouses.ItemSelected +=
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
@@ -206,7 +210,12 @@ namespace ScannerQR
 
         }
 
-
+        private void showPicture()
+        {
+            Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
+            Drawable d = new BitmapDrawable(Resources, show);
+            imagePNG.SetImageDrawable(d);
+        }
 
         private void Button1_Click(object sender, System.EventArgs e)
         {
@@ -257,7 +266,10 @@ namespace ScannerQR
                 string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 temporaryPositionWarehouse = e.Position;
-
+                if(spinner.GetItemAtPosition(e.Position).ToString() == "Centralno skladišče Postojna")
+                {
+                    showPicture();
+                }
             }
         }
     }

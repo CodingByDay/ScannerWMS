@@ -305,11 +305,11 @@
 
 
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="91.0dp"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="23.0dp"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"/>
   <LinearLayout
         android:weightSum="2"
         android:layout_width="fill_parent"
@@ -376,6 +376,11 @@
 
 
     </LinearLayout>
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="231.0dp"
+            android:id="@+id/imagePNG" />
 
     </LinearLayout>
 

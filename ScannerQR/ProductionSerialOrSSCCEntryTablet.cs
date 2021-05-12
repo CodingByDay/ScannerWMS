@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics.Drawables;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -39,6 +40,7 @@ namespace ScannerQR
         private Button button5;
         SoundPool soundPool;
         private ListView listData;
+        private ImageView imagePNG; 
         
         private List<ProductionSerialOrSSCCList> data = new List<ProductionSerialOrSSCCList>();
         int soundPoolId;
@@ -399,11 +401,17 @@ namespace ScannerQR
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             color();
+            imagePNG = FindViewById<ImageView>(Resource.Id.imagePNG);
             tbSSCC.RequestFocus();
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             button3.Click += Button3_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
+
+            if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
+            {
+                showPicture();
+            }
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
             tbSSCC.FocusChange += TbSSCC_FocusChange;
@@ -428,6 +436,13 @@ namespace ScannerQR
             tbSSCC.Enabled = ident.GetBool("isSSCC");
             tbSerialNum.Enabled = ident.GetBool("HasSerialNumber");
             fillItems();
+        }
+
+        private void showPicture()
+        {
+            Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
+            Drawable d = new BitmapDrawable(Resources, show);
+            imagePNG.SetImageDrawable(d);
         }
 
         private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)

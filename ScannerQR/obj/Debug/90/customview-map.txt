@@ -225,6 +225,9 @@ HorizontalScrollView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrailtable
 HorizontalScrollView;obj\Debug\90\res\layout\productionpalette.xml
 HorizontalScrollView;obj\Debug\90\res\layout\productionpalettetablet.xml
 ImageView;obj\Debug\90\res\layout\activity_main.xml
+ImageView;obj\Debug\90\res\layout\interwarehouseserialorssccentrytablet.xml
+ImageView;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
+ImageView;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
 ImageView;obj\Debug\90\res\layout\settingspopup.xml
 ImageView;obj\Debug\90\res\layout\takeoverserialorssccentrytablet.xml
 ImageView;obj\Debug\90\res\layout\transportpopup.xml

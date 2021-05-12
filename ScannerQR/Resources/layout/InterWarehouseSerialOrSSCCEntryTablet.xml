@@ -377,7 +377,7 @@
                 android:background="@drawable/nicelookingbutton"
                 android:text="Dodaj ser. št.-f2"
                 android:layout_width="match_parent"
-                android:layout_height="70.0dp"
+                android:layout_height="60.0dp"
                 android:textSize="16px"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/newitem"
@@ -389,9 +389,9 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Nova pozicija -f3"
             android:layout_width="match_parent"
-            android:layout_height="70.0dp"
+            android:layout_height="60.0dp"
             android:drawableLeft="@drawable/newitem"
-           android:textSize="16px"
+            android:textSize="16px"
             android:paddingLeft="10px"
             android:id="@+id/button3"
             android:layout_marginBottom="0.0dp" />
@@ -412,7 +412,7 @@
             android:text="Zaključi-f4"
             android:layout_width="match_parent"
             android:layout_weight="1"
-            android:layout_height="70.0dp"
+            android:layout_height="60.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/shipped"
@@ -423,7 +423,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Pregled pozicij-f5"
             android:layout_width="match_parent"
-            android:layout_height="70.0dp"
+            android:layout_height="60.0dp"
             android:textSize="16px"
             android:drawableLeft="@drawable/focus"
             android:paddingLeft="10px"
@@ -437,12 +437,17 @@
         android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
-       android:layout_height="70.0dp"
-       android:textSize="16px"
+        android:layout_height="60.0dp"
+        android:textSize="16px"
         android:drawableLeft="@drawable/logout"
         android:paddingLeft="10px"
         android:id="@+id/button6"
         android:layout_marginTop="0.0dp" />
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="213.0dp"
+            android:id="@+id/imagePNG" />
 
 
     </LinearLayout>

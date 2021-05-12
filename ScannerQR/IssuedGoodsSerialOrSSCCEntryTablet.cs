@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics.Drawables;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -50,6 +51,7 @@ namespace ScannerQR
         private TextView lbPalette;
         SoundPool soundPool;
         int soundPoolId;
+        private ImageView imagePNG;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -73,6 +75,7 @@ namespace ScannerQR
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
             lbPalette = FindViewById<TextView>(Resource.Id.lbPalette);
+            imagePNG = FindViewById<ImageView>(Resource.Id.imagePNG);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
@@ -83,6 +86,10 @@ namespace ScannerQR
             button5.Click += Button5_Click;
             button6.Click += Button6_Click;
             button7.Click += Button7_Click;
+            if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
+            {
+                showPicture();
+            }
             colorFields();
             fillSugestedLocation();
             if (moveHead == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); }
@@ -131,7 +138,13 @@ namespace ScannerQR
             }
         }
 
+        private void showPicture()
+        {
+            Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
+            Drawable d = new BitmapDrawable(Resources, show);
+            imagePNG.SetImageDrawable(d);
 
+        }
         private void colorFields()
         {
             tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);

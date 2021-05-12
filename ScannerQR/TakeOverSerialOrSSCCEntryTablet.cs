@@ -93,8 +93,10 @@ namespace ScannerQR
             button6.Click += Button6_Click;
             button7.Click += Button7_Click;
             button5.Click += Button5_Click;
-            showPicture();
-            //
+            if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
+            {
+                showPicture();
+            } 
             //
             // Exceptions
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point?!"); }
@@ -338,7 +340,7 @@ namespace ScannerQR
 
         private void Button6_Click(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Zaljučujem... Prosim počakajte.", ToastLength.Long).Show(); //
+            Toast.MakeText(this, "Zaključujem... Prosim počakajte.", ToastLength.Long).Show(); //
             if (SaveMoveItem())
             {
 
