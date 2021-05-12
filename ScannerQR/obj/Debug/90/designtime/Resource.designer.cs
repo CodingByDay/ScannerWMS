@@ -3900,11 +3900,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F0800C2
 			public const int lbInfofinal = 2131230914;
 			
-			// aapt resource value: 0x7F0800C3
-			public const int lbInfoinput = 2131230915;
-			
 			// aapt resource value: 0x7F0800C1
 			public const int lbInfoInput = 2131230913;
+			
+			// aapt resource value: 0x7F0800C3
+			public const int lbInfoinput = 2131230915;
 			
 			// aapt resource value: 0x7F0800CD
 			public const int lblOrder = 2131230925;
@@ -3963,11 +3963,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F0800D6
 			public const int list_item = 2131230934;
 			
-			// aapt resource value: 0x7F08000D
-			public const int Location = 2131230733;
-			
 			// aapt resource value: 0x7F0800D7
 			public const int location = 2131230935;
+			
+			// aapt resource value: 0x7F08000D
+			public const int Location = 2131230733;
 			
 			// aapt resource value: 0x7F0800D8
 			public const int logout = 2131230936;
@@ -4035,26 +4035,26 @@ namespace ScannerQR
 			// aapt resource value: 0x7F0800EA
 			public const int numberOfPositions = 2131230954;
 			
-			// aapt resource value: 0x7F0800EB
-			public const int numberofpositions = 2131230955;
-			
 			// aapt resource value: 0x7F080011
 			public const int NumberOfPositions = 2131230737;
+			
+			// aapt resource value: 0x7F0800EB
+			public const int numberofpositions = 2131230955;
 			
 			// aapt resource value: 0x7F0800EC
 			public const int ok = 2131230956;
 			
-			// aapt resource value: 0x7F0800ED
-			public const int open = 2131230957;
-			
 			// aapt resource value: 0x7F080012
 			public const int Open = 2131230738;
 			
-			// aapt resource value: 0x7F080013
-			public const int Ordered = 2131230739;
+			// aapt resource value: 0x7F0800ED
+			public const int open = 2131230957;
 			
 			// aapt resource value: 0x7F0800EE
 			public const int ordered = 2131230958;
+			
+			// aapt resource value: 0x7F080013
+			public const int Ordered = 2131230739;
 			
 			// aapt resource value: 0x7F080014
 			public const int Orderer = 2131230740;
@@ -4125,11 +4125,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F080101
 			public const int rapidTakeover = 2131230977;
 			
-			// aapt resource value: 0x7F080018
-			public const int Received = 2131230744;
-			
 			// aapt resource value: 0x7F080103
 			public const int received = 2131230979;
+			
+			// aapt resource value: 0x7F080018
+			public const int Received = 2131230744;
 			
 			// aapt resource value: 0x7F080102
 			public const int receiveLocation = 2131230978;
@@ -4624,13 +4624,16 @@ namespace ScannerQR
 			public const int visible = 2131231138;
 			
 			// aapt resource value: 0x7F0801A3
-			public const int withText = 2131231139;
+			public const int warehousePNG = 2131231139;
+			
+			// aapt resource value: 0x7F0801A4
+			public const int withText = 2131231140;
 			
 			// aapt resource value: 0x7F08001D
 			public const int WorkOrder = 2131230749;
 			
-			// aapt resource value: 0x7F0801A4
-			public const int wrap_content = 2131231140;
+			// aapt resource value: 0x7F0801A5
+			public const int wrap_content = 2131231141;
 			
 			static Id()
 			{

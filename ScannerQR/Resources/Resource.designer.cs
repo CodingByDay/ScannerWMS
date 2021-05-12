@@ -3756,11 +3756,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F080099
 			public const int fill = 2131230873;
 			
-			// aapt resource value: 0x7F080006
-			public const int Filled = 2131230726;
-			
 			// aapt resource value: 0x7F08009C
 			public const int filled = 2131230876;
+			
+			// aapt resource value: 0x7F080006
+			public const int Filled = 2131230726;
 			
 			// aapt resource value: 0x7F08009A
 			public const int fill_horizontal = 2131230874;
@@ -3813,11 +3813,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F080007
 			public const int IDdevice = 2131230727;
 			
-			// aapt resource value: 0x7F080008
-			public const int Ident = 2131230728;
-			
 			// aapt resource value: 0x7F0800AA
 			public const int ident = 2131230890;
+			
+			// aapt resource value: 0x7F080008
+			public const int Ident = 2131230728;
 			
 			// aapt resource value: 0x7F080009
 			public const int Idents = 2131230729;
@@ -3885,11 +3885,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F0800BE
 			public const int lbInfofinal = 2131230910;
 			
-			// aapt resource value: 0x7F0800BD
-			public const int lbInfoInput = 2131230909;
-			
 			// aapt resource value: 0x7F0800BF
 			public const int lbInfoinput = 2131230911;
+			
+			// aapt resource value: 0x7F0800BD
+			public const int lbInfoInput = 2131230909;
 			
 			// aapt resource value: 0x7F0800C9
 			public const int lblOrder = 2131230921;
@@ -4104,11 +4104,11 @@ namespace ScannerQR
 			// aapt resource value: 0x7F0800FB
 			public const int rapidTakeover = 2131230971;
 			
-			// aapt resource value: 0x7F080017
-			public const int Received = 2131230743;
-			
 			// aapt resource value: 0x7F0800FD
 			public const int received = 2131230973;
+			
+			// aapt resource value: 0x7F080017
+			public const int Received = 2131230743;
 			
 			// aapt resource value: 0x7F0800FC
 			public const int receiveLocation = 2131230972;
@@ -4597,13 +4597,16 @@ namespace ScannerQR
 			public const int visible = 2131231130;
 			
 			// aapt resource value: 0x7F08019B
-			public const int withText = 2131231131;
+			public const int warehousePNG = 2131231131;
+			
+			// aapt resource value: 0x7F08019C
+			public const int withText = 2131231132;
 			
 			// aapt resource value: 0x7F08001C
 			public const int WorkOrder = 2131230748;
 			
-			// aapt resource value: 0x7F08019C
-			public const int wrap_content = 2131231132;
+			// aapt resource value: 0x7F08019D
+			public const int wrap_content = 2131231133;
 			
 			static Id()
 			{

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics.Drawables;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -15,6 +17,7 @@ using ScannerQR.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
+
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace ScannerQR
@@ -50,6 +53,7 @@ namespace ScannerQR
         SoundPool soundPool;
         int soundPoolId;
         private string ident;
+        private ImageView warehousePNG;
         private List<TakeOverSerialOrSSCCEntryList> data = new List<TakeOverSerialOrSSCCEntryList>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -65,6 +69,7 @@ namespace ScannerQR
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
             listData = FindViewById<ListView>(Resource.Id.listData);
+            warehousePNG = FindViewById<ImageView>(Resource.Id.warehousePNG);
             // Buttons.
             TakeOverSerialOrSSCCEntryAdapter adapter = new TakeOverSerialOrSSCCEntryAdapter(this, data);
             listData.Adapter = adapter;
@@ -88,6 +93,7 @@ namespace ScannerQR
             button6.Click += Button6_Click;
             button7.Click += Button7_Click;
             button5.Click += Button5_Click;
+            showPicture();
             //
             //
             // Exceptions
@@ -219,7 +225,15 @@ namespace ScannerQR
                 lbUnits.Visibility = ViewStates.Invisible;
                 tbUnits.Visibility = ViewStates.Invisible;
             }
-           
+            tbLocation.RequestFocus();
+        }
+
+        private void showPicture()
+        {
+            Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
+            Drawable d = new BitmapDrawable(Resources, show);
+            warehousePNG.SetImageDrawable(d);
+            
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -257,7 +271,6 @@ namespace ScannerQR
 
 
         }
-
 
 
 

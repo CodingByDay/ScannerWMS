@@ -83,6 +83,8 @@ namespace ScannerQR
             button5.Click += Button5_Click;
             button6.Click += Button6_Click;
             button7.Click += Button7_Click;
+            colorFields();
+            fillSugestedLocation();
             if (moveHead == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); }
             if (openIdent == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); ; }
 
@@ -103,6 +105,40 @@ namespace ScannerQR
             StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
         }
 
+        private void fillSugestedLocation()
+        {
+            var warehouse = moveHead.GetString("Wharehouse");
+            var ident = openIdent.GetString("Code");
+
+            string result;
+            if (warehouse == "Centralno skladišče Postojna")
+            {
+                if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=outgoing", out result))
+                {
+                    var test = result;
+                    if (test != null && test != "")
+                    {
+                        tbLocation.Text = result;
+                    }
+                    else
+                    {
+                        // Pass for now ie not supported.
+                    }
+                }
+            }
+            else
+            { // Do nothing. }
+            }
+        }
+
+
+        private void colorFields()
+        {
+            tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
+
+        }
         private void LoadRelatedOrder()
         {
 

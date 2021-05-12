@@ -238,7 +238,7 @@ namespace ScannerQR
                     {
                         if (SaveMoveHead())
                         {
-                            StartActivity(typeof(TakeOverSerialOrSSCCEntry));
+                            StartActivity(typeof(TakeOverSerialOrSSCCEntryTablet));
 
                         }
                         return;

@@ -99,6 +99,10 @@ namespace ScannerQR
             LoadRelatedOrder();
             SetUpForm();
         }
+
+
+
+
         private void LoadRelatedOrder()
         {
        

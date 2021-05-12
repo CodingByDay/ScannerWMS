@@ -193,6 +193,7 @@
             android:id="@+id/tbNaziv" />
     </LinearLayout>
     <TextView
+        android:textStyle="bold"
         android:text="Naročilo"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"

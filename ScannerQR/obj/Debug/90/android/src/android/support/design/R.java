@@ -1134,7 +1134,7 @@ public final class R {
 		public static final int up = 0x7f080196;
 		public static final int view_offset_helper = 0x7f080199;
 		public static final int visible = 0x7f08019a;
-		public static final int wrap_content = 0x7f08019c;
+		public static final int wrap_content = 0x7f08019d;
 	}
 	public static final class integer {
 		public static final int abc_config_activityDefaultDur = 0x7f090000;
