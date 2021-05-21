@@ -80,7 +80,7 @@
 
 	/* 8: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.word	1219072
+	.word	1224192
 	/* loaded */
 	.byte	0
 	/* data */
@@ -114,63 +114,63 @@
 	.zero	3
 	.xword	compressed_assembly_data_11
 
-	/* 12: ScannerQR.dll */
-	/* uncompressed_file_size */
-	.word	480768
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_12
-
-	/* 13: System.Core.dll */
+	/* 12: System.Core.dll */
 	/* uncompressed_file_size */
 	.word	307712
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_13
+	.xword	compressed_assembly_data_12
 
-	/* 14: System.Net.Http.dll */
+	/* 13: System.Net.Http.dll */
 	/* uncompressed_file_size */
 	.word	212480
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_14
+	.xword	compressed_assembly_data_13
 
-	/* 15: System.Numerics.dll */
+	/* 14: System.Numerics.dll */
 	/* uncompressed_file_size */
 	.word	25600
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_15
+	.xword	compressed_assembly_data_14
 
-	/* 16: System.Runtime.Serialization.dll */
+	/* 15: System.Runtime.Serialization.dll */
 	/* uncompressed_file_size */
 	.word	5632
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_16
+	.xword	compressed_assembly_data_15
 
-	/* 17: System.Xml.dll */
+	/* 16: System.Xml.dll */
 	/* uncompressed_file_size */
 	.word	958976
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
+	.xword	compressed_assembly_data_16
+
+	/* 17: System.dll */
+	/* uncompressed_file_size */
+	.word	729088
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
 	.xword	compressed_assembly_data_17
 
-	/* 18: System.dll */
+	/* 18: WMSScanner.dll */
 	/* uncompressed_file_size */
-	.word	721920
+	.word	483328
 	/* loaded */
 	.byte	0
 	/* data */

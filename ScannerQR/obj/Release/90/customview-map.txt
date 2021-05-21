@@ -225,7 +225,12 @@ HorizontalScrollView;obj\Release\90\res\layout\issuedgoodsidententrywithtrailtab
 HorizontalScrollView;obj\Release\90\res\layout\productionpalette.xml
 HorizontalScrollView;obj\Release\90\res\layout\productionpalettetablet.xml
 ImageView;obj\Release\90\res\layout\activity_main.xml
+ImageView;obj\Release\90\res\layout\checkstocktablet.xml
+ImageView;obj\Release\90\res\layout\interwarehouseserialorssccentrytablet.xml
+ImageView;obj\Release\90\res\layout\issuedgoodsserialorssccentrytablet.xml
+ImageView;obj\Release\90\res\layout\productionserialorssccentrytablet.xml
 ImageView;obj\Release\90\res\layout\settingspopup.xml
+ImageView;obj\Release\90\res\layout\takeoverserialorssccentrytablet.xml
 ImageView;obj\Release\90\res\layout\transportpopup.xml
 ImageView;obj\Release\90\res\layout\yesnogeneric.xml
 ImageView;obj\Release\90\res\layout\yesnopopup.xml

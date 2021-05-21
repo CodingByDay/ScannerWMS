@@ -37,99 +37,99 @@
   <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_READ" />
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <application android:allowBackup="true" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:icon="@drawable/barcode" android:name="android.support.multidex.MultiDexApplication" android:extractNativeLibs="true">
-    <activity android:label="CheckStock" android:name="crc640b2286ca4f1c700f.CheckStock" />
-    <activity android:label="CheckStockTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.CheckStockTablet" />
-    <activity android:label="choiceProduction" android:name="crc640b2286ca4f1c700f.choiceProduction" />
-    <activity android:label="InterWarehouseBusinessEventSetup" android:name="crc640b2286ca4f1c700f.InterWarehouseBusinessEventSetup" />
-    <activity android:label="InterWarehouseBusinessEventSetupTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.InterWarehouseBusinessEventSetupTablet" />
-    <activity android:label="InterWarehouseEnteredPositionsView" android:name="crc640b2286ca4f1c700f.InterWarehouseEnteredPositionsView" />
-    <activity android:label="InterWarehouseEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.InterWarehouseEnteredPositionsViewTablet" />
-    <activity android:label="InterWarehouseSerialOrSSCCEntry" android:name="crc640b2286ca4f1c700f.InterWarehouseSerialOrSSCCEntry" />
-    <activity android:label="InterWarehouseSerialOrSSCCEntryTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.InterWarehouseSerialOrSSCCEntryTablet" />
-    <activity android:label="InventoryConfirm" android:name="crc640b2286ca4f1c700f.InventoryConfirm" />
-    <activity android:label="InventoryConfirmTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.InventoryConfirmTablet" />
-    <activity android:label="InventoryMenu" android:name="crc640b2286ca4f1c700f.InventoryMenu" />
-    <activity android:label="InventoryOpen" android:name="crc640b2286ca4f1c700f.InventoryOpen" />
-    <activity android:label="InventoryOpenDocument" android:name="crc640b2286ca4f1c700f.InventoryOpenDocument" />
-    <activity android:label="InventoryOpenDocumentTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.InventoryOpenDocumentTablet" />
-    <activity android:label="InventoryOpenTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.InventoryOpenTablet" />
-    <activity android:label="InventoryPrint" android:name="crc640b2286ca4f1c700f.InventoryPrint" />
-    <activity android:label="InventoryPrintTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.InventoryPrintTablet" />
-    <activity android:label="InventoryProcess" android:name="crc640b2286ca4f1c700f.InventoryProcess" />
-    <activity android:label="InventoryProcessTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.InventoryProcessTablet" />
-    <activity android:label="IssuedGoodsBusinessEventSetup" android:name="crc640b2286ca4f1c700f.IssuedGoodsBusinessEventSetup" />
-    <activity android:label="IssuedGoodsBusinessEventSetupTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.IssuedGoodsBusinessEventSetupTablet" />
-    <activity android:label="IssuedGoodsEnteredPositionsView" android:name="crc640b2286ca4f1c700f.IssuedGoodsEnteredPositionsView" />
-    <activity android:label="IssuedGoodsEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.IssuedGoodsEnteredPositionsViewTablet" />
-    <activity android:label="IssuedGoodsIdentEntry" android:name="crc640b2286ca4f1c700f.IssuedGoodsIdentEntry" />
-    <activity android:label="IssuedGoodsIdentEntryTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.IssuedGoodsIdentEntryTablet" />
-    <activity android:label="IssuedGoodsIdentEntryWithTrail" android:name="crc640b2286ca4f1c700f.IssuedGoodsIdentEntryWithTrail" />
-    <activity android:label="IssuedGoodsIdentEntryWithTrailTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.IssuedGoodsIdentEntryWithTrailTablet" />
-    <activity android:label="IssuedGoodsSerialOrSSCCEntry" android:name="crc640b2286ca4f1c700f.IssuedGoodsSerialOrSSCCEntry" />
-    <activity android:label="IssuedGoodsSerialOrSSCCEntryTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.IssuedGoodsSerialOrSSCCEntryTablet" />
-    <activity android:icon="@drawable/barcode" android:label="@string/app_name" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:name="crc640b2286ca4f1c700f.MainActivity">
+    <activity android:label="CheckStock" android:name="crc649f1916a4b4635b36.CheckStock" />
+    <activity android:label="CheckStockTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.CheckStockTablet" />
+    <activity android:label="choiceProduction" android:name="crc649f1916a4b4635b36.choiceProduction" />
+    <activity android:label="InterWarehouseBusinessEventSetup" android:name="crc649f1916a4b4635b36.InterWarehouseBusinessEventSetup" />
+    <activity android:label="InterWarehouseBusinessEventSetupTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.InterWarehouseBusinessEventSetupTablet" />
+    <activity android:label="InterWarehouseEnteredPositionsView" android:name="crc649f1916a4b4635b36.InterWarehouseEnteredPositionsView" />
+    <activity android:label="InterWarehouseEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.InterWarehouseEnteredPositionsViewTablet" />
+    <activity android:label="InterWarehouseSerialOrSSCCEntry" android:name="crc649f1916a4b4635b36.InterWarehouseSerialOrSSCCEntry" />
+    <activity android:label="InterWarehouseSerialOrSSCCEntryTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.InterWarehouseSerialOrSSCCEntryTablet" />
+    <activity android:label="InventoryConfirm" android:name="crc649f1916a4b4635b36.InventoryConfirm" />
+    <activity android:label="InventoryConfirmTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.InventoryConfirmTablet" />
+    <activity android:label="InventoryMenu" android:name="crc649f1916a4b4635b36.InventoryMenu" />
+    <activity android:label="InventoryOpen" android:name="crc649f1916a4b4635b36.InventoryOpen" />
+    <activity android:label="InventoryOpenDocument" android:name="crc649f1916a4b4635b36.InventoryOpenDocument" />
+    <activity android:label="InventoryOpenDocumentTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.InventoryOpenDocumentTablet" />
+    <activity android:label="InventoryOpenTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.InventoryOpenTablet" />
+    <activity android:label="InventoryPrint" android:name="crc649f1916a4b4635b36.InventoryPrint" />
+    <activity android:label="InventoryPrintTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.InventoryPrintTablet" />
+    <activity android:label="InventoryProcess" android:name="crc649f1916a4b4635b36.InventoryProcess" />
+    <activity android:label="InventoryProcessTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.InventoryProcessTablet" />
+    <activity android:label="IssuedGoodsBusinessEventSetup" android:name="crc649f1916a4b4635b36.IssuedGoodsBusinessEventSetup" />
+    <activity android:label="IssuedGoodsBusinessEventSetupTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.IssuedGoodsBusinessEventSetupTablet" />
+    <activity android:label="IssuedGoodsEnteredPositionsView" android:name="crc649f1916a4b4635b36.IssuedGoodsEnteredPositionsView" />
+    <activity android:label="IssuedGoodsEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.IssuedGoodsEnteredPositionsViewTablet" />
+    <activity android:label="IssuedGoodsIdentEntry" android:name="crc649f1916a4b4635b36.IssuedGoodsIdentEntry" />
+    <activity android:label="IssuedGoodsIdentEntryTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.IssuedGoodsIdentEntryTablet" />
+    <activity android:label="IssuedGoodsIdentEntryWithTrail" android:name="crc649f1916a4b4635b36.IssuedGoodsIdentEntryWithTrail" />
+    <activity android:label="IssuedGoodsIdentEntryWithTrailTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.IssuedGoodsIdentEntryWithTrailTablet" />
+    <activity android:label="IssuedGoodsSerialOrSSCCEntry" android:name="crc649f1916a4b4635b36.IssuedGoodsSerialOrSSCCEntry" />
+    <activity android:label="IssuedGoodsSerialOrSSCCEntryTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.IssuedGoodsSerialOrSSCCEntryTablet" />
+    <activity android:icon="@drawable/barcode" android:label="WMSScanner" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:name="crc649f1916a4b4635b36.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:label="MainMenu" android:name="crc640b2286ca4f1c700f.MainMenu" />
-    <activity android:label="MainMenuTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.MainMenuTablet" />
-    <activity android:label="PackagingEnteredPositionsView" android:name="crc640b2286ca4f1c700f.PackagingEnteredPositionsView" />
-    <activity android:label="PackagingEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.PackagingEnteredPositionsViewTablet" />
-    <activity android:label="PackagingSetContext" android:name="crc640b2286ca4f1c700f.PackagingSetContext" />
-    <activity android:label="PackagingSetContextTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.PackagingSetContextTablet" />
-    <activity android:label="PackagingUnit" android:name="crc640b2286ca4f1c700f.PackagingUnit" />
-    <activity android:label="PackagingUnitList" android:name="crc640b2286ca4f1c700f.PackagingUnitList" />
-    <activity android:label="PackagingUnitListTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.PackagingUnitListTablet" />
-    <activity android:label="PackagingUnitTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.PackagingUnitTablet" />
-    <activity android:label="PrintingInputControl" android:name="crc640b2286ca4f1c700f.PrintingInputControl" />
-    <activity android:label="PrintingInputControlTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.PrintingInputControlTablet" />
-    <activity android:label="PrintingMenu" android:name="crc640b2286ca4f1c700f.PrintingMenu" />
-    <activity android:label="PrintingOutputControl" android:name="crc640b2286ca4f1c700f.PrintingOutputControl" />
-    <activity android:label="PrintingOutputControlTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.PrintingOutputControlTablet" />
-    <activity android:label="PrintingProcessControl" android:name="crc640b2286ca4f1c700f.PrintingProcessControl" />
-    <activity android:label="PrintingProcessControlTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.PrintingProcessControlTablet" />
-    <activity android:label="PrintingReprintLabels" android:name="crc640b2286ca4f1c700f.PrintingReprintLabels" />
-    <activity android:label="PrintingReprintLabelsTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.PrintingReprintLabelsTablet" />
-    <activity android:label="PrintingSSCCCodes" android:name="crc640b2286ca4f1c700f.PrintingSSCCCodes" />
-    <activity android:label="PrintingSSCCCodesTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.PrintingSSCCCodesTablet" />
-    <activity android:label="ProductionCard" android:name="crc640b2286ca4f1c700f.ProductionCard" />
-    <activity android:label="ProductionCardTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.ProductionCardTablet" />
-    <activity android:label="ProductionEnteredPositionsView" android:name="crc640b2286ca4f1c700f.ProductionEnteredPositionsView" />
-    <activity android:label="ProductionEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.ProductionEnteredPositionsViewTablet" />
-    <activity android:label="ProductionPalette" android:name="crc640b2286ca4f1c700f.ProductionPalette" />
-    <activity android:label="ProductionPaletteTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.ProductionPaletteTablet" />
-    <activity android:label="ProductionSerialOrSSCCEntry" android:name="crc640b2286ca4f1c700f.ProductionSerialOrSSCCEntry" />
-    <activity android:label="ProductionSerialOrSSCCEntryTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.ProductionSerialOrSSCCEntryTablet" />
-    <activity android:label="ProductionWorkOrderSetup" android:name="crc640b2286ca4f1c700f.ProductionWorkOrderSetup" />
-    <activity android:label="ProductionWorkOrderSetupTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.ProductionWorkOrderSetupTablet" />
-    <activity android:label="RapidTakeover" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.RapidTakeover" />
-    <activity android:label="RapidTakeoverPhone" android:name="crc640b2286ca4f1c700f.RapidTakeoverPhone" />
-    <activity android:label="receiver" android:name="crc640b2286ca4f1c700f.receiver" />
-    <activity android:label="SelectSubjectBeforeFinish" android:name="crc640b2286ca4f1c700f.SelectSubjectBeforeFinish" />
-    <activity android:label="SelectSubjectBeforeFinishTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.SelectSubjectBeforeFinishTablet" />
-    <activity android:label="Settings" android:name="crc640b2286ca4f1c700f.Settings" />
-    <activity android:label="TakeOver2Main" android:name="crc640b2286ca4f1c700f.TakeOver2Main" />
-    <activity android:label="TakeOver2MainTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.TakeOver2MainTablet" />
-    <activity android:label="TakeOver2Orders" android:name="crc640b2286ca4f1c700f.TakeOver2Orders" />
-    <activity android:label="TakeOver2OrdersTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.TakeOver2OrdersTablet" />
-    <activity android:label="TakeOverBusinessEventSetup" android:name="crc640b2286ca4f1c700f.TakeOverBusinessEventSetup" />
-    <activity android:label="TakeOverBusinessEventSetupTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.TakeOverBusinessEventSetupTablet" />
-    <activity android:label="TakeOverEnteredPositionsView" android:name="crc640b2286ca4f1c700f.TakeOverEnteredPositionsView" />
-    <activity android:label="TakeOverEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.TakeOverEnteredPositionsViewTablet" />
-    <activity android:label="TakeOverIdentEntry" android:name="crc640b2286ca4f1c700f.TakeOverIdentEntry" />
-    <activity android:label="TakeOverIdentEntryTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.TakeOverIdentEntryTablet" />
-    <activity android:label="TakeOverSerialOrSSCCEntry" android:name="crc640b2286ca4f1c700f.TakeOverSerialOrSSCCEntry" />
-    <activity android:label="TakeOverSerialOrSSCCEntryTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.TakeOverSerialOrSSCCEntryTablet" />
-    <activity android:label="UnfinishedInterWarehouseView" android:name="crc640b2286ca4f1c700f.UnfinishedInterWarehouseView" />
-    <activity android:label="UnfinishedInterWarehouseViewTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.UnfinishedInterWarehouseViewTablet" />
-    <activity android:label="UnfinishedIssuedGoodsView" android:name="crc640b2286ca4f1c700f.UnfinishedIssuedGoodsView" />
-    <activity android:label="UnfinishedIssuedGoodsViewTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.UnfinishedIssuedGoodsViewTablet" />
-    <activity android:label="UnfinishedProductionView" android:name="crc640b2286ca4f1c700f.UnfinishedProductionView" />
-    <activity android:label="UnfinishedProductionViewTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.UnfinishedProductionViewTablet" />
-    <activity android:label="UnfinishedTakeoversView" android:name="crc640b2286ca4f1c700f.UnfinishedTakeoversView" />
-    <activity android:label="UnfinishedTakeoversViewTablet" android:screenOrientation="landscape" android:name="crc640b2286ca4f1c700f.UnfinishedTakeoversViewTablet" />
+    <activity android:label="MainMenu" android:name="crc649f1916a4b4635b36.MainMenu" />
+    <activity android:label="MainMenuTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.MainMenuTablet" />
+    <activity android:label="PackagingEnteredPositionsView" android:name="crc649f1916a4b4635b36.PackagingEnteredPositionsView" />
+    <activity android:label="PackagingEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.PackagingEnteredPositionsViewTablet" />
+    <activity android:label="PackagingSetContext" android:name="crc649f1916a4b4635b36.PackagingSetContext" />
+    <activity android:label="PackagingSetContextTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.PackagingSetContextTablet" />
+    <activity android:label="PackagingUnit" android:name="crc649f1916a4b4635b36.PackagingUnit" />
+    <activity android:label="PackagingUnitList" android:name="crc649f1916a4b4635b36.PackagingUnitList" />
+    <activity android:label="PackagingUnitListTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.PackagingUnitListTablet" />
+    <activity android:label="PackagingUnitTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.PackagingUnitTablet" />
+    <activity android:label="PrintingInputControl" android:name="crc649f1916a4b4635b36.PrintingInputControl" />
+    <activity android:label="PrintingInputControlTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.PrintingInputControlTablet" />
+    <activity android:label="PrintingMenu" android:name="crc649f1916a4b4635b36.PrintingMenu" />
+    <activity android:label="PrintingOutputControl" android:name="crc649f1916a4b4635b36.PrintingOutputControl" />
+    <activity android:label="PrintingOutputControlTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.PrintingOutputControlTablet" />
+    <activity android:label="PrintingProcessControl" android:name="crc649f1916a4b4635b36.PrintingProcessControl" />
+    <activity android:label="PrintingProcessControlTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.PrintingProcessControlTablet" />
+    <activity android:label="PrintingReprintLabels" android:name="crc649f1916a4b4635b36.PrintingReprintLabels" />
+    <activity android:label="PrintingReprintLabelsTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.PrintingReprintLabelsTablet" />
+    <activity android:label="PrintingSSCCCodes" android:name="crc649f1916a4b4635b36.PrintingSSCCCodes" />
+    <activity android:label="PrintingSSCCCodesTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.PrintingSSCCCodesTablet" />
+    <activity android:label="ProductionCard" android:name="crc649f1916a4b4635b36.ProductionCard" />
+    <activity android:label="ProductionCardTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.ProductionCardTablet" />
+    <activity android:label="ProductionEnteredPositionsView" android:name="crc649f1916a4b4635b36.ProductionEnteredPositionsView" />
+    <activity android:label="ProductionEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.ProductionEnteredPositionsViewTablet" />
+    <activity android:label="ProductionPalette" android:name="crc649f1916a4b4635b36.ProductionPalette" />
+    <activity android:label="ProductionPaletteTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.ProductionPaletteTablet" />
+    <activity android:label="ProductionSerialOrSSCCEntry" android:name="crc649f1916a4b4635b36.ProductionSerialOrSSCCEntry" />
+    <activity android:label="ProductionSerialOrSSCCEntryTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.ProductionSerialOrSSCCEntryTablet" />
+    <activity android:label="ProductionWorkOrderSetup" android:name="crc649f1916a4b4635b36.ProductionWorkOrderSetup" />
+    <activity android:label="ProductionWorkOrderSetupTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.ProductionWorkOrderSetupTablet" />
+    <activity android:label="RapidTakeover" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.RapidTakeover" />
+    <activity android:label="RapidTakeoverPhone" android:name="crc649f1916a4b4635b36.RapidTakeoverPhone" />
+    <activity android:label="receiver" android:name="crc649f1916a4b4635b36.receiver" />
+    <activity android:label="SelectSubjectBeforeFinish" android:name="crc649f1916a4b4635b36.SelectSubjectBeforeFinish" />
+    <activity android:label="SelectSubjectBeforeFinishTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.SelectSubjectBeforeFinishTablet" />
+    <activity android:label="Settings" android:name="crc649f1916a4b4635b36.Settings" />
+    <activity android:label="TakeOver2Main" android:name="crc649f1916a4b4635b36.TakeOver2Main" />
+    <activity android:label="TakeOver2MainTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.TakeOver2MainTablet" />
+    <activity android:label="TakeOver2Orders" android:name="crc649f1916a4b4635b36.TakeOver2Orders" />
+    <activity android:label="TakeOver2OrdersTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.TakeOver2OrdersTablet" />
+    <activity android:label="TakeOverBusinessEventSetup" android:name="crc649f1916a4b4635b36.TakeOverBusinessEventSetup" />
+    <activity android:label="TakeOverBusinessEventSetupTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.TakeOverBusinessEventSetupTablet" />
+    <activity android:label="TakeOverEnteredPositionsView" android:name="crc649f1916a4b4635b36.TakeOverEnteredPositionsView" />
+    <activity android:label="TakeOverEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.TakeOverEnteredPositionsViewTablet" />
+    <activity android:label="TakeOverIdentEntry" android:name="crc649f1916a4b4635b36.TakeOverIdentEntry" />
+    <activity android:label="TakeOverIdentEntryTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.TakeOverIdentEntryTablet" />
+    <activity android:label="TakeOverSerialOrSSCCEntry" android:name="crc649f1916a4b4635b36.TakeOverSerialOrSSCCEntry" />
+    <activity android:label="TakeOverSerialOrSSCCEntryTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.TakeOverSerialOrSSCCEntryTablet" />
+    <activity android:label="UnfinishedInterWarehouseView" android:name="crc649f1916a4b4635b36.UnfinishedInterWarehouseView" />
+    <activity android:label="UnfinishedInterWarehouseViewTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.UnfinishedInterWarehouseViewTablet" />
+    <activity android:label="UnfinishedIssuedGoodsView" android:name="crc649f1916a4b4635b36.UnfinishedIssuedGoodsView" />
+    <activity android:label="UnfinishedIssuedGoodsViewTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.UnfinishedIssuedGoodsViewTablet" />
+    <activity android:label="UnfinishedProductionView" android:name="crc649f1916a4b4635b36.UnfinishedProductionView" />
+    <activity android:label="UnfinishedProductionViewTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.UnfinishedProductionViewTablet" />
+    <activity android:label="UnfinishedTakeoversView" android:name="crc649f1916a4b4635b36.UnfinishedTakeoversView" />
+    <activity android:label="UnfinishedTakeoversViewTablet" android:screenOrientation="landscape" android:name="crc649f1916a4b4635b36.UnfinishedTakeoversViewTablet" />
     <provider android:name="mono.android.MultiDexLoader" android:exported="false" android:initOrder="1999999999" android:authorities="com.companyname.scannerqr.mono.android.MultiDexLoader.__mono_init__" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="1999999998" android:authorities="com.companyname.scannerqr.mono.MonoRuntimeProvider.__mono_init__" />
   </application>

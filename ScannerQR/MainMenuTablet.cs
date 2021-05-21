@@ -4,14 +4,14 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using ScannerQR.App;
+using Scanner.App;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TrendNET.WMS.Device.Services;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "MainMenuTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class MainMenuTablet : Activity

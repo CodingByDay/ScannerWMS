@@ -23,11 +23,11 @@ using Microsoft.AppCenter;//////////
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using static Android.App.ActionBar;
-using ScannerQR.App;
+using Scanner.App;
 
-namespace ScannerQR
+namespace Scanner
 {
-    [Activity(Label = "@string/app_name",ScreenOrientation =Android.Content.PM.ScreenOrientation.Portrait, Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/barcode")]
+    [Activity(Label = "WMS", ScreenOrientation =Android.Content.PM.ScreenOrientation.Portrait, Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/barcode")]
     public class MainActivity : AppCompatActivity
     {
         private Dialog popupDialog;

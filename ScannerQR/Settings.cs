@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "Settings")]
     public class Settings : Activity

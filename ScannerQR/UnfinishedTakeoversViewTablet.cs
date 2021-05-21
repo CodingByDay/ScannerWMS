@@ -15,10 +15,10 @@ using TrendNET.WMS.Device.Services;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 using static Android.App.ActionBar;
-using ScannerQR.App;
+using Scanner.App;
 using System.ComponentModel;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "UnfinishedTakeoversViewTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class UnfinishedTakeoversViewTablet : Activity, INotifyPropertyChanged

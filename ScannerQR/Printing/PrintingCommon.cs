@@ -12,7 +12,7 @@ using Android.Widget;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.Services;
 
-namespace ScannerQR.Printing
+namespace Scanner.Printing
 {
     class PrintingCommon
     {

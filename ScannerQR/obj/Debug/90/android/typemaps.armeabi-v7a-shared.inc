@@ -28988,788 +28988,788 @@
 	.section	.rodata.java_type_name.4831,"aMS",%progbits,1
 	.type	.L.java_type_name.4831, %object
 .L.java_type_name.4831:
-	.asciz	"crc6409c71bcadc42b4aa/CheckStockAddonAdapter"
-	.size	.L.java_type_name.4831, 45
+	.asciz	"crc642c0ac0281e969425/BarcodeDataReceiver"
+	.size	.L.java_type_name.4831, 42
 
 	.section	.rodata.java_type_name.4832,"aMS",%progbits,1
 	.type	.L.java_type_name.4832, %object
 .L.java_type_name.4832:
-	.asciz	"crc6409c71bcadc42b4aa/InterWarehouseEnteredPositionViewAdapter"
-	.size	.L.java_type_name.4832, 63
+	.asciz	"crc64350623dcb797cc38/AndroidHttpClientAdapter"
+	.size	.L.java_type_name.4832, 47
 
 	.section	.rodata.java_type_name.4833,"aMS",%progbits,1
 	.type	.L.java_type_name.4833, %object
 .L.java_type_name.4833:
-	.asciz	"crc6409c71bcadc42b4aa/InterwarehousSerialOrSCCCEntryAdapter"
-	.size	.L.java_type_name.4833, 60
+	.asciz	"crc64350623dcb797cc38/ServiceCall"
+	.size	.L.java_type_name.4833, 34
 
 	.section	.rodata.java_type_name.4834,"aMS",%progbits,1
 	.type	.L.java_type_name.4834, %object
 .L.java_type_name.4834:
-	.asciz	"crc6409c71bcadc42b4aa/IssuedEnterAdapter"
+	.asciz	"crc648a7c9d6e188cbaff/DatePickerFragment"
 	.size	.L.java_type_name.4834, 41
 
 	.section	.rodata.java_type_name.4835,"aMS",%progbits,1
 	.type	.L.java_type_name.4835, %object
 .L.java_type_name.4835:
-	.asciz	"crc6409c71bcadc42b4aa/ProductionEnteredPositionViewAdapter"
-	.size	.L.java_type_name.4835, 59
+	.asciz	"crc649b1ee189de92b663/CheckStockAddonAdapter"
+	.size	.L.java_type_name.4835, 45
 
 	.section	.rodata.java_type_name.4836,"aMS",%progbits,1
 	.type	.L.java_type_name.4836, %object
 .L.java_type_name.4836:
-	.asciz	"crc6409c71bcadc42b4aa/ProductionSerialOrSSCCAdapter"
-	.size	.L.java_type_name.4836, 52
+	.asciz	"crc649b1ee189de92b663/InterWarehouseEnteredPositionViewAdapter"
+	.size	.L.java_type_name.4836, 63
 
 	.section	.rodata.java_type_name.4837,"aMS",%progbits,1
 	.type	.L.java_type_name.4837, %object
 .L.java_type_name.4837:
-	.asciz	"crc6409c71bcadc42b4aa/TakeOverEnteredPositionsViewAdapter"
-	.size	.L.java_type_name.4837, 58
+	.asciz	"crc649b1ee189de92b663/InterwarehousSerialOrSCCCEntryAdapter"
+	.size	.L.java_type_name.4837, 60
 
 	.section	.rodata.java_type_name.4838,"aMS",%progbits,1
 	.type	.L.java_type_name.4838, %object
 .L.java_type_name.4838:
-	.asciz	"crc6409c71bcadc42b4aa/TakeOverIdentAdapter"
-	.size	.L.java_type_name.4838, 43
+	.asciz	"crc649b1ee189de92b663/IssuedEnterAdapter"
+	.size	.L.java_type_name.4838, 41
 
 	.section	.rodata.java_type_name.4839,"aMS",%progbits,1
 	.type	.L.java_type_name.4839, %object
 .L.java_type_name.4839:
-	.asciz	"crc6409c71bcadc42b4aa/TakeOverSerialOrSSCCEntryAdapter"
-	.size	.L.java_type_name.4839, 55
+	.asciz	"crc649b1ee189de92b663/ProductionEnteredPositionViewAdapter"
+	.size	.L.java_type_name.4839, 59
 
 	.section	.rodata.java_type_name.4840,"aMS",%progbits,1
 	.type	.L.java_type_name.4840, %object
 .L.java_type_name.4840:
-	.asciz	"crc6409c71bcadc42b4aa/UnfinishedInterwarehouseAdapter"
-	.size	.L.java_type_name.4840, 54
+	.asciz	"crc649b1ee189de92b663/ProductionSerialOrSSCCAdapter"
+	.size	.L.java_type_name.4840, 52
 
 	.section	.rodata.java_type_name.4841,"aMS",%progbits,1
 	.type	.L.java_type_name.4841, %object
 .L.java_type_name.4841:
-	.asciz	"crc6409c71bcadc42b4aa/UnfinishedIssuedAdapter"
-	.size	.L.java_type_name.4841, 46
+	.asciz	"crc649b1ee189de92b663/TakeOverEnteredPositionsViewAdapter"
+	.size	.L.java_type_name.4841, 58
 
 	.section	.rodata.java_type_name.4842,"aMS",%progbits,1
 	.type	.L.java_type_name.4842, %object
 .L.java_type_name.4842:
-	.asciz	"crc6409c71bcadc42b4aa/UnfinishedPackagingAdapter"
-	.size	.L.java_type_name.4842, 49
+	.asciz	"crc649b1ee189de92b663/TakeOverIdentAdapter"
+	.size	.L.java_type_name.4842, 43
 
 	.section	.rodata.java_type_name.4843,"aMS",%progbits,1
 	.type	.L.java_type_name.4843, %object
 .L.java_type_name.4843:
-	.asciz	"crc6409c71bcadc42b4aa/UnfinishedProductionAdapter"
-	.size	.L.java_type_name.4843, 50
+	.asciz	"crc649b1ee189de92b663/TakeOverSerialOrSSCCEntryAdapter"
+	.size	.L.java_type_name.4843, 55
 
 	.section	.rodata.java_type_name.4844,"aMS",%progbits,1
 	.type	.L.java_type_name.4844, %object
 .L.java_type_name.4844:
-	.asciz	"crc6409c71bcadc42b4aa/UnfinishedTakeoverAdapter"
-	.size	.L.java_type_name.4844, 48
+	.asciz	"crc649b1ee189de92b663/UnfinishedInterwarehouseAdapter"
+	.size	.L.java_type_name.4844, 54
 
 	.section	.rodata.java_type_name.4845,"aMS",%progbits,1
 	.type	.L.java_type_name.4845, %object
 .L.java_type_name.4845:
-	.asciz	"crc6409c71bcadc42b4aa/adapter"
-	.size	.L.java_type_name.4845, 30
+	.asciz	"crc649b1ee189de92b663/UnfinishedIssuedAdapter"
+	.size	.L.java_type_name.4845, 46
 
 	.section	.rodata.java_type_name.4846,"aMS",%progbits,1
 	.type	.L.java_type_name.4846, %object
 .L.java_type_name.4846:
-	.asciz	"crc6409c71bcadc42b4aa/adapterListViewItem"
-	.size	.L.java_type_name.4846, 42
+	.asciz	"crc649b1ee189de92b663/UnfinishedPackagingAdapter"
+	.size	.L.java_type_name.4846, 49
 
 	.section	.rodata.java_type_name.4847,"aMS",%progbits,1
 	.type	.L.java_type_name.4847, %object
 .L.java_type_name.4847:
-	.asciz	"crc6409c71bcadc42b4aa/packagingListAdapter"
-	.size	.L.java_type_name.4847, 43
+	.asciz	"crc649b1ee189de92b663/UnfinishedProductionAdapter"
+	.size	.L.java_type_name.4847, 50
 
 	.section	.rodata.java_type_name.4848,"aMS",%progbits,1
 	.type	.L.java_type_name.4848, %object
 .L.java_type_name.4848:
-	.asciz	"crc6409c71bcadc42b4aa/rapidTakeoverAdapter"
-	.size	.L.java_type_name.4848, 43
+	.asciz	"crc649b1ee189de92b663/UnfinishedTakeoverAdapter"
+	.size	.L.java_type_name.4848, 48
 
 	.section	.rodata.java_type_name.4849,"aMS",%progbits,1
 	.type	.L.java_type_name.4849, %object
 .L.java_type_name.4849:
-	.asciz	"crc640b2286ca4f1c700f/CheckStock"
-	.size	.L.java_type_name.4849, 33
+	.asciz	"crc649b1ee189de92b663/adapter"
+	.size	.L.java_type_name.4849, 30
 
 	.section	.rodata.java_type_name.4850,"aMS",%progbits,1
 	.type	.L.java_type_name.4850, %object
 .L.java_type_name.4850:
-	.asciz	"crc640b2286ca4f1c700f/CheckStockTablet"
-	.size	.L.java_type_name.4850, 39
+	.asciz	"crc649b1ee189de92b663/adapterListViewItem"
+	.size	.L.java_type_name.4850, 42
 
 	.section	.rodata.java_type_name.4851,"aMS",%progbits,1
 	.type	.L.java_type_name.4851, %object
 .L.java_type_name.4851:
-	.asciz	"crc640b2286ca4f1c700f/InterWarehouseBusinessEventSetup"
-	.size	.L.java_type_name.4851, 55
+	.asciz	"crc649b1ee189de92b663/packagingListAdapter"
+	.size	.L.java_type_name.4851, 43
 
 	.section	.rodata.java_type_name.4852,"aMS",%progbits,1
 	.type	.L.java_type_name.4852, %object
 .L.java_type_name.4852:
-	.asciz	"crc640b2286ca4f1c700f/InterWarehouseBusinessEventSetupTablet"
-	.size	.L.java_type_name.4852, 61
+	.asciz	"crc649b1ee189de92b663/rapidTakeoverAdapter"
+	.size	.L.java_type_name.4852, 43
 
 	.section	.rodata.java_type_name.4853,"aMS",%progbits,1
 	.type	.L.java_type_name.4853, %object
 .L.java_type_name.4853:
-	.asciz	"crc640b2286ca4f1c700f/InterWarehouseEnteredPositionsView"
-	.size	.L.java_type_name.4853, 57
+	.asciz	"crc64a0e0a82d0db9a07d/AccelerometerListener"
+	.size	.L.java_type_name.4853, 44
 
 	.section	.rodata.java_type_name.4854,"aMS",%progbits,1
 	.type	.L.java_type_name.4854, %object
 .L.java_type_name.4854:
-	.asciz	"crc640b2286ca4f1c700f/InterWarehouseEnteredPositionsViewTablet"
-	.size	.L.java_type_name.4854, 63
+	.asciz	"crc64a0e0a82d0db9a07d/ActivityLifecycleContextListener"
+	.size	.L.java_type_name.4854, 55
 
 	.section	.rodata.java_type_name.4855,"aMS",%progbits,1
 	.type	.L.java_type_name.4855, %object
 .L.java_type_name.4855:
-	.asciz	"crc640b2286ca4f1c700f/InterWarehouseSerialOrSSCCEntry"
-	.size	.L.java_type_name.4855, 54
+	.asciz	"crc64a0e0a82d0db9a07d/BarometerListener"
+	.size	.L.java_type_name.4855, 40
 
 	.section	.rodata.java_type_name.4856,"aMS",%progbits,1
 	.type	.L.java_type_name.4856, %object
 .L.java_type_name.4856:
-	.asciz	"crc640b2286ca4f1c700f/InterWarehouseSerialOrSSCCEntryTablet"
-	.size	.L.java_type_name.4856, 60
+	.asciz	"crc64a0e0a82d0db9a07d/BatteryBroadcastReceiver"
+	.size	.L.java_type_name.4856, 47
 
 	.section	.rodata.java_type_name.4857,"aMS",%progbits,1
 	.type	.L.java_type_name.4857, %object
 .L.java_type_name.4857:
-	.asciz	"crc640b2286ca4f1c700f/InventoryConfirm"
-	.size	.L.java_type_name.4857, 39
+	.asciz	"crc64a0e0a82d0db9a07d/ClipboardChangeListener"
+	.size	.L.java_type_name.4857, 46
 
 	.section	.rodata.java_type_name.4858,"aMS",%progbits,1
 	.type	.L.java_type_name.4858, %object
 .L.java_type_name.4858:
-	.asciz	"crc640b2286ca4f1c700f/InventoryConfirmTablet"
-	.size	.L.java_type_name.4858, 45
+	.asciz	"crc64a0e0a82d0db9a07d/ConnectivityBroadcastReceiver"
+	.size	.L.java_type_name.4858, 52
 
 	.section	.rodata.java_type_name.4859,"aMS",%progbits,1
 	.type	.L.java_type_name.4859, %object
 .L.java_type_name.4859:
-	.asciz	"crc640b2286ca4f1c700f/InventoryMenu"
-	.size	.L.java_type_name.4859, 36
+	.asciz	"crc64a0e0a82d0db9a07d/EnergySaverBroadcastReceiver"
+	.size	.L.java_type_name.4859, 51
 
 	.section	.rodata.java_type_name.4860,"aMS",%progbits,1
 	.type	.L.java_type_name.4860, %object
 .L.java_type_name.4860:
-	.asciz	"crc640b2286ca4f1c700f/InventoryOpen"
-	.size	.L.java_type_name.4860, 36
+	.asciz	"crc64a0e0a82d0db9a07d/GyroscopeListener"
+	.size	.L.java_type_name.4860, 40
 
 	.section	.rodata.java_type_name.4861,"aMS",%progbits,1
 	.type	.L.java_type_name.4861, %object
 .L.java_type_name.4861:
-	.asciz	"crc640b2286ca4f1c700f/InventoryOpenDocument"
-	.size	.L.java_type_name.4861, 44
+	.asciz	"crc64a0e0a82d0db9a07d/IntermediateActivity"
+	.size	.L.java_type_name.4861, 43
 
 	.section	.rodata.java_type_name.4862,"aMS",%progbits,1
 	.type	.L.java_type_name.4862, %object
 .L.java_type_name.4862:
-	.asciz	"crc640b2286ca4f1c700f/InventoryOpenDocumentTablet"
-	.size	.L.java_type_name.4862, 50
+	.asciz	"crc64a0e0a82d0db9a07d/Listener"
+	.size	.L.java_type_name.4862, 31
 
 	.section	.rodata.java_type_name.4863,"aMS",%progbits,1
 	.type	.L.java_type_name.4863, %object
 .L.java_type_name.4863:
-	.asciz	"crc640b2286ca4f1c700f/InventoryOpenTablet"
-	.size	.L.java_type_name.4863, 42
+	.asciz	"crc64a0e0a82d0db9a07d/MagnetometerListener"
+	.size	.L.java_type_name.4863, 43
 
 	.section	.rodata.java_type_name.4864,"aMS",%progbits,1
 	.type	.L.java_type_name.4864, %object
 .L.java_type_name.4864:
-	.asciz	"crc640b2286ca4f1c700f/InventoryPrint"
-	.size	.L.java_type_name.4864, 37
+	.asciz	"crc64a0e0a82d0db9a07d/OrientationSensorListener"
+	.size	.L.java_type_name.4864, 48
 
 	.section	.rodata.java_type_name.4865,"aMS",%progbits,1
 	.type	.L.java_type_name.4865, %object
 .L.java_type_name.4865:
-	.asciz	"crc640b2286ca4f1c700f/InventoryPrintTablet"
-	.size	.L.java_type_name.4865, 43
+	.asciz	"crc64a0e0a82d0db9a07d/SensorListener"
+	.size	.L.java_type_name.4865, 37
 
 	.section	.rodata.java_type_name.4866,"aMS",%progbits,1
 	.type	.L.java_type_name.4866, %object
 .L.java_type_name.4866:
-	.asciz	"crc640b2286ca4f1c700f/InventoryProcess"
-	.size	.L.java_type_name.4866, 39
+	.asciz	"crc64a0e0a82d0db9a07d/SingleLocationListener"
+	.size	.L.java_type_name.4866, 45
 
 	.section	.rodata.java_type_name.4867,"aMS",%progbits,1
 	.type	.L.java_type_name.4867, %object
 .L.java_type_name.4867:
-	.asciz	"crc640b2286ca4f1c700f/InventoryProcessTablet"
-	.size	.L.java_type_name.4867, 45
+	.asciz	"crc64a0e0a82d0db9a07d/TextToSpeechImplementation"
+	.size	.L.java_type_name.4867, 49
 
 	.section	.rodata.java_type_name.4868,"aMS",%progbits,1
 	.type	.L.java_type_name.4868, %object
 .L.java_type_name.4868:
-	.asciz	"crc640b2286ca4f1c700f/IssuedGoodsBusinessEventSetup"
-	.size	.L.java_type_name.4868, 52
+	.asciz	"crc64a0e0a82d0db9a07d/WebAuthenticatorCallbackActivity"
+	.size	.L.java_type_name.4868, 55
 
 	.section	.rodata.java_type_name.4869,"aMS",%progbits,1
 	.type	.L.java_type_name.4869, %object
 .L.java_type_name.4869:
-	.asciz	"crc640b2286ca4f1c700f/IssuedGoodsBusinessEventSetupTablet"
-	.size	.L.java_type_name.4869, 58
+	.asciz	"crc64a0e0a82d0db9a07d/WebAuthenticatorIntermediateActivity"
+	.size	.L.java_type_name.4869, 59
 
 	.section	.rodata.java_type_name.4870,"aMS",%progbits,1
 	.type	.L.java_type_name.4870, %object
 .L.java_type_name.4870:
-	.asciz	"crc640b2286ca4f1c700f/IssuedGoodsEnteredPositionsView"
-	.size	.L.java_type_name.4870, 54
+	.asciz	"crc64a4555f9f70c213ae/Crashes_AndroidCrashListener"
+	.size	.L.java_type_name.4870, 51
 
 	.section	.rodata.java_type_name.4871,"aMS",%progbits,1
 	.type	.L.java_type_name.4871, %object
 .L.java_type_name.4871:
-	.asciz	"crc640b2286ca4f1c700f/IssuedGoodsEnteredPositionsViewTablet"
-	.size	.L.java_type_name.4871, 60
+	.asciz	"crc64a98abb514ffad9f1/CustomTabsServiceConnectionImpl"
+	.size	.L.java_type_name.4871, 54
 
 	.section	.rodata.java_type_name.4872,"aMS",%progbits,1
 	.type	.L.java_type_name.4872, %object
 .L.java_type_name.4872:
-	.asciz	"crc640b2286ca4f1c700f/IssuedGoodsIdentEntry"
-	.size	.L.java_type_name.4872, 44
+	.asciz	"crc64a98abb514ffad9f1/KeepAliveService"
+	.size	.L.java_type_name.4872, 39
 
 	.section	.rodata.java_type_name.4873,"aMS",%progbits,1
 	.type	.L.java_type_name.4873, %object
 .L.java_type_name.4873:
-	.asciz	"crc640b2286ca4f1c700f/IssuedGoodsIdentEntryTablet"
-	.size	.L.java_type_name.4873, 50
+	.asciz	"crc64f0e155b6502ec419/CheckStock"
+	.size	.L.java_type_name.4873, 33
 
 	.section	.rodata.java_type_name.4874,"aMS",%progbits,1
 	.type	.L.java_type_name.4874, %object
 .L.java_type_name.4874:
-	.asciz	"crc640b2286ca4f1c700f/IssuedGoodsIdentEntryWithTrail"
-	.size	.L.java_type_name.4874, 53
+	.asciz	"crc64f0e155b6502ec419/CheckStockTablet"
+	.size	.L.java_type_name.4874, 39
 
 	.section	.rodata.java_type_name.4875,"aMS",%progbits,1
 	.type	.L.java_type_name.4875, %object
 .L.java_type_name.4875:
-	.asciz	"crc640b2286ca4f1c700f/IssuedGoodsIdentEntryWithTrailTablet"
-	.size	.L.java_type_name.4875, 59
+	.asciz	"crc64f0e155b6502ec419/InterWarehouseBusinessEventSetup"
+	.size	.L.java_type_name.4875, 55
 
 	.section	.rodata.java_type_name.4876,"aMS",%progbits,1
 	.type	.L.java_type_name.4876, %object
 .L.java_type_name.4876:
-	.asciz	"crc640b2286ca4f1c700f/IssuedGoodsSerialOrSSCCEntry"
-	.size	.L.java_type_name.4876, 51
+	.asciz	"crc64f0e155b6502ec419/InterWarehouseBusinessEventSetupTablet"
+	.size	.L.java_type_name.4876, 61
 
 	.section	.rodata.java_type_name.4877,"aMS",%progbits,1
 	.type	.L.java_type_name.4877, %object
 .L.java_type_name.4877:
-	.asciz	"crc640b2286ca4f1c700f/IssuedGoodsSerialOrSSCCEntryTablet"
+	.asciz	"crc64f0e155b6502ec419/InterWarehouseEnteredPositionsView"
 	.size	.L.java_type_name.4877, 57
 
 	.section	.rodata.java_type_name.4878,"aMS",%progbits,1
 	.type	.L.java_type_name.4878, %object
 .L.java_type_name.4878:
-	.asciz	"crc640b2286ca4f1c700f/MainActivity"
-	.size	.L.java_type_name.4878, 35
+	.asciz	"crc64f0e155b6502ec419/InterWarehouseEnteredPositionsViewTablet"
+	.size	.L.java_type_name.4878, 63
 
 	.section	.rodata.java_type_name.4879,"aMS",%progbits,1
 	.type	.L.java_type_name.4879, %object
 .L.java_type_name.4879:
-	.asciz	"crc640b2286ca4f1c700f/MainMenu"
-	.size	.L.java_type_name.4879, 31
+	.asciz	"crc64f0e155b6502ec419/InterWarehouseSerialOrSSCCEntry"
+	.size	.L.java_type_name.4879, 54
 
 	.section	.rodata.java_type_name.4880,"aMS",%progbits,1
 	.type	.L.java_type_name.4880, %object
 .L.java_type_name.4880:
-	.asciz	"crc640b2286ca4f1c700f/MainMenuTablet"
-	.size	.L.java_type_name.4880, 37
+	.asciz	"crc64f0e155b6502ec419/InterWarehouseSerialOrSSCCEntryTablet"
+	.size	.L.java_type_name.4880, 60
 
 	.section	.rodata.java_type_name.4881,"aMS",%progbits,1
 	.type	.L.java_type_name.4881, %object
 .L.java_type_name.4881:
-	.asciz	"crc640b2286ca4f1c700f/PackagingEnteredPositionsView"
-	.size	.L.java_type_name.4881, 52
+	.asciz	"crc64f0e155b6502ec419/InventoryConfirm"
+	.size	.L.java_type_name.4881, 39
 
 	.section	.rodata.java_type_name.4882,"aMS",%progbits,1
 	.type	.L.java_type_name.4882, %object
 .L.java_type_name.4882:
-	.asciz	"crc640b2286ca4f1c700f/PackagingEnteredPositionsViewTablet"
-	.size	.L.java_type_name.4882, 58
+	.asciz	"crc64f0e155b6502ec419/InventoryConfirmTablet"
+	.size	.L.java_type_name.4882, 45
 
 	.section	.rodata.java_type_name.4883,"aMS",%progbits,1
 	.type	.L.java_type_name.4883, %object
 .L.java_type_name.4883:
-	.asciz	"crc640b2286ca4f1c700f/PackagingSetContext"
-	.size	.L.java_type_name.4883, 42
+	.asciz	"crc64f0e155b6502ec419/InventoryMenu"
+	.size	.L.java_type_name.4883, 36
 
 	.section	.rodata.java_type_name.4884,"aMS",%progbits,1
 	.type	.L.java_type_name.4884, %object
 .L.java_type_name.4884:
-	.asciz	"crc640b2286ca4f1c700f/PackagingSetContextTablet"
-	.size	.L.java_type_name.4884, 48
+	.asciz	"crc64f0e155b6502ec419/InventoryOpen"
+	.size	.L.java_type_name.4884, 36
 
 	.section	.rodata.java_type_name.4885,"aMS",%progbits,1
 	.type	.L.java_type_name.4885, %object
 .L.java_type_name.4885:
-	.asciz	"crc640b2286ca4f1c700f/PackagingUnit"
-	.size	.L.java_type_name.4885, 36
+	.asciz	"crc64f0e155b6502ec419/InventoryOpenDocument"
+	.size	.L.java_type_name.4885, 44
 
 	.section	.rodata.java_type_name.4886,"aMS",%progbits,1
 	.type	.L.java_type_name.4886, %object
 .L.java_type_name.4886:
-	.asciz	"crc640b2286ca4f1c700f/PackagingUnitList"
-	.size	.L.java_type_name.4886, 40
+	.asciz	"crc64f0e155b6502ec419/InventoryOpenDocumentTablet"
+	.size	.L.java_type_name.4886, 50
 
 	.section	.rodata.java_type_name.4887,"aMS",%progbits,1
 	.type	.L.java_type_name.4887, %object
 .L.java_type_name.4887:
-	.asciz	"crc640b2286ca4f1c700f/PackagingUnitListTablet"
-	.size	.L.java_type_name.4887, 46
+	.asciz	"crc64f0e155b6502ec419/InventoryOpenTablet"
+	.size	.L.java_type_name.4887, 42
 
 	.section	.rodata.java_type_name.4888,"aMS",%progbits,1
 	.type	.L.java_type_name.4888, %object
 .L.java_type_name.4888:
-	.asciz	"crc640b2286ca4f1c700f/PackagingUnitTablet"
-	.size	.L.java_type_name.4888, 42
+	.asciz	"crc64f0e155b6502ec419/InventoryPrint"
+	.size	.L.java_type_name.4888, 37
 
 	.section	.rodata.java_type_name.4889,"aMS",%progbits,1
 	.type	.L.java_type_name.4889, %object
 .L.java_type_name.4889:
-	.asciz	"crc640b2286ca4f1c700f/PrintingInputControl"
+	.asciz	"crc64f0e155b6502ec419/InventoryPrintTablet"
 	.size	.L.java_type_name.4889, 43
 
 	.section	.rodata.java_type_name.4890,"aMS",%progbits,1
 	.type	.L.java_type_name.4890, %object
 .L.java_type_name.4890:
-	.asciz	"crc640b2286ca4f1c700f/PrintingInputControlTablet"
-	.size	.L.java_type_name.4890, 49
+	.asciz	"crc64f0e155b6502ec419/InventoryProcess"
+	.size	.L.java_type_name.4890, 39
 
 	.section	.rodata.java_type_name.4891,"aMS",%progbits,1
 	.type	.L.java_type_name.4891, %object
 .L.java_type_name.4891:
-	.asciz	"crc640b2286ca4f1c700f/PrintingMenu"
-	.size	.L.java_type_name.4891, 35
+	.asciz	"crc64f0e155b6502ec419/InventoryProcessTablet"
+	.size	.L.java_type_name.4891, 45
 
 	.section	.rodata.java_type_name.4892,"aMS",%progbits,1
 	.type	.L.java_type_name.4892, %object
 .L.java_type_name.4892:
-	.asciz	"crc640b2286ca4f1c700f/PrintingOutputControl"
-	.size	.L.java_type_name.4892, 44
+	.asciz	"crc64f0e155b6502ec419/IssuedGoodsBusinessEventSetup"
+	.size	.L.java_type_name.4892, 52
 
 	.section	.rodata.java_type_name.4893,"aMS",%progbits,1
 	.type	.L.java_type_name.4893, %object
 .L.java_type_name.4893:
-	.asciz	"crc640b2286ca4f1c700f/PrintingOutputControlTablet"
-	.size	.L.java_type_name.4893, 50
+	.asciz	"crc64f0e155b6502ec419/IssuedGoodsBusinessEventSetupTablet"
+	.size	.L.java_type_name.4893, 58
 
 	.section	.rodata.java_type_name.4894,"aMS",%progbits,1
 	.type	.L.java_type_name.4894, %object
 .L.java_type_name.4894:
-	.asciz	"crc640b2286ca4f1c700f/PrintingProcessControl"
-	.size	.L.java_type_name.4894, 45
+	.asciz	"crc64f0e155b6502ec419/IssuedGoodsEnteredPositionsView"
+	.size	.L.java_type_name.4894, 54
 
 	.section	.rodata.java_type_name.4895,"aMS",%progbits,1
 	.type	.L.java_type_name.4895, %object
 .L.java_type_name.4895:
-	.asciz	"crc640b2286ca4f1c700f/PrintingProcessControlTablet"
-	.size	.L.java_type_name.4895, 51
+	.asciz	"crc64f0e155b6502ec419/IssuedGoodsEnteredPositionsViewTablet"
+	.size	.L.java_type_name.4895, 60
 
 	.section	.rodata.java_type_name.4896,"aMS",%progbits,1
 	.type	.L.java_type_name.4896, %object
 .L.java_type_name.4896:
-	.asciz	"crc640b2286ca4f1c700f/PrintingReprintLabels"
+	.asciz	"crc64f0e155b6502ec419/IssuedGoodsIdentEntry"
 	.size	.L.java_type_name.4896, 44
 
 	.section	.rodata.java_type_name.4897,"aMS",%progbits,1
 	.type	.L.java_type_name.4897, %object
 .L.java_type_name.4897:
-	.asciz	"crc640b2286ca4f1c700f/PrintingReprintLabelsTablet"
+	.asciz	"crc64f0e155b6502ec419/IssuedGoodsIdentEntryTablet"
 	.size	.L.java_type_name.4897, 50
 
 	.section	.rodata.java_type_name.4898,"aMS",%progbits,1
 	.type	.L.java_type_name.4898, %object
 .L.java_type_name.4898:
-	.asciz	"crc640b2286ca4f1c700f/PrintingSSCCCodes"
-	.size	.L.java_type_name.4898, 40
+	.asciz	"crc64f0e155b6502ec419/IssuedGoodsIdentEntryWithTrail"
+	.size	.L.java_type_name.4898, 53
 
 	.section	.rodata.java_type_name.4899,"aMS",%progbits,1
 	.type	.L.java_type_name.4899, %object
 .L.java_type_name.4899:
-	.asciz	"crc640b2286ca4f1c700f/PrintingSSCCCodesTablet"
-	.size	.L.java_type_name.4899, 46
+	.asciz	"crc64f0e155b6502ec419/IssuedGoodsIdentEntryWithTrailTablet"
+	.size	.L.java_type_name.4899, 59
 
 	.section	.rodata.java_type_name.4900,"aMS",%progbits,1
 	.type	.L.java_type_name.4900, %object
 .L.java_type_name.4900:
-	.asciz	"crc640b2286ca4f1c700f/ProductionCard"
-	.size	.L.java_type_name.4900, 37
+	.asciz	"crc64f0e155b6502ec419/IssuedGoodsSerialOrSSCCEntry"
+	.size	.L.java_type_name.4900, 51
 
 	.section	.rodata.java_type_name.4901,"aMS",%progbits,1
 	.type	.L.java_type_name.4901, %object
 .L.java_type_name.4901:
-	.asciz	"crc640b2286ca4f1c700f/ProductionCardTablet"
-	.size	.L.java_type_name.4901, 43
+	.asciz	"crc64f0e155b6502ec419/IssuedGoodsSerialOrSSCCEntryTablet"
+	.size	.L.java_type_name.4901, 57
 
 	.section	.rodata.java_type_name.4902,"aMS",%progbits,1
 	.type	.L.java_type_name.4902, %object
 .L.java_type_name.4902:
-	.asciz	"crc640b2286ca4f1c700f/ProductionEnteredPositionsView"
-	.size	.L.java_type_name.4902, 53
+	.asciz	"crc64f0e155b6502ec419/MainActivity"
+	.size	.L.java_type_name.4902, 35
 
 	.section	.rodata.java_type_name.4903,"aMS",%progbits,1
 	.type	.L.java_type_name.4903, %object
 .L.java_type_name.4903:
-	.asciz	"crc640b2286ca4f1c700f/ProductionEnteredPositionsViewTablet"
-	.size	.L.java_type_name.4903, 59
+	.asciz	"crc64f0e155b6502ec419/MainMenu"
+	.size	.L.java_type_name.4903, 31
 
 	.section	.rodata.java_type_name.4904,"aMS",%progbits,1
 	.type	.L.java_type_name.4904, %object
 .L.java_type_name.4904:
-	.asciz	"crc640b2286ca4f1c700f/ProductionPalette"
-	.size	.L.java_type_name.4904, 40
+	.asciz	"crc64f0e155b6502ec419/MainMenuTablet"
+	.size	.L.java_type_name.4904, 37
 
 	.section	.rodata.java_type_name.4905,"aMS",%progbits,1
 	.type	.L.java_type_name.4905, %object
 .L.java_type_name.4905:
-	.asciz	"crc640b2286ca4f1c700f/ProductionPaletteTablet"
-	.size	.L.java_type_name.4905, 46
+	.asciz	"crc64f0e155b6502ec419/PackagingEnteredPositionsView"
+	.size	.L.java_type_name.4905, 52
 
 	.section	.rodata.java_type_name.4906,"aMS",%progbits,1
 	.type	.L.java_type_name.4906, %object
 .L.java_type_name.4906:
-	.asciz	"crc640b2286ca4f1c700f/ProductionSerialOrSSCCEntry"
-	.size	.L.java_type_name.4906, 50
+	.asciz	"crc64f0e155b6502ec419/PackagingEnteredPositionsViewTablet"
+	.size	.L.java_type_name.4906, 58
 
 	.section	.rodata.java_type_name.4907,"aMS",%progbits,1
 	.type	.L.java_type_name.4907, %object
 .L.java_type_name.4907:
-	.asciz	"crc640b2286ca4f1c700f/ProductionSerialOrSSCCEntryTablet"
-	.size	.L.java_type_name.4907, 56
+	.asciz	"crc64f0e155b6502ec419/PackagingSetContext"
+	.size	.L.java_type_name.4907, 42
 
 	.section	.rodata.java_type_name.4908,"aMS",%progbits,1
 	.type	.L.java_type_name.4908, %object
 .L.java_type_name.4908:
-	.asciz	"crc640b2286ca4f1c700f/ProductionWorkOrderSetup"
-	.size	.L.java_type_name.4908, 47
+	.asciz	"crc64f0e155b6502ec419/PackagingSetContextTablet"
+	.size	.L.java_type_name.4908, 48
 
 	.section	.rodata.java_type_name.4909,"aMS",%progbits,1
 	.type	.L.java_type_name.4909, %object
 .L.java_type_name.4909:
-	.asciz	"crc640b2286ca4f1c700f/ProductionWorkOrderSetupTablet"
-	.size	.L.java_type_name.4909, 53
+	.asciz	"crc64f0e155b6502ec419/PackagingUnit"
+	.size	.L.java_type_name.4909, 36
 
 	.section	.rodata.java_type_name.4910,"aMS",%progbits,1
 	.type	.L.java_type_name.4910, %object
 .L.java_type_name.4910:
-	.asciz	"crc640b2286ca4f1c700f/RapidTakeover"
-	.size	.L.java_type_name.4910, 36
+	.asciz	"crc64f0e155b6502ec419/PackagingUnitList"
+	.size	.L.java_type_name.4910, 40
 
 	.section	.rodata.java_type_name.4911,"aMS",%progbits,1
 	.type	.L.java_type_name.4911, %object
 .L.java_type_name.4911:
-	.asciz	"crc640b2286ca4f1c700f/RapidTakeoverPhone"
-	.size	.L.java_type_name.4911, 41
+	.asciz	"crc64f0e155b6502ec419/PackagingUnitListTablet"
+	.size	.L.java_type_name.4911, 46
 
 	.section	.rodata.java_type_name.4912,"aMS",%progbits,1
 	.type	.L.java_type_name.4912, %object
 .L.java_type_name.4912:
-	.asciz	"crc640b2286ca4f1c700f/SelectSubjectBeforeFinish"
-	.size	.L.java_type_name.4912, 48
+	.asciz	"crc64f0e155b6502ec419/PackagingUnitTablet"
+	.size	.L.java_type_name.4912, 42
 
 	.section	.rodata.java_type_name.4913,"aMS",%progbits,1
 	.type	.L.java_type_name.4913, %object
 .L.java_type_name.4913:
-	.asciz	"crc640b2286ca4f1c700f/SelectSubjectBeforeFinishTablet"
-	.size	.L.java_type_name.4913, 54
+	.asciz	"crc64f0e155b6502ec419/PrintingInputControl"
+	.size	.L.java_type_name.4913, 43
 
 	.section	.rodata.java_type_name.4914,"aMS",%progbits,1
 	.type	.L.java_type_name.4914, %object
 .L.java_type_name.4914:
-	.asciz	"crc640b2286ca4f1c700f/Settings"
-	.size	.L.java_type_name.4914, 31
+	.asciz	"crc64f0e155b6502ec419/PrintingInputControlTablet"
+	.size	.L.java_type_name.4914, 49
 
 	.section	.rodata.java_type_name.4915,"aMS",%progbits,1
 	.type	.L.java_type_name.4915, %object
 .L.java_type_name.4915:
-	.asciz	"crc640b2286ca4f1c700f/TakeOver2Main"
-	.size	.L.java_type_name.4915, 36
+	.asciz	"crc64f0e155b6502ec419/PrintingMenu"
+	.size	.L.java_type_name.4915, 35
 
 	.section	.rodata.java_type_name.4916,"aMS",%progbits,1
 	.type	.L.java_type_name.4916, %object
 .L.java_type_name.4916:
-	.asciz	"crc640b2286ca4f1c700f/TakeOver2MainTablet"
-	.size	.L.java_type_name.4916, 42
+	.asciz	"crc64f0e155b6502ec419/PrintingOutputControl"
+	.size	.L.java_type_name.4916, 44
 
 	.section	.rodata.java_type_name.4917,"aMS",%progbits,1
 	.type	.L.java_type_name.4917, %object
 .L.java_type_name.4917:
-	.asciz	"crc640b2286ca4f1c700f/TakeOver2Orders"
-	.size	.L.java_type_name.4917, 38
+	.asciz	"crc64f0e155b6502ec419/PrintingOutputControlTablet"
+	.size	.L.java_type_name.4917, 50
 
 	.section	.rodata.java_type_name.4918,"aMS",%progbits,1
 	.type	.L.java_type_name.4918, %object
 .L.java_type_name.4918:
-	.asciz	"crc640b2286ca4f1c700f/TakeOver2OrdersTablet"
-	.size	.L.java_type_name.4918, 44
+	.asciz	"crc64f0e155b6502ec419/PrintingProcessControl"
+	.size	.L.java_type_name.4918, 45
 
 	.section	.rodata.java_type_name.4919,"aMS",%progbits,1
 	.type	.L.java_type_name.4919, %object
 .L.java_type_name.4919:
-	.asciz	"crc640b2286ca4f1c700f/TakeOverBusinessEventSetup"
-	.size	.L.java_type_name.4919, 49
+	.asciz	"crc64f0e155b6502ec419/PrintingProcessControlTablet"
+	.size	.L.java_type_name.4919, 51
 
 	.section	.rodata.java_type_name.4920,"aMS",%progbits,1
 	.type	.L.java_type_name.4920, %object
 .L.java_type_name.4920:
-	.asciz	"crc640b2286ca4f1c700f/TakeOverBusinessEventSetupTablet"
-	.size	.L.java_type_name.4920, 55
+	.asciz	"crc64f0e155b6502ec419/PrintingReprintLabels"
+	.size	.L.java_type_name.4920, 44
 
 	.section	.rodata.java_type_name.4921,"aMS",%progbits,1
 	.type	.L.java_type_name.4921, %object
 .L.java_type_name.4921:
-	.asciz	"crc640b2286ca4f1c700f/TakeOverEnteredPositionsView"
-	.size	.L.java_type_name.4921, 51
+	.asciz	"crc64f0e155b6502ec419/PrintingReprintLabelsTablet"
+	.size	.L.java_type_name.4921, 50
 
 	.section	.rodata.java_type_name.4922,"aMS",%progbits,1
 	.type	.L.java_type_name.4922, %object
 .L.java_type_name.4922:
-	.asciz	"crc640b2286ca4f1c700f/TakeOverEnteredPositionsViewTablet"
-	.size	.L.java_type_name.4922, 57
+	.asciz	"crc64f0e155b6502ec419/PrintingSSCCCodes"
+	.size	.L.java_type_name.4922, 40
 
 	.section	.rodata.java_type_name.4923,"aMS",%progbits,1
 	.type	.L.java_type_name.4923, %object
 .L.java_type_name.4923:
-	.asciz	"crc640b2286ca4f1c700f/TakeOverIdentEntry"
-	.size	.L.java_type_name.4923, 41
+	.asciz	"crc64f0e155b6502ec419/PrintingSSCCCodesTablet"
+	.size	.L.java_type_name.4923, 46
 
 	.section	.rodata.java_type_name.4924,"aMS",%progbits,1
 	.type	.L.java_type_name.4924, %object
 .L.java_type_name.4924:
-	.asciz	"crc640b2286ca4f1c700f/TakeOverIdentEntryTablet"
-	.size	.L.java_type_name.4924, 47
+	.asciz	"crc64f0e155b6502ec419/ProductionCard"
+	.size	.L.java_type_name.4924, 37
 
 	.section	.rodata.java_type_name.4925,"aMS",%progbits,1
 	.type	.L.java_type_name.4925, %object
 .L.java_type_name.4925:
-	.asciz	"crc640b2286ca4f1c700f/TakeOverSerialOrSSCCEntry"
-	.size	.L.java_type_name.4925, 48
+	.asciz	"crc64f0e155b6502ec419/ProductionCardTablet"
+	.size	.L.java_type_name.4925, 43
 
 	.section	.rodata.java_type_name.4926,"aMS",%progbits,1
 	.type	.L.java_type_name.4926, %object
 .L.java_type_name.4926:
-	.asciz	"crc640b2286ca4f1c700f/TakeOverSerialOrSSCCEntryTablet"
-	.size	.L.java_type_name.4926, 54
+	.asciz	"crc64f0e155b6502ec419/ProductionEnteredPositionsView"
+	.size	.L.java_type_name.4926, 53
 
 	.section	.rodata.java_type_name.4927,"aMS",%progbits,1
 	.type	.L.java_type_name.4927, %object
 .L.java_type_name.4927:
-	.asciz	"crc640b2286ca4f1c700f/UnfinishedInterWarehouseView"
-	.size	.L.java_type_name.4927, 51
+	.asciz	"crc64f0e155b6502ec419/ProductionEnteredPositionsViewTablet"
+	.size	.L.java_type_name.4927, 59
 
 	.section	.rodata.java_type_name.4928,"aMS",%progbits,1
 	.type	.L.java_type_name.4928, %object
 .L.java_type_name.4928:
-	.asciz	"crc640b2286ca4f1c700f/UnfinishedInterWarehouseViewTablet"
-	.size	.L.java_type_name.4928, 57
+	.asciz	"crc64f0e155b6502ec419/ProductionPalette"
+	.size	.L.java_type_name.4928, 40
 
 	.section	.rodata.java_type_name.4929,"aMS",%progbits,1
 	.type	.L.java_type_name.4929, %object
 .L.java_type_name.4929:
-	.asciz	"crc640b2286ca4f1c700f/UnfinishedIssuedGoodsView"
-	.size	.L.java_type_name.4929, 48
+	.asciz	"crc64f0e155b6502ec419/ProductionPaletteTablet"
+	.size	.L.java_type_name.4929, 46
 
 	.section	.rodata.java_type_name.4930,"aMS",%progbits,1
 	.type	.L.java_type_name.4930, %object
 .L.java_type_name.4930:
-	.asciz	"crc640b2286ca4f1c700f/UnfinishedIssuedGoodsViewTablet"
-	.size	.L.java_type_name.4930, 54
+	.asciz	"crc64f0e155b6502ec419/ProductionSerialOrSSCCEntry"
+	.size	.L.java_type_name.4930, 50
 
 	.section	.rodata.java_type_name.4931,"aMS",%progbits,1
 	.type	.L.java_type_name.4931, %object
 .L.java_type_name.4931:
-	.asciz	"crc640b2286ca4f1c700f/UnfinishedProductionView"
-	.size	.L.java_type_name.4931, 47
+	.asciz	"crc64f0e155b6502ec419/ProductionSerialOrSSCCEntryTablet"
+	.size	.L.java_type_name.4931, 56
 
 	.section	.rodata.java_type_name.4932,"aMS",%progbits,1
 	.type	.L.java_type_name.4932, %object
 .L.java_type_name.4932:
-	.asciz	"crc640b2286ca4f1c700f/UnfinishedProductionViewTablet"
-	.size	.L.java_type_name.4932, 53
+	.asciz	"crc64f0e155b6502ec419/ProductionWorkOrderSetup"
+	.size	.L.java_type_name.4932, 47
 
 	.section	.rodata.java_type_name.4933,"aMS",%progbits,1
 	.type	.L.java_type_name.4933, %object
 .L.java_type_name.4933:
-	.asciz	"crc640b2286ca4f1c700f/UnfinishedTakeoversView"
-	.size	.L.java_type_name.4933, 46
+	.asciz	"crc64f0e155b6502ec419/ProductionWorkOrderSetupTablet"
+	.size	.L.java_type_name.4933, 53
 
 	.section	.rodata.java_type_name.4934,"aMS",%progbits,1
 	.type	.L.java_type_name.4934, %object
 .L.java_type_name.4934:
-	.asciz	"crc640b2286ca4f1c700f/UnfinishedTakeoversViewTablet"
-	.size	.L.java_type_name.4934, 52
+	.asciz	"crc64f0e155b6502ec419/RapidTakeover"
+	.size	.L.java_type_name.4934, 36
 
 	.section	.rodata.java_type_name.4935,"aMS",%progbits,1
 	.type	.L.java_type_name.4935, %object
 .L.java_type_name.4935:
-	.asciz	"crc640b2286ca4f1c700f/choiceProduction"
-	.size	.L.java_type_name.4935, 39
+	.asciz	"crc64f0e155b6502ec419/RapidTakeoverPhone"
+	.size	.L.java_type_name.4935, 41
 
 	.section	.rodata.java_type_name.4936,"aMS",%progbits,1
 	.type	.L.java_type_name.4936, %object
 .L.java_type_name.4936:
-	.asciz	"crc640b2286ca4f1c700f/receiver"
-	.size	.L.java_type_name.4936, 31
+	.asciz	"crc64f0e155b6502ec419/SelectSubjectBeforeFinish"
+	.size	.L.java_type_name.4936, 48
 
 	.section	.rodata.java_type_name.4937,"aMS",%progbits,1
 	.type	.L.java_type_name.4937, %object
 .L.java_type_name.4937:
-	.asciz	"crc640b2286ca4f1c700f/receiver_InitTask"
-	.size	.L.java_type_name.4937, 40
+	.asciz	"crc64f0e155b6502ec419/SelectSubjectBeforeFinishTablet"
+	.size	.L.java_type_name.4937, 54
 
 	.section	.rodata.java_type_name.4938,"aMS",%progbits,1
 	.type	.L.java_type_name.4938, %object
 .L.java_type_name.4938:
-	.asciz	"crc6428c7b543d88da90c/DatePickerFragment"
-	.size	.L.java_type_name.4938, 41
+	.asciz	"crc64f0e155b6502ec419/Settings"
+	.size	.L.java_type_name.4938, 31
 
 	.section	.rodata.java_type_name.4939,"aMS",%progbits,1
 	.type	.L.java_type_name.4939, %object
 .L.java_type_name.4939:
-	.asciz	"crc64350623dcb797cc38/AndroidHttpClientAdapter"
-	.size	.L.java_type_name.4939, 47
+	.asciz	"crc64f0e155b6502ec419/TakeOver2Main"
+	.size	.L.java_type_name.4939, 36
 
 	.section	.rodata.java_type_name.4940,"aMS",%progbits,1
 	.type	.L.java_type_name.4940, %object
 .L.java_type_name.4940:
-	.asciz	"crc64350623dcb797cc38/ServiceCall"
-	.size	.L.java_type_name.4940, 34
+	.asciz	"crc64f0e155b6502ec419/TakeOver2MainTablet"
+	.size	.L.java_type_name.4940, 42
 
 	.section	.rodata.java_type_name.4941,"aMS",%progbits,1
 	.type	.L.java_type_name.4941, %object
 .L.java_type_name.4941:
-	.asciz	"crc64626865e9f13072a9/BarcodeDataReceiver"
-	.size	.L.java_type_name.4941, 42
+	.asciz	"crc64f0e155b6502ec419/TakeOver2Orders"
+	.size	.L.java_type_name.4941, 38
 
 	.section	.rodata.java_type_name.4942,"aMS",%progbits,1
 	.type	.L.java_type_name.4942, %object
 .L.java_type_name.4942:
-	.asciz	"crc64a0e0a82d0db9a07d/AccelerometerListener"
+	.asciz	"crc64f0e155b6502ec419/TakeOver2OrdersTablet"
 	.size	.L.java_type_name.4942, 44
 
 	.section	.rodata.java_type_name.4943,"aMS",%progbits,1
 	.type	.L.java_type_name.4943, %object
 .L.java_type_name.4943:
-	.asciz	"crc64a0e0a82d0db9a07d/ActivityLifecycleContextListener"
-	.size	.L.java_type_name.4943, 55
+	.asciz	"crc64f0e155b6502ec419/TakeOverBusinessEventSetup"
+	.size	.L.java_type_name.4943, 49
 
 	.section	.rodata.java_type_name.4944,"aMS",%progbits,1
 	.type	.L.java_type_name.4944, %object
 .L.java_type_name.4944:
-	.asciz	"crc64a0e0a82d0db9a07d/BarometerListener"
-	.size	.L.java_type_name.4944, 40
+	.asciz	"crc64f0e155b6502ec419/TakeOverBusinessEventSetupTablet"
+	.size	.L.java_type_name.4944, 55
 
 	.section	.rodata.java_type_name.4945,"aMS",%progbits,1
 	.type	.L.java_type_name.4945, %object
 .L.java_type_name.4945:
-	.asciz	"crc64a0e0a82d0db9a07d/BatteryBroadcastReceiver"
-	.size	.L.java_type_name.4945, 47
+	.asciz	"crc64f0e155b6502ec419/TakeOverEnteredPositionsView"
+	.size	.L.java_type_name.4945, 51
 
 	.section	.rodata.java_type_name.4946,"aMS",%progbits,1
 	.type	.L.java_type_name.4946, %object
 .L.java_type_name.4946:
-	.asciz	"crc64a0e0a82d0db9a07d/ClipboardChangeListener"
-	.size	.L.java_type_name.4946, 46
+	.asciz	"crc64f0e155b6502ec419/TakeOverEnteredPositionsViewTablet"
+	.size	.L.java_type_name.4946, 57
 
 	.section	.rodata.java_type_name.4947,"aMS",%progbits,1
 	.type	.L.java_type_name.4947, %object
 .L.java_type_name.4947:
-	.asciz	"crc64a0e0a82d0db9a07d/ConnectivityBroadcastReceiver"
-	.size	.L.java_type_name.4947, 52
+	.asciz	"crc64f0e155b6502ec419/TakeOverIdentEntry"
+	.size	.L.java_type_name.4947, 41
 
 	.section	.rodata.java_type_name.4948,"aMS",%progbits,1
 	.type	.L.java_type_name.4948, %object
 .L.java_type_name.4948:
-	.asciz	"crc64a0e0a82d0db9a07d/EnergySaverBroadcastReceiver"
-	.size	.L.java_type_name.4948, 51
+	.asciz	"crc64f0e155b6502ec419/TakeOverIdentEntryTablet"
+	.size	.L.java_type_name.4948, 47
 
 	.section	.rodata.java_type_name.4949,"aMS",%progbits,1
 	.type	.L.java_type_name.4949, %object
 .L.java_type_name.4949:
-	.asciz	"crc64a0e0a82d0db9a07d/GyroscopeListener"
-	.size	.L.java_type_name.4949, 40
+	.asciz	"crc64f0e155b6502ec419/TakeOverSerialOrSSCCEntry"
+	.size	.L.java_type_name.4949, 48
 
 	.section	.rodata.java_type_name.4950,"aMS",%progbits,1
 	.type	.L.java_type_name.4950, %object
 .L.java_type_name.4950:
-	.asciz	"crc64a0e0a82d0db9a07d/IntermediateActivity"
-	.size	.L.java_type_name.4950, 43
+	.asciz	"crc64f0e155b6502ec419/TakeOverSerialOrSSCCEntryTablet"
+	.size	.L.java_type_name.4950, 54
 
 	.section	.rodata.java_type_name.4951,"aMS",%progbits,1
 	.type	.L.java_type_name.4951, %object
 .L.java_type_name.4951:
-	.asciz	"crc64a0e0a82d0db9a07d/Listener"
-	.size	.L.java_type_name.4951, 31
+	.asciz	"crc64f0e155b6502ec419/UnfinishedInterWarehouseView"
+	.size	.L.java_type_name.4951, 51
 
 	.section	.rodata.java_type_name.4952,"aMS",%progbits,1
 	.type	.L.java_type_name.4952, %object
 .L.java_type_name.4952:
-	.asciz	"crc64a0e0a82d0db9a07d/MagnetometerListener"
-	.size	.L.java_type_name.4952, 43
+	.asciz	"crc64f0e155b6502ec419/UnfinishedInterWarehouseViewTablet"
+	.size	.L.java_type_name.4952, 57
 
 	.section	.rodata.java_type_name.4953,"aMS",%progbits,1
 	.type	.L.java_type_name.4953, %object
 .L.java_type_name.4953:
-	.asciz	"crc64a0e0a82d0db9a07d/OrientationSensorListener"
+	.asciz	"crc64f0e155b6502ec419/UnfinishedIssuedGoodsView"
 	.size	.L.java_type_name.4953, 48
 
 	.section	.rodata.java_type_name.4954,"aMS",%progbits,1
 	.type	.L.java_type_name.4954, %object
 .L.java_type_name.4954:
-	.asciz	"crc64a0e0a82d0db9a07d/SensorListener"
-	.size	.L.java_type_name.4954, 37
+	.asciz	"crc64f0e155b6502ec419/UnfinishedIssuedGoodsViewTablet"
+	.size	.L.java_type_name.4954, 54
 
 	.section	.rodata.java_type_name.4955,"aMS",%progbits,1
 	.type	.L.java_type_name.4955, %object
 .L.java_type_name.4955:
-	.asciz	"crc64a0e0a82d0db9a07d/SingleLocationListener"
-	.size	.L.java_type_name.4955, 45
+	.asciz	"crc64f0e155b6502ec419/UnfinishedProductionView"
+	.size	.L.java_type_name.4955, 47
 
 	.section	.rodata.java_type_name.4956,"aMS",%progbits,1
 	.type	.L.java_type_name.4956, %object
 .L.java_type_name.4956:
-	.asciz	"crc64a0e0a82d0db9a07d/TextToSpeechImplementation"
-	.size	.L.java_type_name.4956, 49
+	.asciz	"crc64f0e155b6502ec419/UnfinishedProductionViewTablet"
+	.size	.L.java_type_name.4956, 53
 
 	.section	.rodata.java_type_name.4957,"aMS",%progbits,1
 	.type	.L.java_type_name.4957, %object
 .L.java_type_name.4957:
-	.asciz	"crc64a0e0a82d0db9a07d/WebAuthenticatorCallbackActivity"
-	.size	.L.java_type_name.4957, 55
+	.asciz	"crc64f0e155b6502ec419/UnfinishedTakeoversView"
+	.size	.L.java_type_name.4957, 46
 
 	.section	.rodata.java_type_name.4958,"aMS",%progbits,1
 	.type	.L.java_type_name.4958, %object
 .L.java_type_name.4958:
-	.asciz	"crc64a0e0a82d0db9a07d/WebAuthenticatorIntermediateActivity"
-	.size	.L.java_type_name.4958, 59
+	.asciz	"crc64f0e155b6502ec419/UnfinishedTakeoversViewTablet"
+	.size	.L.java_type_name.4958, 52
 
 	.section	.rodata.java_type_name.4959,"aMS",%progbits,1
 	.type	.L.java_type_name.4959, %object
 .L.java_type_name.4959:
-	.asciz	"crc64a4555f9f70c213ae/Crashes_AndroidCrashListener"
-	.size	.L.java_type_name.4959, 51
+	.asciz	"crc64f0e155b6502ec419/choiceProduction"
+	.size	.L.java_type_name.4959, 39
 
 	.section	.rodata.java_type_name.4960,"aMS",%progbits,1
 	.type	.L.java_type_name.4960, %object
 .L.java_type_name.4960:
-	.asciz	"crc64a98abb514ffad9f1/CustomTabsServiceConnectionImpl"
-	.size	.L.java_type_name.4960, 54
+	.asciz	"crc64f0e155b6502ec419/receiver"
+	.size	.L.java_type_name.4960, 31
 
 	.section	.rodata.java_type_name.4961,"aMS",%progbits,1
 	.type	.L.java_type_name.4961, %object
 .L.java_type_name.4961:
-	.asciz	"crc64a98abb514ffad9f1/KeepAliveService"
-	.size	.L.java_type_name.4961, 39
+	.asciz	"crc64f0e155b6502ec419/receiver_InitTask"
+	.size	.L.java_type_name.4961, 40
 
 	.section	.rodata.java_type_name.4962,"aMS",%progbits,1
 	.type	.L.java_type_name.4962, %object
@@ -68106,8 +68106,8 @@
 	.section	.rodata.managed_type_name.4781,"aMS",%progbits,1
 	.type	.L.managed_type_name.4781, %object
 .L.managed_type_name.4781:
-	.asciz	"BarCode2D_Receiver.BarcodeDataReceiver, ScannerQR"
-	.size	.L.managed_type_name.4781, 50
+	.asciz	"BarCode2D_Receiver.BarcodeDataReceiver, WMS"
+	.size	.L.managed_type_name.4781, 44
 	.section	.rodata.managed_type_name.4782,"aMS",%progbits,1
 	.type	.L.managed_type_name.4782, %object
 .L.managed_type_name.4782:
@@ -69961,8 +69961,8 @@
 	.section	.rodata.managed_type_name.5152,"aMS",%progbits,1
 	.type	.L.managed_type_name.5152, %object
 .L.managed_type_name.5152:
-	.asciz	"DatePickerFragment, ScannerQR"
-	.size	.L.managed_type_name.5152, 30
+	.asciz	"DatePickerFragment, WMS"
+	.size	.L.managed_type_name.5152, 24
 	.section	.rodata.managed_type_name.5153,"aMS",%progbits,1
 	.type	.L.managed_type_name.5153, %object
 .L.managed_type_name.5153:
@@ -80401,538 +80401,538 @@
 	.section	.rodata.managed_type_name.7240,"aMS",%progbits,1
 	.type	.L.managed_type_name.7240, %object
 .L.managed_type_name.7240:
-	.asciz	"ScannerQR.App.CheckStockAddonAdapter, ScannerQR"
-	.size	.L.managed_type_name.7240, 48
+	.asciz	"Scanner.App.CheckStockAddonAdapter, WMS"
+	.size	.L.managed_type_name.7240, 40
 	.section	.rodata.managed_type_name.7241,"aMS",%progbits,1
 	.type	.L.managed_type_name.7241, %object
 .L.managed_type_name.7241:
-	.asciz	"ScannerQR.App.InterWarehouseEnteredPositionViewAdapter, ScannerQR"
-	.size	.L.managed_type_name.7241, 66
+	.asciz	"Scanner.App.InterWarehouseEnteredPositionViewAdapter, WMS"
+	.size	.L.managed_type_name.7241, 58
 	.section	.rodata.managed_type_name.7242,"aMS",%progbits,1
 	.type	.L.managed_type_name.7242, %object
 .L.managed_type_name.7242:
-	.asciz	"ScannerQR.App.InterwarehousSerialOrSCCCEntryAdapter, ScannerQR"
-	.size	.L.managed_type_name.7242, 63
+	.asciz	"Scanner.App.InterwarehousSerialOrSCCCEntryAdapter, WMS"
+	.size	.L.managed_type_name.7242, 55
 	.section	.rodata.managed_type_name.7243,"aMS",%progbits,1
 	.type	.L.managed_type_name.7243, %object
 .L.managed_type_name.7243:
-	.asciz	"ScannerQR.App.IssuedEnterAdapter, ScannerQR"
-	.size	.L.managed_type_name.7243, 44
+	.asciz	"Scanner.App.IssuedEnterAdapter, WMS"
+	.size	.L.managed_type_name.7243, 36
 	.section	.rodata.managed_type_name.7244,"aMS",%progbits,1
 	.type	.L.managed_type_name.7244, %object
 .L.managed_type_name.7244:
-	.asciz	"ScannerQR.App.ProductionEnteredPositionViewAdapter, ScannerQR"
-	.size	.L.managed_type_name.7244, 62
+	.asciz	"Scanner.App.ProductionEnteredPositionViewAdapter, WMS"
+	.size	.L.managed_type_name.7244, 54
 	.section	.rodata.managed_type_name.7245,"aMS",%progbits,1
 	.type	.L.managed_type_name.7245, %object
 .L.managed_type_name.7245:
-	.asciz	"ScannerQR.App.ProductionSerialOrSSCCAdapter, ScannerQR"
-	.size	.L.managed_type_name.7245, 55
+	.asciz	"Scanner.App.ProductionSerialOrSSCCAdapter, WMS"
+	.size	.L.managed_type_name.7245, 47
 	.section	.rodata.managed_type_name.7246,"aMS",%progbits,1
 	.type	.L.managed_type_name.7246, %object
 .L.managed_type_name.7246:
-	.asciz	"ScannerQR.App.TakeOverEnteredPositionsViewAdapter, ScannerQR"
-	.size	.L.managed_type_name.7246, 61
+	.asciz	"Scanner.App.TakeOverEnteredPositionsViewAdapter, WMS"
+	.size	.L.managed_type_name.7246, 53
 	.section	.rodata.managed_type_name.7247,"aMS",%progbits,1
 	.type	.L.managed_type_name.7247, %object
 .L.managed_type_name.7247:
-	.asciz	"ScannerQR.App.TakeOverIdentAdapter, ScannerQR"
-	.size	.L.managed_type_name.7247, 46
+	.asciz	"Scanner.App.TakeOverIdentAdapter, WMS"
+	.size	.L.managed_type_name.7247, 38
 	.section	.rodata.managed_type_name.7248,"aMS",%progbits,1
 	.type	.L.managed_type_name.7248, %object
 .L.managed_type_name.7248:
-	.asciz	"ScannerQR.App.TakeOverSerialOrSSCCEntryAdapter, ScannerQR"
-	.size	.L.managed_type_name.7248, 58
+	.asciz	"Scanner.App.TakeOverSerialOrSSCCEntryAdapter, WMS"
+	.size	.L.managed_type_name.7248, 50
 	.section	.rodata.managed_type_name.7249,"aMS",%progbits,1
 	.type	.L.managed_type_name.7249, %object
 .L.managed_type_name.7249:
-	.asciz	"ScannerQR.App.UnfinishedInterwarehouseAdapter, ScannerQR"
-	.size	.L.managed_type_name.7249, 57
+	.asciz	"Scanner.App.UnfinishedInterwarehouseAdapter, WMS"
+	.size	.L.managed_type_name.7249, 49
 	.section	.rodata.managed_type_name.7250,"aMS",%progbits,1
 	.type	.L.managed_type_name.7250, %object
 .L.managed_type_name.7250:
-	.asciz	"ScannerQR.App.UnfinishedIssuedAdapter, ScannerQR"
-	.size	.L.managed_type_name.7250, 49
+	.asciz	"Scanner.App.UnfinishedIssuedAdapter, WMS"
+	.size	.L.managed_type_name.7250, 41
 	.section	.rodata.managed_type_name.7251,"aMS",%progbits,1
 	.type	.L.managed_type_name.7251, %object
 .L.managed_type_name.7251:
-	.asciz	"ScannerQR.App.UnfinishedPackagingAdapter, ScannerQR"
-	.size	.L.managed_type_name.7251, 52
+	.asciz	"Scanner.App.UnfinishedPackagingAdapter, WMS"
+	.size	.L.managed_type_name.7251, 44
 	.section	.rodata.managed_type_name.7252,"aMS",%progbits,1
 	.type	.L.managed_type_name.7252, %object
 .L.managed_type_name.7252:
-	.asciz	"ScannerQR.App.UnfinishedProductionAdapter, ScannerQR"
-	.size	.L.managed_type_name.7252, 53
+	.asciz	"Scanner.App.UnfinishedProductionAdapter, WMS"
+	.size	.L.managed_type_name.7252, 45
 	.section	.rodata.managed_type_name.7253,"aMS",%progbits,1
 	.type	.L.managed_type_name.7253, %object
 .L.managed_type_name.7253:
-	.asciz	"ScannerQR.App.UnfinishedTakeoverAdapter, ScannerQR"
-	.size	.L.managed_type_name.7253, 51
+	.asciz	"Scanner.App.UnfinishedTakeoverAdapter, WMS"
+	.size	.L.managed_type_name.7253, 43
 	.section	.rodata.managed_type_name.7254,"aMS",%progbits,1
 	.type	.L.managed_type_name.7254, %object
 .L.managed_type_name.7254:
-	.asciz	"ScannerQR.App.adapter, ScannerQR"
-	.size	.L.managed_type_name.7254, 33
+	.asciz	"Scanner.App.adapter, WMS"
+	.size	.L.managed_type_name.7254, 25
 	.section	.rodata.managed_type_name.7255,"aMS",%progbits,1
 	.type	.L.managed_type_name.7255, %object
 .L.managed_type_name.7255:
-	.asciz	"ScannerQR.App.adapterListViewItem, ScannerQR"
-	.size	.L.managed_type_name.7255, 45
+	.asciz	"Scanner.App.adapterListViewItem, WMS"
+	.size	.L.managed_type_name.7255, 37
 	.section	.rodata.managed_type_name.7256,"aMS",%progbits,1
 	.type	.L.managed_type_name.7256, %object
 .L.managed_type_name.7256:
-	.asciz	"ScannerQR.App.packagingListAdapter, ScannerQR"
-	.size	.L.managed_type_name.7256, 46
+	.asciz	"Scanner.App.packagingListAdapter, WMS"
+	.size	.L.managed_type_name.7256, 38
 	.section	.rodata.managed_type_name.7257,"aMS",%progbits,1
 	.type	.L.managed_type_name.7257, %object
 .L.managed_type_name.7257:
-	.asciz	"ScannerQR.App.rapidTakeoverAdapter, ScannerQR"
-	.size	.L.managed_type_name.7257, 46
+	.asciz	"Scanner.App.rapidTakeoverAdapter, WMS"
+	.size	.L.managed_type_name.7257, 38
 	.section	.rodata.managed_type_name.7258,"aMS",%progbits,1
 	.type	.L.managed_type_name.7258, %object
 .L.managed_type_name.7258:
-	.asciz	"ScannerQR.CheckStock, ScannerQR"
-	.size	.L.managed_type_name.7258, 32
+	.asciz	"Scanner.CheckStock, WMS"
+	.size	.L.managed_type_name.7258, 24
 	.section	.rodata.managed_type_name.7259,"aMS",%progbits,1
 	.type	.L.managed_type_name.7259, %object
 .L.managed_type_name.7259:
-	.asciz	"ScannerQR.CheckStockTablet, ScannerQR"
-	.size	.L.managed_type_name.7259, 38
+	.asciz	"Scanner.CheckStockTablet, WMS"
+	.size	.L.managed_type_name.7259, 30
 	.section	.rodata.managed_type_name.7260,"aMS",%progbits,1
 	.type	.L.managed_type_name.7260, %object
 .L.managed_type_name.7260:
-	.asciz	"ScannerQR.InterWarehouseBusinessEventSetup, ScannerQR"
-	.size	.L.managed_type_name.7260, 54
+	.asciz	"Scanner.InterWarehouseBusinessEventSetup, WMS"
+	.size	.L.managed_type_name.7260, 46
 	.section	.rodata.managed_type_name.7261,"aMS",%progbits,1
 	.type	.L.managed_type_name.7261, %object
 .L.managed_type_name.7261:
-	.asciz	"ScannerQR.InterWarehouseBusinessEventSetupTablet, ScannerQR"
-	.size	.L.managed_type_name.7261, 60
+	.asciz	"Scanner.InterWarehouseBusinessEventSetupTablet, WMS"
+	.size	.L.managed_type_name.7261, 52
 	.section	.rodata.managed_type_name.7262,"aMS",%progbits,1
 	.type	.L.managed_type_name.7262, %object
 .L.managed_type_name.7262:
-	.asciz	"ScannerQR.InterWarehouseEnteredPositionsView, ScannerQR"
-	.size	.L.managed_type_name.7262, 56
+	.asciz	"Scanner.InterWarehouseEnteredPositionsView, WMS"
+	.size	.L.managed_type_name.7262, 48
 	.section	.rodata.managed_type_name.7263,"aMS",%progbits,1
 	.type	.L.managed_type_name.7263, %object
 .L.managed_type_name.7263:
-	.asciz	"ScannerQR.InterWarehouseEnteredPositionsViewTablet, ScannerQR"
-	.size	.L.managed_type_name.7263, 62
+	.asciz	"Scanner.InterWarehouseEnteredPositionsViewTablet, WMS"
+	.size	.L.managed_type_name.7263, 54
 	.section	.rodata.managed_type_name.7264,"aMS",%progbits,1
 	.type	.L.managed_type_name.7264, %object
 .L.managed_type_name.7264:
-	.asciz	"ScannerQR.InterWarehouseSerialOrSSCCEntry, ScannerQR"
-	.size	.L.managed_type_name.7264, 53
+	.asciz	"Scanner.InterWarehouseSerialOrSSCCEntry, WMS"
+	.size	.L.managed_type_name.7264, 45
 	.section	.rodata.managed_type_name.7265,"aMS",%progbits,1
 	.type	.L.managed_type_name.7265, %object
 .L.managed_type_name.7265:
-	.asciz	"ScannerQR.InterWarehouseSerialOrSSCCEntryTablet, ScannerQR"
-	.size	.L.managed_type_name.7265, 59
+	.asciz	"Scanner.InterWarehouseSerialOrSSCCEntryTablet, WMS"
+	.size	.L.managed_type_name.7265, 51
 	.section	.rodata.managed_type_name.7266,"aMS",%progbits,1
 	.type	.L.managed_type_name.7266, %object
 .L.managed_type_name.7266:
-	.asciz	"ScannerQR.InventoryConfirm, ScannerQR"
-	.size	.L.managed_type_name.7266, 38
+	.asciz	"Scanner.InventoryConfirm, WMS"
+	.size	.L.managed_type_name.7266, 30
 	.section	.rodata.managed_type_name.7267,"aMS",%progbits,1
 	.type	.L.managed_type_name.7267, %object
 .L.managed_type_name.7267:
-	.asciz	"ScannerQR.InventoryConfirmTablet, ScannerQR"
-	.size	.L.managed_type_name.7267, 44
+	.asciz	"Scanner.InventoryConfirmTablet, WMS"
+	.size	.L.managed_type_name.7267, 36
 	.section	.rodata.managed_type_name.7268,"aMS",%progbits,1
 	.type	.L.managed_type_name.7268, %object
 .L.managed_type_name.7268:
-	.asciz	"ScannerQR.InventoryMenu, ScannerQR"
-	.size	.L.managed_type_name.7268, 35
+	.asciz	"Scanner.InventoryMenu, WMS"
+	.size	.L.managed_type_name.7268, 27
 	.section	.rodata.managed_type_name.7269,"aMS",%progbits,1
 	.type	.L.managed_type_name.7269, %object
 .L.managed_type_name.7269:
-	.asciz	"ScannerQR.InventoryOpen, ScannerQR"
-	.size	.L.managed_type_name.7269, 35
+	.asciz	"Scanner.InventoryOpen, WMS"
+	.size	.L.managed_type_name.7269, 27
 	.section	.rodata.managed_type_name.7270,"aMS",%progbits,1
 	.type	.L.managed_type_name.7270, %object
 .L.managed_type_name.7270:
-	.asciz	"ScannerQR.InventoryOpenDocument, ScannerQR"
-	.size	.L.managed_type_name.7270, 43
+	.asciz	"Scanner.InventoryOpenDocument, WMS"
+	.size	.L.managed_type_name.7270, 35
 	.section	.rodata.managed_type_name.7271,"aMS",%progbits,1
 	.type	.L.managed_type_name.7271, %object
 .L.managed_type_name.7271:
-	.asciz	"ScannerQR.InventoryOpenDocumentTablet, ScannerQR"
-	.size	.L.managed_type_name.7271, 49
+	.asciz	"Scanner.InventoryOpenDocumentTablet, WMS"
+	.size	.L.managed_type_name.7271, 41
 	.section	.rodata.managed_type_name.7272,"aMS",%progbits,1
 	.type	.L.managed_type_name.7272, %object
 .L.managed_type_name.7272:
-	.asciz	"ScannerQR.InventoryOpenTablet, ScannerQR"
-	.size	.L.managed_type_name.7272, 41
+	.asciz	"Scanner.InventoryOpenTablet, WMS"
+	.size	.L.managed_type_name.7272, 33
 	.section	.rodata.managed_type_name.7273,"aMS",%progbits,1
 	.type	.L.managed_type_name.7273, %object
 .L.managed_type_name.7273:
-	.asciz	"ScannerQR.InventoryPrint, ScannerQR"
-	.size	.L.managed_type_name.7273, 36
+	.asciz	"Scanner.InventoryPrint, WMS"
+	.size	.L.managed_type_name.7273, 28
 	.section	.rodata.managed_type_name.7274,"aMS",%progbits,1
 	.type	.L.managed_type_name.7274, %object
 .L.managed_type_name.7274:
-	.asciz	"ScannerQR.InventoryPrintTablet, ScannerQR"
-	.size	.L.managed_type_name.7274, 42
+	.asciz	"Scanner.InventoryPrintTablet, WMS"
+	.size	.L.managed_type_name.7274, 34
 	.section	.rodata.managed_type_name.7275,"aMS",%progbits,1
 	.type	.L.managed_type_name.7275, %object
 .L.managed_type_name.7275:
-	.asciz	"ScannerQR.InventoryProcess, ScannerQR"
-	.size	.L.managed_type_name.7275, 38
+	.asciz	"Scanner.InventoryProcess, WMS"
+	.size	.L.managed_type_name.7275, 30
 	.section	.rodata.managed_type_name.7276,"aMS",%progbits,1
 	.type	.L.managed_type_name.7276, %object
 .L.managed_type_name.7276:
-	.asciz	"ScannerQR.InventoryProcessTablet, ScannerQR"
-	.size	.L.managed_type_name.7276, 44
+	.asciz	"Scanner.InventoryProcessTablet, WMS"
+	.size	.L.managed_type_name.7276, 36
 	.section	.rodata.managed_type_name.7277,"aMS",%progbits,1
 	.type	.L.managed_type_name.7277, %object
 .L.managed_type_name.7277:
-	.asciz	"ScannerQR.IssuedGoodsBusinessEventSetup, ScannerQR"
-	.size	.L.managed_type_name.7277, 51
+	.asciz	"Scanner.IssuedGoodsBusinessEventSetup, WMS"
+	.size	.L.managed_type_name.7277, 43
 	.section	.rodata.managed_type_name.7278,"aMS",%progbits,1
 	.type	.L.managed_type_name.7278, %object
 .L.managed_type_name.7278:
-	.asciz	"ScannerQR.IssuedGoodsBusinessEventSetupTablet, ScannerQR"
-	.size	.L.managed_type_name.7278, 57
+	.asciz	"Scanner.IssuedGoodsBusinessEventSetupTablet, WMS"
+	.size	.L.managed_type_name.7278, 49
 	.section	.rodata.managed_type_name.7279,"aMS",%progbits,1
 	.type	.L.managed_type_name.7279, %object
 .L.managed_type_name.7279:
-	.asciz	"ScannerQR.IssuedGoodsEnteredPositionsView, ScannerQR"
-	.size	.L.managed_type_name.7279, 53
+	.asciz	"Scanner.IssuedGoodsEnteredPositionsView, WMS"
+	.size	.L.managed_type_name.7279, 45
 	.section	.rodata.managed_type_name.7280,"aMS",%progbits,1
 	.type	.L.managed_type_name.7280, %object
 .L.managed_type_name.7280:
-	.asciz	"ScannerQR.IssuedGoodsEnteredPositionsViewTablet, ScannerQR"
-	.size	.L.managed_type_name.7280, 59
+	.asciz	"Scanner.IssuedGoodsEnteredPositionsViewTablet, WMS"
+	.size	.L.managed_type_name.7280, 51
 	.section	.rodata.managed_type_name.7281,"aMS",%progbits,1
 	.type	.L.managed_type_name.7281, %object
 .L.managed_type_name.7281:
-	.asciz	"ScannerQR.IssuedGoodsIdentEntry, ScannerQR"
-	.size	.L.managed_type_name.7281, 43
+	.asciz	"Scanner.IssuedGoodsIdentEntry, WMS"
+	.size	.L.managed_type_name.7281, 35
 	.section	.rodata.managed_type_name.7282,"aMS",%progbits,1
 	.type	.L.managed_type_name.7282, %object
 .L.managed_type_name.7282:
-	.asciz	"ScannerQR.IssuedGoodsIdentEntryTablet, ScannerQR"
-	.size	.L.managed_type_name.7282, 49
+	.asciz	"Scanner.IssuedGoodsIdentEntryTablet, WMS"
+	.size	.L.managed_type_name.7282, 41
 	.section	.rodata.managed_type_name.7283,"aMS",%progbits,1
 	.type	.L.managed_type_name.7283, %object
 .L.managed_type_name.7283:
-	.asciz	"ScannerQR.IssuedGoodsIdentEntryWithTrail, ScannerQR"
-	.size	.L.managed_type_name.7283, 52
+	.asciz	"Scanner.IssuedGoodsIdentEntryWithTrail, WMS"
+	.size	.L.managed_type_name.7283, 44
 	.section	.rodata.managed_type_name.7284,"aMS",%progbits,1
 	.type	.L.managed_type_name.7284, %object
 .L.managed_type_name.7284:
-	.asciz	"ScannerQR.IssuedGoodsIdentEntryWithTrailTablet, ScannerQR"
-	.size	.L.managed_type_name.7284, 58
+	.asciz	"Scanner.IssuedGoodsIdentEntryWithTrailTablet, WMS"
+	.size	.L.managed_type_name.7284, 50
 	.section	.rodata.managed_type_name.7285,"aMS",%progbits,1
 	.type	.L.managed_type_name.7285, %object
 .L.managed_type_name.7285:
-	.asciz	"ScannerQR.IssuedGoodsSerialOrSSCCEntry, ScannerQR"
-	.size	.L.managed_type_name.7285, 50
+	.asciz	"Scanner.IssuedGoodsSerialOrSSCCEntry, WMS"
+	.size	.L.managed_type_name.7285, 42
 	.section	.rodata.managed_type_name.7286,"aMS",%progbits,1
 	.type	.L.managed_type_name.7286, %object
 .L.managed_type_name.7286:
-	.asciz	"ScannerQR.IssuedGoodsSerialOrSSCCEntryTablet, ScannerQR"
-	.size	.L.managed_type_name.7286, 56
+	.asciz	"Scanner.IssuedGoodsSerialOrSSCCEntryTablet, WMS"
+	.size	.L.managed_type_name.7286, 48
 	.section	.rodata.managed_type_name.7287,"aMS",%progbits,1
 	.type	.L.managed_type_name.7287, %object
 .L.managed_type_name.7287:
-	.asciz	"ScannerQR.MainActivity, ScannerQR"
-	.size	.L.managed_type_name.7287, 34
+	.asciz	"Scanner.MainActivity, WMS"
+	.size	.L.managed_type_name.7287, 26
 	.section	.rodata.managed_type_name.7288,"aMS",%progbits,1
 	.type	.L.managed_type_name.7288, %object
 .L.managed_type_name.7288:
-	.asciz	"ScannerQR.MainMenu, ScannerQR"
-	.size	.L.managed_type_name.7288, 30
+	.asciz	"Scanner.MainMenu, WMS"
+	.size	.L.managed_type_name.7288, 22
 	.section	.rodata.managed_type_name.7289,"aMS",%progbits,1
 	.type	.L.managed_type_name.7289, %object
 .L.managed_type_name.7289:
-	.asciz	"ScannerQR.MainMenuTablet, ScannerQR"
-	.size	.L.managed_type_name.7289, 36
+	.asciz	"Scanner.MainMenuTablet, WMS"
+	.size	.L.managed_type_name.7289, 28
 	.section	.rodata.managed_type_name.7290,"aMS",%progbits,1
 	.type	.L.managed_type_name.7290, %object
 .L.managed_type_name.7290:
-	.asciz	"ScannerQR.PackagingEnteredPositionsView, ScannerQR"
-	.size	.L.managed_type_name.7290, 51
+	.asciz	"Scanner.PackagingEnteredPositionsView, WMS"
+	.size	.L.managed_type_name.7290, 43
 	.section	.rodata.managed_type_name.7291,"aMS",%progbits,1
 	.type	.L.managed_type_name.7291, %object
 .L.managed_type_name.7291:
-	.asciz	"ScannerQR.PackagingEnteredPositionsViewTablet, ScannerQR"
-	.size	.L.managed_type_name.7291, 57
+	.asciz	"Scanner.PackagingEnteredPositionsViewTablet, WMS"
+	.size	.L.managed_type_name.7291, 49
 	.section	.rodata.managed_type_name.7292,"aMS",%progbits,1
 	.type	.L.managed_type_name.7292, %object
 .L.managed_type_name.7292:
-	.asciz	"ScannerQR.PackagingSetContext, ScannerQR"
-	.size	.L.managed_type_name.7292, 41
+	.asciz	"Scanner.PackagingSetContext, WMS"
+	.size	.L.managed_type_name.7292, 33
 	.section	.rodata.managed_type_name.7293,"aMS",%progbits,1
 	.type	.L.managed_type_name.7293, %object
 .L.managed_type_name.7293:
-	.asciz	"ScannerQR.PackagingSetContextTablet, ScannerQR"
-	.size	.L.managed_type_name.7293, 47
+	.asciz	"Scanner.PackagingSetContextTablet, WMS"
+	.size	.L.managed_type_name.7293, 39
 	.section	.rodata.managed_type_name.7294,"aMS",%progbits,1
 	.type	.L.managed_type_name.7294, %object
 .L.managed_type_name.7294:
-	.asciz	"ScannerQR.PackagingUnit, ScannerQR"
-	.size	.L.managed_type_name.7294, 35
+	.asciz	"Scanner.PackagingUnit, WMS"
+	.size	.L.managed_type_name.7294, 27
 	.section	.rodata.managed_type_name.7295,"aMS",%progbits,1
 	.type	.L.managed_type_name.7295, %object
 .L.managed_type_name.7295:
-	.asciz	"ScannerQR.PackagingUnitList, ScannerQR"
-	.size	.L.managed_type_name.7295, 39
+	.asciz	"Scanner.PackagingUnitList, WMS"
+	.size	.L.managed_type_name.7295, 31
 	.section	.rodata.managed_type_name.7296,"aMS",%progbits,1
 	.type	.L.managed_type_name.7296, %object
 .L.managed_type_name.7296:
-	.asciz	"ScannerQR.PackagingUnitListTablet, ScannerQR"
-	.size	.L.managed_type_name.7296, 45
+	.asciz	"Scanner.PackagingUnitListTablet, WMS"
+	.size	.L.managed_type_name.7296, 37
 	.section	.rodata.managed_type_name.7297,"aMS",%progbits,1
 	.type	.L.managed_type_name.7297, %object
 .L.managed_type_name.7297:
-	.asciz	"ScannerQR.PackagingUnitTablet, ScannerQR"
-	.size	.L.managed_type_name.7297, 41
+	.asciz	"Scanner.PackagingUnitTablet, WMS"
+	.size	.L.managed_type_name.7297, 33
 	.section	.rodata.managed_type_name.7298,"aMS",%progbits,1
 	.type	.L.managed_type_name.7298, %object
 .L.managed_type_name.7298:
-	.asciz	"ScannerQR.PrintingInputControl, ScannerQR"
-	.size	.L.managed_type_name.7298, 42
+	.asciz	"Scanner.PrintingInputControl, WMS"
+	.size	.L.managed_type_name.7298, 34
 	.section	.rodata.managed_type_name.7299,"aMS",%progbits,1
 	.type	.L.managed_type_name.7299, %object
 .L.managed_type_name.7299:
-	.asciz	"ScannerQR.PrintingInputControlTablet, ScannerQR"
-	.size	.L.managed_type_name.7299, 48
+	.asciz	"Scanner.PrintingInputControlTablet, WMS"
+	.size	.L.managed_type_name.7299, 40
 	.section	.rodata.managed_type_name.7300,"aMS",%progbits,1
 	.type	.L.managed_type_name.7300, %object
 .L.managed_type_name.7300:
-	.asciz	"ScannerQR.PrintingMenu, ScannerQR"
-	.size	.L.managed_type_name.7300, 34
+	.asciz	"Scanner.PrintingMenu, WMS"
+	.size	.L.managed_type_name.7300, 26
 	.section	.rodata.managed_type_name.7301,"aMS",%progbits,1
 	.type	.L.managed_type_name.7301, %object
 .L.managed_type_name.7301:
-	.asciz	"ScannerQR.PrintingOutputControl, ScannerQR"
-	.size	.L.managed_type_name.7301, 43
+	.asciz	"Scanner.PrintingOutputControl, WMS"
+	.size	.L.managed_type_name.7301, 35
 	.section	.rodata.managed_type_name.7302,"aMS",%progbits,1
 	.type	.L.managed_type_name.7302, %object
 .L.managed_type_name.7302:
-	.asciz	"ScannerQR.PrintingOutputControlTablet, ScannerQR"
-	.size	.L.managed_type_name.7302, 49
+	.asciz	"Scanner.PrintingOutputControlTablet, WMS"
+	.size	.L.managed_type_name.7302, 41
 	.section	.rodata.managed_type_name.7303,"aMS",%progbits,1
 	.type	.L.managed_type_name.7303, %object
 .L.managed_type_name.7303:
-	.asciz	"ScannerQR.PrintingProcessControl, ScannerQR"
-	.size	.L.managed_type_name.7303, 44
+	.asciz	"Scanner.PrintingProcessControl, WMS"
+	.size	.L.managed_type_name.7303, 36
 	.section	.rodata.managed_type_name.7304,"aMS",%progbits,1
 	.type	.L.managed_type_name.7304, %object
 .L.managed_type_name.7304:
-	.asciz	"ScannerQR.PrintingProcessControlTablet, ScannerQR"
-	.size	.L.managed_type_name.7304, 50
+	.asciz	"Scanner.PrintingProcessControlTablet, WMS"
+	.size	.L.managed_type_name.7304, 42
 	.section	.rodata.managed_type_name.7305,"aMS",%progbits,1
 	.type	.L.managed_type_name.7305, %object
 .L.managed_type_name.7305:
-	.asciz	"ScannerQR.PrintingReprintLabels, ScannerQR"
-	.size	.L.managed_type_name.7305, 43
+	.asciz	"Scanner.PrintingReprintLabels, WMS"
+	.size	.L.managed_type_name.7305, 35
 	.section	.rodata.managed_type_name.7306,"aMS",%progbits,1
 	.type	.L.managed_type_name.7306, %object
 .L.managed_type_name.7306:
-	.asciz	"ScannerQR.PrintingReprintLabelsTablet, ScannerQR"
-	.size	.L.managed_type_name.7306, 49
+	.asciz	"Scanner.PrintingReprintLabelsTablet, WMS"
+	.size	.L.managed_type_name.7306, 41
 	.section	.rodata.managed_type_name.7307,"aMS",%progbits,1
 	.type	.L.managed_type_name.7307, %object
 .L.managed_type_name.7307:
-	.asciz	"ScannerQR.PrintingSSCCCodes, ScannerQR"
-	.size	.L.managed_type_name.7307, 39
+	.asciz	"Scanner.PrintingSSCCCodes, WMS"
+	.size	.L.managed_type_name.7307, 31
 	.section	.rodata.managed_type_name.7308,"aMS",%progbits,1
 	.type	.L.managed_type_name.7308, %object
 .L.managed_type_name.7308:
-	.asciz	"ScannerQR.PrintingSSCCCodesTablet, ScannerQR"
-	.size	.L.managed_type_name.7308, 45
+	.asciz	"Scanner.PrintingSSCCCodesTablet, WMS"
+	.size	.L.managed_type_name.7308, 37
 	.section	.rodata.managed_type_name.7309,"aMS",%progbits,1
 	.type	.L.managed_type_name.7309, %object
 .L.managed_type_name.7309:
-	.asciz	"ScannerQR.ProductionCard, ScannerQR"
-	.size	.L.managed_type_name.7309, 36
+	.asciz	"Scanner.ProductionCard, WMS"
+	.size	.L.managed_type_name.7309, 28
 	.section	.rodata.managed_type_name.7310,"aMS",%progbits,1
 	.type	.L.managed_type_name.7310, %object
 .L.managed_type_name.7310:
-	.asciz	"ScannerQR.ProductionCardTablet, ScannerQR"
-	.size	.L.managed_type_name.7310, 42
+	.asciz	"Scanner.ProductionCardTablet, WMS"
+	.size	.L.managed_type_name.7310, 34
 	.section	.rodata.managed_type_name.7311,"aMS",%progbits,1
 	.type	.L.managed_type_name.7311, %object
 .L.managed_type_name.7311:
-	.asciz	"ScannerQR.ProductionEnteredPositionsView, ScannerQR"
-	.size	.L.managed_type_name.7311, 52
+	.asciz	"Scanner.ProductionEnteredPositionsView, WMS"
+	.size	.L.managed_type_name.7311, 44
 	.section	.rodata.managed_type_name.7312,"aMS",%progbits,1
 	.type	.L.managed_type_name.7312, %object
 .L.managed_type_name.7312:
-	.asciz	"ScannerQR.ProductionEnteredPositionsViewTablet, ScannerQR"
-	.size	.L.managed_type_name.7312, 58
+	.asciz	"Scanner.ProductionEnteredPositionsViewTablet, WMS"
+	.size	.L.managed_type_name.7312, 50
 	.section	.rodata.managed_type_name.7313,"aMS",%progbits,1
 	.type	.L.managed_type_name.7313, %object
 .L.managed_type_name.7313:
-	.asciz	"ScannerQR.ProductionPalette, ScannerQR"
-	.size	.L.managed_type_name.7313, 39
+	.asciz	"Scanner.ProductionPalette, WMS"
+	.size	.L.managed_type_name.7313, 31
 	.section	.rodata.managed_type_name.7314,"aMS",%progbits,1
 	.type	.L.managed_type_name.7314, %object
 .L.managed_type_name.7314:
-	.asciz	"ScannerQR.ProductionPaletteTablet, ScannerQR"
-	.size	.L.managed_type_name.7314, 45
+	.asciz	"Scanner.ProductionPaletteTablet, WMS"
+	.size	.L.managed_type_name.7314, 37
 	.section	.rodata.managed_type_name.7315,"aMS",%progbits,1
 	.type	.L.managed_type_name.7315, %object
 .L.managed_type_name.7315:
-	.asciz	"ScannerQR.ProductionSerialOrSSCCEntry, ScannerQR"
-	.size	.L.managed_type_name.7315, 49
+	.asciz	"Scanner.ProductionSerialOrSSCCEntry, WMS"
+	.size	.L.managed_type_name.7315, 41
 	.section	.rodata.managed_type_name.7316,"aMS",%progbits,1
 	.type	.L.managed_type_name.7316, %object
 .L.managed_type_name.7316:
-	.asciz	"ScannerQR.ProductionSerialOrSSCCEntryTablet, ScannerQR"
-	.size	.L.managed_type_name.7316, 55
+	.asciz	"Scanner.ProductionSerialOrSSCCEntryTablet, WMS"
+	.size	.L.managed_type_name.7316, 47
 	.section	.rodata.managed_type_name.7317,"aMS",%progbits,1
 	.type	.L.managed_type_name.7317, %object
 .L.managed_type_name.7317:
-	.asciz	"ScannerQR.ProductionWorkOrderSetup, ScannerQR"
-	.size	.L.managed_type_name.7317, 46
+	.asciz	"Scanner.ProductionWorkOrderSetup, WMS"
+	.size	.L.managed_type_name.7317, 38
 	.section	.rodata.managed_type_name.7318,"aMS",%progbits,1
 	.type	.L.managed_type_name.7318, %object
 .L.managed_type_name.7318:
-	.asciz	"ScannerQR.ProductionWorkOrderSetupTablet, ScannerQR"
-	.size	.L.managed_type_name.7318, 52
+	.asciz	"Scanner.ProductionWorkOrderSetupTablet, WMS"
+	.size	.L.managed_type_name.7318, 44
 	.section	.rodata.managed_type_name.7319,"aMS",%progbits,1
 	.type	.L.managed_type_name.7319, %object
 .L.managed_type_name.7319:
-	.asciz	"ScannerQR.RapidTakeover, ScannerQR"
-	.size	.L.managed_type_name.7319, 35
+	.asciz	"Scanner.RapidTakeover, WMS"
+	.size	.L.managed_type_name.7319, 27
 	.section	.rodata.managed_type_name.7320,"aMS",%progbits,1
 	.type	.L.managed_type_name.7320, %object
 .L.managed_type_name.7320:
-	.asciz	"ScannerQR.RapidTakeoverPhone, ScannerQR"
-	.size	.L.managed_type_name.7320, 40
+	.asciz	"Scanner.RapidTakeoverPhone, WMS"
+	.size	.L.managed_type_name.7320, 32
 	.section	.rodata.managed_type_name.7321,"aMS",%progbits,1
 	.type	.L.managed_type_name.7321, %object
 .L.managed_type_name.7321:
-	.asciz	"ScannerQR.SelectSubjectBeforeFinish, ScannerQR"
-	.size	.L.managed_type_name.7321, 47
+	.asciz	"Scanner.SelectSubjectBeforeFinish, WMS"
+	.size	.L.managed_type_name.7321, 39
 	.section	.rodata.managed_type_name.7322,"aMS",%progbits,1
 	.type	.L.managed_type_name.7322, %object
 .L.managed_type_name.7322:
-	.asciz	"ScannerQR.SelectSubjectBeforeFinishTablet, ScannerQR"
-	.size	.L.managed_type_name.7322, 53
+	.asciz	"Scanner.SelectSubjectBeforeFinishTablet, WMS"
+	.size	.L.managed_type_name.7322, 45
 	.section	.rodata.managed_type_name.7323,"aMS",%progbits,1
 	.type	.L.managed_type_name.7323, %object
 .L.managed_type_name.7323:
-	.asciz	"ScannerQR.Settings, ScannerQR"
-	.size	.L.managed_type_name.7323, 30
+	.asciz	"Scanner.Settings, WMS"
+	.size	.L.managed_type_name.7323, 22
 	.section	.rodata.managed_type_name.7324,"aMS",%progbits,1
 	.type	.L.managed_type_name.7324, %object
 .L.managed_type_name.7324:
-	.asciz	"ScannerQR.TakeOver2Main, ScannerQR"
-	.size	.L.managed_type_name.7324, 35
+	.asciz	"Scanner.TakeOver2Main, WMS"
+	.size	.L.managed_type_name.7324, 27
 	.section	.rodata.managed_type_name.7325,"aMS",%progbits,1
 	.type	.L.managed_type_name.7325, %object
 .L.managed_type_name.7325:
-	.asciz	"ScannerQR.TakeOver2MainTablet, ScannerQR"
-	.size	.L.managed_type_name.7325, 41
+	.asciz	"Scanner.TakeOver2MainTablet, WMS"
+	.size	.L.managed_type_name.7325, 33
 	.section	.rodata.managed_type_name.7326,"aMS",%progbits,1
 	.type	.L.managed_type_name.7326, %object
 .L.managed_type_name.7326:
-	.asciz	"ScannerQR.TakeOver2Orders, ScannerQR"
-	.size	.L.managed_type_name.7326, 37
+	.asciz	"Scanner.TakeOver2Orders, WMS"
+	.size	.L.managed_type_name.7326, 29
 	.section	.rodata.managed_type_name.7327,"aMS",%progbits,1
 	.type	.L.managed_type_name.7327, %object
 .L.managed_type_name.7327:
-	.asciz	"ScannerQR.TakeOver2OrdersTablet, ScannerQR"
-	.size	.L.managed_type_name.7327, 43
+	.asciz	"Scanner.TakeOver2OrdersTablet, WMS"
+	.size	.L.managed_type_name.7327, 35
 	.section	.rodata.managed_type_name.7328,"aMS",%progbits,1
 	.type	.L.managed_type_name.7328, %object
 .L.managed_type_name.7328:
-	.asciz	"ScannerQR.TakeOverBusinessEventSetup, ScannerQR"
-	.size	.L.managed_type_name.7328, 48
+	.asciz	"Scanner.TakeOverBusinessEventSetup, WMS"
+	.size	.L.managed_type_name.7328, 40
 	.section	.rodata.managed_type_name.7329,"aMS",%progbits,1
 	.type	.L.managed_type_name.7329, %object
 .L.managed_type_name.7329:
-	.asciz	"ScannerQR.TakeOverBusinessEventSetupTablet, ScannerQR"
-	.size	.L.managed_type_name.7329, 54
+	.asciz	"Scanner.TakeOverBusinessEventSetupTablet, WMS"
+	.size	.L.managed_type_name.7329, 46
 	.section	.rodata.managed_type_name.7330,"aMS",%progbits,1
 	.type	.L.managed_type_name.7330, %object
 .L.managed_type_name.7330:
-	.asciz	"ScannerQR.TakeOverEnteredPositionsView, ScannerQR"
-	.size	.L.managed_type_name.7330, 50
+	.asciz	"Scanner.TakeOverEnteredPositionsView, WMS"
+	.size	.L.managed_type_name.7330, 42
 	.section	.rodata.managed_type_name.7331,"aMS",%progbits,1
 	.type	.L.managed_type_name.7331, %object
 .L.managed_type_name.7331:
-	.asciz	"ScannerQR.TakeOverEnteredPositionsViewTablet, ScannerQR"
-	.size	.L.managed_type_name.7331, 56
+	.asciz	"Scanner.TakeOverEnteredPositionsViewTablet, WMS"
+	.size	.L.managed_type_name.7331, 48
 	.section	.rodata.managed_type_name.7332,"aMS",%progbits,1
 	.type	.L.managed_type_name.7332, %object
 .L.managed_type_name.7332:
-	.asciz	"ScannerQR.TakeOverIdentEntry, ScannerQR"
-	.size	.L.managed_type_name.7332, 40
+	.asciz	"Scanner.TakeOverIdentEntry, WMS"
+	.size	.L.managed_type_name.7332, 32
 	.section	.rodata.managed_type_name.7333,"aMS",%progbits,1
 	.type	.L.managed_type_name.7333, %object
 .L.managed_type_name.7333:
-	.asciz	"ScannerQR.TakeOverIdentEntryTablet, ScannerQR"
-	.size	.L.managed_type_name.7333, 46
+	.asciz	"Scanner.TakeOverIdentEntryTablet, WMS"
+	.size	.L.managed_type_name.7333, 38
 	.section	.rodata.managed_type_name.7334,"aMS",%progbits,1
 	.type	.L.managed_type_name.7334, %object
 .L.managed_type_name.7334:
-	.asciz	"ScannerQR.TakeOverSerialOrSSCCEntry, ScannerQR"
-	.size	.L.managed_type_name.7334, 47
+	.asciz	"Scanner.TakeOverSerialOrSSCCEntry, WMS"
+	.size	.L.managed_type_name.7334, 39
 	.section	.rodata.managed_type_name.7335,"aMS",%progbits,1
 	.type	.L.managed_type_name.7335, %object
 .L.managed_type_name.7335:
-	.asciz	"ScannerQR.TakeOverSerialOrSSCCEntryTablet, ScannerQR"
-	.size	.L.managed_type_name.7335, 53
+	.asciz	"Scanner.TakeOverSerialOrSSCCEntryTablet, WMS"
+	.size	.L.managed_type_name.7335, 45
 	.section	.rodata.managed_type_name.7336,"aMS",%progbits,1
 	.type	.L.managed_type_name.7336, %object
 .L.managed_type_name.7336:
-	.asciz	"ScannerQR.UnfinishedInterWarehouseView, ScannerQR"
-	.size	.L.managed_type_name.7336, 50
+	.asciz	"Scanner.UnfinishedInterWarehouseView, WMS"
+	.size	.L.managed_type_name.7336, 42
 	.section	.rodata.managed_type_name.7337,"aMS",%progbits,1
 	.type	.L.managed_type_name.7337, %object
 .L.managed_type_name.7337:
-	.asciz	"ScannerQR.UnfinishedInterWarehouseViewTablet, ScannerQR"
-	.size	.L.managed_type_name.7337, 56
+	.asciz	"Scanner.UnfinishedInterWarehouseViewTablet, WMS"
+	.size	.L.managed_type_name.7337, 48
 	.section	.rodata.managed_type_name.7338,"aMS",%progbits,1
 	.type	.L.managed_type_name.7338, %object
 .L.managed_type_name.7338:
-	.asciz	"ScannerQR.UnfinishedIssuedGoodsView, ScannerQR"
-	.size	.L.managed_type_name.7338, 47
+	.asciz	"Scanner.UnfinishedIssuedGoodsView, WMS"
+	.size	.L.managed_type_name.7338, 39
 	.section	.rodata.managed_type_name.7339,"aMS",%progbits,1
 	.type	.L.managed_type_name.7339, %object
 .L.managed_type_name.7339:
-	.asciz	"ScannerQR.UnfinishedIssuedGoodsViewTablet, ScannerQR"
-	.size	.L.managed_type_name.7339, 53
+	.asciz	"Scanner.UnfinishedIssuedGoodsViewTablet, WMS"
+	.size	.L.managed_type_name.7339, 45
 	.section	.rodata.managed_type_name.7340,"aMS",%progbits,1
 	.type	.L.managed_type_name.7340, %object
 .L.managed_type_name.7340:
-	.asciz	"ScannerQR.UnfinishedProductionView, ScannerQR"
-	.size	.L.managed_type_name.7340, 46
+	.asciz	"Scanner.UnfinishedProductionView, WMS"
+	.size	.L.managed_type_name.7340, 38
 	.section	.rodata.managed_type_name.7341,"aMS",%progbits,1
 	.type	.L.managed_type_name.7341, %object
 .L.managed_type_name.7341:
-	.asciz	"ScannerQR.UnfinishedProductionViewTablet, ScannerQR"
-	.size	.L.managed_type_name.7341, 52
+	.asciz	"Scanner.UnfinishedProductionViewTablet, WMS"
+	.size	.L.managed_type_name.7341, 44
 	.section	.rodata.managed_type_name.7342,"aMS",%progbits,1
 	.type	.L.managed_type_name.7342, %object
 .L.managed_type_name.7342:
-	.asciz	"ScannerQR.UnfinishedTakeoversView, ScannerQR"
-	.size	.L.managed_type_name.7342, 45
+	.asciz	"Scanner.UnfinishedTakeoversView, WMS"
+	.size	.L.managed_type_name.7342, 37
 	.section	.rodata.managed_type_name.7343,"aMS",%progbits,1
 	.type	.L.managed_type_name.7343, %object
 .L.managed_type_name.7343:
-	.asciz	"ScannerQR.UnfinishedTakeoversViewTablet, ScannerQR"
-	.size	.L.managed_type_name.7343, 51
+	.asciz	"Scanner.UnfinishedTakeoversViewTablet, WMS"
+	.size	.L.managed_type_name.7343, 43
 	.section	.rodata.managed_type_name.7344,"aMS",%progbits,1
 	.type	.L.managed_type_name.7344, %object
 .L.managed_type_name.7344:
-	.asciz	"ScannerQR.choiceProduction, ScannerQR"
-	.size	.L.managed_type_name.7344, 38
+	.asciz	"Scanner.choiceProduction, WMS"
+	.size	.L.managed_type_name.7344, 30
 	.section	.rodata.managed_type_name.7345,"aMS",%progbits,1
 	.type	.L.managed_type_name.7345, %object
 .L.managed_type_name.7345:
-	.asciz	"ScannerQR.receiver+InitTask, ScannerQR"
-	.size	.L.managed_type_name.7345, 39
+	.asciz	"Scanner.receiver+InitTask, WMS"
+	.size	.L.managed_type_name.7345, 31
 	.section	.rodata.managed_type_name.7346,"aMS",%progbits,1
 	.type	.L.managed_type_name.7346, %object
 .L.managed_type_name.7346:
-	.asciz	"ScannerQR.receiver, ScannerQR"
-	.size	.L.managed_type_name.7346, 30
+	.asciz	"Scanner.receiver, WMS"
+	.size	.L.managed_type_name.7346, 22
 	.section	.rodata.managed_type_name.7347,"aMS",%progbits,1
 	.type	.L.managed_type_name.7347, %object
 .L.managed_type_name.7347:

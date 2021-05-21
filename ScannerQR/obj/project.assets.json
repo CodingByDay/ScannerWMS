@@ -1787,9 +1787,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\ScannerQR.csproj",
-      "projectName": "ScannerQR",
-      "projectPath": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\ScannerQR.csproj",
+      "projectUniqueName": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\WMSScanner.csproj",
+      "projectName": "WMSScanner",
+      "projectPath": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\WMSScanner.csproj",
       "packagesPath": "C:\\Users\\hanuman\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\obj\\",
       "projectStyle": "PackageReference",

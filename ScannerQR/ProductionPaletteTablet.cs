@@ -11,13 +11,13 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
-using ScannerQR.App;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 using static Android.App.ActionBar;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "ProductionPaletteTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class ProductionPaletteTablet : Activity, IBarcodeResult

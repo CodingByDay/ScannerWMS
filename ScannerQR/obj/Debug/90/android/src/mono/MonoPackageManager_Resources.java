@@ -1,8 +1,8 @@
 package mono;
 public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
-		/* We need to ensure that "ScannerQR.dll" comes first in this list. */
-		"ScannerQR.dll",
+		/* We need to ensure that "WMS.dll" comes first in this list. */
+		"WMS.dll",
 		"DeviceAPI.dll",
 		"Microsoft.AppCenter.Analytics.Android.Bindings.dll",
 		"Microsoft.AppCenter.Analytics.dll",

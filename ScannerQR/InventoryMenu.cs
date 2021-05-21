@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using TrendNET.WMS.Device.Services;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "InventoryMenu")]
     public class InventoryMenu : Activity

@@ -10,11 +10,11 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Microsoft.AppCenter.Analytics;
-using ScannerQR;
-using ScannerQR.App;
+using Scanner;
+using Scanner.App;
 using TrendNET.WMS.Device.Services;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "MainMenu")]
     public class MainMenu : Activity

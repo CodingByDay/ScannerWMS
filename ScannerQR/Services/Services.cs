@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
-using ScannerQR.App;
+using Scanner.App;
 using Java.Nio;
 
 namespace TrendNET.WMS.Device.Services

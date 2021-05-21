@@ -15,9 +15,9 @@ using TrendNET.WMS.Device.Services;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 using static Android.App.ActionBar;
-using ScannerQR.App;
+using Scanner.App;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "UnfinishedTakeoversView")]
     public class UnfinishedTakeoversView : Activity

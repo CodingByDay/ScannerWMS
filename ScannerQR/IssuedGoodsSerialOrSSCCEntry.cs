@@ -16,7 +16,7 @@ using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "IssuedGoodsSerialOrSSCCEntry")]
     public class IssuedGoodsSerialOrSSCCEntry : Activity, IBarcodeResult
@@ -82,6 +82,7 @@ namespace ScannerQR
             button4.Click += Button4_Click;
             button6.Click += Button6_Click;
             button7.Click += Button7_Click;
+            button5.Click += Button5_Click;
             colorFields();
             
             fillSugestedLocation();
@@ -100,8 +101,11 @@ namespace ScannerQR
             SetUpForm();
         }
 
-
-
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+            InvalidateAndClose();
+        }
 
         private void LoadRelatedOrder()
         {
@@ -234,14 +238,14 @@ namespace ScannerQR
         {
             if (SaveMoveItem())
             {
-                if (editMode)
+               if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                 {
-                   StartActivity(typeof(IssuedGoodsEnteredPositionsView));
-                }
-                else
+                    StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
+                } else
                 {
-                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                    StartActivity(typeof(IssuedGoodsIdentEntry));
                 }
+                InvalidateAndClose();
               
             }
         }

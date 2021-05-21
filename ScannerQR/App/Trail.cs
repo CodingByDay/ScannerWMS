@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace ScannerQR.App
+namespace Scanner.App
 {
   public class Trail
     {

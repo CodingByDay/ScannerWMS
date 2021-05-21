@@ -13,13 +13,13 @@ using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Barcode;
-using ScannerQR;
+using Scanner;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "InterWarehouseSerialOrSSCCEntry")]
     public class InterWarehouseSerialOrSSCCEntry : Activity, IBarcodeResult

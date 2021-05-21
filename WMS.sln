@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMSScanner", "ScannerQR\WMSScanner.csproj", "{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Debug|x86.ActiveCfg = Debug|x86
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Debug|x86.Build.0 = Debug|x86
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Debug|x86.Deploy.0 = Debug|x86
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Release|x86.ActiveCfg = Release|x86
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Release|x86.Build.0 = Release|x86
+		{A2C9DB61-055F-4A6C-82A4-A52D6761C3E9}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E48826A-3BBF-4E1B-AAE0-1947B5E79269}
+	EndGlobalSection
+EndGlobal

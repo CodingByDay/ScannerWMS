@@ -11,12 +11,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
-using ScannerQR.Printing;
+using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "TakeOver2MainTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class TakeOver2MainTablet : Activity, IBarcodeResult

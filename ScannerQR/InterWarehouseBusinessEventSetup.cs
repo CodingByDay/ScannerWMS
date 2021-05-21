@@ -16,7 +16,7 @@ using static Android.Widget.AdapterView;
 /// 
 /// </summary>
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "InterWarehouseBusinessEventSetup")]
     public class InterWarehouseBusinessEventSetup : Activity

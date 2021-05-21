@@ -15,7 +15,7 @@ using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "ProductionWorkOrderSetupTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class ProductionWorkOrderSetupTablet : Activity, IBarcodeResult

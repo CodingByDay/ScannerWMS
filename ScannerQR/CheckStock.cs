@@ -9,7 +9,7 @@ using System.Linq;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "CheckStock")]
     public class CheckStock : Activity, IBarcodeResult
@@ -178,7 +178,7 @@ namespace ScannerQR
             }
             else
             {
-                // pass wms select first, nothing happens anyway, 'cause the first one would have already been selected anyway.
+                // pass WMS select first, nothing happens anyway, 'cause the first one would have already been selected anyway.
             }
             lbStock = FindViewById<TextView>(Resource.Id.lbStock);
 

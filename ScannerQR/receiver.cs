@@ -14,7 +14,7 @@ using Android.Widget;
 using BarCode2D_Receiver;
 using Java.Lang;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "receiver")]
     public class receiver : Activity, IBarcodeResult

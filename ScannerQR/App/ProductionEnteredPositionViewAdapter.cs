@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ScannerQR.App
+namespace Scanner.App
 {
 
     class ProductionEnteredPositionViewAdapter : BaseAdapter

@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
-namespace ScannerQR.App
+namespace Scanner.App
 {
     class settings
     {

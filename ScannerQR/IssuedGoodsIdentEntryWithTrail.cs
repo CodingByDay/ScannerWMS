@@ -11,12 +11,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
-using ScannerQR.App;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 
-namespace ScannerQR
+namespace Scanner
 {
 
 
@@ -34,6 +34,7 @@ namespace ScannerQR
         private ListView ivTrail;
         private List<Trail> ChosenOnes = new List<Trail>();
         private Button btConfirm;
+
         private Button btDisplayPositions;
         private Button btLogout;
         SoundPool soundPool;
@@ -51,7 +52,7 @@ namespace ScannerQR
                         BtConfirm_Click(this, null);
                     }
                     break;
-                //return true;
+                // return true;
                 case Keycode.F4:
                     if (btDisplayPositions.Enabled == true)
                     {

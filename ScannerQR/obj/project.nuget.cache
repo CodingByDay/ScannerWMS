@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hy3z+i5HdxEABcKiGSHvkFhsziuHnHe3rPzmu71Kj18IybLKh2EAXOquzxPBqVtGGh/qx3L9+K6Xuai1HM91zQ==",
+  "dgSpecHash": "voP6LpiQmZhm15HtSFtrLXE9jjdSb2YbGT+Cli1WuVivEmaDQw60HWcgqaAh1TE8cayddIFTFKCVm9XR/ai6Fw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\ScannerQR.csproj",
+  "projectFilePath": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\WMSScanner.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hanuman\\.nuget\\packages\\microsoft.appcenter\\4.1.0\\microsoft.appcenter.4.1.0.nupkg.sha512",
     "C:\\Users\\hanuman\\.nuget\\packages\\microsoft.appcenter.analytics\\4.1.0\\microsoft.appcenter.analytics.4.1.0.nupkg.sha512",

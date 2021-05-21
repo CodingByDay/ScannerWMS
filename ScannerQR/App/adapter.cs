@@ -12,7 +12,7 @@ using Android.Widget;
 using Java.Lang;
 using Exception = Java.Lang.Exception;
 
-namespace ScannerQR.App
+namespace Scanner.App
 {
    public class adapter : BaseAdapter
     {

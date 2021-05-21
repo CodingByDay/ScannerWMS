@@ -8,7 +8,7 @@ using System.Threading;
  
 
 using TrendNET.WMS.Device.App;
-using ScannerQR.App;
+using Scanner.App;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Analytics;
 

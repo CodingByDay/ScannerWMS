@@ -16,7 +16,7 @@ using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "InventoryOpen")]
     public class InventoryOpen : Activity

@@ -2,7 +2,7 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using ScannerQR.App;
+using Scanner.App;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using TrendNET.WMS.Device.Services;
 using static Android.App.ActionBar;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "UnfinishedInterWarehouseViewTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class UnfinishedInterWarehouseViewTablet : Activity

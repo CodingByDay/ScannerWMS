@@ -15,7 +15,7 @@ using TrendNET.WMS.Device.Services;
 using static Android.App.ActionBar;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "InterWarehouseEnteredPositionsView")]
     public class InterWarehouseEnteredPositionsView : Activity

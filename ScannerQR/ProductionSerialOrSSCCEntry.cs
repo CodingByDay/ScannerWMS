@@ -16,7 +16,7 @@ using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "ProductionSerialOrSSCCEntry")]
     public class ProductionSerialOrSSCCEntry : Activity, IBarcodeResult
@@ -314,18 +314,20 @@ namespace ScannerQR
         {
             var warehouse = moveHead.GetString("Wharehouse");
             var ident = openWorkOrder.GetString("Ident");
-
-            string result;
-            if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=incomming", out result))
+            if (warehouse == "Centralno skladišče Postojna")
             {
-                var test = result;
-                if (test != null && test != "")
+                string result;
+                if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=incomming", out result))
                 {
-                    tbLocation.Text = result;
-                }
-                else
-                {
-                    // Pass for now ie not supported.
+                    var test = result;
+                    if (test != null && test != "")
+                    {
+                        tbLocation.Text = result;
+                    }
+                    else
+                    {
+                        // Pass for now ie not supported.
+                    }
                 }
             }
         }

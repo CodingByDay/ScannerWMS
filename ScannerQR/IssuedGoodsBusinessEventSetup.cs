@@ -12,7 +12,7 @@ using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "IssuedGoodsBusinessEventSetup")]
     public class IssuedGoodsBusinessEventSetup : Activity
@@ -55,6 +55,7 @@ namespace ScannerQR
             btnOrder.Click += BtnOrder_Click;
             btnOrderMode.Click += BtnOrderMode_Click;
             btnLogout.Click += BtnLogout_Click;
+
             // next
             var warehouses = CommonData.ListWarehouses();
             warehouses.Items.ForEach(wh =>
@@ -80,6 +81,7 @@ namespace ScannerQR
             adapterDocType.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbDocType.Adapter = adapterDocType;
             btnOrderMode.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND_NORDER", "R");
+            cbWarehouse.Enabled = true;
 
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -119,7 +121,7 @@ namespace ScannerQR
         {
             if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
             {
-                string toast = string.Format("Pridobivam seznam odprtih naručila");
+                string toast = string.Format("Pridobivam seznam odprtih naročila");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
 
                 try
@@ -197,8 +199,7 @@ namespace ScannerQR
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
             temporaryPositionWarehouse = e.Position;
-
-             FillOpenOrders();
+            FillOpenOrders();
         }
 
         private void CbExtra_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -219,7 +220,30 @@ namespace ScannerQR
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
             temporaryPositionDoc = e.Position;
-            FillOpenOrders();
+            var dt = (ComboBoxItem)objectDocType.ElementAt(e.Position);
+
+            var docType = docTypes.Items.FirstOrDefault(x => x.GetString("Code") == dt.ID);
+            if(dt != null)
+            {
+                var wh = docType.GetString("IssueWarehouse");
+                if(string.IsNullOrEmpty(wh)) { docType.GetString("ReceiveWarehouse");  }
+                if(string.IsNullOrEmpty(wh)) { wh = CommonData.GetSetting("DefaultWarehouse");  }
+                ComboBoxItem.Select(cbDocType, objectDocType, "");
+                ComboBoxItem.Select(cbWarehouse, objectWarehouse, wh);
+
+
+                /// Choosing the right item.
+                /// 
+                if (!byOrder)
+                {
+                    var rec = docType.GetString("Receiver");
+                    if(!string.IsNullOrEmpty(rec))
+                    {
+                        ComboBoxItem.Select(cbExtra, objectExtra, rec);
+                    }
+                }
+            }
+           FillOpenOrders();
         }
 
         private void UpdateForm()

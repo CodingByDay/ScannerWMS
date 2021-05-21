@@ -9,10 +9,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using ScannerQR.Printing;
+using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "PrintingSSCCCodesTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class PrintingSSCCCodesTablet : Activity

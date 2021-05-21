@@ -5,13 +5,13 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
-using ScannerQR.App;
+using Scanner.App;
 using System.Collections.Generic;
 using System.Linq;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "CheckStockTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class CheckStockTablet : Activity, IBarcodeResult
@@ -178,7 +178,7 @@ namespace ScannerQR
             imagePNG = FindViewById<ImageView>(Resource.Id.imagePNG);
             cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;
             color();                      
-            cbWarehouses.ItemSelected +=
+            
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();

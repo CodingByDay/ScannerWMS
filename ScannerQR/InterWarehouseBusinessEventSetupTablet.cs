@@ -16,7 +16,7 @@ using static Android.Widget.AdapterView;
 /// 
 /// </summary>
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "InterWarehouseBusinessEventSetupTablet", ScreenOrientation =Android.Content.PM.ScreenOrientation.Landscape)]
     public class InterWarehouseBusinessEventSetupTablet : Activity

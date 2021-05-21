@@ -5,7 +5,7 @@ using System.Net;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.AppCenter.Crashes;
-using ScannerQR.App;
+using Scanner.App;
 namespace TrendNET.WMS.Device.App
 {
     public class WebApp

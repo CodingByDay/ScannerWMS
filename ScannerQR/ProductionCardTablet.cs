@@ -10,13 +10,13 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Microsoft.AppCenter.Crashes;
-using ScannerQR.Printing;
+using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 using static Android.App.ActionBar;
 
-namespace ScannerQR
+namespace Scanner
 {
     [Activity(Label = "ProductionCardTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class ProductionCardTablet : Activity
