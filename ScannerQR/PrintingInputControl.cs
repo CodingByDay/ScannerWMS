@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -15,7 +16,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace Scanner
 {
-    [Activity(Label = "PrintingInputControl")]
+    [Activity(Label = "PrintingInputControl", ScreenOrientation = ScreenOrientation.Portrait)]
     public class PrintingInputControl : Activity
     {
         private EditText dtDate;

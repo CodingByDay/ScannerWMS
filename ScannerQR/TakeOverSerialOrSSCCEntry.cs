@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -18,7 +19,7 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace Scanner
 {
-    [Activity(Label = "TakeOverSerialOrSSCCEntry")]
+    [Activity(Label = "TakeOverSerialOrSSCCEntry", ScreenOrientation = ScreenOrientation.Portrait)]
     public class TakeOverSerialOrSSCCEntry : Activity, IBarcodeResult
     {
         private NameValueObject openIdent = (NameValueObject)InUseObjects.Get("OpenIdent");

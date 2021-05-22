@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -17,7 +18,7 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace Scanner
 {
-    [Activity(Label = "IssuedGoodsEnteredPositionsView")]
+    [Activity(Label = "IssuedGoodsEnteredPositionsView", ScreenOrientation = ScreenOrientation.Portrait)]
     public class IssuedGoodsEnteredPositionsView : Activity
     {
         private int displayedPosition = 0;

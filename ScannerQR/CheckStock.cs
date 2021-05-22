@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content.PM;
 using Android.Media;
 using Android.OS;
 using Android.Views;
@@ -11,7 +12,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace Scanner
 {
-    [Activity(Label = "CheckStock")]
+    [Activity(Label = "CheckStock", ScreenOrientation = ScreenOrientation.Portrait)]
     public class CheckStock : Activity, IBarcodeResult
     {
         private Spinner cbWarehouses;

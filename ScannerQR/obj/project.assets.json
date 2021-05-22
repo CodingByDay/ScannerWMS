@@ -41,6 +41,15 @@
           "lib/MonoAndroid50/Microsoft.AppCenter.Crashes.dll": {}
         }
       },
+      "SearchableSpinner/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/monoandroid81/EDMTBinding.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid81/EDMTBinding.dll": {}
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -868,6 +877,18 @@
         "lib/uap10.0/Microsoft.AppCenter.Crashes.xml",
         "microsoft.appcenter.crashes.4.1.0.nupkg.sha512",
         "microsoft.appcenter.crashes.nuspec"
+      ]
+    },
+    "SearchableSpinner/3.0.0": {
+      "sha512": "0XXf8CYIjTbKj4g2JpRncMaCwZa0xuKFdroPodGGYp6GVBw3ZW/oVlDhmrhTVZokrSdYzUcV66joXNUlNAYOkQ==",
+      "type": "package",
+      "path": "searchablespinner/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid81/EDMTBinding.dll",
+        "searchablespinner.3.0.0.nupkg.sha512",
+        "searchablespinner.nuspec"
       ]
     },
     "System.Numerics.Vectors/4.5.0": {
@@ -1771,11 +1792,13 @@
     "MonoAndroid,Version=v9.0": [
       "Microsoft.AppCenter.Analytics >= 4.1.0",
       "Microsoft.AppCenter.Crashes >= 4.1.0",
+      "SearchableSpinner >= 3.0.0",
       "Xam.Plugins.Settings >= 3.1.1",
       "Xamarin.Android.Support.Core.Utils >= 28.0.0.3",
       "Xamarin.Android.Support.CustomTabs >= 28.0.0.3",
       "Xamarin.Android.Support.Design >= 28.0.0.3",
       "Xamarin.Android.Support.Percent >= 28.0.0.3",
+      "Xamarin.Android.Support.v7.AppCompat >= 28.0.0.3",
       "Xamarin.Android.Support.v7.CardView >= 28.0.0.3",
       "Xamarin.Essentials >= 1.6.0"
     ]
@@ -1826,6 +1849,10 @@
             "target": "Package",
             "version": "[4.1.0, )"
           },
+          "SearchableSpinner": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "Xam.Plugins.Settings": {
             "target": "Package",
             "version": "[3.1.1, )"
@@ -1843,6 +1870,10 @@
             "version": "[28.0.0.3, )"
           },
           "Xamarin.Android.Support.Percent": {
+            "target": "Package",
+            "version": "[28.0.0.3, )"
+          },
+          "Xamarin.Android.Support.v7.AppCompat": {
             "target": "Package",
             "version": "[28.0.0.3, )"
           },

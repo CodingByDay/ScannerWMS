@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -15,7 +16,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace Scanner
 {
-    [Activity(Label = "InventoryPrint")]
+    [Activity(Label = "InventoryPrint", ScreenOrientation = ScreenOrientation.Portrait)]
     public class InventoryPrint : Activity, IBarcodeResult
     {
         private Spinner cbWarehouse;

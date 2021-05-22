@@ -12,13 +12,14 @@ using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.Services;
 using static Android.Widget.AdapterView;
+using Android.Content.PM;
 /// <summary>
 /// 
 /// </summary>
 
 namespace Scanner
 {
-    [Activity(Label = "InterWarehouseBusinessEventSetup")]
+    [Activity(Label = "InterWarehouseBusinessEventSetup", ScreenOrientation = ScreenOrientation.Portrait)]
     public class InterWarehouseBusinessEventSetup : Activity
     {
         private Spinner cbDocType;

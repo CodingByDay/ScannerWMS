@@ -16,10 +16,11 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 using static Android.App.ActionBar;
 using Scanner.App;
+using Android.Content.PM;
 
 namespace Scanner
 {
-    [Activity(Label = "UnfinishedTakeoversView")]
+    [Activity(Label = "UnfinishedTakeoversView", ScreenOrientation = ScreenOrientation.Portrait)]
     public class UnfinishedTakeoversView : Activity
     {
         private EditText tbBusEvent;

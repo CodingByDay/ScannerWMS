@@ -13,8 +13,8 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:id="@+id/textView1" />
-    <Spinner
-        android:spinnerMode="dialog"
+<com.toptoche.searchablespinnerlibrary.SearchableSpinner
+  	    android:spinnerMode="dialog"
         android:layout_width="match_parent"
         android:layout_height="49.5dp"
         android:id="@+id/cbDocType" />
@@ -26,8 +26,8 @@
         android:layout_height="38.0dp"
         android:id="@+id/textView2"
         android:text="Skladišče" />
-    <Spinner
-        android:spinnerMode="dialog"
+   <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+             android:spinnerMode="dialog"
         android:layout_width="match_parent"
         android:layout_height="53.0dp"
         android:id="@+id/cbWarehouse" />
@@ -37,9 +37,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/lbExtra" />
-    <Spinner
+   <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="match_parent"
-        android:spinnerMode="dialog"
+     
+       
         android:layout_height="69.5dp"
         android:id="@+id/cbExtra" />
     <TextView
@@ -91,4 +92,5 @@
         android:paddingLeft="10px"
         android:id="@+id/btnLogout"
         android:layout_marginTop="0.0dp" />
+    
 </LinearLayout>

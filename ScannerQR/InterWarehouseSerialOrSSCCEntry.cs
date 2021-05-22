@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Graphics.Drawables;
 using Android.Media;
 using Android.OS;
@@ -21,7 +22,7 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace Scanner
 {
-    [Activity(Label = "InterWarehouseSerialOrSSCCEntry")]
+    [Activity(Label = "InterWarehouseSerialOrSSCCEntry", ScreenOrientation = ScreenOrientation.Portrait)]
     public class InterWarehouseSerialOrSSCCEntry : Activity, IBarcodeResult
     {
         public string barcode;

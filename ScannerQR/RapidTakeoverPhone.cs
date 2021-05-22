@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -17,7 +18,7 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace Scanner
 {
-    [Activity(Label = "RapidTakeoverPhone")]
+    [Activity(Label = "RapidTakeoverPhone", ScreenOrientation = ScreenOrientation.Portrait)]
     public class RapidTakeoverPhone : Activity, IBarcodeResult
     {
         private EditText tbSSCC;

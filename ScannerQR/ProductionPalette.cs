@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -19,7 +20,7 @@ using static Android.App.ActionBar;
 
 namespace Scanner
 {
-    [Activity(Label = "ProductionPalette")]
+    [Activity(Label = "ProductionPalette", ScreenOrientation = ScreenOrientation.Portrait)]
     public class ProductionPalette : Activity, IBarcodeResult
 
     {

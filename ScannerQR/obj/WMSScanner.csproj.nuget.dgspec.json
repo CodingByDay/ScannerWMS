@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[4.1.0, )"
             },
+            "SearchableSpinner": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Xam.Plugins.Settings": {
               "target": "Package",
               "version": "[3.1.1, )"
@@ -63,6 +67,10 @@
               "version": "[28.0.0.3, )"
             },
             "Xamarin.Android.Support.Percent": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.Android.Support.v7.AppCompat": {
               "target": "Package",
               "version": "[28.0.0.3, )"
             },

@@ -4,6 +4,7 @@ public class MonoPackageManager_Resources {
 		/* We need to ensure that "WMS.dll" comes first in this list. */
 		"WMS.dll",
 		"DeviceAPI.dll",
+		"EDMTBinding.dll",
 		"Microsoft.AppCenter.Analytics.Android.Bindings.dll",
 		"Microsoft.AppCenter.Analytics.dll",
 		"Microsoft.AppCenter.Android.Bindings.dll",

@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Text;
@@ -18,7 +19,7 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace Scanner
 {
-    [Activity(Label = "InventoryOpen")]
+    [Activity(Label = "InventoryOpen", ScreenOrientation = ScreenOrientation.Portrait)]
     public class InventoryOpen : Activity
     {
         private Spinner cbWarehouse;

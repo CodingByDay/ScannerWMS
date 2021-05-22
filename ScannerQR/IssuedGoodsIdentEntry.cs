@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -17,7 +18,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace Scanner
 {
-    [Activity(Label = "IssuedGoodsIdentEntry")]
+    [Activity(Label = "IssuedGoodsIdentEntry", ScreenOrientation = ScreenOrientation.Portrait)]
     public class IssuedGoodsIdentEntry : Activity, IBarcodeResult
     {
         // Definitions

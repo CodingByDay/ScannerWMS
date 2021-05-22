@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -18,7 +19,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace Scanner
 {
-    [Activity(Label = "TakeOver2Main")]
+    [Activity(Label = "TakeOver2Main", ScreenOrientation = ScreenOrientation.Portrait)]
     public class TakeOver2Main : Activity, IBarcodeResult
     {
         SoundPool soundPool;

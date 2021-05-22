@@ -4,23 +4,25 @@ using System.Linq;
 using System.Text;
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Com.Toptoche.Searchablespinnerlibrary;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 
 namespace Scanner
 {
-    [Activity(Label = "IssuedGoodsBusinessEventSetup")]
+    [Activity(Label = "IssuedGoodsBusinessEventSetup", ScreenOrientation = ScreenOrientation.Portrait)]
     public class IssuedGoodsBusinessEventSetup : Activity
     {
-        private Spinner cbDocType;
+        private SearchableSpinner cbDocType;
         public NameValueObjectList docTypes = null;
-        private Spinner cbWarehouse;
-        private Spinner cbExtra;
+        private SearchableSpinner cbWarehouse;
+        private SearchableSpinner cbExtra;
         List<ComboBoxItem> objectDocType = new List<ComboBoxItem>();
         List<ComboBoxItem> objectWarehouse = new List<ComboBoxItem>();
         List<ComboBoxItem> objectExtra = new List<ComboBoxItem>();
@@ -42,9 +44,9 @@ namespace Scanner
             base.OnCreate(savedInstanceState);
             // Create your application here
             SetContentView(Resource.Layout.IssuedGoodsBusinessEventSetup);
-            cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
-            cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
-            cbExtra = FindViewById<Spinner>(Resource.Id.cbExtra);
+            cbDocType = FindViewById<SearchableSpinner>(Resource.Id.cbDocType);
+            cbWarehouse = FindViewById<SearchableSpinner>(Resource.Id.cbWarehouse);
+            cbExtra = FindViewById<SearchableSpinner>(Resource.Id.cbExtra);
             lbExtra = FindViewById<TextView>(Resource.Id.lbExtra);
             btnOrderMode = FindViewById<Button>(Resource.Id.btnOrderMode);
             btnOrder = FindViewById<Button>(Resource.Id.btnOrder);
@@ -68,20 +70,28 @@ namespace Scanner
             ///* Documentation for the spinner objects add method with an adapter...
             ///*---------------------------------------------------
             ///
-            adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
             cbWarehouse.Adapter = adapterWarehouse;
             // Function update form...
             UpdateForm();
             var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
-            adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
             cbExtra.Adapter = adapterExtra;
             var adapterDocType = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectDocType);
-            adapterDocType.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            adapterDocType.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
             cbDocType.Adapter = adapterDocType;
             btnOrderMode.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND_NORDER", "R");
             cbWarehouse.Enabled = true;
+            cbExtra.Prompt = "Iskanje";
+            cbExtra.SetTitle("Iskanje");
+            cbExtra.SetPositiveButton("Zapri");
+            cbDocType.SetTitle("Iskanje");
+            cbDocType.SetPositiveButton("Zapri");
+            cbWarehouse.SetTitle("Iskanje");
+            cbWarehouse.SetPositiveButton("Zapri");
+
 
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -152,7 +162,7 @@ namespace Scanner
                             });
                             var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
                             Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
-                            adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+                            adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
                             cbExtra.Adapter = adapterExtra;
 
                             cbExtra.RequestFocus();
