@@ -84,11 +84,11 @@ namespace Scanner
             cbDocType.Adapter = adapterDocType;
             btnOrderMode.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND_NORDER", "R");
             cbWarehouse.Enabled = true;
+            
             cbExtra.Prompt = "Iskanje";
             cbExtra.SetTitle("Iskanje");
             cbExtra.SetPositiveButton("Zapri");
-            cbDocType.SetTitle("Iskanje");
-            cbDocType.SetPositiveButton("Zapri");
+         
             cbWarehouse.SetTitle("Iskanje");
             cbWarehouse.SetPositiveButton("Zapri");
 
@@ -258,6 +258,7 @@ namespace Scanner
 
         private void UpdateForm()
         {
+            objectExtra.Clear();
             objectDocType.Clear();
 
             if (byOrder)
@@ -277,7 +278,7 @@ namespace Scanner
                 }
 
                 docTypes = CommonData.ListDocTypes("P|N");
-
+                
                 btnOrderMode.Text = "Brez naročila - F3";
             }
             else

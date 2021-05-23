@@ -8,6 +8,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Com.Toptoche.Searchablespinnerlibrary;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -19,8 +20,8 @@ namespace Scanner
     {
         private Spinner cbDocType;
         public NameValueObjectList docTypes = null;
-        private Spinner cbWarehouse;
-        private Spinner cbExtra;
+        private SearchableSpinner cbWarehouse;
+        private SearchableSpinner cbExtra;
         List<ComboBoxItem> objectDocType = new List<ComboBoxItem>();
         List<ComboBoxItem> objectWarehouse = new List<ComboBoxItem>();
         List<ComboBoxItem> objectExtra = new List<ComboBoxItem>();
@@ -44,8 +45,8 @@ namespace Scanner
             // Create your application here
             SetContentView(Resource.Layout.IssuedGoodsBusinessEventSetupTablet);
             cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
-            cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
-            cbExtra = FindViewById<Spinner>(Resource.Id.cbExtra);
+            cbWarehouse = FindViewById<SearchableSpinner>(Resource.Id.cbWarehouse);
+            cbExtra = FindViewById<SearchableSpinner>(Resource.Id.cbExtra);
             lbExtra = FindViewById<TextView>(Resource.Id.lbExtra);
             btnOrderMode = FindViewById<Button>(Resource.Id.btnOrderMode);
             btnOrder = FindViewById<Button>(Resource.Id.btnOrder);
@@ -85,6 +86,12 @@ namespace Scanner
             btnOrderMode.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND_NORDER", "R");
 
             FillOpenOrders();
+            cbExtra.Prompt = "Iskanje";
+            cbExtra.SetTitle("Iskanje");
+            cbExtra.SetPositiveButton("Zapri");
+
+            cbWarehouse.SetTitle("Iskanje");
+            cbWarehouse.SetPositiveButton("Zapri");
 
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

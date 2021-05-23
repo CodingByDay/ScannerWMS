@@ -142,7 +142,11 @@ Button;obj\Debug\90\res\layout\yesnoproductioncard.xml
 cache-path;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\90\res\values\colors.xml
 color;obj\Debug\90\res\values\ic_launcher_background.xml
+com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
+com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetup.xml
+com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
+com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
 corners;obj\Debug\90\res\drawable\nicelookingbutton.xml
 declare-styleable;C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Debug\90\lp\1\jl\res\values\values.xml
 EditText;obj\Debug\90\res\layout\activity_main.xml
@@ -435,7 +439,6 @@ Spinner;obj\Debug\90\res\layout\inventoryprint.xml
 Spinner;obj\Debug\90\res\layout\inventoryprinttablet.xml
 Spinner;obj\Debug\90\res\layout\inventoryprocess.xml
 Spinner;obj\Debug\90\res\layout\inventoryprocesstablet.xml
-Spinner;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetup.xml
 Spinner;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetuptablet.xml
 Spinner;obj\Debug\90\res\layout\packagingsetcontext.xml
 Spinner;obj\Debug\90\res\layout\packagingsetcontexttablet.xml

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/label1"
         android:gravity="center" />
-    <Spinner
+<Spinner
         android:layout_width="match_parent"
         android:layout_height="42.5dp"
         android:id="@+id/cbDocType"
@@ -28,7 +28,7 @@
         android:layout_height="39.0dp"
         android:id="@+id/label2"
         android:gravity="center" />
-    <Spinner
+<com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="match_parent"
         android:layout_height="41.0dp"
         android:id="@+id/cbIssueWH"
@@ -43,7 +43,7 @@
         android:layout_height="46.5dp"
         android:id="@+id/label3"
         android:gravity="center" />
-    <Spinner
+<com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="match_parent"
         android:layout_height="48.0dp"
         android:id="@+id/cbRecceiveWH"

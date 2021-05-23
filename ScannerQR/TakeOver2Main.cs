@@ -258,9 +258,11 @@ namespace Scanner
             {
 
                 var ident = CommonData.LoadIdent(moveItem.GetString("Ident"));
+
                 if (ident == null)
                 {
-                    throw new ApplicationException("Ident no longer supported!?");
+                    Toast.MakeText(this, "Ident no longer supported!?", ToastLength.Long).Show();
+
                 }
 
                 tbIdent.Text = ident.GetString("Code");

@@ -12,6 +12,7 @@ using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.Services;
 using static Android.Widget.AdapterView;
+using Com.Toptoche.Searchablespinnerlibrary;
 /// <summary>
 /// 
 /// </summary>
@@ -21,10 +22,10 @@ namespace Scanner
     [Activity(Label = "InterWarehouseBusinessEventSetupTablet", ScreenOrientation =Android.Content.PM.ScreenOrientation.Landscape)]
     public class InterWarehouseBusinessEventSetupTablet : Activity
     {
-        private Spinner cbDocType;
+        private SearchableSpinner cbDocType;
         public NameValueObjectList docTypes = null;
-        private Spinner cbIssueWH;
-        private Spinner cbReceiveWH;
+        private SearchableSpinner cbIssueWH;
+        private SearchableSpinner cbReceiveWH;
         List<ComboBoxItem> objectDocType = new List<ComboBoxItem>();
         List<ComboBoxItem> objectIssueWH = new List<ComboBoxItem>();
         List<ComboBoxItem> objectReceiveWH = new List<ComboBoxItem>();
@@ -41,10 +42,10 @@ namespace Scanner
 
             SetContentView(Resource.Layout.InterWarehouseBusinessEventSetupTablet);
             // Views
-            cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
+            cbDocType = FindViewById<SearchableSpinner>(Resource.Id.cbDocType);
 
-            cbIssueWH = FindViewById<Spinner>(Resource.Id.cbIssueWH);
-            cbReceiveWH = FindViewById<Spinner>(Resource.Id.cbRecceiveWH);
+            cbIssueWH = FindViewById<SearchableSpinner>(Resource.Id.cbIssueWH);
+            cbReceiveWH = FindViewById<SearchableSpinner>(Resource.Id.cbRecceiveWH);
 
             objectDocType.Add(new ComboBoxItem { ID = "Default", Text = "               Izberite poslovni dogodek." });
 
@@ -99,6 +100,12 @@ namespace Scanner
             // confirm button          
             confirm = FindViewById<Button>(Resource.Id.btnConfirm);
             confirm.Click += Confirm_Click;
+            cbDocType.SetTitle("Iskanje");
+            cbDocType.SetPositiveButton("Zapri");
+            cbIssueWH.SetTitle("Iskanje");
+            cbIssueWH.SetPositiveButton("Zapri");
+            cbReceiveWH.SetTitle("Iskanje");
+            cbReceiveWH.SetPositiveButton("Zapri");
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

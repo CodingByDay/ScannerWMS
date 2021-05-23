@@ -13,6 +13,7 @@ using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.Services;
 using static Android.Widget.AdapterView;
 using Android.Content.PM;
+using Com.Toptoche.Searchablespinnerlibrary;
 /// <summary>
 /// 
 /// </summary>
@@ -24,8 +25,8 @@ namespace Scanner
     {
         private Spinner cbDocType;
         public NameValueObjectList docTypes = null;     
-        private Spinner cbIssueWH;
-        private Spinner cbReceiveWH;
+        private SearchableSpinner cbIssueWH;
+        private SearchableSpinner cbReceiveWH;
         List<ComboBoxItem> objectDocType = new List<ComboBoxItem>();
         List<ComboBoxItem> objectIssueWH = new List<ComboBoxItem>();
         List<ComboBoxItem> objectReceiveWH = new List<ComboBoxItem>();
@@ -44,8 +45,8 @@ namespace Scanner
             // Views
             cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
           
-            cbIssueWH = FindViewById<Spinner>(Resource.Id.cbIssueWH);
-            cbReceiveWH = FindViewById<Spinner>(Resource.Id.cbRecceiveWH);
+            cbIssueWH = FindViewById<SearchableSpinner>(Resource.Id.cbIssueWH);
+            cbReceiveWH = FindViewById<SearchableSpinner>(Resource.Id.cbRecceiveWH);
          
             objectDocType.Add(new ComboBoxItem { ID = "Default", Text = "               Izberite poslovni dogodek." });
          
@@ -100,6 +101,10 @@ namespace Scanner
             // confirm button          
             confirm = FindViewById<Button>(Resource.Id.btnConfirm);
             confirm.Click += Confirm_Click;
+            cbIssueWH.SetTitle("Iskanje");
+            cbIssueWH.SetPositiveButton("Zapri");
+            cbReceiveWH.SetTitle("Iskanje");
+            cbReceiveWH.SetPositiveButton("Zapri");
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

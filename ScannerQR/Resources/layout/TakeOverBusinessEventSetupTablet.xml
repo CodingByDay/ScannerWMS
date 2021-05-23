@@ -123,8 +123,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/label1"
         android:gravity="center" />
-    <Spinner
-        android:layout_width="match_parent"
+<Spinner
+ 	    android:layout_width="match_parent"
         android:layout_height="42.5dp"
         android:id="@+id/cbDocType"
         android:gravity="center" 
@@ -138,7 +138,7 @@
         android:layout_height="39.0dp"
         android:id="@+id/label2"
         android:gravity="center" />
-    <Spinner
+<com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="match_parent"
         android:layout_height="41.0dp"
         android:id="@+id/cbWarehouse"
@@ -153,7 +153,7 @@
         android:layout_height="46.5dp"
         android:id="@+id/lbSubject"
         android:gravity="center" />
-    <Spinner
+<com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="match_parent"
         android:layout_height="48.0dp"
         android:id="@+id/cbSubject"

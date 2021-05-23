@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Com.Toptoche.Searchablespinnerlibrary;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -20,8 +21,8 @@ namespace Scanner
     public class TakeOverBusinessEventSetup : Activity
     {
         private Spinner cbDocType;
-        private Spinner cbWarehouse;
-        private Spinner cbSubject;
+        private SearchableSpinner cbWarehouse;
+        private SearchableSpinner cbSubject;
         private int temporaryPositionWarehouse;
         private int temporaryPositionSubject;
         private int temporaryPositioncbDoc;
@@ -49,8 +50,8 @@ namespace Scanner
             SetContentView(Resource.Layout.TakeOverBusinessEventSetup);
             // Declarations
             cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
-            cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
-            cbSubject = FindViewById<Spinner>(Resource.Id.cbSubject);
+            cbWarehouse = FindViewById<SearchableSpinner>(Resource.Id.cbWarehouse);
+            cbSubject = FindViewById<SearchableSpinner>(Resource.Id.cbSubject);
             btnOrder = FindViewById<Button>(Resource.Id.btnOrder);
             btnOrderMode = FindViewById<Button>(Resource.Id.btnOrderMode);
             logout = FindViewById<Button>(Resource.Id.btnLogout);
@@ -100,8 +101,10 @@ namespace Scanner
             cbDocType.ItemSelected += CbDocType_ItemSelected;
             cbSubject.ItemSelected += CbSubject_ItemSelected;
             cbWarehouse.ItemSelected += CbWarehouse_ItemSelected;
-
-
+            cbSubject.SetTitle("Iskanje");
+            cbSubject.SetPositiveButton("Zapri");
+            cbWarehouse.SetTitle("Iskanje");
+            cbWarehouse.SetPositiveButton("Zapri");
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
