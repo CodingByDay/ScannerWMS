@@ -91,7 +91,9 @@ namespace Scanner
                 showPicture();
             }
             colorFields();
-            fillSugestedLocation();
+            var warehouse = moveHead.GetString("Wharehouse");
+
+            fillSugestedLocation(warehouse);
             if (moveHead == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); }
             if (openIdent == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); ; }
 
@@ -112,31 +114,31 @@ namespace Scanner
             StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
         }
 
-        private void fillSugestedLocation()
+        private void fillSugestedLocation(string warehouse)
         {
-            var warehouse = moveHead.GetString("Wharehouse");
             var ident = openIdent.GetString("Code");
 
             string result;
-            if (warehouse == "Centralno skladišče Postojna")
+
+            if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=outgoing", out result))
             {
-                if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=outgoing", out result))
+                var test = result;
+                if (test != "Exception: The remote server returned an error: (404) Not Found.")
                 {
-                    var test = result;
-                    if (test != null && test != "")
-                    {
-                        tbLocation.Text = result;
-                    }
-                    else
-                    {
-                        // Pass for now ie not supported.
-                    }
+                    tbLocation.Text = result;
+                }
+                else
+                {
+                    // Pass for now ie not supported.
                 }
             }
+
             else
             { // Do nothing. }
+
             }
         }
+
 
         private void showPicture()
         {

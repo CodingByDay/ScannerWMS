@@ -91,7 +91,7 @@
 
         <EditText
             android:textStyle="bold"
-             android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -121,7 +121,7 @@
         <EditText
             android:textStyle="bold"
             android:textSize="16px"
-             android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -148,7 +148,7 @@
 
         <EditText
             android:textStyle="bold"
-             android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -179,7 +179,7 @@
 
         <EditText
             android:textStyle="bold"
-             android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -188,10 +188,6 @@
             android:id="@+id/tbCreatedAt" />
 
     </LinearLayout>
-    <ProgressBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/progres" />
 
     <TextView
         android:textStyle="bold"
@@ -212,7 +208,7 @@
         <Button
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
-            android:text="Naslednja pozicija - F2"
+            android:text="Nasled. pozicija - F2"
             android:drawableLeft="@drawable/next"
             android:paddingLeft="10px"
             android:layout_width="match_parent"

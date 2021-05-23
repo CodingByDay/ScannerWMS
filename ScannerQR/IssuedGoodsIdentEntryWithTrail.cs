@@ -256,7 +256,7 @@ namespace Scanner
            
 
             selected = e.Position;
-            string toast = string.Format("Izbrali ste: {0}", trails.ElementAt(selected).Location.ToString());
+            string toast = string.Format("Izbrali ste: {0}", trails.ElementAt(selected).Name.ToString());
             Toast.MakeText(this, toast, ToastLength.Long).Show();
           
 

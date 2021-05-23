@@ -85,8 +85,7 @@ namespace Scanner
             button7.Click += Button7_Click;
             button5.Click += Button5_Click;
             colorFields();
-            
-            fillSugestedLocation();
+         
             if (moveHead == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); }
             if (openIdent == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); ; }
 
@@ -100,6 +99,9 @@ namespace Scanner
 
             LoadRelatedOrder();
             SetUpForm();
+            var warehouse = moveHead.GetString("Wharehouse");
+
+            fillSugestedLocation(warehouse);
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -142,18 +144,16 @@ namespace Scanner
             }
         }
 
-        private void fillSugestedLocation()
+        private void fillSugestedLocation(string warehouse)
         {
-            var warehouse = moveHead.GetString("Wharehouse");
             var ident = openIdent.GetString("Code");
 
             string result;
-            if (warehouse == "Centralno skladišče Postojna")
-            {
+        
                 if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=outgoing", out result))
                 {
                     var test = result;
-                    if (test != null && test != "")
+                    if (test != "Exception: The remote server returned an error: (404) Not Found.")
                     {
                         tbLocation.Text = result;
                     }
@@ -162,8 +162,9 @@ namespace Scanner
                         // Pass for now ie not supported.
                     }
                 }
-            }
+       
             else { // Do nothing. }
+
             } 
         }
 

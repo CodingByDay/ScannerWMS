@@ -19,6 +19,7 @@ namespace Scanner
     [Activity(Label = "IssuedGoodsBusinessEventSetup", ScreenOrientation = ScreenOrientation.Portrait)]
     public class IssuedGoodsBusinessEventSetup : Activity
     {
+        private int initial = 0;
         private SearchableSpinner cbDocType;
         public NameValueObjectList docTypes = null;
         private SearchableSpinner cbWarehouse;
@@ -84,11 +85,11 @@ namespace Scanner
             cbDocType.Adapter = adapterDocType;
             btnOrderMode.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND_NORDER", "R");
             cbWarehouse.Enabled = true;
-            
+            cbDocType.SetTitle("Iskanje");
+            cbDocType.SetPositiveButton("Zapri");
             cbExtra.Prompt = "Iskanje";
             cbExtra.SetTitle("Iskanje");
-            cbExtra.SetPositiveButton("Zapri");
-         
+            cbExtra.SetPositiveButton("Zapri");        
             cbWarehouse.SetTitle("Iskanje");
             cbWarehouse.SetPositiveButton("Zapri");
 
@@ -259,7 +260,6 @@ namespace Scanner
         private void UpdateForm()
         {
             objectExtra.Clear();
-            objectDocType.Clear();
 
             if (byOrder)
             {
@@ -276,10 +276,14 @@ namespace Scanner
                     lbExtra.Visibility = ViewStates.Invisible;
                     cbExtra.Visibility = ViewStates.Invisible;
                 }
+                if (initial>0)
+                {
+                    FillOpenOrders();
 
+                }
                 docTypes = CommonData.ListDocTypes("P|N");
-                
                 btnOrderMode.Text = "Brez naročila - F3";
+                initial += 1;
             }
             else
             {

@@ -447,19 +447,19 @@ namespace Scanner
 
         private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
-          fillSugestedLocation();         
+            var warehouse = moveHead.GetString("Wharehouse");
+
+            fillSugestedLocation(warehouse);         
         }
 
-        private void fillSugestedLocation()
+        private void fillSugestedLocation(string warehouse)
         {
-            var warehouse = moveHead.GetString("Wharehouse");
             var ident = openWorkOrder.GetString("Ident");
-
             string result;
             if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=incomming", out result))
             {
                 var test = result;
-                if (test != null && test != "")
+                if (test != "Exception: The remote server returned an error: (404) Not Found.")
                 {
                     tbLocation.Text = result;
                 }
@@ -467,7 +467,8 @@ namespace Scanner
                 {
                     // Pass for now ie not supported.
                 }
-            }  
+            }
+
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

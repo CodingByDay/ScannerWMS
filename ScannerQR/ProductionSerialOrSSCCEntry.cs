@@ -311,27 +311,26 @@ namespace Scanner
             
             }
         }
-        private void fillSugestedLocation()
+      
+        private void fillSugestedLocation(string warehouse)
         {
-            var warehouse = moveHead.GetString("Wharehouse");
             var ident = openWorkOrder.GetString("Ident");
-            if (warehouse == "Centralno skladišče Postojna")
+            string result;
+            if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=incomming", out result))
             {
-                string result;
-                if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=incomming", out result))
+                var test = result;
+                if (test != "Exception: The remote server returned an error: (404) Not Found.")
                 {
-                    var test = result;
-                    if (test != null && test != "")
-                    {
-                        tbLocation.Text = result;
-                    }
-                    else
-                    {
-                        // Pass for now ie not supported.
-                    }
+                    tbLocation.Text = result;
+                }
+                else
+                {
+                    // Pass for now ie not supported.
                 }
             }
+            
         }
+
         private void ProcessSerialNum()
         {
             if (string.IsNullOrEmpty(tbSerialNum.Text.Trim()))
@@ -437,7 +436,9 @@ namespace Scanner
 
         private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
-            fillSugestedLocation(); // Best location. 12.05.2021.
+            var warehouse = moveHead.GetString("Wharehouse");
+
+            fillSugestedLocation(warehouse); // Best location. 12.05.2021.
         }
 
         private void color()
