@@ -114,6 +114,8 @@
                                      >
 
         <TextView
+                        android:textStyle="bold"
+
             android:layout_width="97.0dp"
             android:layout_height="wrap_content"
             android:text="Serijska št."

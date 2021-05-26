@@ -125,3 +125,5 @@ androidx/browser/browseractions/BrowserActionsIntent$BrowserActionsUrlType.class
 androidx/versionedparcelable/NonParcelField.class
 androidx/versionedparcelable/ParcelField.class
 androidx/versionedparcelable/VersionedParcelize.class
+com/microsoft/appcenter/distribute/UpdateAction.class
+com/microsoft/appcenter/distribute/UpdateTrack.class

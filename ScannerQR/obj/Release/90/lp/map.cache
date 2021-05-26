@@ -1,9 +1,12 @@
 DeviceAPI
+EDMTBinding
 Microsoft.AppCenter.Analytics.Android.Bindings
 Microsoft.AppCenter.Analytics
 Microsoft.AppCenter.Android.Bindings
 Microsoft.AppCenter.Crashes.Android.Bindings
 Microsoft.AppCenter.Crashes
+Microsoft.AppCenter.Distribute.Android.Bindings
+Microsoft.AppCenter.Distribute
 Microsoft.AppCenter
 Plugin.Settings
 Xamarin.Android.Arch.Core.Common

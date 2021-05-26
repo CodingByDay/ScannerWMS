@@ -38,13 +38,21 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
+            "Microsoft.AppCenter": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
             "Microsoft.AppCenter.Analytics": {
               "target": "Package",
-              "version": "[4.1.0, )"
+              "version": "[4.2.0, )"
             },
             "Microsoft.AppCenter.Crashes": {
               "target": "Package",
-              "version": "[4.1.0, )"
+              "version": "[4.2.0, )"
+            },
+            "Microsoft.AppCenter.Distribute": {
+              "target": "Package",
+              "version": "[4.2.0, )"
             },
             "SearchableSpinner": {
               "target": "Package",

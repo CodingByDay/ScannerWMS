@@ -70,13 +70,16 @@ namespace Scanner
 
             if (moveItem == null)
             {
-                throw new ApplicationException("moveItem not known at this point!?");
+                Toast.MakeText(this, "moveItem not known at this point!?", ToastLength.Long).Show();
+
             }
 
             var ident = CommonData.LoadIdent(moveItem.GetString("Ident"));
             if (ident == null)
             {
-                throw new ApplicationException("Invalid ident at this point: " + moveItem.GetString("Ident"));
+                Toast.MakeText(this, "Invalid ident at this point: " + moveItem.GetString("Ident"), ToastLength.Long).Show();
+
+                throw new ApplicationException("Invalid ident at this point: " );
             }
             tbIdent.Text = ident.GetString("Code");
             tbNaziv.Text = ident.GetString("Name");

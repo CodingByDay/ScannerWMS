@@ -184,8 +184,7 @@
 
     </LinearLayout>
 
-       
-   
+
   <ListView
             
             android:background="?android:attr/activatedBackgroundIndicator"

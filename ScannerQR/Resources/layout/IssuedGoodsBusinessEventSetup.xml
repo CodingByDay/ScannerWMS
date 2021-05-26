@@ -14,7 +14,7 @@
         android:minHeight="25px"
         android:id="@+id/textView1" />
 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-  	    android:spinnerMode="dialog"
+       
         android:layout_width="match_parent"
         android:layout_height="49.5dp"
         android:id="@+id/cbDocType" />

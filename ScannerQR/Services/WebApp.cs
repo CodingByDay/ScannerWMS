@@ -348,7 +348,6 @@ namespace TrendNET.WMS.Device.Services
                 finally
                 {
                     Log.Write(new LogEntry("END REQUEST: [Device/Ping] '" + url + "';" + (DateTime.Now - startedAt).TotalMilliseconds.ToString()));
-                    Analytics.TrackEvent("Ping");
                     
                     }
             }

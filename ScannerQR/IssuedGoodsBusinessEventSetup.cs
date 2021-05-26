@@ -58,7 +58,8 @@ namespace Scanner
             btnOrder.Click += BtnOrder_Click;
             btnOrderMode.Click += BtnOrderMode_Click;
             btnLogout.Click += BtnLogout_Click;
-
+       
+            
             // next
             var warehouses = CommonData.ListWarehouses();
             warehouses.Items.ForEach(wh =>
@@ -75,10 +76,7 @@ namespace Scanner
             cbWarehouse.Adapter = adapterWarehouse;
             // Function update form...
             UpdateForm();
-            var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
-            Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
-            adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
-            cbExtra.Adapter = adapterExtra;
+        
             var adapterDocType = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectDocType);
             adapterDocType.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);

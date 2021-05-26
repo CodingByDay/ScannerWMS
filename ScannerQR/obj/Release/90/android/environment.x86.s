@@ -2,8 +2,8 @@
 	.section	.rodata.env.str.1,"aMS",@progbits,1
 	.type	.L.env.str.1, @object
 .L.env.str.1:
-	.asciz	"com.companyname.scannerqr"
-	.size	.L.env.str.1, 26
+	.asciz	"com.companyname.Scanner"
+	.size	.L.env.str.1, 24
 	.section	.data.application_config,"aw",@progbits
 	.type	application_config, @object
 	.p2align	2
@@ -61,7 +61,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.6,"aMS",@progbits,1
 	.type	.L.env.str.6, @object
 .L.env.str.6:
-	.asciz	"9a2cb5c2-01ad-4940-a14a-c48063873ead"
+	.asciz	"47f67034-112f-4655-953d-93b5006443bf"
 	.size	.L.env.str.6, 37
 	.section	.rodata.env.str.7,"aMS",@progbits,1
 	.type	.L.env.str.7, @object

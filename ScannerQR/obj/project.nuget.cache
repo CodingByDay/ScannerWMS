@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ZtpMTyBqObt67ICJQuKmdr3ES4+F0uJRkIBWPea8+NaV064vVk4g/Vl4SmNBFwbISR14psionuG64ftEJDYPwA==",
+  "dgSpecHash": "s5CTypaq1/Q7zfALgJR/rvGp9vWDZZrZceWY9eFisQ/RpPLHaka5OvuSpOwke1loZFkALtsojj7aNd2LyOPUkg==",
   "success": true,
   "projectFilePath": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\WMSScanner.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\hanuman\\.nuget\\packages\\microsoft.appcenter\\4.1.0\\microsoft.appcenter.4.1.0.nupkg.sha512",
-    "C:\\Users\\hanuman\\.nuget\\packages\\microsoft.appcenter.analytics\\4.1.0\\microsoft.appcenter.analytics.4.1.0.nupkg.sha512",
-    "C:\\Users\\hanuman\\.nuget\\packages\\microsoft.appcenter.crashes\\4.1.0\\microsoft.appcenter.crashes.4.1.0.nupkg.sha512",
+    "C:\\Users\\hanuman\\.nuget\\packages\\microsoft.appcenter\\4.2.0\\microsoft.appcenter.4.2.0.nupkg.sha512",
+    "C:\\Users\\hanuman\\.nuget\\packages\\microsoft.appcenter.analytics\\4.2.0\\microsoft.appcenter.analytics.4.2.0.nupkg.sha512",
+    "C:\\Users\\hanuman\\.nuget\\packages\\microsoft.appcenter.crashes\\4.2.0\\microsoft.appcenter.crashes.4.2.0.nupkg.sha512",
+    "C:\\Users\\hanuman\\.nuget\\packages\\microsoft.appcenter.distribute\\4.2.0\\microsoft.appcenter.distribute.4.2.0.nupkg.sha512",
     "C:\\Users\\hanuman\\.nuget\\packages\\searchablespinner\\3.0.0\\searchablespinner.3.0.0.nupkg.sha512",
     "C:\\Users\\hanuman\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\hanuman\\.nuget\\packages\\xam.plugins.settings\\3.1.1\\xam.plugins.settings.3.1.1.nupkg.sha512",

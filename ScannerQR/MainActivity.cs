@@ -24,6 +24,9 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using static Android.App.ActionBar;
 using Scanner.App;
+using Microsoft.AppCenter.Distribute;
+using Uri = System.Uri;
+using System.Threading.Tasks;
 
 namespace Scanner
 {
@@ -40,6 +43,8 @@ namespace Scanner
         private ImageView img;
         private TextView deviceURL;
         private bool tablet = settings.tablet;
+        private Button btnOk;
+
         public object MenuInflaterFinal { get; private set; }
 
         // Internet connection method.
@@ -124,10 +129,14 @@ namespace Scanner
         }
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            AppCenter.Start("ec2ca4ce-9e86-4620-9e90-6ecc5cda0e0e",
-                   typeof(Analytics), typeof(Crashes));
+            Distribute.ReleaseAvailable = OnReleaseAvailable;
+            Distribute.SetEnabledAsync(true);
+
+            AppCenter.Start("b6dbedcc-9d96-451f-9206-c2ab38cc7568",
+                   typeof(Analytics), typeof(Crashes), typeof(Distribute));
             Crashes.NotifyUserConfirmation(UserConfirmation.AlwaysSend); /* Always send crash reports */ /*https://appcenter.ms/apps */
             /// Solved anylitics...
+            ///      Analytics.SetEnabledAsync(true);            
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             // Set our view from the "main" layout resource
@@ -147,6 +156,43 @@ namespace Scanner
 
         }
 
+      
+        
+
+        private bool OnReleaseAvailable(ReleaseDetails releaseDetails)
+        {
+        string versionName = releaseDetails.ShortVersion;
+        string versionCodeOrBuildNumber = releaseDetails.Version;
+        string releaseNotes = releaseDetails.ReleaseNotes;
+        Uri releaseNotesUrl = releaseDetails.ReleaseNotesUrl;
+
+        var title = "Version " + versionName + " available!";
+
+       
+                popupDialog = new Dialog(this);
+                popupDialog.SetContentView(Resource.Layout.update);
+                popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+                popupDialog.Show();
+
+                popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+                popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloRedLight);
+
+                // Access Popup layout fields like below
+                btnOk = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
+                btnOk.Click += BtnOk_Click;
+            
+        
+       
+
+        return true;
+        }
+
+        private void BtnOk_Click(object sender, EventArgs e)
+        {
+            Distribute.NotifyUpdateAction(UpdateAction.Update);
+
+
+        }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
@@ -186,7 +232,6 @@ namespace Scanner
         {
             progressBar1.Visibility = ViewStates.Visible;
             ProcessRegistration();
-            Analytics.TrackEvent("Login");
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
