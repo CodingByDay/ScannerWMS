@@ -200,6 +200,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="MainMenuTablet.cs" />
+    <Compile Include="MenuPallets.cs" />
     <Compile Include="PackagingEnteredPositionsView.cs" />
     <Compile Include="PackagingEnteredPositionsViewTablet.cs" />
     <Compile Include="PackagingSetContext.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="Services\Services.cs" />
     <Compile Include="Services\WebApp.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ShippingPallet.cs" />
     <Compile Include="TakeOver2Main.cs" />
     <Compile Include="TakeOver2MainTablet.cs" />
     <Compile Include="TakeOver2Orders.cs" />
@@ -262,6 +264,7 @@
     <Compile Include="UnfinishedProductionViewTablet.cs" />
     <Compile Include="UnfinishedTakeoversView.cs" />
     <Compile Include="UnfinishedTakeoversViewTablet.cs" />
+    <Compile Include="WrappingPallet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
@@ -958,6 +961,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\update.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\MenuPallets.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ShippingPallet.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\WrappingPallet.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -55,16 +55,8 @@ namespace Scanner
             target = settings.device;
             result = settings.tablet;
             
-          
-            rapidTakeover = FindViewById<Button>(Resource.Id.rapidTakeover);
-         
-            if (result == false)
-            {
-                rapidTakeover.Visibility = ViewStates.Gone;
-            } else
-            {
-                // Pass
-            }
+
+            // Rapid takover is taken away from here because its used only in the tablet view.
             // First event...
             Button button = FindViewById<Button>(Resource.Id.goodsTakeOver);
             button.Click += Button_Click;
@@ -92,8 +84,7 @@ namespace Scanner
             // Logout-------------Close();
             Button btnLogout = FindViewById<Button>(Resource.Id.logout);
             btnLogout.Click += BtnLogout_Click;
-            rapidTakeover.Click += RapidTakeover_Click;
-
+            Button PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
             // Permisions.
             // buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
             // buttonIssued.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND", "R");
@@ -104,6 +95,16 @@ namespace Scanner
             // buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
             // btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
 
+
+            // Adding the new pallete permision
+            // PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
+            // Hide those for now.
+            PalletsMenu.Click += PalletsMenu_Click;
+        }
+
+        private void PalletsMenu_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(MenuPallets));
         }
 
         private void RapidTakeover_Click(object sender, EventArgs e)

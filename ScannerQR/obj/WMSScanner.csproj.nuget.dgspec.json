@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\WMSScanner.csproj": {}
+    "C:\\Users\\Janko\\Desktop\\ScannerWMS\\ScannerQR\\WMSScanner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\WMSScanner.csproj": {
+    "C:\\Users\\Janko\\Desktop\\ScannerWMS\\ScannerQR\\WMSScanner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\WMSScanner.csproj",
+        "projectUniqueName": "C:\\Users\\Janko\\Desktop\\ScannerWMS\\ScannerQR\\WMSScanner.csproj",
         "projectName": "WMSScanner",
-        "projectPath": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\WMSScanner.csproj",
-        "packagesPath": "C:\\Users\\hanuman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hanuman\\source\\repos\\ScannerQR\\ScannerQR\\obj\\",
+        "projectPath": "C:\\Users\\Janko\\Desktop\\ScannerWMS\\ScannerQR\\WMSScanner.csproj",
+        "packagesPath": "C:\\Users\\Janko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Janko\\Desktop\\ScannerWMS\\ScannerQR\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\hanuman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Janko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
