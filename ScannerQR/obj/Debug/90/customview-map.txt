@@ -139,6 +139,7 @@ Button;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
 Button;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 Button;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 Button;obj\Debug\90\res\layout\update.xml
+Button;obj\Debug\90\res\layout\wrappingpallet.xml
 Button;obj\Debug\90\res\layout\yesnogeneric.xml
 Button;obj\Debug\90\res\layout\yesnopopup.xml
 Button;obj\Debug\90\res\layout\yesnoproductioncard.xml
@@ -227,6 +228,7 @@ EditText;obj\Debug\90\res\layout\unfinishedproductionview.xml
 EditText;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
 EditText;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 EditText;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
+EditText;obj\Debug\90\res\layout\wrappingpallet.xml
 external-cache-path;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
@@ -603,6 +605,7 @@ TextView;obj\Debug\90\res\layout\unfinishedtakeover.xml
 TextView;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 TextView;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 TextView;obj\Debug\90\res\layout\update.xml
+TextView;obj\Debug\90\res\layout\wrappingpallet.xml
 TextView;obj\Debug\90\res\layout\yesnogeneric.xml
 TextView;obj\Debug\90\res\layout\yesnopopup.xml
 TextView;obj\Debug\90\res\layout\yesnoproductioncard.xml
