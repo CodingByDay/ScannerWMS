@@ -79,6 +79,7 @@ Button;obj\Release\90\res\layout\issuedgoodsserialorssccentrytablet.xml
 Button;obj\Release\90\res\layout\mainmenu.xml
 Button;obj\Release\90\res\layout\mainmenu1.xml
 Button;obj\Release\90\res\layout\mainmenutablet.xml
+Button;obj\Release\90\res\layout\menupallets.xml
 Button;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 Button;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
 Button;obj\Release\90\res\layout\packagingsetcontext.xml
@@ -115,6 +116,7 @@ Button;obj\Release\90\res\layout\receiverlayout.xml
 Button;obj\Release\90\res\layout\selectsubjectbeforefinish.xml
 Button;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml
 Button;obj\Release\90\res\layout\settingspopup.xml
+Button;obj\Release\90\res\layout\shippingpallet.xml
 Button;obj\Release\90\res\layout\takeover2main.xml
 Button;obj\Release\90\res\layout\takeover2maintablet.xml
 Button;obj\Release\90\res\layout\takeover2orders.xml
@@ -137,6 +139,7 @@ Button;obj\Release\90\res\layout\unfinishedproductionviewtablet.xml
 Button;obj\Release\90\res\layout\unfinishedtakeoversview.xml
 Button;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
 Button;obj\Release\90\res\layout\update.xml
+Button;obj\Release\90\res\layout\wrappingpallet.xml
 Button;obj\Release\90\res\layout\yesnogeneric.xml
 Button;obj\Release\90\res\layout\yesnopopup.xml
 Button;obj\Release\90\res\layout\yesnoproductioncard.xml
@@ -206,6 +209,7 @@ EditText;obj\Release\90\res\layout\productionworkordersetuptablet.xml
 EditText;obj\Release\90\res\layout\rapidtakeover.xml
 EditText;obj\Release\90\res\layout\rapidtakeoverphone.xml
 EditText;obj\Release\90\res\layout\settingspopup.xml
+EditText;obj\Release\90\res\layout\shippingpallet.xml
 EditText;obj\Release\90\res\layout\takeover2main.xml
 EditText;obj\Release\90\res\layout\takeover2maintablet.xml
 EditText;obj\Release\90\res\layout\takeover2orders.xml
@@ -224,6 +228,7 @@ EditText;obj\Release\90\res\layout\unfinishedproductionview.xml
 EditText;obj\Release\90\res\layout\unfinishedproductionviewtablet.xml
 EditText;obj\Release\90\res\layout\unfinishedtakeoversview.xml
 EditText;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
+EditText;obj\Release\90\res\layout\wrappingpallet.xml
 external-cache-path;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Release\90\res\mipmap-anydpi-v26\ic_launcher.xml
@@ -292,6 +297,7 @@ LinearLayout;obj\Release\90\res\layout\listviewtrail.xml
 LinearLayout;obj\Release\90\res\layout\mainmenu.xml
 LinearLayout;obj\Release\90\res\layout\mainmenu1.xml
 LinearLayout;obj\Release\90\res\layout\mainmenutablet.xml
+LinearLayout;obj\Release\90\res\layout\menupallets.xml
 LinearLayout;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 LinearLayout;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
 LinearLayout;obj\Release\90\res\layout\packaginglistadapterview.xml
@@ -332,6 +338,7 @@ LinearLayout;obj\Release\90\res\layout\receiverlayout.xml
 LinearLayout;obj\Release\90\res\layout\selectsubjectbeforefinish.xml
 LinearLayout;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml
 LinearLayout;obj\Release\90\res\layout\settingspopup.xml
+LinearLayout;obj\Release\90\res\layout\shippingpallet.xml
 LinearLayout;obj\Release\90\res\layout\takeover2main.xml
 LinearLayout;obj\Release\90\res\layout\takeover2maintablet.xml
 LinearLayout;obj\Release\90\res\layout\takeover2orders.xml
@@ -364,6 +371,7 @@ LinearLayout;obj\Release\90\res\layout\unfinishedtakeover.xml
 LinearLayout;obj\Release\90\res\layout\unfinishedtakeoversview.xml
 LinearLayout;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
 LinearLayout;obj\Release\90\res\layout\update.xml
+LinearLayout;obj\Release\90\res\layout\wrappingpallet.xml
 LinearLayout;obj\Release\90\res\layout\yesnogeneric.xml
 LinearLayout;obj\Release\90\res\layout\yesnopopup.xml
 LinearLayout;obj\Release\90\res\layout\yesnoproductioncard.xml
@@ -526,6 +534,7 @@ TextView;obj\Release\90\res\layout\listviewitem.xml
 TextView;obj\Release\90\res\layout\listviewtrail.xml
 TextView;obj\Release\90\res\layout\mainmenu1.xml
 TextView;obj\Release\90\res\layout\mainmenutablet.xml
+TextView;obj\Release\90\res\layout\menupallets.xml
 TextView;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 TextView;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
 TextView;obj\Release\90\res\layout\packaginglistadapterview.xml
@@ -565,6 +574,7 @@ TextView;obj\Release\90\res\layout\receiverlayout.xml
 TextView;obj\Release\90\res\layout\selectsubjectbeforefinish.xml
 TextView;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml
 TextView;obj\Release\90\res\layout\settingspopup.xml
+TextView;obj\Release\90\res\layout\shippingpallet.xml
 TextView;obj\Release\90\res\layout\takeover2main.xml
 TextView;obj\Release\90\res\layout\takeover2maintablet.xml
 TextView;obj\Release\90\res\layout\takeover2orders.xml
@@ -595,6 +605,7 @@ TextView;obj\Release\90\res\layout\unfinishedtakeover.xml
 TextView;obj\Release\90\res\layout\unfinishedtakeoversview.xml
 TextView;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
 TextView;obj\Release\90\res\layout\update.xml
+TextView;obj\Release\90\res\layout\wrappingpallet.xml
 TextView;obj\Release\90\res\layout\yesnogeneric.xml
 TextView;obj\Release\90\res\layout\yesnopopup.xml
 TextView;obj\Release\90\res\layout\yesnoproductioncard.xml

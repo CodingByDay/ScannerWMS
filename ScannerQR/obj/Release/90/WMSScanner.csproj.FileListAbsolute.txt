@@ -812,6 +812,9 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\drawable\insist.p
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\mainmenutablet.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\rapidtakeoverlistviewlist.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\update.xml
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\menupallets.xml
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\shippingpallet.xml
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\wrappingpallet.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\uploadflags.txt
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\resolvedassemblies.hash
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\link.flag
@@ -951,6 +954,7 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e1
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\MainActivity.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\MainMenu.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\MainMenuTablet.java
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\MenuPallets.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\PackagingEnteredPositionsView.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\PackagingEnteredPositionsViewTablet.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\PackagingSetContext.java
@@ -987,6 +991,7 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e1
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\SelectSubjectBeforeFinish.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\SelectSubjectBeforeFinishTablet.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\Settings.java
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\ShippingPallet.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\TakeOver2Main.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\TakeOver2MainTablet.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\TakeOver2Orders.java
@@ -1007,6 +1012,7 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e1
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\UnfinishedProductionViewTablet.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\UnfinishedTakeoversView.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\UnfinishedTakeoversViewTablet.java
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f0e155b6502ec419\WrappingPallet.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64f378540348fc03ea\Distribute_Listener.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\mono\android\app\ApplicationRegistration.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\mono\android\support\v4\app\FragmentManager_OnBackStackChangedListenerImplementor.java

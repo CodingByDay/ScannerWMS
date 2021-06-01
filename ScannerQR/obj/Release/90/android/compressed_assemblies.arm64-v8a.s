@@ -188,7 +188,7 @@
 
 	/* 20: WMS.dll */
 	/* uncompressed_file_size */
-	.word	493568
+	.word	496640
 	/* loaded */
 	.byte	0
 	/* data */
