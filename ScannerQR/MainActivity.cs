@@ -132,7 +132,7 @@ namespace Scanner
             Distribute.ReleaseAvailable = OnReleaseAvailable;
             Distribute.SetEnabledAsync(true);
 
-            AppCenter.Start("b6dbedcc-9d96-451f-9206-c2ab38cc7568",
+            AppCenter.Start("ec2ca4ce-9e86-4620-9e90-6ecc5cda0e0e",
                    typeof(Analytics), typeof(Crashes), typeof(Distribute));
             Crashes.NotifyUserConfirmation(UserConfirmation.AlwaysSend); /* Always send crash reports */ /*https://appcenter.ms/apps */
             /// Solved anylitics...
