@@ -102,6 +102,8 @@ namespace Scanner
             var warehouse = moveHead.GetString("Wharehouse");
 
             fillSugestedLocation(warehouse);
+
+            
         }
 
         private void Button5_Click(object sender, EventArgs e)

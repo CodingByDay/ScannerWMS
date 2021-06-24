@@ -314,21 +314,10 @@ namespace Scanner
       
         private void fillSugestedLocation(string warehouse)
         {
-            var ident = openWorkOrder.GetString("Ident");
-            string result;
-            if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=incomming", out result))
-            {
-                var test = result;
-                if (test != "Exception: The remote server returned an error: (404) Not Found.")
-                {
-                    tbLocation.Text = result;
-                }
-                else
-                {
-                    // Pass for now ie not supported.
-                }
-            }
-            
+            var location = CommonData.GetSetting("DefaultProductionLocation");
+            tbLocation.Text = location;
+
+
         }
 
         private void ProcessSerialNum()
@@ -432,7 +421,84 @@ namespace Scanner
             tbIdent.Text = ident.GetString("Code") + " " + ident.GetString("Name");
             tbSSCC.Enabled = ident.GetBool("isSSCC");
             tbSerialNum.Enabled = ident.GetBool("HasSerialNumber");
+            editMode = moveItem != null;
+
+            if (editMode)
+
+            {
+
+                tbSSCC.Text = moveItem.GetString("SSCC");
+
+                tbSerialNum.Text = moveItem.GetString("SerialNo");
+
+                tbPacking.Text = moveItem.GetDouble("Packing").ToString(CommonData.GetQtyPicture());
+
+                tbUnits.Text = moveItem.GetDouble("Factor").ToString("###,###,##0.00");
+
+                tbPacking.RequestFocus();
+
+            }
+
+            else
+
+            {
+
+                if (tbSSCC.Enabled)
+
+                {
+
+                    tbSSCC.RequestFocus();
+
+                }
+
+                else if (tbSerialNum.Enabled)
+
+                {
+
+                    tbSerialNum.RequestFocus();
+
+                }
+
+                else
+
+                {
+
+                    tbPacking.RequestFocus();
+
+                }
+
+            }
+
+
+
+            if (string.IsNullOrEmpty(tbUnits.Text.Trim())) { tbUnits.Text = "1"; }
+
+            if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
+
+            {
+
+
+                tbUnits.Visibility = ViewStates.Visible;
+
+            }
+
+
+
+            if (tbSSCC.Enabled && (CommonData.GetSetting("AutoCreateSSCCProduction") == "1"))
+
+            {
+
+                tbSSCC.Text = CommonData.GetNextSSCC();
+
+                tbPacking.RequestFocus();
+
+            }
+
+            ProcessSerialNum();
+
         }
+
+       
 
         private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)
         {

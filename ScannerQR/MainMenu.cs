@@ -140,18 +140,18 @@ namespace Scanner
 
 
                 case Keycode.F5:
-                    ButtonPrint_Click(this, null);
-                    break;
+                    BtnPackaging_Click(this, null);                
+                        break;
 
 
                 case Keycode.F6:
-                    BtnInventory_Click(this, null);
+                    ButtonPrint_Click(this, null);
                     break;
 
 
 
                 case Keycode.F7:
-                    BtnCheckStock_Click(this, null);
+                    BtnInventory_Click(this, null);
                     break;
                 case Keycode.F8:
                     BtnCheckStock_Click(this, null);
