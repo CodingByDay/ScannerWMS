@@ -143,6 +143,7 @@
     <Compile Include="App\TakeOverIdentList.cs" />
     <Compile Include="App\TakeOverSerialOrSSCCEntryAdapter.cs" />
     <Compile Include="App\TakeOverSerialOrSSCCEntryList.cs" />
+    <Compile Include="App\DialogAsync.cs" />
     <Compile Include="App\UnfinishedIssuedAdapter.cs" />
     <Compile Include="App\UnfinishedIssuedList.cs" />
     <Compile Include="App\UnfinishedPackagingAdapter.cs" />

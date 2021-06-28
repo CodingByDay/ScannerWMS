@@ -123,7 +123,7 @@ namespace Scanner
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
         }
 
-        private void ProcessCard(string data)
+        private async void ProcessCard(string data)
         {
             if (!data.StartsWith(tbSerialNum.Text))
             {
@@ -165,10 +165,11 @@ namespace Scanner
                     {
                         if (cardObj.GetInt("IDHead") > 0)
 
-                        { 
+                        {
                             /// Custom popup method that is connected to transportYesNo popus same functionality like before. 
+                            var result = await DialogAsync.Show(this, "Vprašanje", "Karton je že rasporejen na drugi paleti. Premestim?");
 
-                            if(!popupResponse())
+                            if (!(bool)result)
 
                                 // Potential problem.
                             {
@@ -195,7 +196,7 @@ namespace Scanner
                 }
                 finally
                 {
-                  
+                    cardNumber.Text = "";
                 }
             }
         }
@@ -231,34 +232,9 @@ namespace Scanner
             target = false;
         }
 
-        private bool popupResponse()
-           {
-            popupDialog = new Dialog(this);
-            popupDialog.SetContentView(Resource.Layout.TransportPopup);
-            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
-            popupDialog.Show();
+       
 
-            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
-            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
-            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
-
-            btnNo.Click += BtnNo_Click;
-            btnYes.Click += BtnYes_Click;
-
-            return result;
-        }
-
-        private void BtnYes_Click(object sender, EventArgs e)
-        {
-            result = true;
-            
-        }
-
-        private void BtnNo_Click(object sender, EventArgs e)
-        {
-            result = false;
-        }
+      
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -95,7 +95,7 @@ namespace Scanner
             return base.OnKeyDown(keyCode, e);
         }
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ProductionCard);
@@ -106,7 +106,6 @@ namespace Scanner
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             btExit = FindViewById<Button>(Resource.Id.btExit);
-            Response();
             tbWorkOrder.Text = cardInfo.GetString("WorkOrder").Trim();
             tbIdent.Text = cardInfo.GetString("Ident").Trim();
             tbQty.Text = cardInfo.GetDouble("UM1toUM2").ToString("###,###,##0.00");
@@ -127,9 +126,12 @@ namespace Scanner
                 {
                     if (data.GetBool("Warning"))
                     {
-                        
 
-                        if (Response())
+                       
+                     var result = await DialogAsync.Show(this, "Opozorilo", "Izpisanih je bilo zadostno št. etiketa, želite li zamenjati serijsko številko?");
+                        
+                      
+                        if ((bool)result)
                             
                          {
                             data = Services.GetObject("cwns", tbWorkOrder.Text + "|" + tbIdent.Text + "|1", out error);
@@ -139,6 +141,9 @@ namespace Scanner
                                 Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
 
                             }
+                        } else
+                        {
+                            var debug = true;
                         }
                     }
 
