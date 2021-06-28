@@ -546,6 +546,10 @@ C:\Users\hanuman\source\repos\ScannerQR\ScannerQR\obj\Release\90\stamp\_ResolveL
 C:\Users\Desktop\idk\WMS.dll
 C:\Users\Desktop\idk\WMS.pdb
 C:\Users\Desktop\idk\com.companyname.Scanner.apk
+C:\Users\Desktop\idk\com.companyname.Scanner.aab
+C:\Users\Desktop\idk\com.companyname.Scanner-Signed.aab
+C:\Users\Desktop\idk\com.companyname.Scanner-Signed.apk
+C:\Users\Desktop\idk\com.companyname.Scanner-Signed.apk.idsig
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\build.props
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\adb.props
@@ -575,10 +579,6 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\WMSScanner.csproj.Cor
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\WMSScanner.csproj.CopyComplete
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\WMS.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\WMS.pdb
-C:\Users\Desktop\idk\com.companyname.Scanner.aab
-C:\Users\Desktop\idk\com.companyname.Scanner-Signed.aab
-C:\Users\Desktop\idk\com.companyname.Scanner-Signed.apk
-C:\Users\Desktop\idk\com.companyname.Scanner-Signed.apk.idsig
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\bin\com.companyname.Scanner.apk
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\bin\base.zip
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\bin\com.companyname.Scanner.aab
@@ -899,6 +899,7 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc642c0a
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64350623dcb797cc38\AndroidHttpClientAdapter.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc64350623dcb797cc38\ServiceCall.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc648a7c9d6e188cbaff\DatePickerFragment.java
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc648a7c9d6e188cbaff\DialogAsync.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc649b1ee189de92b663\adapter.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc649b1ee189de92b663\adapterListViewItem.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc649b1ee189de92b663\CheckStockAddonAdapter.java

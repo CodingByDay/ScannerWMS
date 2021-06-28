@@ -120,6 +120,7 @@
     <Compile Include="App\ComboBoxItem.cs" />
     <Compile Include="App\DateTimeFragment.cs" />
     <Compile Include="App\Echo.cs" />
+    <Compile Include="App\HelperMethods.cs" />
     <Compile Include="App\IBarcodeResult.cs" />
     <Compile Include="App\InfinishedProductionListView.cs" />
     <Compile Include="App\InterWarehouseEnteredPositionsViewList.cs" />

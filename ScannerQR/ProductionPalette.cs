@@ -49,7 +49,7 @@ namespace Scanner
                     Sound();
                     tbSerialNum.Text = barcode;
                     ProcessSerialNum();
-                    lvCardList.RequestFocus();
+                 
                 } else
                 {
                     tbSerialNum.Text = "";
@@ -91,7 +91,7 @@ namespace Scanner
                 {
                     tbSerialNum.Enabled = false;
                     lvCardList.Enabled = true;
-                    lvCardList.RequestFocus();
+                    Toast.MakeText(this, $"Obstaja {qty} kartonov.", ToastLength.Long).Show();
                 }
                 else
                 {
@@ -125,82 +125,90 @@ namespace Scanner
 
         private async void ProcessCard(string data)
         {
-            if (!data.StartsWith(tbSerialNum.Text))
+
+            var debug = data;
+
+
+            var flag = true;
+
+            if (tbSerialNum.Text.Length > 1)
             {
-                string WebError = string.Format("Karton ne ustreza serijski št. palete!");
-                Toast.MakeText(this, WebError, ToastLength.Long).Show();
-      
+                var stKartona = Convert.ToInt32(data.Substring(tbSerialNum.Text.Length)).ToString();
             }
             else
             {
-                var stKartona = Convert.ToInt32(data.Substring(tbSerialNum.Text.Length)).ToString();
-
-                foreach (ListViewItem existing in listItems)
+                if (data.StartsWith(tbSerialNum.Text))
                 {
-                    if (existing.stKartona == stKartona)
-                    {
-                        string WebError = string.Format("Karton je že dodan na paleto!");
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
- 
-                        return;
-                    }
+                    string WebError = string.Format("Karton ne ustreza serijski številki.");
+                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
                 }
-
-          
-             
-                try
+                else
                 {
-                    string error;
-                    var cardObj = Services.GetObject("cq", tbSerialNum.Text + "|" + stKartona + "|" + tbIdent.Text, out error);
-                    if (cardObj == null)
+                    foreach (ListViewItem existing in listItems)
                     {
-                        string WebError = string.Format("Napaka pri preverjanju kartona: " + error);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
- 
-                        return;
+                        if (existing.stKartona == stKartona)
+                        {
+                            string WebError = string.Format("Karton je že dodan na paleto!");
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+
+                            return;
+                        }
                     }
 
-                    var qty = cardObj.GetDouble("Qty");
-                    if (qty > 0.0)
+
+
+                    try
                     {
-                        if (cardObj.GetInt("IDHead") > 0)
-
+                        string error;
+                        var cardObj = Services.GetObject("cq", tbSerialNum.Text + "|" + stKartona + "|" + tbIdent.Text, out error);
+                        if (cardObj == null)
                         {
-                            /// Custom popup method that is connected to transportYesNo popus same functionality like before. 
-                            var result = await DialogAsync.Show(this, "Vprašanje", "Karton je že rasporejen na drugi paleti. Premestim?");
+                            string WebError = string.Format("Napaka pri preverjanju kartona: " + error);
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
 
-                            if (!(bool)result)
-
-                                // Potential problem.
-                            {
-                                return;
-                            }
-                           
+                            return;
                         }
 
-                        
-                        var ivi = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
-                        listItems.Add(ivi);
-                        totalQty += qty;
-                        lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
+                        var qty = cardObj.GetDouble("Qty");
+                        if (qty > 0.0)
+                        {
+                            if (cardObj.GetInt("IDHead") > 0)
 
-                        btConfirm.Enabled = true;
+                            {
+                                var result = await DialogAsync.Show(this, "Vprašanje", "Karton je že rasporejen na drugi paleti. Premestim?");
+
+                                if (!(bool)result)
+
+                                // Potential problem.
+                                {
+                                    return;
+                                }
+
+                            }
+
+
+                            var ivi = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
+                            listItems.Add(ivi);
+                            totalQty += qty;
+                            lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
+
+                            btConfirm.Enabled = true;
+                        }
+                        else
+                        {
+                            string WebError = string.Format("Neveljaven karton: " + data);
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+
+                            return;
+                        }
                     }
-                    else
+                    finally
                     {
-                        string WebError = string.Format("Neveljaven karton: " + data);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-                        return;
+                        cardNumber.Text = "";
                     }
-                }
-                finally
-                {
-                    cardNumber.Text = "";
                 }
             }
         }
-
         
         private bool deleteResponse()
         {
@@ -264,19 +272,40 @@ namespace Scanner
             barcode2D.open(this, this);
             btConfirm.Click += BtConfirm_Click;
             button2.Click += Button2_Click;
-            cardNumber.FocusChange += CardNumber_FocusChange;
             adapterListViewItem adapter = new adapterListViewItem(this, listItems);
-
             lvCardList.Adapter = adapter;
             lvCardList.ItemLongClick += LvCardList_ItemLongClick;
             tbSerialNum.RequestFocus();
+            tbSerialNum.KeyPress += TbSerialNum_KeyPress;
+            cardNumber.KeyPress += CardNumber_KeyPress;
             color();
+
+
         }
 
-        private void CardNumber_FocusChange(object sender, View.FocusChangeEventArgs e)
+        private void TbSerialNum_KeyPress(object sender, View.KeyEventArgs e)
         {
-            ProcessCard(cardNumber.Text);
+            if (e.KeyCode == Keycode.Enter)
+            {
+                ProcessSerialNum();
 
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void CardNumber_KeyPress(object sender, View.KeyEventArgs e)
+        {
+            if(e.KeyCode == Keycode.Enter)
+            {
+                ProcessCard(cardNumber.Text);
+
+            } else
+            {
+                e.Handled = false;
+            }
         }
 
         private void LvCardList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)

@@ -53,7 +53,7 @@ namespace Scanner.App
             {
                 if (row == null)
                 {
-                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.ListViewTrail, null, false);
+                    row = LayoutInflater.From(sContext).Inflate(Resource.Layout.ListViewItem, null, false);
                 }
                 TextView tbSerialNumber = row.FindViewById<TextView>(Resource.Id.tbSerialNumber);
                 tbSerialNumber.Text = sList[position].stKartona;
