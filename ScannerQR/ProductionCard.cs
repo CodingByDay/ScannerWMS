@@ -47,17 +47,26 @@ namespace Scanner
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
             btnNo.Click += BtnNo_Click;
             btnYes.Click += BtnYes_Click;
+           var res = target;
+
+
+
+
             return target;
         }
 
         private void BtnNo_Click(object sender, EventArgs e)
         {
             target = false;
+            popupDialog.Hide();
+            popupDialog.Dismiss();
         }
 
         private void BtnYes_Click(object sender, EventArgs e)
         {
             target = true;
+            popupDialog.Hide();
+            popupDialog.Dismiss();
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -97,6 +106,7 @@ namespace Scanner
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             btExit = FindViewById<Button>(Resource.Id.btExit);
+            Response();
             tbWorkOrder.Text = cardInfo.GetString("WorkOrder").Trim();
             tbIdent.Text = cardInfo.GetString("Ident").Trim();
             tbQty.Text = cardInfo.GetDouble("UM1toUM2").ToString("###,###,##0.00");
@@ -117,8 +127,11 @@ namespace Scanner
                 {
                     if (data.GetBool("Warning"))
                     {
+                        
+
                         if (Response())
-                        {
+                            
+                         {
                             data = Services.GetObject("cwns", tbWorkOrder.Text + "|" + tbIdent.Text + "|1", out error);
                             if (data == null)
                             {
@@ -155,20 +168,20 @@ namespace Scanner
             nvo.SetInt("CardNum", Convert.ToInt32(tbCardNum.Text));
             nvo.SetString("SerialNum", tbSerialNum.Text);
             nvo.SetDouble("Qty", Convert.ToDouble(tbQty.Text));
-            nvo.SetInt("ClerkIns", Services.UserID());
-
-           
+            nvo.SetInt("ClerkIns", Services.UserID());          
        
             try
             {
                 string error;
                 nvo = Services.SetObject("cwns", nvo, out error);
+                Toast.MakeText(this, "Shranjujem podatke o kartonu, tiskam nalepko...", ToastLength.Long).Show();
                 if (nvo == null)
                 {
                     string SuccessMessage = string.Format("Shranjevanje neuspešno, napaka: " + error);
                     
                     Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-
+                    this.Finish();
+                    
                 }
                 else
                 {
@@ -176,8 +189,10 @@ namespace Scanner
                     PrintingCommon.SetNVOCommonData(ref pr);
                     pr.SetInt("CardID", nvo.GetInt("ID"));
                     PrintingCommon.SendToServer(pr);
+                    StartActivity(typeof(ProductionCard));
+                    this.Finish();
 
-                  //
+                    //
                 }
             }
             finally

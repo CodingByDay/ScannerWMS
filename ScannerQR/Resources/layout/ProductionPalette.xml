@@ -14,7 +14,6 @@
         android:paddingTop="5px">
 
         <TextView
-
             android:textStyle="bold"
             android:layout_width="92.0dp"
             android:layout_height="wrap_content"
@@ -23,7 +22,6 @@
             android:text="DN" />
 
         <EditText
-
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -45,7 +43,6 @@
         android:paddingTop="5px">
 
         <TextView
-
             android:textStyle="bold"
             android:layout_width="90.5dp"
             android:layout_height="wrap_content"
@@ -54,7 +51,6 @@
             android:text="Ident" />
 
         <EditText
-
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -76,7 +72,6 @@
         android:paddingTop="5px">
 
         <TextView
-  
             android:textStyle="bold"
             android:layout_width="90.5dp"
             android:layout_height="wrap_content"
@@ -85,7 +80,6 @@
             android:text="SSCC" />
 
         <EditText
-
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -107,7 +101,6 @@
         android:paddingTop="5px">
 
         <TextView
-      
             android:textStyle="bold"
             android:layout_width="88.5dp"
             android:layout_height="wrap_content"
@@ -127,20 +120,32 @@
 
 
     </LinearLayout>
-
-
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px"
-        android:minWidth="25px"
-        android:minHeight="25px">
+        android:paddingTop="5px">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="90.5dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Št. kartona" />
+
+        <EditText
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:layout_marginLeft="40px"
+            android:paddingTop="5px"
+            android:id="@+id/cardNumber" />
 
 
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -175,7 +180,7 @@
 
     <HorizontalScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="211.0dp">
         <ListView
             android:background="?android:attr/activatedBackgroundIndicator"
             android:minWidth="25px"
@@ -197,17 +202,7 @@
         />
     </HorizontalScrollView>
 
-
-
-    <TextView
-        android:layout_width="375.5dp"
-        android:layout_height="58.5dp"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
-        android:text=""
-        android:id="@+id/lbTotalQty"/>
-
-   <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

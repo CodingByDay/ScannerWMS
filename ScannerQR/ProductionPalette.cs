@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.Media;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Scanner.App;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -24,6 +20,7 @@ namespace Scanner
     public class ProductionPalette : Activity, IBarcodeResult
 
     {
+        private EditText cardNumber;
         private EditText tbWorkOrder;
         private EditText tbIdent;
         private EditText tbSSCC;
@@ -47,12 +44,18 @@ namespace Scanner
         public void GetBarcode(string barcode)
         {
             if (tbSerialNum.HasFocus) {
-                Sound();
-                tbSerialNum.Text = barcode;
-                ProcessSerialNum();
-                lvCardList.RequestFocus();
+                if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbSerialNum.Text = barcode;
+                    ProcessSerialNum();
+                    lvCardList.RequestFocus();
+                } else
+                {
+                    tbSerialNum.Text = "";
+                }
 
-            } else if(lvCardList.HasFocus)
+            } else if(cardNumber.HasFocus)
             {
                 Sound();
                 ProcessCard(barcode);
@@ -64,8 +67,7 @@ namespace Scanner
         private void color()
         {
             tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Aqua);
-            lvCardList.SetBackgroundColor(Android.Graphics.Color.Aqua);
-
+            cardNumber.SetBackgroundColor(Android.Graphics.Color.Aqua);
 
         }
         private void ProcessSerialNum()
@@ -106,6 +108,7 @@ namespace Scanner
         }
 
         // potential problem
+
         private IEnumerable<int> ScannedCardNumbers()
         {
             foreach (ListViewItem lvi in listItems)
@@ -161,8 +164,13 @@ namespace Scanner
                     if (qty > 0.0)
                     {
                         if (cardObj.GetInt("IDHead") > 0)
-                        { /// Custom popup method that is connected to transportYesNo popus same functionality like before. :)
+
+                        { 
+                            /// Custom popup method that is connected to transportYesNo popus same functionality like before. 
+
                             if(!popupResponse())
+
+                                // Potential problem.
                             {
                                 return;
                             }
@@ -192,7 +200,7 @@ namespace Scanner
             }
         }
 
-
+        
         private bool deleteResponse()
         {
             popupDialog = new Dialog(this);
@@ -267,7 +275,7 @@ namespace Scanner
             tbSerialNum = FindViewById<EditText>(Resource.Id.tbSerialNum);
 
             lvCardList = FindViewById<ListView>(Resource.Id.lvCardList);
-
+            cardNumber = FindViewById<EditText>(Resource.Id.cardNumber);
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             button2 = FindViewById<Button>(Resource.Id.button2);
             lbTotalQty = FindViewById<TextView>(Resource.Id.lbTotalQty);
@@ -280,12 +288,19 @@ namespace Scanner
             barcode2D.open(this, this);
             btConfirm.Click += BtConfirm_Click;
             button2.Click += Button2_Click;
-
+            cardNumber.FocusChange += CardNumber_FocusChange;
             adapterListViewItem adapter = new adapterListViewItem(this, listItems);
 
             lvCardList.Adapter = adapter;
             lvCardList.ItemLongClick += LvCardList_ItemLongClick;
             tbSerialNum.RequestFocus();
+            color();
+        }
+
+        private void CardNumber_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessCard(cardNumber.Text);
+
         }
 
         private void LvCardList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)

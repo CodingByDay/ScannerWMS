@@ -82,6 +82,8 @@ namespace Scanner
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             button4.Click += Button4_Click;
             button6.Click += Button6_Click;
+            tbSerialNum.FocusChange += TbSerialNum_FocusChange;
+
             button7.Click += Button7_Click;
             button5.Click += Button5_Click;
             colorFields();
@@ -524,7 +526,7 @@ namespace Scanner
                 }
                 finally
                 {
-                 //pass
+
                 }
             }
 
@@ -599,6 +601,7 @@ namespace Scanner
                 }
                 */
             }
+            
         }
    
         private void colorFields()
@@ -621,16 +624,24 @@ namespace Scanner
             {
                 Sound();
                 tbSSCC.Text = barcode;
+                tbSerialNum.RequestFocus();
             } else if(tbSerialNum.HasFocus)
             {
                 Sound();
                 tbSerialNum.Text = barcode;
+                tbLocation.RequestFocus();
+                ProcessQty();
             } else if (tbLocation.HasFocus)
             {
                 Sound();
                 tbLocation.Text = barcode;
                 ProcessQty();
             }
+        }
+
+        private void TbSerialNum_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessQty();
         }
 
         private void Sound()
