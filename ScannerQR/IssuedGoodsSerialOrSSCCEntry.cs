@@ -154,7 +154,7 @@ namespace Scanner
 
             string result;
         
-                if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=outgoing", out result))
+                if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + HttpUtility.UrlEncode(ident) + "&locMode=outgoing", out result))
                 {
                     var test = result;
                     if (test != "Exception: The remote server returned an error: (404) Not Found.")
@@ -621,21 +621,29 @@ namespace Scanner
      
 
             if(tbSSCC.HasFocus)
-            {
-                Sound();
-                tbSSCC.Text = barcode;
-                tbSerialNum.RequestFocus();
+            {if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbSSCC.Text = barcode;
+                    tbSerialNum.RequestFocus();
+                }
             } else if(tbSerialNum.HasFocus)
             {
-                Sound();
-                tbSerialNum.Text = barcode;
-                tbLocation.RequestFocus();
-                ProcessQty();
+                if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbSerialNum.Text = barcode;
+                    tbLocation.RequestFocus();
+                    ProcessQty();
+                }
             } else if (tbLocation.HasFocus)
             {
-                Sound();
-                tbLocation.Text = barcode;
-                ProcessQty();
+                if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbLocation.Text = barcode;
+                    ProcessQty();
+                }
             }
         }
 

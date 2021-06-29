@@ -105,6 +105,7 @@
       <HintPath>..\References\DeviceAPI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />

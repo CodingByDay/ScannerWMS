@@ -56,7 +56,7 @@ namespace Scanner
                 
             objectDocType.Add( new ComboBoxItem { ID = dt.GetString("Code"), Text = dt.GetString("Code") + " " + dt.GetString("Name") });
             
-        });
+           });
             /*
              Aditional comment area. */
             var adapter = new ArrayAdapter<ComboBoxItem>(this,
@@ -156,7 +156,6 @@ namespace Scanner
             var receive = rwh.ID;
           
 
-        //   NameValueObject moveHead = new NameValueObject();
             NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
 
                 moveHead.SetString("DocumentType", doc);
@@ -210,7 +209,7 @@ namespace Scanner
 
 
 
-private void CbReceiveWH_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        private void CbReceiveWH_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
                 temporaryPositionReceive = e.Position;           

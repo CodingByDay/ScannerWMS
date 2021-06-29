@@ -120,7 +120,7 @@ namespace Scanner
 
             string result;
 
-            if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=outgoing", out result))
+            if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + HttpUtility.UrlEncode(ident) + "&locMode=outgoing", out result))
             {
                 var test = result;
                 if (test != "Exception: The remote server returned an error: (404) Not Found.")
