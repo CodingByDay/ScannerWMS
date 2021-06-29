@@ -313,15 +313,6 @@ namespace Scanner
         }
 
 
-        //public void hideSoftKeyboard ()
-		//{
-		//	var currentFocus = Activity.CurrentFocus;
-		//	if (currentFocus != null) {
-		//		InputMethodManager inputMethodManager = (InputMethodManager)Activity.GetSystemService(Context.InputMethodService);
-  //      inputMethodManager.HideSoftInputFromWindow(currentFocus.WindowToken, HideSoftInputFlags.None);
-		//	}
-
-
     private double GetStock(string warehouse, string location, string sscc, string serialNum, string ident)
         {
             var wh = CommonData.GetWarehouse(warehouse);
@@ -363,7 +354,7 @@ namespace Scanner
             }
             finally
             {
-             //pass
+             
             }
         }
 
@@ -478,8 +469,7 @@ namespace Scanner
             {
                 string toast = string.Format(moveHead.GetString("Issuer"));
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-               // string SuccessMessage = string.Format("Uspešno poslani podatki.");
-             //   Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+         
             }
             
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point?!"); }
@@ -594,7 +584,7 @@ namespace Scanner
                     
                     StartActivity(typeof(InterWarehouseSerialOrSSCCEntry));
                 }
-               // Close();
+           
             }
         }
 
@@ -742,7 +732,12 @@ namespace Scanner
                     }
                     break;
 
-
+                case Keycode.F5:
+                    if (button5.Enabled == true)
+                    {
+                        Button4_Click(this, null);
+                    }
+                    break;
                 case Keycode.F8:
                     if (button6.Enabled == true)
                     {

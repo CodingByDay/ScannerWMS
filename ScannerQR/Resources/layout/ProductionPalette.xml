@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Št. kartona" />
+            android:text="Karton" />
 
         <EditText
             android:textStyle="bold"
@@ -142,7 +142,7 @@
             android:layout_weight="0.50"
             android:layout_marginLeft="40px"
             android:paddingTop="5px"
-            android:id="@+id/cardNumber" />
+            android:id="@+id/tbCard" />
 
 
     </LinearLayout>
@@ -184,13 +184,14 @@
             android:id="@+id/lvCardList"
             android:layout_height="155.0dp"
             android:listSelector="@android:drawable/screen_background_dark_transparent"
-        <ListView
-              android:background="?android:attr/activatedBackgroundIndicator"
-            android:choiceMode="singleChoice"
-            android:layout_width="match_parent"
-            android:id="@+id/lvCardList"
-            android:layout_height="155.0dp"
-            android:listSelector="@android:drawable/screen_background_dark_transparent"
+        
+    <ListView
+        android:background="?android:attr/activatedBackgroundIndicator"
+        android:choiceMode="singleChoice"
+        android:layout_width="match_parent"
+        android:id="@+id/lvCardList"
+        android:layout_height="204.5dp"
+        android:listSelector="@android:drawable/screen_background_dark_transparent"
         />
     
 
