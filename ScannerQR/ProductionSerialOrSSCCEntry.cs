@@ -129,7 +129,6 @@ namespace Scanner
             if ((bool)getWorkOrderDefaultQty)
             {
 
-
                 try
                 {
                     string error;
@@ -149,7 +148,7 @@ namespace Scanner
                 }
                 finally
                 {
-                    // pass
+                   
                 }
             }
         }
@@ -544,15 +543,15 @@ namespace Scanner
                         if (result.StartsWith("OK!"))
                         {
                             var id = result.Split('+')[1];
-                            string SuccessMessage = string.Format("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
-                            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                         
                             AlertDialog.Builder alert = new AlertDialog.Builder(this);
                             alert.SetTitle("Zaključevanje uspešno");
                             alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
 
                             alert.SetPositiveButton("Ok", (senderAlert, args) =>
-                            {
-                                alert.Dispose();
+                            {alert.Dispose();
+                                System.Threading.Thread.Sleep(500);
+                                StartActivity(typeof(MainMenu));
                             });
 
 

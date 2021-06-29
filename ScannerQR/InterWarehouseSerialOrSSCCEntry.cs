@@ -559,12 +559,14 @@ namespace Scanner
         }
         private void TbIdent_KeyPress(object sender, View.KeyEventArgs e)
         {
-            e.Handled = false;
-            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            if (e.KeyCode == Keycode.Enter)
             {
                 //add your logic here 
                 ProcessIdent();
                 e.Handled = true;
+            } else
+            {
+                e.Handled = false;
             }
         }
 
@@ -627,8 +629,7 @@ namespace Scanner
                         if (result.StartsWith("OK!"))
                         {
                             var id = result.Split('+')[1];
-                            string SuccessMessage = string.Format("Zaključevanje uspešno! Št. prenosa: \r\n" + id);
-                            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                         
                             AlertDialog.Builder alert = new AlertDialog.Builder(this);
                             alert.SetTitle("Zaključevanje uspešno");
                             alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
@@ -636,6 +637,8 @@ namespace Scanner
                             alert.SetPositiveButton("Ok", (senderAlert, args) =>
                             {
                                 alert.Dispose();
+                                System.Threading.Thread.Sleep(500);
+                                StartActivity(typeof(MainMenu));
                             });
 
 

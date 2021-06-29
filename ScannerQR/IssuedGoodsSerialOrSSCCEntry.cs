@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Web;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -82,7 +82,6 @@ namespace Scanner
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             button4.Click += Button4_Click;
             button6.Click += Button6_Click;
-            tbSerialNum.FocusChange += TbSerialNum_FocusChange;
 
             button7.Click += Button7_Click;
             button5.Click += Button5_Click;
@@ -105,7 +104,20 @@ namespace Scanner
 
             fillSugestedLocation(warehouse);
 
-            
+            tbSSCC.RequestFocus();
+            tbLocation.KeyPress += TbLocation_KeyPress;
+        }
+
+        private void TbLocation_KeyPress(object sender, View.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keycode.Enter)
+            {
+                ProcessQty();
+            }
+            else
+            {
+                e.Handled = false;
+            }
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -144,7 +156,6 @@ namespace Scanner
             }
             finally
             {
-            
             }
         }
 
@@ -167,7 +178,7 @@ namespace Scanner
                     }
                 }
        
-            else { // Do nothing. }
+            else { 
 
             } 
         }
@@ -214,6 +225,8 @@ namespace Scanner
                             alert.SetPositiveButton("Ok", (senderAlert, args) =>
                             {
                                 alert.Dispose();
+                                System.Threading.Thread.Sleep(500);
+                                StartActivity(typeof(MainMenu));
                             });
 
 
@@ -321,7 +334,6 @@ namespace Scanner
             }
             else
             {
-                /**{Nothing}*/
         
             }
 
@@ -634,7 +646,6 @@ namespace Scanner
                     Sound();
                     tbSerialNum.Text = barcode;
                     tbLocation.RequestFocus();
-                    ProcessQty();
                 }
             } else if (tbLocation.HasFocus)
             {
@@ -642,15 +653,11 @@ namespace Scanner
                 {
                     Sound();
                     tbLocation.Text = barcode;
-                    ProcessQty();
                 }
             }
         }
 
-        private void TbSerialNum_FocusChange(object sender, View.FocusChangeEventArgs e)
-        {
-            ProcessQty();
-        }
+        
 
         private void Sound()
         {

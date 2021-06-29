@@ -849,6 +849,8 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\assets\System
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\assets\System.Numerics.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\assets\System.Numerics.pdb
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\assets\System.pdb
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\assets\System.Web.Services.dll
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\assets\System.Web.Services.pdb
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\assets\System.Xml.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\assets\System.Xml.pdb
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\assets\WMS.dll

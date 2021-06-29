@@ -45,7 +45,6 @@ public class DialogAsync : Java.Lang.Object, IDialogInterfaceOnClickListener, ID
                                                             .SetPositiveButton("Da", listener)
                                                             .SetNegativeButton("Ne", listener)
                                                             .SetOnCancelListener(listener)
-
                                                             .SetTitle(title)
                                                             .SetMessage(message))
         {

@@ -9,6 +9,7 @@ using Scanner.App;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -25,12 +26,12 @@ namespace Scanner
         private EditText tbIdent;
         private EditText tbSSCC;
         private EditText tbSerialNum;
-
+        private bool initial = false;
         private ListView lvCardList;
         SoundPool soundPool;
         int soundPoolId;
         private Button btConfirm;
-         private Button button2;
+        private Button button2;
         private NameValueObject cardInfo = (NameValueObject)InUseObjects.Get("CardInfo");
         private double totalQty = 0.0;
         private List<ListViewItem> listItems = new List<ListViewItem>();
@@ -51,13 +52,13 @@ namespace Scanner
                     tbSerialNum.Text = barcode;
                     ProcessSerialNum();
                     tbCard.RequestFocus();
-                 
+
                 } else
                 {
                     tbSerialNum.Text = "";
                 }
 
-            } else if(tbCard.HasFocus)
+            } else if (tbCard.HasFocus)
             {
                 if (barcode != "")
                 {
@@ -76,7 +77,51 @@ namespace Scanner
             }
         }
 
+        private void Move(ListViewItem ivis, double qty, double totalQty)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.TransportPopup);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
 
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
+            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+
+            btnNo.Click += BtnNo_Click1;
+
+
+
+            btnYes.Click += (e, ev) => { BtnYes_Click(ivis, qty); };
+        }
+
+        private void BtnYes_Click(ListViewItem ivis, double qty)
+        {
+
+            var ivi = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
+            listItems.Add(ivi);
+            lvCardList.Adapter = null;
+            adapterListViewItem adapter = new adapterListViewItem(this, listItems);
+            lvCardList.Adapter = adapter;
+            totalQty += qty;
+            lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
+            btConfirm.Enabled = true;
+
+
+            popupDialog.Dismiss();
+            popupDialog.Cancel();
+               
+
+        }
+
+      
+
+        private void BtnNo_Click1(object sender, EventArgs e)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Cancel();
+        }
 
         private void color()
         {
@@ -86,8 +131,8 @@ namespace Scanner
         }
         private void ProcessSerialNum()
         {
-  
-      
+
+
             try
             {
                 string error;
@@ -96,7 +141,7 @@ namespace Scanner
                 {
                     string WebError = string.Format("Napaka pri preverjanju serijske št.: " + error);
                     Toast.MakeText(this, WebError, ToastLength.Long).Show();
-    
+
                     return;
                 }
 
@@ -117,7 +162,7 @@ namespace Scanner
             }
             finally
             {
-                
+
             }
         }
 
@@ -142,7 +187,7 @@ namespace Scanner
             try
             {
                 stKartona = Convert.ToInt32(data.Substring(tbSerialNum.Text.Length)).ToString();
-            } catch(Exception error)
+            } catch (Exception error)
             {
                 Toast.MakeText(this, "Napaka...", ToastLength.Long).Show();
             }
@@ -171,7 +216,9 @@ namespace Scanner
                     try
                     {
                         string error;
+
                         var cardObj = Services.GetObject("cq", tbSerialNum.Text + "|" + stKartona + "|" + tbIdent.Text, out error);
+
                         if (cardObj == null)
                         {
                             string WebError = string.Format("Napaka pri preverjanju kartona: " + error);
@@ -180,51 +227,63 @@ namespace Scanner
                         }
 
                         var qty = cardObj.GetDouble("Qty");
+
                         if (qty > 0.0)
                         {
                             if (cardObj.GetInt("IDHead") > 0)
-
                             {
-                                result = (bool)await  DialogAsync.Show(this, "Vprašanje", "Karton je že rasporejen na drugi paleti. Premestim?");
 
-                              
+                                var ivis = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
+
+                                Move(ivis, qty, totalQty);
+
+                                //     result = (bool) await DialogAsync.Show(this, "Vprašanje", "Karton je že rasporejen na drugi paleti. Premestim?");
+                                //   //  initial = true;
+                                //}
+                                //catch (TaskCanceledException ex)
+                                //{
+                                //    Toast.MakeText(this, "Kliknuli ste izven dialoga.", ToastLength.Long).Show();
+                                //}
+                                //if (result == false)
+
+                                //{
+                                //    return;
+                                //}
+
                             }
-                            if (result == false)
-
+                            else
                             {
-                                return;
-                            }
-                            else { 
 
-                            var ivi = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
-                            listItems.Add(ivi);
-                            lvCardList.Adapter = null;
-                            adapterListViewItem adapter = new adapterListViewItem(this, listItems);
-                            lvCardList.Adapter = adapter;
-                            totalQty += qty;
-                            lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
-                            btConfirm.Enabled = true;
-                                }
+                                var ivi = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
+                                listItems.Add(ivi);
+                                lvCardList.Adapter = null;
+                                adapterListViewItem adapter = new adapterListViewItem(this, listItems);
+                                lvCardList.Adapter = adapter;
+                                totalQty += qty;
+                                lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
+                                btConfirm.Enabled = true;
+                            }
                         }
+
                         else
                         {
                             string WebError = string.Format("Neveljaven karton: " + data);
                             Toast.MakeText(this, WebError, ToastLength.Long).Show();
                             return;
                         }
-                    }
+                        }
                     finally
                     {
                         tbCard.Text = "";
                     }
                 }
-            }else
+            } else
             {
                 Toast.MakeText(this, "Nepravilen vnos.", ToastLength.Long).Show();
             }
         }
 
-        //                listItems.RemoveAt(e.Position);
+    //                listItems.RemoveAt(e.Position);
 
   
 
@@ -314,7 +373,17 @@ namespace Scanner
 
         private void ButtonYes(long selectedItemId)
         {
+            ListViewItem itemPriorToDelete = listItems.ElementAt((int)selectedItemId);
+            totalQty = totalQty - Convert.ToDouble(itemPriorToDelete.quantity);
+            lbTotalQty.Text = "Količina skupaj: " + (totalQty).ToString("###,###,##0.00"); 
             listItems.RemoveAt((int)selectedItemId);
+
+
+
+            
+            lvCardList.Adapter = null;
+            adapterListViewItem adapter = new adapterListViewItem(this, listItems);
+            lvCardList.Adapter = adapter;
             popupDialog.Dismiss();
             popupDialog.Cancel();
 
@@ -335,12 +404,7 @@ namespace Scanner
         {
             try
             {
-                string[] data = ScannedCardNumbers().Select(x => x.ToString()).ToArray();
-                foreach(string s in data)
-                {
-                    var t = s;
-                    var debug = true;
-                }
+                Toast.MakeText(this, "Pošiljam podatke, prosim počakajte.", ToastLength.Long).Show();
                 var palInfo = new NameValueObject("PaletteInfo");
                 palInfo.SetString("WorkOrder", tbWorkOrder.Text);
                 palInfo.SetString("Ident", tbIdent.Text);
@@ -365,10 +429,19 @@ namespace Scanner
                     if (result.StartsWith("OK!"))
                     {
                         var id = result.Split('+')[1];
-                        string WebError = string.Format("Paletiranje uspešno! Št. prevzema:\r\n" + id);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-       
-   
+                      
+                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                        alert.SetTitle("Zaključevanje uspešno");
+                        alert.SetMessage("Paletiranje uspešno! Št. prevzema:\r\n" + id);
+
+                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                        {
+                            alert.Dispose();
+                            System.Threading.Thread.Sleep(500);
+                            StartActivity(typeof(MainMenu));
+                        });
+                        Dialog dialog = alert.Create();
+                        dialog.Show();
                     }
                     else
                     {

@@ -26,7 +26,7 @@ namespace Scanner
         int soundPoolId;
         private EditText tbIdent;
         private EditText tbNaziv;
-        private EditText tbKolicinaDoSedaj; // RandomComment 
+        private EditText tbKolicinaDoSedaj; 
         private EditText tbKolicinaNova;
         private Button button1;
         private Button button2;

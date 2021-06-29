@@ -34,6 +34,7 @@ namespace Scanner
         private Button btnYes;
         private Button btnNo;
         private bool target;
+        private bool warning;
 
         private bool Response()
         {
@@ -126,11 +127,18 @@ namespace Scanner
                 {
                     if (data.GetBool("Warning"))
                     {
+                        try
+                        {
+                            warning = (bool)await DialogAsync.Show(this, "Opozorilo", "Izpisanih je bilo zadostno št. etiketa, želite li zamenjati serijsko številko?");
+                        }
+                        catch (TaskCanceledException ex)
+                        {
+                            Toast.MakeText(this, "Kliknuli ste izven dialoga.", ToastLength.Long).Show();
 
-                            var result = await DialogAsync.Show(this, "Opozorilo", "Izpisanih je bilo zadostno št. etiketa, želite li zamenjati serijsko številko?");
-                     
-                      
-                        if ((bool)result)
+                        }
+
+
+                        if ((bool)warning)
                             
                          {
                             data = Services.GetObject("cwns", tbWorkOrder.Text + "|" + tbIdent.Text + "|1", out error);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Web;
 using Android.App;
 using Android.Content;
 using Android.Graphics.Drawables;
@@ -456,7 +456,7 @@ namespace Scanner
         {
             var ident = openWorkOrder.GetString("Ident");
             string result;
-            if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + ident + "&locMode=incomming", out result))
+            if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + HttpUtility.UrlEncode(ident) + "&locMode=incomming", out result))
             {
                 var test = result;
                 if (test != "Exception: The remote server returned an error: (404) Not Found.")

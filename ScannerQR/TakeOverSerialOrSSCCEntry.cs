@@ -295,8 +295,9 @@ namespace Scanner
                             alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
 
                             alert.SetPositiveButton("Ok", (senderAlert, args) =>
-                            {
-                                alert.Dispose();
+                            {alert.Dispose();
+                                System.Threading.Thread.Sleep(500);
+                                StartActivity(typeof(MainMenu));
                             });
 
 
