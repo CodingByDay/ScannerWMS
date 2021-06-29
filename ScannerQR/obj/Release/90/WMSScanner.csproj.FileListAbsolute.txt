@@ -815,6 +815,7 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\update.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\menupallets.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\shippingpallet.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\wrappingpallet.xml
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\drawable\error.png
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\uploadflags.txt
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\resolvedassemblies.hash
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\link.flag

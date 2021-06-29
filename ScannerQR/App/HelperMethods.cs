@@ -22,15 +22,15 @@ namespace Scanner.App
 
 
 
-        public static void alert(Context context, string title, string message)
+        public static void alert(Context context, string message)
         {
             Android.App.AlertDialog.Builder dialog = new AlertDialog.Builder(context);
             AlertDialog alert = dialog.Create();
-            alert.SetTitle(title);
+            alert.SetTitle("Napaka");
             alert.SetMessage(message);
 
             alert.SetIcon(Resource.Drawable.error);
-            alert.SetButton("OK", (c, ev) => { 
+            alert.SetButton("Vredo", (c, ev) => { 
             
             
             });

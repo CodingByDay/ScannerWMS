@@ -16,16 +16,21 @@ public class DialogAsync : Java.Lang.Object, IDialogInterfaceOnClickListener, ID
         {
             case -1:
                 SetResult(true);
+                dialog.Dismiss();
+                dialog.Cancel();
+                
                 break;
             default:
                 SetResult(false);
+                dialog.Dismiss();
+                dialog.Cancel();
                 break;
         }
     }
-
+  
     public void OnCancel(IDialogInterface dialog)
     {
-        taskCompletionSource.SetCanceled();
+        SetResult(false);
     }
 
     void SetResult(bool? selection)
@@ -40,6 +45,7 @@ public class DialogAsync : Java.Lang.Object, IDialogInterfaceOnClickListener, ID
                                                             .SetPositiveButton("Da", listener)
                                                             .SetNegativeButton("Ne", listener)
                                                             .SetOnCancelListener(listener)
+
                                                             .SetTitle(title)
                                                             .SetMessage(message))
         {

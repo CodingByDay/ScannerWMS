@@ -127,9 +127,8 @@ namespace Scanner
                     if (data.GetBool("Warning"))
                     {
 
-                       
-                     var result = await DialogAsync.Show(this, "Opozorilo", "Izpisanih je bilo zadostno št. etiketa, želite li zamenjati serijsko številko?");
-                        
+                            var result = await DialogAsync.Show(this, "Opozorilo", "Izpisanih je bilo zadostno št. etiketa, želite li zamenjati serijsko številko?");
+                     
                       
                         if ((bool)result)
                             
@@ -143,7 +142,6 @@ namespace Scanner
                             }
                         } else
                         {
-                            var debug = true;
                         }
                     }
 

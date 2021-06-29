@@ -59,8 +59,20 @@ namespace Scanner
 
             } else if(tbCard.HasFocus)
             {
-                Sound();
-                ProcessCard(barcode);
+                if (barcode != "")
+                {
+                    if (barcode != "Scan fail")
+                    {
+                        Sound();
+                        ProcessCard(barcode);
+                    } else
+                    {
+
+                    }
+                } else
+                {
+
+                }
             }
         }
 
@@ -125,97 +137,98 @@ namespace Scanner
         }
 
         private async void ProcessCard(string data)
-        {        
-            stKartona = Convert.ToInt32(data.Substring(tbSerialNum.Text.Length)).ToString();      
-            if (data.StartsWith(tbSerialNum.Text))
+        {
+
+            try
             {
-                string WebError = string.Format("Karton ne ustreza serijski številki.");
-                Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                stKartona = Convert.ToInt32(data.Substring(tbSerialNum.Text.Length)).ToString();
+            } catch(Exception error)
+            {
+                Toast.MakeText(this, "Napaka...", ToastLength.Long).Show();
             }
-            else
+
+            if (stKartona != null)
             {
-
-                foreach (ListViewItem existing in listItems)
+                var next = true;
+                if (!data.StartsWith(tbSerialNum.Text))
                 {
-                    if (existing.stKartona == stKartona)
-                    {
-                        string WebError = string.Format("Karton je že dodan na paleto!");
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-                        return;
-                    }
+                    string WebError = string.Format("Karton ne ustreza serijski številki.");
+                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
                 }
-                try
+                else
                 {
-                    string error;
-                    var cardObj = Services.GetObject("cq", tbSerialNum.Text + "|" + stKartona + "|" + tbIdent.Text, out error);
-                    if (cardObj == null)
-                    {
-                        string WebError = string.Format("Napaka pri preverjanju kartona: " + error);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-                        return;
-                    }
 
-                    var qty = cardObj.GetDouble("Qty");
-                    if (qty > 0.0)
+                    foreach (ListViewItem existing in listItems)
                     {
-                        if (cardObj.GetInt("IDHead") > 0)
-
+                        if (existing.stKartona == stKartona)
                         {
-                            var result = await DialogAsync.Show(this, "Vprašanje", "Karton je že rasporejen na drugi paleti. Premestim?");
+                            string WebError = string.Format("Karton je že dodan na paleto!");
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
 
-                            if (!(bool)result)
+                            return;
+                        }
+                    }
+                    try
+                    {
+                        string error;
+                        var cardObj = Services.GetObject("cq", tbSerialNum.Text + "|" + stKartona + "|" + tbIdent.Text, out error);
+                        if (cardObj == null)
+                        {
+                            string WebError = string.Format("Napaka pri preverjanju kartona: " + error);
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                            return;
+                        }
+
+                        var qty = cardObj.GetDouble("Qty");
+                        if (qty > 0.0)
+                        {
+                            if (cardObj.GetInt("IDHead") > 0)
+
+                            {
+                                result = (bool)await  DialogAsync.Show(this, "Vprašanje", "Karton je že rasporejen na drugi paleti. Premestim?");
+
+                              
+                            }
+                            if (result == false)
 
                             {
                                 return;
                             }
+                            else { 
 
-                        }            
-                        var ivi = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
-                        listItems.Add(ivi);
-                        totalQty += qty;
-                        lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
-                        btConfirm.Enabled = true;
+                            var ivi = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
+                            listItems.Add(ivi);
+                            lvCardList.Adapter = null;
+                            adapterListViewItem adapter = new adapterListViewItem(this, listItems);
+                            lvCardList.Adapter = adapter;
+                            totalQty += qty;
+                            lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
+                            btConfirm.Enabled = true;
+                                }
+                        }
+                        else
+                        {
+                            string WebError = string.Format("Neveljaven karton: " + data);
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                            return;
+                        }
                     }
-                    else
+                    finally
                     {
-                        string WebError = string.Format("Neveljaven karton: " + data);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-                        return;
+                        tbCard.Text = "";
                     }
                 }
-                finally
-                {
-                    tbCard.Text = "";
-                }
+            }else
+            {
+                Toast.MakeText(this, "Nepravilen vnos.", ToastLength.Long).Show();
             }
         }
 
-        
-        private bool deleteResponse()
-        {
-            popupDialog = new Dialog(this);
-            popupDialog.SetContentView(Resource.Layout.YesNoGeneric);
-            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
-            popupDialog.Show();
-            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
-            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
-            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
-            btnNo.Click += BtnNo_Click1;
-            btnYes.Click += BtnYes_Click1;
-            return target;
-        }
+        //                listItems.RemoveAt(e.Position);
 
-        private void BtnYes_Click1(object sender, EventArgs e)
-        {
-            target = true;
-        }
+  
 
-        private void BtnNo_Click1(object sender, EventArgs e)
-        {
-            target = false;
-        }
+    
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -245,8 +258,27 @@ namespace Scanner
             lvCardList.ItemLongClick += LvCardList_ItemLongClick;
             tbSerialNum.RequestFocus();
             tbSerialNum.KeyPress += TbSerialNum_KeyPress;
+            tbCard.KeyPress += TbCard_KeyPress;
             color();
-            HelperMethods.alert(this, "Napaka", "Prislo je do napake.");
+        }
+
+        private void TbCard_KeyPress(object sender, View.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keycode.Enter)
+            {
+                if (tbCard.Text != "")
+                {
+                    ProcessCard(tbCard.Text);
+                    tbCard.RequestFocus();
+                } else
+                {
+
+                }
+            }
+            else
+            {
+                e.Handled = false;
+            }
         }
 
         private void TbSerialNum_KeyPress(object sender, View.KeyEventArgs e)
@@ -266,10 +298,32 @@ namespace Scanner
 
         private void LvCardList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
-            if(deleteResponse())
-            {
-                listItems.RemoveAt(e.Position);
-            }
+
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.YesNoGeneric);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
+            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+            btnNo.Click += BtnNo_Click;
+            btnYes.Click += (e, ev) => { ButtonYes(lvCardList.SelectedItemId); };
+          
+        }
+
+        private void ButtonYes(long selectedItemId)
+        {
+            listItems.RemoveAt((int)selectedItemId);
+            popupDialog.Dismiss();
+            popupDialog.Cancel();
+
+        }
+
+        private void BtnNo_Click(object sender, EventArgs e)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Cancel();
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -281,6 +335,12 @@ namespace Scanner
         {
             try
             {
+                string[] data = ScannedCardNumbers().Select(x => x.ToString()).ToArray();
+                foreach(string s in data)
+                {
+                    var t = s;
+                    var debug = true;
+                }
                 var palInfo = new NameValueObject("PaletteInfo");
                 palInfo.SetString("WorkOrder", tbWorkOrder.Text);
                 palInfo.SetString("Ident", tbIdent.Text);

@@ -79,18 +79,23 @@ namespace Scanner
         {
 
             if (tbSSCC.HasFocus)
-            {
-                Sound();
-                tbSSCC.Text = barcode;
-                tbSerialNum.RequestFocus();
+            {if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbSSCC.Text = barcode;
+                    tbSerialNum.RequestFocus();
+                }
             } else if (tbSerialNum.HasFocus)
-            {
-                Sound();
-                tbSerialNum.Text = barcode;
-                ProcessSerialNum();
-                tbLocation.RequestFocus();
+            {if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbSerialNum.Text = barcode;
+                    ProcessSerialNum();
+                    tbLocation.RequestFocus();
+                }
             } else if (tbLocation.HasFocus)
             {
+                
                 Sound();
                 tbLocation.Text = barcode;
             }

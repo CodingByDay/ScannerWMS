@@ -73,38 +73,38 @@
 	.section	.rodata.map_aname.12,"aMS",@progbits,1
 	.type	.L.map_aname.12, @object
 .L.map_aname.12:
-	.asciz	"WMS"
-	.size	.L.map_aname.12, 4
+	.asciz	"Xamarin.Android.Support.DrawerLayout"
+	.size	.L.map_aname.12, 37
 
 	.section	.rodata.map_aname.13,"aMS",@progbits,1
 	.type	.L.map_aname.13, @object
 .L.map_aname.13:
-	.asciz	"Mono.Android"
-	.size	.L.map_aname.13, 13
+	.asciz	"Microsoft.AppCenter.Crashes"
+	.size	.L.map_aname.13, 28
 
 	.section	.rodata.map_aname.14,"aMS",@progbits,1
 	.type	.L.map_aname.14, @object
 .L.map_aname.14:
-	.asciz	"Xamarin.Android.Support.DrawerLayout"
-	.size	.L.map_aname.14, 37
+	.asciz	"Microsoft.AppCenter.Distribute"
+	.size	.L.map_aname.14, 31
 
 	.section	.rodata.map_aname.15,"aMS",@progbits,1
 	.type	.L.map_aname.15, @object
 .L.map_aname.15:
-	.asciz	"Microsoft.AppCenter.Crashes"
-	.size	.L.map_aname.15, 28
+	.asciz	"Xamarin.Android.Support.Compat"
+	.size	.L.map_aname.15, 31
 
 	.section	.rodata.map_aname.16,"aMS",@progbits,1
 	.type	.L.map_aname.16, @object
 .L.map_aname.16:
-	.asciz	"Microsoft.AppCenter.Distribute"
-	.size	.L.map_aname.16, 31
+	.asciz	"Mono.Android"
+	.size	.L.map_aname.16, 13
 
 	.section	.rodata.map_aname.17,"aMS",@progbits,1
 	.type	.L.map_aname.17, @object
 .L.map_aname.17:
-	.asciz	"Xamarin.Android.Support.Compat"
-	.size	.L.map_aname.17, 31
+	.asciz	"WMS"
+	.size	.L.map_aname.17, 4
 
 	.section	.rodata.map_aname.18,"aMS",@progbits,1
 	.type	.L.map_aname.18, @object

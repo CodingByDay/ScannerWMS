@@ -15,6 +15,7 @@ using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Barcode;
 using Scanner;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -62,31 +63,45 @@ namespace Scanner
             {
               if(tbIdent.HasFocus)
                 {
-                    Sound();
-                    tbIdent.Text = barcode;
-                    ProcessIdent();
-                    tbSSCC.RequestFocus();
+                    if (barcode != "Scan fail")
+                    {
+                        Sound();
+                        tbIdent.Text = barcode;
+                        ProcessIdent();
+                        tbSSCC.RequestFocus();
+                    } else
+                    {
+
+                    }
                  
 
                 } else if (tbSSCC.HasFocus)
                 {
-                    Sound();
-                    tbSSCC.Text = barcode;
-                    tbSerialNum.RequestFocus();
+                    if (barcode != "Scan fail")
+                    {
+                        Sound();
+                        tbSSCC.Text = barcode;
+                        tbSerialNum.RequestFocus();
+                    }
               
                 } else if(tbSerialNum.HasFocus)
                 {
-                    Sound();
-                    tbSerialNum.Text = barcode;
-                    tbIssueLocation.RequestFocus();
-                    
+                    if (barcode != "Scan fail")
+                    {
+                        Sound();
+                        tbSerialNum.Text = barcode;
+                        tbIssueLocation.RequestFocus();
+                    }
 
                 } else if(tbIssueLocation.HasFocus)
                 {
-                    Sound();
-                    tbIssueLocation.Text = barcode;
-                    tbLocation.RequestFocus();
-                    ProcessQty();
+                    if (barcode != "Scan fail")
+                    {
+                        Sound();
+                        tbIssueLocation.Text = barcode;
+                        tbLocation.RequestFocus();
+                        ProcessQty();
+                    }
 
 
                 } else if (tbLocation.HasFocus)
