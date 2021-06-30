@@ -164,8 +164,11 @@ namespace Scanner
         private void BtnLogout_Click(object sender, EventArgs e)
         {
            
-            StartActivity(typeof(MainActivity));
-            this.Finish();
+          
+            Intent intent = new Intent(this, typeof(MainActivity));
+            intent.SetFlags(ActivityFlags.ClearTop | ActivityFlags.ClearTask | ActivityFlags.NewTask);
+            StartActivity(intent);
+            Finish();
         }
 
         private void BtnPackaging_Click(object sender, EventArgs e)

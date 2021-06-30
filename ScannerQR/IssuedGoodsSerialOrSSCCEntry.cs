@@ -86,7 +86,7 @@ namespace Scanner
             button7.Click += Button7_Click;
             button5.Click += Button5_Click;
             colorFields();
-         
+            tbPacking.FocusChange += TbPacking_FocusChange;
             if (moveHead == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); }
             if (openIdent == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); ; }
 
@@ -105,20 +105,28 @@ namespace Scanner
             fillSugestedLocation(warehouse);
 
             tbSSCC.RequestFocus();
-            tbLocation.KeyPress += TbLocation_KeyPress;
+//            tbLocation.KeyPress += TbLocation_KeyPress;
+            var location = CommonData.GetSetting("DefaultProductionLocation");
+            tbLocation.Text = location;
+
         }
 
-        private void TbLocation_KeyPress(object sender, View.KeyEventArgs e)
+        private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
-            if (e.KeyCode == Keycode.Enter)
-            {
-                ProcessQty();
-            }
-            else
-            {
-                e.Handled = false;
-            }
+            ProcessQty();
         }
+
+        //private void TbLocation_KeyPress(object sender, View.KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keycode.Enter)
+        //    {
+        //        ProcessQty();
+        //    }
+        //    else
+        //    {
+        //        e.Handled = false;
+        //    }
+        //}
 
         private void Button5_Click(object sender, EventArgs e)
         {
@@ -137,7 +145,7 @@ namespace Scanner
                 if (openOrder == null)
                 {
                     editMode = true;
-                    if (moveItem == null) { throw new ApplicationException("moveItem not known at this point?!"); }
+                    if (moveItem == null) { throw new ApplicationException("Napaka?!"); } // Here is the bug.
                     if (string.IsNullOrEmpty(moveItem.GetString("LinkKey")))
                     {
                         openOrder = new NameValueObject("OpenOrder");
@@ -281,6 +289,7 @@ namespace Scanner
                 {
                     StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
                 }
+                Finish();
 
             }
         }
@@ -313,7 +322,7 @@ namespace Scanner
                 tbPalette.Text = moveItem.GetString("Palette");
                 tbPacking.Text = moveItem.GetDouble("Packing").ToString();
                 tbUnits.Text = moveItem.GetDouble("Factor").ToString();
-                btSaveOrUpdate.Text = "Spremeni serijsko št. - F2";
+                btSaveOrUpdate.Text = "Spremeni ser. št. - F2";
             }
             else
             {
@@ -628,6 +637,8 @@ namespace Scanner
                     MessageForm.Show("Količina (" + openOrder.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture ()) + ") presega zalogo (" + stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture ()) + ")!");
                 }
                 */
+                // 
+               // StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
             }
             
         }
@@ -669,6 +680,7 @@ namespace Scanner
                 {
                     Sound();
                     tbLocation.Text = barcode;
+                    tbPacking.RequestFocus();
                 }
             }
         }

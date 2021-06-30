@@ -246,6 +246,7 @@ namespace Scanner
             btConfirm.Click += BtConfirm_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
+            tbIdent.RequestFocus();
         }
 
         private void TbNaziv_FocusChange1(object sender, View.FocusChangeEventArgs e)

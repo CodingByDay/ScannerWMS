@@ -523,8 +523,8 @@ namespace Scanner
                 tbUnits.Visibility = ViewStates.Visible;
             }
 
-            var location = CommonData.GetSetting("DefaultProductionLocation");
-            tbLocation.Text = location;
+            //var location = CommonData.GetSetting("DefaultProductionLocation");
+            //tbLocation.Text = location;
 
         }
 
