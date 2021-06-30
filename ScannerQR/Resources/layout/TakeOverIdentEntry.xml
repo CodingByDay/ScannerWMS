@@ -190,6 +190,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="113.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"

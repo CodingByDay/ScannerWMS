@@ -111,14 +111,15 @@
         android:paddingTop="5px"
                                      >
 
+      
         <TextView
-            android:textSize="16px"
             android:textStyle="bold"
+            android:singleLine="true"
             android:layout_width="106.0dp"
             android:layout_height="wrap_content"
-            android:text="Lokacija"
+            android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:paddingLeft="10px"/>
+            android:text="Lokacija" />
 
         <EditText
             android:textStyle="bold"
@@ -209,7 +210,7 @@
             android:layout_weight="1"
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
-            android:text="Naslednja pozicija - F1"
+            android:text="Naslednja poz. - F1"
             android:drawableLeft="@drawable/next"
             android:paddingLeft="10px"
             android:layout_width="match_parent"
@@ -220,7 +221,7 @@
             android:layout_weight="1"
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
-            android:text="Popravi pozicijo - F2"
+            android:text="Popravi poz. - F2"
             android:drawableLeft="@drawable/fix"
             android:paddingLeft="10px"
             android:layout_width="match_parent"
@@ -244,7 +245,7 @@
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Kreiraj pozicijo - F3"
+            android:text="Kreiraj poz. - F3"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:textSize="16px"
@@ -277,7 +278,7 @@
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Izbriši pozicijo - F5"
+            android:text="Izbriši poz. - F5"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:textSize="16px"

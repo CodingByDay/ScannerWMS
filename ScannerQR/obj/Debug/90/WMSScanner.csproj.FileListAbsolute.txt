@@ -31,7 +31,6 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\41\jl\files.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\42\jl\files.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\43\jl\files.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\47\jl\files.cache
-C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\R.txt
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\R.cs.flag
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMSScanner.csproj.CoreCompileInputs.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMSScanner.csproj.CopyComplete
@@ -274,12 +273,14 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res\layout\menupallets.
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res\layout\shippingpallet.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res\layout\wrappingpallet.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res\drawable\error.png
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\R.txt
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\uploadflags.txt
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\resolvedassemblies.hash
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\assets\DeviceAPI.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\assets\DeviceAPI.dll.mdb
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\assets\EDMTBinding.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\assets\Java.Interop.dll
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\assets\machine.config
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\assets\Microsoft.AppCenter.Analytics.Android.Bindings.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\assets\Microsoft.AppCenter.Analytics.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\assets\Microsoft.AppCenter.Android.Bindings.dll
@@ -364,7 +365,6 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\typemaps.shared
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\AndroidManifest.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\__environment__.txt
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\mono\MonoRuntimeProvider.java
-C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\assets\machine.config
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\bin\mono.android.jar
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\static.flag
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\buildid.txt
@@ -385,6 +385,7 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\android\sup
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\android\support\v7\cardview\R.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\android\support\v7\recyclerview\R.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\android\support\v7\widget\Toolbar_NavigationOnClickEventDispatcher.java
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\com\companyname\scanner\R.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\com\microsoft\appcenter\distribute\R.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\com\toptoche\searchablespinnerlibrary\R.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\crc642c0ac0281e969425\BarcodeDataReceiver.java
@@ -591,7 +592,6 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\mono\com\ze
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\mono\MonoPackageManager_Resources.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\xamarin\essentials\fileProvider.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\bin\packaged_resources
-C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\com\companyname\scanner\R.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\compressed_assemblies.armeabi-v7a.s
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\compressed_assemblies.arm64-v8a.s
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\typemaps.armeabi-v7a.o

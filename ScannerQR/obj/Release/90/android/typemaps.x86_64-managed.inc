@@ -2330,7 +2330,7 @@ module19_managed_to_java:
 	.long	604
 	.long	33554589
 	.long	608
-	.long	33554644
+	.long	33554645
 	.long	708
 	.size	module19_managed_to_java, 904
 

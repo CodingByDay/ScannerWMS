@@ -523,7 +523,8 @@ namespace Scanner
                 tbUnits.Visibility = ViewStates.Visible;
             }
 
-           
+            var location = CommonData.GetSetting("DefaultProductionLocation");
+            tbLocation.Text = location;
 
         }
 
@@ -532,7 +533,7 @@ namespace Scanner
             e.Handled = false;
             if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
             {
-                //add your logic here 
+                // Add your logic here 
                 ProcessQty();
                 e.Handled = true;
             }
@@ -698,6 +699,8 @@ namespace Scanner
                     var recommededLocation = Services.GetObject("rl", ident.GetString("Code") + "|" + moveHead.GetString("Receiver"), out error);
                     if (recommededLocation != null)
                     {
+                        var locationDebug = moveHead.GetString("Receiver");
+                        var debug = recommededLocation.GetString("Location");
                         tbLocation.Text = recommededLocation.GetString("Location");
                     }
                 }

@@ -2330,7 +2330,7 @@ module19_managed_to_java:
 	.word	604
 	.word	33554589
 	.word	608
-	.word	33554644
+	.word	33554645
 	.word	708
 	.size	module19_managed_to_java, 904
 

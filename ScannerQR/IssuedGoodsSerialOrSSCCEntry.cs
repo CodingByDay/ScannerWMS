@@ -334,7 +334,7 @@ namespace Scanner
             }
             else
             {
-        
+
             }
 
             if (CommonData.GetSetting("ShowPaletteField") == "1")
@@ -351,8 +351,24 @@ namespace Scanner
             }
 
             tbIdent.RequestFocus();
-        }
+            var ident = openIdent.GetString("Code");
+            //string error;
+            //var s = moveHead.GetString("Issuer");
+            //var recommededLocation = Services.GetObject("rl", ident + "|" + moveHead.GetString("Issuer"), out error);
+            //if (recommededLocation != null)
+            //{
 
+            //    tbLocation.Text = recommededLocation.GetString("Location");
+            //}
+
+
+            var location = CommonData.GetSetting("DefaultProductionLocation");
+            tbLocation.Text = location;
+
+
+            // Revision 30.6.2021. 
+            // Revision 30.6.2021. 
+        }
      
 
         private bool LoadStock(string warehouse, string location, string sscc, string serialNum, string ident)
