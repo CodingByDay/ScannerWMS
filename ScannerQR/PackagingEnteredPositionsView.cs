@@ -125,11 +125,23 @@ namespace Scanner
                     else
                     {
 
-                        string toastDelete = string.Format("Napaka pri brisanju pozicije." + result);
-                        Toast.MakeText(this, toastDelete, ToastLength.Long).Show();
-                        popupDialog.Dismiss();
-                        popupDialog.Hide();
-                        return;
+                   
+                       
+                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                        alert.SetTitle("Napaka");
+                        alert.SetMessage("Napaka pri brisanju pozicije." + result);
+
+                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                        {
+                            alert.Dispose();
+                            System.Threading.Thread.Sleep(500);
+                            throw new ApplicationException("Error, openIdent");
+                        });
+
+
+
+                        Dialog dialog = alert.Create();
+                        dialog.Show();
                     }
                 }
                 else

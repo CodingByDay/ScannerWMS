@@ -553,7 +553,6 @@ C:\Users\Desktop\idk\com.companyname.Scanner-Signed.apk.idsig
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\build.props
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\adb.props
-C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\WMSScanner.csproj.AssemblyReference.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\_VerifyXamarinAndroidSupportVersions.stamp
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res.flag

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using Android.App;
 using Android.Content;
@@ -84,11 +85,46 @@ namespace Scanner
             button6.Click += Button6_Click;
 
             button7.Click += Button7_Click;
+
             button5.Click += Button5_Click;
             colorFields();
+
             tbPacking.FocusChange += TbPacking_FocusChange;
-            if (moveHead == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); }
-            if (openIdent == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); ; }
+
+            if (moveHead == null) {
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.SetTitle("Napaka na aplikaciji");
+                alert.SetMessage("Prišlo je do napake in aplikacija se bo zaprla.");
+
+                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                {
+                    alert.Dispose();
+                    System.Threading.Thread.Sleep(500);
+                    throw new ApplicationException("Error. moveHead.");
+                });
+
+                Dialog dialog = alert.Create();
+                dialog.Show();
+            }
+
+            if (openIdent == null) {
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.SetTitle("Napaka na aplikaciji");
+                alert.SetMessage("Prišlo je do napake in aplikacija se bo zaprla.");
+
+                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                {
+                    alert.Dispose();
+                    System.Threading.Thread.Sleep(500);
+                    throw new ApplicationException("Error. openIdent.");
+                });
+
+                Dialog dialog = alert.Create();
+                dialog.Show();
+
+            }
 
             docTypes = CommonData.ListDocTypes("P|N");
 
@@ -98,16 +134,15 @@ namespace Scanner
                 button4.Enabled = false;
             }
 
-            LoadRelatedOrder();
+            LoadRelatedOrderAsync();
             SetUpForm();
             var warehouse = moveHead.GetString("Wharehouse");
 
             fillSugestedLocation(warehouse);
 
             tbSSCC.RequestFocus();
-//            tbLocation.KeyPress += TbLocation_KeyPress;
-            var location = CommonData.GetSetting("DefaultProductionLocation");
-            tbLocation.Text = location;
+            // tbLocation.KeyPress += TbLocation_KeyPress;
+      
 
         }
 
@@ -134,7 +169,7 @@ namespace Scanner
             InvalidateAndClose();
         }
 
-        private void LoadRelatedOrder()
+        private  void LoadRelatedOrderAsync()
         {
        
             try
@@ -145,8 +180,17 @@ namespace Scanner
                 if (openOrder == null)
                 {
                     editMode = true;
-                    if (moveItem == null) { throw new ApplicationException("Napaka?!"); } // Here is the bug.
-                    if (string.IsNullOrEmpty(moveItem.GetString("LinkKey")))
+                    if (moveItem == null)
+                    {
+
+                        //var task =  await DialogAsync.Show(this, "Napaka", "Aplikacija se bo zaprla ker nimate pravih podatkov.");
+                        //   if((bool)task)
+                        //{
+                        //    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                        //}
+
+                    } // Here is the bug.
+                    if (moveItem == null || string.IsNullOrEmpty(moveItem.GetString("LinkKey")))
                     {
                         openOrder = new NameValueObject("OpenOrder");
                     }
@@ -164,6 +208,7 @@ namespace Scanner
             }
             finally
             {
+
             }
         }
 
@@ -182,7 +227,7 @@ namespace Scanner
                     }
                     else
                     {
-                        // Pass for now ie not supported.
+                        // Pass for now i.e. not supported.
                     }
                 }
        
@@ -196,6 +241,7 @@ namespace Scanner
         {
             {
                 StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+
                 InvalidateAndClose();
             }
 
@@ -218,6 +264,7 @@ namespace Scanner
                     var headID = moveHead.GetInt("HeadID");
 
                     string result;
+
                     if (WebApp.Get("mode=finish&stock=remove&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
                     {
                         if (result.StartsWith("OK!"))
@@ -353,14 +400,17 @@ namespace Scanner
             }
 
             if (string.IsNullOrEmpty(tbUnits.Text.Trim())) { tbUnits.Text = "1"; }
+
             if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
             {
                 lbUnits.Visibility = ViewStates.Visible;
                 tbUnits.Visibility = ViewStates.Visible;
             }
 
+
             tbIdent.RequestFocus();
             var ident = openIdent.GetString("Code");
+
             //string error;
             //var s = moveHead.GetString("Issuer");
             //var recommededLocation = Services.GetObject("rl", ident + "|" + moveHead.GetString("Issuer"), out error);
@@ -665,6 +715,13 @@ namespace Scanner
                     Sound();
                     tbSSCC.Text = barcode;
                     tbSerialNum.RequestFocus();
+
+
+                    FillRelatedData(tbSSCC.Text);
+                   
+
+
+
                 }
             } else if(tbSerialNum.HasFocus)
             {
@@ -685,7 +742,29 @@ namespace Scanner
             }
         }
 
-        
+        private void FillRelatedData(string text)
+        {
+            string error;
+
+            var data = Services.GetObject("sscc", tbSSCC.Text, out error);
+            if (data != null)
+            {
+                if (tbSerialNum.Enabled == true)
+                {
+                    var serial = data.GetString("SerialNo");
+                    tbSerialNum.Text = serial;
+                    var location = data.GetString("Location");
+                    tbLocation.Text = location;
+                    tbPacking.RequestFocus();
+                } else
+                {
+                    return;
+                }
+            } else
+            {
+                return;
+            }
+        }
 
         private void Sound()
         {

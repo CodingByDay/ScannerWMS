@@ -41,7 +41,7 @@ namespace Scanner
         private Button btnYes;
         private Button btnNo;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             // Create your application here
@@ -69,7 +69,14 @@ namespace Scanner
             //app 
 
             InUseObjects.ClearExcept(new string[] { "MoveHead", "OpenOrder" });
-            if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
+            if (moveHead == null)
+            {
+                var task = await DialogAsync.Show(this, "Napaka", "Aplikacija se bo zaprla ker nimate pravih podatkov.");
+                if ((bool)task)
+                {
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                }
+            }
 
             LoadPositions();
 
@@ -207,9 +214,23 @@ namespace Scanner
                     if (result.StartsWith("OK!"))
                     {
                         var id = result.Split('+')[1];
-                        Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
-  
-                 
+                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                        alert.SetTitle("Zaključevanje uspešno");
+                        alert.SetMessage("Zaključevanje uspešno! Št.izdaje: \r\n" + id);
+
+                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                        {
+                            alert.Dispose();
+                            System.Threading.Thread.Sleep(500);
+                            StartActivity(typeof(MainMenu));
+                        });
+
+
+
+                        Dialog dialog = alert.Create();
+                        dialog.Show();
+
+
                     }
                     else
                     {

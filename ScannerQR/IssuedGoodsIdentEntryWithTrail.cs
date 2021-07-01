@@ -198,8 +198,42 @@ namespace Scanner
 
 
 
-            if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
-            if (openOrder == null) { throw new ApplicationException("openOrder not known at this point!?"); }
+            if (moveHead == null)
+            {
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.SetTitle("Napaka");
+                alert.SetMessage("Prišlo je do napake in aplikacija se bo zaprla");
+
+                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                {
+                    alert.Dispose();
+                    System.Threading.Thread.Sleep(500);
+                    throw new ApplicationException("Error, moveHead");
+                });
+
+
+
+                Dialog dialog = alert.Create();
+                dialog.Show();
+            }
+            if (openOrder == null)
+            {
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.SetTitle("Napaka");
+                alert.SetMessage("Prišlo je do napake in aplikacija se bo zaprla");
+
+                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                {
+                    alert.Dispose();
+                    System.Threading.Thread.Sleep(500);
+                    throw new ApplicationException("Error, openIdent");
+                });
+
+
+
+                Dialog dialog = alert.Create();
+                dialog.Show();
+            }
             
 
 

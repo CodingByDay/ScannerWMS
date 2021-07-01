@@ -189,7 +189,6 @@ namespace Scanner
                         Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
                         // show a message
                         // terminate
-                        System.Diagnostics.Process.GetCurrentProcess().Kill();
                     }
 
                     moveHead.SetInt("HeadID", savedMoveHead.GetInt("HeadID"));

@@ -173,6 +173,8 @@ namespace Scanner
 
         private void BtConfirm_Click(object sender, EventArgs e)
         {
+            Toast.MakeText(this, "Shranjujem podatke o kartonu, tiskam nalepko...", ToastLength.Long).Show();
+
             var nvo = new NameValueObject("MoveCard");
             nvo.SetString("WorkOrder", tbWorkOrder.Text);
             nvo.SetString("Ident", tbIdent.Text);
@@ -185,14 +187,27 @@ namespace Scanner
             {
                 string error;
                 nvo = Services.SetObject("cwns", nvo, out error);
-                Toast.MakeText(this, "Shranjujem podatke o kartonu, tiskam nalepko...", ToastLength.Long).Show();
                 if (nvo == null)
                 {
-                    string SuccessMessage = string.Format("Shranjevanje neuspešno, napaka: " + error);
-                    
-                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                    this.Finish();
-                    
+              
+
+
+                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                    alert.SetTitle("Napaka");
+                    alert.SetMessage("Shranjevanje neuspešno, napaka: " + error);
+
+                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                    {
+                        alert.Dispose();
+                        System.Threading.Thread.Sleep(500);
+                        this.Finish();
+                    });
+
+
+
+                    Dialog dialog = alert.Create();
+                    dialog.Show();
+
                 }
                 else
                 {

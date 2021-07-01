@@ -89,7 +89,7 @@ namespace Scanner
                         if (result.StartsWith("OK!"))
                         {
                             var id = result.Split('+')[1];
-                            //  Toast.MakeText(this, "Potrjevanje uspešno! Št. potrditve: " + id, ToastLength.Long).Show();
+                            Toast.MakeText(this, "Potrjevanje uspešno! Št. potrditve: " + id, ToastLength.Long).Show();
                              output = 1;
                             StartActivity(typeof(MainMenu));
 
@@ -98,13 +98,13 @@ namespace Scanner
                         {
 
                             output = 2;
-                           // Toast.MakeText(this, "Napaka pri potrjevanju: " + result, ToastLength.Long).Show();
+                            Toast.MakeText(this, "Napaka pri potrjevanju: " + result, ToastLength.Long).Show();
 
                         }
                     }
                     else
                     {
-                      //  Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
+                      Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
 
                     }
                 }

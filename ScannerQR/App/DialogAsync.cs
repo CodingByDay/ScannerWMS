@@ -20,11 +20,7 @@ public class DialogAsync : Java.Lang.Object, IDialogInterfaceOnClickListener, ID
                 dialog.Cancel();
                 
                 break;
-            default:
-                SetResult(false);
-                dialog.Dismiss();
-                dialog.Cancel();
-                break;
+          
         }
     }
   
@@ -42,8 +38,8 @@ public class DialogAsync : Java.Lang.Object, IDialogInterfaceOnClickListener, ID
     {
         using (var listener = new DialogAsync())
         using (var dialog = new AlertDialog.Builder(context)
-                                                            .SetPositiveButton("Da", listener)
-                                                            .SetNegativeButton("Ne", listener)
+                                                            .SetPositiveButton("Ok", listener)
+                                                           
                                                             .SetOnCancelListener(listener)
                                                             .SetTitle(title)
                                                             .SetMessage(message))

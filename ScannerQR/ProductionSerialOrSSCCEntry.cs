@@ -478,10 +478,7 @@ namespace Scanner
             if (string.IsNullOrEmpty(tbUnits.Text.Trim())) { tbUnits.Text = "1"; }
 
             if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
-
             {
-
-
                 tbUnits.Visibility = ViewStates.Visible;
 
             }
@@ -562,22 +559,46 @@ namespace Scanner
                         }
                         else
                         {
-                            string SuccessMessage = string.Format("Napaka pri zaključevanju: " + result);
-                            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                       
 
-                         
+                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                            alert.SetTitle("Napaka");
+                            alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                            {
+                                alert.Dispose();
+                             
+                            });
+
+
+
+                            Dialog dialog = alert.Create();
+                            dialog.Show();
                         }
                     }
                     else
                     {
-                        string SuccessMessage = string.Format("Napaka pri klicu web aplikacije: " + result);
-                        Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                    
+                      
+
+                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                        alert.SetTitle("Napaka");
+                        alert.SetMessage("Napaka pri klicu web aplikacije: " + result);
+
+                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                        {
+                            alert.Dispose();
+
+                        });
+
+                        Dialog dialog = alert.Create();
+                        dialog.Show();
+
                     }
                 }
                 finally
                 {
-                 //
+                
                 }
             }
         }

@@ -155,8 +155,21 @@ namespace Scanner
                         }
                         else
                         {
-                            Toast.MakeText(this, "Napaka pri zaključevanju: " + result, ToastLength.Long).Show();
 
+                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                            alert.SetTitle("Napaka");
+                            alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                            {
+                                alert.Dispose();
+                              
+                            });
+
+
+
+                            Dialog dialog = alert.Create();
+                            dialog.Show();
                         }
                     }
                     else

@@ -40,7 +40,8 @@ namespace Scanner
                     {
                         string errorWebApp = string.Format("Napaka pri pridobivanju možnih subjektov: " + error);
                       
-     
+                        
+
                         return;
                     }
                 }

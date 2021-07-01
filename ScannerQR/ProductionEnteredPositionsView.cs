@@ -76,7 +76,24 @@ namespace Scanner
             button5.Click += Button5_Click;
             /////////////////////
             InUseObjects.ClearExcept(new string[] { "MoveHead" });
-            if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
+            if (moveHead == null)
+            {
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.SetTitle("Napaka");
+                alert.SetMessage("Prišlo je do napake in aplikacija se bo zaprla.");
+
+                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                {
+                    alert.Dispose();
+                    System.Threading.Thread.Sleep(500);
+                    throw new ApplicationException("Error, moveHead");
+                });
+
+
+
+                Dialog dialog = alert.Create();
+                dialog.Show();
+            }
 
             LoadPositions();
 
@@ -191,11 +208,23 @@ namespace Scanner
                     }
                         else
                         {
-                        string errorWebApp = string.Format("Napaka pri brisanju pozicije: " + result);
-                        Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
-                    
-                            positions = null;
-                            LoadPositions();
+  
+                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                        alert.SetTitle("Napaka");
+                        alert.SetMessage("Napaka pri brisanju pozicije." + result);
+
+                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                        {
+                            alert.Dispose();
+                     
+                        });
+
+
+
+                        Dialog dialog = alert.Create();
+                        dialog.Show();
+                        positions = null;
+                        LoadPositions();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
                         return;
@@ -233,13 +262,42 @@ namespace Scanner
                         var id = result.Split('+')[1];
                         string errorWebApp = string.Format("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
                         Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
-      
+
+                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                        alert.SetTitle("Uspešno zaključevanje");
+                        alert.SetMessage("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
+
+                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                        {
+                            alert.Dispose();
+                            System.Threading.Thread.Sleep(500);
+                            StartActivity(typeof(MainMenu));
+                        });
+
+
+
+                        Dialog dialog = alert.Create();
+                        dialog.Show();
+
                     }
                     else
                     {
-                        string errorWebApp = string.Format("Napaka pri zaključevanju: " + result);
-                        Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
-  
+                      
+                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                        alert.SetTitle("Napaka");
+                        alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                        {
+                            alert.Dispose();
+                      
+                        });
+
+
+
+                        Dialog dialog = alert.Create();
+                        dialog.Show();
+
                     }
                 }
                 else
