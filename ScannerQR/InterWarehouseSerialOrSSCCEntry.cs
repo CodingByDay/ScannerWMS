@@ -81,6 +81,9 @@ namespace Scanner
                     {
                         Sound();
                         tbSSCC.Text = barcode;
+
+                        FillRelatedData(tbSSCC.Text);
+
                         tbSerialNum.RequestFocus();
                     }
               
@@ -116,6 +119,31 @@ namespace Scanner
                 }
 
              
+            }
+        }
+        private void FillRelatedData(string text)
+        {
+            string error;
+
+            var data = Services.GetObject("sscc", tbSSCC.Text, out error);
+            if (data != null)
+            {
+                if (tbSerialNum.Enabled == true)
+                {
+                    var serial = data.GetString("SerialNo");
+                    tbSerialNum.Text = serial;
+                    var location = data.GetString("Location");
+                    tbIssueLocation.Text = location;
+                    tbPacking.RequestFocus();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
             }
         }
 

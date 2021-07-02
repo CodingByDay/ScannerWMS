@@ -82,7 +82,10 @@ namespace Scanner
             NameValueObject moveHead = new NameValueObject("MoveHead");
             moveHead.SetBool("Saved", false);
             InUseObjects.Set("MoveHead", moveHead);
-          StartActivity(typeof(IssuedGoodsBusinessEventSetup));
+
+            StartActivity(typeof(IssuedGoodsBusinessEventSetup));
+          
+            Finish();
         }
 
         private void BtDelete_Click(object sender, EventArgs e)

@@ -381,11 +381,16 @@ namespace Scanner
 
                         if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                         {
+                         
                             StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
+                            Finish();
                         }
                         else
                         {
+                        
                             StartActivity(typeof(IssuedGoodsIdentEntry));
+                            Finish();
+                            
                         }
                     }
                 }

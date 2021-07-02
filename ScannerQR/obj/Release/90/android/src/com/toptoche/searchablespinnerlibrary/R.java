@@ -15,7 +15,7 @@ public final class R {
 		public static final int search = 0x7f080111;
 	}
 	public static final class layout {
-		public static final int searchable_list_dialog = 0x7f0b0087;
+		public static final int searchable_list_dialog = 0x7f0b0088;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f0d0028;

@@ -5,7 +5,7 @@
     Changes to this file may cause incorrect behavior and will be lost if
     the contents are regenerated.
     -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="63" android:versionName="63" package="com.companyname.Scanner" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="101" android:versionName="101" package="com.companyname.Scanner" android:installLocation="auto">
   <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="28" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -82,6 +82,7 @@
     <activity android:label="MainMenu" android:screenOrientation="portrait" android:name="crc64f0e155b6502ec419.MainMenu" />
     <activity android:label="MainMenuTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.MainMenuTablet" />
     <activity android:label="MenuPallets" android:name="crc64f0e155b6502ec419.MenuPallets" />
+    <activity android:label="MenuPalletsTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.MenuPalletsTablet" />
     <activity android:label="PackagingEnteredPositionsView" android:screenOrientation="portrait" android:name="crc64f0e155b6502ec419.PackagingEnteredPositionsView" />
     <activity android:label="PackagingEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.PackagingEnteredPositionsViewTablet" />
     <activity android:label="PackagingSetContext" android:screenOrientation="portrait" android:name="crc64f0e155b6502ec419.PackagingSetContext" />
@@ -118,6 +119,7 @@
     <activity android:label="SelectSubjectBeforeFinishTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.SelectSubjectBeforeFinishTablet" />
     <activity android:label="Settings" android:name="crc64f0e155b6502ec419.Settings" />
     <activity android:label="ShippingPallet" android:screenOrientation="portrait" android:name="crc64f0e155b6502ec419.ShippingPallet" />
+    <activity android:label="ShippingPalletTablet" android:name="crc64f0e155b6502ec419.ShippingPalletTablet" />
     <activity android:label="TakeOver2Main" android:screenOrientation="portrait" android:name="crc64f0e155b6502ec419.TakeOver2Main" />
     <activity android:label="TakeOver2MainTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.TakeOver2MainTablet" />
     <activity android:label="TakeOver2Orders" android:screenOrientation="portrait" android:name="crc64f0e155b6502ec419.TakeOver2Orders" />
@@ -139,6 +141,7 @@
     <activity android:label="UnfinishedTakeoversView" android:screenOrientation="portrait" android:name="crc64f0e155b6502ec419.UnfinishedTakeoversView" />
     <activity android:label="UnfinishedTakeoversViewTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.UnfinishedTakeoversViewTablet" />
     <activity android:label="WrappingPallet" android:name="crc64f0e155b6502ec419.WrappingPallet" />
+    <activity android:label="WrappingPalletTablet" android:name="crc64f0e155b6502ec419.WrappingPalletTablet" />
     <service android:name="crc64a98abb514ffad9f1.KeepAliveService" />
     <receiver android:enabled="true" android:exported="false" android:label="Essentials Battery Broadcast Receiver" android:name="crc64a0e0a82d0db9a07d.BatteryBroadcastReceiver" />
     <receiver android:enabled="true" android:exported="false" android:label="Essentials Energy Saver Broadcast Receiver" android:name="crc64a0e0a82d0db9a07d.EnergySaverBroadcastReceiver" />

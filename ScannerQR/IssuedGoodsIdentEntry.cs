@@ -97,7 +97,11 @@ namespace Scanner
                     {
                         if (SaveMoveHead())
                         {
+                       
                             StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+
+                            Finish();
+                     
                            
                         }
                         return;
@@ -270,6 +274,7 @@ namespace Scanner
         {
             // F4
                StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+               this.Finish();
    
         }
 
@@ -279,7 +284,8 @@ namespace Scanner
             if (SaveMoveHead())
             {
                StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
-                
+               this.Finish();
+
             }
 
         }

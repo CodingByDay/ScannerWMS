@@ -23,6 +23,7 @@ namespace Scanner
         private ListView rapidListview;
         private Button rapidTakeover;
         private List<rapidTakeoverList> data = new List<rapidTakeoverList>();
+        private Button PalletsMenu;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -81,17 +82,24 @@ namespace Scanner
             btnLogout.Click += BtnLogout_Click;
             rapidTakeover.Click += RapidTakeover_Click;
 
-            // Permisions.
-            // buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
-            // buttonIssued.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND", "R");
-            // buttonUnfinished.Enabled = Services.HasPermission("TNET_WMS_BLAG_PROD", "R");
-            // button.Enabled = Services.HasPermission("TNET_WMS_BLAG_ACQ", "R");
-            // btnPackaging.Enabled = Services.HasPermission("TNET_WMS_BLAG_PKG", "R");
+            PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
+            PalletsMenu.Click += PalletsMenu_Click;
+            buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
+            buttonIssued.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND", "R");
+            buttonUnfinished.Enabled = Services.HasPermission("TNET_WMS_BLAG_PROD", "R");
+            button.Enabled = Services.HasPermission("TNET_WMS_BLAG_ACQ", "R");
+            btnPackaging.Enabled = Services.HasPermission("TNET_WMS_BLAG_PKG", "R");
 
-            // buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
-            // btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
+            buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
+            btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
 
         }
+
+        private void PalletsMenu_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(MenuPalletsTablet));
+        }
+
         private void updateList()
         {
            
@@ -152,9 +160,10 @@ namespace Scanner
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-
-            StartActivity(typeof(MainActivity));
-            this.Finish();
+            Intent intent = new Intent(this, typeof(MainActivity));
+            intent.SetFlags(ActivityFlags.ClearTop | ActivityFlags.ClearTask | ActivityFlags.NewTask);
+            StartActivity(intent);
+            Finish();
         }
 
         private void BtnPackaging_Click(object sender, EventArgs e)

@@ -56,6 +56,7 @@ namespace Scanner
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+
             base.OnCreate(savedInstanceState);
             // Create your application here
             SetContentView(Resource.Layout.IssuedGoodsSerialOrSSCCEntry);
@@ -88,7 +89,6 @@ namespace Scanner
 
             button5.Click += Button5_Click;
             colorFields();
-
             tbPacking.FocusChange += TbPacking_FocusChange;
 
             if (moveHead == null) {
@@ -134,17 +134,15 @@ namespace Scanner
                 button4.Enabled = false;
             }
 
-            LoadRelatedOrderAsync();
+            LoadRelatedOrder();
             SetUpForm();
-            var warehouse = moveHead.GetString("Wharehouse");
-
-            fillSugestedLocation(warehouse);
-
-            tbSSCC.RequestFocus();
+        
             // tbLocation.KeyPress += TbLocation_KeyPress;
       
 
         }
+
+      
 
         private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
@@ -169,28 +167,17 @@ namespace Scanner
             InvalidateAndClose();
         }
 
-        private  void LoadRelatedOrderAsync()
+        private void LoadRelatedOrder()
         {
-       
             try
             {
-             
 
                 string error = "N/A";
                 if (openOrder == null)
                 {
                     editMode = true;
-                    if (moveItem == null)
-                    {
-
-                        //var task =  await DialogAsync.Show(this, "Napaka", "Aplikacija se bo zaprla ker nimate pravih podatkov.");
-                        //   if((bool)task)
-                        //{
-                        //    System.Diagnostics.Process.GetCurrentProcess().Kill();
-                        //}
-
-                    } // Here is the bug.
-                    if (moveItem == null || string.IsNullOrEmpty(moveItem.GetString("LinkKey")))
+                    if (moveItem == null) { throw new ApplicationException("moveItem not known at this point?!"); }
+                    if (string.IsNullOrEmpty(moveItem.GetString("LinkKey")))
                     {
                         openOrder = new NameValueObject("OpenOrder");
                     }
@@ -199,8 +186,6 @@ namespace Scanner
                         openOrder = Services.GetObject("oobl", moveItem.GetString("LinkKey") + "|" + moveItem.GetInt("LinkNo").ToString(), out error);
                         if (openOrder == null)
                         {
-                            Toast.MakeText(this, "Napaka pri dostopu do web aplikacije: " + error, ToastLength.Long).Show();
-                           
                             return;
                         }
                     }
@@ -208,7 +193,6 @@ namespace Scanner
             }
             finally
             {
-
             }
         }
 
@@ -292,7 +276,7 @@ namespace Scanner
                         else
                         {
                          
-                            Toast.MakeText(this, "Napaka pri zaklučevanju" + result, ToastLength.Long).Show();
+                            Toast.MakeText(this, "Napaka pri zaključevanju" + result, ToastLength.Long).Show();
                         }
                     }
                     else
@@ -331,12 +315,17 @@ namespace Scanner
                 if (editMode)
                 {
                     StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+                    
                 }
                 else
                 {
                     StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                   
+                   
                 }
+
                 Finish();
+            
 
             }
         }
@@ -411,20 +400,24 @@ namespace Scanner
             tbIdent.RequestFocus();
             var ident = openIdent.GetString("Code");
 
-            //string error;
-            //var s = moveHead.GetString("Issuer");
-            //var recommededLocation = Services.GetObject("rl", ident + "|" + moveHead.GetString("Issuer"), out error);
-            //if (recommededLocation != null)
-            //{
+            // string error;
+            // var s = moveHead.GetString("Issuer");
+            // var recommededLocation = Services.GetObject("rl", ident + "|" + moveHead.GetString("Issuer"), out error);
+            // if (recommededLocation != null)
+            // {
 
             //    tbLocation.Text = recommededLocation.GetString("Location");
-            //}
+            // }
 
 
             var location = CommonData.GetSetting("DefaultProductionLocation");
             tbLocation.Text = location;
 
+            var warehouse = moveHead.GetString("Wharehouse");
 
+            fillSugestedLocation(warehouse);
+
+            tbSSCC.RequestFocus();
             // Revision 30.6.2021. 
             // Revision 30.6.2021. 
         }
@@ -638,13 +631,17 @@ namespace Scanner
 
                 string error;
                 moveItem = Services.SetObject("mi", moveItem, out error);
+                
                 if (moveItem == null)
                 {
+                    var debug = error;
+
                     Toast.MakeText(this, "Napaka pri dostopu web aplikacije."+ error, ToastLength.Long).Show();
                     return false;
                 }
                 else
                 {
+                    var debug = error;
                     InUseObjects.Invalidate("MoveItem");
                     return true;
                 }
@@ -714,11 +711,11 @@ namespace Scanner
                 {
                     Sound();
                     tbSSCC.Text = barcode;
+
+                    FillRelatedData(tbSerialNum.Text);
+                    
                     tbSerialNum.RequestFocus();
 
-
-                    FillRelatedData(tbSSCC.Text);
-                   
 
 
 
@@ -756,11 +753,13 @@ namespace Scanner
                     var location = data.GetString("Location");
                     tbLocation.Text = location;
                     tbPacking.RequestFocus();
-                } else
+                }
+                else
                 {
                     return;
                 }
-            } else
+            }
+            else
             {
                 return;
             }

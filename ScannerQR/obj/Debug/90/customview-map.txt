@@ -14,6 +14,7 @@ android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\issuedgood
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\issuedgoodsidententrytablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\menupalletstablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingunitlisttablet.xml
@@ -30,6 +31,7 @@ android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\production
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\rapidtakeover.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\shippingpallettablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeover2maintablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeover2orderstablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
@@ -80,6 +82,7 @@ Button;obj\Debug\90\res\layout\mainmenu.xml
 Button;obj\Debug\90\res\layout\mainmenu1.xml
 Button;obj\Debug\90\res\layout\mainmenutablet.xml
 Button;obj\Debug\90\res\layout\menupallets.xml
+Button;obj\Debug\90\res\layout\menupalletstablet.xml
 Button;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 Button;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 Button;obj\Debug\90\res\layout\packagingsetcontext.xml
@@ -117,6 +120,7 @@ Button;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 Button;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
 Button;obj\Debug\90\res\layout\settingspopup.xml
 Button;obj\Debug\90\res\layout\shippingpallet.xml
+Button;obj\Debug\90\res\layout\shippingpallettablet.xml
 Button;obj\Debug\90\res\layout\takeover2main.xml
 Button;obj\Debug\90\res\layout\takeover2maintablet.xml
 Button;obj\Debug\90\res\layout\takeover2orders.xml
@@ -210,6 +214,7 @@ EditText;obj\Debug\90\res\layout\rapidtakeover.xml
 EditText;obj\Debug\90\res\layout\rapidtakeoverphone.xml
 EditText;obj\Debug\90\res\layout\settingspopup.xml
 EditText;obj\Debug\90\res\layout\shippingpallet.xml
+EditText;obj\Debug\90\res\layout\shippingpallettablet.xml
 EditText;obj\Debug\90\res\layout\takeover2main.xml
 EditText;obj\Debug\90\res\layout\takeover2maintablet.xml
 EditText;obj\Debug\90\res\layout\takeover2orders.xml
@@ -297,6 +302,7 @@ LinearLayout;obj\Debug\90\res\layout\mainmenu.xml
 LinearLayout;obj\Debug\90\res\layout\mainmenu1.xml
 LinearLayout;obj\Debug\90\res\layout\mainmenutablet.xml
 LinearLayout;obj\Debug\90\res\layout\menupallets.xml
+LinearLayout;obj\Debug\90\res\layout\menupalletstablet.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\packaginglistadapterview.xml
@@ -338,6 +344,7 @@ LinearLayout;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 LinearLayout;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
 LinearLayout;obj\Debug\90\res\layout\settingspopup.xml
 LinearLayout;obj\Debug\90\res\layout\shippingpallet.xml
+LinearLayout;obj\Debug\90\res\layout\shippingpallettablet.xml
 LinearLayout;obj\Debug\90\res\layout\takeover2main.xml
 LinearLayout;obj\Debug\90\res\layout\takeover2maintablet.xml
 LinearLayout;obj\Debug\90\res\layout\takeover2orders.xml
@@ -371,6 +378,7 @@ LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\update.xml
 LinearLayout;obj\Debug\90\res\layout\wrappingpallet.xml
+LinearLayout;obj\Debug\90\res\layout\wrappingpallettablet.xml
 LinearLayout;obj\Debug\90\res\layout\yesnogeneric.xml
 LinearLayout;obj\Debug\90\res\layout\yesnopopup.xml
 LinearLayout;obj\Debug\90\res\layout\yesnoproductioncard.xml
@@ -391,6 +399,7 @@ ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
 ListView;obj\Debug\90\res\layout\mainmenutablet.xml
+ListView;obj\Debug\90\res\layout\menupalletstablet.xml
 ListView;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 ListView;obj\Debug\90\res\layout\packagingunitlisttablet.xml
@@ -408,6 +417,7 @@ ListView;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
 ListView;obj\Debug\90\res\layout\productionworkordersetuptablet.xml
 ListView;obj\Debug\90\res\layout\rapidtakeover.xml
 ListView;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
+ListView;obj\Debug\90\res\layout\shippingpallettablet.xml
 ListView;obj\Debug\90\res\layout\takeover2maintablet.xml
 ListView;obj\Debug\90\res\layout\takeover2orderstablet.xml
 ListView;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
@@ -534,6 +544,7 @@ TextView;obj\Debug\90\res\layout\listviewtrail.xml
 TextView;obj\Debug\90\res\layout\mainmenu1.xml
 TextView;obj\Debug\90\res\layout\mainmenutablet.xml
 TextView;obj\Debug\90\res\layout\menupallets.xml
+TextView;obj\Debug\90\res\layout\menupalletstablet.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 TextView;obj\Debug\90\res\layout\packaginglistadapterview.xml
@@ -574,6 +585,7 @@ TextView;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
 TextView;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
 TextView;obj\Debug\90\res\layout\settingspopup.xml
 TextView;obj\Debug\90\res\layout\shippingpallet.xml
+TextView;obj\Debug\90\res\layout\shippingpallettablet.xml
 TextView;obj\Debug\90\res\layout\takeover2main.xml
 TextView;obj\Debug\90\res\layout\takeover2maintablet.xml
 TextView;obj\Debug\90\res\layout\takeover2orders.xml
