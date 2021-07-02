@@ -12,7 +12,7 @@ public final class R {
 	}
 	public static final class id {
 		public static final int listItems = 0x7f0800d3;
-		public static final int search = 0x7f080111;
+		public static final int search = 0x7f080112;
 	}
 	public static final class layout {
 		public static final int searchable_list_dialog = 0x7f0b0088;

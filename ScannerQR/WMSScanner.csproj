@@ -137,6 +137,7 @@
     <Compile Include="App\ProductionEnteredPositionViewAdapter.cs" />
     <Compile Include="App\ProductionSerialOrSSCCAdapter.cs" />
     <Compile Include="App\ProductionSerialOrSSCCList.cs" />
+    <Compile Include="App\ProgressDialogClass.cs" />
     <Compile Include="App\rapidTakeoverAdapter.cs" />
     <Compile Include="App\rapidTakeoverList.cs" />
     <Compile Include="App\TakeOverEnteredPositionsViewAdapter.cs" />
@@ -1000,6 +1001,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\WrappingPalletTablet.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\WaitForm.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

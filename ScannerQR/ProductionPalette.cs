@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+
 using Scanner.App;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,7 @@ namespace Scanner
         private bool result;
         private bool target;
         private string stKartona;
+        private ProgressDialogClass progress;
 
         public void GetBarcode(string barcode)
         {
@@ -318,6 +320,7 @@ namespace Scanner
             tbSerialNum.RequestFocus();
             tbSerialNum.KeyPress += TbSerialNum_KeyPress;
             tbCard.KeyPress += TbCard_KeyPress;
+
             color();
         }
 
@@ -400,12 +403,17 @@ namespace Scanner
             StartActivity(typeof(MainMenu));
         }
 
-        private void BtConfirm_Click(object sender, EventArgs e)
-        {
-            try
+
+
+
+        /*    try
             {
-                Toast.MakeText(this, "Pošiljam podatke, prosim počakajte.", ToastLength.Long).Show();
+                var progress = new ProgressDialogClass();
+
+                progress.ShowDialogSync(this, "Pošiljam podatke, prosim počakajte.");
                 var palInfo = new NameValueObject("PaletteInfo");
+
+                System.Threading.Thread.Sleep(1000);
                 palInfo.SetString("WorkOrder", tbWorkOrder.Text);
                 palInfo.SetString("Ident", tbIdent.Text);
                 palInfo.SetInt("Clerk", Services.UserID());
@@ -419,6 +427,8 @@ namespace Scanner
 
                 if (palInfo == null)
                 {
+                    progress.StopDialogSync();
+
                     string WebError = string.Format("Napaka pri potrjevanju palete: " + error);
                     Toast.MakeText(this, WebError, ToastLength.Long).Show();
 
@@ -428,6 +438,8 @@ namespace Scanner
                     var result = palInfo.GetString("Result");
                     if (result.StartsWith("OK!"))
                     {
+                        progress.StopDialogSync();
+
                         var id = result.Split('+')[1];
                       
                         AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -445,6 +457,8 @@ namespace Scanner
                     }
                     else
                     {
+                        progress.StopDialogSync();
+
                         string WebError = string.Format("Napaka pri paletiranju: " + result);
                         Toast.MakeText(this, WebError, ToastLength.Long).Show();
   
@@ -453,7 +467,115 @@ namespace Scanner
             }
             finally
             {
-            }
+            }*/
+
+        private async Task runOnBothThreads()
+        {
+            await Task.Run(() =>
+            {
+            try
+            {
+                    RunOnUiThread(() =>
+                    {
+                        progress = new ProgressDialogClass();
+
+                        progress.ShowDialogSync(this, "Pošiljam podatke, prosim počakajte.");
+                    });
+                    
+                    var palInfo = new NameValueObject("PaletteInfo");
+
+                    System.Threading.Thread.Sleep(1000);
+                    palInfo.SetString("WorkOrder", tbWorkOrder.Text);
+                    palInfo.SetString("Ident", tbIdent.Text);
+                    palInfo.SetInt("Clerk", Services.UserID());
+                    palInfo.SetString("SerialNum", tbSerialNum.Text);
+                    palInfo.SetString("SSCC", tbSSCC.Text);
+                    palInfo.SetString("CardNums", string.Join(",", ScannedCardNumbers().Select(x => x.ToString()).ToArray()));
+                    palInfo.SetDouble("TotalQty", totalQty);
+                    palInfo.SetString("DeviceID", Services.DeviceUser());
+                    string error;
+                    palInfo = Services.SetObject("cf", palInfo, out error);
+
+                    if (palInfo == null)
+                    {
+                      
+                        RunOnUiThread(() =>
+                        {
+                            progress.StopDialogSync();
+                            string WebError = string.Format("Napaka pri potrjevanju palete: " + error);
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                        });
+                       
+
+                    }
+                    else
+                    {
+                        var result = palInfo.GetString("Result");
+                        if (result.StartsWith("OK!"))
+                        {
+                            RunOnUiThread(() =>
+                            {
+                                progress.StopDialogSync();
+                                var id = result.Split('+')[1];
+
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Zaključevanje uspešno");
+                                alert.SetMessage("Paletiranje uspešno! Št. prevzema:\r\n" + id);
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenu));
+                                });
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+
+                            
+                        }
+                        else
+                        {
+                            RunOnUiThread(() =>
+                            {
+                                progress.StopDialogSync();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Napaka");
+                                alert.SetMessage("Napaka pri paletiranju: " + result);
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenu));
+
+                                });
+
+
+
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+
+
+
+                        }
+                    }
+                }
+                finally
+                {
+                    RunOnUiThread(() =>
+                    {
+                        progress.StopDialogSync();
+                    });
+                }
+            });
+        }
+
+        private async void BtConfirm_Click(object sender, EventArgs e)
+        {
+
+            await runOnBothThreads();
         }
     }
 }

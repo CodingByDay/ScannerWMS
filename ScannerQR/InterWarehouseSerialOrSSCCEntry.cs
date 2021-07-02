@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -55,6 +55,7 @@ namespace Scanner
         int soundPoolId;
         private NameValueObject wh;
         private ImageView imagePNG;
+        private ProgressDialogClass progress;
 
         // here...
         public void GetBarcode(string barcode)
@@ -502,10 +503,7 @@ namespace Scanner
 
             barcode2D.open(this, this);
 
-            if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
-            {
-                showPicture();
-            }
+           
 
 
             if (InterWarehouseBusinessEventSetup.success == true)
@@ -551,8 +549,8 @@ namespace Scanner
                 tbUnits.Visibility = ViewStates.Visible;
             }
 
-            //var location = CommonData.GetSetting("DefaultProductionLocation");
-            //tbLocation.Text = location;
+            // var location = CommonData.GetSetting("DefaultProductionLocation");
+            // tbLocation.Text = location;
 
         }
 
@@ -574,18 +572,12 @@ namespace Scanner
             e.Handled = false;
             if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
             {
-                //add your logic here 
+                // add your logic here 
                 ProcessIdent();
                 e.Handled = true;
             }
         }
-        private void showPicture()
-        {
-            Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
-            Drawable d = new BitmapDrawable(Resources, show);
-            imagePNG.SetImageDrawable(d);
-
-        }
+        
         private void TbIdent_KeyPress(object sender, View.KeyEventArgs e)
         {
             if (e.KeyCode == Keycode.Enter)
@@ -630,6 +622,8 @@ namespace Scanner
                     
                     StartActivity(typeof(InterWarehouseSerialOrSSCCEntry));
                 }
+
+                this.Finish();
            
             }
         }
@@ -642,56 +636,145 @@ namespace Scanner
                
             }
         }
-
-        private void Button5_Click(object sender, EventArgs e)
+        private async Task FinishMethod()
         {
-            if (SaveMoveItem())
+            await Task.Run(() =>
             {
-
-                try
+                if (SaveMoveItem())
                 {
-                    var headID = moveHead.GetInt("HeadID");
-
-                    string result;
-                    if (WebApp.Get("mode=finish&stock=move&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+                    RunOnUiThread(() =>
                     {
-                        if (result.StartsWith("OK!"))
+                        progress = new ProgressDialogClass();
+                        progress.ShowDialogSync(this, "Zaključujem");
+                    });
+                
+
+                    try
+                    {
+                        var headID = moveHead.GetInt("HeadID");
+
+                        string result;
+                        if (WebApp.Get("mode=finish&stock=move&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
                         {
-                            var id = result.Split('+')[1];
-                         
-                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                            alert.SetTitle("Zaključevanje uspešno");
-                            alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                            if (result.StartsWith("OK!"))
                             {
-                                alert.Dispose();
-                                System.Threading.Thread.Sleep(500);
-                                StartActivity(typeof(MainMenu));
-                            });
+                                RunOnUiThread(() =>
+                                {
+                                    progress.StopDialogSync();
+                                    var id = result.Split('+')[1];
+
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                    alert.SetTitle("Zaključevanje uspešno");
+                                    alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+                                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                    {
+                                        alert.Dispose();
+                                        System.Threading.Thread.Sleep(500);
+                                        StartActivity(typeof(MainMenu));
+                                    });
 
 
 
-                            Dialog dialog = alert.Create();
-                            dialog.Show();
+                                    Dialog dialog = alert.Create();
+                                    dialog.Show();
+                                });
+                               
+                            }
+                            else
+                            {
+                                RunOnUiThread(() =>
+                                {
+                                    progress.StopDialogSync();
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                    alert.SetTitle("Napaka");
+                                    alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                    {
+                                        alert.Dispose();
+                                        System.Threading.Thread.Sleep(500);
+                                        StartActivity(typeof(MainMenu));
+
+                                    });
+
+
+
+                                    Dialog dialog = alert.Create();
+                                    dialog.Show();
+                                });
+
+                            }
                         }
                         else
                         {
-                            string SuccessMessage = string.Format("Napaka pri zaključevanju");
+                            string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
                             Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
                         }
                     }
-                    else
+                    finally
                     {
-                        string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
-                        Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                        RunOnUiThread(() =>
+                        {
+                            progress.StopDialogSync();
+
+                        });
                     }
                 }
-                finally
-                {
-                    //
-                }
-            }
+            });
+        }
+        private async void Button5_Click(object sender, EventArgs e)
+        {
+            await FinishMethod();
+            //if (SaveMoveItem())
+            //{
+            //    var progress = new ProgressDialogClass();
+            //    progress.ShowDialogSync(this, "Zaključujem");
+
+            //    try
+            //    {
+            //        var headID = moveHead.GetInt("HeadID");
+
+            //        string result;
+            //        if (WebApp.Get("mode=finish&stock=move&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+            //        {
+            //            if (result.StartsWith("OK!"))
+            //            {
+            //                var id = result.Split('+')[1];
+                         
+            //                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            //                alert.SetTitle("Zaključevanje uspešno");
+            //                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+            //                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+            //                {
+            //                    alert.Dispose();
+            //                    System.Threading.Thread.Sleep(500);
+            //                    StartActivity(typeof(MainMenu));
+            //                });
+
+
+
+            //                Dialog dialog = alert.Create();
+            //                dialog.Show();
+            //            }
+            //            else
+            //            {
+            //                string SuccessMessage = string.Format("Napaka pri zaključevanju");
+            //                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+            //            }
+            //        }
+            //        else
+            //        {
+            //            string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
+            //            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+            //        }
+            //    }
+            //    finally
+            //    {
+            //        progress.StopDialogSync();
+            //    }
+            //}
 
         }
 

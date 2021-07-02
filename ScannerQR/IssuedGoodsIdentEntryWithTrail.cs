@@ -281,6 +281,7 @@ namespace Scanner
                 }
 
                 StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                this.Finish();
 
             }
         }

@@ -166,6 +166,7 @@ namespace Scanner
             var item = positions.Items[displayedPosition];
             var id = item.GetInt("HeadID");
 
+
             
             try
             {

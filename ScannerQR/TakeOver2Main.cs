@@ -12,6 +12,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Scanner.App;
 using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -350,7 +351,9 @@ namespace Scanner
         {
             if (SaveItem(false) != null)
             {
-                Toast.MakeText(this, "Tiskam... ", ToastLength.Long).Show();
+                var progress = new ProgressDialogClass();
+
+                progress.ShowDialogSync(this, "Zaključujem");
                 try
                 {
                  
@@ -358,10 +361,12 @@ namespace Scanner
                     PrintingCommon.SetNVOCommonData(ref nvo);
                     nvo.SetString("Ident", tbIdent.Text);
                     PrintingCommon.SendToServer(nvo);
+                    Toast.MakeText(this, "Uspešno. ", ToastLength.Long).Show();
+
                 }
                 finally
                 {
-                    Toast.MakeText(this, "Uspešno. ", ToastLength.Long).Show();
+                    progress.StopDialogSync();
                 }
             }
         }

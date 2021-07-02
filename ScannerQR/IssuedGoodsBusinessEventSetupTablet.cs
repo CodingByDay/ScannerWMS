@@ -329,10 +329,12 @@ namespace Scanner
                     if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                     {
                         StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
+                        this.Finish();
                     }
                     else
                     {
                         StartActivity(typeof(IssuedGoodsIdentEntryTablet));
+                        this.Finish();
                     }
                 }
             }

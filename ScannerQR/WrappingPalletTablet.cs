@@ -44,7 +44,7 @@ namespace Scanner
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.WrappingPallet);
+            SetContentView(Resource.Layout.WrappingPalletTablet);
             // Create your application here
             pallet = FindViewById<EditText>(Resource.Id.pallet);
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);

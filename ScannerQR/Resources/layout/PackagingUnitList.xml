@@ -10,8 +10,11 @@
     android:orientation="vertical"
     tools:context=".LinearLayout"
     android:foregroundGravity="center">
+
+
+
+
     <TextView
-        android:textSize="16px"  
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,8 +30,10 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"  
-            android:textStyle="bold"
+       android:textStyle="bold"
+
+
+          
             android:layout_width="75.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -36,7 +41,6 @@
             android:text="Ident" />
 
         <EditText
-            android:textSize="16px"  
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -57,7 +61,6 @@
                                      >
 
         <TextView
-            android:textSize="16px"  
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="76.0dp"
@@ -68,7 +71,6 @@
             android:id="@+id/textView1" />
 
         <EditText
-            android:textSize="16px"  
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -87,7 +89,6 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"  
             android:textStyle="bold"
              android:singleLine="true"
             android:layout_width="75.5dp"
@@ -97,7 +98,6 @@
             android:text="Serijska št." />
 
         <EditText
-            android:textSize="16px"  
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -118,7 +118,6 @@
                                      >
 
         <TextView
-            android:textSize="16px"  
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="73.0dp"
@@ -128,7 +127,6 @@
             android:paddingLeft="10px"/>
 
         <EditText
-            android:textSize="16px"  
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -147,7 +145,6 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"  
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="71.0dp"
@@ -157,7 +154,6 @@
             android:text="Lokacija" />
 
         <EditText
-            android:textSize="16px"  
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -180,7 +176,6 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"  
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="69.5dp"
@@ -190,7 +185,6 @@
             android:text="Kreiral" />
 
         <EditText
-            android:textSize="16px"  
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -204,7 +198,7 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="28.0dp"
+        android:layout_height="30.5dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
 
@@ -219,7 +213,7 @@
             android:layout_weight="1"
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
-            android:text="Naslednja pozicija - F1"
+            android:text="Naslednja poz - F1"
             android:drawableLeft="@drawable/next"
             android:paddingLeft="10px"
             android:layout_width="match_parent"

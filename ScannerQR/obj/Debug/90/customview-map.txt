@@ -42,6 +42,7 @@ android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinished
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
+android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\wrappingpallettablet.xml
 attr;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\1\jl\res\values\values.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
@@ -144,6 +145,7 @@ Button;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 Button;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 Button;obj\Debug\90\res\layout\update.xml
 Button;obj\Debug\90\res\layout\wrappingpallet.xml
+Button;obj\Debug\90\res\layout\wrappingpallettablet.xml
 Button;obj\Debug\90\res\layout\yesnogeneric.xml
 Button;obj\Debug\90\res\layout\yesnopopup.xml
 Button;obj\Debug\90\res\layout\yesnoproductioncard.xml
@@ -153,6 +155,7 @@ color;obj\Debug\90\res\values\ic_launcher_background.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetup.xml
+com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetuptablet.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
 corners;obj\Debug\90\res\drawable\nicelookingbutton.xml
@@ -234,6 +237,7 @@ EditText;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
 EditText;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 EditText;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 EditText;obj\Debug\90\res\layout\wrappingpallet.xml
+EditText;obj\Debug\90\res\layout\wrappingpallettablet.xml
 external-cache-path;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
@@ -377,6 +381,7 @@ LinearLayout;obj\Debug\90\res\layout\unfinishedtakeover.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\update.xml
+LinearLayout;obj\Debug\90\res\layout\waitform.xml
 LinearLayout;obj\Debug\90\res\layout\wrappingpallet.xml
 LinearLayout;obj\Debug\90\res\layout\wrappingpallettablet.xml
 LinearLayout;obj\Debug\90\res\layout\yesnogeneric.xml
@@ -428,11 +433,13 @@ ListView;obj\Debug\90\res\layout\unfinishedinterwarehouseviewtablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedissuedgoodsviewtablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedproductionviewtablet.xml
 ListView;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
+ListView;obj\Debug\90\res\layout\wrappingpallettablet.xml
 menu;obj\Debug\90\res\layout\popup_action.xml
 padding;obj\Debug\90\res\drawable\nicelookingbutton.xml
 paths;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Debug\90\res\layout\activity_main.xml
 ProgressBar;obj\Debug\90\res\layout\inventoryconfirmtablet.xml
+ProgressBar;obj\Debug\90\res\layout\waitform.xml
 resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\1\jl\res\values\values.xml
 resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\3\jl\res\values\strings.xml
 resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\6\jl\res\values\strings.xml
@@ -616,7 +623,9 @@ TextView;obj\Debug\90\res\layout\unfinishedtakeover.xml
 TextView;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 TextView;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 TextView;obj\Debug\90\res\layout\update.xml
+TextView;obj\Debug\90\res\layout\waitform.xml
 TextView;obj\Debug\90\res\layout\wrappingpallet.xml
+TextView;obj\Debug\90\res\layout\wrappingpallettablet.xml
 TextView;obj\Debug\90\res\layout\yesnogeneric.xml
 TextView;obj\Debug\90\res\layout\yesnopopup.xml
 TextView;obj\Debug\90\res\layout\yesnoproductioncard.xml

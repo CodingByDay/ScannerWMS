@@ -13,6 +13,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -237,68 +238,168 @@ namespace Scanner
             
             }
 
-        private void Button6_Click(object sender, EventArgs e)
+
+        private async Task FinishMethod()
         {
-            if (SaveMoveItem())
+            await Task.Run(() =>
             {
-
-                try
+                if (SaveMoveItem())
                 {
-
-                    var headID = moveHead.GetInt("HeadID");
-
-                    string result;
-
-                    if (WebApp.Get("mode=finish&stock=remove&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+                    RunOnUiThread(() =>
                     {
-                        if (result.StartsWith("OK!"))
+                        progress = new ProgressDialogClass();
+
+                        progress.ShowDialogSync(this, "Zaključujem");
+                    });
+           
+                    try
+                    {
+
+                        var headID = moveHead.GetInt("HeadID");
+
+                        string result;
+
+                        if (WebApp.Get("mode=finish&stock=remove&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
                         {
-                            var id = result.Split('+')[1];
-
-                            Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
-                            InvalidateAndClose();
-                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                            alert.SetTitle("Zaključevanje uspešno");
-                            alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                            if (result.StartsWith("OK!"))
                             {
-                                alert.Dispose();
-                                System.Threading.Thread.Sleep(500);
-                                StartActivity(typeof(MainMenu));
-                            });
+                                RunOnUiThread(() =>
+                                {
+                                    progress.StopDialogSync();
+
+                                    var id = result.Split('+')[1];
+
+                                    Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
+                                    InvalidateAndClose();
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                    alert.SetTitle("Zaključevanje uspešno");
+                                    alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+                                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                    {
+                                        alert.Dispose();
+                                        System.Threading.Thread.Sleep(500);
+                                        StartActivity(typeof(MainMenu));
+                                    });
 
 
 
-                            Dialog dialog = alert.Create();
-                            dialog.Show();
+                                    Dialog dialog = alert.Create();
+                                    dialog.Show();
+                                });
+                              
+                            }
+                            else
+                            {
+                                RunOnUiThread(() =>
+                                {
+                                    progress.StopDialogSync();
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                    alert.SetTitle("Napaka");
+                                    alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                    {
+                                        alert.Dispose();
+                                        System.Threading.Thread.Sleep(500);
+                                        StartActivity(typeof(MainMenu));
+
+                                    });
+
+
+
+                                    Dialog dialog = alert.Create();
+                                    dialog.Show();
+                                });
+                            }
                         }
                         else
                         {
-                         
-                            Toast.MakeText(this, "Napaka pri zaključevanju" + result, ToastLength.Long).Show();
+                            Toast.MakeText(this, "Napaka pri klicu do web aplikacije" + result, ToastLength.Long).Show();
+
                         }
                     }
-                    else
+                    finally
                     {
-                        Toast.MakeText(this, "Napaka pri klicu do web aplikacije" + result, ToastLength.Long).Show();
-                    
+                        RunOnUiThread(() =>
+                        {
+                            progress.StopDialogSync();
+
+                        });
                     }
                 }
-                finally
-                {
-                
-                }
-            }
+            });
+        }
+        private async void Button6_Click(object sender, EventArgs e)
+        {
+            await FinishMethod();
+            //if (SaveMoveItem())
+            //{
+
+            //    var progress = new ProgressDialogClass();
+
+            //    progress.ShowDialogSync(this, "Zaključujem");
+            //    try
+            //    {
+
+            //        var headID = moveHead.GetInt("HeadID");
+
+            //        string result;
+
+            //        if (WebApp.Get("mode=finish&stock=remove&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+            //        {
+            //            if (result.StartsWith("OK!"))
+            //            {
+            //                var id = result.Split('+')[1];
+
+            //                Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
+            //                InvalidateAndClose();
+            //                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            //                alert.SetTitle("Zaključevanje uspešno");
+            //                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+            //                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+            //                {
+            //                    alert.Dispose();
+            //                    System.Threading.Thread.Sleep(500);
+            //                    StartActivity(typeof(MainMenu));
+            //                });
+
+
+
+            //                Dialog dialog = alert.Create();
+            //                dialog.Show();
+            //            }
+            //            else
+            //            {
+                         
+            //                Toast.MakeText(this, "Napaka pri zaključevanju" + result, ToastLength.Long).Show();
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Toast.MakeText(this, "Napaka pri klicu do web aplikacije" + result, ToastLength.Long).Show();
+                    
+            //        }
+            //    }
+            //    finally
+            //    {
+            //        progress.StopDialogSync();
+            //    }
+            //}
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
             if (SaveMoveItem())
+
             {
                if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
+
                 {
+
                     StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
+
                 } else
                 {
                     StartActivity(typeof(IssuedGoodsIdentEntry));
@@ -445,6 +546,7 @@ namespace Scanner
             }
         }
         private static bool? checkIssuedOpenQty = null;
+        private ProgressDialogClass progress;
 
         private bool CheckIssuedOpenQty()
         {

@@ -232,7 +232,6 @@ namespace Scanner
             button5 = FindViewById<Button>(Resource.Id.button5);
             lbOrderInfo = FindViewById<TextView>(Resource.Id.lbOrderInfo);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
-            tbNaziv.FocusChange += TbNaziv_FocusChange1;
             color();
             btNext.Enabled = false;
             btConfirm.Enabled = false;
@@ -245,13 +244,10 @@ namespace Scanner
             btConfirm.Click += BtConfirm_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
+            tbIdent.RequestFocus();
         }
 
-        private void TbNaziv_FocusChange1(object sender, View.FocusChangeEventArgs e)
-        {
-            ProcessIdent();
-        }
-
+   
         private void TbNaziv_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessIdent();
@@ -259,7 +255,7 @@ namespace Scanner
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            //logout
+         
             StartActivity(typeof(MainMenu));
 
         }
@@ -268,6 +264,7 @@ namespace Scanner
         {
             // F4
             StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+            this.Finish();
 
         }
 
@@ -277,6 +274,7 @@ namespace Scanner
             if (SaveMoveHead())
             {
                 StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
+                this.Finish();
 
             }
 

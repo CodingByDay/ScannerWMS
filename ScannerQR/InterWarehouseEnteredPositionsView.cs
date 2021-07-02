@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -40,6 +41,7 @@ namespace Scanner
         private Dialog popupDialog;
         private Button btnYes;
         private Button btnNo;
+        private ProgressDialogClass progress;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -210,43 +212,139 @@ namespace Scanner
             popupDialog.Hide();
         }
 
-
-        private void BtFinish_Click(object sender, EventArgs e)
+        private async Task Finish()
         {
-         
-            try
+            await Task.Run(() =>
             {
-     
-                var headID = moveHead.GetInt("HeadID");
 
-                string result;
-                if (WebApp.Get("mode=finish&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+                RunOnUiThread(() =>
                 {
-                    if (result.StartsWith("OK!"))
+                    progress = new ProgressDialogClass();
+
+                    progress.ShowDialogSync(this, "Zaključujem");
+                });
+
+                try
+                {
+                    var headID = moveHead.GetInt("HeadID");
+
+                    string result;
+                    if (WebApp.Get("mode=finish&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
                     {
-                        var id = result.Split('+')[1];
-                        string WebError = string.Format("Zaključevanje uspešno! Št. prenosa:\r\n" + id);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-                    
-                  
+                        if (result.StartsWith("OK!"))
+                        {
+
+                            RunOnUiThread(() =>
+                            {
+                                progress.StopDialogSync();
+
+                                var id = result.Split('+')[1];
+
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Zaključevanje uspešno");
+                                alert.SetMessage("Paletiranje uspešno! Št. prevzema:\r\n" + id);
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenu));
+                                });
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+
+                        }
+                        else
+                        {
+                            RunOnUiThread(() =>
+                            {
+                                progress.StopDialogSync();
+                             
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Napaka");
+                                alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenu));
+                                });
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+
+                            });
+
+                        }
                     }
                     else
                     {
-                        string WebError = string.Format("Napaka pri zaključevanju: " + result);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                        RunOnUiThread(() =>
+                        {
+                            progress.StopDialogSync();
+                            string WebError = string.Format("Napaka pri klicu web aplikacije: " + result);
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                        });
+
+
                     }
                 }
-                else
+                finally
                 {
-                    string WebError = string.Format("Napaka pri klicu web aplikacije: " + result);
-                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
-   
+                    RunOnUiThread(() =>
+                    {
+                        progress.StopDialogSync();
+                    
+                    });
                 }
-            }
-            finally
-            {
-            //
-            }
+
+
+            });
+            
+
+
+        }
+        private async void BtFinish_Click(object sender, EventArgs e)
+        {
+            await Finish();
+            //var progress = new ProgressDialogClass();
+
+            //progress.ShowDialogSync(this, "Zaključujem");
+            //try
+            //{
+               
+
+            //    var headID = moveHead.GetInt("HeadID");
+
+            //    string result;
+            //    if (WebApp.Get("mode=finish&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+            //    {
+            //        if (result.StartsWith("OK!"))
+            //        {
+            //            var id = result.Split('+')[1];
+            //            string WebError = string.Format("Zaključevanje uspešno! Št. prenosa:\r\n" + id);
+            //            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                    
+                  
+            //        }
+            //        else
+            //        {
+            //            string WebError = string.Format("Napaka pri zaključevanju: " + result);
+            //            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+            //        }
+            //    }
+            //    else
+            //    {
+            //        string WebError = string.Format("Napaka pri klicu web aplikacije: " + result);
+            //        Toast.MakeText(this, WebError, ToastLength.Long).Show();
+   
+            //    }
+            //}
+            //finally
+            //{
+            //    progress.StopDialogSync();
+            //}
      
         }
 

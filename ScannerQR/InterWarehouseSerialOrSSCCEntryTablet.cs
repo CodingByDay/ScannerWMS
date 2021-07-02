@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics.Drawables;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -48,13 +49,14 @@ namespace Scanner
         private bool editMode = false;
         private EditText lbIdentName;
         private Button finish;
-        private IBarcodeResult result;
+         private IBarcodeResult result;
         private ListView listData;
         private List<ProductionEnteredPositionViewList> data = new List<ProductionEnteredPositionViewList>();
         SoundPool soundPool;
         int soundPoolId;
         private NameValueObject wh;
         private int selected;
+        private ImageView imagePNG;
 
         // here...
         public void GetBarcode(string barcode)
@@ -63,34 +65,52 @@ namespace Scanner
             {
                 if (tbIdent.HasFocus)
                 {
-                    Sound();
-                    tbIdent.Text = barcode;
-                    ProcessIdent();
-                    tbSSCC.RequestFocus();
+                    if (barcode != "Scan fail")
+                    {
+                        Sound();
+                        tbIdent.Text = barcode;
+                        ProcessIdent();
+                        tbSSCC.RequestFocus();
+                    }
+                    else
+                    {
+
+                    }
 
 
                 }
                 else if (tbSSCC.HasFocus)
                 {
-                    Sound();
-                    tbSSCC.Text = barcode;
-                    tbSerialNum.RequestFocus();
+                    if (barcode != "Scan fail")
+                    {
+                        Sound();
+                        tbSSCC.Text = barcode;
+
+                        FillRelatedData(tbSSCC.Text);
+
+                        tbSerialNum.RequestFocus();
+                    }
 
                 }
                 else if (tbSerialNum.HasFocus)
                 {
-                    Sound();
-                    tbSerialNum.Text = barcode;
-                    tbIssueLocation.RequestFocus();
-
+                    if (barcode != "Scan fail")
+                    {
+                        Sound();
+                        tbSerialNum.Text = barcode;
+                        tbIssueLocation.RequestFocus();
+                    }
 
                 }
                 else if (tbIssueLocation.HasFocus)
                 {
-                    Sound();
-                    tbIssueLocation.Text = barcode;
-                    tbLocation.RequestFocus();
-                    ProcessQty();
+                    if (barcode != "Scan fail")
+                    {
+                        Sound();
+                        tbIssueLocation.Text = barcode;
+                        tbLocation.RequestFocus();
+                        ProcessQty();
+                    }
 
 
                 }
@@ -101,7 +121,6 @@ namespace Scanner
                         Sound();
                         tbLocation.Text = barcode;
                         tbPacking.RequestFocus();
-                        fillItems();
                         ProcessQty();
                     }
                 }
@@ -120,7 +139,31 @@ namespace Scanner
 
         }
 
+        private void FillRelatedData(string text)
+        {
+            string error;
 
+            var data = Services.GetObject("sscc", tbSSCC.Text, out error);
+            if (data != null)
+            {
+                if (tbSerialNum.Enabled == true)
+                {
+                    var serial = data.GetString("SerialNo");
+                    tbSerialNum.Text = serial;
+                    var location = data.GetString("Location");
+                    tbIssueLocation.Text = location;
+                    tbPacking.RequestFocus();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
 
         private bool SaveMoveItem()
         {
@@ -323,13 +366,7 @@ namespace Scanner
         }
 
 
-        //public void hideSoftKeyboard ()
-        //{
-        //	var currentFocus = Activity.CurrentFocus;
-        //	if (currentFocus != null) {
-        //		InputMethodManager inputMethodManager = (InputMethodManager)Activity.GetSystemService(Context.InputMethodService);
-        //      inputMethodManager.HideSoftInputFromWindow(currentFocus.WindowToken, HideSoftInputFlags.None);
-        //	}
+  
         private Double LoadStockFromLocation(string warehouse, string location, string ident)
         {
 
@@ -488,8 +525,12 @@ namespace Scanner
             button5 = FindViewById<Button>(Resource.Id.button5);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button6 = FindViewById<Button>(Resource.Id.button6);
+            imagePNG = FindViewById<ImageView>(Resource.Id.imagePNG);
 
             color();
+
+            tbIdent.KeyPress += TbIdent_KeyPress1;
+
             listData.ItemClick += ListData_ItemClick;
             button6.Click += Button6_Click;
             button4.Click += Button4_Click;
@@ -507,7 +548,10 @@ namespace Scanner
 
             barcode2D.open(this, this);
 
-
+            if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
+            {
+                showPicture();
+            }
 
             if (InterWarehouseBusinessEventSetup.success == true)
             {
@@ -555,6 +599,19 @@ namespace Scanner
 
 
    
+        }
+
+        private void TbIdent_KeyPress1(object sender, View.KeyEventArgs e)
+        {
+            if(e.KeyCode == Keycode.Enter)
+            {
+                ProcessIdent();
+
+                e.Handled = true;
+            } else
+            {
+                e.Handled = false;
+            }
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -634,7 +691,13 @@ namespace Scanner
         }
 
 
+        private void showPicture()
+        {
+            Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
+            Drawable d = new BitmapDrawable(Resources, show);
+            imagePNG.SetImageDrawable(d);
 
+        }
 
 
         private void Button1_Click(object sender, EventArgs e)
@@ -664,7 +727,7 @@ namespace Scanner
 
                     StartActivity(typeof(InterWarehouseSerialOrSSCCEntryTablet));
                 }
-                // Close();
+                this.Finish();
             }
         }
 

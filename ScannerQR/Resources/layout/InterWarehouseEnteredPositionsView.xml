@@ -202,11 +202,11 @@
             android:layout_weight="1"
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
-            android:text="Naslednja pozicija - F1"
+            android:text="Naslednja poz. - F1"
             android:drawableLeft="@drawable/next"
             android:paddingLeft="10px"
             android:layout_width="match_parent"
-             android:layout_height="70.0dp"
+            android:layout_height="70.0dp"
             android:id="@+id/btNext" />
 
         <Button

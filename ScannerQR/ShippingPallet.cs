@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Scanner.App;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -90,7 +91,9 @@ namespace Scanner
             // Method scope
             string ETpallet = pallet.Text;
             string ETmachine = machine.Text;
+            var progress = new ProgressDialogClass();
 
+            progress.ShowDialogSync(this, "Zaključujem");
 
             try
             {
@@ -116,7 +119,10 @@ namespace Scanner
             {
                 Toast.MakeText(this, $"Prišlo je do napake. {ex.Message}", ToastLength.Long).Show();
             }
-
+            finally
+            {
+                progress.StopDialogSync();
+            }
 
         }
     

@@ -50,6 +50,10 @@ namespace Scanner
 
 
             }
+            // Testing the progress dialog
+
+            
+
             // Testing the config reading ... It works... :)
             IDdevice = settings.ID;
             target = settings.device;

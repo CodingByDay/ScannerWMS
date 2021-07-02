@@ -86,6 +86,7 @@ namespace Scanner
             button5.Click += Button5_Click;
             button6.Click += Button6_Click;
             button7.Click += Button7_Click;
+            tbPacking.FocusChange += TbPacking_FocusChange;
             if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
             {
                 showPicture();
@@ -94,8 +95,38 @@ namespace Scanner
             var warehouse = moveHead.GetString("Wharehouse");
 
             fillSugestedLocation(warehouse);
-            if (moveHead == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); }
-            if (openIdent == null) { Toast.MakeText(this, "Napaka...", ToastLength.Long).Show(); ; }
+            if (moveHead == null)
+            {
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.SetTitle("Napaka na aplikaciji");
+                alert.SetMessage("Prišlo je do napake in aplikacija se bo zaprla.");
+
+                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                {
+                    alert.Dispose();
+                    System.Threading.Thread.Sleep(500);
+                    throw new ApplicationException("Error. moveHead.");
+                });
+
+                Dialog dialog = alert.Create();
+                dialog.Show();
+            }
+            if (openIdent == null)
+            {
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.SetTitle("Napaka na aplikaciji");
+                alert.SetMessage("Prišlo je do napake in aplikacija se bo zaprla.");
+
+                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                {
+                    alert.Dispose();
+                    System.Threading.Thread.Sleep(500);
+                    throw new ApplicationException("Error. openIdent.");
+                });
+
+                Dialog dialog = alert.Create();
+                dialog.Show();
+            }
 
             docTypes = CommonData.ListDocTypes("P|N");
 
@@ -107,6 +138,11 @@ namespace Scanner
 
             LoadRelatedOrder();
             SetUpForm();
+        }
+
+        private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            ProcessQty();
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -258,14 +294,15 @@ namespace Scanner
         {
             if (SaveMoveItem())
             {
-                if (editMode)
+                if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                 {
-                    StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+                    StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
                 }
                 else
                 {
-                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
+                    StartActivity(typeof(IssuedGoodsIdentEntry));
                 }
+                InvalidateAndClose();
 
             }
         }
@@ -277,11 +314,17 @@ namespace Scanner
                 if (editMode)
                 {
                     StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+
                 }
+
                 else
                 {
                     StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
                 }
+
+                // Here was the bug. You must not stack ident driven activities.
+
+                Finish();
 
             }
         }
@@ -314,7 +357,7 @@ namespace Scanner
                 tbPalette.Text = moveItem.GetString("Palette");
                 tbPacking.Text = moveItem.GetDouble("Packing").ToString();
                 tbUnits.Text = moveItem.GetDouble("Factor").ToString();
-                btSaveOrUpdate.Text = "Spremeni serijsko št. - F2";
+                btSaveOrUpdate.Text = "Spremeni ser. št. - F2";
             }
             else
             {
@@ -335,7 +378,6 @@ namespace Scanner
             }
             else
             {
-                /**{Nothing}*/
 
             }
 
@@ -346,14 +388,39 @@ namespace Scanner
             }
 
             if (string.IsNullOrEmpty(tbUnits.Text.Trim())) { tbUnits.Text = "1"; }
+
             if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
             {
                 lbUnits.Visibility = ViewStates.Visible;
                 tbUnits.Visibility = ViewStates.Visible;
             }
 
+
             tbIdent.RequestFocus();
+            var ident = openIdent.GetString("Code");
+
+            // string error;
+            // var s = moveHead.GetString("Issuer");
+            // var recommededLocation = Services.GetObject("rl", ident + "|" + moveHead.GetString("Issuer"), out error);
+            // if (recommededLocation != null)
+            // {
+
+            //    tbLocation.Text = recommededLocation.GetString("Location");
+            // }
+
+
+            var location = CommonData.GetSetting("DefaultProductionLocation");
+            tbLocation.Text = location;
+
+            var warehouse = moveHead.GetString("Wharehouse");
+
+            fillSugestedLocation(warehouse);
+
+            tbSSCC.RequestFocus();
+            // Revision 30.6.2021. 
+            // Revision 30.6.2021. 
         }
+
 
 
 
@@ -578,7 +645,7 @@ namespace Scanner
             }
             finally
             {
-                //pass
+                // pass
             }
         }
 

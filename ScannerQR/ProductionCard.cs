@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Microsoft.AppCenter.Crashes;
+using Scanner.App;
 using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -129,7 +130,7 @@ namespace Scanner
                     {
                         try
                         {
-                            warning = (bool)await DialogAsync.Show(this, "Opozorilo", "Izpisanih je bilo zadostno št. etiketa, želite li zamenjati serijsko številko?");
+                            warning = (bool)await DialogAsync.Show(this, "Opozorilo", "Izpisanih je bilo zadostno št. etiket, ali želite zamenjati serijsko številko?");
                         }
                         catch (TaskCanceledException ex)
                         {
@@ -173,7 +174,6 @@ namespace Scanner
 
         private void BtConfirm_Click(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Shranjujem podatke o kartonu, tiskam nalepko...", ToastLength.Long).Show();
 
             var nvo = new NameValueObject("MoveCard");
             nvo.SetString("WorkOrder", tbWorkOrder.Text);
@@ -181,8 +181,11 @@ namespace Scanner
             nvo.SetInt("CardNum", Convert.ToInt32(tbCardNum.Text));
             nvo.SetString("SerialNum", tbSerialNum.Text);
             nvo.SetDouble("Qty", Convert.ToDouble(tbQty.Text));
-            nvo.SetInt("ClerkIns", Services.UserID());          
-       
+            nvo.SetInt("ClerkIns", Services.UserID());
+
+            var progress = new ProgressDialogClass();
+
+            progress.ShowDialogSync(this, "Shranjujem podatke o kartonu, tiskam nalepko...");
             try
             {
                 string error;
@@ -223,7 +226,7 @@ namespace Scanner
             }
             finally
             {
-            
+                progress.StopDialogSync();
             }
 
         }

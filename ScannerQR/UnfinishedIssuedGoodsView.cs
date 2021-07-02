@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -120,7 +121,10 @@ namespace Scanner
             var item = positions.Items[displayedPosition];
             var id = item.GetInt("HeadID");
 
-           
+            var progress = new ProgressDialogClass();
+
+            progress.ShowDialogSync(this, "Zaključujem");
+
             try
             {
            
@@ -159,7 +163,7 @@ namespace Scanner
             }
             finally
             {
-              
+                progress.StopDialogSync();
             }
 
             string errorWebApp = string.Format("Pozicija uspešno zbrisana.");
