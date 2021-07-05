@@ -58,6 +58,7 @@ namespace Scanner
         private int selected;
         private ImageView imagePNG;
         private ProgressDialogClass progress;
+        private List<LocationClass> items = new List<LocationClass>();
 
         // here...
         public void GetBarcode(string barcode)
@@ -598,7 +599,7 @@ namespace Scanner
             // labels
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
-            InterwarehousSerialOrSCCCEntryAdapter adapter = new InterwarehousSerialOrSCCCEntryAdapter(this, data);
+            AdapterLocation adapter = new AdapterLocation(this, items);
             listData.Adapter = adapter;
             // Buttons
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
@@ -753,7 +754,34 @@ namespace Scanner
             }
         }
 
+        private void FillTheIdentLocationList(string ident)
+        {
 
+
+         
+            var wh = moveHead.GetString("Receiver");
+            var list = GetIdentLocationList.fillItemsOfList(wh, ident);
+
+            var debug = true;
+            Fill(list);
+        }
+
+        private void Fill(System.Collections.ArrayList list)
+        {
+            foreach (LocationClass obj in list)
+            {
+                items.Add(obj);
+                var item = 32;
+            }
+
+            listData.Adapter = null;
+
+
+
+            AdapterLocation adapter = new AdapterLocation(this, items);
+            listData.Adapter = adapter;
+            ///
+        }
 
         private void TbPacking_KeyPress(object sender, View.KeyEventArgs e)
         {
@@ -924,6 +952,7 @@ namespace Scanner
             lbIdentName.Text = ident.GetString("Name");
             tbSSCC.Enabled = ident.GetBool("isSSCC");
             tbSerialNum.Enabled = ident.GetBool("HasSerialNumber");
+            FillTheIdentLocationList(ident.GetString("Code"));
 
         }
 
