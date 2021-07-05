@@ -183,7 +183,7 @@ namespace Scanner
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
         }
 
-        private async void ProcessCard(string data)
+        private void ProcessCard(string data)
         {
 
             try

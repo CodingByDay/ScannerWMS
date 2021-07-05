@@ -20,7 +20,7 @@ namespace Scanner
     [Activity(Label = "MainMenu", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainMenu : Activity
     {
-
+        private List<Button> buttons = new List<Button>();
         public static string IDdevice;
         public static string target;
         public bool result;                        /* Checks to see if the device is a tablet
@@ -64,31 +64,41 @@ namespace Scanner
             // First event...
             Button button = FindViewById<Button>(Resource.Id.goodsTakeOver);
             button.Click += Button_Click;
+            buttons.Add(button);
             // InterWarehouse redirect...
             Button buttonInterWarehouse = FindViewById<Button>(Resource.Id.goodsInterWarehouse);
             buttonInterWarehouse.Click += ButtonInterWarehouse_Click;
+            buttons.Add(buttonInterWarehouse);
+
             // Third view...
             Button buttonUnfinished = FindViewById<Button>(Resource.Id.goodsProduction);
             buttonUnfinished.Click += ButtonUnfinished_Click;
+            buttons.Add(buttonUnfinished);
             // UnfinishedIssuedGoodsView layout ---> button ---------> goodsIssued
             Button buttonIssued = FindViewById<Button>(Resource.Id.goodsIssued);
             buttonIssued.Click += ButtonIssued_Click;
+            buttons.Add(buttonIssued);
             // btnPrint-----------PrintingMenu();
             Button buttonPrint = FindViewById<Button>(Resource.Id.btnPrint);
             buttonPrint.Click += ButtonPrint_Click;
+            buttons.Add(buttonPrint);
             // btnInventory-------InventoryMenu();
             Button btnInventory = FindViewById<Button>(Resource.Id.btnInventory);
             btnInventory.Click += BtnInventory_Click;
+            buttons.Add(btnInventory);
             // btCheckStock-------CheckStock();
             Button btnCheckStock = FindViewById<Button>(Resource.Id.btCheckStock);
             btnCheckStock.Click += BtnCheckStock_Click;
+            buttons.Add(btnCheckStock);
             // goodsPackaging-----PackagingEnteredPositionsView();
             Button btnPackaging = FindViewById<Button>(Resource.Id.goodsPackaging);
             btnPackaging.Click += BtnPackaging_Click;
+            buttons.Add(btnPackaging);
             // Logout-------------Close();
             Button btnLogout = FindViewById<Button>(Resource.Id.logout);
             btnLogout.Click += BtnLogout_Click;
             Button PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
+            buttons.Add(PalletsMenu);
             // Permisions.
             buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
             buttonIssued.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND", "R");
@@ -104,6 +114,21 @@ namespace Scanner
             PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
             // Hide those for now.
             PalletsMenu.Click += PalletsMenu_Click;
+          //  HideDisabled(buttons);
+        }
+
+        private void HideDisabled(List<Button> buttons)
+        {
+            foreach(Button btn in buttons)
+            {
+                if(btn.Enabled == false)
+                {
+                    btn.Visibility = ViewStates.Invisible;
+                } else
+                {
+                    continue;
+                }
+            }
         }
 
         private void PalletsMenu_Click(object sender, EventArgs e)

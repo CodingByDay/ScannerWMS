@@ -62,7 +62,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.6,"aMS",@progbits,1
 	.type	.L.env.str.6, @object
 .L.env.str.6:
-	.asciz	"5eff05e7-9d5e-4dad-8bd1-bc7e91309bd1"
+	.asciz	"67299dfb-1eec-4a05-9e20-66e45b8827b1"
 	.size	.L.env.str.6, 37
 	.section	.rodata.env.str.7,"aMS",@progbits,1
 	.type	.L.env.str.7, @object

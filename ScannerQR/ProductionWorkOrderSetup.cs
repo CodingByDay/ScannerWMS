@@ -39,9 +39,16 @@ namespace Scanner
         {
             if (tbWorkOrder.HasFocus)
             {
-                Sound();
-                tbWorkOrder.Text = barcode;
-                ProcessWorkOrder();
+                if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbWorkOrder.Text = barcode;
+                    ProcessWorkOrder();
+                } else
+                {
+                    tbWorkOrder.Text = "";
+                    tbWorkOrder.RequestFocus();
+                }
             }
         }
 

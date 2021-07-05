@@ -87,12 +87,13 @@ namespace Scanner
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            this.Finish();
+            StartActivity(typeof(MainMenu));
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(TakeOverEnteredPositionsView));
+            Finish();
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
@@ -100,6 +101,7 @@ namespace Scanner
             if (SaveMoveHead())
             {
                 StartActivity(typeof(TakeOverSerialOrSSCCEntry));
+                Finish();
             }
         }
 

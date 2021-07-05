@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Graphics.Drawables;
@@ -228,8 +228,105 @@ namespace Scanner
                 tbUnits.Visibility = ViewStates.Invisible;
             }
             tbLocation.RequestFocus();
+            FillRelatedData();
+            tbSerialNum.RequestFocus();
+
+        }
+        private async Task FinishMethod()
+        {
+            await Task.Run(() =>
+            {
+
+                if (SaveMoveItem())
+                {
+                    RunOnUiThread(() =>
+                    {
+                        progress = new ProgressDialogClass();
+
+                        progress.ShowDialogSync(this, "Zaključujem");
+                    });
+                    try
+                    {
+
+                        var headID = moveHead.GetInt("HeadID");
+
+                        string result;
+                        if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+                        {
+                            if (result.StartsWith("OK!"))
+                            {
+                                RunOnUiThread(() =>
+                                {
+                                    progress.StopDialogSync();
+                                    var id = result.Split('+')[1];
+
+
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                    alert.SetTitle("Uspešno zaključevanje");
+                                    alert.SetMessage("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
+
+                                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                    {
+                                        alert.Dispose();
+                                        System.Threading.Thread.Sleep(500);
+                                        StartActivity(typeof(MainMenu));
+                                    });
+
+
+
+                                    Dialog dialog = alert.Create();
+                                    dialog.Show();
+                                });
+
+                            }
+                            else
+                            {
+                                RunOnUiThread(() =>
+                                {
+                                    progress.StopDialogSync();
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                    alert.SetTitle("Napaka");
+                                    alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                    {
+                                        alert.Dispose();
+                                        System.Threading.Thread.Sleep(500);
+                                        StartActivity(typeof(MainMenu));
+
+                                    });
+
+
+
+                                    Dialog dialog = alert.Create();
+                                    dialog.Show();
+                                });
+
+                            }
+                        }
+                        else
+                        {
+                            Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
+
+                        }
+                    }
+                    finally
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            progress.StopDialogSync();
+                        });
+                    }
+
+
+                }
+
+
+
+            });
         }
 
+        // At the end look at this to not be hard coded.
         private void showPicture()
         {
             Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
@@ -337,61 +434,86 @@ namespace Scanner
 
         private static bool? checkTakeOverOpenQty = null;
         private int selected;
+        private ProgressDialogClass progress;
 
-        private void Button6_Click(object sender, EventArgs e)
+        private async void Button6_Click(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Zaključujem... Prosim počakajte.", ToastLength.Long).Show(); //
-            if (SaveMoveItem())
+            await FinishMethod();
+
+            //Toast.MakeText(this, "Zaključujem... Prosim počakajte.", ToastLength.Long).Show(); //
+            //if (SaveMoveItem())
+            //{
+
+            //    try
+            //    {
+
+            //        var headID = moveHead.GetInt("HeadID");
+
+            //        string result;
+            //        if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+            //        {
+            //            if (result.StartsWith("OK!"))
+            //            {
+            //                var id = result.Split('+')[1];
+            //                Toast.MakeText(this, "Zaključevanje uspešno! Št. prevzema:\r\n" + id, ToastLength.Long).Show();
+            //                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            //                alert.SetTitle("Zaključevanje uspešno");
+            //                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+            //                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+            //                {
+            //                    alert.Dispose();
+            //                });
+
+
+
+            //                Dialog dialog = alert.Create();
+            //                dialog.Show();
+
+            //            }
+            //            else
+            //            {
+            //                Toast.MakeText(this, "Napaka pri zaključevanju: " + result, ToastLength.Long).Show();
+
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
+
+            //        }
+            //    }
+            //    finally
+            //    {
+
+            //    }
+
+
+            //}
+        }
+        private void FillRelatedData()
+        {
+            string error;
+
+            var data = Services.GetObject("sscc", tbSSCC.Text, out error);
+            if (data != null)
             {
-
-                try
+                if (tbSerialNum.Enabled == true)
                 {
-
-                    var headID = moveHead.GetInt("HeadID");
-
-                    string result;
-                    if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-                    {
-                        if (result.StartsWith("OK!"))
-                        {
-                            var id = result.Split('+')[1];
-                            Toast.MakeText(this, "Zaključevanje uspešno! Št. prevzema:\r\n" + id, ToastLength.Long).Show();
-                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                            alert.SetTitle("Zaključevanje uspešno");
-                            alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
-                            {
-                                alert.Dispose();
-                            });
-
-
-
-                            Dialog dialog = alert.Create();
-                            dialog.Show();
-
-                        }
-                        else
-                        {
-                            Toast.MakeText(this, "Napaka pri zaključevanju: " + result, ToastLength.Long).Show();
-
-                        }
-                    }
-                    else
-                    {
-                        Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
-
-                    }
-                }
-                finally
-                {
+                    var serial = data.GetString("SerialNo");
+                    tbSerialNum.Text = serial;
 
                 }
-
-
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
             }
         }
-
         private bool CheckTakeOverOpenQty()
         {
             if (checkTakeOverOpenQty == null)

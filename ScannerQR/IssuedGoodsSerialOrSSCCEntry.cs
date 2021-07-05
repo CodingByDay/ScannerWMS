@@ -499,6 +499,7 @@ namespace Scanner
 
 
             tbIdent.RequestFocus();
+
             var ident = openIdent.GetString("Code");
 
             // string error;
@@ -512,8 +513,15 @@ namespace Scanner
 
 
             var location = CommonData.GetSetting("DefaultProductionLocation");
-            tbLocation.Text = location;
 
+            if (location != null)
+            {
+                tbLocation.Text = location;
+
+            } else
+            {
+                // Continue on
+            }
             var warehouse = moveHead.GetString("Wharehouse");
 
             fillSugestedLocation(warehouse);

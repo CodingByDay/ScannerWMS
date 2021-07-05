@@ -21,6 +21,7 @@ namespace Scanner
     public class TakeOverIdentEntryTablet : Activity, IBarcodeResult
 
     {
+        private int displayedPosition;
         private bool preventingDups = false;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead"); //
         private NameValueObject openIdent = null;
@@ -89,6 +90,15 @@ namespace Scanner
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             selected = e.Position;
+            Select(selected);
+            selectedItem = selected;
+        }
+
+        private void Select(int postionOfTheItemInTheList)
+        {
+            displayedOrder = postionOfTheItemInTheList;
+            var debug = true;
+            FillDisplayedOrderInfoSelect();
         }
 
         private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
@@ -364,6 +374,42 @@ namespace Scanner
             }
         }
 
+        private void FillDisplayedOrderInfoSelect()
+        {
+            if ((openIdent != null) && (openOrders != null) && (openOrders.Items.Count > 0))
+            {
+                lbOrderInfo.Text = "Naročilo (" + (displayedOrder + 1).ToString() + "/" + openOrders.Items.Count.ToString() + ")";
+                order = openOrders.Items[displayedOrder];
+                InUseObjects.Set("OpenOrder", order);
+                tbOrder.Text = order.GetString("Key");
+                tbConsignee.Text = order.GetString("Consignee");
+                tbQty.Text = order.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture());
+
+                var deadLine = order.GetDateTime("DeliveryDeadline");
+                tbDeliveryDeadline.Text = deadLine == null ? "" : ((DateTime)deadLine).ToString("dd.MM.yyyy");
+                string error;
+                var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + tbIdent.Text);
+
+
+
+
+
+                btNext.Enabled = true;
+                btConfirm.Enabled = true;
+            }
+            else
+            {
+                InUseObjects.Invalidate("OpenOrder");
+                lbOrderInfo.Text = "Naročilo (ni postavk)";
+                tbOrder.Text = "";
+                tbConsignee.Text = "";
+                tbQty.Text = "";
+                tbDeliveryDeadline.Text = "";
+
+                btNext.Enabled = false;
+                btConfirm.Enabled = false;
+            }
+        }
 
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)

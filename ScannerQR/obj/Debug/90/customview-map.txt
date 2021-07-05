@@ -243,7 +243,6 @@ external-path;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\47\jl\
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 HorizontalScrollView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
-HorizontalScrollView;obj\Debug\90\res\layout\productionpalettetablet.xml
 ImageView;obj\Debug\90\res\layout\activity_main.xml
 ImageView;obj\Debug\90\res\layout\checkstocktablet.xml
 ImageView;obj\Debug\90\res\layout\interwarehouseserialorssccentrytablet.xml
@@ -470,7 +469,6 @@ solid;obj\Debug\90\res\drawable\nicelookingbutton.xml
 Spinner;obj\Debug\90\res\layout\checkstock.xml
 Spinner;obj\Debug\90\res\layout\checkstocktablet.xml
 Spinner;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
-Spinner;obj\Debug\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 Spinner;obj\Debug\90\res\layout\inventoryopen.xml
 Spinner;obj\Debug\90\res\layout\inventoryopendocument.xml
 Spinner;obj\Debug\90\res\layout\inventoryopendocumenttablet.xml
@@ -479,7 +477,6 @@ Spinner;obj\Debug\90\res\layout\inventoryprint.xml
 Spinner;obj\Debug\90\res\layout\inventoryprinttablet.xml
 Spinner;obj\Debug\90\res\layout\inventoryprocess.xml
 Spinner;obj\Debug\90\res\layout\inventoryprocesstablet.xml
-Spinner;obj\Debug\90\res\layout\issuedgoodsbusinesseventsetuptablet.xml
 Spinner;obj\Debug\90\res\layout\packagingsetcontext.xml
 Spinner;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 Spinner;obj\Debug\90\res\layout\printingreprintlabels.xml

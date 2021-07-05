@@ -209,7 +209,7 @@ namespace Scanner
                 lbUnits.Visibility = ViewStates.Invisible;
                 tbUnits.Visibility = ViewStates.Invisible;
             }
-
+            FillRelatedData();
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -267,6 +267,8 @@ namespace Scanner
                 {
                     StartActivity(typeof(TakeOverSerialOrSSCCEntry));
                 }
+
+                Finish();
                 
             }
         }
@@ -367,61 +369,62 @@ namespace Scanner
 
             });
         }
-        private void Button6_Click(object sender, EventArgs e)
+        private async void Button6_Click(object sender, EventArgs e)
         {
+            await FinishMethod();
        
-                if (SaveMoveItem())
-                {
-                var progress = new ProgressDialogClass();
+                //if (SaveMoveItem())
+                //{
+                //progress = new ProgressDialogClass();
 
-                progress.ShowDialogSync(this, "Zaključujem");
-                try
-                    {
+                //progress.ShowDialogSync(this, "Zaključujem");
+                //try
+                //    {
                    
-                        var headID = moveHead.GetInt("HeadID");
+                //        var headID = moveHead.GetInt("HeadID");
 
-                        string result;
-                        if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-                        {
-                            if (result.StartsWith("OK!"))
-                            {
-                                var id = result.Split('+')[1];
-                            Toast.MakeText(this, "Zaključevanje uspešno! Št. prevzema:\r\n" + id, ToastLength.Long).Show();
-                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                            alert.SetTitle("Zaključevanje uspešno");
-                            alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+                //        string result;
+                //        if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+                //        {
+                //            if (result.StartsWith("OK!"))
+                //            {
+                //                var id = result.Split('+')[1];
+                //            Toast.MakeText(this, "Zaključevanje uspešno! Št. prevzema:\r\n" + id, ToastLength.Long).Show();
+                //            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                //            alert.SetTitle("Zaključevanje uspešno");
+                //            alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
 
-                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
-                            {alert.Dispose();
-                                System.Threading.Thread.Sleep(500);
-                                StartActivity(typeof(MainMenu));
-                            });
+                //            alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                //            {alert.Dispose();
+                //                System.Threading.Thread.Sleep(500);
+                //                StartActivity(typeof(MainMenu));
+                //            });
 
 
 
-                            Dialog dialog = alert.Create();
-                            dialog.Show();
+                //            Dialog dialog = alert.Create();
+                //            dialog.Show();
 
-                        }
-                            else
-                            {
-                            Toast.MakeText(this, "Napaka pri zaključevanju: " + result, ToastLength.Long).Show();
+                //        }
+                //            else
+                //            {
+                //            Toast.MakeText(this, "Napaka pri zaključevanju: " + result, ToastLength.Long).Show();
                             
-                            }
-                        }
-                        else
-                        {
-                        Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
+                //            }
+                //        }
+                //        else
+                //        {
+                //        Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
                       
-                        }
-                    }
-                    finally
-                    {
-                    progress.StopDialogSync();
-                    }
+                //        }
+                //    }
+                //    finally
+                //    {
+                //    progress.StopDialogSync();
+                //    }
 
                
-                }
+                //}
             }
         
         private bool CheckTakeOverOpenQty()
@@ -672,26 +675,72 @@ namespace Scanner
             }
             return base.OnKeyDown(keyCode, e);
         }
+        private void FillRelatedData()
+        {
+            string error;
 
+            var data = Services.GetObject("sscc", tbSSCC.Text, out error);
+            if (data != null)
+            {
+                if (tbSerialNum.Enabled == true)
+                {
+                    var serial = data.GetString("SerialNo");
+                    tbSerialNum.Text = serial;
+              
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
         public void GetBarcode(string barcode)
         {
             if (tbSSCC.HasFocus) {
-                Sound();
-                tbSSCC.Text = barcode;
+                if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbSSCC.Text = barcode;
+                    
+                    tbSerialNum.RequestFocus();
+                } else
+                {
+                    tbSSCC.Text = "";
+                    tbSSCC.RequestFocus();
+                }
              
 
             }
             else if (tbSerialNum.HasFocus) 
             {
-                Sound();
-                tbSerialNum.Text = barcode;
+                if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbSerialNum.Text = barcode;
+                    tbLocation.RequestFocus();
+                } else
+                {
+                    tbSerialNum.Text = "";
+                    tbSerialNum.RequestFocus();
+                }
              
 
             }
             else if (tbLocation.HasFocus) {
+                if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbSerialNum.Text = barcode;
+                } else
+                {
+                    tbLocation.Text = "";
+                    tbLocation.RequestFocus();
+                }
 
-                Sound();
-                tbSerialNum.Text = barcode;
             }
         }
     }

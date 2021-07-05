@@ -3547,11 +3547,11 @@ namespace Scanner
 			// aapt resource value: 0x7F08004E
 			public const int btNegate = 2131230798;
 			
-			// aapt resource value: 0x7F080063
-			public const int btnew = 2131230819;
-			
 			// aapt resource value: 0x7F08004F
 			public const int btNew = 2131230799;
+			
+			// aapt resource value: 0x7F080063
+			public const int btnew = 2131230819;
 			
 			// aapt resource value: 0x7F080050
 			public const int btNext = 2131230800;
@@ -3751,11 +3751,11 @@ namespace Scanner
 			// aapt resource value: 0x7F080090
 			public const int disableHome = 2131230864;
 			
-			// aapt resource value: 0x7F080004
-			public const int Document = 2131230724;
-			
 			// aapt resource value: 0x7F080091
 			public const int document = 2131230865;
+			
+			// aapt resource value: 0x7F080004
+			public const int Document = 2131230724;
 			
 			// aapt resource value: 0x7F080092
 			public const int dtDate = 2131230866;
@@ -3787,11 +3787,11 @@ namespace Scanner
 			// aapt resource value: 0x7F08009B
 			public const int fill = 2131230875;
 			
-			// aapt resource value: 0x7F080006
-			public const int Filled = 2131230726;
-			
 			// aapt resource value: 0x7F08009E
 			public const int filled = 2131230878;
+			
+			// aapt resource value: 0x7F080006
+			public const int Filled = 2131230726;
 			
 			// aapt resource value: 0x7F08009C
 			public const int fill_horizontal = 2131230876;
@@ -3919,11 +3919,11 @@ namespace Scanner
 			// aapt resource value: 0x7F0800C1
 			public const int lbInfofinal = 2131230913;
 			
-			// aapt resource value: 0x7F0800C2
-			public const int lbInfoinput = 2131230914;
-			
 			// aapt resource value: 0x7F0800C0
 			public const int lbInfoInput = 2131230912;
+			
+			// aapt resource value: 0x7F0800C2
+			public const int lbInfoinput = 2131230914;
 			
 			// aapt resource value: 0x7F0800CC
 			public const int lblOrder = 2131230924;
@@ -4060,11 +4060,11 @@ namespace Scanner
 			// aapt resource value: 0x7F0800EB
 			public const int numberOfPositions = 2131230955;
 			
-			// aapt resource value: 0x7F0800EC
-			public const int numberofpositions = 2131230956;
-			
 			// aapt resource value: 0x7F080010
 			public const int NumberOfPositions = 2131230736;
+			
+			// aapt resource value: 0x7F0800EC
+			public const int numberofpositions = 2131230956;
 			
 			// aapt resource value: 0x7F0800ED
 			public const int ok = 2131230957;
@@ -4075,11 +4075,11 @@ namespace Scanner
 			// aapt resource value: 0x7F080011
 			public const int Open = 2131230737;
 			
-			// aapt resource value: 0x7F080012
-			public const int Ordered = 2131230738;
-			
 			// aapt resource value: 0x7F0800EF
 			public const int ordered = 2131230959;
+			
+			// aapt resource value: 0x7F080012
+			public const int Ordered = 2131230738;
 			
 			// aapt resource value: 0x7F080013
 			public const int Orderer = 2131230739;
@@ -4660,14 +4660,17 @@ namespace Scanner
 			// aapt resource value: 0x7F0801A6
 			public const int withText = 2131231142;
 			
+			// aapt resource value: 0x7F0801A7
+			public const int work = 2131231143;
+			
 			// aapt resource value: 0x7F08001D
 			public const int WorkOrder = 2131230749;
 			
-			// aapt resource value: 0x7F0801A8
-			public const int wrapped = 2131231144;
+			// aapt resource value: 0x7F0801A9
+			public const int wrapped = 2131231145;
 			
-			// aapt resource value: 0x7F0801A7
-			public const int wrap_content = 2131231143;
+			// aapt resource value: 0x7F0801A8
+			public const int wrap_content = 2131231144;
 			
 			static Id()
 			{

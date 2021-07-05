@@ -63,14 +63,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/label1"
         android:gravity="center" />
-<Spinner
+
+      <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="match_parent"
-        android:layout_height="42.5dp"
+        android:layout_height="41.0dp"
         android:id="@+id/cbDocType"
         android:gravity="center"
         android:spinnerMode="dialog"
-        />
-
+       />
     <TextView
         android:textStyle="bold"
         android:textSize="16px"

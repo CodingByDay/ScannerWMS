@@ -529,105 +529,113 @@ namespace Scanner
 
         private async Task FinishMethod()
         {
-            if (SaveMoveItem())
+            await Task.Run(() =>
             {
-                var headID = moveHead.GetInt("HeadID");
-                //
-                SelectSubjectBeforeFinish.ShowIfNeeded(headID);
-
-                progress = new ProgressDialogClass();
-                progress.ShowDialogSync(this, "Zaključujem");
-                try
+                if (SaveMoveItem())
                 {
+                    var headID = moveHead.GetInt("HeadID");
+                    //
+                    SelectSubjectBeforeFinish.ShowIfNeeded(headID);
 
-                    string result;
-                    if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+                    RunOnUiThread(() =>
                     {
-                        if (result.StartsWith("OK!"))
+                        progress = new ProgressDialogClass();
+
+                        progress.ShowDialogSync(this, "Zaključujem");
+                    });
+                    try
+                    {
+
+                        string result;
+                        if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
                         {
-                            RunOnUiThread(() =>
+                            if (result.StartsWith("OK!"))
                             {
-                                progress.StopDialogSync();
-                                var id = result.Split('+')[1];
-
-                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                                alert.SetTitle("Zaključevanje uspešno");
-                                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                RunOnUiThread(() =>
                                 {
-                                    alert.Dispose();
-                                    System.Threading.Thread.Sleep(500);
-                                    StartActivity(typeof(MainMenu));
+                                    progress.StopDialogSync();
+                                    var id = result.Split('+')[1];
+
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                    alert.SetTitle("Zaključevanje uspešno");
+                                    alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+                                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                    {
+                                        alert.Dispose();
+                                        System.Threading.Thread.Sleep(500);
+                                        StartActivity(typeof(MainMenu));
+                                    });
+
+
+
+                                    Dialog dialog = alert.Create();
+                                    dialog.Show();
                                 });
 
 
+                            }
+                            else
+                            {
+                                RunOnUiThread(() =>
+                                {
+                                    progress.StopDialogSync();
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                    alert.SetTitle("Napaka");
+                                    alert.SetMessage("Napaka pri zaključevanju: " + result);
 
-                                Dialog dialog = alert.Create();
-                                dialog.Show();
-                            });
-                           
+                                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                    {
+                                        alert.Dispose();
+                                        System.Threading.Thread.Sleep(500);
+                                        StartActivity(typeof(MainMenu));
 
+                                    });
+
+
+
+                                    Dialog dialog = alert.Create();
+                                    dialog.Show();
+                                });
+
+
+                            }
                         }
                         else
                         {
+
                             RunOnUiThread(() =>
                             {
                                 progress.StopDialogSync();
                                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                                 alert.SetTitle("Napaka");
-                                alert.SetMessage("Napaka pri zaključevanju: " + result);
+                                alert.SetMessage("Napaka pri klicu web aplikacije: " + result);
 
                                 alert.SetPositiveButton("Ok", (senderAlert, args) =>
                                 {
                                     alert.Dispose();
-                                    System.Threading.Thread.Sleep(500);
-                                    StartActivity(typeof(MainMenu));
 
                                 });
-
-
 
                                 Dialog dialog = alert.Create();
                                 dialog.Show();
                             });
 
 
+
                         }
                     }
-                    else
+                    finally
                     {
-
                         RunOnUiThread(() =>
                         {
                             progress.StopDialogSync();
-                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                            alert.SetTitle("Napaka");
-                            alert.SetMessage("Napaka pri klicu web aplikacije: " + result);
 
-                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
-                            {
-                                alert.Dispose();
-
-                            });
-
-                            Dialog dialog = alert.Create();
-                            dialog.Show();
                         });
-
-                   
-
                     }
                 }
-                finally
-                {
-                    RunOnUiThread(() =>
-                    {
-                        progress.StopDialogSync();
-
-                    });
-                }
-            }
+            });
+           
         }
         private async void Button4_Click(object sender, EventArgs e)
         {

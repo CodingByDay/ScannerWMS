@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Media;
@@ -27,7 +27,7 @@ namespace Scanner
         private EditText tbIdent;
         private EditText tbSSCC;
         private EditText tbSerialNum;
-
+        private EditText tbCard; 
         private ListView lvCardList;
         SoundPool soundPool;
         int soundPoolId;
@@ -42,33 +42,203 @@ namespace Scanner
         private TextView lbTotalQty;
         private bool result;
         private bool target;
+        private string stKartona;
+        private ProgressDialogClass progress;
 
         public void GetBarcode(string barcode)
         {
             if (tbSerialNum.HasFocus)
             {
-                Sound();
-                tbSerialNum.Text = barcode;
-                ProcessSerialNum();
-                lvCardList.RequestFocus();
+                if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbSerialNum.Text = barcode;
+                    ProcessSerialNum();
+                    tbCard.RequestFocus();
+
+                }
+                else
+                {
+                    tbSerialNum.Text = "";
+                }
 
             }
-            else if (lvCardList.HasFocus)
+            else if (tbCard.HasFocus)
             {
-                Sound();
-                ProcessCard(barcode);
+                if (barcode != "")
+                {
+                    if (barcode != "Scan fail")
+                    {
+                        Sound();
+                        ProcessCard(barcode);
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+
+                }
             }
         }
-
-
 
         private void color()
         {
             tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Aqua);
-            lvCardList.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbCard.SetBackgroundColor(Android.Graphics.Color.Aqua);
+
+        }
+
+        private async Task runOnBothThreads()
+        {
+            await Task.Run(() =>
+            {
+                try
+                {
+                    RunOnUiThread(() =>
+                    {
+                        progress = new ProgressDialogClass();
+
+                        progress.ShowDialogSync(this, "Pošiljam podatke, prosim počakajte.");
+                    });
+
+                    var palInfo = new NameValueObject("PaletteInfo");
+
+                    System.Threading.Thread.Sleep(1000);
+                    palInfo.SetString("WorkOrder", tbWorkOrder.Text);
+                    palInfo.SetString("Ident", tbIdent.Text);
+                    palInfo.SetInt("Clerk", Services.UserID());
+                    palInfo.SetString("SerialNum", tbSerialNum.Text);
+                    palInfo.SetString("SSCC", tbSSCC.Text);
+                    palInfo.SetString("CardNums", string.Join(",", ScannedCardNumbers().Select(x => x.ToString()).ToArray()));
+                    palInfo.SetDouble("TotalQty", totalQty);
+                    palInfo.SetString("DeviceID", Services.DeviceUser());
+                    string error;
+                    palInfo = Services.SetObject("cf", palInfo, out error);
+
+                    if (palInfo == null)
+                    {
+
+                        RunOnUiThread(() =>
+                        {
+                            progress.StopDialogSync();
+                            string WebError = string.Format("Napaka pri potrjevanju palete: " + error);
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                        });
+
+
+                    }
+                    else
+                    {
+                        var result = palInfo.GetString("Result");
+                        if (result.StartsWith("OK!"))
+                        {
+                            RunOnUiThread(() =>
+                            {
+                                progress.StopDialogSync();
+                                var id = result.Split('+')[1];
+
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Zaključevanje uspešno");
+                                alert.SetMessage("Paletiranje uspešno! Št. prevzema:\r\n" + id);
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenu));
+                                });
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+
+
+                        }
+                        else
+                        {
+                            RunOnUiThread(() =>
+                            {
+                                progress.StopDialogSync();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Napaka");
+                                alert.SetMessage("Napaka pri paletiranju: " + result);
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenuTablet));
+
+                                });
+
+
+
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+
+
+
+                        }
+                    }
+                }
+                finally
+                {
+                    RunOnUiThread(() =>
+                    {
+                        progress.StopDialogSync();
+                    });
+                }
+            });
+        }
+        private void Move(ListViewItem ivis, double qty, double totalQty)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.TransportPopup);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
+            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+
+            btnNo.Click += BtnNo_Click1;
+
+
+
+            btnYes.Click += (e, ev) => { BtnYes_Click(ivis, qty); };
+        }
+
+        private void BtnNo_Click1(object sender, EventArgs e)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Cancel();
+        }
+
+
+        private void BtnYes_Click(ListViewItem ivis, double qty)
+        {
+
+            var ivi = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
+            listItems.Add(ivi);
+            lvCardList.Adapter = null;
+            adapterListViewItem adapter = new adapterListViewItem(this, listItems);
+            lvCardList.Adapter = adapter;
+            totalQty += qty;
+            lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
+            btConfirm.Enabled = true;
+
+
+            popupDialog.Dismiss();
+            popupDialog.Cancel();
 
 
         }
+
+        
         private void ProcessSerialNum()
         {
 
@@ -123,124 +293,114 @@ namespace Scanner
 
         private void ProcessCard(string data)
         {
-            if (!data.StartsWith(tbSerialNum.Text))
-            {
-                string WebError = string.Format("Karton ne ustreza serijski št. palete!");
-                Toast.MakeText(this, WebError, ToastLength.Long).Show();
 
+            try
+            {
+                stKartona = Convert.ToInt32(data.Substring(tbSerialNum.Text.Length)).ToString();
+            }
+            catch (Exception error)
+            {
+                Toast.MakeText(this, "Napaka...", ToastLength.Long).Show();
+            }
+
+            if (stKartona != null)
+            {
+                var next = true;
+                if (!data.StartsWith(tbSerialNum.Text))
+                {
+                    string WebError = string.Format("Karton ne ustreza serijski številki.");
+                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                }
+                else
+                {
+
+                    foreach (ListViewItem existing in listItems)
+                    {
+                        if (existing.stKartona == stKartona)
+                        {
+                            string WebError = string.Format("Karton je že dodan na paleto!");
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+
+                            return;
+                        }
+                    }
+                    try
+                    {
+                        string error;
+
+                        var cardObj = Services.GetObject("cq", tbSerialNum.Text + "|" + stKartona + "|" + tbIdent.Text, out error);
+
+                        if (cardObj == null)
+                        {
+                            string WebError = string.Format("Napaka pri preverjanju kartona: " + error);
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                            return;
+                        }
+
+                        var qty = cardObj.GetDouble("Qty");
+
+                        if (qty > 0.0)
+                        {
+                            if (cardObj.GetInt("IDHead") > 0)
+                            {
+
+                                var ivis = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
+
+                                Move(ivis, qty, totalQty);
+
+                                //     result = (bool) await DialogAsync.Show(this, "Vprašanje", "Karton je že rasporejen na drugi paleti. Premestim?");
+                                //   //  initial = true;
+                                //}
+                                //catch (TaskCanceledException ex)
+                                //{
+                                //    Toast.MakeText(this, "Kliknuli ste izven dialoga.", ToastLength.Long).Show();
+                                //}
+                                //if (result == false)
+
+                                //{
+                                //    return;
+                                //}
+
+                            }
+                            else
+                            {
+
+                                var ivi = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
+                                listItems.Add(ivi);
+                                lvCardList.Adapter = null;
+                                adapterListViewItem adapter = new adapterListViewItem(this, listItems);
+                                lvCardList.Adapter = adapter;
+                                totalQty += qty;
+                                lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
+                                btConfirm.Enabled = true;
+                            }
+                        }
+
+                        else
+                        {
+                            string WebError = string.Format("Neveljaven karton: " + data);
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                            return;
+                        }
+                    }
+                    finally
+                    {
+                        tbCard.Text = "";
+                    }
+                }
             }
             else
             {
-                var stKartona = Convert.ToInt32(data.Substring(tbSerialNum.Text.Length)).ToString();
-
-                foreach (ListViewItem existing in listItems)
-                {
-                    if (existing.stKartona == stKartona)
-                    {
-                        string WebError = string.Format("Karton je že dodan na paleto!");
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-                        return;
-                    }
-                }
-
-
-
-                try
-                {
-                    string error;
-                    var cardObj = Services.GetObject("cq", tbSerialNum.Text + "|" + stKartona + "|" + tbIdent.Text, out error);
-                    if (cardObj == null)
-                    {
-                        string WebError = string.Format("Napaka pri preverjanju kartona: " + error);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-                        return;
-                    }
-
-                    var qty = cardObj.GetDouble("Qty");
-                    if (qty > 0.0)
-                    {
-                        if (cardObj.GetInt("IDHead") > 0)
-                        { /// Custom popup method that is connected to transportYesNo popus same functionality like before. :)
-                            if (!popupResponse())
-                            {
-                                return;
-                            }
-
-                        }
-
-
-                        var ivi = new ListViewItem { stKartona = stKartona, quantity = qty.ToString("###,###,##0.00") };
-                        listItems.Add(ivi);
-                        totalQty += qty;
-                        lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
-
-                        btConfirm.Enabled = true;
-                    }
-                    else
-                    {
-                        string WebError = string.Format("Neveljaven karton: " + data);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-                        return;
-                    }
-                }
-                finally
-                {
-
-                }
+                Toast.MakeText(this, "Nepravilen vnos.", ToastLength.Long).Show();
             }
         }
 
 
-        private bool deleteResponse()
-        {
-            popupDialog = new Dialog(this);
-            popupDialog.SetContentView(Resource.Layout.YesNoGeneric);
-            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
-            popupDialog.Show();
-
-            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
-            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
-            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
-
-            btnNo.Click += BtnNo_Click1;
-            btnYes.Click += BtnYes_Click1;
 
 
+   
 
-            return target;
-        }
-
-        private void BtnYes_Click1(object sender, EventArgs e)
-        {
-            target = true;
-        }
-
-        private void BtnNo_Click1(object sender, EventArgs e)
-        {
-            target = false;
-        }
-
-        private bool popupResponse()
-        {
-            popupDialog = new Dialog(this);
-            popupDialog.SetContentView(Resource.Layout.TransportPopup);
-            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
-            popupDialog.Show();
-
-            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
-            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
-            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
-
-            btnNo.Click += BtnNo_Click;
-            btnYes.Click += BtnYes_Click;
-
-            return result;
-        }
+  
 
         private void BtnYes_Click(object sender, EventArgs e)
         {
@@ -250,7 +410,8 @@ namespace Scanner
 
         private void BtnNo_Click(object sender, EventArgs e)
         {
-            result = false;
+            popupDialog.Dismiss();
+            popupDialog.Cancel();
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -281,20 +442,80 @@ namespace Scanner
             barcode2D.open(this, this);
             btConfirm.Click += BtConfirm_Click;
             button2.Click += Button2_Click;
-
+            tbCard = FindViewById<EditText>(Resource.Id.tbCard);
             adapterListViewItem adapter = new adapterListViewItem(this, listItems);
 
             lvCardList.Adapter = adapter;
             lvCardList.ItemLongClick += LvCardList_ItemLongClick;
+            tbSerialNum.KeyPress += TbSerialNum_KeyPress;
+            tbCard.KeyPress += TbCard_KeyPress;
             tbSerialNum.RequestFocus();
+            color();
+        }
+        private void TbCard_KeyPress(object sender, View.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keycode.Enter)
+            {
+                if (tbCard.Text != "")
+                {
+                    ProcessCard(tbCard.Text);
+                    tbCard.RequestFocus();
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void TbSerialNum_KeyPress(object sender, View.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keycode.Enter)
+            {
+                ProcessSerialNum();
+                tbCard.RequestFocus();
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+        private void ButtonYes(long selectedItemId)
+        {
+            ListViewItem itemPriorToDelete = listItems.ElementAt((int)selectedItemId);
+            totalQty = totalQty - Convert.ToDouble(itemPriorToDelete.quantity);
+            lbTotalQty.Text = "Količina skupaj: " + (totalQty).ToString("###,###,##0.00");
+            listItems.RemoveAt((int)selectedItemId);
+
+
+
+
+            lvCardList.Adapter = null;
+            adapterListViewItem adapter = new adapterListViewItem(this, listItems);
+            lvCardList.Adapter = adapter;
+            popupDialog.Dismiss();
+            popupDialog.Cancel();
+
         }
 
         private void LvCardList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
-            if (deleteResponse())
-            {
-                listItems.RemoveAt(e.Position);
-            }
+
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.YesNoGeneric);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
+            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+            btnNo.Click += BtnNo_Click;
+            btnYes.Click += (e, ev) => { ButtonYes(lvCardList.SelectedItemId); };
+
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -302,53 +523,53 @@ namespace Scanner
             StartActivity(typeof(MainMenu));
         }
 
-        private void BtConfirm_Click(object sender, EventArgs e)
+        private async void BtConfirm_Click(object sender, EventArgs e)
         {
+            await runOnBothThreads();
+
+            //    try
+            //    {
+            //        var palInfo = new NameValueObject("PaletteInfo");
+            //        palInfo.SetString("WorkOrder", tbWorkOrder.Text);
+            //        palInfo.SetString("Ident", tbIdent.Text);
+            //        palInfo.SetInt("Clerk", Services.UserID());
+            //        palInfo.SetString("SerialNum", tbSerialNum.Text);
+            //        palInfo.SetString("SSCC", tbSSCC.Text);
+            //        palInfo.SetString("CardNums", string.Join(",", ScannedCardNumbers().Select(x => x.ToString()).ToArray()));
+            //        palInfo.SetDouble("TotalQty", totalQty);
+            //        palInfo.SetString("DeviceID", Services.DeviceUser());
+
+            //        string error;
+            //        palInfo = Services.SetObject("cf", palInfo, out error);
+            //        if (palInfo == null)
+            //        {
+            //            string WebError = string.Format("Napaka pri potrjevanju palete: " + error);
+            //            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+
+            //        }
+            //        else
+            //        {
+            //            var result = palInfo.GetString("Result");
+            //            if (result.StartsWith("OK!"))
+            //            {
+            //                var id = result.Split('+')[1];
+            //                string WebError = string.Format("Paletiranje uspešno! Št. prevzema:\r\n" + id);
+            //                Toast.MakeText(this, WebError, ToastLength.Long).Show();
 
 
-            try
-            {
-                var palInfo = new NameValueObject("PaletteInfo");
-                palInfo.SetString("WorkOrder", tbWorkOrder.Text);
-                palInfo.SetString("Ident", tbIdent.Text);
-                palInfo.SetInt("Clerk", Services.UserID());
-                palInfo.SetString("SerialNum", tbSerialNum.Text);
-                palInfo.SetString("SSCC", tbSSCC.Text);
-                palInfo.SetString("CardNums", string.Join(",", ScannedCardNumbers().Select(x => x.ToString()).ToArray()));
-                palInfo.SetDouble("TotalQty", totalQty);
-                palInfo.SetString("DeviceID", Services.DeviceUser());
+            //            }
+            //            else
+            //            {
+            //                string WebError = string.Format("Napaka pri paletiranju: " + result);
+            //                Toast.MakeText(this, WebError, ToastLength.Long).Show();
 
-                string error;
-                palInfo = Services.SetObject("cf", palInfo, out error);
-                if (palInfo == null)
-                {
-                    string WebError = string.Format("Napaka pri potrjevanju palete: " + error);
-                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-                }
-                else
-                {
-                    var result = palInfo.GetString("Result");
-                    if (result.StartsWith("OK!"))
-                    {
-                        var id = result.Split('+')[1];
-                        string WebError = string.Format("Paletiranje uspešno! Št. prevzema:\r\n" + id);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-
-                    }
-                    else
-                    {
-                        string WebError = string.Format("Napaka pri paletiranju: " + result);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-                    }
-                }
-            }
-            finally
-            {
-                //pass
-            }
+            //            }
+            //        }
+            //    }
+            //    finally
+            //    {
+            //        //pass
+            //    }
         }
     }
 }

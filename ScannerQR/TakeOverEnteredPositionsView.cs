@@ -151,7 +151,7 @@ namespace Scanner
             {
                 RunOnUiThread(() =>
                 {
-                    var progress = new ProgressDialogClass();
+                    progress = new ProgressDialogClass();
 
                     progress.ShowDialogSync(this, "Zaključujem");
                 });
