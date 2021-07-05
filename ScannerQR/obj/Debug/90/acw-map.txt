@@ -298,6 +298,9 @@ scanner.app.adapter;crc649b1ee189de92b663.adapter
 Scanner.App.adapterListViewItem, WMS;crc649b1ee189de92b663.adapterListViewItem
 Scanner.App.adapterListViewItem;crc649b1ee189de92b663.adapterListViewItem
 scanner.app.adapterListViewItem;crc649b1ee189de92b663.adapterListViewItem
+Scanner.App.AdapterLocation, WMS;crc649b1ee189de92b663.AdapterLocation
+Scanner.App.AdapterLocation;crc649b1ee189de92b663.AdapterLocation
+scanner.app.AdapterLocation;crc649b1ee189de92b663.AdapterLocation
 Scanner.App.CheckStockAddonAdapter, WMS;crc649b1ee189de92b663.CheckStockAddonAdapter
 Scanner.App.CheckStockAddonAdapter;crc649b1ee189de92b663.CheckStockAddonAdapter
 scanner.app.CheckStockAddonAdapter;crc649b1ee189de92b663.CheckStockAddonAdapter

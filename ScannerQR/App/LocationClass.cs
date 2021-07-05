@@ -11,7 +11,11 @@ using System.Text;
 
 namespace Scanner.App
 {
-    class LocationClass
+    public class LocationClass
     {
+        public string ident { get; set; }
+        public string quantity { get; set; }
+
+        public string  location { get; set; }
     }
 }

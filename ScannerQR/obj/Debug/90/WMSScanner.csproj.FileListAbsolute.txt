@@ -617,3 +617,5 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\stamp\_ConvertResources
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res\layout\viewlocation.xml
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\crc649b1ee189de92b663\AdapterLocation.java

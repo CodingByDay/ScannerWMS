@@ -5303,22 +5303,25 @@ namespace Scanner
 			public const int update = 2131427505;
 			
 			// aapt resource value: 0x7F0B00B2
-			public const int WaitForm = 2131427506;
+			public const int ViewLocation = 2131427506;
 			
 			// aapt resource value: 0x7F0B00B3
-			public const int WrappingPallet = 2131427507;
+			public const int WaitForm = 2131427507;
 			
 			// aapt resource value: 0x7F0B00B4
-			public const int WrappingPalletTablet = 2131427508;
+			public const int WrappingPallet = 2131427508;
 			
 			// aapt resource value: 0x7F0B00B5
-			public const int YesNoGeneric = 2131427509;
+			public const int WrappingPalletTablet = 2131427509;
 			
 			// aapt resource value: 0x7F0B00B6
-			public const int YesNoPopUp = 2131427510;
+			public const int YesNoGeneric = 2131427510;
 			
 			// aapt resource value: 0x7F0B00B7
-			public const int YesNoProductionCard = 2131427511;
+			public const int YesNoPopUp = 2131427511;
+			
+			// aapt resource value: 0x7F0B00B8
+			public const int YesNoProductionCard = 2131427512;
 			
 			static Layout()
 			{

@@ -55,6 +55,7 @@ namespace Scanner
         private string ident;
         private ImageView warehousePNG;
         private List<TakeOverSerialOrSSCCEntryList> data = new List<TakeOverSerialOrSSCCEntryList>();
+        private List<LocationClass> items = new List<LocationClass>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -71,7 +72,7 @@ namespace Scanner
             listData = FindViewById<ListView>(Resource.Id.listData);
             warehousePNG = FindViewById<ImageView>(Resource.Id.warehousePNG);
             // Buttons.
-            TakeOverSerialOrSSCCEntryAdapter adapter = new TakeOverSerialOrSSCCEntryAdapter(this, data);
+            AdapterLocation adapter = new AdapterLocation(this, items);
             listData.Adapter = adapter;
            
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
@@ -93,6 +94,11 @@ namespace Scanner
             button6.Click += Button6_Click;
             button7.Click += Button7_Click;
             button5.Click += Button5_Click;
+
+
+
+            /// Consider changing this to something else.
+
             if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
             {
                 showPicture();
@@ -231,7 +237,45 @@ namespace Scanner
             FillRelatedData();
             tbSerialNum.RequestFocus();
 
+
+
+
+            FillTheIdentLocationList();
         }
+
+
+        // moveHead.GetString("Wharehouse")
+
+
+
+        private void FillTheIdentLocationList()
+        {
+
+
+            var ident = openIdent.GetString("Code");
+           var wh = moveHead.GetString("Wharehouse");
+           var list =  GetIdentLocationList.fillItemsOfList(wh, ident);
+        
+           var debug = true;
+           Fill(list);
+        }
+
+        private void Fill(System.Collections.ArrayList list)
+        {
+            foreach(LocationClass obj in list)
+            {
+                items.Add(obj);
+            }
+
+            listData.Adapter = null;
+
+
+
+            AdapterLocation adapter = new AdapterLocation(this, items);
+            listData.Adapter = adapter;
+            ///
+        }
+
         private async Task FinishMethod()
         {
             await Task.Run(() =>

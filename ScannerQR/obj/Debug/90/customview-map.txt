@@ -380,6 +380,7 @@ LinearLayout;obj\Debug\90\res\layout\unfinishedtakeover.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 LinearLayout;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\update.xml
+LinearLayout;obj\Debug\90\res\layout\viewlocation.xml
 LinearLayout;obj\Debug\90\res\layout\waitform.xml
 LinearLayout;obj\Debug\90\res\layout\wrappingpallet.xml
 LinearLayout;obj\Debug\90\res\layout\wrappingpallettablet.xml
@@ -620,6 +621,7 @@ TextView;obj\Debug\90\res\layout\unfinishedtakeover.xml
 TextView;obj\Debug\90\res\layout\unfinishedtakeoversview.xml
 TextView;obj\Debug\90\res\layout\unfinishedtakeoversviewtablet.xml
 TextView;obj\Debug\90\res\layout\update.xml
+TextView;obj\Debug\90\res\layout\viewlocation.xml
 TextView;obj\Debug\90\res\layout\waitform.xml
 TextView;obj\Debug\90\res\layout\wrappingpallet.xml
 TextView;obj\Debug\90\res\layout\wrappingpallettablet.xml

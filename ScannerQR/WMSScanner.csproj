@@ -115,12 +115,14 @@
   <ItemGroup>
     <Compile Include="App\adapter.cs" />
     <Compile Include="App\adapterListViewItem.cs" />
+    <Compile Include="App\AdapterLocation.cs" />
     <Compile Include="App\Barcode2D.cs" />
     <Compile Include="App\CheckStockAddonAdapter.cs" />
     <Compile Include="App\CheckStockAddonList.cs" />
     <Compile Include="App\ComboBoxItem.cs" />
     <Compile Include="App\DateTimeFragment.cs" />
     <Compile Include="App\Echo.cs" />
+    <Compile Include="App\GetIdentLocationList.cs" />
     <Compile Include="App\HelperMethods.cs" />
     <Compile Include="App\IBarcodeResult.cs" />
     <Compile Include="App\InfinishedProductionListView.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="App\InUseObjects.cs" />
     <Compile Include="App\IssuedEnterAdapter.cs" />
     <Compile Include="App\IssuedEnteredPositionViewList.cs" />
+    <Compile Include="App\LocationClass.cs" />
     <Compile Include="App\PackagingList.cs" />
     <Compile Include="App\packagingListAdapter.cs" />
     <Compile Include="App\ProductionEnteredPositionList.cs" />
@@ -1006,6 +1009,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\WaitForm.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ViewLocation.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

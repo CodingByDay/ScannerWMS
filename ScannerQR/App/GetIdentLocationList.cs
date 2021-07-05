@@ -24,7 +24,7 @@ namespace Scanner.App
         /// <param name="ident"></param>
         /// <returns></returns>
 
-        private static ArrayList fillItemsOfList(string warehouse, string ident)
+        public static ArrayList fillItemsOfList(string warehouse, string ident)
         {
             ArrayList result = new ArrayList();
             string error;
@@ -32,11 +32,11 @@ namespace Scanner.App
             //return string.Join("\r\n", stock.Items.Select(x => "L:" + x.GetString("Location") + " = " + x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())).ToArray());
             stock.Items.ForEach(x =>
             {
-                result.Add(new CheckStockAddonList
+                result.Add(new LocationClass
                 {
-                    Ident = x.GetString("Ident"),
-                    Location = x.GetString("Location"),
-                    Quantity = x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())
+                    ident = x.GetString("Ident"),
+                    location = x.GetString("Location"),
+                    quantity = x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())
                 });
             });
 
