@@ -44,14 +44,12 @@
         android:paddingTop="5px">
 
         <TextView
-          
             android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Ident"
             android:layout_marginRight="28.0dp"
             android:id="@+id/ident"
             android:layout_width="match_parent" />
@@ -63,7 +61,6 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Serijska številka"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/name" />
@@ -75,7 +72,6 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Lokacija"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
@@ -86,7 +82,6 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Količina"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/position" />
@@ -97,11 +92,9 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
-       
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Zasedenost(%)"
             android:layout_marginRight="28.0dp"
             android:id="@+id/serial" />
 
@@ -232,15 +225,15 @@
         android:paddingTop="5px"
                                      >
 
-        <TextView
-            android:textStyle="bold"
-            android:textSize="16px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Izd. lokacija"
-            android:paddingTop="5px"
-            android:paddingLeft="10px"
-            android:layout_marginRight="35.0dp" />
+            <TextView
+                android:textStyle="bold"
+                android:textSize="16px"
+                android:layout_width="101.0dp"
+                android:layout_height="wrap_content"
+                android:text="Izd. lokacija"
+                android:paddingTop="5px"
+                android:paddingLeft="10px"
+                android:layout_marginRight="35.0dp" />
 
         <EditText
             android:textStyle="bold"
@@ -291,16 +284,17 @@
         android:orientation="horizontal"
         android:paddingTop="5px">
 
-        <TextView
-            android:textStyle="bold"
-            android:textSize="16px"
-            android:layout_width="59.5dp"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:text="Količina"
-            android:layout_marginRight="52.5dp"
-            android:id="@+id/lbQty" />
+            <TextView
+                android:singleLine="true"
+                android:textStyle="bold"
+                android:textSize="16px"
+                android:layout_width="80.0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10px"
+                android:paddingTop="5px"
+                android:text="Količina"
+                android:layout_marginRight="52.5dp"
+                android:id="@+id/lbQty" />
 
         <EditText
             android:textStyle="bold"
@@ -327,15 +321,15 @@
         android:orientation="horizontal"
         android:paddingTop="5px">
 
-        <TextView
-            android:textStyle="bold"
-            android:textSize="16px"
-            android:layout_width="111.0dp"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:text="Št. enot"
-            android:id="@+id/lbUnits" />
+            <TextView
+                android:textStyle="bold"
+                android:textSize="16px"
+                android:layout_width="129.0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10px"
+                android:paddingTop="5px"
+                android:text="Št. enot"
+                android:id="@+id/lbUnits" />
 
         <EditText
             android:textStyle="bold"

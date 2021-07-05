@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using Android.App;
 using Android.Content;
@@ -12,6 +13,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -52,6 +54,8 @@ namespace Scanner
         SoundPool soundPool;
         int soundPoolId;
         private ImageView imagePNG;
+        private ProgressDialogClass progress;
+
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -86,6 +90,7 @@ namespace Scanner
             button5.Click += Button5_Click;
             button6.Click += Button6_Click;
             button7.Click += Button7_Click;
+            tbSSCC.KeyPress += TbSSCC_KeyPress;
             tbPacking.FocusChange += TbPacking_FocusChange;
             if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
             {
@@ -139,6 +144,110 @@ namespace Scanner
             LoadRelatedOrder();
             SetUpForm();
         }
+        private async Task FinishMethod()
+        {
+            await Task.Run(() =>
+            {
+                if (SaveMoveItem())
+                {
+                    RunOnUiThread(() =>
+                    {
+                        progress = new ProgressDialogClass();
+
+                        progress.ShowDialogSync(this, "Zaključujem");
+                    });
+
+                    try
+                    {
+
+                        var headID = moveHead.GetInt("HeadID");
+
+                        string result;
+
+                        if (WebApp.Get("mode=finish&stock=remove&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+                        {
+                            if (result.StartsWith("OK!"))
+                            {
+                                RunOnUiThread(() =>
+                                {
+                                    progress.StopDialogSync();
+
+                                    var id = result.Split('+')[1];
+
+                                    Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
+                                    InvalidateAndClose();
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                    alert.SetTitle("Zaključevanje uspešno");
+                                    alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+                                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                    {
+                                        alert.Dispose();
+                                        System.Threading.Thread.Sleep(500);
+                                        StartActivity(typeof(MainMenu));
+                                    });
+
+
+
+                                    Dialog dialog = alert.Create();
+                                    dialog.Show();
+                                });
+
+                            }
+                            else
+                            {
+                                RunOnUiThread(() =>
+                                {
+                                    progress.StopDialogSync();
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                    alert.SetTitle("Napaka");
+                                    alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                    {
+                                        alert.Dispose();
+                                        System.Threading.Thread.Sleep(500);
+                                        StartActivity(typeof(MainMenu));
+
+                                    });
+
+
+
+                                    Dialog dialog = alert.Create();
+                                    dialog.Show();
+                                });
+                            }
+                        }
+                        else
+                        {
+                            Toast.MakeText(this, "Napaka pri klicu do web aplikacije" + result, ToastLength.Long).Show();
+
+                        }
+                    }
+                    finally
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            progress.StopDialogSync();
+
+                        });
+                    }
+                }
+            });
+        }
+        private void TbSSCC_KeyPress(object sender, View.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keycode.Enter)
+            {
+                //add your logic here 
+                FillRelatedData(tbSSCC.Text);
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
 
         private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
@@ -175,7 +284,31 @@ namespace Scanner
             }
         }
 
+        private void FillRelatedData(string text)
+        {
+            string error;
 
+            var data = Services.GetObject("sscc", tbSSCC.Text, out error);
+            if (data != null)
+            {
+                if (tbSerialNum.Enabled == true)
+                {
+                    var serial = data.GetString("SerialNo");
+                    tbSerialNum.Text = serial;
+                    var location = data.GetString("Location");
+                    tbLocation.Text = location;
+                    tbPacking.RequestFocus();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
         private void showPicture()
         {
             Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
@@ -238,56 +371,58 @@ namespace Scanner
 
         }
 
-        private void Button6_Click(object sender, EventArgs e)
+        private async void Button6_Click(object sender, EventArgs e)
         {
-            if (SaveMoveItem())
-            {
+            await FinishMethod();
 
-                try
-                {
+            //if (SaveMoveItem())
+            //{
 
-                    var headID = moveHead.GetInt("HeadID");
+            //    try
+            //    {
 
-                    string result;
-                    if (WebApp.Get("mode=finish&stock=remove&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-                    {
-                        if (result.StartsWith("OK!"))
-                        {
-                            var id = result.Split('+')[1];
+            //        var headID = moveHead.GetInt("HeadID");
 
-                            Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
-                            InvalidateAndClose();
-                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                            alert.SetTitle("Zaključevanje uspešno");
-                            alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+            //        string result;
+            //        if (WebApp.Get("mode=finish&stock=remove&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+            //        {
+            //            if (result.StartsWith("OK!"))
+            //            {
+            //                var id = result.Split('+')[1];
 
-                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
-                            {
-                                alert.Dispose();
-                            });
+            //                Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
+            //                InvalidateAndClose();
+            //                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            //                alert.SetTitle("Zaključevanje uspešno");
+            //                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+            //                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+            //                {
+            //                    alert.Dispose();
+            //                });
 
 
 
-                            Dialog dialog = alert.Create();
-                            dialog.Show();
-                        }
-                        else
-                        {
+            //                Dialog dialog = alert.Create();
+            //                dialog.Show();
+            //            }
+            //            else
+            //            {
 
-                            Toast.MakeText(this, "Napaka pri zaklučevanju" + result, ToastLength.Long).Show();
-                        }
-                    }
-                    else
-                    {
-                        Toast.MakeText(this, "Napaka pri klicu do web aplikacije" + result, ToastLength.Long).Show();
+            //                Toast.MakeText(this, "Napaka pri zaklučevanju" + result, ToastLength.Long).Show();
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Toast.MakeText(this, "Napaka pri klicu do web aplikacije" + result, ToastLength.Long).Show();
 
-                    }
-                }
-                finally
-                {
+            //        }
+            //    }
+            //    finally
+            //    {
 
-                }
-            }
+            //    }
+            //}
         }
 
         private void Button4_Click(object sender, EventArgs e)
@@ -698,19 +833,37 @@ namespace Scanner
 
             if (tbSSCC.HasFocus)
             {
-                Sound();
-                tbSSCC.Text = barcode;
+                if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbSSCC.Text = barcode;
+
+                    FillRelatedData(tbSerialNum.Text);
+
+                    tbSerialNum.RequestFocus();
+
+
+
+
+                }
             }
             else if (tbSerialNum.HasFocus)
             {
-                Sound();
-                tbSerialNum.Text = barcode;
+                if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbSerialNum.Text = barcode;
+                    tbLocation.RequestFocus();
+                }
             }
             else if (tbLocation.HasFocus)
             {
-                Sound();
-                tbLocation.Text = barcode;
-                ProcessQty();
+                if (barcode != "Scan fail")
+                {
+                    Sound();
+                    tbLocation.Text = barcode;
+                    tbPacking.RequestFocus();
+                }
             }
         }
 

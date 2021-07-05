@@ -23,7 +23,7 @@ namespace Scanner
     {
         private int displayedPosition;
         private bool preventingDups = false;
-        private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead"); //
+        private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead"); // Revision 5.07.2021
         private NameValueObject openIdent = null;
         private NameValueObjectList openOrders = null;
         private int displayedOrder = -1;
@@ -46,7 +46,7 @@ namespace Scanner
         int soundPoolId;
         public NameValueObject order;
         public string openQty;
-        private int selectedItem=-1;
+        private int selectedItem= -1;
         public int selected;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -70,7 +70,6 @@ namespace Scanner
             TakeOverIdentAdapter adapter = new TakeOverIdentAdapter(this, data);
             listData.Adapter = adapter;
             color();
-
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
@@ -94,8 +93,12 @@ namespace Scanner
             selectedItem = selected;
         }
 
+     
+
+
         private void Select(int postionOfTheItemInTheList)
         {
+
             displayedOrder = postionOfTheItemInTheList;
             var debug = true;
             FillDisplayedOrderInfoSelect();
@@ -152,7 +155,21 @@ namespace Scanner
 
         private void BtNext_Click(object sender, EventArgs e)
         {
-           
+            selected++;
+
+            if (selected <= (openOrders.Items.Count - 1))
+            {
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selected;
+                listData.SetItemChecked(selected, true);
+            }
+            else
+            {
+                selected = 0;
+                listData.RequestFocusFromTouch();
+                listData.SetSelection(selected);
+                listData.SetItemChecked(selected, true);
+            }
             displayedOrder++;
             if (displayedOrder >= openOrders.Items.Count) { displayedOrder = 0; }
             FillDisplayedOrderInfo();
@@ -302,8 +319,8 @@ namespace Scanner
                             Ident = tbIdent.Text,
                             Name = x.GetString("Name").Trim().Substring(0, 10),
                             Open = x.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture()),
-                            Ordered = x.GetDouble("FullQty").ToString(),
-                            Received = (x.GetDouble("FullQty") - x.GetDouble("OpenQty")).ToString()
+                            Ordered = x.GetDouble("FullQty").ToString(CommonData.GetQtyPicture()),
+                            Received = (x.GetDouble("FullQty") - x.GetDouble("OpenQty")).ToString(CommonData.GetQtyPicture())
                         }); ;
                     });
                     preventingDups = true;
@@ -352,11 +369,6 @@ namespace Scanner
                 tbDeliveryDeadline.Text = deadLine == null ? "" : ((DateTime)deadLine).ToString("dd.MM.yyyy");
                 string error;
                 var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + tbIdent.Text);
-
-
-
-
-             
                 btNext.Enabled = true;
                 btConfirm.Enabled = true;
             }
@@ -368,7 +380,6 @@ namespace Scanner
                 tbConsignee.Text = "";
                 tbQty.Text = "";
                 tbDeliveryDeadline.Text = "";
-
                 btNext.Enabled = false;
                 btConfirm.Enabled = false;
             }
@@ -384,16 +395,10 @@ namespace Scanner
                 tbOrder.Text = order.GetString("Key");
                 tbConsignee.Text = order.GetString("Consignee");
                 tbQty.Text = order.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture());
-
                 var deadLine = order.GetDateTime("DeliveryDeadline");
                 tbDeliveryDeadline.Text = deadLine == null ? "" : ((DateTime)deadLine).ToString("dd.MM.yyyy");
                 string error;
                 var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + tbIdent.Text);
-
-
-
-
-
                 btNext.Enabled = true;
                 btConfirm.Enabled = true;
             }
@@ -405,7 +410,6 @@ namespace Scanner
                 tbConsignee.Text = "";
                 tbQty.Text = "";
                 tbDeliveryDeadline.Text = "";
-
                 btNext.Enabled = false;
                 btConfirm.Enabled = false;
             }
@@ -419,7 +423,6 @@ namespace Scanner
                 if (resultCode == Result.Ok)
                 {
                     Toast.MakeText(this, data.Data.ToString(), ToastLength.Long).Show();
-
                     barcode = data.Data.ToString();
                     tbIdent.Text = barcode; // change this later...
                 }
@@ -437,7 +440,6 @@ namespace Scanner
                 Sound();
                 tbIdent.Text = barcode;
                 ProcessIdent();
-
             }
         }
 
@@ -480,7 +482,6 @@ namespace Scanner
                     if (button4.Enabled == true)
                     {
                         Button4_Click(this, null);
-
                     }
                     break;
 
@@ -490,9 +491,6 @@ namespace Scanner
                         Button5_Click(this, null);
                     }
                     break;
-
-
-
 
             }
             return base.OnKeyDown(keyCode, e);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -49,6 +49,7 @@ namespace Scanner
         private int selected;
         private int selectedItem;
         private int postionOfTheItemInTheList;
+        private ProgressDialogClass progress;
 
         /////////////////////
         protected override void OnCreate(Bundle savedInstanceState)
@@ -296,44 +297,138 @@ namespace Scanner
                 //
             }
         }
-
-        private void BtFinish_Click(object sender, EventArgs e)
+        private async Task FinishMethod()
         {
-            var headID = moveHead.GetInt("HeadID");
-            SelectSubjectBeforeFinish.ShowIfNeeded(headID);
-
-
-            try
+            await Task.Run(() =>
             {
+                var headID = moveHead.GetInt("HeadID");
+                SelectSubjectBeforeFinish.ShowIfNeeded(headID);
 
-                string result;
-                if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+                RunOnUiThread(() =>
                 {
-                    if (result.StartsWith("OK!"))
-                    {
-                        var id = result.Split('+')[1];
-                        string errorWebApp = string.Format("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
-                        Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                    progress = new ProgressDialogClass();
 
+                    progress.ShowDialogSync(this, "Zaključujem");
+                });
+
+
+                try
+                {
+
+                    string result;
+                    if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+                    {
+                        if (result.StartsWith("OK!"))
+                        {
+
+                            RunOnUiThread(() =>
+                            {
+                                progress.StopDialogSync();
+                                var id = result.Split('+')[1];
+
+
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Uspešno zaključevanje");
+                                alert.SetMessage("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenu));
+                                });
+
+
+
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+
+
+                        }
+                        else
+                        {
+
+                            RunOnUiThread(() =>
+                            {
+                                progress.StopDialogSync();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Napaka");
+                                alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenu));
+
+                                });
+
+
+
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+
+
+
+                        }
                     }
                     else
                     {
-                        string errorWebApp = string.Format("Napaka pri zaključevanju: " + result);
+                        string errorWebApp = string.Format("Napaka pri klicu web aplikacije: " + result);
                         Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
 
                     }
                 }
-                else
+                finally
                 {
-                    string errorWebApp = string.Format("Napaka pri klicu web aplikacije: " + result);
-                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
-
+                    RunOnUiThread(() =>
+                    {
+                        progress.StopDialogSync();
+                    });
                 }
-            }
-            finally
-            {
-                //
-            }
+
+            });
+        }
+        private async void BtFinish_Click(object sender, EventArgs e)
+        {
+            await FinishMethod();
+            //var headID = moveHead.GetInt("HeadID");
+            //SelectSubjectBeforeFinish.ShowIfNeeded(headID);
+
+
+            //try
+            //{
+
+            //    string result;
+            //    if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+            //    {
+            //        if (result.StartsWith("OK!"))
+            //        {
+            //            var id = result.Split('+')[1];
+            //            string errorWebApp = string.Format("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
+            //            Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+
+            //        }
+            //        else
+            //        {
+            //            string errorWebApp = string.Format("Napaka pri zaključevanju: " + result);
+            //            Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+
+            //        }
+            //    }
+            //    else
+            //    {
+            //        string errorWebApp = string.Format("Napaka pri klicu web aplikacije: " + result);
+            //        Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+
+            //    }
+            //}
+            //finally
+            //{
+            //    //
+            //}
 
         }
 
