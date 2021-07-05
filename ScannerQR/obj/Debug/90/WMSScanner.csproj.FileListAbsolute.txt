@@ -1,7 +1,6 @@
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\build.props
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\adb.props
-C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMSScanner.csproj.AssemblyReference.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res.flag
@@ -34,6 +33,7 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\bin\Debug\com.companyname.Scanner-Si
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\bin\Debug\DeviceAPI.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\bin\Debug\DeviceAPI.pdb
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\bin\Debug\DeviceAPI.dll.mdb
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMSScanner.csproj.AssemblyReference.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMSScanner.csproj.CopyComplete
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMS.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMS.pdb

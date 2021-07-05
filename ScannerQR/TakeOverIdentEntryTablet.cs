@@ -47,7 +47,7 @@ namespace Scanner
         public NameValueObject order;
         public string openQty;
         private int selectedItem= -1;
-        public int selected;
+        public int selected = -1;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -130,7 +130,7 @@ namespace Scanner
             }
             finally
             {
-                // 
+             
             }
         }
        
@@ -160,7 +160,7 @@ namespace Scanner
             if (selected <= (openOrders.Items.Count - 1))
             {
                 listData.RequestFocusFromTouch();
-                listData.SetSelection(selected;
+                listData.SetSelection(selected);
                 listData.SetItemChecked(selected, true);
             }
             else
