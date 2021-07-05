@@ -15,7 +15,6 @@
         android:id="@+id/test"
         android:layout_toRightOf="@id/app"
         android:layout_below="@id/text"
-        android:text="                                                                                                    Ta ekran nima dodatnih podatkov."
         />
 
 

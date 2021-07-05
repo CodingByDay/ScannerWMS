@@ -39,7 +39,8 @@
 
         android:layout_toRightOf="@id/app"
       
-        android:weightSum="5"
+       
+        android:weightSum="3"
         android:id="@+id/text"
         android:paddingTop="5px">
 
@@ -52,9 +53,11 @@
             android:paddingTop="5px"
             android:layout_marginRight="28.0dp"
             android:id="@+id/ident"
-            android:layout_width="match_parent" />
+            android:layout_width="match_parent"
+            android:text="Ident" />
 
         <TextView
+            android:text="Količina" 
             android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
@@ -66,6 +69,7 @@
             android:id="@+id/name" />
 
         <TextView
+            android:text="Lokacija"            
             android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
@@ -75,29 +79,7 @@
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
-        <TextView
-            android:textSize="16px"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:layout_width="match_parent"
-            android:layout_marginRight="28.0dp"
-            android:id="@+id/position" />
-
-
-        <TextView
-            android:textSize="16px"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:textStyle="bold"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:layout_marginRight="28.0dp"
-            android:id="@+id/serial" />
-
+       
 
 
      

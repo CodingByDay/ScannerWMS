@@ -401,7 +401,6 @@
         android:id="@+id/test"
         android:layout_toRightOf="@id/app"
         android:layout_below="@id/text"
-        android:text="                               *Pritiskom na gumb se bo otprlo okno na katerem lahko vidite otprte prevzeme."
         />
 
 
