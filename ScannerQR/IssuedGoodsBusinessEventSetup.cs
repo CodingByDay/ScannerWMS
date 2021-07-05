@@ -10,14 +10,16 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Java.Lang;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
+using static Com.Toptoche.Searchablespinnerlibrary.SearchableListDialog;
 
 namespace Scanner
 {
     [Activity(Label = "IssuedGoodsBusinessEventSetup", ScreenOrientation = ScreenOrientation.Portrait)]
-    public class IssuedGoodsBusinessEventSetup : Activity
+    public class IssuedGoodsBusinessEventSetup : Activity, IOnSearchTextChanged
     {
         private int initial = 0;
         private SearchableSpinner cbDocType;
@@ -40,6 +42,8 @@ namespace Scanner
         private Button btnLogout;
 
         private NameValueObjectList positions = null;
+        private IOnSearchTextChanged onSearchTextChanged;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -91,8 +95,13 @@ namespace Scanner
             cbWarehouse.SetTitle("Iskanje");
             cbWarehouse.SetPositiveButton("Zapri");
 
+            cbExtra.SetOnSearchTextChangedListener(this); 
+
 
         }
+
+     
+
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -132,38 +141,44 @@ namespace Scanner
             {
                 string toast = string.Format("Pridobivam seznam odprtih naročila");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-
+                
                 try
                 {
                     objectExtra.Clear();
                     var dt = objectDocType.ElementAt(temporaryPositionDoc);
+
                     if (dt != null)
                     {
                         var wh = objectWarehouse.ElementAt(temporaryPositionWarehouse);
                         if (wh != null && !string.IsNullOrEmpty(wh.ID))
                         {
+
                             string error;
+
                             positions = Services.GetObjectList("oodtw", out error, dt.ID + "|" + wh.ID + "|" + byClient);
+
                             if (positions == null)
                             {
                                 string toasted = string.Format("Napaka pri pridobivanju odprtih naročil: " + error);
                                 Toast.MakeText(this, toasted, ToastLength.Long).Show();
-
                                 return;
                             }
-
+                            
                             positions.Items.ForEach(p =>
                             {
                                 if (!string.IsNullOrEmpty(p.GetString("Key")))
                                 {
+
                                     objectExtra.Add(new ComboBoxItem { ID = p.GetString("Key"), Text = p.GetString("ShortKey") + " " + p.GetString("FillPercStr") + " " + p.GetString("Receiver") });
+
                                 }
                             });
                             var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
                             Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
                             adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
+                            cbExtra.Adapter = null;
                             cbExtra.Adapter = adapterExtra;
-
+                            
                             cbExtra.RequestFocus();
                         }
                     }
@@ -223,6 +238,7 @@ namespace Scanner
         }
 
         private void CbDocType_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+
         {
             Spinner spinner = (Spinner)sender;
 
@@ -274,7 +290,7 @@ namespace Scanner
                     lbExtra.Visibility = ViewStates.Invisible;
                     cbExtra.Visibility = ViewStates.Invisible;
                 }
-                if (initial>0)
+                if (initial > 0)
                 {
                     FillOpenOrders();
 
@@ -394,6 +410,20 @@ namespace Scanner
                         }
                     }
                 }
+            }
+        }
+
+        public void OnSearchTextChanged(string p0)
+        {
+            byClient = p0;
+
+            if (byClient.Length >= 3)
+            {
+                FillOpenOrders();
+
+            } else
+            {
+
             }
         }
     }

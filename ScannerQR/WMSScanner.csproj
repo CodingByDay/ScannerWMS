@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\adapter.cs" />
+    <Compile Include="App\AdapterIssued.cs" />
     <Compile Include="App\adapterListViewItem.cs" />
     <Compile Include="App\AdapterLocation.cs" />
     <Compile Include="App\Barcode2D.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="App\InterwarehouseSerialOrSCCCEntryAdapter.cs" />
     <Compile Include="App\InterWarehouseSerialOrSSCCList.cs" />
     <Compile Include="App\InUseObjects.cs" />
+    <Compile Include="App\IssuedClass.cs" />
     <Compile Include="App\IssuedEnterAdapter.cs" />
     <Compile Include="App\IssuedEnteredPositionViewList.cs" />
     <Compile Include="App\LocationClass.cs" />
@@ -1014,6 +1016,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\ViewLocation.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\IssuedView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

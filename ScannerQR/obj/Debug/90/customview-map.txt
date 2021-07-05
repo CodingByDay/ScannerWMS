@@ -299,6 +299,7 @@ LinearLayout;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 LinearLayout;obj\Debug\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 LinearLayout;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
 LinearLayout;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
+LinearLayout;obj\Debug\90\res\layout\issuedview.xml
 LinearLayout;obj\Debug\90\res\layout\listviewitem.xml
 LinearLayout;obj\Debug\90\res\layout\listviewtrail.xml
 LinearLayout;obj\Debug\90\res\layout\mainmenu.xml
@@ -544,6 +545,7 @@ TextView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
 TextView;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
+TextView;obj\Debug\90\res\layout\issuedview.xml
 TextView;obj\Debug\90\res\layout\listviewitem.xml
 TextView;obj\Debug\90\res\layout\listviewtrail.xml
 TextView;obj\Debug\90\res\layout\mainmenu1.xml

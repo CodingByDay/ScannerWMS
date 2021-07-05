@@ -45,6 +45,7 @@ namespace Scanner
         private string tempUnit;
         private int selected;
         private int selectedItem=-1;
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

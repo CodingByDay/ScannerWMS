@@ -34,6 +34,7 @@ namespace Scanner
         private EditText tbPalette;
         private Button button1;
         private Button btSaveOrUpdate;
+        private ListView listData;
         private Button button4;
         private Button button6;
         private Button button5;
@@ -55,6 +56,7 @@ namespace Scanner
         int soundPoolId;
         private ImageView imagePNG;
         private ProgressDialogClass progress;
+        private List<IssuedClass> items = new List<IssuedClass>();
 
 
 
@@ -65,6 +67,7 @@ namespace Scanner
             SetContentView(Resource.Layout.IssuedGoodsSerialOrSSCCEntryTablet);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
+            listData = FindViewById<ListView>(Resource.Id.listData);
             tbSerialNum = FindViewById<EditText>(Resource.Id.tbSerialNum);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
@@ -92,6 +95,14 @@ namespace Scanner
             button7.Click += Button7_Click;
             tbSSCC.KeyPress += TbSSCC_KeyPress;
             tbPacking.FocusChange += TbPacking_FocusChange;
+
+
+
+            AdapterIssued adapter = new AdapterIssued(this, items);
+            listData.Adapter = adapter;
+            
+
+
             if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
             {
                 showPicture();
@@ -143,6 +154,7 @@ namespace Scanner
 
             LoadRelatedOrder();
             SetUpForm();
+            FillTheIdentLocationList();
         }
         private async Task FinishMethod()
         {
@@ -257,6 +269,35 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+        }
+
+
+
+
+        private void FillTheIdentLocationList()
+        {
+            var code = openIdent.GetString("Code");
+
+            var wh = moveHead.GetString("Receiver");
+            var list = GetIdentLocationList.fillItemsOfList(wh, code);
+            var debug = true;
+            Fill(list);
+        }
+
+
+
+        private void Fill(System.Collections.ArrayList list)
+        {
+            foreach (IssuedClass obj in list)
+            {
+                items.Add(obj);
+                var item = 32;
+            }
+
+            listData.Adapter = null;
+            AdapterIssued adapter = new AdapterIssued(this, items);
+            listData.Adapter = adapter;
+            ///
         }
 
         private void fillSugestedLocation(string warehouse)
@@ -457,7 +498,7 @@ namespace Scanner
                     StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
                 }
 
-                // Here was the bug. You must not stack ident driven activities.
+               
 
                 Finish();
 

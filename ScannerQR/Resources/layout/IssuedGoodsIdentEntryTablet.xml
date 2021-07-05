@@ -35,7 +35,7 @@
 
         android:layout_toRightOf="@id/app"
     
-        android:weightSum="6"
+        android:weightSum="5"
         android:id="@+id/text"
         android:paddingTop="5px">
 
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Količina"
+            android:text="Naročeno"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Pozicija"
+            android:text="Odpremljeno"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/position" />
@@ -96,23 +96,13 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Serijska"
+            android:text="Odprto"
             android:layout_marginRight="28.0dp"
             android:id="@+id/serial" />
 
 
 
-        <TextView
-            android:textSize="16px"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:text="SSCC"
-            android:layout_marginRight="28.0dp"
-            android:id="@+id/sscc" />
+ 
 
     </LinearLayout>
     <LinearLayout
