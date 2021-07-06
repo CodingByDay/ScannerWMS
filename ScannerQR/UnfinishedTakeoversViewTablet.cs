@@ -65,7 +65,7 @@ namespace Scanner
             dataList = FindViewById<ListView>(Resource.Id.dataList);
             UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
             dataList.Adapter = adapter;
-
+            dataList.LongClick += DataList_LongClick;
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
@@ -88,7 +88,10 @@ namespace Scanner
             
         }
 
-     
+        private void DataList_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            BtDelete_Click(this, null);
+        }
 
         private void DataList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {

@@ -243,7 +243,6 @@ external-path;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\47\j
 foreground;obj\Release\90\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Release\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 HorizontalScrollView;obj\Release\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
-HorizontalScrollView;obj\Release\90\res\layout\productionpalettetablet.xml
 ImageView;obj\Release\90\res\layout\activity_main.xml
 ImageView;obj\Release\90\res\layout\checkstocktablet.xml
 ImageView;obj\Release\90\res\layout\interwarehouseserialorssccentrytablet.xml
@@ -300,6 +299,7 @@ LinearLayout;obj\Release\90\res\layout\issuedgoodsidententrywithtrail.xml
 LinearLayout;obj\Release\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 LinearLayout;obj\Release\90\res\layout\issuedgoodsserialorssccentry.xml
 LinearLayout;obj\Release\90\res\layout\issuedgoodsserialorssccentrytablet.xml
+LinearLayout;obj\Release\90\res\layout\issuedview.xml
 LinearLayout;obj\Release\90\res\layout\listviewitem.xml
 LinearLayout;obj\Release\90\res\layout\listviewtrail.xml
 LinearLayout;obj\Release\90\res\layout\mainmenu.xml
@@ -381,6 +381,7 @@ LinearLayout;obj\Release\90\res\layout\unfinishedtakeover.xml
 LinearLayout;obj\Release\90\res\layout\unfinishedtakeoversview.xml
 LinearLayout;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
 LinearLayout;obj\Release\90\res\layout\update.xml
+LinearLayout;obj\Release\90\res\layout\viewlocation.xml
 LinearLayout;obj\Release\90\res\layout\waitform.xml
 LinearLayout;obj\Release\90\res\layout\wrappingpallet.xml
 LinearLayout;obj\Release\90\res\layout\wrappingpallettablet.xml
@@ -470,7 +471,6 @@ solid;obj\Release\90\res\drawable\nicelookingbutton.xml
 Spinner;obj\Release\90\res\layout\checkstock.xml
 Spinner;obj\Release\90\res\layout\checkstocktablet.xml
 Spinner;obj\Release\90\res\layout\interwarehousebusinesseventsetup.xml
-Spinner;obj\Release\90\res\layout\interwarehousebusinesseventsetuptablet.xml
 Spinner;obj\Release\90\res\layout\inventoryopen.xml
 Spinner;obj\Release\90\res\layout\inventoryopendocument.xml
 Spinner;obj\Release\90\res\layout\inventoryopendocumenttablet.xml
@@ -479,7 +479,6 @@ Spinner;obj\Release\90\res\layout\inventoryprint.xml
 Spinner;obj\Release\90\res\layout\inventoryprinttablet.xml
 Spinner;obj\Release\90\res\layout\inventoryprocess.xml
 Spinner;obj\Release\90\res\layout\inventoryprocesstablet.xml
-Spinner;obj\Release\90\res\layout\issuedgoodsbusinesseventsetuptablet.xml
 Spinner;obj\Release\90\res\layout\packagingsetcontext.xml
 Spinner;obj\Release\90\res\layout\packagingsetcontexttablet.xml
 Spinner;obj\Release\90\res\layout\printingreprintlabels.xml
@@ -546,6 +545,7 @@ TextView;obj\Release\90\res\layout\issuedgoodsidententrywithtrail.xml
 TextView;obj\Release\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 TextView;obj\Release\90\res\layout\issuedgoodsserialorssccentry.xml
 TextView;obj\Release\90\res\layout\issuedgoodsserialorssccentrytablet.xml
+TextView;obj\Release\90\res\layout\issuedview.xml
 TextView;obj\Release\90\res\layout\listviewitem.xml
 TextView;obj\Release\90\res\layout\listviewtrail.xml
 TextView;obj\Release\90\res\layout\mainmenu1.xml
@@ -623,6 +623,7 @@ TextView;obj\Release\90\res\layout\unfinishedtakeover.xml
 TextView;obj\Release\90\res\layout\unfinishedtakeoversview.xml
 TextView;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
 TextView;obj\Release\90\res\layout\update.xml
+TextView;obj\Release\90\res\layout\viewlocation.xml
 TextView;obj\Release\90\res\layout\waitform.xml
 TextView;obj\Release\90\res\layout\wrappingpallet.xml
 TextView;obj\Release\90\res\layout\wrappingpallettablet.xml

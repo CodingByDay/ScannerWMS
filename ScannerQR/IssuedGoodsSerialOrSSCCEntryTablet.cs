@@ -56,7 +56,7 @@ namespace Scanner
         int soundPoolId;
         private ImageView imagePNG;
         private ProgressDialogClass progress;
-        private List<IssuedClass> items = new List<IssuedClass>();
+        private List<LocationClass> items = new List<LocationClass>();
 
 
 
@@ -98,7 +98,7 @@ namespace Scanner
 
 
 
-            AdapterIssued adapter = new AdapterIssued(this, items);
+            AdapterLocation adapter = new AdapterLocation(this, items);
             listData.Adapter = adapter;
             
 
@@ -278,7 +278,8 @@ namespace Scanner
         {
             var code = openIdent.GetString("Code");
 
-            var wh = moveHead.GetString("Receiver");
+            var wh = moveHead.GetString("Wharehouse");
+            // Found the error here the receiver returns not the warehouse but the PETPAK receiver
             var list = GetIdentLocationList.fillItemsOfList(wh, code);
             var debug = true;
             Fill(list);
@@ -288,14 +289,17 @@ namespace Scanner
 
         private void Fill(System.Collections.ArrayList list)
         {
-            foreach (IssuedClass obj in list)
+            foreach (LocationClass obj in list)
             {
                 items.Add(obj);
                 var item = 32;
             }
 
             listData.Adapter = null;
-            AdapterIssued adapter = new AdapterIssued(this, items);
+
+
+
+            AdapterLocation adapter = new AdapterLocation(this, items);
             listData.Adapter = adapter;
             ///
         }

@@ -76,8 +76,14 @@ namespace Scanner
             listData.ItemClick += ListData_ItemClick;
             InUseObjects.Clear();
             LoadPositions();
+            listData.LongClick += ListData_LongClick;
             FillItemsList();
           
+        }
+
+        private void ListData_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            BtDelete_Click(this, null);
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

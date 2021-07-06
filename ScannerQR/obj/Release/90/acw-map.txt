@@ -295,9 +295,15 @@ scanner.WrappingPalletTablet;crc64f0e155b6502ec419.WrappingPalletTablet
 Scanner.App.adapter, WMS;crc649b1ee189de92b663.adapter
 Scanner.App.adapter;crc649b1ee189de92b663.adapter
 scanner.app.adapter;crc649b1ee189de92b663.adapter
+Scanner.App.AdapterIssued, WMS;crc649b1ee189de92b663.AdapterIssued
+Scanner.App.AdapterIssued;crc649b1ee189de92b663.AdapterIssued
+scanner.app.AdapterIssued;crc649b1ee189de92b663.AdapterIssued
 Scanner.App.adapterListViewItem, WMS;crc649b1ee189de92b663.adapterListViewItem
 Scanner.App.adapterListViewItem;crc649b1ee189de92b663.adapterListViewItem
 scanner.app.adapterListViewItem;crc649b1ee189de92b663.adapterListViewItem
+Scanner.App.AdapterLocation, WMS;crc649b1ee189de92b663.AdapterLocation
+Scanner.App.AdapterLocation;crc649b1ee189de92b663.AdapterLocation
+scanner.app.AdapterLocation;crc649b1ee189de92b663.AdapterLocation
 Scanner.App.CheckStockAddonAdapter, WMS;crc649b1ee189de92b663.CheckStockAddonAdapter
 Scanner.App.CheckStockAddonAdapter;crc649b1ee189de92b663.CheckStockAddonAdapter
 scanner.app.CheckStockAddonAdapter;crc649b1ee189de92b663.CheckStockAddonAdapter

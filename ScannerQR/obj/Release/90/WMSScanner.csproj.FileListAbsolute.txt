@@ -820,6 +820,8 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\menupallet
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\shippingpallettablet.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\wrappingpallettablet.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\waitform.xml
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\viewlocation.xml
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\issuedview.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\uploadflags.txt
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\resolvedassemblies.hash
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\link.flag
@@ -908,7 +910,9 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc643506
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc648a7c9d6e188cbaff\DatePickerFragment.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc648a7c9d6e188cbaff\DialogAsync.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc649b1ee189de92b663\adapter.java
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc649b1ee189de92b663\AdapterIssued.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc649b1ee189de92b663\adapterListViewItem.java
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc649b1ee189de92b663\AdapterLocation.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc649b1ee189de92b663\CheckStockAddonAdapter.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc649b1ee189de92b663\InterWarehouseEnteredPositionViewAdapter.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\android\src\crc649b1ee189de92b663\InterwarehousSerialOrSCCCEntryAdapter.java

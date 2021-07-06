@@ -1,38 +1,38 @@
 	.section	.rodata.map_aname.0,"aMS",%progbits,1
 	.type	.L.map_aname.0, %object
 .L.map_aname.0:
-	.asciz	"Xamarin.Android.Arch.Lifecycle.ViewModel"
-	.size	.L.map_aname.0, 41
+	.asciz	"Mono.Android"
+	.size	.L.map_aname.0, 13
 
 	.section	.rodata.map_aname.1,"aMS",%progbits,1
 	.type	.L.map_aname.1, %object
 .L.map_aname.1:
-	.asciz	"Microsoft.AppCenter.Distribute.Android.Bindings"
-	.size	.L.map_aname.1, 48
+	.asciz	"Xamarin.Android.Arch.Lifecycle.ViewModel"
+	.size	.L.map_aname.1, 41
 
 	.section	.rodata.map_aname.2,"aMS",%progbits,1
 	.type	.L.map_aname.2, %object
 .L.map_aname.2:
-	.asciz	"Microsoft.AppCenter.Android.Bindings"
-	.size	.L.map_aname.2, 37
+	.asciz	"Microsoft.AppCenter.Distribute.Android.Bindings"
+	.size	.L.map_aname.2, 48
 
 	.section	.rodata.map_aname.3,"aMS",%progbits,1
 	.type	.L.map_aname.3, %object
 .L.map_aname.3:
-	.asciz	"Xamarin.Android.Arch.Lifecycle.LiveData.Core"
-	.size	.L.map_aname.3, 45
+	.asciz	"Microsoft.AppCenter.Android.Bindings"
+	.size	.L.map_aname.3, 37
 
 	.section	.rodata.map_aname.4,"aMS",%progbits,1
 	.type	.L.map_aname.4, %object
 .L.map_aname.4:
-	.asciz	"WMS"
-	.size	.L.map_aname.4, 4
+	.asciz	"Xamarin.Android.Arch.Lifecycle.LiveData.Core"
+	.size	.L.map_aname.4, 45
 
 	.section	.rodata.map_aname.5,"aMS",%progbits,1
 	.type	.L.map_aname.5, %object
 .L.map_aname.5:
-	.asciz	"Mono.Android"
-	.size	.L.map_aname.5, 13
+	.asciz	"WMS"
+	.size	.L.map_aname.5, 4
 
 	.section	.rodata.map_aname.6,"aMS",%progbits,1
 	.type	.L.map_aname.6, %object

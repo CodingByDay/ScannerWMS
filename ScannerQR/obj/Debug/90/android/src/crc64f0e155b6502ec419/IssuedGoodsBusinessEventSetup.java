@@ -5,7 +5,8 @@ public class IssuedGoodsBusinessEventSetup
 	extends android.app.Activity
 	implements
 		mono.android.IGCUserPeer,
-		com.toptoche.searchablespinnerlibrary.SearchableListDialog.OnSearchTextChanged
+		com.toptoche.searchablespinnerlibrary.SearchableListDialog.OnSearchTextChanged,
+		android.content.DialogInterface.OnClickListener
 {
 /** @hide */
 	public static final String __md_methods;
@@ -14,6 +15,7 @@ public class IssuedGoodsBusinessEventSetup
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
 			"n_onKeyDown:(ILandroid/view/KeyEvent;)Z:GetOnKeyDown_ILandroid_view_KeyEvent_Handler\n" +
 			"n_onSearchTextChanged:(Ljava/lang/String;)V:GetOnSearchTextChanged_Ljava_lang_String_Handler:Com.Toptoche.Searchablespinnerlibrary.SearchableListDialog/IOnSearchTextChangedInvoker, EDMTBinding\n" +
+			"n_onClick:(Landroid/content/DialogInterface;I)V:GetOnClick_Landroid_content_DialogInterface_IHandler:Android.Content.IDialogInterfaceOnClickListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"";
 		mono.android.Runtime.register ("Scanner.IssuedGoodsBusinessEventSetup, WMS", IssuedGoodsBusinessEventSetup.class, __md_methods);
 	}
@@ -49,6 +51,14 @@ public class IssuedGoodsBusinessEventSetup
 	}
 
 	private native void n_onSearchTextChanged (java.lang.String p0);
+
+
+	public void onClick (android.content.DialogInterface p0, int p1)
+	{
+		n_onClick (p0, p1);
+	}
+
+	private native void n_onClick (android.content.DialogInterface p0, int p1);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
