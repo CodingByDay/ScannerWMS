@@ -94,6 +94,9 @@ namespace Scanner
             BtDelete_Click(this, null);
 
             // Here is the place for the implementation of the solution of the delete problem.
+
+
+
         }
 
         private void DataList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
