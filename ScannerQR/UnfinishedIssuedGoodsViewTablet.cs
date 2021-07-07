@@ -118,7 +118,7 @@ namespace Scanner
 
         private void BtLogout_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
 
         }
 

@@ -212,7 +212,7 @@ namespace Scanner
             popupDialog.Hide();
         }
 
-        private async Task Finish()
+        private async Task FinishMethod()
         {
             await Task.Run(() =>
             {
@@ -307,7 +307,7 @@ namespace Scanner
         }
         private async void BtFinish_Click(object sender, EventArgs e)
         {
-            await Finish();
+            await FinishMethod();
             //var progress = new ProgressDialogClass();
 
             //progress.ShowDialogSync(this, "Zaključujem");

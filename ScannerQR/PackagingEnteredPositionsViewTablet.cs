@@ -66,6 +66,7 @@ namespace Scanner
             btClose = FindViewById<Button>(Resource.Id.btClose);
             listData = FindViewById<ListView>(Resource.Id.listData);
             UnfinishedPackagingAdapter adapter = new UnfinishedPackagingAdapter(this, data);
+            listData.ItemLongClick += ListData_ItemLongClick;
             listData.Adapter = adapter;
             listData.ItemClick += ListData_ItemClick;
             btNext.Click += BtNext_Click;
@@ -78,6 +79,11 @@ namespace Scanner
             FillItemsList();
         
             }
+
+        private void ListData_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            BtDelete_Click(this, null);
+        }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
@@ -126,7 +132,7 @@ namespace Scanner
 
         private void BtClose_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         private void BtCreate_Click(object sender, EventArgs e)

@@ -124,7 +124,7 @@ namespace Scanner
             cardInfo.SetDouble("UM1toUM2", ident.GetDouble("UM1toUM2"));
             cardInfo.SetDouble("UM1toUM3", ident.GetDouble("UM1toUM3"));
             InUseObjects.Set("CardInfo", cardInfo);
-            StartActivity(typeof(ProductionCard));
+            StartActivity(typeof(ProductionCardTablet));
         }
 
 

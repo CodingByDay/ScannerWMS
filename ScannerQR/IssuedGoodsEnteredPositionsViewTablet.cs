@@ -66,6 +66,7 @@ namespace Scanner
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
             listData = FindViewById<ListView>(Resource.Id.listData);
+            listData.ItemLongClick += ListData_ItemLongClick;
             IssuedEnterAdapter adapter = new IssuedEnterAdapter(this, data);
             listData.Adapter = adapter;
             btNext.Click += BtNext_Click;
@@ -85,6 +86,12 @@ namespace Scanner
             fillList();
 
         }
+
+        private void ListData_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            BtDelete_Click(this, null);
+        }
+
         private void Select(int postionOfTheItemInTheList)
         {
             displayedPosition = postionOfTheItemInTheList;

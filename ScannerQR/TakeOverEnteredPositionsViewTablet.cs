@@ -71,6 +71,7 @@ namespace Scanner
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             button5 = FindViewById<Button>(Resource.Id.button5);
+            dataList.ItemLongClick += DataList_ItemLongClick;
             TakeOverEnteredPositionsViewAdapter adapter = new TakeOverEnteredPositionsViewAdapter(this, data);
             dataList.Adapter = adapter;
             btNext.Click += BtNext_Click;
@@ -88,6 +89,13 @@ namespace Scanner
             fillList();
         }
 
+        private void DataList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            BtDelete_Click(this, null);
+
+            // Here is the place for the implementation of the solution of the delete problem.
+        }
+
         private void DataList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             selected = e.Position;
@@ -102,7 +110,7 @@ namespace Scanner
         }
         private void Button5_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         private void fillList()
@@ -611,8 +619,7 @@ namespace Scanner
 
 
 
-            var check = tbQty.Text;
-            var debug = true;
+          
         }
     }
 }

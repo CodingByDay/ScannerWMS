@@ -114,7 +114,8 @@ namespace Scanner
             PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
             // Hide those for now.
             PalletsMenu.Click += PalletsMenu_Click;
-          //  HideDisabled(buttons);
+            // HideDisabled(buttons);
+            HideDisabled(buttons);
         }
 
         private void HideDisabled(List<Button> buttons)
@@ -123,7 +124,8 @@ namespace Scanner
             {
                 if(btn.Enabled == false)
                 {
-                    btn.Visibility = ViewStates.Invisible;
+                    btn.SetBackgroundColor(Android.Graphics.Color.DarkGray);
+                    btn.SetTextColor(Android.Graphics.Color.White);
                 } else
                 {
                     continue;
@@ -133,6 +135,7 @@ namespace Scanner
 
         private void PalletsMenu_Click(object sender, EventArgs e)
         {
+     
             StartActivity(typeof(MenuPallets));
         }
 

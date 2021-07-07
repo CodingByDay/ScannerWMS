@@ -89,6 +89,7 @@
                                     >
 
         <TextView
+            
             android:textStyle="bold"
             android:layout_width="73.0dp"
             android:layout_height="wrap_content"

@@ -204,6 +204,7 @@
         <TextView
             android:textStyle="bold"
             android:textSize="16px"    
+            android:singleLine="true"               
             android:layout_width="73.0dp"
             android:layout_height="wrap_content"
             android:text="Naročnik"

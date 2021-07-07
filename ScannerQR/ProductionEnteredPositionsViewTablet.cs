@@ -81,6 +81,7 @@ namespace Scanner
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
             button5.Click += Button5_Click;
+            listData.ItemLongClick += ListData_ItemLongClick;
             listData.ItemClick += ListData_ItemClick;
             ProductionEnteredPositionViewAdapter adapter = new ProductionEnteredPositionViewAdapter(this, data);
             listData.Adapter = adapter;
@@ -90,6 +91,11 @@ namespace Scanner
 
             LoadPositions();
             fillList();
+        }
+
+        private void ListData_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            BtDelete_Click(this, null);
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

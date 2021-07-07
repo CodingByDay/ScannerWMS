@@ -24,6 +24,7 @@ namespace Scanner
         private Button rapidTakeover;
         private List<rapidTakeoverList> data = new List<rapidTakeoverList>();
         private Button PalletsMenu;
+        private List<Button> buttons = new List<Button>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -51,36 +52,43 @@ namespace Scanner
             result = settings.tablet;
 
 
-            rapidTakeover = FindViewById<Button>(Resource.Id.rapidTakeover);
-            rapidListview = FindViewById<ListView>(Resource.Id.rapidListview);
-            // First event...
             Button button = FindViewById<Button>(Resource.Id.goodsTakeOver);
             button.Click += Button_Click;
+            buttons.Add(button);
             // InterWarehouse redirect...
             Button buttonInterWarehouse = FindViewById<Button>(Resource.Id.goodsInterWarehouse);
             buttonInterWarehouse.Click += ButtonInterWarehouse_Click;
+            buttons.Add(buttonInterWarehouse);
+
             // Third view...
             Button buttonUnfinished = FindViewById<Button>(Resource.Id.goodsProduction);
             buttonUnfinished.Click += ButtonUnfinished_Click;
+            buttons.Add(buttonUnfinished);
             // UnfinishedIssuedGoodsView layout ---> button ---------> goodsIssued
             Button buttonIssued = FindViewById<Button>(Resource.Id.goodsIssued);
             buttonIssued.Click += ButtonIssued_Click;
+            buttons.Add(buttonIssued);
             // btnPrint-----------PrintingMenu();
             Button buttonPrint = FindViewById<Button>(Resource.Id.btnPrint);
             buttonPrint.Click += ButtonPrint_Click;
+            buttons.Add(buttonPrint);
             // btnInventory-------InventoryMenu();
             Button btnInventory = FindViewById<Button>(Resource.Id.btnInventory);
             btnInventory.Click += BtnInventory_Click;
+            buttons.Add(btnInventory);
             // btCheckStock-------CheckStock();
             Button btnCheckStock = FindViewById<Button>(Resource.Id.btCheckStock);
             btnCheckStock.Click += BtnCheckStock_Click;
+            buttons.Add(btnCheckStock);
             // goodsPackaging-----PackagingEnteredPositionsView();
             Button btnPackaging = FindViewById<Button>(Resource.Id.goodsPackaging);
             btnPackaging.Click += BtnPackaging_Click;
+            buttons.Add(btnPackaging);
             // Logout-------------Close();
             Button btnLogout = FindViewById<Button>(Resource.Id.logout);
             btnLogout.Click += BtnLogout_Click;
-            rapidTakeover.Click += RapidTakeover_Click;
+            Button PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
+            buttons.Add(PalletsMenu);
 
             PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
             PalletsMenu.Click += PalletsMenu_Click;
@@ -92,9 +100,25 @@ namespace Scanner
 
             buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
             btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
+            PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
 
+            HideDisabled(buttons);
         }
-
+        private void HideDisabled(List<Button> buttons)
+        {
+            foreach (Button btn in buttons)
+            {
+                if (btn.Enabled == false)
+                {
+                    btn.SetBackgroundColor(Android.Graphics.Color.DarkGray);
+                    btn.SetTextColor(Android.Graphics.Color.White);
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
         private void PalletsMenu_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MenuPalletsTablet));
@@ -102,7 +126,7 @@ namespace Scanner
 
         private void updateList()
         {
-           
+
         }
         private void RapidTakeover_Click(object sender, EventArgs e)
         {
@@ -168,18 +192,18 @@ namespace Scanner
 
         private void BtnPackaging_Click(object sender, EventArgs e)
         {
-   
-                StartActivity(typeof(PackagingEnteredPositionsViewTablet));
-            
-         
+
+            StartActivity(typeof(PackagingEnteredPositionsViewTablet));
+
+
         }
 
         private void BtnCheckStock_Click(object sender, EventArgs e)
         {
-       
-                StartActivity(typeof(CheckStockTablet));
-            
-          
+
+            StartActivity(typeof(CheckStockTablet));
+
+
         }
 
         private void BtnInventory_Click(object sender, EventArgs e)
@@ -197,32 +221,32 @@ namespace Scanner
 
         private void ButtonIssued_Click(object sender, EventArgs e)
         {
-         
-                StartActivity(typeof(UnfinishedIssuedGoodsViewTablet));
-           
-        
+
+            StartActivity(typeof(UnfinishedIssuedGoodsViewTablet));
+
+
         }
 
         private void ButtonUnfinished_Click(object sender, EventArgs e)
         {
-          
-                StartActivity(typeof(UnfinishedProductionViewTablet));
-       
+
+            StartActivity(typeof(UnfinishedProductionViewTablet));
+
         }
 
         private void ButtonInterWarehouse_Click(object sender, EventArgs e)
         {
-       
-                StartActivity(typeof(UnfinishedInterWarehouseViewTablet));
-            
-          
+
+            StartActivity(typeof(UnfinishedInterWarehouseViewTablet));
+
+
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
-          
-                StartActivity(typeof(UnfinishedTakeoversViewTablet));
-        
+
+            StartActivity(typeof(UnfinishedTakeoversViewTablet));
+
         }
     }
 }

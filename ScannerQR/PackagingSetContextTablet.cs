@@ -96,7 +96,7 @@ namespace Scanner
 
         private void BtExit_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
