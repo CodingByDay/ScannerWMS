@@ -100,7 +100,7 @@ namespace Scanner
 
             buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
             btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
-            //PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
+            PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
 
             HideDisabled(buttons);
         }

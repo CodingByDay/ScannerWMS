@@ -43,7 +43,7 @@ namespace Scanner
         private List<UnfinishedTakeoverList> dataSource = new List<UnfinishedTakeoverList>();
         public int selectedItem = 0;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("TakeOverHeads");
-        private int selected = 0;
+        private int selected = -1;
         private string finalString;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -77,15 +77,19 @@ namespace Scanner
             btNew.Click += BtNew_Click;
             btLogout.Click += BtLogout_Click;
             selectedItem = -1;
-          
+            dataList.ItemClick += DataList_ItemClick;
             InUseObjects.Clear();
             dataList.ItemLongClick += DataList_ItemLongClick;
             LoadPositions();
             FillItemsList();
           
-            // Fix the delete prboblem reinitialize the list 
+            // Fix the delete problem reinitialize the list 
             
         }
+
+    
+
+       
 
         private void DataList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
@@ -256,25 +260,28 @@ namespace Scanner
         }
         private void Select(int postionOfTheItemInTheList)
         {
+
+
+
             displayedPosition = postionOfTheItemInTheList;
             if(displayedPosition >= positions.Items.Count) { displayedPosition = 0;  }
             FillDisplayedItem();
         }
         private void BtNext_Click(object sender, EventArgs e)
         {
-            selectedItem++;
+            selected++;
 
-            if (selectedItem <= (positions.Items.Count-1))
+            if (selected <= (positions.Items.Count-1))
             {
                 dataList.RequestFocusFromTouch();
-                dataList.SetSelection(selectedItem);
-                dataList.SetItemChecked(selectedItem, true);
+                dataList.SetSelection(selected);
+                dataList.SetItemChecked(selected, true);
             } else
             {
-                selectedItem = 0;
+                selected = 0;
                 dataList.RequestFocusFromTouch();
-                dataList.SetSelection(selectedItem);
-                dataList.SetItemChecked(selectedItem, true);
+                dataList.SetSelection(selected);
+                dataList.SetItemChecked(selected, true);
             }
 
 
