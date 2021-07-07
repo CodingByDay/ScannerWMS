@@ -71,6 +71,7 @@ namespace Scanner
             btNew = FindViewById<Button>(Resource.Id.btnew);
             btLogout = FindViewById<Button>(Resource.Id.logout);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
+            dataList.ChoiceMode = ChoiceMode.Single;
             btFinish.Click += BtFinish_Click;
             btNext.Click += BtNext_Click;
             btDelete.Click += BtDelete_Click;
@@ -82,14 +83,14 @@ namespace Scanner
             dataList.ItemLongClick += DataList_ItemLongClick;
             LoadPositions();
             FillItemsList();
-          
+
             // Fix the delete problem reinitialize the list 
-            
+
         }
 
-    
 
-       
+
+
 
         private void DataList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
@@ -100,14 +101,14 @@ namespace Scanner
 
         private void DataList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-       
+
             selected = e.Position;
             Select(selected);
             selectedItem = selected;
-            
+
         }
 
-   
+
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -214,7 +215,7 @@ namespace Scanner
                     if (result == "OK!")
                     {
                         positions = null;
-                        LoadPositions(); 
+                        LoadPositions();
                         dataSource.Clear();
                         FillItemsList();
                         popupDialog.Dismiss();
@@ -262,26 +263,40 @@ namespace Scanner
         {
 
 
-
+            selected = postionOfTheItemInTheList;
             displayedPosition = postionOfTheItemInTheList;
-            if(displayedPosition >= positions.Items.Count) { displayedPosition = 0;  }
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
             FillDisplayedItem();
         }
         private void BtNext_Click(object sender, EventArgs e)
         {
+            dataList.Adapter = null;
+            UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
+            dataList.Adapter = adapter;
+            dataList.CheckedItemPositions.Clear();
+            dataList.ClearChoices();
+            dataList.RequestFocusFromTouch();
             selected++;
 
-            if (selected <= (positions.Items.Count-1))
+            if (selected <= (positions.Items.Count - 1))
             {
+
+                dataList.CheckedItemPositions.Clear();
+                dataList.ClearChoices();
                 dataList.RequestFocusFromTouch();
                 dataList.SetSelection(selected);
                 dataList.SetItemChecked(selected, true);
-            } else
+            }
+            else
             {
+
+                dataList.CheckedItemPositions.Clear();
+                dataList.ClearChoices();
                 selected = 0;
                 dataList.RequestFocusFromTouch();
                 dataList.SetSelection(selected);
                 dataList.SetItemChecked(selected, true);
+                var debug = true;
             }
 
 
@@ -291,9 +306,9 @@ namespace Scanner
             displayedPosition++;
             if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
 
-             
+
             FillDisplayedItem();
-        
+
         }
 
         // Load position method...
@@ -344,22 +359,23 @@ namespace Scanner
                         finalString = "Brez ";
                     }
                     else
-                        finalString = item.GetString("DocumentTypeName").Substring(0,4);
+                        finalString = item.GetString("DocumentTypeName").Substring(0, 4);
                     dataSource.Add(new UnfinishedTakeoverList
                     {
-                        
+
                         Document = finalString,
                         Issuer = item.GetString("Issuer"),
                         Date = date,
                         NumberOfPositions = item.GetInt("ItemCount").ToString(),
                         // tbItemCount.Text = item.GetInt("ItemCount").ToString();
                     });
-                } else
+                }
+                else
                 {
                     string errorWebApp = string.Format("Kritična napaka...");
                     Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
                 }
-            
+
             }
 
 
@@ -400,7 +416,7 @@ namespace Scanner
                 btDelete.Enabled = true;
                 btFinish.Enabled = true;
 
-               
+
             }
             else
             {

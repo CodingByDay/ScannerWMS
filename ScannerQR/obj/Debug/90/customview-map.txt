@@ -14,7 +14,6 @@ android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\issuedgood
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\issuedgoodsidententrytablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
-android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\menupalletstablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 android.support.percent.PercentRelativeLayout;obj\Debug\90\res\layout\packagingunitlisttablet.xml
@@ -405,7 +404,6 @@ ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
 ListView;obj\Debug\90\res\layout\mainmenutablet.xml
-ListView;obj\Debug\90\res\layout\menupalletstablet.xml
 ListView;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 ListView;obj\Debug\90\res\layout\packagingunitlisttablet.xml

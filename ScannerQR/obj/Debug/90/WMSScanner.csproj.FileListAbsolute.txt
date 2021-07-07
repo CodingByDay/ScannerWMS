@@ -21,6 +21,9 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\41\jl\files.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\42\jl\files.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\43\jl\files.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\47\jl\files.cache
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\R.txt
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\R.cs.flag
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMSScanner.csproj.CoreCompileInputs.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\bin\Debug\WMS.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\bin\Debug\WMS.pdb
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\bin\Debug\com.companyname.Scanner.apk
@@ -31,8 +34,6 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\bin\Debug\com.companyname.Scanner-Si
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\bin\Debug\DeviceAPI.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\bin\Debug\DeviceAPI.pdb
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\bin\Debug\DeviceAPI.dll.mdb
-C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\R.cs.flag
-C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMSScanner.csproj.CoreCompileInputs.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMSScanner.csproj.CopyComplete
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMS.dll
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\WMS.pdb
@@ -279,7 +280,6 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res\layout\wrappingpall
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res\layout\waitform.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res\layout\viewlocation.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res\layout\issuedview.xml
-C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\R.txt
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\uploadflags.txt
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\resolvedassemblies.hash
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\assets\DeviceAPI.dll
