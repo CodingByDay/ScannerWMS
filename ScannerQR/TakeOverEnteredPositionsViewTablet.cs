@@ -42,10 +42,10 @@ namespace Scanner
         private Dialog popupDialog;
         private Button btnYes;
         private Button btnNo;
-        private List<TakeOverEnteredPositionsViewListItems> data= new List<TakeOverEnteredPositionsViewListItems>();
+        private List<TakeOverEnteredPositionsViewListItems> data = new List<TakeOverEnteredPositionsViewListItems>();
         private string tempUnit;
         private int selected;
-        private int selectedItem=-1;
+        private int selectedItem = -1;
         private ProgressDialogClass progress;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -76,6 +76,7 @@ namespace Scanner
             btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             button4.Click += Button4_Click;
+
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
             button5.Click += Button5_Click;
@@ -104,7 +105,8 @@ namespace Scanner
             StartActivity(typeof(MainMenu));
         }
 
-        private void fillList() {
+        private void fillList()
+        {
 
             for (int i = 0; i < positions.Items.Count; i++)
             {
@@ -118,15 +120,17 @@ namespace Scanner
                     if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
                     {
                         setting = false;
-                    } else
+                    }
+                    else
                     {
                         setting = true;
                     }
-                    if(setting)
+                    if (setting)
                     {
                         tempUnit = item.GetDouble("Qty").ToString();
 
-                    } else
+                    }
+                    else
                     {
                         tempUnit = item.GetDouble("Factor").ToString();
                     }
@@ -146,7 +150,7 @@ namespace Scanner
                         Name = identName.Trim(),
 
 
-                    }) ;
+                    });
                     ;
                 }
                 else
@@ -600,7 +604,15 @@ namespace Scanner
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;
                 btNext.Enabled = false;
+
+
             }
+
+
+
+
+            var check = tbQty.Text;
+            var debug = true;
         }
     }
 }

@@ -73,7 +73,7 @@ namespace Scanner
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
         //logout
 

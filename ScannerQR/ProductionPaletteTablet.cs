@@ -520,7 +520,7 @@ namespace Scanner
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         private async void BtConfirm_Click(object sender, EventArgs e)

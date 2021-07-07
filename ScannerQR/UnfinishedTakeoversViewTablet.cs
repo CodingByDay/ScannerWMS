@@ -65,7 +65,6 @@ namespace Scanner
             dataList = FindViewById<ListView>(Resource.Id.dataList);
             UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
             dataList.Adapter = adapter;
-            dataList.LongClick += DataList_LongClick;
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
@@ -80,18 +79,20 @@ namespace Scanner
             selectedItem = -1;
           
             InUseObjects.Clear();
-            dataList.ItemClick += DataList_ItemClick;
+            dataList.ItemLongClick += DataList_ItemLongClick;
             LoadPositions();
             FillItemsList();
           
-            
+            // Fix the delete prboblem reinitialize the list 
             
         }
 
-        private void DataList_LongClick(object sender, View.LongClickEventArgs e)
+        private void DataList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
             BtDelete_Click(this, null);
         }
+
+
 
         private void DataList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
@@ -157,7 +158,7 @@ namespace Scanner
         }
         private void BtLogout_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         private void BtNew_Click(object sender, EventArgs e)
@@ -209,7 +210,7 @@ namespace Scanner
                     if (result == "OK!")
                     {
                         positions = null;
-                        LoadPositions();
+                        LoadPositions(); 
                         dataSource.Clear();
                         FillItemsList();
                         popupDialog.Dismiss();

@@ -159,7 +159,7 @@ namespace Scanner
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

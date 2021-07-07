@@ -74,10 +74,16 @@ namespace Scanner
             btnNew.Click += BtnNew_Click;
             btnLogout.Click += BtnLogout_Click;
             dataList.ItemClick += DataList_ItemClick;
+            dataList.ItemLongClick += DataList_ItemLongClick;
             InUseObjects.Clear();
 
             LoadPositions();
             FillItemsList();
+        }
+
+        private void DataList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            BtDelete_Click(this, null);
         }
 
         private void DataList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -145,7 +151,7 @@ namespace Scanner
         }
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         private void BtnNew_Click(object sender, EventArgs e)

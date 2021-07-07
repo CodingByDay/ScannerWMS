@@ -76,9 +76,15 @@ namespace Scanner
             listData.ItemClick += ListData_ItemClick;
             InUseObjects.Clear();
             LoadPositions();
-            listData.LongClick += ListData_LongClick;
+            listData.ItemLongClick += ListData_ItemLongClick;
             FillItemsList();
           
+        }
+
+        private void ListData_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            BtDelete_Click(this, null);
+
         }
 
         private void ListData_LongClick(object sender, View.LongClickEventArgs e)
@@ -162,7 +168,7 @@ namespace Scanner
 
         private void BtLogout_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         private void BtDelete_Click(object sender, EventArgs e)

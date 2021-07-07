@@ -59,7 +59,7 @@ namespace Scanner
         }
         private void Logout_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
         private void Confirm_Click(object sender, EventArgs e)
         {

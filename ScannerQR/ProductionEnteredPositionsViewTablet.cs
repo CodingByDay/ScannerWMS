@@ -224,7 +224,7 @@ namespace Scanner
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         private void BtDelete_Click(object sender, EventArgs e)

@@ -240,18 +240,17 @@
             android:paddingTop="5px"
             android:paddingLeft="10px"/>
 
-        <EditText
-            android:textSize="16px"
-            android:textStyle="bold"
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40px"
-            android:layout_weight="0.50"
-            android:paddingTop="5px"
-            android:id="@+id/tbQty"
-            android:hint="@+id/tbSerialNumber" />
+            <EditText
+                android:textSize="16px"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="40px"
+                android:layout_weight="0.50"
+                android:paddingTop="5px"
+                android:id="@+id/tbQty"/>
 
     </LinearLayout>
     <LinearLayout
@@ -363,27 +362,27 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Kreiraj pozicijo - F3"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/newitem"
-            android:id="@+id/button4" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Kreiraj pozicijo - F3"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/newitem"
+                android:id="@+id/button4" />
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Zaključi medskl. - F4"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/confirmation"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:id="@+id/btFinish" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Zaključi prevz. - F4"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/confirmation"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:id="@+id/btFinish" />
 
 
     </LinearLayout>

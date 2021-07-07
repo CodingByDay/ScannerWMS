@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -9,14 +11,16 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Java.Lang;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
+using static Com.Toptoche.Searchablespinnerlibrary.SearchableListDialog;
 
 namespace Scanner
 {
     [Activity(Label = "IssuedGoodsBusinessEventSetupTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
-    public class IssuedGoodsBusinessEventSetupTablet : Activity
+    public class IssuedGoodsBusinessEventSetupTablet : Activity,  IDialogInterfaceOnClickListener
     {
         private Spinner cbDocType;
         public NameValueObjectList docTypes = null;
@@ -73,7 +77,7 @@ namespace Scanner
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouse.Adapter = adapterWarehouse;
             // Function update form...
-            
+
             UpdateForm();
             var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
@@ -94,19 +98,49 @@ namespace Scanner
             cbWarehouse.SetPositiveButton("Zapri");
 
         }
+
+
+
+
+      
+
+        private async Task SendEvents()
+        {
+            await Task.Run(() =>
+            {
+                    Instrumentation inst = new Instrumentation();
+             
+                    inst.SendKeyDownUpSync(Keycode.Back);
+
+            });
+        } 
+
+        public void OnClick(IDialogInterface dialog, int which)
+        {
+       
+        }
+
+
+
+
+
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
             {
+
                 // Setting F2 to method ProccesStock()
                 case Keycode.F1:
+
                     if (btnOrderMode.Enabled == true)
                     {
                         BtnOrderMode_Click(this, null);
                     }
                     break;
 
+
                 case Keycode.F2:
+
                     if (btnOrder.Enabled == true)
                     {
                         BtnOrder_Click(this, null);
@@ -118,6 +152,7 @@ namespace Scanner
                     {
                         BtnLogout_Click(this, null);
                     }
+
                     break;
 
 
@@ -125,6 +160,7 @@ namespace Scanner
             }
             return base.OnKeyDown(keyCode, e);
         }
+
 
 
         private void FillOpenOrders()
@@ -177,7 +213,7 @@ namespace Scanner
         }
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainActivity));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         private void BtnOrderMode_Click(object sender, EventArgs e)
@@ -198,8 +234,11 @@ namespace Scanner
 
 
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
+
             Toast.MakeText(this, toast, ToastLength.Long).Show();
+
             temporaryPositionWarehouse = e.Position;
+
             FillOpenOrders();
         }
 
@@ -209,7 +248,9 @@ namespace Scanner
 
 
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
+
             Toast.MakeText(this, toast, ToastLength.Long).Show();
+
             temporaryPositionExtra = e.Position;
 
         }
@@ -219,7 +260,9 @@ namespace Scanner
             Spinner spinner = (Spinner)sender;
 
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
+
             Toast.MakeText(this, toast, ToastLength.Long).Show();
+
             temporaryPositionDoc = e.Position;
 
         }
@@ -230,10 +273,13 @@ namespace Scanner
 
             if (byOrder)
             {
+
                 if (CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                 {
                     lbExtra.Visibility = ViewStates.Visible;
+
                     cbExtra.Visibility = ViewStates.Visible;
+
                     lbExtra.Text = "Naročilo:";
                   
 
@@ -241,6 +287,7 @@ namespace Scanner
                 else
                 {
                     lbExtra.Visibility = ViewStates.Invisible;
+
                     cbExtra.Visibility = ViewStates.Invisible;
                 }
 
@@ -251,18 +298,31 @@ namespace Scanner
             else
             {
                 lbExtra.Visibility = ViewStates.Visible;
+
                 cbExtra.Visibility = ViewStates.Visible;
+
                 lbExtra.Text = "Subjekt:";
+
                 objectExtra.Clear();
+
                 var subjects = CommonData.ListSubjects();
+
                 subjects.Items.ForEach(s =>
+
                 {
+
                     objectExtra.Add(new ComboBoxItem { ID = s.GetString("ID"), Text = s.GetString("ID") });
+
                 });
+
                 var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
+
                 Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
+
                 adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+
                 cbExtra.Adapter = adapterExtra;
+
                 docTypes = CommonData.ListDocTypes("I;M|F");
 
                 btnOrderMode.Text = "Z naročilom - F3";
@@ -270,7 +330,9 @@ namespace Scanner
 
             docTypes.Items.ForEach(dt =>
             {
+
                 objectDocType.Add(new ComboBoxItem { ID = dt.GetString("Code"), Text = dt.GetString("Code") + " " + dt.GetString("Name") });
+
             });
         }
         private void NextStep()
@@ -279,6 +341,7 @@ namespace Scanner
             if (itemDT == null)
             {
                 string toast = string.Format("Poslovni dogodek more bit izbran");
+
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
             }
             else
@@ -287,6 +350,7 @@ namespace Scanner
                 if (itemWH == null)
                 {
                     string toast = string.Format("Sladište more biti izbrano.");
+
                     Toast.MakeText(this, toast, ToastLength.Long).Show();
                 }
                 else
@@ -298,20 +362,27 @@ namespace Scanner
                         if (itemSubj == null)
                         {
                             string toast = string.Format("Poslovni dogodek more bit izbran");
+
                             Toast.MakeText(this, toast, ToastLength.Long).Show();
+
                             return;
                         }
                     }
                     NameValueObject moveHead = new NameValueObject("MoveHead");
+
                     moveHead.SetString("DocumentType", itemDT.ID);
+
                     moveHead.SetString("Wharehouse", itemWH.ID);
+
                     moveHead.SetBool("ByOrder", byOrder);
                     if (!byOrder)
                     {
                         moveHead.SetString("Receiver", itemSubj.ID);
                     }
                     InUseObjects.Set("MoveHead", moveHead);
+
                     NameValueObject order = null;
+
                     if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                     {
                         itemSubj = objectExtra.ElementAt(temporaryPositionExtra);
@@ -319,25 +390,31 @@ namespace Scanner
                         {
                          
                             string toast = string.Format("Subjekt more biti izbran.");
+
                             Toast.MakeText(this, toast, ToastLength.Long).Show();
                             return;
                         }
                         order = positions.Items.First(p => p.GetString("Key") == objectExtra.ElementAt(temporaryPositionExtra).ID);
+
                         InUseObjects.Set("OpenOrder", order);
                     }
 
                     if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                     {
                         StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
+
                         this.Finish();
                     }
                     else
                     {
                         StartActivity(typeof(IssuedGoodsIdentEntryTablet));
+
                         this.Finish();
                     }
                 }
             }
         }
+
+     
     }
 }

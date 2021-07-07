@@ -277,7 +277,7 @@ namespace Scanner
         }
         private void Button2_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         private void BtPrint_Click(object sender, EventArgs e)

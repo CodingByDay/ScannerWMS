@@ -73,22 +73,24 @@ namespace Scanner
             btDelete.Click += BtDelete_Click; // 
             btNew.Click += BtNew_Click;       //
             btLogout.Click += BtLogout_Click; //
-            issuedData.LongClick += IssuedData_LongClick;
+            issuedData.ItemLongClick += IssuedData_ItemLongClick;
             // Adapter for the two thirds list view on the right.
             //
             //
     
-          
+            
             InUseObjects.Clear();
 
             LoadPositions();
             FillItemsList();
         }
 
-        private void IssuedData_LongClick(object sender, View.LongClickEventArgs e)
+        private void IssuedData_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
             BtDelete_Click(this, null);
         }
+
+ 
 
         private void IssuedData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {

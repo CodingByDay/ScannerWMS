@@ -158,6 +158,7 @@ namespace Scanner
 
 
             //   NameValueObject moveHead = new NameValueObject();
+
             NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
 
             moveHead.SetString("DocumentType", doc);
@@ -179,7 +180,9 @@ namespace Scanner
                 {
                     string errorWebApp = string.Format("Napaka pri dostopu do web aplikacije:" + error);
                     Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+
                     // show a message
+
                     // terminate
 
                 }
@@ -261,7 +264,7 @@ namespace Scanner
 
         private void Logout_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
     }
 

@@ -427,9 +427,18 @@ namespace Scanner
         }
 
 
+        private async Task SendEvents()
+        {
+            await Task.Run(() =>
+            {
+                Instrumentation inst = new Instrumentation();
 
+                inst.SendKeyDownUpSync(Keycode.Escape);
 
-        public void OnSearchTextChanged(string p0)
+            });
+        }
+
+        public async void OnSearchTextChanged(string p0)
         {
             byClient = p0;
 
@@ -437,14 +446,12 @@ namespace Scanner
 
             if (byClient.Length >= 3 | byClient.Length == 0)
             {
+
+
                 FillOpenOrders();
-                
-                
 
-               
-      
+                await SendEvents();
 
-            
 
             }
 

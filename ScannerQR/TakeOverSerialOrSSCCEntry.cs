@@ -704,6 +704,7 @@ namespace Scanner
                 if (barcode != "Scan fail")
                 {
                     Sound();
+
                     tbSSCC.Text = barcode;
                     
                     tbSerialNum.RequestFocus();
