@@ -177,7 +177,7 @@ namespace Scanner
             popupDialog.SetContentView(Resource.Layout.YesNoPopUp);
             popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialog.Show();
-
+            // Comment
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloRedLight);
 
