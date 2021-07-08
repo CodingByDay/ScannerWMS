@@ -15,7 +15,7 @@
         <TextView
             android:textStyle="bold"
             android:textSize="16px"
-            android:layout_weight="20"
+            android:layout_weight="25"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="10px"
@@ -25,29 +25,16 @@
             android:id="@+id/Ident" />
 
 
+
         <TextView
             android:textStyle="bold"
             android:textSize="16px"
-            android:layout_weight="20"
+            android:layout_weight="25"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="SerialNumber"
-            android:layout_marginRight="28.0dp"
-            android:id="@+id/SerialNumber" />
-
-
-        
-        <TextView
-            android:textStyle="bold"
-            android:textSize="16px"
-            android:layout_weight="20"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
-            android:text="Location"
+            android:text="Filled"
             android:layout_marginRight="28.0dp"
             android:id="@+id/Location" />
        
@@ -55,7 +42,7 @@
         <TextView
             android:textStyle="bold"
             android:textSize="16px"
-            android:layout_weight="20"
+            android:layout_weight="25"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="10px"
@@ -64,20 +51,19 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/Qty" />
 
-
-        
-        <TextView
+           <TextView
             android:textStyle="bold"
             android:textSize="16px"
-            android:layout_weight="20"
+            android:layout_weight="25"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="10px"
             android:paddingTop="5px"
-            android:text="Filled"
+            android:text="Serijska številka"
             android:layout_marginRight="28.0dp"
-            android:id="@+id/Filled" />
+            android:id="@+id/SerialNumber" />
 
+      
 
     </LinearLayout>
 

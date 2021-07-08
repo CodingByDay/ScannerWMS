@@ -65,10 +65,7 @@ namespace Scanner.App
                 TextView Qty = row.FindViewById<TextView>(Resource.Id.Qty);
                 Qty.Text = sList[position].Qty;
                 Qty.SetTextColor(Android.Graphics.Color.Black);
-                TextView Filled = row.FindViewById<TextView>(Resource.Id.Filled);
-                Filled.Text = sList[position].Filled;
-                Filled.SetTextColor(Android.Graphics.Color.Black);
-
+             
 
 
             }

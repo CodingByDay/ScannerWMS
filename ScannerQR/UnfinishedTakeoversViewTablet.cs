@@ -94,7 +94,9 @@ namespace Scanner
 
         private void DataList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
-            BtDelete_Click(this, null);
+            var index = e.Position;
+            DeleteFromTouch(index);
+            var debug = true;
         }
 
 
@@ -251,6 +253,80 @@ namespace Scanner
 
         }
 
+        private void Yes(int index)
+        {
+            var item = positions.Items[index];
+            var id = item.GetInt("HeadID");
+
+
+            try
+            {
+
+                string result;
+                if (WebApp.Get("mode=delMoveHead&head=" + id.ToString() + "&deleter=" + Services.UserID().ToString(), out result))
+                {
+                    if (result == "OK!")
+                    {
+                        positions = null;
+                        LoadPositions();
+                        data.Clear();
+                        FillItemsList();
+                        popupDialog.Dismiss();
+                        popupDialog.Hide();
+                    }
+                    else
+                    {
+                        string errorWebAppIssued = string.Format("Napaka pri brisanju pozicije " + result);
+                        Toast.MakeText(this, errorWebAppIssued, ToastLength.Long).Show();
+                        positions = null;
+                        LoadPositions();
+
+                        popupDialog.Dismiss();
+                        popupDialog.Hide();
+                        return;
+                    }
+                }
+                else
+                {
+                    string errorWebAppIssued = string.Format("Napaka pri dostopu web aplikacije: " + result);
+                    Toast.MakeText(this, errorWebAppIssued, ToastLength.Long).Show();
+                    popupDialog.Dismiss();
+                    popupDialog.Hide();
+
+                    return;
+                }
+            }
+            finally
+            {
+
+            }
+
+            string errorWebApp = string.Format("Pozicija uspešno zbrisana.");
+            Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+        }
+        private void DeleteFromTouch(int index)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.YesNoPopUp);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
+
+            // Access Popup layout fields like below
+            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+            btnYes.Click += (e, ev) => { Yes(index); };
+            btnNo.Click += (e, ev) => { No(index); };
+        }
+
+        private void No(int index)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Hide();
+        }
+
         private void BtFinish_Click(object sender, EventArgs e)
         {
             var moveHead = positions.Items[displayedPosition];
@@ -270,11 +346,12 @@ namespace Scanner
         }
         private void BtNext_Click(object sender, EventArgs e)
         {
-            dataList.Adapter = null;
-            UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
-            dataList.Adapter = adapter;
+            // Wierd UI error, actually for some reason its not updating correctly.
+
             dataList.CheckedItemPositions.Clear();
+
             dataList.ClearChoices();
+
             dataList.RequestFocusFromTouch();
             selected++;
 

@@ -87,9 +87,91 @@ namespace Scanner
 
         }
 
+
+        private void DeleteFromTouch(int index)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.YesNoPopUp);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
+
+            // Access Popup layout fields like below
+            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+            btnYes.Click += (e, ev) => { Yes(index); };
+            btnNo.Click += (e, ev) => { No(index); };
+        }
+
+
+
+
+        private void No(int index)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Hide();
+        }
+
+
+        private void Yes(int index)
+        {
+            var item = positions.Items[index];
+            var id = item.GetInt("HeadID");
+
+
+            try
+            {
+
+                string result;
+                if (WebApp.Get("mode=delMoveHead&head=" + id.ToString() + "&deleter=" + Services.UserID().ToString(), out result))
+                {
+                    if (result == "OK!")
+                    {
+                        positions = null;
+                        LoadPositions();
+                        data.Clear();
+                        fillList();
+                        popupDialog.Dismiss();
+                        popupDialog.Hide();
+                    }
+                    else
+                    {
+                        string errorWebAppIssued = string.Format("Napaka pri brisanju pozicije " + result);
+                        Toast.MakeText(this, errorWebAppIssued, ToastLength.Long).Show();
+                        positions = null;
+                        LoadPositions();
+
+                        popupDialog.Dismiss();
+                        popupDialog.Hide();
+                        return;
+                    }
+                }
+                else
+                {
+                    string errorWebAppIssued = string.Format("Napaka pri dostopu web aplikacije: " + result);
+                    Toast.MakeText(this, errorWebAppIssued, ToastLength.Long).Show();
+                    popupDialog.Dismiss();
+                    popupDialog.Hide();
+
+                    return;
+                }
+            }
+            finally
+            {
+
+            }
+
+            string errorWebApp = string.Format("Pozicija uspešno zbrisana.");
+            Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+        }
+
+
         private void ListData_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
-            BtDelete_Click(this, null);
+            var index = e.Position;
+            DeleteFromTouch(index);
         }
 
         private void Select(int postionOfTheItemInTheList)
@@ -136,8 +218,8 @@ namespace Scanner
                     }
                     string error;
                     var ident = item.GetString("Ident").Trim();
-                     var openIdent = Services.GetObject("id", ident, out error);
-                  //  var ident = CommonData.LoadIdent(item.GetString("Ident"));
+                    var openIdent = Services.GetObject("id", ident, out error);
+                    //var ident = CommonData.LoadIdent(item.GetString("Ident"));
                     var identName = openIdent.GetString("Name");
                     var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
                     data.Add(new IssuedEnteredPositionViewList
@@ -160,6 +242,11 @@ namespace Scanner
                 }
 
             }
+
+            listData.Adapter = null;
+            IssuedEnterAdapter adapter = new IssuedEnterAdapter(this, data);
+            listData.Adapter = adapter;
+
         }
 
 

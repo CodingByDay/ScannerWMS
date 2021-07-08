@@ -606,7 +606,7 @@ namespace Scanner
                     {
                         Ident = x.GetString("Ident"),
                         Location = x.GetString("Location"),
-                        Qty = x.GetDouble("RealStock").ToString(),
+                        Qty = x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture()),
                         SerialNumber = x.GetString("SerialNo")
 
                     });

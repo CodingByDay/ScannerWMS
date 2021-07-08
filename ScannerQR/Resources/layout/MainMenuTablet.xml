@@ -20,13 +20,13 @@
         android:layout_marginTop="20dp"
         android:weightSum="1"
         android:orientation="horizontal">
-        
+
         <Button
             android:bottomLeftRadius="7dp"
             android:bottomRightRadius="7dp"
             android:topLeftRadius="7dp"
             android:topRightRadius="7dp"
-            android:layout_width="165.0dp"
+            android:layout_width="355.0dp"
             android:layout_height="73.0dp"
             android:background="@android:color/holo_red_light"
             android:drawableLeft="@drawable/clock"
@@ -315,6 +315,7 @@
         android:orientation="horizontal"
         android:layout_toRightOf="@id/app"
         android:weightSum="3"
+        
         android:id="@+id/text"
         android:paddingTop="5px">
 
