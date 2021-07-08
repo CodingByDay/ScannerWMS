@@ -35,13 +35,13 @@ namespace Scanner
         private Button btLogout;
         private TextView lbInfo;
         private Dialog popupDialog;
-        private int displayedPosition = 0;
+        private int displayedPosition = -1;
         private Button btnYes;
         private Button btnNo;
         private Button btNew;
         private ListView dataList;
         private List<UnfinishedTakeoverList> dataSource = new List<UnfinishedTakeoverList>();
-        public int selectedItem = 0;
+        public int selectedItem = -1;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("TakeOverHeads");
         private int selected = -1;
         private string finalString;
@@ -84,7 +84,7 @@ namespace Scanner
             LoadPositions();
             FillItemsList();
 
-            // Fix the delete problem reinitialize the list 
+   
 
         }
 
@@ -96,7 +96,7 @@ namespace Scanner
         {
             var index = e.Position;
             DeleteFromTouch(index);
-            var debug = true;
+          
         }
 
 
@@ -269,7 +269,7 @@ namespace Scanner
                     {
                         positions = null;
                         LoadPositions();
-                        data.Clear();
+                        dataSource.Clear();
                         FillItemsList();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
@@ -346,15 +346,11 @@ namespace Scanner
         }
         private void BtNext_Click(object sender, EventArgs e)
         {
-            // Wierd UI error, actually for some reason its not updating correctly.
-
-            dataList.CheckedItemPositions.Clear();
-
-            dataList.ClearChoices();
-
+          
+  
             dataList.RequestFocusFromTouch();
             selected++;
-
+            dataList.Clickable = false;
             if (selected <= (positions.Items.Count - 1))
             {
 
@@ -376,7 +372,7 @@ namespace Scanner
                 var debug = true;
             }
 
-
+            dataList.Clickable = true;
 
 
 
@@ -454,7 +450,9 @@ namespace Scanner
                 }
 
             }
-
+            dataList.Adapter = null;
+            UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
+            dataList.Adapter = adapter;
 
         }
         private void FillDisplayedItem()

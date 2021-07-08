@@ -112,7 +112,13 @@ namespace Scanner
         private static bool? getWorkOrderDefaultQty = null;
         private ProgressDialogClass progress;
 
-        private void GetWorkOrderDefaultQty()
+
+      
+
+
+
+
+    private void GetWorkOrderDefaultQty()
         {
             if (getWorkOrderDefaultQty == null)
             {

@@ -47,7 +47,7 @@ namespace Scanner
         private TextView lbQty;
         private TextView lbUnits;
         private Button button1;
-
+        private List<string> locations = new List<string>();
         SoundPool soundPool;
         int soundPoolId;
 
@@ -622,6 +622,31 @@ namespace Scanner
              
             }
         }
+
+        private async Task GetLocationsForGivenWarehouse(string warehouse)
+        {
+            await Task.Run(() =>
+            {
+                string error;
+                var locations = Services.GetObjectList("lo", out error, warehouse);
+
+                if(locations == null)
+                {
+                    Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
+                } else
+                {
+                    locations.Items.ForEach(x =>
+                    {
+                        var location = x.GetString("Location");
+
+
+                        var debug = true;
+                    });
+                }
+
+               
+            });
+        }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -675,7 +700,7 @@ namespace Scanner
             }
             return base.OnKeyDown(keyCode, e);
         }
-        private void FillRelatedData()
+        private async void FillRelatedData()
         {
             string error;
 
@@ -697,6 +722,11 @@ namespace Scanner
             {
                 return;
             }
+
+
+
+            await GetLocationsForGivenWarehouse(moveHead.GetString("Wharehouse"));
+            var str = 3;
         }
         public void GetBarcode(string barcode)
         {

@@ -47,16 +47,18 @@ namespace Scanner
         private Button button5;
         private Button button7;
         private TextView lbQty;
+        private Spinner spLocation;
         private TextView lbUnits;
         private Button button1;
         private ListView listData;
         SoundPool soundPool;
         int soundPoolId;
         private string ident;
+        private List<string> locList = new List<string>();
         private ImageView warehousePNG;
         private List<TakeOverSerialOrSSCCEntryList> data = new List<TakeOverSerialOrSSCCEntryList>();
         private List<LocationClass> items = new List<LocationClass>();
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -74,7 +76,7 @@ namespace Scanner
             // Buttons.
             AdapterLocation adapter = new AdapterLocation(this, items);
             listData.Adapter = adapter;
-           
+            spLocation = FindViewById<Spinner>(Resource.Id.spLocation);
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button6 = FindViewById<Button>(Resource.Id.button6);
@@ -94,7 +96,7 @@ namespace Scanner
             button6.Click += Button6_Click;
             button7.Click += Button7_Click;
             button5.Click += Button5_Click;
-
+            spLocation.ItemSelected += SpLocation_ItemSelected;
 
 
             /// Consider changing this to something else.
@@ -241,7 +243,34 @@ namespace Scanner
 
 
             FillTheIdentLocationList();
+
+            await GetLocationsForGivenWarehouse(moveHead.GetString("Wharehouse"));
+        
+
+
+
+            var DataAdapter = new ArrayAdapter<string>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, locList);
+
+            DataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spLocation.Adapter = DataAdapter;
+
+            
+
         }
+
+        private void SpLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            int element = e.Position;
+
+
+            var item = locList.ElementAt(element);
+
+            tbLocation.Text = item;
+            tbPacking.RequestFocus();
+        }
+
+     
 
 
         // moveHead.GetString("Wharehouse")
@@ -386,7 +415,31 @@ namespace Scanner
             tbLocation.Text = item.Location;
 
         }
+        private async Task GetLocationsForGivenWarehouse(string warehouse)
+        {
+            await Task.Run(() =>
+            {
+                string error;
+                var locations = Services.GetObjectList("lo", out error, warehouse);
 
+                if (locations == null)
+                {
+                    Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
+                }
+                else
+                {
+                    locations.Items.ForEach(x =>
+                    {
+                        var location = x.GetString("LocationID");
+
+                        locList.Add(location);
+                        
+                    });
+                }
+
+
+            });
+        }
         private void fillItems()
         {
          

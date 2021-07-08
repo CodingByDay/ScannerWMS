@@ -372,18 +372,17 @@ namespace TrendNET.WMS.Device.Services
             }));
             t.IsBackground = true;
             t.Start();
-         //   Power.EnterUnattendedMode ();
+
             try
             {
                 while (!t.Join(1500))
                 {
-            //        Power.SystemIdleTimerReset();
-                 //   Application.DoEvents();
+          
                 }
             }
             finally
             {
-       //         Power.ExitUnattendedMode ();
+ 
             }
             result = threadResult;
             return success;

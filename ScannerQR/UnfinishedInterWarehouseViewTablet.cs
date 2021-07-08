@@ -110,7 +110,7 @@ namespace Scanner
                     {
                         positions = null;
                         LoadPositions();
-                        data.Clear();
+                        dataMapping.Clear();
                         FillItemsList();
                         popupDialog.Dismiss();
                         popupDialog.Hide();

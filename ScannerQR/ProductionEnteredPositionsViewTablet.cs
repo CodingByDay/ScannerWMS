@@ -118,7 +118,7 @@ namespace Scanner
                         positions = null;
                         LoadPositions();
                         data.Clear();
-                        FillItemsList();
+                        fillList();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
                     }
@@ -252,6 +252,10 @@ namespace Scanner
                 }
 
             }
+
+            listData.Adapter = null;
+            ProductionEnteredPositionViewAdapter adapter = new ProductionEnteredPositionViewAdapter(this, data);
+            listData.Adapter = adapter;
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

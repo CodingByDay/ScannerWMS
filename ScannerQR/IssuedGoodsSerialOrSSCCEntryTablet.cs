@@ -36,6 +36,7 @@ namespace Scanner
         private Button btSaveOrUpdate;
         private ListView listData;
         private Button button4;
+        private List<string> locations = new List<string>();
         private Button button6;
         private Button button5;
         private Button button7;
@@ -53,6 +54,7 @@ namespace Scanner
         private TextView lbUnits;
         private TextView lbPalette;
         SoundPool soundPool;
+        private Spinner spLocation;
         int soundPoolId;
         private ImageView imagePNG;
         private ProgressDialogClass progress;
@@ -60,7 +62,7 @@ namespace Scanner
 
 
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             // Create your application here
@@ -83,10 +85,12 @@ namespace Scanner
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
             lbPalette = FindViewById<TextView>(Resource.Id.lbPalette);
             imagePNG = FindViewById<ImageView>(Resource.Id.imagePNG);
+            spLocation = FindViewById<Spinner>(Resource.Id.spLocation);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
+            spLocation.ItemSelected += SpLocation_ItemSelected;
             button1.Click += Button1_Click;
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             button4.Click += Button4_Click;
@@ -155,7 +159,26 @@ namespace Scanner
             LoadRelatedOrder();
             SetUpForm();
             FillTheIdentLocationList();
+
+
+            await GetLocationsForGivenWarehouse(moveHead.GetString("Wharehouse"));
+
+
+            var adapterReceive = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, locations);
+            adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            // Spinner 
+            spLocation.Adapter = adapterReceive;
         }
+
+        private void SpLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var element = e.Position;
+            var item = locations.ElementAt(element);
+
+
+            tbLocation.Text = item;
+        }
+
         private async Task FinishMethod()
         {
             await Task.Run(() =>
@@ -259,6 +282,41 @@ namespace Scanner
             {
                 e.Handled = false;
             }
+        }
+
+
+
+
+
+
+        private async Task GetLocationsForGivenWarehouse(string warehouse)
+        {
+            await Task.Run(() =>
+            {
+                List<string> result = new List<string>();
+                string error;
+                var issuerLocs = Services.GetObjectList("lo", out error, warehouse);
+
+                if (issuerLocs == null)
+                {
+                    Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
+
+                }
+                else
+                {
+                    issuerLocs.Items.ForEach(x =>
+                    {
+                        var location = x.GetString("LocationID");
+
+
+                        locations.Add(location);
+                    });
+
+                }
+
+
+            });
+
         }
 
         private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)

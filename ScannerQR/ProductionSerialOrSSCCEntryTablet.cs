@@ -34,6 +34,7 @@ namespace Scanner
         private EditText tbLocation;
         private EditText tbPacking;
         private EditText tbUnits;
+        private Spinner spLocation;
         private TextView lbQty;
         private Button btSaveOrUpdate;
         private Button button3;
@@ -41,8 +42,9 @@ namespace Scanner
         private Button button5;
         SoundPool soundPool;
         private ListView listData;
-        private ImageView imagePNG; 
-        
+        private ImageView imagePNG;
+        private List<string> locations = new List<string>();
+
         private List<ProductionSerialOrSSCCList> data = new List<ProductionSerialOrSSCCList>();
         int soundPoolId;
         private string ident;
@@ -379,13 +381,14 @@ namespace Scanner
                 
             }
         }
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             // Create your application here
             SetContentView(Resource.Layout.ProductionSerialOrSSCCEntryTablet);
             //button --------->buttontest
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
+            spLocation = FindViewById<Spinner>(Resource.Id.spLocation);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSerialNum = FindViewById<EditText>(Resource.Id.tbSerialNum);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
@@ -409,6 +412,7 @@ namespace Scanner
             button3.Click += Button3_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
+            spLocation.ItemSelected += SpLocation_ItemSelected;
 
             if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
             {
@@ -438,6 +442,26 @@ namespace Scanner
             tbSSCC.Enabled = ident.GetBool("isSSCC");
             tbSerialNum.Enabled = ident.GetBool("HasSerialNumber");
             fillItems();
+
+
+
+            await GetLocationsForGivenWarehouse(moveHead.GetString("Wharehouse"));
+
+
+            var adapterReceive = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, locations);
+            adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            // Spinner 
+            spLocation.Adapter = adapterReceive;
+
+        }
+
+        private void SpLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var element = e.Position;
+
+            var item = locations.ElementAt(element);
+
+            tbLocation.Text = item;
         }
 
         private void showPicture()
@@ -590,7 +614,38 @@ namespace Scanner
             });
 
         }
-        private void fillItems()
+        private async Task GetLocationsForGivenWarehouse(string warehouse)
+        {
+            await Task.Run(() =>
+            {
+                List<string> result = new List<string>();
+                string error;
+                var issuerLocs = Services.GetObjectList("lo", out error, warehouse);
+            
+                if (issuerLocs == null)
+                {
+                    Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
+
+                }
+                else
+                {
+                    issuerLocs.Items.ForEach(x =>
+                    {
+                        var location = x.GetString("LocationID");
+
+
+                        locations.Add(location);
+                    });
+
+                }
+
+
+            });
+
+        }
+
+
+            private void fillItems()
         {
 
             string error;

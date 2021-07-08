@@ -211,6 +211,11 @@
             android:layout_weight="0.50"
             android:paddingTop="5px"
             android:id="@+id/tbLocation" />
+            
+                <Spinner
+                android:layout_width="71.0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/spLocation" />
 
     </LinearLayout>
       <LinearLayout

@@ -44,6 +44,8 @@ namespace Scanner
         private Button button4;
         private Button button6;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
+    
+
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
         private NameValueObjectList docTypes = null;
         private bool target = false;
@@ -357,7 +359,10 @@ namespace Scanner
         }
 
 
-    private double GetStock(string warehouse, string location, string sscc, string serialNum, string ident)
+     
+   
+
+        private double GetStock(string warehouse, string location, string sscc, string serialNum, string ident)
         {
             var wh = CommonData.GetWarehouse(warehouse);
             if (!wh.GetBool("HasStock"))
@@ -551,6 +556,7 @@ namespace Scanner
 
             // var location = CommonData.GetSetting("DefaultProductionLocation");
             // tbLocation.Text = location;
+            
 
         }
 

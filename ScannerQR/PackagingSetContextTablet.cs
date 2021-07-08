@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Media;
@@ -91,7 +91,16 @@ namespace Scanner
 
 
 
+            Color();
+        }
 
+
+       
+
+        private void Color()
+        {
+            tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);
         }
 
         private void BtExit_Click(object sender, EventArgs e)

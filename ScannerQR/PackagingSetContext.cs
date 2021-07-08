@@ -72,6 +72,8 @@ namespace Scanner
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
 
+            Color();
+
 
             var whs = CommonData.ListWarehouses();
 
@@ -93,6 +95,15 @@ namespace Scanner
 
 
         }
+
+
+        private void Color()
+        {
+            tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);
+
+        }
+
 
         private void BtExit_Click(object sender, EventArgs e)
         {

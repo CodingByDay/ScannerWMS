@@ -41,6 +41,10 @@ namespace Scanner
         private Button button3;
         private Button button5;
         private Button button4;
+        private Spinner spIssue;
+        private Spinner spReceive;
+        private List<string> issuer = new List<string>();
+        private List<string> receiver = new List<string>();
         private Button button6;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
@@ -368,7 +372,36 @@ namespace Scanner
         }
 
 
-  
+
+        private async Task GetLocationsForGivenWarehouseReceiver(string warehouse)
+        {
+            await Task.Run(() =>
+            {
+                List<string> result = new List<string>();
+                string error;
+                var locations = Services.GetObjectList("lo", out error, warehouse);
+                var debug = true;
+                if (locations == null)
+                {
+                    Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
+
+                }
+                else
+                {
+                    locations.Items.ForEach(x =>
+                    {
+                        var location = x.GetString("LocationID");
+
+
+                        receiver.Add(location);
+                    });
+
+                }
+
+
+            });
+
+        }
         private Double LoadStockFromLocation(string warehouse, string location, string ident)
         {
 
@@ -582,7 +615,7 @@ namespace Scanner
 
         }
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             // Create your application here
@@ -614,12 +647,14 @@ namespace Scanner
             button4 = FindViewById<Button>(Resource.Id.button4);
             button6 = FindViewById<Button>(Resource.Id.button6);
             imagePNG = FindViewById<ImageView>(Resource.Id.imagePNG);
-
+            spIssue = FindViewById<Spinner>(Resource.Id.spIssue);
+            spReceive = FindViewById<Spinner>(Resource.Id.spReceive);
             color();
-
             tbIdent.KeyPress += TbIdent_KeyPress1;
-
+            spReceive.ItemSelected += SpReceive_ItemSelected;
+            spIssue.ItemSelected += SpIssue_ItemSelected;
             listData.ItemClick += ListData_ItemClick;
+
             button6.Click += Button6_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
@@ -684,10 +719,37 @@ namespace Scanner
                 lbUnits.Visibility = ViewStates.Visible;
                 tbUnits.Visibility = ViewStates.Visible;
             }
+            await GetLocationsForGivenWarehouseIssuer(moveHead.GetString("Issuer"));
+            await GetLocationsForGivenWarehouseReceiver(moveHead.GetString("Receiver"));
+            var adapterIssue = new ArrayAdapter<String>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, issuer);
+            adapterIssue.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spIssue.Adapter = adapterIssue;
+            var adapterReceive = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, receiver);
+            adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spReceive.Adapter = adapterReceive;
 
 
-   
+
         }
+
+        private void SpIssue_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var element = e.Position;
+            var item = issuer.ElementAt(element);
+
+            tbIssueLocation.Text = item;
+        }
+
+        private void SpReceive_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var element = e.Position;
+            var item = receiver.ElementAt(element);
+
+            tbLocation.Text = item;
+        }
+
+    
 
         private void TbIdent_KeyPress1(object sender, View.KeyEventArgs e)
         {
@@ -708,6 +770,41 @@ namespace Scanner
             var item = data.ElementAt(selected);
             tbLocation.Text = item.Location.ToString();
         }
+
+
+        private async Task GetLocationsForGivenWarehouseIssuer(string warehouse)
+        {
+            await Task.Run(() =>
+            {
+                List<string> result = new List<string>();
+                string error;
+                var issuerLocs = Services.GetObjectList("lo", out error, warehouse);
+                var debi = issuerLocs.Items.Count();
+                var debug = true;
+                if (issuerLocs == null)
+                {
+                    Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
+
+                }
+                else
+                {
+                    issuerLocs.Items.ForEach(x =>
+                    {
+                        var location = x.GetString("LocationID");
+
+
+                        issuer.Add(location);
+                    });
+
+                }
+
+
+            });
+
+        }
+
+    
+
 
         private void fillItems()
         {

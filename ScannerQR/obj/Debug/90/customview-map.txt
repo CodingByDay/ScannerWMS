@@ -469,6 +469,7 @@ solid;obj\Debug\90\res\drawable\nicelookingbutton.xml
 Spinner;obj\Debug\90\res\layout\checkstock.xml
 Spinner;obj\Debug\90\res\layout\checkstocktablet.xml
 Spinner;obj\Debug\90\res\layout\interwarehousebusinesseventsetup.xml
+Spinner;obj\Debug\90\res\layout\interwarehouseserialorssccentrytablet.xml
 Spinner;obj\Debug\90\res\layout\inventoryopen.xml
 Spinner;obj\Debug\90\res\layout\inventoryopendocument.xml
 Spinner;obj\Debug\90\res\layout\inventoryopendocumenttablet.xml
@@ -477,10 +478,12 @@ Spinner;obj\Debug\90\res\layout\inventoryprint.xml
 Spinner;obj\Debug\90\res\layout\inventoryprinttablet.xml
 Spinner;obj\Debug\90\res\layout\inventoryprocess.xml
 Spinner;obj\Debug\90\res\layout\inventoryprocesstablet.xml
+Spinner;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
 Spinner;obj\Debug\90\res\layout\packagingsetcontext.xml
 Spinner;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 Spinner;obj\Debug\90\res\layout\printingreprintlabels.xml
 Spinner;obj\Debug\90\res\layout\printingreprintlabelstablet.xml
+Spinner;obj\Debug\90\res\layout\productionserialorssccentrytablet.xml
 Spinner;obj\Debug\90\res\layout\rapidtakeover.xml
 Spinner;obj\Debug\90\res\layout\rapidtakeoverphone.xml
 Spinner;obj\Debug\90\res\layout\selectsubjectbeforefinish.xml
@@ -488,6 +491,7 @@ Spinner;obj\Debug\90\res\layout\selectsubjectbeforefinishtablet.xml
 Spinner;obj\Debug\90\res\layout\settingspopup.xml
 Spinner;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 Spinner;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
+Spinner;obj\Debug\90\res\layout\takeoverserialorssccentrytablet.xml
 string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\1\jl\res\values\values.xml
 string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\7\jl\res\values\values.xml
 string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\7\jl\res\values-cs\values-cs.xml

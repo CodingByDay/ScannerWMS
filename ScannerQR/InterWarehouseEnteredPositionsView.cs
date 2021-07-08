@@ -86,6 +86,8 @@ namespace Scanner
             StartActivity(typeof(MainMenu));
         }
 
+
+
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)

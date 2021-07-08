@@ -173,6 +173,7 @@
     <Compile Include="App\UnfinishedInterwarehouseAdapter.cs" />
     <Compile Include="App\UnfinishedInterWarehouseList.cs" />
     <Compile Include="App\UnfinishedTakeoverAdapter.cs" />
+    <Compile Include="App\WarehouseLocation.cs" />
     <Compile Include="App\WebApp.cs" />
     <Compile Include="App\WindowDispatcher.cs" />
     <Compile Include="App\WMSDeviceConfig.cs" />

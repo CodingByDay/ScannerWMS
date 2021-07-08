@@ -56,19 +56,16 @@ namespace Scanner
                 objectDocType.Add(new ComboBoxItem { ID = dt.GetString("Code"), Text = dt.GetString("Code") + " " + dt.GetString("Name") });
 
             });
+
             /*
              Aditional comment area. */
             var adapter = new ArrayAdapter<ComboBoxItem>(this,
              Android.Resource.Layout.SimpleSpinnerItem, objectDocType);
-            ///* 
-            ///* Documentation for the spinner objects add method with an adapter...
-            ///*---------------------------------------------------
-            ///
+       
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbDocType.Adapter = adapter;
 
-            // Next thing... var warehouses = CommonData.ListWarehouses();
-            // cbIssueWH
+         
             var warehouses = CommonData.ListWarehouses();
             if (warehouses != null)
             {

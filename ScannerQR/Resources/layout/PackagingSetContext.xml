@@ -27,6 +27,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:singleLine="true"
             android:textStyle="bold"
             android:layout_width="114.5dp"
             android:layout_height="wrap_content"
@@ -55,8 +56,8 @@
                                      >
 
         <TextView
-            
-             android:textStyle="bold"
+            android:singleLine="true"      
+            android:textStyle="bold"
             android:layout_width="97.5dp"
             android:layout_height="wrap_content"
             android:text="Prej. lokacija:"
@@ -76,6 +77,9 @@
             android:paddingTop="5px"
             android:id="@+id/tbLocation" />
 
+
+
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -84,6 +88,7 @@
         android:paddingTop="5px">
 
         <TextView
+            android:singleLine="true"            
             android:textStyle="bold"
             android:layout_width="148.0dp"
             android:layout_height="wrap_content"
@@ -120,6 +125,7 @@
 
     </LinearLayout>
     <TextView
+        android:singleLine="true"
         android:textStyle="bold"
         android:layout_width="114.5dp"
         android:layout_height="44.5dp"

@@ -89,7 +89,6 @@ namespace Scanner
         {
             var index = e.Position;
             DeleteFromTouch(index);
-            var debug = true;
         }
 
  
