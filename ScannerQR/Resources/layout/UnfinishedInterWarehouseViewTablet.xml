@@ -123,7 +123,7 @@
                 android:paddingLeft="10px"
                 android:paddingTop="5px"
                 android:text="Pos. dog. medsk."
-                android:layout_marginRight="18.5dp" />
+                android:layout_marginRight="5.5dp" />
 
             <EditText
                 android:textSize="16px"
@@ -155,7 +155,7 @@
                 android:paddingTop="5px"
                 android:paddingLeft="10px"
                 android:id="@+id/textView1"
-                android:layout_marginRight="58.5dp" />
+                android:layout_marginRight="46.5dp" />
 
             <EditText
                 android:textSize="16px"
@@ -184,7 +184,7 @@
                 android:paddingLeft="10px"
                 android:paddingTop="5px"
                 android:text="Prej. sklad."
-                android:layout_marginRight="55.0dp" />
+                android:layout_marginRight="44.0dp" />
 
             <EditText
                 android:textSize="16px"
@@ -215,7 +215,7 @@
                 android:text="Št. pozicij"
                 android:paddingTop="5px"
                 android:paddingLeft="10px"
-                android:layout_marginRight="13.0dp" />
+                android:layout_marginRight="3.0dp" />
 
             <EditText
                 android:textSize="16px"
@@ -244,7 +244,7 @@
                 android:paddingLeft="10px"
                 android:paddingTop="5px"
                 android:text="Kreiral"
-                android:layout_marginRight="64.5dp" />
+                android:layout_marginRight="53.5dp" />
 
             <EditText
                 android:textSize="16px"
@@ -277,7 +277,7 @@
                 android:paddingLeft="10px"
                 android:paddingTop="5px"
                 android:text="Datum kreiranja"
-                android:layout_marginRight="22.5dp" />
+                android:layout_marginRight="15.5dp" />
 
             <EditText
                 android:textSize="16px"
@@ -291,12 +291,7 @@
                 android:id="@+id/tbCreatedAt" />
 
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="12.5dp"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
-        android:layout_marginRight="80.5dp" />
+       
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="14.0dp"

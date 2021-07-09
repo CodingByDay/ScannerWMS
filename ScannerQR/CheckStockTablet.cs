@@ -6,6 +6,7 @@ using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Scanner.App;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TrendNET.WMS.Device.App;
@@ -31,6 +32,10 @@ namespace Scanner
         private List<CheckStockAddonList> data = new List<CheckStockAddonList>();
         private ImageView imagePNG;
 
+
+
+
+
         public void GetBarcode(string barcode)
         {
             if (tbIdent.HasFocus)
@@ -46,6 +51,8 @@ namespace Scanner
                 tbLocation.Text = barcode;
             }
         }
+
+
 
         private string LoadStockFromStockSerialNo(string warehouse, string location, string ident)
         {
@@ -69,6 +76,8 @@ namespace Scanner
                 // 
             }
         }
+
+
 
         private void ProcessStock()
         {
@@ -122,8 +131,6 @@ namespace Scanner
             {
                 lbStock.SetBackgroundColor(Android.Graphics.Color.Red);
             }
-
-
         }
 
         private void color()
@@ -133,10 +140,12 @@ namespace Scanner
             tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
         }
 
+
         private void Sound()
         {
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
         }
+
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -203,23 +212,37 @@ namespace Scanner
             lbStock = FindViewById<TextView>(Resource.Id.lbStock);
 
             var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
-         Android.Resource.Layout.SimpleSpinnerItem, spinnerAdapterList);
+            Android.Resource.Layout.SimpleSpinnerItem, spinnerAdapterList);
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouses.Adapter = adapterWarehouse;
 
 
+
+            imagePNG.Visibility = ViewStates.Invisible;
+
         }
 
-        private void showPicture()
+        private void showPicture(string wh)
         {
-            Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
-            Drawable d = new BitmapDrawable(Resources, show);
-            imagePNG.SetImageDrawable(d);
+            try
+            {
+                Android.Graphics.Bitmap show = Services.GetImageFromServer(wh);
+
+                Drawable d = new BitmapDrawable(Resources, show);
+
+                imagePNG.SetImageDrawable(d);
+                imagePNG.Visibility = ViewStates.Visible;
+
+            }
+            catch (Exception error)
+            {
+                return;
+            }
         }
 
         private void Button1_Click(object sender, System.EventArgs e)
         {
-            this.Finish();
+            Finish();
         }
 
         private void BtShowStock_Click(object sender, System.EventArgs e)
@@ -249,10 +272,7 @@ namespace Scanner
 
                     Quantity = x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())
                 });
-        });
-           
-
-
+             });     
         }
 
 
@@ -266,10 +286,11 @@ namespace Scanner
                 string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 temporaryPositionWarehouse = e.Position;
-                if(spinner.GetItemAtPosition(e.Position).ToString() == "Centralno skladišče Postojna")
-                {
-                    showPicture();
-                }
+
+                string element = (string)spinner.GetItemAtPosition(e.Position);
+
+
+                showPicture(element);
             }
         }
     }

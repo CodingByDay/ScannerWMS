@@ -148,7 +148,7 @@ namespace Scanner
                                 {
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
-                                    StartActivity(typeof(MainMenu));
+                                    StartActivity(typeof(MainMenuTablet));
                                 });
                                 Dialog dialog = alert.Create();
                                 dialog.Show();

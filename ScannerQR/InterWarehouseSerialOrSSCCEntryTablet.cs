@@ -716,6 +716,7 @@ namespace Scanner
             button1.Click += Button1_Click;
 
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
+            imagePNG.Visibility = ViewStates.Invisible;
 
             lbIdentName = FindViewById<EditText>(Resource.Id.lbIdentName);
             soundPool = new SoundPool(10, Stream.Music, 0);
@@ -922,7 +923,7 @@ namespace Scanner
             foreach (LocationClass obj in list)
             {
                 items.Add(obj);
-                var item = 32;
+    
             }
 
             listData.Adapter = null;
@@ -959,9 +960,20 @@ namespace Scanner
 
         private void showPicture()
         {
-            Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
-            Drawable d = new BitmapDrawable(Resources, show);
-            imagePNG.SetImageDrawable(d);
+            try
+            {
+                Android.Graphics.Bitmap show = Services.GetImageFromServer(moveHead.GetString("Wharehouse"));
+
+                Drawable d = new BitmapDrawable(Resources, show);
+
+                imagePNG.SetImageDrawable(d);
+                imagePNG.Visibility = ViewStates.Visible;
+
+            }
+            catch (Exception error)
+            {
+                return;
+            }
 
         }
 

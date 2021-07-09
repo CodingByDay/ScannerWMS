@@ -99,7 +99,7 @@ namespace Scanner
             button7.Click += Button7_Click;
             tbSSCC.KeyPress += TbSSCC_KeyPress;
             tbPacking.FocusChange += TbPacking_FocusChange;
-
+            imagePNG.Visibility = ViewStates.Invisible;
 
 
             AdapterLocation adapter = new AdapterLocation(this, items);
@@ -219,7 +219,7 @@ namespace Scanner
                                     {
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
-                                        StartActivity(typeof(MainMenu));
+                                        StartActivity(typeof(MainMenuTablet));
                                     });
 
 
@@ -242,7 +242,7 @@ namespace Scanner
                                     {
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
-                                        StartActivity(typeof(MainMenu));
+                                        StartActivity(typeof(MainMenuTablet));
 
                                     });
 
@@ -414,9 +414,20 @@ namespace Scanner
         }
         private void showPicture()
         {
-            Android.Graphics.Bitmap show = Services.GetImageFromServer("Centralno skladišče Postojna");
-            Drawable d = new BitmapDrawable(Resources, show);
-            imagePNG.SetImageDrawable(d);
+            try
+            {
+                Android.Graphics.Bitmap show = Services.GetImageFromServer(moveHead.GetString("Wharehouse"));
+
+                Drawable d = new BitmapDrawable(Resources, show);
+
+                imagePNG.SetImageDrawable(d);
+                imagePNG.Visibility = ViewStates.Visible;
+
+            }
+            catch (Exception error)
+            {
+                return;
+            }
 
         }
         private void colorFields()
@@ -534,11 +545,11 @@ namespace Scanner
             {
                 if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                 {
-                    StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
+                    StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
                 }
                 else
                 {
-                    StartActivity(typeof(IssuedGoodsIdentEntry));
+                    StartActivity(typeof(IssuedGoodsIdentEntryTablet));
                 }
                 InvalidateAndClose();
              }
