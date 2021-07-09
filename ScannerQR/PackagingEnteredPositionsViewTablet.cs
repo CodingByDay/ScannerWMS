@@ -28,7 +28,6 @@ namespace Scanner
         private EditText tbSSCC;
         private EditText tbItemCount;
         private EditText tbCreatedBy;
-        private Button btNext;
         private Button btUpdate;
         private Button btCreate;
         private Button btDelete;
@@ -59,7 +58,6 @@ namespace Scanner
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             tbItemCount = FindViewById<EditText>(Resource.Id.tbItemCount);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
-            btNext = FindViewById<Button>(Resource.Id.btNext);
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             btCreate = FindViewById<Button>(Resource.Id.btCreate);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
@@ -71,7 +69,6 @@ namespace Scanner
             listData.ItemLongClick += ListData_ItemLongClick;
 
             listData.ItemClick += ListData_ItemClick;
-            btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             btDelete.Click += BtDelete_Click;
             btCreate.Click += BtCreate_Click;
@@ -406,7 +403,6 @@ namespace Scanner
 
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;
-                btNext.Enabled = false;
 
                 tbPackNum.Enabled = false;
                 tbSSCC.Enabled = false;

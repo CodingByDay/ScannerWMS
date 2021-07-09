@@ -28,17 +28,32 @@ namespace TrendNET.WMS.Device.Services
 
 
         /// <summary>
-        /// Method for determaning what type is the device.
+        /// Method for downloading an image for a specific warehouse.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Android.Graphics.Bitmap image</returns>
         public static Android.Graphics.Bitmap GetImageFromServer(string warehouse)
         {
-            var webApp = settings.RootURL;
-            var wc = new WebClient ();
-            var image = wc.DownloadData(webApp + "/Services/Image/?wh=" + warehouse);
-        
-            Android.Graphics.Bitmap bitmapImage = Android.Graphics.BitmapFactory.DecodeByteArray(image, 0, image.Length, null);
-            return bitmapImage;
+
+            using(WebClient wc = new WebClient())
+            {
+                var webApp = settings.RootURL;
+                try
+                {
+                    using (WebClient webClient = new WebClient())
+                    {
+                        image = wc.DownloadData(webApp + "/Services/Image/?wh=" + warehouse);
+                        
+                        Android.Graphics.Bitmap bitmapImage = Android.Graphics.BitmapFactory.DecodeByteArray(image, 0, image.Length, null);
+                        return bitmapImage;
+                    }
+                }
+                catch (System.Net.WebException)
+                {
+                    return null; 
+                } 
+            }
+         
+       
           
         }
         public static bool isTablet(string target)
@@ -331,6 +346,8 @@ namespace TrendNET.WMS.Device.Services
         private static bool pdRunning = false;
         private static DateTime lastCall = DateTime.MinValue;
         private static string lastEventName = null;
+        private static byte[] image;
+
         public static void PreventDups(string eventName, Action a)
         {
             var block = false;

@@ -30,7 +30,6 @@ namespace Scanner
         private EditText tbCreatedBy;
         private EditText tbCreatedAt;
 
-        private Button btNext;
         private Button btUpdate;
         private Button button4;
         private Button btFinish;
@@ -69,13 +68,11 @@ namespace Scanner
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
             listData = FindViewById<ListView>(Resource.Id.listData);
-            btNext = FindViewById<Button>(Resource.Id.btNext);
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             button5 = FindViewById<Button>(Resource.Id.button5);
-            btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             button4.Click += Button4_Click;
             btFinish.Click += BtFinish_Click;
@@ -263,12 +260,7 @@ namespace Scanner
             switch (keyCode)
             {
                 // Setting F2 to method ProccesStock()
-                case Keycode.F1:
-                    if (btNext.Enabled == true)
-                    {
-                        BtNext_Click(this, null);
-                    }
-                    break;
+           
 
                 case Keycode.F2:
                     if (btUpdate.Enabled == true)
@@ -663,7 +655,6 @@ namespace Scanner
                 tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
 
 
-                btNext.Enabled = false;
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;
             }

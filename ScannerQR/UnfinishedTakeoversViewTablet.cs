@@ -29,7 +29,6 @@ namespace Scanner
         private EditText tbItemCount;
         private EditText tbCreatedBy;
         private EditText tbCreatedAt;
-        private Button btNext;
         private Button btFinish;
         private Button btDelete;
         private Button btLogout;
@@ -65,7 +64,6 @@ namespace Scanner
             dataList = FindViewById<ListView>(Resource.Id.dataList);
             UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
             dataList.Adapter = adapter;
-            btNext = FindViewById<Button>(Resource.Id.btNext);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             btNew = FindViewById<Button>(Resource.Id.btnew);
@@ -73,7 +71,6 @@ namespace Scanner
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             dataList.ChoiceMode = ChoiceMode.Single;
             btFinish.Click += BtFinish_Click;
-            btNext.Click += BtNext_Click;
             btDelete.Click += BtDelete_Click;
             btNew.Click += BtNew_Click;
             btLogout.Click += BtLogout_Click;
@@ -118,12 +115,7 @@ namespace Scanner
             {
                 // in smartphone
 
-                case Keycode.F1:
-                    if (btNext.Enabled == true)
-                    {
-                        BtNext_Click(this, null);
-                    }
-                    break;
+        
 
                 // return true;
 
@@ -487,7 +479,6 @@ namespace Scanner
                 tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
 
 
-                btNext.Enabled = true;
                 btDelete.Enabled = true;
                 btFinish.Enabled = true;
 
@@ -521,7 +512,6 @@ namespace Scanner
                 tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
                 tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
 
-                btNext.Enabled = false;
                 btDelete.Enabled = false;
                 btFinish.Enabled = false;
             }

@@ -27,7 +27,6 @@ namespace Scanner
         private EditText tbItemCount;
         private EditText tbCreatedBy;
         private EditText tbCreatedAt;
-        private Button btNext;
         private Button btFinish;
         private Button btDelete;
         private Button btnNew;
@@ -60,7 +59,6 @@ namespace Scanner
             tbItemCount = FindViewById<EditText>(Resource.Id.tbItemCount);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
-            btNext = FindViewById<Button>(Resource.Id.btNext);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btnNew = FindViewById<Button>(Resource.Id.btnNew);
             btnLogout = FindViewById<Button>(Resource.Id.btnLogout);
@@ -68,7 +66,6 @@ namespace Scanner
             dataList = FindViewById<ListView>(Resource.Id.dataList);
             UnfinishedInterwarehouseAdapter adapter = new UnfinishedInterwarehouseAdapter(this, dataMapping);
             dataList.Adapter = adapter;
-            btNext.Click += BtNext_Click;
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
             btnNew.Click += BtnNew_Click;
@@ -182,14 +179,7 @@ namespace Scanner
         {
             switch (keyCode)
             {
-                // in smartphone
-                case Keycode.F1:
-                    if (btNext.Enabled == true)
-                    {
-                        BtNext_Click(this, null);
-                    }
-                    break;
-                
+         
 
 
                 case Keycode.F2:
@@ -455,7 +445,6 @@ namespace Scanner
                 tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
                 tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
 
-                btNext.Enabled = true;
                 btDelete.Enabled = true;
                 btFinish.Enabled = true;
             }
@@ -486,7 +475,6 @@ namespace Scanner
                 tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
 
 
-                btNext.Enabled = false;
                 btFinish.Enabled = false;
 
                 btDelete.Enabled = false;

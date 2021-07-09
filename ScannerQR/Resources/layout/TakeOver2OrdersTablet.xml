@@ -318,6 +318,8 @@
             android:layout_height="wrap_content"
             android:text="Kol. odp. /"
             android:paddingTop="5px"
+            android:textStyle="bold"
+                
             android:paddingLeft="10px"
             android:id="@+id/textView132"
             android:layout_marginRight="41.5dp" />

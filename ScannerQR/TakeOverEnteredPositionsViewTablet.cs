@@ -30,7 +30,6 @@ namespace Scanner
         private EditText tbLocation;
         private EditText tbCreatedBy;
         private ListView dataList;
-        private Button btNext;
         private Button btUpdate;
         private Button button4;
         private Button btFinish;
@@ -65,7 +64,6 @@ namespace Scanner
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             dataList = FindViewById<ListView>(Resource.Id.dataList);
-            btNext = FindViewById<Button>(Resource.Id.btNext);
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
@@ -74,7 +72,6 @@ namespace Scanner
             dataList.ItemLongClick += DataList_ItemLongClick;
             TakeOverEnteredPositionsViewAdapter adapter = new TakeOverEnteredPositionsViewAdapter(this, data);
             dataList.Adapter = adapter;
-            btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             button4.Click += Button4_Click;
 
@@ -567,12 +564,7 @@ namespace Scanner
             switch (keyCode)
             {
                 // Setting F2 to method ProccesStock()
-                case Keycode.F1:
-                    if (btNext.Enabled == true)
-                    {
-                        BtNext_Click(this, null);
-                    }
-                    break;
+           
 
                 case Keycode.F2:
                     if (btUpdate.Enabled == true)
@@ -691,7 +683,6 @@ namespace Scanner
 
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;
-                btNext.Enabled = false;
 
 
             }

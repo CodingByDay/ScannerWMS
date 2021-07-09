@@ -32,7 +32,6 @@ namespace Scanner
         private EditText tbLocation;
         private EditText tbCreatedBy;
         private Dialog popupDialog;
-        private Button btNext;
         private Button btUpdate;
         private Button btNew;
         private Button btFinish;
@@ -59,7 +58,6 @@ namespace Scanner
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
-            btNext = FindViewById<Button>(Resource.Id.btNext);
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             btNew = FindViewById<Button>(Resource.Id.btNew);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
@@ -69,7 +67,6 @@ namespace Scanner
             listData.ItemLongClick += ListData_ItemLongClick;
             IssuedEnterAdapter adapter = new IssuedEnterAdapter(this, data);
             listData.Adapter = adapter;
-            btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             btNew.Click += BtNew_Click;
             btFinish.Click += BtFinish_Click;
@@ -255,12 +252,7 @@ namespace Scanner
             switch (keyCode)
             {
                 // 
-                case Keycode.F1:
-                    if (btNext.Enabled == true)
-                    {
-                        BtNext_Click(this, null);
-                    }
-                    break;
+           
 
                 case Keycode.F2:
                     if (btUpdate.Enabled == true)
@@ -571,7 +563,7 @@ namespace Scanner
                 tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
 
 
-                btNext.Enabled = false;
+            
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;
             }

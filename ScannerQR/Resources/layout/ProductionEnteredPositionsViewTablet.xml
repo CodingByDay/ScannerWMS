@@ -303,37 +303,26 @@
         android:paddingLeft="10px"
         android:paddingTop="5px"
         android:layout_marginBottom="0.0dp" />
-   <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:paddingTop="5px">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:paddingTop="5px">
 
-        <Button
-            android:layout_weight="1"
-            android:textSize="16px"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Naslednja pozicija - F1"
-            android:drawableLeft="@drawable/next"
-            android:paddingLeft="10px"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:id="@+id/btNext" />
-
-        <Button
-            android:layout_weight="1"
-            android:textSize="16px"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Popravi pozicijo - F2"
-            android:drawableLeft="@drawable/fix"
-            android:paddingLeft="10px"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:id="@+id/btUpdate" />
+            <Button
+                android:layout_weight="1"
+                android:textSize="16px"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Popravi pozicijo - F2"
+                android:drawableLeft="@drawable/fix"
+                android:paddingLeft="10px"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:id="@+id/btUpdate" />
 
 
-    </LinearLayout>
+        </LinearLayout>
 
 
 

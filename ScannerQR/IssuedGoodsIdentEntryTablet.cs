@@ -29,7 +29,6 @@ namespace Scanner
         private EditText tbConsignee;
         private EditText tbDeliveryDeadline;
         private EditText tbQty;
-        private Button btNext;
         private Button btConfirm;
         private Button button4;
         private Button button5;
@@ -142,7 +141,6 @@ namespace Scanner
                 tbQty.Text = order.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture());
                 var deadLine = order.GetDateTime("DeliveryDeadline");
                 tbDeliveryDeadline.Text = deadLine == null ? "" : ((DateTime)deadLine).ToString("dd.MM.yyyy");
-                btNext.Enabled = true;
                 btConfirm.Enabled = true;
             }
             else
@@ -153,7 +151,6 @@ namespace Scanner
                 tbConsignee.Text = "";
                 tbQty.Text = "";
                 tbDeliveryDeadline.Text = "";
-                btNext.Enabled = false;
                 btConfirm.Enabled = false;
             }
         }
@@ -226,21 +223,18 @@ namespace Scanner
             tbConsignee = FindViewById<EditText>(Resource.Id.tbConsignee);
             tbDeliveryDeadline = FindViewById<EditText>(Resource.Id.tbDeliveryDeadline);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
-            btNext = FindViewById<Button>(Resource.Id.btNext);
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button5 = FindViewById<Button>(Resource.Id.button5);
             lbOrderInfo = FindViewById<TextView>(Resource.Id.lbOrderInfo);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             color();
-            btNext.Enabled = false;
             btConfirm.Enabled = false;
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
             tbNaziv.FocusChange += TbNaziv_FocusChange;
-            btNext.Click += BtNext_Click;
             btConfirm.Click += BtConfirm_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
@@ -295,14 +289,7 @@ namespace Scanner
         {
             switch (keyCode)
             {
-                // in smartphone
-                case Keycode.F2:
-                    if (btNext.Enabled == true)
-                    {
-                        BtNext_Click(this, null);
-                    }
-                    break;
-                //return true;
+          
 
 
                 case Keycode.F3:

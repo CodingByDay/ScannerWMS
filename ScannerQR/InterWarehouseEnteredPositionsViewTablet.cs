@@ -27,7 +27,6 @@ namespace Scanner
         private EditText tbQty;
         private EditText tbLocation;
         private EditText tbCreatedBy;
-        private Button btNext;
         private Button btUpdate;
         private Button button4;
         private Button btFinish;
@@ -61,7 +60,6 @@ namespace Scanner
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             ////////////////////////////////////////////////////
-            btNext = FindViewById<Button>(Resource.Id.btNext);
             btUpdate = FindViewById<Button>(Resource.Id.btUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
@@ -73,7 +71,6 @@ namespace Scanner
             listData.Adapter = adapter;
             ////////////////////////////////////////////////////
             ////////////////////////////////////////////////////
-            btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             button4.Click += Button4_Click;
             btFinish.Click += BtFinish_Click;
@@ -258,12 +255,7 @@ namespace Scanner
             switch (keyCode)
             {
 
-                case Keycode.F1:
-                    if (btNext.Enabled == true)
-                    {
-                        BtNext_Click(this, null);
-                    }
-                    break;
+          
 
                 case Keycode.F2:
                     if (btUpdate.Enabled == true)
@@ -556,7 +548,6 @@ namespace Scanner
 
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;
-                btNext.Enabled = false;
             }
         }
     }

@@ -315,29 +315,17 @@
         android:paddingLeft="10px"
         android:paddingTop="5px"
         android:layout_marginRight="21.0dp" />
-   <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:paddingTop="5px">
-
-            <Button
-                android:background="@drawable/nicelookingbutton"
-                android:text="Naslednja odprema-f1"
-                android:layout_width="match_parent"
-                android:layout_height="70.0dp"
-                android:textSize="16px"
-                android:layout_weight="1"
-                android:paddingLeft="10px"
-                android:drawableLeft="@drawable/next"
-                android:id="@+id/btNext"
-                android:layout_marginBottom="0.0dp" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:paddingTop="5px">
 
             <Button
                 android:layout_weight="1"
                 android:background="@drawable/nicelookingbutton"
-                android:text="Zaključi/popravi odpr.-f2"
+                android:text="Zaključi/popravi odpremo.-f2"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:drawableLeft="@drawable/shipped"
@@ -347,7 +335,7 @@
                 android:layout_marginBottom="0.0dp" />
 
 
-    </LinearLayout>
+        </LinearLayout>
 
 
  <LinearLayout

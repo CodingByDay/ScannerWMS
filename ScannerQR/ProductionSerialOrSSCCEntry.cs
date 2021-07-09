@@ -162,8 +162,9 @@ namespace Scanner
             }
         }
 
-        private bool SaveMoveItem()
+        private async Task<bool> SaveMoveItem()
         {
+
             if (string.IsNullOrEmpty(tbPacking.Text.Trim()))
             {
                 return true;
@@ -171,9 +172,13 @@ namespace Scanner
 
             if (tbSSCC.Enabled && string.IsNullOrEmpty(tbSSCC.Text.Trim()))
             {
-                string SuccessMessage = string.Format("SSCC koda je obvezen podatek.");
-                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                tbSSCC.RequestFocus();
+                RunOnUiThread(() =>
+                {
+                    string SuccessMessage = string.Format("SSCC koda je obvezen podatek.");
+                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                    tbSSCC.RequestFocus();
+                });
+               
                 return false;
             }
 
@@ -182,18 +187,26 @@ namespace Scanner
                 tbSerialNum.Text = GetNextSerialNum();
                 if (string.IsNullOrEmpty(tbSerialNum.Text.Trim()))
                 {
-                    string SuccessMessage = string.Format("Ni mogoče pridobiti serijske št.");
-                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                    tbSerialNum.RequestFocus();
+                    RunOnUiThread(() =>
+                    {
+                        string SuccessMessage = string.Format("Ni mogoče pridobiti serijske št.");
+                        Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                        tbSerialNum.RequestFocus();
+                    });
+                   
                     return false;
                 }
             }
 
             if (!CommonData.IsValidLocation(moveHead.GetString("Wharehouse"), tbLocation.Text.Trim()))
             {
-                string SuccessMessage = string.Format("Lokacija '" + tbLocation.Text.Trim() + "' ni veljavna za skladišče '" + moveHead.GetString("Wharehouse") + "'!");
-                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                tbLocation.RequestFocus();
+                RunOnUiThread(() =>
+                {
+                    string SuccessMessage = string.Format("Lokacija '" + tbLocation.Text.Trim() + "' ni veljavna za skladišče '" + moveHead.GetString("Wharehouse") + "'!");
+                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                    tbLocation.RequestFocus();
+                });
+             
                 return false;
             }
 
@@ -207,24 +220,36 @@ namespace Scanner
                     var stock = Services.GetObject("sts", tbSSCC.Text.Trim(), out error);
                     if (stock == null)
                     {
-                        string SuccessMessage = string.Format("Napaka pri dostopu do web aplikacije" + error);
-                        Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                        RunOnUiThread(() =>
+                        {
+                            string SuccessMessage = string.Format("Napaka pri dostopu do web aplikacije" + error);
+                            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                        });
+                     
                         
                         return false;
                     }
 
                     if (stock.GetBool("ExistsSSCC"))
                     {
-                        string SuccessMessage = string.Format("SSCC koda že obstaja");
-                        Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                        RunOnUiThread(() =>
+                        {
+                            string SuccessMessage = string.Format("SSCC koda že obstaja");
+                            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                        });
+         
                       
                         return false;
                     }
                 }
                 if (string.IsNullOrEmpty(tbPacking.Text.Trim()))
                 {
-                string SuccessMessage = string.Format("Količina je obvezan podatek");
+                    RunOnUiThread(() =>
+                    {
+                        string SuccessMessage = string.Format("Količina je obvezan podatek");
                         Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                    });
+         
                     return false;
                 }
                 else
@@ -235,8 +260,12 @@ namespace Scanner
 
                         if (qty == 0.0)
                         {
-                            string SuccessMessage = string.Format("Količina je obvezen podatek in mora bit različna od nič.");
-                            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                            RunOnUiThread(() =>
+                            {
+                                string SuccessMessage = string.Format("Količina je obvezen podatek in mora bit različna od nič.");
+                                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                            });
+                         
                      
                             return false;
                         }
@@ -246,27 +275,39 @@ namespace Scanner
                             var max = Math.Abs(openWorkOrder.GetDouble("OpenQty"));
                             if (Math.Abs(qty) > max)
                             {
-                                string SuccessMessage = string.Format("Količina (" + qty.ToString(CommonData.GetQtyPicture()) + ") ne sme presegati max. količine (" + max.ToString(CommonData.GetQtyPicture()) + ")!");
-                                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                                tbPacking.RequestFocus();
+                                RunOnUiThread(() =>
+                                {
+                                    string SuccessMessage = string.Format("Količina (" + qty.ToString(CommonData.GetQtyPicture()) + ") ne sme presegati max. količine (" + max.ToString(CommonData.GetQtyPicture()) + ")!");
+                                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                                    tbPacking.RequestFocus();
+                                });
+                          
                                 return false;
                             }
                         }
                     }
                     catch (Exception e)
                     {
-                        string SuccessMessage = string.Format("Količina mora biti število (" + e.Message + ")!");
-                                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                  
-                        tbPacking.RequestFocus();
+                        RunOnUiThread(() =>
+                        {
+                            string SuccessMessage = string.Format("Količina mora biti število (" + e.Message + ")!");
+                            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+
+                            tbPacking.RequestFocus();
+                        });
+                        
                         return false;
                     }
                 }
 
                 if (string.IsNullOrEmpty(tbUnits.Text.Trim())) {
-                    string SuccessMessage = string.Format("Št. enota je obvezen podatek!");
-                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                    tbUnits.RequestFocus();
+                    RunOnUiThread(() =>
+                    {
+                        string SuccessMessage = string.Format("Št. enota je obvezen podatek!");
+                        Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                        tbUnits.RequestFocus();
+                    });
+                   
 
                     return false;
                 }
@@ -277,17 +318,25 @@ namespace Scanner
                         var qty = Convert.ToDouble(tbUnits.Text.Trim());
                         if (qty == 0.0)
                         {
-                            string SuccessMessage = string.Format("Št. enota je obvezen podatek, in more biti različit od nič.");
-                            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                            tbUnits.RequestFocus();
+                            RunOnUiThread(() =>
+                            {
+                                string SuccessMessage = string.Format("Št. enota je obvezen podatek, in more biti različit od nič.");
+                                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                                tbUnits.RequestFocus();
+                            });
+                          
                             return false;
                         }
                     }
                     catch (Exception e)
                     {
-                        string SuccessMessage = string.Format("Št. enot mora biti število (" + e.Message + ")!");
-                        Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                        tbUnits.RequestFocus();
+                        RunOnUiThread(() =>
+                        {
+                            string SuccessMessage = string.Format("Št. enot mora biti število (" + e.Message + ")!");
+                            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                            tbUnits.RequestFocus();
+                        });
+                     
                         return false;
                     }
                 }
@@ -308,8 +357,12 @@ namespace Scanner
                 moveItem = Services.SetObject("mi", moveItem, out error);
                 if (moveItem == null)
                 {
-                    string SuccessMessage = string.Format("Napaka pri dostopu do web aplikacije: " + error);
-                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                    RunOnUiThread(() =>
+                    {
+                        string SuccessMessage = string.Format("Napaka pri dostopu do web aplikacije: " + error);
+                        Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                    });
+               
                    
                     return false;
                 }
@@ -535,9 +588,9 @@ namespace Scanner
 
         private async Task FinishMethod()
         {
-            await Task.Run(() =>
+            await Task.Run(async () =>
             {
-                if (SaveMoveItem())
+                if (await SaveMoveItem())
                 {
                     var headID = moveHead.GetInt("HeadID");
                     //

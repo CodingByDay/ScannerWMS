@@ -29,7 +29,6 @@ namespace Scanner
         private EditText tbItemCount;
         private EditText tbCreatedBy;
         private EditText tbCreatedAt;
-        private Button btNext;
         private Button btFinish;
         private Button btDelete;
         private Button btNew;
@@ -58,7 +57,6 @@ namespace Scanner
             tbItemCount = FindViewById<EditText>(Resource.Id.tbItemCount);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
-            btNext = FindViewById<Button>(Resource.Id.btNext);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             btNew = FindViewById<Button>(Resource.Id.btNew);
@@ -68,7 +66,6 @@ namespace Scanner
             UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, data);
             issuedData.Adapter = adapter;
             issuedData.ItemClick += IssuedData_ItemClick;
-            btNext.Click += BtNext_Click;     //
             btFinish.Click += BtFinish_Click; //
             btDelete.Click += BtDelete_Click; // 
             btNew.Click += BtNew_Click;       //
@@ -414,7 +411,6 @@ namespace Scanner
                 tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
                 tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
 
-                btNext.Enabled = true;
                 btDelete.Enabled = true;
                 btFinish.Enabled = true;
             }
@@ -444,7 +440,6 @@ namespace Scanner
                 tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
 
 
-                btNext.Enabled = false;
                 //  btDelete.Enabled = false;
                 btFinish.Enabled = false;
             }
@@ -453,13 +448,8 @@ namespace Scanner
         {
             switch (keyCode)
             {
-                // in smartphone
-                case Keycode.F1:
-                    if (btNext.Enabled == true)
-                    {
-                        BtNext_Click(this, null);
-                    }
-                    break;
+            
+               
                 //return true;
 
 
