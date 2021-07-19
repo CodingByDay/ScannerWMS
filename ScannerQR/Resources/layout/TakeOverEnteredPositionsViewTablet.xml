@@ -330,7 +330,7 @@
                 android:layout_weight="1"
                 android:textSize="16px"
                 android:background="@drawable/nicelookingbutton"
-                android:text="Popravi pozicijo - F2"
+                android:text="Popravi pozicijo"
                 android:drawableLeft="@drawable/fix"
                 android:paddingLeft="10px"
                 android:layout_width="match_parent"
@@ -353,7 +353,7 @@
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Kreiraj pozicijo - F3"
+                android:text="Kreiraj pozicijo "
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="70.0dp"
@@ -364,7 +364,7 @@
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Zaključi prevz. - F4"
+                android:text="Zaključi prevz. "
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:layout_weight="1"
@@ -386,7 +386,7 @@
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Izbriši poz. - F5"
+                android:text="Izbriši poz. "
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:textSize="16px"
@@ -395,16 +395,16 @@
                 android:drawableLeft="@drawable/delete"
                 android:id="@+id/btDelete" />
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Izhod - F9"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-           android:textSize="16px"
-            android:drawableLeft="@drawable/logout"
-            android:paddingLeft="10px"
-            android:id="@+id/button5" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Izhod -"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:drawableLeft="@drawable/logout"
+                android:paddingLeft="10px"
+                android:id="@+id/button5" />
 
 
     </LinearLayout>

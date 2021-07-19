@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Microsoft.AppCenter.Crashes;
+using Scanner.App;
 using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -33,6 +34,7 @@ namespace Scanner
         private Button btnYes;
         private Button btnNo;
         private bool target;
+        private bool warning;
 
         private bool Response()
         {
@@ -46,17 +48,26 @@ namespace Scanner
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
             btnNo.Click += BtnNo_Click;
             btnYes.Click += BtnYes_Click;
+            var res = target;
+
+
+
+
             return target;
         }
 
         private void BtnNo_Click(object sender, EventArgs e)
         {
             target = false;
+            popupDialog.Hide();
+            popupDialog.Dismiss();
         }
 
         private void BtnYes_Click(object sender, EventArgs e)
         {
             target = true;
+            popupDialog.Hide();
+            popupDialog.Dismiss();
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -85,7 +96,7 @@ namespace Scanner
             return base.OnKeyDown(keyCode, e);
         }
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ProductionCardTablet);
@@ -116,7 +127,19 @@ namespace Scanner
                 {
                     if (data.GetBool("Warning"))
                     {
-                        if (Response())
+                        try
+                        {
+                            warning = (bool)await DialogAsync.Show(this, "Opozorilo", "Izpisanih je bilo zadostno št. etiket, ali želite zamenjati serijsko številko?");
+                        }
+                        catch (TaskCanceledException ex)
+                        {
+                            Toast.MakeText(this, "Kliknuli ste izven dialoga.", ToastLength.Long).Show();
+
+                        }
+
+
+                        if ((bool)warning)
+
                         {
                             data = Services.GetObject("cwns", tbWorkOrder.Text + "|" + tbIdent.Text + "|1", out error);
                             if (data == null)
@@ -125,6 +148,9 @@ namespace Scanner
                                 Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
 
                             }
+                        }
+                        else
+                        {
                         }
                     }
 
@@ -143,11 +169,12 @@ namespace Scanner
 
         private void BtExit_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
         {
+
             var nvo = new NameValueObject("MoveCard");
             nvo.SetString("WorkOrder", tbWorkOrder.Text);
             nvo.SetString("Ident", tbIdent.Text);
@@ -156,17 +183,33 @@ namespace Scanner
             nvo.SetDouble("Qty", Convert.ToDouble(tbQty.Text));
             nvo.SetInt("ClerkIns", Services.UserID());
 
+            var progress = new ProgressDialogClass();
 
-
+            progress.ShowDialogSync(this, "Shranjujem podatke o kartonu, tiskam nalepko...");
             try
             {
                 string error;
                 nvo = Services.SetObject("cwns", nvo, out error);
                 if (nvo == null)
                 {
-                    string SuccessMessage = string.Format("Shranjevanje neuspešno, napaka: " + error);
 
-                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+
+
+                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                    alert.SetTitle("Napaka");
+                    alert.SetMessage("Shranjevanje neuspešno, napaka: " + error);
+
+                    alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                    {
+                        alert.Dispose();
+                        System.Threading.Thread.Sleep(500);
+                        this.Finish();
+                    });
+
+
+
+                    Dialog dialog = alert.Create();
+                    dialog.Show();
 
                 }
                 else
@@ -175,13 +218,15 @@ namespace Scanner
                     PrintingCommon.SetNVOCommonData(ref pr);
                     pr.SetInt("CardID", nvo.GetInt("ID"));
                     PrintingCommon.SendToServer(pr);
+                    StartActivity(typeof(ProductionCardTablet));
+                    this.Finish();
 
                     //
                 }
             }
             finally
             {
-
+                progress.StopDialogSync();
             }
 
         }

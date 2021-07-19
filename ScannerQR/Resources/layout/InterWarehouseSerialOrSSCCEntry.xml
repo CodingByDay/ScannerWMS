@@ -19,7 +19,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:layout_width="134.5dp"
+            android:layout_width="137.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -61,7 +61,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:layout_width="wrap_content"
+            android:layout_width="76.0dp"
             android:layout_height="wrap_content"
             android:text="SSCC koda"
             android:paddingTop="5px"
@@ -118,7 +118,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:layout_width="wrap_content"
+            android:layout_width="82.5dp"
             android:layout_height="wrap_content"
             android:text="Izd. lokacija"
             android:paddingTop="5px"
@@ -146,8 +146,7 @@
 
         <TextView
             android:textStyle="bold"
-
-            android:layout_width="wrap_content"
+            android:layout_width="88.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -176,13 +175,12 @@
 
         <TextView
             android:textStyle="bold"
-
-            android:layout_width="59.5dp"
+            android:layout_width="112.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
             android:text="Količina"
-            android:layout_marginRight="52.5dp"
+            android:layout_marginRight="4.5dp"
             android:id="@+id/lbQty" />
 
         <EditText
@@ -211,8 +209,7 @@
 
         <TextView
             android:textStyle="bold"
- 
-            android:layout_width="111.0dp"
+            android:layout_width="115.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
             android:paddingTop="5px"
@@ -235,13 +232,6 @@
 
 
 
-    <TextView
-        android:layout_width="111.0dp"
-        android:layout_height="4.5dp"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
-        android:id="@+id/lbUnits123" />
-
 
 
 
@@ -258,7 +248,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Dodaj ser. številko-f2"
             android:layout_width="match_parent"
-            android:layout_height="70.0dp"
+            android:layout_height="67.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/newitem"
@@ -270,7 +260,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Nova pozicija -f3"
             android:layout_width="match_parent"
-            android:layout_height="70.0dp"
+            android:layout_height="67.0dp"
             android:drawableLeft="@drawable/newitem"
            android:textSize="16px"
             android:paddingLeft="10px"
@@ -293,7 +283,7 @@
             android:text="Zaključi-f4"
             android:layout_width="match_parent"
             android:layout_weight="1"
-            android:layout_height="70.0dp"
+            android:layout_height="67.0dp"
             android:textSize="16px"
             android:paddingLeft="10px"
             android:drawableLeft="@drawable/shipped"
@@ -304,7 +294,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Pregled pozicij-f5"
             android:layout_width="match_parent"
-            android:layout_height="70.0dp"
+            android:layout_height="67.0dp"
             android:textSize="16px"
             android:drawableLeft="@drawable/focus"
             android:paddingLeft="10px"
@@ -318,8 +308,8 @@
         android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
-       android:layout_height="70.0dp"
-       android:textSize="16px"
+        android:layout_height="67.0dp"
+        android:textSize="16px"
         android:drawableLeft="@drawable/logout"
         android:paddingLeft="10px"
         android:id="@+id/button6"

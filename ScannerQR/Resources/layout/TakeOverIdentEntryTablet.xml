@@ -332,7 +332,7 @@
             <Button
                 android:layout_weight="1"
                 android:background="@drawable/nicelookingbutton"
-                android:text="potrdi-f3"
+                android:text="potrdi"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:textSize="16px"
@@ -351,29 +351,29 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="pregled pozicij-f4"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/focus"
-            android:id="@+id/button4" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="pregled poz."
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/focus"
+                android:id="@+id/button4" />
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="izhod-f9"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:layout_weight="1"
-            android:textSize="16px"
-            android:drawableLeft="@drawable/logout"
-            android:paddingLeft="10px"
-            android:id="@+id/button5"
-            android:layout_marginTop="0.0dp"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="izhod"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:layout_weight="1"
+                android:textSize="16px"
+                android:drawableLeft="@drawable/logout"
+                android:paddingLeft="10px"
+                android:id="@+id/button5"
+                android:layout_marginTop="0.0dp"
+                android:layout_marginBottom="0.0dp" />
 
 
     </LinearLayout>

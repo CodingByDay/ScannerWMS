@@ -210,6 +210,11 @@ namespace Scanner
                 tbUnits.Visibility = ViewStates.Invisible;
             }
             FillRelatedData();
+
+            if(tbLocation.Text=="")
+            {
+                tbLocation.Text = "K03";
+            }
         }
 
         private void Button5_Click(object sender, EventArgs e)

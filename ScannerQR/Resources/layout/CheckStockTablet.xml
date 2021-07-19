@@ -219,15 +219,15 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:textSize="16px"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Prikaži zalogo - F2"
-            android:drawableLeft="@drawable/focus"
-            android:paddingLeft="10px"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:id="@+id/btShowStock" />
+            <Button
+                android:textSize="16px"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Prikaži zalogo "
+                android:drawableLeft="@drawable/focus"
+                android:paddingLeft="10px"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:id="@+id/btShowStock" />
 
         <Button
            android:textSize="16px"

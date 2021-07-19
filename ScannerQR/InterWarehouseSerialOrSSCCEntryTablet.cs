@@ -92,9 +92,21 @@ namespace Scanner
                         Sound();
                         tbSSCC.Text = barcode;
 
-                        FillRelatedData(tbSSCC.Text);
 
-                        tbSerialNum.RequestFocus();
+                        if (FillRelatedBranchIdentData(tbSSCC.Text))
+                        {
+
+                            FillRelatedData(tbSSCC.Text);
+                            tbLocation.RequestFocus();
+                            ProcessQty();
+
+                        }
+                        else
+                        {
+                            // Go a step back and rescan.
+                            tbSSCC.Text = "";
+                            tbSSCC.RequestFocus();
+                        }
                     }
 
                 }
@@ -132,6 +144,34 @@ namespace Scanner
                 }
 
 
+            }
+        }
+
+        private bool FillRelatedBranchIdentData(string text)
+        {
+            string error;
+
+            var data = Services.GetObject("sscc", text, out error);
+
+
+
+            if (data != null)
+            {
+                var ident = data.GetString("Ident");
+                var name = data.GetString("IdentName");
+
+
+                tbIdent.Text = ident;
+                lbIdentName.Text = name;
+
+                // Just to be sure about the values, probably reduntant but hey.
+                if (tbIdent.Text != null && lbIdentName.Text != null) { return true; } else { return false; }
+
+
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -736,7 +776,7 @@ namespace Scanner
                 string toast = string.Format(moveHead.GetString("Issuer"));
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 // string SuccessMessage = string.Format("Uspešno poslani podatki.");
-                //   Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                // Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
             }
 
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point?!"); }
@@ -769,11 +809,13 @@ namespace Scanner
             }
 
             if (string.IsNullOrEmpty(tbUnits.Text.Trim())) { tbUnits.Text = "1"; }
+
             if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
             {
                 lbUnits.Visibility = ViewStates.Visible;
                 tbUnits.Visibility = ViewStates.Visible;
             }
+
             await GetLocationsForGivenWarehouseIssuer(moveHead.GetString("Issuer"));
             await GetLocationsForGivenWarehouseReceiver(moveHead.GetString("Receiver"));
             var adapterIssue = new ArrayAdapter<String>(this,
@@ -785,7 +827,7 @@ namespace Scanner
             spReceive.Adapter = adapterReceive;
 
 
-
+            tbSSCC.RequestFocus();
         }
 
         private void SpIssue_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)

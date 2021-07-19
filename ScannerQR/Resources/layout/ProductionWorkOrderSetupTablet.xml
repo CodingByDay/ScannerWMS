@@ -297,29 +297,29 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Karton-f2"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:layout_weight="1"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/card"
-            android:id="@+id/btCard"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Karton"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:layout_weight="1"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/card"
+                android:id="@+id/btCard"
+                android:layout_marginBottom="0.0dp" />
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="potrdi-f3"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:drawableLeft="@drawable/confirmation"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:id="@+id/btConfirm"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="potrdi"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:drawableLeft="@drawable/confirmation"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:id="@+id/btConfirm"
+                android:layout_marginBottom="0.0dp" />
 
 
     </LinearLayout>
@@ -332,29 +332,29 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="paletiranje-f4"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:layout_weight="1"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/wholesale"
-            android:id="@+id/btPalette" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="paletiranje-"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:layout_weight="1"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/wholesale"
+                android:id="@+id/btPalette" />
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="izhod-f8"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:drawableLeft="@drawable/logout"
-            android:paddingLeft="15px"
-            android:id="@+id/button2"
-            android:layout_marginTop="0.0dp"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="izhod"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:drawableLeft="@drawable/logout"
+                android:paddingLeft="15px"
+                android:id="@+id/button2"
+                android:layout_marginTop="0.0dp"
+                android:layout_marginBottom="0.0dp" />
 
 
     </LinearLayout>

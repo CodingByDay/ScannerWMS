@@ -181,17 +181,17 @@
         android:paddingLeft="10px"
         android:paddingTop="5px"
         android:layout_marginRight="28.5dp" />
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Potrdi-F2"
-        android:layout_width="200dp"
-        android:layout_height="70.0dp"
-        android:drawableLeft="@drawable/confirmation"
-        android:textSize="16px"
-        android:layout_gravity="center_horizontal"
-        android:paddingLeft="10px"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/btConfirm"
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Potrdi"
+            android:layout_width="200dp"
+            android:layout_height="70.0dp"
+            android:drawableLeft="@drawable/confirmation"
+            android:textSize="16px"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="10px"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/btConfirm"
              />
 </LinearLayout>
 

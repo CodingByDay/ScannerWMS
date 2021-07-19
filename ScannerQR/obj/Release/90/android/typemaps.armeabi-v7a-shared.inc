@@ -19,26 +19,26 @@
 	.section	.rodata.map_aname.3,"aMS",%progbits,1
 	.type	.L.map_aname.3, %object
 .L.map_aname.3:
-	.asciz	"Xamarin.Android.Arch.Lifecycle.LiveData.Core"
-	.size	.L.map_aname.3, 45
+	.asciz	"Mono.Android"
+	.size	.L.map_aname.3, 13
 
 	.section	.rodata.map_aname.4,"aMS",%progbits,1
 	.type	.L.map_aname.4, %object
 .L.map_aname.4:
-	.asciz	"Microsoft.AppCenter.Analytics.Android.Bindings"
-	.size	.L.map_aname.4, 47
+	.asciz	"Xamarin.Android.Arch.Lifecycle.LiveData.Core"
+	.size	.L.map_aname.4, 45
 
 	.section	.rodata.map_aname.5,"aMS",%progbits,1
 	.type	.L.map_aname.5, %object
 .L.map_aname.5:
-	.asciz	"Microsoft.AppCenter"
-	.size	.L.map_aname.5, 20
+	.asciz	"Microsoft.AppCenter.Analytics.Android.Bindings"
+	.size	.L.map_aname.5, 47
 
 	.section	.rodata.map_aname.6,"aMS",%progbits,1
 	.type	.L.map_aname.6, %object
 .L.map_aname.6:
-	.asciz	"WMS"
-	.size	.L.map_aname.6, 4
+	.asciz	"Microsoft.AppCenter"
+	.size	.L.map_aname.6, 20
 
 	.section	.rodata.map_aname.7,"aMS",%progbits,1
 	.type	.L.map_aname.7, %object
@@ -79,8 +79,8 @@
 	.section	.rodata.map_aname.13,"aMS",%progbits,1
 	.type	.L.map_aname.13, %object
 .L.map_aname.13:
-	.asciz	"Mono.Android"
-	.size	.L.map_aname.13, 13
+	.asciz	"WMS"
+	.size	.L.map_aname.13, 4
 
 	.section	.rodata.map_aname.14,"aMS",%progbits,1
 	.type	.L.map_aname.14, %object

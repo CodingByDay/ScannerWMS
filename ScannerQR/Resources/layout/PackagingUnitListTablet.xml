@@ -328,27 +328,27 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:layout_weight="1"
-            android:textSize="16px"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Naslednja pozicija - F1"
-            android:drawableLeft="@drawable/next"
-            android:paddingLeft="10px"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:id="@+id/btNext" />
+            <Button
+                android:layout_weight="1"
+                android:textSize="16px"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Naslednja poz."
+                android:drawableLeft="@drawable/next"
+                android:paddingLeft="10px"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:id="@+id/btNext" />
 
-        <Button
-            android:textSize="16px"
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Popravi pozicijo - F2"
-            android:drawableLeft="@drawable/fix"
-            android:paddingLeft="10px"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:id="@+id/btUpdate" />
+            <Button
+                android:textSize="16px"
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Popravi poz."
+                android:drawableLeft="@drawable/fix"
+                android:paddingLeft="10px"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:id="@+id/btUpdate" />
 
 
     </LinearLayout>
@@ -364,20 +364,20 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Izbriši pozicijo-f4"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:layout_weight="1"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/delete"
-            android:id="@+id/btDelete" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Izbriši poz."
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:layout_weight="1"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/delete"
+                android:id="@+id/btDelete" />
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Kreiraj poz.-f5"
+                android:text="Kreiraj poz."
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:layout_weight="1"
@@ -390,15 +390,15 @@
     </LinearLayout>
 
 
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Izhod - F8"
-        android:layout_width="match_parent"
-        android:layout_height="70.0dp"
-        android:textSize="16px"
-        android:drawableLeft="@drawable/logout"
-        android:paddingLeft="10px"
-        android:id="@+id/btExit" />
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Izhod "
+            android:layout_width="match_parent"
+            android:layout_height="70.0dp"
+            android:textSize="16px"
+            android:drawableLeft="@drawable/logout"
+            android:paddingLeft="10px"
+            android:id="@+id/btExit" />
 
 
    

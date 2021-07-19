@@ -371,29 +371,29 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Tiskaj-f2"
-            android:layout_width="match_parent"
-           android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/printer"
-            android:id="@+id/btPrint" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Tiskaj"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/printer"
+                android:id="@+id/btPrint" />
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Potrdi-f3"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:drawableLeft="@drawable/confirmation"
-            android:paddingLeft="10px"
-            android:id="@+id/button1"
-            android:layout_marginTop="0.0dp"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Potrdi"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:drawableLeft="@drawable/confirmation"
+                android:paddingLeft="10px"
+                android:id="@+id/button1"
+                android:layout_marginTop="0.0dp"
+                android:layout_marginBottom="0.0dp" />
 
 
     </LinearLayout>
@@ -404,29 +404,29 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Briši-F4"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="62.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/delete"
-            android:id="@+id/btDelete" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Briši"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="62.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/delete"
+                android:id="@+id/btDelete" />
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="izhod-f8"
-            android:layout_width="match_parent"
-            android:layout_height="63.0dp"
-            android:textSize="16px"
-            android:drawableLeft="@drawable/logout"
-            android:paddingLeft="10px"
-            android:id="@+id/button2"
-            android:layout_marginTop="0.0dp"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="izhod"
+                android:layout_width="match_parent"
+                android:layout_height="63.0dp"
+                android:textSize="16px"
+                android:drawableLeft="@drawable/logout"
+                android:paddingLeft="10px"
+                android:id="@+id/button2"
+                android:layout_marginTop="0.0dp"
+                android:layout_marginBottom="0.0dp" />
 
 
     </LinearLayout>

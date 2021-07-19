@@ -310,29 +310,29 @@
         android:orientation="horizontal"
         android:paddingTop="5px">
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Vnesi serijsko št.-f2"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/newitem"
-            android:id="@+id/btSaveOrUpdate" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Vnesi serijsko št."
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/newitem"
+                android:id="@+id/btSaveOrUpdate" />
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="pregled vnesenih pozicij-f3"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:drawableLeft="@drawable/focus"
-            android:paddingLeft="10px"
-            android:id="@+id/button3"
-            android:layout_marginTop="0.0dp"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="pregled vnes. poz."
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:drawableLeft="@drawable/focus"
+                android:paddingLeft="10px"
+                android:id="@+id/button3"
+                android:layout_marginTop="0.0dp"
+                android:layout_marginBottom="0.0dp" />
 
 
     </LinearLayout>
@@ -345,7 +345,7 @@
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Zaključi -f4"
+                android:text="Zaključi -"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="70.0dp"
@@ -354,18 +354,18 @@
                 android:drawableLeft="@drawable/shipped"
                 android:id="@+id/button4" />
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="izhod-f8"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:drawableLeft="@drawable/logout"
-            android:paddingLeft="10px"
-            android:id="@+id/button5"
-            android:layout_marginTop="0.0dp"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="izhod"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:drawableLeft="@drawable/logout"
+                android:paddingLeft="10px"
+                android:id="@+id/button5"
+                android:layout_marginTop="0.0dp"
+                android:layout_marginBottom="0.0dp" />
 
 
     </LinearLayout>

@@ -175,7 +175,7 @@
         <Button
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
-            android:text="Tiskaj-f3"
+            android:text="Tiskaj"
             android:drawableLeft="@drawable/printer"
             android:paddingLeft="10px"
             android:layout_width="match_parent"
@@ -186,7 +186,7 @@
         <Button
            android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
-            android:text="Izhod-f8"
+            android:text="Izhod"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10px"
             android:layout_weight="1"

@@ -139,7 +139,8 @@ namespace Scanner
             SetUpForm();
         
             // tbLocation.KeyPress += TbLocation_KeyPress;
-      
+            
+
 
         }
 
@@ -263,6 +264,7 @@ namespace Scanner
                         {
                             if (result.StartsWith("OK!"))
                             {
+
                                 RunOnUiThread(() =>
                                 {
                                     progress.StopDialogSync();
@@ -270,9 +272,13 @@ namespace Scanner
                                     var id = result.Split('+')[1];
 
                                     Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
+
                                     InvalidateAndClose();
+
                                     AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
                                     alert.SetTitle("Zaključevanje uspešno");
+
                                     alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
 
                                     alert.SetPositiveButton("Ok", (senderAlert, args) =>

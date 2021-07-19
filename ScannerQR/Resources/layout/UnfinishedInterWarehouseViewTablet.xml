@@ -307,7 +307,7 @@
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Zaključi/popravi medskl.f2"
+                android:text="Zaključi/popravi medskl"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
@@ -328,42 +328,42 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Izbriši medskl.-f3"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/delete"
-            android:id="@+id/btDelete" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Izbriši medskl."
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/delete"
+                android:id="@+id/btDelete" />
 
-        <Button
-            android:background="@drawable/nicelookingbutton"
-            android:text="Kreiraj novo-f4"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:drawableLeft="@drawable/newitem"
-            android:paddingLeft="10px"
-            android:id="@+id/btnNew"
-            android:layout_marginTop="0.0dp"
-            android:layout_marginBottom="0.0dp" />
+            <Button
+                android:background="@drawable/nicelookingbutton"
+                android:text="Kreiraj novo"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:drawableLeft="@drawable/newitem"
+                android:paddingLeft="10px"
+                android:id="@+id/btnNew"
+                android:layout_marginTop="0.0dp"
+                android:layout_marginBottom="0.0dp" />
 
 
     </LinearLayout>
-    <Button
-        android:background="@drawable/nicelookingbutton"
-        android:text="Izhod - F8"
-        android:layout_width="match_parent"
-       android:layout_height="70.0dp"
-        android:textSize="16px"
-        android:drawableLeft="@drawable/logout"
-        android:paddingLeft="10px"
-        android:id="@+id/btnLogout"
-        android:layout_marginTop="0.0dp" />
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Izhod "
+            android:layout_width="match_parent"
+            android:layout_height="70.0dp"
+            android:textSize="16px"
+            android:drawableLeft="@drawable/logout"
+            android:paddingLeft="10px"
+            android:id="@+id/btnLogout"
+            android:layout_marginTop="0.0dp" />
 
 
 

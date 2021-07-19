@@ -182,27 +182,27 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:textSize="16px"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Tiskaj-f2"
-            android:drawableLeft="@drawable/printer"
-            android:paddingLeft="10px"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="70.0dp"
-            android:id="@+id/btPrint" />
+            <Button
+                android:textSize="16px"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Tiskaj"
+                android:drawableLeft="@drawable/printer"
+                android:paddingLeft="10px"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="70.0dp"
+                android:id="@+id/btPrint" />
 
-        <Button
-            android:layout_weight="1"
-           android:textSize="16px"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Izhod-f8"
-            android:drawableLeft="@drawable/logout"
-            android:paddingLeft="10px"
-            android:layout_width="match_parent"
-           android:layout_height="70.0dp"
-            android:id="@+id/button2" />
+            <Button
+                android:layout_weight="1"
+                android:textSize="16px"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Izhod"
+                android:drawableLeft="@drawable/logout"
+                android:paddingLeft="10px"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:id="@+id/button2" />
 
 
     </LinearLayout>

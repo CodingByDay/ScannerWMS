@@ -77,6 +77,7 @@ namespace Scanner
 
                     }
                  
+                    // Here 
 
                 } else if (tbSSCC.HasFocus)
                 {
@@ -85,9 +86,21 @@ namespace Scanner
                         Sound();
                         tbSSCC.Text = barcode;
 
-                        FillRelatedData(tbSSCC.Text);
+                        
+                        if(FillRelatedBranchIdentData(tbSSCC.Text)) {
 
-                        tbSerialNum.RequestFocus();
+                           FillRelatedData(tbSSCC.Text);
+                           tbLocation.RequestFocus();
+                           ProcessQty();
+
+                        } else
+                        {
+                            // Go a step back and rescan.
+                            tbSSCC.Text = "";
+                            tbSSCC.RequestFocus();
+                        }
+
+                       
                     }
               
                 } else if(tbSerialNum.HasFocus)
@@ -124,6 +137,34 @@ namespace Scanner
              
             }
         }
+
+        private bool FillRelatedBranchIdentData(string text)
+        {
+            string error;
+
+            var data = Services.GetObject("sscc", text, out error);
+
+          
+
+            if(data!=null)
+            {
+                var ident = data.GetString("Ident");
+                var name = data.GetString("IdentName");
+
+
+                tbIdent.Text = ident;
+                lbIdentName.Text = name;
+
+                // Just to be sure about the values, probably reduntant but hey.
+                if(tbIdent.Text != null && lbIdentName.Text != null ) { return true; } else { return false; }
+
+
+            } else
+            {
+                return false;
+            }
+        }
+
         private void FillRelatedData(string text)
         {
             string error;
@@ -410,7 +451,7 @@ namespace Scanner
                 lbQty.Text = "Količina (?)";
             }
 
-            tbPacking.RequestFocus();
+           
         }
 
 
@@ -611,7 +652,9 @@ namespace Scanner
 
             // var location = CommonData.GetSetting("DefaultProductionLocation");
             // tbLocation.Text = location;
-            
+
+
+            tbSSCC.RequestFocus();
 
         }
 

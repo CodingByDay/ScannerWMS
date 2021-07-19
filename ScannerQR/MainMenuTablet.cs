@@ -89,6 +89,9 @@ namespace Scanner
             btnLogout.Click += BtnLogout_Click;
             Button PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
             buttons.Add(PalletsMenu);
+            Button rapidTakeover = FindViewById<Button>(Resource.Id.rapidTakeover);
+            rapidTakeover.Click += RapidTakeover_Click1;
+
 
             PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
             PalletsMenu.Click += PalletsMenu_Click;
@@ -104,6 +107,12 @@ namespace Scanner
 
             HideDisabled(buttons);
         }
+
+        private void RapidTakeover_Click1(object sender, EventArgs e)
+        {
+            StartActivity(typeof(RapidTakeover));
+        }
+
         private void HideDisabled(List<Button> buttons)
         {
             foreach (Button btn in buttons)
@@ -145,9 +154,7 @@ namespace Scanner
                 // Return true;
 
                 case Keycode.F2:
-
                     ButtonInterWarehouse_Click(this, null);
-
                     break;
 
 
@@ -164,11 +171,9 @@ namespace Scanner
                     ButtonPrint_Click(this, null);
                     break;
 
-
                 case Keycode.F6:
                     BtnInventory_Click(this, null);
                     break;
-
 
 
                 case Keycode.F7:
@@ -184,6 +189,7 @@ namespace Scanner
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
+
             Intent intent = new Intent(this, typeof(MainActivity));
             intent.SetFlags(ActivityFlags.ClearTop | ActivityFlags.ClearTask | ActivityFlags.NewTask);
             StartActivity(intent);

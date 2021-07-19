@@ -364,27 +364,27 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:textSize="16px"
-            android:background="@drawable/nicelookingbutton"
-            android:text="naslednje naročilo-f2"
-            android:drawableLeft="@drawable/next"
-            android:paddingLeft="10px"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="70.0dp"
-            android:id="@+id/button1" />
+            <Button
+                android:textSize="16px"
+                android:background="@drawable/nicelookingbutton"
+                android:text="naslednje naročilo-"
+                android:drawableLeft="@drawable/next"
+                android:paddingLeft="10px"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="70.0dp"
+                android:id="@+id/button1" />
 
-        <Button
-            android:layout_weight="1"
-            android:textSize="16px"
-            android:background="@drawable/nicelookingbutton"
-            android:text="prejšnje naročilo-f3"
-            android:drawableLeft="@drawable/left"
-            android:paddingLeft="10px"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:id="@+id/button2" />
+            <Button
+                android:layout_weight="1"
+                android:textSize="16px"
+                android:background="@drawable/nicelookingbutton"
+                android:text="prejšnje naročilo-"
+                android:drawableLeft="@drawable/left"
+                android:paddingLeft="10px"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:id="@+id/button2" />
 
 
     </LinearLayout>
@@ -400,21 +400,21 @@
         android:weightSum="2"
         android:paddingTop="5px">
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="natisni etiketo-f4"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/sticker"
-            android:id="@+id/button3" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="natisni etiketo-"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/sticker"
+                android:id="@+id/button3" />
 
             <Button
                 android:layout_weight="1"
                 android:background="@drawable/nicelookingbutton"
-                android:text="tiskaj za kol.-f5"
+                android:text="tiskaj za kol.-"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:drawableLeft="@drawable/printer"
@@ -436,7 +436,7 @@
             <Button
                 android:layout_weight="1"
                 android:background="@drawable/nicelookingbutton"
-                android:text="nasl. ident-f6"
+                android:text="nasl. ident-"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:textSize="16px"
@@ -444,16 +444,16 @@
                 android:drawableLeft="@drawable/ident"
                 android:id="@+id/button5" />
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Izhod - F8"
-            android:layout_width="match_parent"
-           android:layout_height="70.0dp"
-           android:textSize="16px"
-            android:drawableLeft="@drawable/logout"
-            android:paddingLeft="10px"
-            android:id="@+id/button6" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Izhod - "
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:drawableLeft="@drawable/logout"
+                android:paddingLeft="10px"
+                android:id="@+id/button6" />
 
 
     </LinearLayout>

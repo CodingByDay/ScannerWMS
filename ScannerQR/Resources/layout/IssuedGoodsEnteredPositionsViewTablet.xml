@@ -348,7 +348,7 @@
                 android:layout_weight="1"
                 android:textSize="16px"
                 android:background="@drawable/nicelookingbutton"
-                android:text="Popravi pozicijo - F2"
+                android:text="Popravi pozicijo "
                 android:drawableLeft="@drawable/fix"
                 android:paddingLeft="10px"
                 android:layout_width="match_parent"
@@ -369,27 +369,27 @@
         android:orientation="horizontal"
         android:paddingTop="5px">
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Kreiraj pozicijo - F3"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:drawableLeft="@drawable/newitem"
-            android:id="@+id/btNew" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Kreiraj pozicijo "
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:drawableLeft="@drawable/newitem"
+                android:id="@+id/btNew" />
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Zaključi medskl. - F4"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-            android:drawableLeft="@drawable/confirmation"
-            android:textSize="16px"
-            android:paddingLeft="10px"
-            android:id="@+id/btFinish" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Zaključi medskl. "
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:drawableLeft="@drawable/confirmation"
+                android:textSize="16px"
+                android:paddingLeft="10px"
+                android:id="@+id/btFinish" />
 
 
     </LinearLayout>
@@ -405,7 +405,7 @@
             <Button
                 android:layout_weight="1"
                 android:background="@drawable/nicelookingbutton"
-                android:text="Izbriši poz. - F5"
+                android:text="Izbriši poz. "
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:textSize="16px"
@@ -413,16 +413,16 @@
                 android:drawableLeft="@drawable/delete"
                 android:id="@+id/btDelete" />
 
-        <Button
-            android:layout_weight="1"
-            android:background="@drawable/nicelookingbutton"
-            android:text="Izhod - F9"
-            android:layout_width="match_parent"
-            android:layout_height="70.0dp"
-           android:textSize="16px"
-            android:drawableLeft="@drawable/logout"
-            android:paddingLeft="10px"
-            android:id="@+id/btLogout" />
+            <Button
+                android:layout_weight="1"
+                android:background="@drawable/nicelookingbutton"
+                android:text="Izhod "
+                android:layout_width="match_parent"
+                android:layout_height="70.0dp"
+                android:textSize="16px"
+                android:drawableLeft="@drawable/logout"
+                android:paddingLeft="10px"
+                android:id="@+id/btLogout" />
 
 
     </LinearLayout>
