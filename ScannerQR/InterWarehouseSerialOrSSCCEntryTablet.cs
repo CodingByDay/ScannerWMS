@@ -18,6 +18,7 @@ using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
+using static Android.App.ActionBar;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace Scanner
@@ -63,6 +64,9 @@ namespace Scanner
         private ImageView imagePNG;
         private ProgressDialogClass progress;
         private List<LocationClass> items = new List<LocationClass>();
+        private Dialog popupDialog;
+        private ImageView image;
+        private Button btnOK;
 
         // here...
         public void GetBarcode(string barcode)
@@ -766,17 +770,15 @@ namespace Scanner
 
             barcode2D.open(this, this);
 
-            if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
-            {
-                showPicture();
-            }
+         
+              
+            
 
             if (InterWarehouseBusinessEventSetup.success == true)
             {
                 string toast = string.Format(moveHead.GetString("Issuer"));
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                // string SuccessMessage = string.Format("Uspešno poslani podatki.");
-                // Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+              
             }
 
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point?!"); }
@@ -828,6 +830,8 @@ namespace Scanner
 
 
             tbSSCC.RequestFocus();
+            spReceive.SetSelection(receiver.IndexOf("P01"), true);
+            showPicture();
         }
 
         private void SpIssue_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -993,7 +997,7 @@ namespace Scanner
             e.Handled = false;
             if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
             {
-                //add your logic here 
+                // add your logic here 
                 ProcessIdent();
                 e.Handled = true;
             }
@@ -1004,12 +1008,14 @@ namespace Scanner
         {
             try
             {
-                Android.Graphics.Bitmap show = Services.GetImageFromServer(moveHead.GetString("Wharehouse"));
+                Android.Graphics.Bitmap show = Services.GetImageFromServer(moveHead.GetString("Receiver"));
 
                 Drawable d = new BitmapDrawable(Resources, show);
 
                 imagePNG.SetImageDrawable(d);
                 imagePNG.Visibility = ViewStates.Visible;
+            
+                imagePNG.Click += (e, ev) => { ImageClick(d); };
 
             }
             catch (Exception error)
@@ -1017,6 +1023,31 @@ namespace Scanner
                 return;
             }
 
+        }
+
+        private void ImageClick(Drawable d)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.WarehousePicture);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
+            image = popupDialog.FindViewById<ImageView>(Resource.Id.image);
+            image.SetMinimumHeight(500);
+            image.SetMinimumWidth(800);
+            image.SetImageDrawable(d);
+            // Access Popup layout fields like below
+            btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
+            btnOK.Click += BtnOK_Click;
+        }
+
+
+        private void BtnOK_Click(object sender, EventArgs e)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Hide();
         }
 
 

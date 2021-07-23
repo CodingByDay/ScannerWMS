@@ -1653,11 +1653,12 @@ int layout unfinishedtakeoversviewtablet 0x7f0b00b1
 int layout update 0x7f0b00b2
 int layout viewlocation 0x7f0b00b3
 int layout waitform 0x7f0b00b4
-int layout wrappingpallet 0x7f0b00b5
-int layout wrappingpallettablet 0x7f0b00b6
-int layout yesnogeneric 0x7f0b00b7
-int layout yesnopopup 0x7f0b00b8
-int layout yesnoproductioncard 0x7f0b00b9
+int layout warehousepicture 0x7f0b00b5
+int layout wrappingpallet 0x7f0b00b6
+int layout wrappingpallettablet 0x7f0b00b7
+int layout yesnogeneric 0x7f0b00b8
+int layout yesnopopup 0x7f0b00b9
+int layout yesnoproductioncard 0x7f0b00ba
 int mipmap android 0x7f0c0000
 int mipmap barcode 0x7f0c0001
 int mipmap factory 0x7f0c0002

@@ -17,7 +17,7 @@ using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
-
+using static Android.App.ActionBar;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace Scanner
@@ -82,6 +82,7 @@ namespace Scanner
             button6 = FindViewById<Button>(Resource.Id.button6);
             button5 = FindViewById<Button>(Resource.Id.button5);
             button7 = FindViewById<Button>(Resource.Id.button7);
+            // 
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
             button1 = FindViewById<Button>(Resource.Id.button1);
@@ -99,6 +100,7 @@ namespace Scanner
             spLocation.ItemSelected += SpLocation_ItemSelected;
             warehousePNG.Visibility = ViewStates.Invisible;
 
+            warehousePNG.Click += WarehousePNG_Click;
 
             /// Consider changing this to something else.
 
@@ -256,7 +258,31 @@ namespace Scanner
             spLocation.Adapter = DataAdapter;
 
             tbSerialNum.RequestFocus();
+            spLocation.SetSelection(locList.IndexOf("P01"), true);
 
+        }
+
+      
+        private void WarehousePNG_Click(object sender, EventArgs e)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.WarehousePicture);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
+            image = popupDialog.FindViewById<ImageView>(Resource.Id.image);
+            // Access Popup layout fields like below
+            btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
+            btnOK.Click += BtnOK_Click;
+       
+        }
+
+        private void BtnOK_Click(object sender, EventArgs e)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Hide();
         }
 
         private void SpLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -405,17 +431,46 @@ namespace Scanner
             try
             {
                 Android.Graphics.Bitmap show = Services.GetImageFromServer(moveHead.GetString("Wharehouse"));
-
+                var debug = moveHead.GetString("Wharehouse");
                 Drawable d = new BitmapDrawable(Resources, show);
 
                 warehousePNG.SetImageDrawable(d);
                 warehousePNG.Visibility = ViewStates.Visible;
+
+
+                warehousePNG.Click += (e, ev) => { ImageClick(d); };
 
             } catch(Exception error)
             {
                 return;
             }
             
+        }
+
+        private void ImageClick(Drawable d)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.WarehousePicture);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
+            image = popupDialog.FindViewById<ImageView>(Resource.Id.image);
+            image.SetMinimumHeight(500);
+            image.SetMinimumWidth(800);
+            image.SetImageDrawable(d);
+            // Access Popup layout fields like below
+            btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
+            btnOK.Click += BtnOK_Click1;
+        }
+
+        private void BtnOK_Click1(object sender, EventArgs e)
+        { 
+
+            popupDialog.Dismiss();
+            popupDialog.Dispose();
+           
         }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -540,6 +595,9 @@ namespace Scanner
         private static bool? checkTakeOverOpenQty = null;
         private int selected;
         private ProgressDialogClass progress;
+        private Dialog popupDialog;
+        private ImageView image;
+        private Button btnOK;
 
         private async void Button6_Click(object sender, EventArgs e)
         {
@@ -855,8 +913,10 @@ namespace Scanner
                     InUseObjects.Invalidate("MoveItem");
                     return true;
                 }
+
             }
             finally
+
             {
 
             }

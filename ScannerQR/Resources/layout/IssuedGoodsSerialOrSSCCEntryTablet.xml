@@ -67,7 +67,7 @@
 
         <TextView
             android:text="Lokacija"            
-            android:textSize="16px"
+           android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"    
+           android:textSize="16px"   
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SSCC koda"
@@ -142,7 +142,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
+           android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"    
+           android:textSize="16px"   
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -171,7 +171,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
+           android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
+           android:textSize="16px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Izd. lokacija"
@@ -237,7 +237,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
+           android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -273,7 +273,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
+           android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -295,7 +295,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
+           android:textSize="16px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -306,7 +306,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
+           android:textSize="16px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -402,10 +402,12 @@
             android:paddingLeft="10px"
             android:id="@+id/button7"
             android:layout_marginTop="0.0dp" />
+    
+
         <ImageView
             android:src="@android:drawable/ic_menu_gallery"
             android:layout_width="match_parent"
-            android:layout_height="210.0dp"
+            android:layout_height="wrap_content"
             android:id="@+id/imagePNG" />
     
 

@@ -5322,11 +5322,12 @@ public final class R {
     public static final int update=0x7f0b00b2;
     public static final int viewlocation=0x7f0b00b3;
     public static final int waitform=0x7f0b00b4;
-    public static final int wrappingpallet=0x7f0b00b5;
-    public static final int wrappingpallettablet=0x7f0b00b6;
-    public static final int yesnogeneric=0x7f0b00b7;
-    public static final int yesnopopup=0x7f0b00b8;
-    public static final int yesnoproductioncard=0x7f0b00b9;
+    public static final int warehousepicture=0x7f0b00b5;
+    public static final int wrappingpallet=0x7f0b00b6;
+    public static final int wrappingpallettablet=0x7f0b00b7;
+    public static final int yesnogeneric=0x7f0b00b8;
+    public static final int yesnopopup=0x7f0b00b9;
+    public static final int yesnoproductioncard=0x7f0b00ba;
   }
   public static final class mipmap {
     public static final int android=0x7f0c0000;

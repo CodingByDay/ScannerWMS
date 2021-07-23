@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
+using static Android.App.ActionBar;
 
 namespace Scanner
 {
@@ -31,10 +32,9 @@ namespace Scanner
         private ListView listData;
         private List<CheckStockAddonList> data = new List<CheckStockAddonList>();
         private ImageView imagePNG;
-
-
-
-
+        private Dialog popupDialog;
+        private ImageView image;
+        private Button btnOK;
 
         public void GetBarcode(string barcode)
         {
@@ -232,6 +232,7 @@ namespace Scanner
 
                 imagePNG.SetImageDrawable(d);
                 imagePNG.Visibility = ViewStates.Visible;
+                imagePNG.Click += (e, ev) => { ImageClick(d); };
 
             }
             catch (Exception error)
@@ -240,6 +241,28 @@ namespace Scanner
             }
         }
 
+        private void ImageClick(Drawable d)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.WarehousePicture);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
+            image = popupDialog.FindViewById<ImageView>(Resource.Id.image);
+            image.SetMinimumHeight(500);
+            image.SetMinimumWidth(800);
+            image.SetImageDrawable(d);
+            // Access Popup layout fields like below
+            btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
+            btnOK.Click += BtnOK_Click;
+        }
+        private void BtnOK_Click(object sender, EventArgs e)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Hide();
+        }
         private void Button1_Click(object sender, System.EventArgs e)
         {
             Finish();

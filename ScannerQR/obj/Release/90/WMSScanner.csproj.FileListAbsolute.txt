@@ -553,7 +553,6 @@ C:\Users\Desktop\idk\com.companyname.Scanner-Signed.apk.idsig
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\build.props
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\adb.props
-C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\WMSScanner.csproj.AssemblyReference.cache
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\_VerifyXamarinAndroidSupportVersions.stamp
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res.flag
@@ -822,6 +821,7 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\wrappingpa
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\waitform.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\viewlocation.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\issuedview.xml
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\res\layout\warehousepicture.xml
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\uploadflags.txt
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\resolvedassemblies.hash
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\link.flag

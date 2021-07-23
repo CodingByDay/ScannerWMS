@@ -17,6 +17,7 @@ using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
+using static Android.App.ActionBar;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace Scanner
@@ -117,6 +118,9 @@ namespace Scanner
         private static bool? getWorkOrderDefaultQty = null;
         private string identCode;
         private ProgressDialogClass progress;
+        private Dialog popupDialog;
+        private ImageView image;
+        private Button btnOK;
 
         private void GetWorkOrderDefaultQty()
         {
@@ -467,10 +471,8 @@ namespace Scanner
             button5.Click += Button5_Click;
             spLocation.ItemSelected += SpLocation_ItemSelected;
 
-            if (moveHead.GetString("Wharehouse") == "Centralno skladišče Postojna")
-            {
-                showPicture();
-            }
+            showPicture();
+            
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
             tbSSCC.FocusChange += TbSSCC_FocusChange;
@@ -505,6 +507,7 @@ namespace Scanner
             adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             // Spinner 
             spLocation.Adapter = adapterReceive;
+            spLocation.SetSelection(locations.IndexOf("P01"), true);
 
         }
 
@@ -528,6 +531,8 @@ namespace Scanner
                 imagePNG.SetImageDrawable(d);
                 imagePNG.Visibility = ViewStates.Visible;
 
+                imagePNG.Click += (e, ev) => { ImageClick(d); };
+
             }
             catch (Exception error)
             {
@@ -535,6 +540,28 @@ namespace Scanner
             }
         }
 
+        private void ImageClick(Drawable d)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.WarehousePicture);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
+            image = popupDialog.FindViewById<ImageView>(Resource.Id.image);
+            image.SetMinimumHeight(500);
+            image.SetMinimumWidth(800);
+            image.SetImageDrawable(d);
+            // Access Popup layout fields like below
+            btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
+            btnOK.Click += BtnOK_Click;
+        }
+        private void BtnOK_Click(object sender, EventArgs e)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Hide();
+        }
         private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             var warehouse = moveHead.GetString("Wharehouse");

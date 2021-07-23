@@ -1,5 +1,0 @@
-﻿1. Fix delete issue on tablet list view 
-2.	
-3.
-4.
-5.

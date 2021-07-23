@@ -51,7 +51,7 @@
             android:layout_width="match_parent" />
 
         <TextView
-            android:textSize="16px"
+           android:textSize="16px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"

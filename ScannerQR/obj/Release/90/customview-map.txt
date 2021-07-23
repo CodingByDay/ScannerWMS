@@ -143,6 +143,7 @@ Button;obj\Release\90\res\layout\unfinishedproductionviewtablet.xml
 Button;obj\Release\90\res\layout\unfinishedtakeoversview.xml
 Button;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
 Button;obj\Release\90\res\layout\update.xml
+Button;obj\Release\90\res\layout\warehousepicture.xml
 Button;obj\Release\90\res\layout\wrappingpallet.xml
 Button;obj\Release\90\res\layout\wrappingpallettablet.xml
 Button;obj\Release\90\res\layout\yesnogeneric.xml
@@ -251,6 +252,7 @@ ImageView;obj\Release\90\res\layout\settingspopup.xml
 ImageView;obj\Release\90\res\layout\takeoverserialorssccentrytablet.xml
 ImageView;obj\Release\90\res\layout\transportpopup.xml
 ImageView;obj\Release\90\res\layout\update.xml
+ImageView;obj\Release\90\res\layout\warehousepicture.xml
 ImageView;obj\Release\90\res\layout\yesnogeneric.xml
 ImageView;obj\Release\90\res\layout\yesnopopup.xml
 ImageView;obj\Release\90\res\layout\yesnoproductioncard.xml
@@ -382,6 +384,7 @@ LinearLayout;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
 LinearLayout;obj\Release\90\res\layout\update.xml
 LinearLayout;obj\Release\90\res\layout\viewlocation.xml
 LinearLayout;obj\Release\90\res\layout\waitform.xml
+LinearLayout;obj\Release\90\res\layout\warehousepicture.xml
 LinearLayout;obj\Release\90\res\layout\wrappingpallet.xml
 LinearLayout;obj\Release\90\res\layout\wrappingpallettablet.xml
 LinearLayout;obj\Release\90\res\layout\yesnogeneric.xml
@@ -627,6 +630,7 @@ TextView;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
 TextView;obj\Release\90\res\layout\update.xml
 TextView;obj\Release\90\res\layout\viewlocation.xml
 TextView;obj\Release\90\res\layout\waitform.xml
+TextView;obj\Release\90\res\layout\warehousepicture.xml
 TextView;obj\Release\90\res\layout\wrappingpallet.xml
 TextView;obj\Release\90\res\layout\wrappingpallettablet.xml
 TextView;obj\Release\90\res\layout\yesnogeneric.xml

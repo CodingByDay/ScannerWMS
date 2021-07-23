@@ -174,7 +174,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"   
+            android:textSize="16px"  
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"    
+           android:textSize="16px"    
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -252,7 +252,7 @@
 
         <EditText
              android:textStyle="bold"
-            android:textSize="16px"   
+            android:textSize="16px"  
              android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -284,7 +284,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"   
+            android:textSize="16px"  
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -311,7 +311,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"    
+            android:textSize="16px"   
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

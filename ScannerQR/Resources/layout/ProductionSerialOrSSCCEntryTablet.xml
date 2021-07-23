@@ -360,7 +360,7 @@
                 android:text="izhod"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+               android:textSize="16px"
                 android:drawableLeft="@drawable/logout"
                 android:paddingLeft="10px"
                 android:id="@+id/button5"
@@ -369,10 +369,12 @@
 
 
     </LinearLayout>
+
+
         <ImageView
             android:src="@android:drawable/ic_menu_gallery"
             android:layout_width="match_parent"
-            android:layout_height="231.0dp"
+            android:layout_height="wrap_content"
             android:id="@+id/imagePNG" />
 
     </LinearLayout>
