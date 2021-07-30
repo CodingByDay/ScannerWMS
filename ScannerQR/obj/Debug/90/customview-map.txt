@@ -451,6 +451,7 @@ paths;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\48\jl\res\xml\
 ProgressBar;obj\Debug\90\res\layout\activity_main.xml
 ProgressBar;obj\Debug\90\res\layout\inventoryconfirmtablet.xml
 ProgressBar;obj\Debug\90\res\layout\waitform.xml
+RelativeLayout;obj\Debug\90\res\layout\signatureview.xml
 resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\1\jl\res\values\values.xml
 resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\11\jl\res\values\attrs.xml
 resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\11\jl\res\values\signature_pad_defaults.xml
@@ -654,3 +655,4 @@ TextView;obj\Debug\90\res\layout\yesnopopup.xml
 TextView;obj\Debug\90\res\layout\yesnoproductioncard.xml
 View;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\11\jl\res\layout\signature_pad_layout.xml
 Xamarin.Controls.SignaturePadCanvasView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\11\jl\res\layout\signature_pad_layout.xml
+xamarin.controls.SignaturePadView;obj\Debug\90\res\layout\signatureview.xml

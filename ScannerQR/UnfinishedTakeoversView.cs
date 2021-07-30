@@ -39,6 +39,8 @@ namespace Scanner
         private Dialog popupDialog;
         private int displayedPosition = 0;
         private Button btnYes;
+        private SignaturePadView view;
+        private Button btnConfirm;
         private Button btnNo;
         private Button btNew;
         private ListView dataList;
@@ -74,28 +76,44 @@ namespace Scanner
             InUseObjects.Clear();
 
             LoadPositions();
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.SignatureView);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
 
-            var signatureView = new SignaturePadView(this)
-            {
-                StrokeWidth = 3f,
-                StrokeColor = Color.White,
-                BackgroundColor = Color.Black
-            };
-            
-            try
-            {
-                // Signature view.
-                Bitmap image = signatureView.GetImage();
-          
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.BackgroundLight);
 
-            }
-            catch (Exception ex)
-            {
-                Toast.MakeText(this, $"Prišlo je do napake. {ex}", ToastLength.Long);
-            
-            }
+            // Access Popup layout fields like below
+            view = popupDialog.FindViewById<SignaturePadView>(Resource.Id.signature);
+            btnConfirm = popupDialog.FindViewById<Button>(Resource.Id.confirm);
+            btnConfirm.Click += BtnConfirm_Click;
+            //var signatureView = new SignaturePadView(this)
+            //{
+            //    StrokeWidth = 3f,
+            //    StrokeColor = Color.White,
+            //    BackgroundColor = Color.Black
+            //};
+
+            //try
+            //{
+            //    // Signature view.
+            //    Bitmap image = signatureView.GetImage();
+
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    Toast.MakeText(this, $"Prišlo je do napake. {ex}", ToastLength.Long);
+
+            //}
         }
-  
+
+        private void BtnConfirm_Click(object sender, EventArgs e)
+        {
+            view.GetImage();
+            Toast.MakeText(this, "Podpis poslan na server..", ToastLength.Long).Show();
+        }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
