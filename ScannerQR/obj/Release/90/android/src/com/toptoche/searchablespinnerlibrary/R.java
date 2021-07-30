@@ -11,8 +11,8 @@ public final class R {
 		public static final int hintText = 0x7f0300ee;
 	}
 	public static final class id {
-		public static final int listItems = 0x7f0800d9;
-		public static final int search = 0x7f080118;
+		public static final int listItems = 0x7f0800da;
+		public static final int search = 0x7f080119;
 	}
 	public static final class layout {
 		public static final int searchable_list_dialog = 0x7f0b0089;

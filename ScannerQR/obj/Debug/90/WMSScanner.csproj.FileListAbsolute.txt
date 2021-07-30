@@ -627,3 +627,5 @@ C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\assets\Signatur
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\crc64a4453dc4d6b942b4\InkPresenter.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\crc64a4453dc4d6b942b4\SignaturePadCanvasView.java
 C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\android\src\crc64a4453dc4d6b942b4\SignaturePadView.java
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res\layout\signatureview.xml
+C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\res\drawable\signature.png

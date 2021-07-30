@@ -25,8 +25,8 @@ namespace Scanner
         SoundPool soundPool;
         int soundPoolId;
 
-        public string ETpallet { get; private set; }
-        public string ETmachine { get; private set; }
+        public string ETpallet;
+        public string ETmachine;
 
         private ProgressDialogClass progress;
 
@@ -95,6 +95,10 @@ namespace Scanner
 
         private async Task FinishMethod()
         {
+
+            ETpallet = pallet.Text;
+            ETmachine = machine.Text;
+
             await Task.Run(() =>
             {
 
@@ -106,9 +110,7 @@ namespace Scanner
 
                     RunOnUiThread(() =>
                     {
-                        ETpallet = pallet.Text;
-
-                        ETmachine = machine.Text;
+                     
 
                         progress = new ProgressDialogClass();
 

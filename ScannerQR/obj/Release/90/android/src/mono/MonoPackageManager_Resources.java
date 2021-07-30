@@ -15,6 +15,7 @@ public class MonoPackageManager_Resources {
 		"Microsoft.AppCenter.dll",
 		"Plugin.Settings.Abstractions.dll",
 		"Plugin.Settings.dll",
+		"SignaturePad.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.LiveData.Core.dll",
 		"Xamarin.Android.Arch.Lifecycle.ViewModel.dll",

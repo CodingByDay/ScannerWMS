@@ -214,7 +214,7 @@ namespace Scanner
                     }
                     else
                     {
-                        // Pass for now i.e. not supported.
+                        
                     }
                 }
        
@@ -339,9 +339,7 @@ namespace Scanner
         }
         private async void Button6_Click(object sender, EventArgs e)
         {
-            // If the boolean for the signature is true otherwise await the FinishMethod.
-
-            // Asks the user for the signature. Is nullable, check for condition.
+            
 
            
         
@@ -515,6 +513,7 @@ namespace Scanner
             }
         }
         private static bool? checkIssuedOpenQty = null;
+
         private ProgressDialogClass progress;
 
         private bool CheckIssuedOpenQty()
@@ -522,7 +521,7 @@ namespace Scanner
             if (checkIssuedOpenQty == null)
             {
             
-          ///
+        
                 try
                 {
                     string error;
@@ -536,7 +535,7 @@ namespace Scanner
             }
             return (bool)checkIssuedOpenQty;
         }
-        // ---
+       
 
         private async Task<bool> SaveMoveItem()
         {
@@ -749,6 +748,7 @@ namespace Scanner
                 moveItem.SetString("Palette", tbPalette.Text.Trim());
 
                 string error;
+
                 moveItem = Services.SetObject("mi", moveItem, out error);
                 
                 if (moveItem == null)
@@ -771,7 +771,7 @@ namespace Scanner
             }
             finally
             {
-             //pass
+             
             }
         }
 

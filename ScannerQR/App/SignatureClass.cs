@@ -10,42 +10,60 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Xamarin.Controls;
+using static Android.App.ActionBar;
 
 namespace Scanner.App
 {
-    public static class SignatureClass
-    {
+    //    public static class SignatureClass
+    //    {
+    //        private static Dialog popupDialog;
+    //        private static SignaturePadView view;
+    //        private static Button btnConfirm;
+    //        //#nullable enable
+    //        //        private static Bitmap? signature;
+    //        //#nullable disable
+    //        public static Bitmap signature;
+    //        /// <summary>
+    //        ///  A method to sign the document 
+    //        /// </summary>
+    //        /// <param name="where"></param>
+    //        /// <returns></returns>
+    //        public static void SignHere(Context where)
+    //        {
+    //            popupDialog = new Dialog(where);
+    //            popupDialog.SetContentView(Resource.Layout.SignatureView);
+    //            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+    //            popupDialog.Show();
+
+    //            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+    //            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.BackgroundLight);
+
+    //            // Access Popup layout fields like below
+    //            view = popupDialog.FindViewById<SignaturePadView>(Resource.Id.signature);
+    //            btnConfirm = popupDialog.FindViewById<Button>(Resource.Id.confirm);
+    //            btnConfirm.Click += (e, ev) => { Confirm(where); };
+
+    //            await popupDialog.res
 
 
 
-        /// <summary>
-        ///  A method to sign the document 
-        /// </summary>
-        /// <param name="where"></param>
-        /// <returns></returns>
-        public static Bitmap SignHere(Context where)
-        {
-            var signatureView = new SignaturePadView(where)
-            {
-                StrokeWidth = 3f,
-                StrokeColor = Color.White,
-                BackgroundColor = Color.Black
-            };
+    //        }
 
-            try
-            {
-                Bitmap image = signatureView.GetImage();
-                return image;
+    //        private static void Confirm(Context where)
+    //        {
 
-            } catch(Exception ex)
-            {
-                Toast.MakeText(where, $"Prišlo je do napake. {ex}", ToastLength.Long);
-                return null;
-            }
-            
-        }
+    //            Toast.MakeText(where, "Podpis poslan na server..", ToastLength.Long).Show();
+    //            signature = view.GetImage(); // Get the signature.
+
+
+    //        }
 
 
 
-    }
+
+
+
+
+    //    }
+    //}
 }
