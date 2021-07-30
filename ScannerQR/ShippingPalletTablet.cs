@@ -6,10 +6,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Scanner.App;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using TrendNET.WMS.Device.Services;
 
 namespace Scanner
@@ -22,6 +24,11 @@ namespace Scanner
         private Button btConfirm;
         SoundPool soundPool;
         int soundPoolId;
+        private ProgressDialogClass progress;
+
+        public string ETpallet { get; private set; }
+        public string ETmachine { get; private set; }
+
         public void GetBarcode(string barcode)
         {
             if (pallet.HasFocus)
@@ -79,6 +86,147 @@ namespace Scanner
             pallet.RequestFocus();
 
         }
+        private async Task FinishMethod()
+        {
+            await Task.Run(() =>
+            {
+       
+          
+
+                try
+                {
+
+
+                    RunOnUiThread(() =>
+                    {
+                         ETpallet = pallet.Text;
+                        
+                         ETmachine = machine.Text;
+
+                        progress = new ProgressDialogClass();
+
+                        progress.ShowDialogSync(this, "Pošiljam podatke, prosim počakajte.");
+                    });
+
+                    string result;
+                    if (WebApp.Get("mode=palMac&pal=" + ETpallet + "&mac=" + ETmachine, out result))
+                    {
+                        if (result == "OK")
+                        {
+                            RunOnUiThread(() =>
+                            {
+
+
+                                progress.StopDialogSync();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Uspešno obdelano.");
+                                alert.SetMessage("Paleta uspešno dostavljena");
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenu));
+
+                                });
+
+
+
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+
+                        }
+                        else
+                        {
+                            RunOnUiThread(() =>
+                            {
+
+
+                                progress.StopDialogSync();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Napaka");
+                                alert.SetMessage($"Napaka pri dostavi palete: {result}");
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenu));
+
+                                });
+
+
+
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+                        }
+                    }
+                    else
+                    {
+                        RunOnUiThread(() =>
+                        {
+
+
+                            progress.StopDialogSync();
+                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                            alert.SetTitle("Napaka");
+                            alert.SetMessage("Napaka pri dostopu do web aplikacije");
+
+                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                            {
+                                alert.Dispose();
+                                System.Threading.Thread.Sleep(500);
+                                StartActivity(typeof(MainMenu));
+
+                            });
+
+
+
+                            Dialog dialog = alert.Create();
+                            dialog.Show();
+                        });
+
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+
+
+                    RunOnUiThread(() =>
+                    {
+
+
+                        progress.StopDialogSync();
+                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                        alert.SetTitle("Napaka");
+                        alert.SetMessage($"Prišlo je do napake. {ex.Message}");
+
+                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                        {
+                            alert.Dispose();
+                            System.Threading.Thread.Sleep(500);
+                            StartActivity(typeof(MainMenu));
+
+                        });
+
+
+
+                        Dialog dialog = alert.Create();
+                        dialog.Show();
+                    });
+                }
+                finally
+                {
+                    progress.StopDialogSync();
+                }
+
+
+            });
+        }
 
         private void color()
         {
@@ -86,38 +234,38 @@ namespace Scanner
             machine.SetBackgroundColor(Android.Graphics.Color.Aqua);
         }
 
-        private void BtConfirm_Click(object sender, EventArgs e)
+        private async void BtConfirm_Click(object sender, EventArgs e)
         {
+            await FinishMethod();
+            //// Method scope
+            //string ETpallet = pallet.Text;
+            //string ETmachine = machine.Text;
 
-            // Method scope
-            string ETpallet = pallet.Text;
-            string ETmachine = machine.Text;
 
+            //try
+            //{
+            //    string result;
+            //    if (WebApp.Get("mode=palMac&pal=" + ETpallet + "&mac=" + ETmachine, out result))
+            //    {
+            //        if (result == "OK")
+            //        {
+            //            Toast.MakeText(this, "Paleta uspešno dostavljena", ToastLength.Long).Show();
 
-            try
-            {
-                string result;
-                if (WebApp.Get("mode=palMac&pal=" + ETpallet + "&mac=" + ETmachine, out result))
-                {
-                    if (result == "OK")
-                    {
-                        Toast.MakeText(this, "Paleta uspešno dostavljena", ToastLength.Long).Show();
-
-                    }
-                    else
-                    {
-                        Toast.MakeText(this, $"Napaka pri dostavi palete: {result}", ToastLength.Long).Show();
-                    }
-                }
-                else
-                {
-                    Toast.MakeText(this, "Napaka pri dostopu do web aplikacije", ToastLength.Long).Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                Toast.MakeText(this, $"Prišlo je do napake. {ex.Message}", ToastLength.Long).Show();
-            }
+            //        }
+            //        else
+            //        {
+            //            Toast.MakeText(this, $"Napaka pri dostavi palete: {result}", ToastLength.Long).Show();
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Toast.MakeText(this, "Napaka pri dostopu do web aplikacije", ToastLength.Long).Show();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Toast.MakeText(this, $"Prišlo je do napake. {ex.Message}", ToastLength.Long).Show();
+            //}
 
 
         }

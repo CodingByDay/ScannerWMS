@@ -43,6 +43,7 @@ android.support.percent.PercentRelativeLayout;obj\Release\90\res\layout\unfinish
 android.support.percent.PercentRelativeLayout;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
 android.support.percent.PercentRelativeLayout;obj\Release\90\res\layout\wrappingpallettablet.xml
 attr;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\1\jl\res\values\values.xml
+attr;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\values\attrs.xml
 background;obj\Release\90\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Release\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 Button;obj\Release\90\res\layout\activity_main.xml
@@ -150,6 +151,7 @@ Button;obj\Release\90\res\layout\yesnogeneric.xml
 Button;obj\Release\90\res\layout\yesnopopup.xml
 Button;obj\Release\90\res\layout\yesnoproductioncard.xml
 cache-path;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+color;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\values\signature_pad_defaults.xml
 color;obj\Release\90\res\values\colors.xml
 color;obj\Release\90\res\values\ic_launcher_background.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Release\90\res\layout\interwarehousebusinesseventsetup.xml
@@ -160,6 +162,8 @@ com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Release\90\res\layou
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Release\90\res\layout\takeoverbusinesseventsetuptablet.xml
 corners;obj\Release\90\res\drawable\nicelookingbutton.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\1\jl\res\values\values.xml
+declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\values\attrs.xml
+dimen;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\values\signature_pad_defaults.xml
 EditText;obj\Release\90\res\layout\activity_main.xml
 EditText;obj\Release\90\res\layout\checkstock.xml
 EditText;obj\Release\90\res\layout\checkstocktablet.xml
@@ -243,6 +247,7 @@ external-path;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\47\j
 foreground;obj\Release\90\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Release\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 HorizontalScrollView;obj\Release\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
+ImageView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\layout\signature_pad_layout.xml
 ImageView;obj\Release\90\res\layout\activity_main.xml
 ImageView;obj\Release\90\res\layout\checkstocktablet.xml
 ImageView;obj\Release\90\res\layout\interwarehouseserialorssccentrytablet.xml
@@ -437,6 +442,7 @@ ListView;obj\Release\90\res\layout\unfinishedproductionviewtablet.xml
 ListView;obj\Release\90\res\layout\unfinishedtakeoversviewtablet.xml
 ListView;obj\Release\90\res\layout\wrappingpallettablet.xml
 menu;obj\Release\90\res\layout\popup_action.xml
+merge;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\layout\signature_pad_layout.xml
 padding;obj\Release\90\res\drawable\nicelookingbutton.xml
 paths;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Release\90\res\layout\activity_main.xml
@@ -444,6 +450,8 @@ ProgressBar;obj\Release\90\res\layout\inventoryconfirmtablet.xml
 ProgressBar;obj\Release\90\res\layout\waitform.xml
 resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\1\jl\res\values\values.xml
 resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\3\jl\res\values\strings.xml
+resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\values\attrs.xml
+resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\values\signature_pad_defaults.xml
 resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\6\jl\res\values\strings.xml
 resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\7\jl\res\values\values.xml
 resources;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\7\jl\res\values-cs\values-cs.xml
@@ -467,7 +475,9 @@ resources;obj\Release\90\res\values\strings.xml
 resources;obj\Release\90\res\values\styles.xml
 SearchView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\1\jl\res\layout\searchable_list_dialog.xml
 selector;obj\Release\90\res\drawable\nicelookingbutton.xml
+shape;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\drawable\signature_pad_background.xml
 shape;obj\Release\90\res\drawable\nicelookingbutton.xml
+solid;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\drawable\signature_pad_background.xml
 solid;obj\Release\90\res\drawable\nicelookingbutton.xml
 Spinner;obj\Release\90\res\layout\checkstock.xml
 Spinner;obj\Release\90\res\layout\checkstocktablet.xml
@@ -496,6 +506,7 @@ Spinner;obj\Release\90\res\layout\takeoverbusinesseventsetup.xml
 Spinner;obj\Release\90\res\layout\takeoverbusinesseventsetuptablet.xml
 Spinner;obj\Release\90\res\layout\takeoverserialorssccentrytablet.xml
 string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\1\jl\res\values\values.xml
+string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\values\signature_pad_defaults.xml
 string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\7\jl\res\values\values.xml
 string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\7\jl\res\values-cs\values-cs.xml
 string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\7\jl\res\values-de\values-de.xml
@@ -512,6 +523,7 @@ string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\7\jl\res\va
 string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\7\jl\res\values-zh-rTW\values-zh-rTW.xml
 string;obj\Release\90\res\values\strings.xml
 style;obj\Release\90\res\values\styles.xml
+TextView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\layout\signature_pad_layout.xml
 TextView;obj\Release\90\res\layout\activity_main.xml
 TextView;obj\Release\90\res\layout\checkstock.xml
 TextView;obj\Release\90\res\layout\checkstockaddonview.xml
@@ -636,3 +648,5 @@ TextView;obj\Release\90\res\layout\wrappingpallettablet.xml
 TextView;obj\Release\90\res\layout\yesnogeneric.xml
 TextView;obj\Release\90\res\layout\yesnopopup.xml
 TextView;obj\Release\90\res\layout\yesnoproductioncard.xml
+View;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\layout\signature_pad_layout.xml
+Xamarin.Controls.SignaturePadCanvasView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\48\jl\res\layout\signature_pad_layout.xml

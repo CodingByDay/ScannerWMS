@@ -314,7 +314,8 @@ namespace TrendNET.WMS.Device.Services
             try
             {
                 result = "";
-                //var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
+
+                // var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
 
            
                 var url = RandomizeURL (rootURL + "/Services/Device/?mode=ping&device=" + device);

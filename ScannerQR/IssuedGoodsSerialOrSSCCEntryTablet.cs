@@ -109,7 +109,6 @@ namespace Scanner
 
 
            
-            showPicture();
             
             colorFields();
             var warehouse = moveHead.GetString("Wharehouse");
@@ -416,6 +415,27 @@ namespace Scanner
             {
                 return;
             }
+        }
+        private void showPictureIdent(string ident)
+        {
+            try
+            {
+                Android.Graphics.Bitmap show = Services.GetImageFromServerIdent(moveHead.GetString("Wharehouse"), ident);
+                var debug = moveHead.GetString("Wharehouse");
+                Drawable d = new BitmapDrawable(Resources, show);
+
+                imagePNG.SetImageDrawable(d);
+                imagePNG.Visibility = ViewStates.Visible;
+
+
+                imagePNG.Click += (e, ev) => { ImageClick(d); };
+
+            }
+            catch (Exception error)
+            {
+                return;
+            }
+
         }
         private void showPicture()
         {

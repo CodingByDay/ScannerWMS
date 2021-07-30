@@ -7,6 +7,7 @@ using System.Web;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Graphics;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -338,62 +339,16 @@ namespace Scanner
         }
         private async void Button6_Click(object sender, EventArgs e)
         {
-            await FinishMethod();
-            //if (SaveMoveItem())
-            //{
+            // If the boolean for the signature is true otherwise await the FinishMethod.
 
-            //    var progress = new ProgressDialogClass();
+            // Asks the user for the signature. Is nullable, check for condition.
 
-            //    progress.ShowDialogSync(this, "Zaključujem");
-            //    try
-            //    {
-
-            //        var headID = moveHead.GetInt("HeadID");
-
-            //        string result;
-
-            //        if (WebApp.Get("mode=finish&stock=remove&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-            //        {
-            //            if (result.StartsWith("OK!"))
-            //            {
-            //                var id = result.Split('+')[1];
-
-            //                Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
-            //                InvalidateAndClose();
-            //                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            //                alert.SetTitle("Zaključevanje uspešno");
-            //                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-            //                alert.SetPositiveButton("Ok", (senderAlert, args) =>
-            //                {
-            //                    alert.Dispose();
-            //                    System.Threading.Thread.Sleep(500);
-            //                    StartActivity(typeof(MainMenu));
-            //                });
-
-
-
-            //                Dialog dialog = alert.Create();
-            //                dialog.Show();
-            //            }
-            //            else
-            //            {
-                         
-            //                Toast.MakeText(this, "Napaka pri zaključevanju" + result, ToastLength.Long).Show();
-            //            }
-            //        }
-            //        else
-            //        {
-            //            Toast.MakeText(this, "Napaka pri klicu do web aplikacije" + result, ToastLength.Long).Show();
-                    
-            //        }
-            //    }
-            //    finally
-            //    {
-            //        progress.StopDialogSync();
-            //    }
-            //}
+           
+        
+                await FinishMethod();
+            
         }
+       
 
         private async void Button4_Click(object sender, EventArgs e)
         {

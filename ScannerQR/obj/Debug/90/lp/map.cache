@@ -9,6 +9,7 @@ Microsoft.AppCenter.Distribute.Android.Bindings.dll
 Microsoft.AppCenter.Distribute.dll
 Microsoft.AppCenter.dll
 Plugin.Settings.dll
+SignaturePad.dll
 Xamarin.Android.Arch.Core.Common.dll
 Xamarin.Android.Arch.Core.Runtime.dll
 Xamarin.Android.Arch.Lifecycle.Common.dll

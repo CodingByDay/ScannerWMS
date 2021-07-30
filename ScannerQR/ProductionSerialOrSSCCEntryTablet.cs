@@ -471,7 +471,6 @@ namespace Scanner
             button5.Click += Button5_Click;
             spLocation.ItemSelected += SpLocation_ItemSelected;
 
-            showPicture();
             
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
@@ -508,6 +507,7 @@ namespace Scanner
             // Spinner 
             spLocation.Adapter = adapterReceive;
             spLocation.SetSelection(locations.IndexOf("P01"), true);
+            showPictureIdent(ident.GetString("Code"));
 
         }
 
@@ -557,6 +557,31 @@ namespace Scanner
             btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
             btnOK.Click += BtnOK_Click;
         }
+
+
+
+        private void showPictureIdent(string ident)
+        {
+            try
+            {
+                Android.Graphics.Bitmap show = Services.GetImageFromServerIdent(moveHead.GetString("Wharehouse"), ident);
+                var debug = moveHead.GetString("Wharehouse");
+                Drawable d = new BitmapDrawable(Resources, show);
+
+                imagePNG.SetImageDrawable(d);
+                imagePNG.Visibility = ViewStates.Visible;
+
+
+                imagePNG.Click += (e, ev) => { ImageClick(d); };
+
+            }
+            catch (Exception error)
+            {
+                return;
+            }
+
+        }
+
         private void BtnOK_Click(object sender, EventArgs e)
         {
             popupDialog.Dismiss();

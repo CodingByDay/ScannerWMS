@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gOfZfB06uBKAyCzm3TphNERr+N4RbKB/2vT5imGFWEw8UbUCzKZk7hOyyXJPjE9zHivmgK3VGLlMxH/LdXH6iQ==",
+  "dgSpecHash": "adhvw0qip61DHr/7/+nXY9HVCX5hvsePLydSNH6oHrJsUEJXP+uQC+RaZ2e7A+Gh5rw76QITlwW21VFA2gVpmg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Janko\\Desktop\\ScannerWMS\\ScannerQR\\WMSScanner.csproj",
   "expectedPackageFiles": [
@@ -47,6 +47,7 @@
     "C:\\Users\\Janko\\.nuget\\packages\\xamarin.android.support.vector.drawable\\28.0.0.3\\xamarin.android.support.vector.drawable.28.0.0.3.nupkg.sha512",
     "C:\\Users\\Janko\\.nuget\\packages\\xamarin.android.support.versionedparcelable\\28.0.0.3\\xamarin.android.support.versionedparcelable.28.0.0.3.nupkg.sha512",
     "C:\\Users\\Janko\\.nuget\\packages\\xamarin.android.support.viewpager\\28.0.0.3\\xamarin.android.support.viewpager.28.0.0.3.nupkg.sha512",
+    "C:\\Users\\Janko\\.nuget\\packages\\xamarin.controls.signaturepad\\3.0.0\\xamarin.controls.signaturepad.3.0.0.nupkg.sha512",
     "C:\\Users\\Janko\\.nuget\\packages\\xamarin.essentials\\1.6.0\\xamarin.essentials.1.6.0.nupkg.sha512"
   ],
   "logs": []

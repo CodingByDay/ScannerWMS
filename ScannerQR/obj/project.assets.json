@@ -801,6 +801,15 @@
           "build/monoandroid90/Xamarin.Android.Support.ViewPager.targets": {}
         }
       },
+      "Xamarin.Controls.SignaturePad/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid/SignaturePad.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid/SignaturePad.dll": {}
+        }
+      },
       "Xamarin.Essentials/1.6.0": {
         "type": "package",
         "dependencies": {
@@ -1769,6 +1778,26 @@
         "xamarin.android.support.viewpager.nuspec"
       ]
     },
+    "Xamarin.Controls.SignaturePad/3.0.0": {
+      "sha512": "IlQWFnD5z8FFU9NLATkVHkiGZjdOl6dm5v7MsMXpbMzjHCKU1xFHQ5HlZYXW7jH3Qi2JmpLewNFJbwM3f1/BlA==",
+      "type": "package",
+      "path": "xamarin.controls.signaturepad/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid/SignaturePad.dll",
+        "lib/MonoAndroid/SignaturePad.xml",
+        "lib/Xamarin.iOS/SignaturePad.dll",
+        "lib/Xamarin.iOS/SignaturePad.xml",
+        "lib/uap10.0/SignaturePad.dll",
+        "lib/uap10.0/SignaturePad.pri",
+        "lib/uap10.0/SignaturePad.xml",
+        "lib/uap10.0/SignaturePad/SignaturePad.xr.xml",
+        "lib/uap10.0/SignaturePad/Themes/Generic.xbf",
+        "xamarin.controls.signaturepad.3.0.0.nupkg.sha512",
+        "xamarin.controls.signaturepad.nuspec"
+      ]
+    },
     "Xamarin.Essentials/1.6.0": {
       "sha512": "geJYnjTyPv2npClIkBxLXk9cOV9CPwj/oayA8I4+6NpZc/dIiYxax36m25SW8TrCMR/rvyY44fZBjWBvj7BCQQ==",
       "type": "package",
@@ -1835,6 +1864,7 @@
       "Xamarin.Android.Support.Percent >= 28.0.0.3",
       "Xamarin.Android.Support.v7.AppCompat >= 28.0.0.3",
       "Xamarin.Android.Support.v7.CardView >= 28.0.0.3",
+      "Xamarin.Controls.SignaturePad >= 3.0.0",
       "Xamarin.Essentials >= 1.6.0"
     ]
   },
@@ -1923,6 +1953,10 @@
           "Xamarin.Android.Support.v7.CardView": {
             "target": "Package",
             "version": "[28.0.0.3, )"
+          },
+          "Xamarin.Controls.SignaturePad": {
+            "target": "Package",
+            "version": "[3.0.0, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",

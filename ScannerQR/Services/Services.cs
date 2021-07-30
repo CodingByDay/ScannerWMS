@@ -56,6 +56,33 @@ namespace TrendNET.WMS.Device.Services
        
           
         }
+
+
+        public static Android.Graphics.Bitmap GetImageFromServerIdent(string warehouse, string ident)
+        {
+
+            using (WebClient wc = new WebClient())
+            {
+                var webApp = settings.RootURL;
+                try
+                {
+                    using (WebClient webClient = new WebClient())
+                    {
+                        image = wc.DownloadData(webApp + "/Services/Image/?wh=" + warehouse + "&ident=" + ident);
+
+                        Android.Graphics.Bitmap bitmapImage = Android.Graphics.BitmapFactory.DecodeByteArray(image, 0, image.Length, null);
+                        return bitmapImage;
+                    }
+                }
+                catch (System.Net.WebException)
+                {
+                    return null;
+                }
+            }
+
+
+
+        }
         public static bool isTablet(string target)
         {
 

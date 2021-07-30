@@ -179,7 +179,7 @@
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="potrdi paleto-f4"
+            android:text="potrdi karton-f4"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="70.0dp"

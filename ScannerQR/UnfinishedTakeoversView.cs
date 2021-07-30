@@ -17,6 +17,8 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 using static Android.App.ActionBar;
 using Scanner.App;
 using Android.Content.PM;
+using Android.Graphics;
+using Xamarin.Controls;
 
 namespace Scanner
 {
@@ -48,15 +50,15 @@ namespace Scanner
 
             // Create your application here
             SetContentView(Resource.Layout.UnfinishedTakeoversView);
-        
-            
+
+
             tbBusEvent = FindViewById<EditText>(Resource.Id.tbBusEvent);
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);
             tbSupplier = FindViewById<EditText>(Resource.Id.tbSupplier);
             tbItemCount = FindViewById<EditText>(Resource.Id.tbItemCount);
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
-            
+
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
@@ -68,12 +70,31 @@ namespace Scanner
             btDelete.Click += BtDelete_Click;
             btNew.Click += BtNew_Click;
             btLogout.Click += BtLogout_Click;
-           
+
             InUseObjects.Clear();
 
             LoadPositions();
-        }
 
+            var signatureView = new SignaturePadView(this)
+            {
+                StrokeWidth = 3f,
+                StrokeColor = Color.White,
+                BackgroundColor = Color.Black
+            };
+            
+            try
+            {
+                // Signature view.
+                Bitmap image = signatureView.GetImage();
+          
+
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this, $"Prišlo je do napake. {ex}", ToastLength.Long);
+            
+            }
+        }
   
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

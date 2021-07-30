@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+    <xamarin.controls.SignaturePadView
+        android:id="@+id/signatureView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="3dp"
+        android:layout_above="@+id/btnSave"
+        android:background="@drawable/background"
+        app:signatureLineColor="#B8860B"
+        app:captionTextColor="#B8860B"
+        app:signaturePromptText="Prosim podpišite se:"
+        app:signaturePromptTextColor="#B8860B"
+        app:clearLabelTextColor="#B8860B" />
+    
+      <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:gravity="center"
+        android:layout_marginBottom="500px"
+        android:background="@drawable/nicelookingbutton"
+        android:drawableLeft="@drawable/confirmation"
+        android:layout_width="match_parent"
+        android:layout_height="70.0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="false" />
+   
+ 
+</RelativeLayout>
+
+
+

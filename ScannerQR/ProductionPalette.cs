@@ -501,9 +501,25 @@ namespace Scanner
                       
                         RunOnUiThread(() =>
                         {
+                           
+
                             progress.StopDialogSync();
-                            string WebError = string.Format("Napaka pri potrjevanju palete: " + error);
-                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                            alert.SetTitle("Napaka");
+                            alert.SetMessage("Napaka pri potrjevanju palete: " + error);
+
+                            alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                            {
+                                alert.Dispose();
+                                System.Threading.Thread.Sleep(500);
+                                StartActivity(typeof(MainMenu));
+
+                            });
+
+
+
+                            Dialog dialog = alert.Create();
+                            dialog.Show();
                         });
                        
 

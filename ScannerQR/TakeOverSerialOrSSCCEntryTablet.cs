@@ -65,17 +65,20 @@ namespace Scanner
             // Create your application here.
             SetContentView(Resource.Layout.TakeOverSerialOrSSCCEntryTablet);
             // 
+            //
+            listData = FindViewById<ListView>(Resource.Id.listData);
+
+            fillItems();
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSerialNum = FindViewById<EditText>(Resource.Id.tbSerialNum);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
-            listData = FindViewById<ListView>(Resource.Id.listData);
             warehousePNG = FindViewById<ImageView>(Resource.Id.warehousePNG);
             // Buttons.
             AdapterLocation adapter = new AdapterLocation(this, items);
-            listData.Adapter = adapter;
+      
             spLocation = FindViewById<Spinner>(Resource.Id.spLocation);
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
@@ -105,15 +108,13 @@ namespace Scanner
             /// Consider changing this to something else.
 
 
-            showPicture();
           
             //
             // Exceptions
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point?!"); }
             if (openIdent == null) { throw new ApplicationException("openIdent not known at this point?!"); }
             //
-            //
-            fillItems();
+           
             try
             {
 
@@ -259,7 +260,7 @@ namespace Scanner
 
             tbSerialNum.RequestFocus();
             spLocation.SetSelection(locList.IndexOf("P01"), true);
-
+            showPictureIdent(tbIdent.Text);
         }
 
       
@@ -425,7 +426,7 @@ namespace Scanner
             });
         }
 
-        // At the end look at this to not be hard coded.
+      
         private void showPicture()
         {
             try
@@ -445,6 +446,30 @@ namespace Scanner
                 return;
             }
             
+        }
+
+
+
+        private void showPictureIdent(string ident)
+        {
+            try
+            {
+                Android.Graphics.Bitmap show = Services.GetImageFromServerIdent(moveHead.GetString("Wharehouse"), ident);
+                var debug = moveHead.GetString("Wharehouse");
+                Drawable d = new BitmapDrawable(Resources, show);
+
+                warehousePNG.SetImageDrawable(d);
+                warehousePNG.Visibility = ViewStates.Visible;
+
+
+                warehousePNG.Click += (e, ev) => { ImageClick(d); };
+
+            }
+            catch (Exception error)
+            {
+                return;
+            }
+
         }
 
         private void ImageClick(Drawable d)
@@ -528,9 +553,13 @@ namespace Scanner
                 });
 
             }
+            TakeOverSerialOrSSCCEntryAdapter adapter = new TakeOverSerialOrSSCCEntryAdapter(this, data);
 
+            listData.Adapter = null;
+            listData.Adapter = adapter;
 
-
+            var debug = data.Count();
+           
         }
 
 
