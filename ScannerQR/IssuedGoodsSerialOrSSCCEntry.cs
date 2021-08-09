@@ -339,12 +339,7 @@ namespace Scanner
         }
         private async void Button6_Click(object sender, EventArgs e)
         {
-            
-
-           
-        
                 await FinishMethod();
-            
         }
        
 

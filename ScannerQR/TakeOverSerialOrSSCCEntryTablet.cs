@@ -275,16 +275,11 @@ namespace Scanner
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
             image = popupDialog.FindViewById<ImageView>(Resource.Id.image);
             // Access Popup layout fields like below
-            btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
-            btnOK.Click += BtnOK_Click;
+           
        
         }
 
-        private void BtnOK_Click(object sender, EventArgs e)
-        {
-            popupDialog.Dismiss();
-            popupDialog.Hide();
-        }
+   
 
         private void SpLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
@@ -308,11 +303,11 @@ namespace Scanner
         {
 
 
-            var ident = openIdent.GetString("Code");
+           var ident = openIdent.GetString("Code");
            var wh = moveHead.GetString("Wharehouse");
            var list =  GetIdentLocationList.fillItemsOfList(wh, ident);
         
-           var debug = true;
+           
            Fill(list);
         }
 
@@ -329,7 +324,7 @@ namespace Scanner
 
             AdapterLocation adapter = new AdapterLocation(this, items);
             listData.Adapter = adapter;
-            ///
+            
         }
 
         private async Task FinishMethod()
@@ -434,7 +429,6 @@ namespace Scanner
                 Android.Graphics.Bitmap show = Services.GetImageFromServer(moveHead.GetString("Wharehouse"));
                 var debug = moveHead.GetString("Wharehouse");
                 Drawable d = new BitmapDrawable(Resources, show);
-
                 warehousePNG.SetImageDrawable(d);
                 warehousePNG.Visibility = ViewStates.Visible;
 
@@ -467,6 +461,7 @@ namespace Scanner
             }
             catch (Exception error)
             {
+                var log = error;
                 return;
             }
 

@@ -343,7 +343,6 @@ namespace Scanner
             var wh = moveHead.GetString("Wharehouse");
             // Found the error here the receiver returns not the warehouse but the PETPAK receiver
             var list = GetIdentLocationList.fillItemsOfList(wh, code);
-            var debug = true;
             Fill(list);
         }
 
@@ -473,8 +472,7 @@ namespace Scanner
             image.SetMinimumWidth(800);
             image.SetImageDrawable(d);
             // Access Popup layout fields like below
-            btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
-            btnOK.Click += BtnOK_Click;
+       
         }
 
 

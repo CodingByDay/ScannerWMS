@@ -8,20 +8,20 @@ package com.toptoche.searchablespinnerlibrary;
 
 public final class R {
 	public static final class attr {
-		public static final int hintText = 0x7f0300ee;
+		public static final int hintText = 0x7f0300f7;
 	}
 	public static final class id {
-		public static final int listItems = 0x7f0800da;
-		public static final int search = 0x7f080119;
+		public static final int listItems = 0x7f0800fe;
+		public static final int search = 0x7f08013e;
 	}
 	public static final class layout {
-		public static final int searchable_list_dialog = 0x7f0b0089;
+		public static final int searchable_list_dialog = 0x7f0b008a;
 	}
 	public static final class string {
-		public static final int app_name = 0x7f0d0028;
+		public static final int app_name = 0x7f0d001c;
 	}
 	public static final class styleable {
-		public static final int[] SearchableSpinner = new int[] { 0x7f0300ee };
+		public static final int[] SearchableSpinner = new int[] { 0x7f0300f7 };
 		public static final int SearchableSpinner_hintText = 0;
 	}
 }

@@ -61,6 +61,7 @@ namespace Scanner
         int soundPoolId;
         private NameValueObject wh;
         private int selected;
+        
         private ImageView imagePNG;
         private ProgressDialogClass progress;
         private List<LocationClass> items = new List<LocationClass>();
@@ -1039,16 +1040,11 @@ namespace Scanner
             image.SetMinimumWidth(800);
             image.SetImageDrawable(d);
             // Access Popup layout fields like below
-            btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
-            btnOK.Click += BtnOK_Click;
+     
         }
 
 
-        private void BtnOK_Click(object sender, EventArgs e)
-        {
-            popupDialog.Dismiss();
-            popupDialog.Hide();
-        }
+      
 
 
         private void Button1_Click(object sender, EventArgs e)

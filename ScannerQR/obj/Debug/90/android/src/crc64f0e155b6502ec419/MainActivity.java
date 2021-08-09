@@ -2,7 +2,7 @@ package crc64f0e155b6502ec419;
 
 
 public class MainActivity
-	extends android.support.v7.app.AppCompatActivity
+	extends androidx.appcompat.app.AppCompatActivity
 	implements
 		mono.android.IGCUserPeer
 {
@@ -25,6 +25,14 @@ public class MainActivity
 		super ();
 		if (getClass () == MainActivity.class)
 			mono.android.TypeManager.Activate ("Scanner.MainActivity, WMS", "", this, new java.lang.Object[] {  });
+	}
+
+
+	public MainActivity (int p0)
+	{
+		super (p0);
+		if (getClass () == MainActivity.class)
+			mono.android.TypeManager.Activate ("Scanner.MainActivity, WMS", "System.Int32, mscorlib", this, new java.lang.Object[] { p0 });
 	}
 
 

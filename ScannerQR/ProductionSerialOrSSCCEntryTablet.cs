@@ -43,12 +43,12 @@ namespace Scanner
         private Button button5;
         SoundPool soundPool;
         private ListView listData;
+        
         private ImageView imagePNG;
         private List<string> locations = new List<string>();
 
         private List<ProductionSerialOrSSCCList> data = new List<ProductionSerialOrSSCCList>();
         int soundPoolId;
-        private string ident;
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -554,8 +554,6 @@ namespace Scanner
             image.SetMinimumWidth(800);
             image.SetImageDrawable(d);
             // Access Popup layout fields like below
-            btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
-            btnOK.Click += BtnOK_Click;
         }
 
 
