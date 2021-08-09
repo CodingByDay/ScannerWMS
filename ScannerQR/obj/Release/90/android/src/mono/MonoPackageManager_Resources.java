@@ -2,6 +2,14 @@ package mono;
 public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "WMS.dll" comes first in this list. */
+		"Xamarin.AndroidX.AppCompat.dll",
+		"Xamarin.AndroidX.Core.dll",
+		"Xamarin.AndroidX.DrawerLayout.dll",
+		"Xamarin.AndroidX.Fragment.dll",
+		"Xamarin.AndroidX.Lifecycle.Common.dll",
+		"Xamarin.AndroidX.Lifecycle.LiveData.Core.dll",
+		"Xamarin.AndroidX.Lifecycle.ViewModel.dll",
+		"Xamarin.AndroidX.Loader.dll",
 		"WMS.dll",
 		"DeviceAPI.dll",
 		"EDMTBinding.dll",
@@ -16,14 +24,8 @@ public class MonoPackageManager_Resources {
 		"Plugin.Settings.Abstractions.dll",
 		"Plugin.Settings.dll",
 		"SignaturePad.dll",
-		"Xamarin.Android.Arch.Lifecycle.Common.dll",
-		"Xamarin.Android.Arch.Lifecycle.LiveData.Core.dll",
-		"Xamarin.Android.Arch.Lifecycle.ViewModel.dll",
-		"Xamarin.Android.Support.Compat.dll",
-		"Xamarin.Android.Support.DrawerLayout.dll",
-		"Xamarin.Android.Support.Fragment.dll",
-		"Xamarin.Android.Support.Loader.dll",
-		"Xamarin.Android.Support.v7.AppCompat.dll",
+		"Xamarin.AndroidX.Activity.dll",
+		"Xamarin.AndroidX.SavedState.dll",
 		"Xamarin.Essentials.dll",
 	};
 	public static String[] Dependencies = new String[]{
