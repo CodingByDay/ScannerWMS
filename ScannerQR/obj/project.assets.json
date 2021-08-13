@@ -1644,6 +1644,18 @@
         "build": {
           "buildTransitive/monoandroid90/Xamarin.Google.Android.Material.targets": {}
         }
+      },
+      "ZoomImage-Xamarin/1.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.AndroidX.AppCompat": "1.1.0.1"
+        },
+        "compile": {
+          "lib/MonoAndroid/ZoomImage-Xamarin.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid/ZoomImage-Xamarin.dll": {}
+        }
       }
     }
   },
@@ -3407,6 +3419,19 @@
         "xamarin.google.android.material.1.0.0.1.nupkg.sha512",
         "xamarin.google.android.material.nuspec"
       ]
+    },
+    "ZoomImage-Xamarin/1.3.1": {
+      "sha512": "Wk+befEE3A0TeG8JTyAFMLckeMMVUcGyOyxyfN2z+1QnqLluBmc/+eBw7/uDQO3Bj86d3FXP4RJ1PiZbn925aw==",
+      "type": "package",
+      "path": "zoomimage-xamarin/1.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid/ZoomImage-Xamarin.dll",
+        "lib/MonoAndroid/ZoomImage-Xamarin.pdb",
+        "zoomimage-xamarin.1.3.1.nupkg.sha512",
+        "zoomimage-xamarin.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -3428,7 +3453,8 @@
       "Xamarin.AndroidX.PercentLayout >= 1.0.0.1",
       "Xamarin.Controls.SignaturePad >= 3.0.0",
       "Xamarin.Essentials >= 1.6.0",
-      "Xamarin.Google.Android.Material >= 1.0.0.1"
+      "Xamarin.Google.Android.Material >= 1.0.0.1",
+      "ZoomImage-Xamarin >= 1.3.1"
     ]
   },
   "packageFolders": {
@@ -3540,6 +3566,10 @@
           "Xamarin.Google.Android.Material": {
             "target": "Package",
             "version": "[1.0.0.1, )"
+          },
+          "ZoomImage-Xamarin": {
+            "target": "Package",
+            "version": "[1.3.1, )"
           }
         }
       }

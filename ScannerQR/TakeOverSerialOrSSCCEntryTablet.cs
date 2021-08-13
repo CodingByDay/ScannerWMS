@@ -13,6 +13,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Com.Jsibbold.Zoomage;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -55,7 +56,7 @@ namespace Scanner
         int soundPoolId;
         private string ident;
         private List<string> locList = new List<string>();
-        private ImageView warehousePNG;
+        private ZoomageView warehousePNG;
         private List<TakeOverSerialOrSSCCEntryList> data = new List<TakeOverSerialOrSSCCEntryList>();
         private List<LocationClass> items = new List<LocationClass>();
         protected override async void OnCreate(Bundle savedInstanceState)
@@ -75,7 +76,7 @@ namespace Scanner
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
-            warehousePNG = FindViewById<ImageView>(Resource.Id.warehousePNG);
+            warehousePNG = FindViewById<ZoomageView>(Resource.Id.warehousePNG);
             // Buttons.
             AdapterLocation adapter = new AdapterLocation(this, items);
       
@@ -273,7 +274,7 @@ namespace Scanner
 
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
-            image = popupDialog.FindViewById<ImageView>(Resource.Id.image);
+            image = popupDialog.FindViewById<ZoomageView>(Resource.Id.image);
             // Access Popup layout fields like below
            
        
@@ -476,13 +477,12 @@ namespace Scanner
 
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
-            image = popupDialog.FindViewById<ImageView>(Resource.Id.image);
+            image = popupDialog.FindViewById<ZoomageView>(Resource.Id.image);
             image.SetMinimumHeight(500);
             image.SetMinimumWidth(800);
             image.SetImageDrawable(d);
             // Access Popup layout fields like below
-            btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
-            btnOK.Click += BtnOK_Click1;
+  
         }
 
         private void BtnOK_Click1(object sender, EventArgs e)
@@ -620,7 +620,7 @@ namespace Scanner
         private int selected;
         private ProgressDialogClass progress;
         private Dialog popupDialog;
-        private ImageView image;
+        private ZoomageView image;
         private Button btnOK;
 
         private async void Button6_Click(object sender, EventArgs e)

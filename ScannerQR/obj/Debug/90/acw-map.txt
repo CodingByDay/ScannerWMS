@@ -1456,3 +1456,6 @@ com.google.android.material.appbar.AppBarLayout$OnOffsetChangedListener;com.goog
 Google.Android.Material.AppBar.AppBarLayout+IOnOffsetChangedListenerImplementor, Xamarin.Google.Android.Material;mono.com.google.android.material.appbar.AppBarLayout_OnOffsetChangedListenerImplementor
 Google.Android.Material.AppBar.AppBarLayout.IOnOffsetChangedListenerImplementor;mono.com.google.android.material.appbar.AppBarLayout_OnOffsetChangedListenerImplementor
 mono.com.google.android.material.appbar.AppBarLayout_OnOffsetChangedListenerImplementor;mono.com.google.android.material.appbar.AppBarLayout_OnOffsetChangedListenerImplementor
+Com.Jsibbold.Zoomage.IAutoResetMode, ZoomImage-Xamarin;com.jsibbold.zoomage.AutoResetMode
+Com.Jsibbold.Zoomage.IAutoResetMode;com.jsibbold.zoomage.AutoResetMode
+com.jsibbold.zoomage.AutoResetMode;com.jsibbold.zoomage.AutoResetMode

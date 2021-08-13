@@ -10,7 +10,6 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.Lifecycle.LiveData.Core.dll",
 		"Xamarin.AndroidX.Lifecycle.ViewModel.dll",
 		"Xamarin.AndroidX.Loader.dll",
-		"WMS.dll",
 		"DeviceAPI.dll",
 		"EDMTBinding.dll",
 		"Microsoft.AppCenter.Analytics.Android.Bindings.dll",
@@ -27,6 +26,8 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.SavedState.dll",
 		"Xamarin.Essentials.dll",
+		"WMS.dll",
+		"ZoomImage-Xamarin.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

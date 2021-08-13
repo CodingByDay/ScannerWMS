@@ -13,6 +13,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Com.Jsibbold.Zoomage;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -467,7 +468,7 @@ namespace Scanner
 
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
-            image = popupDialog.FindViewById<ImageView>(Resource.Id.image);
+            image = popupDialog.FindViewById<ZoomageView>(Resource.Id.image);
             image.SetMinimumHeight(500);
             image.SetMinimumWidth(800);
             image.SetImageDrawable(d);
@@ -748,7 +749,7 @@ namespace Scanner
         }
         private static bool? checkIssuedOpenQty = null;
         private Dialog popupDialog;
-        private ImageView image;
+        private ZoomageView image;
         private Button btnOK;
 
         private bool CheckIssuedOpenQty()

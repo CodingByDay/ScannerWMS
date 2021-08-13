@@ -51,6 +51,7 @@ Xamarin.AndroidX.VersionedParcelable.dll
 Xamarin.AndroidX.ViewPager.dll
 Xamarin.Essentials.dll
 Xamarin.Google.Android.Material.dll
+ZoomImage-Xamarin.dll
 androidx.multidex.multidex.aar
 androidx.versionedparcelable.versionedparcelable.aar
 androidx.lifecycle.lifecycle-runtime.aar
@@ -67,6 +68,10 @@ androidx.lifecycle.lifecycle-livedata-core.aar
 androidx.loader.loader.aar
 androidx.activity.activity.aar
 androidx.fragment.fragment.aar
+androidx.drawerlayout.drawerlayout.aar
+androidx.cursoradapter.cursoradapter.aar
+androidx.appcompat.appcompat-resources.aar
+androidx.appcompat.appcompat.aar
 androidx.transition.transition.aar
 androidx.swiperefreshlayout.swiperefreshlayout.aar
 androidx.slidingpanelayout.slidingpanelayout.aar
@@ -75,14 +80,10 @@ androidx.print.print.aar
 androidx.localbroadcastmanager.localbroadcastmanager.aar
 androidx.documentfile.documentfile.aar
 androidx.legacy.legacy-support-core-utils.aar
-androidx.drawerlayout.drawerlayout.aar
-androidx.cursoradapter.cursoradapter.aar
 androidx.coordinatorlayout.coordinatorlayout.aar
 androidx.asynclayoutinflater.asynclayoutinflater.aar
 androidx.legacy.legacy-support-core-ui.aar
 androidx.cardview.cardview.aar
-androidx.appcompat.appcompat-resources.aar
-androidx.appcompat.appcompat.aar
 com.google.android.material.material.aar
 androidx.percentlayout.percentlayout.aar
 androidx.lifecycle.lifecycle-livedata.aar

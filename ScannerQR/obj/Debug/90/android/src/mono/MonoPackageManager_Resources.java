@@ -93,6 +93,7 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.ViewPager.dll",
 		"Xamarin.Essentials.dll",
 		"Xamarin.Google.Android.Material.dll",
+		"ZoomImage-Xamarin.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

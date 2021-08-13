@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SE7BqlYWVsJTg16I+kZUaHpEKjBhAB+DRF3sMXvR3QknXM6d8+omBYoLE9wqWrGlYmKuo253befObi8WGfOMKg==",
+  "dgSpecHash": "Gii0QIlPTAK/+YnsVTpGMS5DDfzkamw4IcpUOcHim6+kyKXLE8tBK5V2jLqsX9oFd0g/DlWNgjfr6nv3MN3dVg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Janko\\Desktop\\ScannerWMS\\ScannerQR\\WMSScanner.csproj",
   "expectedPackageFiles": [
@@ -89,7 +89,8 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.viewpager\\1.0.0.1\\xamarin.androidx.viewpager.1.0.0.1.nupkg.sha512",
     "C:\\Users\\Janko\\.nuget\\packages\\xamarin.controls.signaturepad\\3.0.0\\xamarin.controls.signaturepad.3.0.0.nupkg.sha512",
     "C:\\Users\\Janko\\.nuget\\packages\\xamarin.essentials\\1.6.0\\xamarin.essentials.1.6.0.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.android.material\\1.0.0.1\\xamarin.google.android.material.1.0.0.1.nupkg.sha512"
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.android.material\\1.0.0.1\\xamarin.google.android.material.1.0.0.1.nupkg.sha512",
+    "C:\\Users\\Janko\\.nuget\\packages\\zoomimage-xamarin\\1.3.1\\zoomimage-xamarin.1.3.1.nupkg.sha512"
   ],
   "logs": []
 }

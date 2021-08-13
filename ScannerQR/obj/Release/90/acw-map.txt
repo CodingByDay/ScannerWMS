@@ -46,6 +46,9 @@ androidx.appcompat.view.menu.MenuPresenter;androidx.appcompat.view.menu.MenuPres
 AndroidX.AppCompat.View.Menu.IMenuView, Xamarin.AndroidX.AppCompat;androidx.appcompat.view.menu.MenuView
 AndroidX.AppCompat.View.Menu.IMenuView;androidx.appcompat.view.menu.MenuView
 androidx.appcompat.view.menu.MenuView;androidx.appcompat.view.menu.MenuView
+AndroidX.Core.Widget.ITintableImageSourceView, Xamarin.AndroidX.Core;androidx.core.widget.TintableImageSourceView
+AndroidX.Core.Widget.ITintableImageSourceView;androidx.core.widget.TintableImageSourceView
+androidx.core.widget.TintableImageSourceView;androidx.core.widget.TintableImageSourceView
 AndroidX.Core.View.ActionProvider+ISubUiVisibilityListener, Xamarin.AndroidX.Core;androidx.core.view.ActionProvider$SubUiVisibilityListener
 AndroidX.Core.View.ActionProvider.ISubUiVisibilityListener;androidx.core.view.ActionProvider$SubUiVisibilityListener
 androidx.core.view.ActionProvider$SubUiVisibilityListener;androidx.core.view.ActionProvider$SubUiVisibilityListener
@@ -58,6 +61,9 @@ androidx.core.view.ActionProvider$VisibilityListener;androidx.core.view.ActionPr
 AndroidX.Core.View.ActionProvider+IVisibilityListenerImplementor, Xamarin.AndroidX.Core;mono.androidx.core.view.ActionProvider_VisibilityListenerImplementor
 AndroidX.Core.View.ActionProvider.IVisibilityListenerImplementor;mono.androidx.core.view.ActionProvider_VisibilityListenerImplementor
 mono.androidx.core.view.ActionProvider_VisibilityListenerImplementor;mono.androidx.core.view.ActionProvider_VisibilityListenerImplementor
+AndroidX.Core.View.ITintableBackgroundView, Xamarin.AndroidX.Core;androidx.core.view.TintableBackgroundView
+AndroidX.Core.View.ITintableBackgroundView;androidx.core.view.TintableBackgroundView
+androidx.core.view.TintableBackgroundView;androidx.core.view.TintableBackgroundView
 AndroidX.Core.View.IViewPropertyAnimatorListener, Xamarin.AndroidX.Core;androidx.core.view.ViewPropertyAnimatorListener
 AndroidX.Core.View.IViewPropertyAnimatorListener;androidx.core.view.ViewPropertyAnimatorListener
 androidx.core.view.ViewPropertyAnimatorListener;androidx.core.view.ViewPropertyAnimatorListener
@@ -202,6 +208,9 @@ androidx.savedstate.SavedStateRegistry$SavedStateProvider;androidx.savedstate.Sa
 Xamarin.Essentials.ActivityLifecycleContextListener, Xamarin.Essentials;crc64a0e0a82d0db9a07d.ActivityLifecycleContextListener
 Xamarin.Essentials.ActivityLifecycleContextListener;crc64a0e0a82d0db9a07d.ActivityLifecycleContextListener
 xamarin.essentials.ActivityLifecycleContextListener;crc64a0e0a82d0db9a07d.ActivityLifecycleContextListener
+Com.Jsibbold.Zoomage.IAutoResetMode, ZoomImage-Xamarin;com.jsibbold.zoomage.AutoResetMode
+Com.Jsibbold.Zoomage.IAutoResetMode;com.jsibbold.zoomage.AutoResetMode
+com.jsibbold.zoomage.AutoResetMode;com.jsibbold.zoomage.AutoResetMode
 DatePickerFragment, WMS;crc648a7c9d6e188cbaff.DatePickerFragment
 DatePickerFragment;crc648a7c9d6e188cbaff.DatePickerFragment
 DatePickerFragment;crc648a7c9d6e188cbaff.DatePickerFragment

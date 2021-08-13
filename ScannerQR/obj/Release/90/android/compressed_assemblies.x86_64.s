@@ -106,7 +106,7 @@
 
 	/* 11: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.long	1352192
+	.long	1356800
 	/* loaded */
 	.byte	0
 	/* data */
@@ -214,7 +214,7 @@
 
 	/* 23: WMS.dll */
 	/* uncompressed_file_size */
-	.long	624128
+	.long	625664
 	/* loaded */
 	.byte	0
 	/* data */
@@ -232,7 +232,7 @@
 
 	/* 25: Xamarin.AndroidX.AppCompat.dll */
 	/* uncompressed_file_size */
-	.long	308224
+	.long	314880
 	/* loaded */
 	.byte	0
 	/* data */
@@ -241,7 +241,7 @@
 
 	/* 26: Xamarin.AndroidX.Core.dll */
 	/* uncompressed_file_size */
-	.long	135680
+	.long	143872
 	/* loaded */
 	.byte	0
 	/* data */
@@ -320,23 +320,32 @@
 	.zero	3
 	.quad	compressed_assembly_data_34
 
-	/* 35: mscorlib.dll */
+	/* 35: ZoomImage-Xamarin.dll */
 	/* uncompressed_file_size */
-	.long	1933824
+	.long	26624
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.quad	compressed_assembly_data_35
 
-	.size	.L.compressed_assembly_descriptors, 576
+	/* 36: mscorlib.dll */
+	/* uncompressed_file_size */
+	.long	1933824
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
+	.quad	compressed_assembly_data_36
+
+	.size	.L.compressed_assembly_descriptors, 592
 	.section	.data.compressed_assemblies,"aw",@progbits
 	.type	compressed_assemblies, @object
 	.p2align	3
 	.global	compressed_assemblies
 compressed_assemblies:
 	/* count */
-	.long	36
+	.long	37
 	/* descriptors */
 	.zero	4
 	.quad	.L.compressed_assembly_descriptors

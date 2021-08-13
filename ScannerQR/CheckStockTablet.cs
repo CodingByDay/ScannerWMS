@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Com.Jsibbold.Zoomage;
 using Scanner.App;
 using System;
 using System.Collections.Generic;
@@ -28,12 +29,13 @@ namespace Scanner
         private TextView lbStock;
         private List<ComboBoxItem> spinnerAdapterList = new List<ComboBoxItem>();
         private int temporaryPositionWarehouse;
+        private string element;
         private string stock;
         private ListView listData;
         private List<CheckStockAddonList> data = new List<CheckStockAddonList>();
         private ImageView imagePNG;
         private Dialog popupDialog;
-        private ImageView image;
+        private ZoomageView image;
         private Button btnOK;
 
         public void GetBarcode(string barcode)
@@ -43,6 +45,7 @@ namespace Scanner
                 Sound();
                 tbIdent.Text = barcode;
                 ProcessStock();
+                showPictureIdent(tbIdent.Text, element);
 
             }
             else if (tbLocation.HasFocus)
@@ -221,7 +224,28 @@ namespace Scanner
             imagePNG.Visibility = ViewStates.Invisible;
 
         }
+        private void showPictureIdent(string ident, string wh)
+        {
+            try
+            {
+                Android.Graphics.Bitmap show = Services.GetImageFromServerIdent(wh, ident);
 
+                Drawable d = new BitmapDrawable(Resources, show);
+
+                imagePNG.SetImageDrawable(d);
+                imagePNG.Visibility = ViewStates.Visible;
+
+
+                imagePNG.Click += (e, ev) => { ImageClick(d); };
+
+            }
+            catch (Exception error)
+            {
+                var log = error;
+                return;
+            }
+
+        }
         private void showPicture(string wh)
         {
             try
@@ -250,19 +274,17 @@ namespace Scanner
 
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
-            image = popupDialog.FindViewById<ImageView>(Resource.Id.image);
+            image = popupDialog.FindViewById<ZoomageView>(Resource.Id.image);
             image.SetMinimumHeight(500);
+
             image.SetMinimumWidth(800);
+
             image.SetImageDrawable(d);
+
             // Access Popup layout fields like below
-            btnOK = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
-            btnOK.Click += BtnOK_Click;
+
         }
-        private void BtnOK_Click(object sender, EventArgs e)
-        {
-            popupDialog.Dismiss();
-            popupDialog.Hide();
-        }
+     
         private void Button1_Click(object sender, System.EventArgs e)
         {
             Finish();
@@ -310,7 +332,7 @@ namespace Scanner
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 temporaryPositionWarehouse = e.Position;
 
-                string element = (string)spinner.GetItemAtPosition(e.Position);
+                element = (string)spinner.GetItemAtPosition(e.Position);
 
 
                 showPicture(element);
