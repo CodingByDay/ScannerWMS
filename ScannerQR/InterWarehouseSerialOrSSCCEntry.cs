@@ -933,12 +933,14 @@ namespace Scanner
             switch (keyCode)
             {
                 // in smartphone
+
                 case Keycode.F1:
                     if (button1.Enabled == true)
                     {
                         Button1_Click(this, null);
                     }
                     break;
+
                 //return true;
 
 

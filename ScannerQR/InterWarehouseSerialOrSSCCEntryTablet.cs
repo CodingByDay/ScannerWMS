@@ -70,6 +70,9 @@ namespace Scanner
         private ZoomageView image;
         private Button btnOK;
 
+
+
+
         // here...
         public void GetBarcode(string barcode)
         {
@@ -89,6 +92,7 @@ namespace Scanner
 
                     }
 
+               
 
                 }
                 else if (tbSSCC.HasFocus)
@@ -113,6 +117,8 @@ namespace Scanner
                             tbSSCC.Text = "";
                             tbSSCC.RequestFocus();
                         }
+
+
                     }
 
                 }
@@ -754,7 +760,7 @@ namespace Scanner
             spReceive.ItemSelected += SpReceive_ItemSelected;
             spIssue.ItemSelected += SpIssue_ItemSelected;
             listData.ItemClick += ListData_ItemClick;
-
+            tbSerialNum.FocusChange += TbSerialNum_FocusChange;
             button6.Click += Button6_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
@@ -763,7 +769,7 @@ namespace Scanner
 
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             imagePNG.Visibility = ViewStates.Invisible;
-
+            tbPacking.FocusChange += TbPacking_FocusChange1;
             lbIdentName = FindViewById<EditText>(Resource.Id.lbIdentName);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
@@ -834,6 +840,16 @@ namespace Scanner
             tbSSCC.RequestFocus();
             spReceive.SetSelection(receiver.IndexOf("P01"), true);
             showPicture();
+        }
+
+        private void TbPacking_FocusChange1(object sender, View.FocusChangeEventArgs e)
+        {
+            losesFocusLocation();
+        }
+
+        private void TbSerialNum_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            losesFocusSSCC();
         }
 
         private void SpIssue_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -1140,6 +1156,28 @@ namespace Scanner
 
         }
 
+        private void losesFocusSSCC()
+        {
+
+            if (FillRelatedBranchIdentData(tbSSCC.Text))
+            {
+
+                FillRelatedData(tbSSCC.Text);
+                tbLocation.RequestFocus();
+
+            }
+            else
+            {
+                // Go a step back and rescan.
+                tbSSCC.Text = "";
+                tbSSCC.RequestFocus();
+            }
+        }
+
+        private void losesFocusLocation()
+        {
+            ProcessQty();
+        }
         private void Button4_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(InterWarehouseEnteredPositionsViewTablet));
@@ -1150,6 +1188,13 @@ namespace Scanner
         {
             StartActivity(typeof(MainMenuTablet));
         }
+
+
+
+        
+
+
+
 
         private void ProcessIdent()
         {

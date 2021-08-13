@@ -26,8 +26,8 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.SavedState.dll",
 		"Xamarin.Essentials.dll",
-		"WMS.dll",
 		"ZoomImage-Xamarin.dll",
+		"WMS.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

@@ -50,7 +50,7 @@ namespace Scanner
         // Internet connection method.
         public bool IsOnline()
         {
-            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            var cm = (ConnectivityManager) GetSystemService(ConnectivityService);
             return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
         }
 
@@ -154,10 +154,21 @@ namespace Scanner
             // var stock = Services.GetObject("sts", "038300608700091078", out error);
             // Toast.MakeText(this, "Ident: " +  stock.GetDouble("Qty"), ToastLength.Long).Show();
 
+            ChangeTheOrientation();
+
         }
 
-      
-        
+        private void ChangeTheOrientation()
+        {
+             if(settings.tablet == true)
+            {
+                RequestedOrientation = Android.Content.PM.ScreenOrientation.Landscape;
+            } else
+            {
+                RequestedOrientation = Android.Content.PM.ScreenOrientation.Portrait;
+
+            }
+        }
 
         private bool OnReleaseAvailable(ReleaseDetails releaseDetails)
         {
