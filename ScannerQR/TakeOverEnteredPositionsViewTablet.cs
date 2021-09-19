@@ -40,6 +40,7 @@ namespace Scanner
         private NameValueObjectList positions = null;
         private Dialog popupDialog;
         private Button btnYes;
+        private Button btNext;
         private Button btnNo;
         private List<TakeOverEnteredPositionsViewListItems> data = new List<TakeOverEnteredPositionsViewListItems>();
         private string tempUnit;
@@ -69,6 +70,8 @@ namespace Scanner
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             button5 = FindViewById<Button>(Resource.Id.button5);
+            btNext = FindViewById<Button>(Resource.Id.btNext);
+            btNext.Click += BtNext_Click;
             dataList.ItemLongClick += DataList_ItemLongClick;
             TakeOverEnteredPositionsViewAdapter adapter = new TakeOverEnteredPositionsViewAdapter(this, data);
             dataList.Adapter = adapter;
@@ -85,6 +88,9 @@ namespace Scanner
             LoadPositions();
             fillList();
         }
+
+   
+
         private void DeleteFromTouch(int index)
         {
             popupDialog = new Dialog(this);

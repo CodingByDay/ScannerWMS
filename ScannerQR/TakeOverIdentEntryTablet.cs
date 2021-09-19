@@ -36,7 +36,7 @@ namespace Scanner
         private EditText tbDeliveryDeadline;
         private EditText tbQty;
         private TextView lbOrderInfo;
-       
+        private Button btNext;
         private Button btConfirm;
         private Button button4;
         private Button button5;
@@ -77,13 +77,30 @@ namespace Scanner
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
             displayedOrder = 0;
             FillDisplayedOrderInfo();
+            btNext = FindViewById<Button>(Resource.Id.btNext);
+            btNext.Click += BtNext_Click;
             // uvWMSOpenOrder
             btConfirm.Click += BtConfirm_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
             listData.ItemClick += ListData_ItemClick;
         }
-      
+
+        private void BtNext_Click1(object sender, EventArgs e)
+        {
+
+            displayedPosition++;
+            if (displayedOrder >= openOrders.Items.Count) { displayedOrder = 0; }
+
+            FillDisplayedOrderInfoSelect();
+
+
+            // Change the highlight position.
+            listData.RequestFocusFromTouch();
+            listData.SetItemChecked(displayedPosition, true);
+            listData.SetSelection(displayedPosition);
+        }
+
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             selected = e.Position;
@@ -98,7 +115,7 @@ namespace Scanner
         {
 
             displayedOrder = postionOfTheItemInTheList;
-            var debug = true;
+        
             FillDisplayedOrderInfoSelect();
         }
 

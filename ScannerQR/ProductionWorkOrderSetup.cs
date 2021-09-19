@@ -41,6 +41,11 @@ namespace Scanner
             {
                 if (barcode != "Scan fail")
                 {
+
+                    tbWorkOrder.Text = "";
+                    tbOpenQty.Text = "";
+                    tbIdent.Text = "";
+                    tbName.Text = "";
                     Sound();
                     tbWorkOrder.Text = barcode;
                     ProcessWorkOrder();

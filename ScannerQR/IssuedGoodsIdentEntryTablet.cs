@@ -20,15 +20,14 @@ namespace Scanner
     [Activity(Label = "IssuedGoodsIdentEntryTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class IssuedGoodsIdentEntryTablet : Activity, IBarcodeResult
     {
-        // Definitions
-        // for the 
-        // components.
+       
         private EditText tbIdent;
         private EditText tbNaziv;
         private EditText tbOrder;
         private EditText tbConsignee;
         private EditText tbDeliveryDeadline;
         private EditText tbQty;
+        private Button btNext;
         private Button btConfirm;
         private Button button4;
         private Button button5;
@@ -224,6 +223,8 @@ namespace Scanner
             tbDeliveryDeadline = FindViewById<EditText>(Resource.Id.tbDeliveryDeadline);
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
+            btNext = FindViewById<Button>(Resource.Id.btNext);
+            btNext.Click += BtNext_Click;
             button4 = FindViewById<Button>(Resource.Id.button4);
             button5 = FindViewById<Button>(Resource.Id.button5);
             lbOrderInfo = FindViewById<TextView>(Resource.Id.lbOrderInfo);
@@ -240,8 +241,8 @@ namespace Scanner
             button5.Click += Button5_Click;
             tbIdent.RequestFocus();
         }
+      
 
-   
         private void TbNaziv_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessIdent();

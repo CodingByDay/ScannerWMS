@@ -309,7 +309,7 @@ namespace Scanner
 
                 }
                 docTypes = CommonData.ListDocTypes("P|N");
-                btnOrderMode.Text = "Brez naročila - F3";
+                btnOrderMode.Text = "Brez nar. - F3";
                 initial += 1;
             }
             else
@@ -341,7 +341,7 @@ namespace Scanner
 
         private bool isOrderLess()
         {
-            if (btnOrderMode.Text == "Brez naročila - F3")
+            if (btnOrderMode.Text == "Brez nar. - F3")
             {
                 return true;
             }

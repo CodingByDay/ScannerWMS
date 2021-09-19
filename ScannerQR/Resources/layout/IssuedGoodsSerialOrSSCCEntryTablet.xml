@@ -10,7 +10,7 @@
 
 
     <TextView
-        android:textSize="16px"
+        android:textSize="18px"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
 
         <TextView
             android:text="Količina" 
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
 
         <TextView
             android:text="Lokacija"            
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -110,7 +110,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
 
         <TextView
             android:textStyle="bold"
-           android:textSize="16px"   
+           android:textSize="18px"   
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SSCC koda"
@@ -142,7 +142,7 @@
 
         <EditText
             android:textStyle="bold"
-           android:textSize="16px"
+           android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
 
         <TextView
             android:textStyle="bold"
-           android:textSize="16px"   
+           android:textSize="18px"   
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -171,7 +171,7 @@
 
         <EditText
             android:textStyle="bold"
-           android:textSize="16px"
+           android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
 
         <TextView
             android:textStyle="bold"
-           android:textSize="16px"
+           android:textSize="18px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Izd. lokacija"
@@ -202,7 +202,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -226,7 +226,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -237,7 +237,7 @@
 
         <EditText
             android:textStyle="bold"
-           android:textSize="16px"
+           android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -261,7 +261,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -273,7 +273,7 @@
 
         <EditText
             android:textStyle="bold"
-           android:textSize="16px"
+           android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -295,7 +295,7 @@
 
         <TextView
             android:textStyle="bold"
-           android:textSize="16px"
+           android:textSize="18px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -306,7 +306,7 @@
 
         <EditText
             android:textStyle="bold"
-           android:textSize="16px"
+           android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -337,7 +337,7 @@
                 android:text="Dodaj ser. št."
                 android:layout_width="match_parent"
                 android:layout_height="60.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/newitem"
                 android:id="@+id/btSaveOrUpdate"
@@ -350,7 +350,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60.0dp"
                 android:drawableLeft="@drawable/newitem"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:id="@+id/button4"
                 android:layout_marginBottom="0.0dp" />
@@ -372,7 +372,7 @@
                 android:text="Zaključi"
                 android:layout_width="match_parent"
                 android:layout_height="60.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/shipped"
                 android:id="@+id/button6" />
@@ -383,7 +383,7 @@
                 android:text="Pregled poz."
                 android:layout_width="match_parent"
                 android:layout_height="60.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:drawableLeft="@drawable/focus"
                 android:paddingLeft="10px"
                 android:id="@+id/button5"
@@ -397,14 +397,14 @@
             android:text="Izhod "
             android:layout_width="match_parent"
             android:layout_height="60.0dp"
-            android:textSize="16px"
+            android:textSize="18px"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10px"
             android:id="@+id/button7"
             android:layout_marginTop="0.0dp" />
     
+        <com.jsibbold.zoomage.ZoomageView
 
-        <ImageView
             android:src="@android:drawable/ic_menu_gallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

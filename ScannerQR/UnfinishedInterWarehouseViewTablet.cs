@@ -41,6 +41,7 @@ namespace Scanner
         private Dialog popupDialog;
         private Button btnYes;
         private Button btnNo;
+        private Button btNext;
         private List<UnfinishedInterWarehouseList> dataMapping = new List<UnfinishedInterWarehouseList>();
         private int selected;
         private int selectedItem =-1;
@@ -51,7 +52,7 @@ namespace Scanner
 
             // Create your application here
             SetContentView(Resource.Layout.UnfinishedInterWarehouseViewTablet);
-
+            
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             tbBusEvent = FindViewById<EditText>(Resource.Id.tbBusEvent);
             tbIssueWarehouse = FindViewById<EditText>(Resource.Id.tbIssueWarehouse);
@@ -63,6 +64,8 @@ namespace Scanner
             btnNew = FindViewById<Button>(Resource.Id.btnNew);
             btnLogout = FindViewById<Button>(Resource.Id.btnLogout);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
+            btNext = FindViewById<Button>(Resource.Id.btNext);
+            btNext.Click += BtNext_Click;
             dataList = FindViewById<ListView>(Resource.Id.dataList);
             UnfinishedInterwarehouseAdapter adapter = new UnfinishedInterwarehouseAdapter(this, dataMapping);
             dataList.Adapter = adapter;
@@ -77,6 +80,8 @@ namespace Scanner
             LoadPositions();
             FillItemsList();
         }
+
+    
 
         private void DataList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {

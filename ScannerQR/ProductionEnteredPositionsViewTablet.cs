@@ -34,7 +34,7 @@ namespace Scanner
         private Button button4;
         private Button btFinish;
         private Button btDelete;
-
+        private Button btNext;
         private Button button5;
         private int displayedPosition = 0;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
@@ -73,6 +73,8 @@ namespace Scanner
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             button5 = FindViewById<Button>(Resource.Id.button5);
+            btNext = FindViewById<Button>(Resource.Id.btNext);
+            btNext.Click += BtNext_Click;
             btUpdate.Click += BtUpdate_Click;
             button4.Click += Button4_Click;
             btFinish.Click += BtFinish_Click;
@@ -90,6 +92,7 @@ namespace Scanner
             fillList();
         }
 
+     
 
         private void No(int index)
         {

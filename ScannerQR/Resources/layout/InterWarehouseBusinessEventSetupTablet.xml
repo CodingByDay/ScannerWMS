@@ -55,7 +55,7 @@
 
     <TextView
         android:textStyle="bold"
-        android:textSize="16px"
+        android:textSize="18px"
         android:text="Posl dog"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
@@ -72,7 +72,7 @@
        />
     <TextView
         android:textStyle="bold"
-        android:textSize="16px"
+        android:textSize="18px"
         android:text="Izdajno skladišće"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
@@ -88,7 +88,7 @@
        />
     <TextView
         android:textStyle="bold"
-        android:textSize="16px"    
+        android:textSize="18px"    
         android:text="Prejemno skladišće"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
@@ -105,7 +105,7 @@
          />
     <TextView
         android:textStyle="bold"
-        android:textSize="16px"
+        android:textSize="18px"
         android:layout_width="91.0dp"
         android:layout_height="182.5dp"
         android:paddingLeft="10px"
@@ -121,7 +121,7 @@
 
             <Button
                 android:layout_weight="1"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:background="@drawable/nicelookingbutton"
                 android:text="Potrdi"
                 android:drawableLeft="@drawable/next"
@@ -131,7 +131,7 @@
                 android:id="@+id/btnConfirm" />
 
             <Button
-                android:textSize="16px"
+                android:textSize="18px"
                 android:background="@drawable/nicelookingbutton"
                 android:text="Izhod"
                 android:drawableLeft="@drawable/logout"

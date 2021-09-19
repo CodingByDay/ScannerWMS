@@ -39,6 +39,7 @@ namespace Scanner
         private Button btnNo;
         private Button btNew;
         private ListView dataList;
+        private Button btNext;
         private List<UnfinishedTakeoverList> dataSource = new List<UnfinishedTakeoverList>();
         public int selectedItem = -1;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("TakeOverHeads");
@@ -66,9 +67,12 @@ namespace Scanner
             dataList.Adapter = adapter;
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
+            btNext = FindViewById<Button>(Resource.Id.btNext);
+
             btNew = FindViewById<Button>(Resource.Id.btnew);
             btLogout = FindViewById<Button>(Resource.Id.logout);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
+            btNext.Click += BtNext_Click;
             dataList.ChoiceMode = ChoiceMode.Single;
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
@@ -80,14 +84,25 @@ namespace Scanner
             dataList.ItemLongClick += DataList_ItemLongClick;
             LoadPositions();
             FillItemsList();
+            
 
    
 
         }
 
+        private void BtNext_Click1(object sender, EventArgs e)
+        {
+            displayedPosition++;
+            if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
+            FillDisplayedItem();
 
 
-
+            // Change the highlight position.
+            dataList.RequestFocusFromTouch();
+            dataList.SetItemChecked(displayedPosition, true);
+            dataList.SetSelection(displayedPosition);
+           
+        }
 
         private void DataList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {

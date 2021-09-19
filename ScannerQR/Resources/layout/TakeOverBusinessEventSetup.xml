@@ -76,7 +76,7 @@
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Brez naročila-f3"
+            android:text="Brez nar.-f3"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:textSize="16px"

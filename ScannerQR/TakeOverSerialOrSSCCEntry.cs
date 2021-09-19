@@ -120,7 +120,9 @@ namespace Scanner
             {
                 Toast.MakeText(this, "Uspešno branje identa.", ToastLength.Long).Show();
             }
+
             // Next block.
+
             docTypes = CommonData.ListDocTypes("I|N");
             tbSSCC.Enabled = openIdent.GetBool("isSSCC");
             tbSerialNum.Enabled = openIdent.GetBool("HasSerialNumber");
@@ -168,9 +170,9 @@ namespace Scanner
             }
             else
             {
-                //if (tbSSCC.Enabled) { new Scanner(tbSSCC); }
-                //new Scanner(tbSerialNum);
-                //new Scanner(tbLocation);
+                // if (tbSSCC.Enabled) { new Scanner(tbSSCC); }
+                // new Scanner(tbSerialNum);
+                // new Scanner(tbLocation);
 
                 if (tbSSCC.Enabled) 
                 { tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua); }
@@ -783,6 +785,9 @@ namespace Scanner
             if (tbSSCC.HasFocus) {
                 if (barcode != "Scan fail")
                 {
+                    tbSSCC.Text = "";
+                    tbSerialNum.Text = "";
+                    tbPacking.Text = "";
                     Sound();
 
                     tbSSCC.Text = barcode;

@@ -471,7 +471,7 @@ namespace Scanner
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
             spLocation.ItemSelected += SpLocation_ItemSelected;
-
+            tbSSCC.LongClick += TbSSCC_LongClick;
             
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
@@ -510,6 +510,15 @@ namespace Scanner
             spLocation.SetSelection(locations.IndexOf("P01"), true);
             showPictureIdent(ident.GetString("Code"));
 
+        }
+
+        private void TbSSCC_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            tbSSCC.Text = "";
+            tbSerialNum.Text = "";
+            tbPacking.Text = "";
+            tbLocation.Text = "";
+            tbIdent.Text = "";
         }
 
         private void SpLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)

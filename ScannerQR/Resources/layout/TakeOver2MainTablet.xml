@@ -40,7 +40,7 @@
         android:paddingTop="5px">
 
         <TextView
-             android:textSize="16px"
+             android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:layout_width="match_parent" />
 
         <TextView
-             android:textSize="16px"
+             android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             android:id="@+id/name" />
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
 
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -127,7 +127,7 @@
             android:layout_height="wrap_content"
             android:text="Ident"
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:paddingTop="5px"
             android:paddingLeft="10px"
             android:id="@+id/textView1"
@@ -135,7 +135,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"    
+            android:textSize="18px"    
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_width="81.5dp"
             android:layout_height="wrap_content"
             android:text="Naziv"
@@ -167,7 +167,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"    
+            android:textSize="18px"    
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_width="141.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10px"
@@ -196,7 +196,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:singleLine="true"
             android:layout_width="253.5dp"
             android:layout_height="wrap_content"
@@ -209,7 +209,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"    
+            android:textSize="18px"    
             android:singleLine="true"
             android:layout_width="253.5dp"
             android:layout_height="wrap_content"
@@ -240,7 +240,7 @@
                 android:text="Nar. kupcev-"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/newitem"
@@ -254,7 +254,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:drawableLeft="@drawable/confirmation"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:id="@+id/button2"
                 android:layout_marginBottom="0.0dp" />
@@ -276,7 +276,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/sticker"
                 android:id="@+id/button3" />
@@ -287,7 +287,7 @@
                 android:text="Pregled -"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:drawableLeft="@drawable/focus"
                 android:paddingLeft="10px"
                 android:id="@+id/button4"
@@ -301,7 +301,7 @@
             android:text="Izhod -"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-            android:textSize="16px"
+            android:textSize="18px"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10px"
             android:id="@+id/button5"

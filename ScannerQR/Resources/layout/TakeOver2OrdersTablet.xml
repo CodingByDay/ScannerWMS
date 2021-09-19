@@ -40,7 +40,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:layout_width="match_parent" />
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             android:id="@+id/name" />
 
           <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
           <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
 
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
 
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -103,7 +103,7 @@
 
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -117,7 +117,7 @@
     </LinearLayout>
     <LinearLayout
         android:textStyle="bold"
-        android:textSize="16px"
+        android:textSize="18px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_widthPercent="30%"
@@ -136,7 +136,7 @@
         <TextView
             android:layout_width="120.0dp"
              android:textStyle="bold"
-             android:textSize="16px"
+             android:textSize="18px"
             android:layout_height="wrap_content"
             android:text="Ident"
             android:paddingTop="5px"
@@ -146,7 +146,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"    
+            android:textSize="18px"    
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_width="120.0dp"
             android:layout_height="wrap_content"
             android:text="Naziv"
@@ -176,7 +176,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -195,7 +195,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"    
+            android:textSize="18px"    
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Količina prevzema"
@@ -206,7 +206,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -225,7 +225,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_width="115.5dp"
             android:layout_height="wrap_content"
             android:text="Naročilo"
@@ -236,7 +236,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"    
+            android:textSize="18px"    
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -255,7 +255,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"    
+            android:textSize="18px"    
             android:layout_width="116.0dp"
             android:layout_height="wrap_content"
             android:text="Kupec"
@@ -266,7 +266,7 @@
 
         <EditText
             android:textStyle="bold"
-            android:textSize="16px"    
+            android:textSize="18px"    
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -285,7 +285,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_width="113.5dp"
             android:layout_height="wrap_content"
             android:text="Datum dostave"
@@ -296,7 +296,7 @@
 
         <EditText
                 android:textStyle="bold"
-            android:textSize="16px"
+            android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -335,7 +335,7 @@
             android:id="@+id/tbKolicinaOdprta" />
         <EditText
                 android:textStyle="bold"
-             android:textSize="16px"
+             android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -346,7 +346,7 @@
             android:id="@+id/tbKolicinaPrevzetaDoSedaj" />
         <EditText
                 android:textStyle="bold"
-             android:textSize="16px"
+             android:textSize="18px"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -365,7 +365,7 @@
         android:paddingTop="5px">
 
             <Button
-                android:textSize="16px"
+                android:textSize="18px"
                 android:background="@drawable/nicelookingbutton"
                 android:text="naslednje naročilo-"
                 android:drawableLeft="@drawable/next"
@@ -377,7 +377,7 @@
 
             <Button
                 android:layout_weight="1"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:background="@drawable/nicelookingbutton"
                 android:text="prejšnje naročilo-"
                 android:drawableLeft="@drawable/left"
@@ -406,7 +406,7 @@
                 android:text="natisni etiketo-"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/sticker"
                 android:id="@+id/button3" />
@@ -418,7 +418,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:drawableLeft="@drawable/printer"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:id="@+id/button4" />
 
@@ -439,7 +439,7 @@
                 android:text="nasl. ident-"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/ident"
                 android:id="@+id/button5" />
@@ -450,7 +450,7 @@
                 android:text="Izhod - "
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:drawableLeft="@drawable/logout"
                 android:paddingLeft="10px"
                 android:id="@+id/button6" />

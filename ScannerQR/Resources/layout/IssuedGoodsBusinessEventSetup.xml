@@ -69,7 +69,7 @@
         <Button
             android:textSize="16px"
             android:background="@drawable/nicelookingbutton"
-            android:text="Brez naročila-f3"
+            android:text="Brez nar.-f3"
             android:drawableLeft="@drawable/order"
             android:paddingLeft="10px"
             android:layout_weight="1"

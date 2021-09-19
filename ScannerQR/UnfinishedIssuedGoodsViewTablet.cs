@@ -32,6 +32,7 @@ namespace Scanner
         private Button btFinish;
         private Button btDelete;
         private Button btNew;
+        private Button btNext;
         private Button btLogout;
         private Dialog popupDialog;
         private int displayedPosition = 0;
@@ -41,7 +42,7 @@ namespace Scanner
         private ListView issuedData;
         private List<UnfinishedIssuedList> data = new List<UnfinishedIssuedList>();
         private int selected;
-        private int selectedItem = -1; // -> [ x+1 > 0 starting "floating" index.]
+        private int selectedItem = -1; 
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -71,9 +72,8 @@ namespace Scanner
             btNew.Click += BtNew_Click;       //
             btLogout.Click += BtLogout_Click; //
             issuedData.ItemLongClick += IssuedData_ItemLongClick;
-            // Adapter for the two thirds list view on the right.
-            //
-            //
+            btNext = FindViewById<Button>(Resource.Id.btNext);
+            btNext.Click += BtNext_Click;
     
             
             InUseObjects.Clear();
@@ -81,6 +81,8 @@ namespace Scanner
             LoadPositions();
             FillItemsList();
         }
+
+       
 
         private void IssuedData_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {

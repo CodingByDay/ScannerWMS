@@ -35,7 +35,7 @@
         android:paddingTop="5px">
 
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_width="match_parent" />
 
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
 
 
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -75,7 +75,7 @@
 
 
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -88,7 +88,7 @@
 
 
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -111,7 +111,7 @@
         android:foregroundGravity="center">
 
          <TextView
-       android:textSize="16px"
+       android:textSize="18px"
         android:textStyle="bold"
         android:singleLine="true"
         android:layout_width="wrap_content"
@@ -128,7 +128,7 @@
 
         <TextView
             android:singleLine="true"
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="77.0dp"
             android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
             android:layout_marginRight="39.5dp" />
 
         <EditText
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"   
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -159,7 +159,7 @@
                                      >
 
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"      
             android:singleLine="true"
             android:layout_width="115.5dp"
@@ -170,7 +170,7 @@
             android:id="@+id/textView1" />
 
         <EditText
-           android:textSize="16px"    
+           android:textSize="18px"    
             android:textStyle="bold"      
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -183,7 +183,7 @@
 
     </LinearLayout>
     <TextView
-       android:textSize="16px"
+       android:textSize="18px"
         android:textStyle="bold"  
         android:singleLine="true"
         android:layout_width="wrap_content"
@@ -199,7 +199,7 @@
         android:paddingTop="5px">
 
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"  
             android:singleLine="true"    
            
@@ -210,7 +210,7 @@
             android:text="Naročilo" />
 
         <EditText
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"     
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -231,7 +231,7 @@
                                      >
 
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"     
             android:layout_width="114.5dp"
             android:layout_height="wrap_content"
@@ -240,7 +240,7 @@
             android:paddingLeft="10px"/>
 
         <EditText
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"     
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -259,7 +259,7 @@
         android:paddingTop="5px">
 
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"     
             android:layout_width="115.0dp"
             android:layout_height="wrap_content"
@@ -268,7 +268,7 @@
             android:text="Datum dobave" />
 
         <EditText
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"     
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -291,7 +291,7 @@
         android:paddingTop="5px">
 
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"     
             android:layout_width="113.0dp"
             android:layout_height="wrap_content"
@@ -300,7 +300,7 @@
             android:text="Količina" />
 
         <EditText
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"     
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -328,14 +328,23 @@
             android:weightSum="2"
             android:orientation="horizontal"
             android:paddingTop="5px">
-
+             <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Nasl. nar."
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="70.0dp"
+            android:textSize="18px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/next"
+            android:id="@+id/btNext" />
             <Button
                 android:layout_weight="1"
                 android:background="@drawable/nicelookingbutton"
                 android:text="potrdi"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-               android:textSize="16px"
+                android:textSize="18px"
                 android:drawableLeft="@drawable/confirmation"
                 android:paddingLeft="10px"
                 android:id="@+id/btConfirm"
@@ -357,7 +366,7 @@
                 android:text="pregled poz."
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-               android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/focus"
                 android:id="@+id/button4" />
@@ -368,7 +377,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:layout_weight="1"
-               android:textSize="16px"
+                android:textSize="18px"
                 android:drawableLeft="@drawable/logout"
                 android:paddingLeft="10px"
                 android:id="@+id/button5"

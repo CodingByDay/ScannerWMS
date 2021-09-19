@@ -332,7 +332,7 @@
         android:paddingTop="5px">
 
             <Button
-                android:textSize="16px"
+                android:textSize="18px"
                 android:background="@drawable/nicelookingbutton"
                 android:text="Tiskaj"
                 android:drawableLeft="@drawable/printer"
@@ -343,7 +343,7 @@
                 android:id="@id/btPrint" />
 
             <Button
-                android:textSize="16px"
+                android:textSize="18px"
                 android:background="@drawable/nicelookingbutton"
                 android:text="Izhod"
                 android:drawableLeft="@drawable/logout"

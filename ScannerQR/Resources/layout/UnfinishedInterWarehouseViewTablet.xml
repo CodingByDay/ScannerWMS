@@ -306,13 +306,24 @@
             android:paddingTop="5px">
 
             <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Nasl. nar."
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="70.0dp"
+            android:textSize="18px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/next"
+            android:id="@+id/btNext" />
+
+            <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Zaključi/popravi medskl"
+                android:text="Zaklj./pop. med."
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:drawableLeft="@drawable/shipped"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:id="@+id/btFinish"
                 android:layout_marginBottom="0.0dp" />
@@ -334,7 +345,7 @@
                 android:text="Izbriši medskl."
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/delete"
                 android:id="@+id/btDelete" />
@@ -345,7 +356,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:drawableLeft="@drawable/newitem"
                 android:paddingLeft="10px"
                 android:id="@+id/btnNew"
@@ -359,7 +370,7 @@
             android:text="Izhod "
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-            android:textSize="16px"
+            android:textSize="18px"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10px"
             android:id="@+id/btnLogout"

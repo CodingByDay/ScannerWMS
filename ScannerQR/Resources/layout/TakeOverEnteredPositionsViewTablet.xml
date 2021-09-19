@@ -42,7 +42,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:id="@+id/ident"
             android:layout_width="match_parent" />
            <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             android:layout_width="match_parent" />
 
           <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
           <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
 
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -103,7 +103,7 @@
 
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -143,7 +143,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"    
             android:layout_width="111.0dp"
             android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
             android:text="Ident" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -173,7 +173,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"    
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
@@ -183,7 +183,7 @@
             android:id="@+id/textView1" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -202,7 +202,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"    
             android:layout_width="108.0dp"
             android:layout_height="wrap_content"
@@ -211,7 +211,7 @@
             android:text="Serijska št." />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -232,7 +232,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"    
             android:layout_width="106.0dp"
             android:layout_height="wrap_content"
@@ -241,7 +241,7 @@
             android:paddingLeft="10px"/>
 
             <EditText
-                android:textSize="16px"
+                android:textSize="18px"
                 android:textStyle="bold"
                 android:singleLine="true"
                 android:layout_width="wrap_content"
@@ -260,7 +260,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"    
             android:layout_width="104.0dp"
             android:layout_height="wrap_content"
@@ -269,7 +269,7 @@
             android:text="Lokacija" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -292,7 +292,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"    
             android:layout_width="105.0dp"
             android:layout_height="wrap_content"
@@ -301,7 +301,7 @@
             android:text="Kreiral" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -325,12 +325,21 @@
             android:orientation="horizontal"
             android:weightSum="2"
             android:paddingTop="5px">
-
+             <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Nasl. nar."
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="70.0dp"
+            android:textSize="18px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/next"
+            android:id="@+id/btNext" />
             <Button
                 android:layout_weight="1"
-               android:textSize="16px"
+               android:textSize="18px"
                 android:background="@drawable/nicelookingbutton"
-                android:text="Popravi pozicijo"
+                android:text="Pop. poz."
                 android:drawableLeft="@drawable/fix"
                 android:paddingLeft="10px"
                 android:layout_width="match_parent"
@@ -357,7 +366,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/newitem"
                 android:id="@+id/button4" />
@@ -369,7 +378,7 @@
                 android:layout_height="70.0dp"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/confirmation"
-               android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:id="@+id/btFinish" />
 
@@ -389,7 +398,7 @@
                 android:text="Izbriši poz. "
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:layout_weight="1"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/delete"
@@ -401,7 +410,7 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:drawableLeft="@drawable/logout"
                 android:paddingLeft="10px"
                 android:id="@+id/button5" />

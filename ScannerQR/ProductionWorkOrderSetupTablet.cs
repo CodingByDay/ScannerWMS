@@ -79,8 +79,18 @@ namespace Scanner
             btPalette.Enabled = false;
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
+            tbWorkOrder.LongClick += TbWorkOrder_LongClick;
 
         }
+
+        private void TbWorkOrder_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            tbWorkOrder.Text = "";
+            tbOpenQty.Text = "";
+            tbIdent.Text = "";
+            tbName.Text = "";
+        }
+
         private void TbOpenQty_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessWorkOrder();

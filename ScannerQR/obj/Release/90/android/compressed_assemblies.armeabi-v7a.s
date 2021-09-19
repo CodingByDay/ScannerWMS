@@ -127,7 +127,7 @@
 
 	/* 11: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.long	1357312
+	.long	1361408
 	/* loaded */
 	.byte	0
 	/* data */
@@ -235,7 +235,7 @@
 
 	/* 23: WMS.dll */
 	/* uncompressed_file_size */
-	.long	626176
+	.long	636416
 	/* loaded */
 	.byte	0
 	/* data */

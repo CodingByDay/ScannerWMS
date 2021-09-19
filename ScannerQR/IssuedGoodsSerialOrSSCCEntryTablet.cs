@@ -58,7 +58,7 @@ namespace Scanner
         SoundPool soundPool;
         private Spinner spLocation;
         int soundPoolId;
-        private ImageView imagePNG;
+        private ZoomageView imagePNG;
         private ProgressDialogClass progress;
         private List<LocationClass> items = new List<LocationClass>();
 
@@ -86,7 +86,7 @@ namespace Scanner
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
             lbPalette = FindViewById<TextView>(Resource.Id.lbPalette);
-            imagePNG = FindViewById<ImageView>(Resource.Id.imagePNG);
+            imagePNG = FindViewById<ZoomageView>(Resource.Id.imagePNG);
             spLocation = FindViewById<Spinner>(Resource.Id.spLocation);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
@@ -102,7 +102,7 @@ namespace Scanner
             tbSSCC.KeyPress += TbSSCC_KeyPress;
             tbPacking.FocusChange += TbPacking_FocusChange;
             imagePNG.Visibility = ViewStates.Invisible;
-
+            tbSSCC.LongClick += TbSSCC_LongClick;
 
             AdapterLocation adapter = new AdapterLocation(this, items);
             listData.Adapter = adapter;
@@ -172,6 +172,18 @@ namespace Scanner
 
 
             spLocation.SetSelection(locations.IndexOf("P01"), true);
+
+        }
+
+        private void TbSSCC_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            tbSSCC.Text = "";
+            tbSerialNum.Text = "";
+            tbPalette.Text = "";
+            tbPacking.Text = "";
+            tbLocation.Text = "";
+            tbIdent.Text = "";
+            tbSSCC.RequestFocus();
 
         }
 

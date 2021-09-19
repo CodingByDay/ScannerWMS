@@ -185,7 +185,7 @@ namespace Scanner
 
                     docTypes = CommonData.ListDocTypes("I|N");
 
-                    btnOrderMode.Text = "Brez naročila - F3";
+                    btnOrderMode.Text = "Brez nar. - F3";
                 }
                 else
                 {

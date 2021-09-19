@@ -41,7 +41,7 @@
 
         <TextView
    
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:layout_width="match_parent" />
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             android:id="@+id/name" />
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
 
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -116,7 +116,7 @@
         android:foregroundGravity="center">
 
        <TextView
-        android:textSize="16px"
+        android:textSize="18px"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="126.0dp"
             android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
             android:text="Datum" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -169,7 +169,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="125.0dp"
             android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
             android:id="@+id/textView1" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -198,7 +198,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -219,7 +219,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"    
             android:layout_width="122.5dp"
             android:layout_height="wrap_content"
@@ -228,7 +228,7 @@
             android:paddingLeft="10px"/>
 
         <EditText
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -247,7 +247,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"    
             android:layout_width="120.5dp"
             android:layout_height="wrap_content"
@@ -256,7 +256,7 @@
             android:text="Dobavitelj" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"   
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -279,7 +279,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"    
             android:layout_width="119.5dp"
             android:layout_height="wrap_content"
@@ -288,7 +288,7 @@
             android:text="Datum prevzema" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"   
              android:singleLine="true"
             android:layout_width="wrap_content"
@@ -312,7 +312,7 @@
         android:paddingTop="5px">
 
             <Button
-                android:textSize="16px"
+                android:textSize="18px"
                 android:background="@drawable/nicelookingbutton"
                 android:text="Nasl. kontr."
                 android:drawableLeft="@drawable/next"
@@ -323,7 +323,7 @@
                 android:id="@+id/btNext" />
 
             <Button
-                android:textSize="16px"
+                android:textSize="18px"
                 android:background="@drawable/nicelookingbutton"
                 android:text="Tiskaj"
                 android:drawableLeft="@drawable/printer"
@@ -340,7 +340,7 @@
             android:text="Izhod "
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-            android:textSize="16px"
+            android:textSize="18px"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10px"
             android:id="@+id/button3"

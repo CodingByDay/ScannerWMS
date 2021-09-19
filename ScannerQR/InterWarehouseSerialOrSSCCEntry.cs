@@ -83,6 +83,12 @@ namespace Scanner
                 {
                     if (barcode != "Scan fail")
                     {
+                        tbSSCC.Text = "";
+                        tbSerialNum.Text = "";
+                        tbPacking.Text = "";
+                        tbIssueLocation.Text = "";
+                        tbLocation.Text = "";
+
                         Sound();
                         tbSSCC.Text = barcode;
 

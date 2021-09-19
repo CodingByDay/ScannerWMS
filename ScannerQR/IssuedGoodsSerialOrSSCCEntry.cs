@@ -827,6 +827,13 @@ namespace Scanner
             if(tbSSCC.HasFocus)
             {if (barcode != "Scan fail")
                 {
+                    tbSSCC.Text = "";
+                    tbSerialNum.Text = "";
+                    tbPalette.Text = "";
+                    tbPacking.Text = "";
+                    tbLocation.Text = "";
+                    tbIdent.Text = "";
+
                     Sound();
                     tbSSCC.Text = barcode;
 

@@ -37,7 +37,7 @@
         android:paddingTop="5px">
 
         <TextView
-        android:textSize="16px"
+        android:textSize="18px"
        
             android:textStyle="bold"
             android:layout_weight="1"
@@ -50,7 +50,7 @@
             android:layout_width="match_parent" />
 
         <TextView
-        android:textSize="16px"
+        android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
 
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -101,7 +101,7 @@
         tools:context=".LinearLayout"
         android:foregroundGravity="center">
   <TextView
-        android:textSize="16px"
+        android:textSize="18px"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="115.0dp"
             android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
             android:text="DN" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -147,7 +147,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="113.0dp"
             android:layout_height="wrap_content"
@@ -157,7 +157,7 @@
             android:id="@+id/textView1" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -176,7 +176,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"   
             android:layout_width="112.0dp"
             android:layout_height="wrap_content"
@@ -185,7 +185,7 @@
             android:text="Ident" />
 
         <EditText
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold" 
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -206,7 +206,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
@@ -216,7 +216,7 @@
 
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -235,7 +235,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="110.0dp"
             android:layout_height="wrap_content"
@@ -244,7 +244,7 @@
             android:text="Kreiral" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -267,7 +267,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
@@ -276,7 +276,7 @@
             android:text="Datum kreiranja" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -288,7 +288,7 @@
 
     </LinearLayout>
     <TextView
-        android:textSize="16px"
+        android:textSize="18px"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="22.5dp"
@@ -296,14 +296,14 @@
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
     <TextView
-        android:textSize="16px"
+        android:textSize="18px"
         android:textStyle="bold"    
         android:layout_width="109.5dp"
         android:layout_height="2.5dp"
         android:paddingLeft="10px"
         android:paddingTop="5px"/>
         <LinearLayout
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -311,14 +311,26 @@
             android:weightSum="2"
             android:paddingTop="5px">
 
+             <Button
+                
+            android:background="@drawable/nicelookingbutton"
+            android:text="Nasl. nar."
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="70.0dp"
+            android:textSize="18px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/next"
+            android:id="@+id/btNext" />
+
             <Button
                 android:layout_weight="1"
                 android:background="@drawable/nicelookingbutton"
-                android:text="Zaključi/popravi prevzem."
+                android:text="Zakl./pop. prev."
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:drawableLeft="@drawable/shipped"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:id="@+id/btFinish"
                 android:layout_marginBottom="0.0dp" />
@@ -340,7 +352,7 @@
                 android:text="Izbriši prevzem"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/delete"
                 android:id="@+id/btDelete" />
@@ -351,7 +363,7 @@
                 android:text="Kreiraj nov"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:drawableLeft="@drawable/newitem"
                 android:paddingLeft="10px"
                 android:id="@+id/btNew"
@@ -365,7 +377,7 @@
             android:text="Izhod "
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-            android:textSize="16px"
+            android:textSize="18px"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10px"
             android:id="@+id/btLogout"

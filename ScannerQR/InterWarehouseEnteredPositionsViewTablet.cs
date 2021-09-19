@@ -29,6 +29,7 @@ namespace Scanner
         private EditText tbCreatedBy;
         private Button btUpdate;
         private Button button4;
+        private Button btNext;
         private Button btFinish;
         private Button btDelete;
         private Button button5;
@@ -65,7 +66,9 @@ namespace Scanner
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             button5 = FindViewById<Button>(Resource.Id.button5);
+            btNext = FindViewById<Button>(Resource.Id.btNext);
             listData = FindViewById<ListView>(Resource.Id.listData);
+            btNext.Click += BtNext_Click;
             listData.ItemLongClick += ListData_ItemLongClick;
             InterWarehouseEnteredPositionViewAdapter adapter = new InterWarehouseEnteredPositionViewAdapter(this, data);
             listData.Adapter = adapter;
@@ -84,6 +87,8 @@ namespace Scanner
             fillItems();
 
         }
+
+    
 
         private void ListData_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {

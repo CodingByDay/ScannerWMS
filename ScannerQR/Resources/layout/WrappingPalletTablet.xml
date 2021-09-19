@@ -41,7 +41,7 @@
 
         <TextView
 
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:layout_width="match_parent" />
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
             android:id="@+id/name" />
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
 
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:textStyle="bold"
@@ -166,7 +166,7 @@
         android:layout_width="200dp"
         android:layout_height="70.0dp"
         android:drawableLeft="@drawable/confirmation"
-        android:textSize="16px"
+        android:textSize="18px"
         android:layout_gravity="center_horizontal"
         android:paddingLeft="10px"
         android:layout_centerHorizontal="true"

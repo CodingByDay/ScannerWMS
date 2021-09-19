@@ -5,7 +5,7 @@
     Changes to this file may cause incorrect behavior and will be lost if
     the contents are regenerated.
     -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="121" android:versionName="121" package="com.companyname.Scanner" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="132" android:versionName="132" package="com.companyname.Scanner" android:installLocation="preferExternal">
   <uses-sdk android:minSdkVersion="27" android:targetSdkVersion="28" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -115,6 +115,8 @@
     <activity android:label="ProductionWorkOrderSetupTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.ProductionWorkOrderSetupTablet" />
     <activity android:label="RapidTakeover" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.RapidTakeover" />
     <activity android:label="RapidTakeoverPhone" android:screenOrientation="portrait" android:name="crc64f0e155b6502ec419.RapidTakeoverPhone" />
+    <activity android:label="RecalculateInventory" android:name="crc64f0e155b6502ec419.RecalculateInventory" />
+    <activity android:label="RecalculateInventoryTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.RecalculateInventoryTablet" />
     <activity android:label="receiver" android:name="crc64f0e155b6502ec419.receiver" />
     <activity android:label="SelectSubjectBeforeFinish" android:screenOrientation="portrait" android:name="crc64f0e155b6502ec419.SelectSubjectBeforeFinish" />
     <activity android:label="SelectSubjectBeforeFinishTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.SelectSubjectBeforeFinishTablet" />

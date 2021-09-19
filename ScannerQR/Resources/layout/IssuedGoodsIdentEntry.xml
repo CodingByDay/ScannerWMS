@@ -206,7 +206,8 @@
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Naslednje naročilo-f2"
+            android:text="
+            -f2"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:textSize="16px"

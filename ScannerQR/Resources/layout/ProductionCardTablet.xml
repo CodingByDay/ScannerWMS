@@ -10,7 +10,7 @@
 
 
     <TextView
-        android:textSize="16px"
+        android:textSize="18px"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         android:paddingTop="5px">
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:layout_width="match_parent" />
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
             android:id="@+id/name" />
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
 
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -123,7 +123,7 @@
         android:paddingTop="5px">
 
         <TextView
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="89.5dp"
             android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
             android:layout_marginRight="14.0dp" />
 
         <EditText
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -154,7 +154,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="102.0dp"
             android:layout_height="wrap_content"
@@ -164,7 +164,7 @@
             android:id="@+id/textView1" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -189,7 +189,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"    
             android:layout_width="98.0dp"
             android:layout_height="wrap_content"
@@ -199,7 +199,7 @@
             android:id="@+id/textView11" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"    
             android:layout_width="97.0dp"
@@ -229,7 +229,7 @@
             android:id="@+id/textView131" />
 
         <EditText
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -249,7 +249,7 @@
                                      >
 
         <TextView
-            android:textSize="16px"
+            android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"    
             android:layout_width="94.5dp"
@@ -260,7 +260,7 @@
             android:id="@+id/tex1tView1" />
 
         <EditText
-           android:textSize="16px"
+           android:textSize="18px"
             android:textStyle="bold"
             android:singleLine="true"    
             android:layout_width="wrap_content"
@@ -291,7 +291,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:paddingLeft="10px"
                 android:drawableLeft="@drawable/confirmation"
                 android:id="@+id/btConfirm" />
@@ -302,7 +302,7 @@
                 android:text="izhod"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="16px"
+                android:textSize="18px"
                 android:drawableLeft="@drawable/logout"
                 android:paddingLeft="10px"
                 android:id="@+id/btExit"

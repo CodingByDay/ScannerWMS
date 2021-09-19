@@ -92,6 +92,8 @@ namespace Scanner
             Button rapidTakeover = FindViewById<Button>(Resource.Id.rapidTakeover);
             rapidTakeover.Click += RapidTakeover_Click1;
 
+            Button btRecalculate = FindViewById<Button>(Resource.Id.btRecalculate);
+            btRecalculate.Click += BtRecalculate_Click;
 
             PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
             PalletsMenu.Click += PalletsMenu_Click;
@@ -106,6 +108,11 @@ namespace Scanner
             PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
 
             HideDisabled(buttons);
+        }
+
+        private void BtRecalculate_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(RecalculateInventoryTablet));
         }
 
         private void RapidTakeover_Click1(object sender, EventArgs e)

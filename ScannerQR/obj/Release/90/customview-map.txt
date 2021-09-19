@@ -117,6 +117,8 @@ Button;obj\Release\90\res\layout\productionworkordersetup.xml
 Button;obj\Release\90\res\layout\productionworkordersetuptablet.xml
 Button;obj\Release\90\res\layout\rapidtakeover.xml
 Button;obj\Release\90\res\layout\rapidtakeoverphone.xml
+Button;obj\Release\90\res\layout\recalculateinventory.xml
+Button;obj\Release\90\res\layout\recalculateinventorytablet.xml
 Button;obj\Release\90\res\layout\receiverlayout.xml
 Button;obj\Release\90\res\layout\selectsubjectbeforefinish.xml
 Button;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml
@@ -155,6 +157,9 @@ cache-path;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\51\jl\r
 color;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\11\jl\res\values\signature_pad_defaults.xml
 color;obj\Release\90\res\values\colors.xml
 color;obj\Release\90\res\values\ic_launcher_background.xml
+com.jsibbold.zoomage.ZoomageView;obj\Release\90\res\layout\interwarehouseserialorssccentrytablet.xml
+com.jsibbold.zoomage.ZoomageView;obj\Release\90\res\layout\issuedgoodsserialorssccentrytablet.xml
+com.jsibbold.zoomage.ZoomageView;obj\Release\90\res\layout\takeoverserialorssccentrytablet.xml
 com.jsibbold.zoomage.ZoomageView;obj\Release\90\res\layout\warehousepicture.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Release\90\res\layout\interwarehousebusinesseventsetup.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Release\90\res\layout\interwarehousebusinesseventsetuptablet.xml
@@ -222,6 +227,8 @@ EditText;obj\Release\90\res\layout\productionworkordersetup.xml
 EditText;obj\Release\90\res\layout\productionworkordersetuptablet.xml
 EditText;obj\Release\90\res\layout\rapidtakeover.xml
 EditText;obj\Release\90\res\layout\rapidtakeoverphone.xml
+EditText;obj\Release\90\res\layout\recalculateinventory.xml
+EditText;obj\Release\90\res\layout\recalculateinventorytablet.xml
 EditText;obj\Release\90\res\layout\settingspopup.xml
 EditText;obj\Release\90\res\layout\shippingpallet.xml
 EditText;obj\Release\90\res\layout\shippingpallettablet.xml
@@ -254,12 +261,9 @@ HorizontalScrollView;obj\Release\90\res\layout\issuedgoodsidententrywithtrailtab
 ImageView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\11\jl\res\layout\signature_pad_layout.xml
 ImageView;obj\Release\90\res\layout\activity_main.xml
 ImageView;obj\Release\90\res\layout\checkstocktablet.xml
-ImageView;obj\Release\90\res\layout\interwarehouseserialorssccentrytablet.xml
-ImageView;obj\Release\90\res\layout\issuedgoodsserialorssccentrytablet.xml
 ImageView;obj\Release\90\res\layout\productionserialorssccentrytablet.xml
 ImageView;obj\Release\90\res\layout\settingspopup.xml
 ImageView;obj\Release\90\res\layout\signatureview.xml
-ImageView;obj\Release\90\res\layout\takeoverserialorssccentrytablet.xml
 ImageView;obj\Release\90\res\layout\transportpopup.xml
 ImageView;obj\Release\90\res\layout\update.xml
 ImageView;obj\Release\90\res\layout\yesnogeneric.xml
@@ -353,6 +357,8 @@ LinearLayout;obj\Release\90\res\layout\productionworkordersetuptablet.xml
 LinearLayout;obj\Release\90\res\layout\rapidtakeover.xml
 LinearLayout;obj\Release\90\res\layout\rapidtakeoverlistviewlist.xml
 LinearLayout;obj\Release\90\res\layout\rapidtakeoverphone.xml
+LinearLayout;obj\Release\90\res\layout\recalculateinventory.xml
+LinearLayout;obj\Release\90\res\layout\recalculateinventorytablet.xml
 LinearLayout;obj\Release\90\res\layout\receiverlayout.xml
 LinearLayout;obj\Release\90\res\layout\selectsubjectbeforefinish.xml
 LinearLayout;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml
@@ -610,6 +616,8 @@ TextView;obj\Release\90\res\layout\productionworkordersetuptablet.xml
 TextView;obj\Release\90\res\layout\rapidtakeover.xml
 TextView;obj\Release\90\res\layout\rapidtakeoverlistviewlist.xml
 TextView;obj\Release\90\res\layout\rapidtakeoverphone.xml
+TextView;obj\Release\90\res\layout\recalculateinventory.xml
+TextView;obj\Release\90\res\layout\recalculateinventorytablet.xml
 TextView;obj\Release\90\res\layout\receiverlayout.xml
 TextView;obj\Release\90\res\layout\selectsubjectbeforefinish.xml
 TextView;obj\Release\90\res\layout\selectsubjectbeforefinishtablet.xml

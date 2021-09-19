@@ -41,6 +41,7 @@ namespace Scanner
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("TakeOverHeads");
         private Dialog popupDialog;
         private Button btnYes;
+        private Button btNext;
         private Button btnNo;
         private List<UnfinishedProductionList> data = new List<UnfinishedProductionList>();
         private int selected;
@@ -64,6 +65,8 @@ namespace Scanner
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             btNew = FindViewById<Button>(Resource.Id.btNew);
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
+            btNext = FindViewById<Button>(Resource.Id.btNext);
+            btNext.Click += BtNext_Click;
             UnfinishedProductionAdapter adapter = new UnfinishedProductionAdapter(this, data);
             listData.Adapter = adapter;
             btFinish.Click += BtFinish_Click;
@@ -77,6 +80,8 @@ namespace Scanner
             FillItemsList();
           
         }
+
+    
 
         private void ListData_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {

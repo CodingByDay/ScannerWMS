@@ -107,7 +107,7 @@ namespace Scanner
                         {
 
                             FillRelatedData(tbSSCC.Text);
-                            tbLocation.RequestFocus();
+                           // tbLocation.RequestFocus();
                             ProcessQty();
 
                         }
@@ -486,7 +486,6 @@ namespace Scanner
                 List<string> result = new List<string>();
                 string error;
                 var locations = Services.GetObjectList("lo", out error, warehouse);
-                var debug = true;
                 if (locations == null)
                 {
                     Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
@@ -766,7 +765,6 @@ namespace Scanner
             button5.Click += Button5_Click;
             button3.Click += Button3_Click;
             button1.Click += Button1_Click;
-
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             imagePNG.Visibility = ViewStates.Invisible;
             tbPacking.FocusChange += TbPacking_FocusChange1;
@@ -827,7 +825,9 @@ namespace Scanner
             }
 
             await GetLocationsForGivenWarehouseIssuer(moveHead.GetString("Issuer"));
+
             await GetLocationsForGivenWarehouseReceiver(moveHead.GetString("Receiver"));
+
             var adapterIssue = new ArrayAdapter<String>(this,
             Android.Resource.Layout.SimpleSpinnerItem, issuer);
             adapterIssue.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
@@ -835,11 +835,24 @@ namespace Scanner
             var adapterReceive = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, receiver);
             adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spReceive.Adapter = adapterReceive;
-
+            tbSSCC.LongClick += TbSSCC_LongClick;
 
             tbSSCC.RequestFocus();
+
+
+            spIssue.SetSelection(receiver.IndexOf("P01"), true);
             spReceive.SetSelection(receiver.IndexOf("P01"), true);
             showPicture();
+        }
+
+        private void TbSSCC_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            tbSSCC.Text = "";
+            tbSerialNum.Text = "";
+            tbPacking.Text = "";
+            tbIssueLocation.Text = "";
+            tbLocation.Text = "";
+            tbSSCC.RequestFocus();
         }
 
         private void TbPacking_FocusChange1(object sender, View.FocusChangeEventArgs e)
@@ -899,7 +912,6 @@ namespace Scanner
                 string error;
                 var issuerLocs = Services.GetObjectList("lo", out error, warehouse);
                 var debi = issuerLocs.Items.Count();
-                var debug = true;
                 if (issuerLocs == null)
                 {
                     Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
@@ -978,7 +990,6 @@ namespace Scanner
             var wh = moveHead.GetString("Receiver");
             var list = GetIdentLocationList.fillItemsOfList(wh, ident);
 
-            var debug = true;
             Fill(list);
         }
 
@@ -996,7 +1007,6 @@ namespace Scanner
 
             AdapterLocation adapter = new AdapterLocation(this, items);
             listData.Adapter = adapter;
-            ///
         }
 
         private void TbPacking_KeyPress(object sender, View.KeyEventArgs e)
@@ -1038,6 +1048,7 @@ namespace Scanner
             }
             catch (Exception error)
             {
+                var log = error;
                 return;
             }
 
@@ -1161,9 +1172,10 @@ namespace Scanner
 
             if (FillRelatedBranchIdentData(tbSSCC.Text))
             {
+                
 
                 FillRelatedData(tbSSCC.Text);
-                tbLocation.RequestFocus();
+               // tbLocation.RequestFocus();
 
             }
             else
@@ -1189,9 +1201,6 @@ namespace Scanner
             StartActivity(typeof(MainMenuTablet));
         }
 
-
-
-        
 
 
 

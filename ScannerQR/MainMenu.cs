@@ -28,7 +28,6 @@ namespace Scanner
                                                    *  different layouts. 
                                                    *  Use this method for navigation. 
                                                    *  Wms add on for preview. 28.1.2021 */
-        private Button rapidTakeover;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -109,6 +108,8 @@ namespace Scanner
             buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
             btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
 
+            Button btRecalculate = FindViewById<Button>(Resource.Id.btRecalculate);
+            btRecalculate.Click += BtRecalculate_Click;
 
             // Adding the new pallete permision
             PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
@@ -116,6 +117,11 @@ namespace Scanner
             PalletsMenu.Click += PalletsMenu_Click;
             // HideDisabled(buttons);
             HideDisabled(buttons);
+        }
+
+        private void BtRecalculate_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(RecalculateInventory)); 
         }
 
         private void HideDisabled(List<Button> buttons)
@@ -195,8 +201,8 @@ namespace Scanner
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-           
-          
+
+
             Intent intent = new Intent(this, typeof(MainActivity));
             intent.SetFlags(ActivityFlags.ClearTop | ActivityFlags.ClearTask | ActivityFlags.NewTask);
             StartActivity(intent);

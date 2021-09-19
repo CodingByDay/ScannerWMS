@@ -45,7 +45,7 @@
     <MandroidI18n />
     <AndroidEnableMultiDex>false</AndroidEnableMultiDex>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
@@ -70,7 +70,7 @@
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidKeyStore>false</AndroidKeyStore>
     <AndroidDexTool>d8</AndroidDexTool>
-    <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
@@ -246,6 +246,8 @@
     <Compile Include="ProductionWorkOrderSetupTablet.cs" />
     <Compile Include="RapidTakeover.cs" />
     <Compile Include="RapidTakeoverPhone.cs" />
+    <Compile Include="RecalculateInventory.cs" />
+    <Compile Include="RecalculateInventoryTablet.cs" />
     <Compile Include="receiver.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1049,6 +1051,19 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\signature.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RecalculateInventory.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\discount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RecalculateInventoryTablet.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

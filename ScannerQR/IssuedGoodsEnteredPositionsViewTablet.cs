@@ -39,6 +39,7 @@ namespace Scanner
         private Button btLogout;
         private Button btnYes;
         private Button btnNo;
+        private Button btNext;
         private ListView listData;
         private List<IssuedEnteredPositionViewList> data = new List<IssuedEnteredPositionViewList>();
         private string tempUnit;
@@ -63,6 +64,9 @@ namespace Scanner
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
+
+            btNext = FindViewById<Button>(Resource.Id.btNext);
+            btNext.Click += BtNext_Click;
             listData = FindViewById<ListView>(Resource.Id.listData);
             listData.ItemLongClick += ListData_ItemLongClick;
             IssuedEnterAdapter adapter = new IssuedEnterAdapter(this, data);
@@ -84,6 +88,7 @@ namespace Scanner
 
         }
 
+    
 
         private void DeleteFromTouch(int index)
         {
