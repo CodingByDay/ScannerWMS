@@ -80,6 +80,12 @@
             android:paddingTop="5px"
             android:id="@+id/tbSSCC" />
 
+        <Button
+            android:text="..."
+            android:layout_width="74.0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btMorePallets" />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -236,7 +242,7 @@
 
 
 
-  <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -262,7 +268,7 @@
             android:layout_width="match_parent"
             android:layout_height="67.0dp"
             android:drawableLeft="@drawable/newitem"
-           android:textSize="16px"
+            android:textSize="16px"
             android:paddingLeft="10px"
             android:id="@+id/button3"
             android:layout_marginBottom="0.0dp" />

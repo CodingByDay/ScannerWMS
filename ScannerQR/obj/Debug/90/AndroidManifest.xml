@@ -5,7 +5,7 @@
     Changes to this file may cause incorrect behavior and will be lost if
     the contents are regenerated.
     -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="132" android:versionName="132" package="com.companyname.Scanner" android:installLocation="preferExternal">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="138" android:versionName="138" package="com.companyname.Scanner" android:installLocation="preferExternal">
   <uses-sdk android:minSdkVersion="27" android:targetSdkVersion="28" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -84,6 +84,7 @@
     <activity android:label="MainMenuTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.MainMenuTablet" />
     <activity android:label="MenuPallets" android:name="crc64f0e155b6502ec419.MenuPallets" />
     <activity android:label="MenuPalletsTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.MenuPalletsTablet" />
+    <activity android:label="MorePallets" android:name="crc64f0e155b6502ec419.MorePalletsClass" />
     <activity android:label="PackagingEnteredPositionsView" android:screenOrientation="portrait" android:name="crc64f0e155b6502ec419.PackagingEnteredPositionsView" />
     <activity android:label="PackagingEnteredPositionsViewTablet" android:screenOrientation="landscape" android:name="crc64f0e155b6502ec419.PackagingEnteredPositionsViewTablet" />
     <activity android:label="PackagingSetContext" android:screenOrientation="portrait" android:name="crc64f0e155b6502ec419.PackagingSetContext" />

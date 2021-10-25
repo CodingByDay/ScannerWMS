@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="133" android:versionName="133" package="com.companyname.Scanner" android:installLocation="preferExternal">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="138" android:versionName="138" package="com.companyname.Scanner" android:installLocation="preferExternal">
 	<uses-sdk android:minSdkVersion="27" android:targetSdkVersion="28" />
 	<application android:allowBackup="true" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:icon="@drawable/barcode"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

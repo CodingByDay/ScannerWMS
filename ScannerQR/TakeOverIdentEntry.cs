@@ -215,7 +215,7 @@ namespace Scanner
                         openOrders = Services.GetObjectList("oo", out error, ident + "|" + moveHead.GetString("DocumentType") + "|" + moveHead.GetInt("HeadID"));
                         if (openOrders == null)
                         {
-                            //Napaka pri pridobivanju odprtih naročil: " + error
+                            // Napaka pri pridobivanju odprtih naročil: " + error
                             Toast.MakeText(this, "Napaka pri pridobivanju odprtih naročil: " + error, ToastLength.Long).Show();
 
 

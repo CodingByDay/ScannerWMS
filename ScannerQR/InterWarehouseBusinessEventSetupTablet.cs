@@ -85,7 +85,7 @@ namespace Scanner
             adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbIssueWH.Adapter = adapterIssue;
             cbReceiveWH.Adapter = adapterReceive;
-            cbDocType.SetSelection(2);
+            cbDocType.SetSelection(1);
             // next thing are the event listeners
             //for the logout
             Button logout = FindViewById<Button>(Resource.Id.logout);

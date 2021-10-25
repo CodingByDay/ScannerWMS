@@ -36,6 +36,8 @@ namespace Scanner
         public static bool success = false;
         public static string objectTest;
         private Button confirm;
+        private string documentCode;
+        private ComboBoxItem def;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -43,6 +45,13 @@ namespace Scanner
     
             SetContentView(Resource.Layout.InterWarehouseBusinessEventSetup);
             // Views
+            var defDocument = CommonData.GetSetting("DefaultInterWareHouseDocType");
+
+            if (!string.IsNullOrWhiteSpace(defDocument))
+            {
+                documentCode = defDocument;
+            }
+
             cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
           
             cbIssueWH = FindViewById<SearchableSpinner>(Resource.Id.cbIssueWH);
@@ -53,23 +62,27 @@ namespace Scanner
             docTypes = CommonData.ListDocTypes("E|");
             docTypes.Items.ForEach(dt =>
             { //
+
                 
-            objectDocType.Add( new ComboBoxItem { ID = dt.GetString("Code"), Text = dt.GetString("Code") + " " + dt.GetString("Name") });
-            
-           });
+                     objectDocType.Add(new ComboBoxItem { ID = dt.GetString("Code"), Text = dt.GetString("Code") + " " + dt.GetString("Name") });
+
+                
+            });
             /*
              Aditional comment area. */
             var adapter = new ArrayAdapter<ComboBoxItem>(this,
              Android.Resource.Layout.SimpleSpinnerItem, objectDocType);
+
             ///* 
             ///* Documentation for the spinner objects add method with an adapter...
             ///*---------------------------------------------------
-            ///
+
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbDocType.Adapter = adapter;
            
             // Next thing... var warehouses = CommonData.ListWarehouses();
             // cbIssueWH
+
             var warehouses = CommonData.ListWarehouses();
             if (warehouses != null)
             {
@@ -89,9 +102,9 @@ namespace Scanner
             adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbIssueWH.Adapter = adapterIssue;
             cbReceiveWH.Adapter = adapterReceive;
-            cbDocType.SetSelection(2);         
+            cbDocType.SetSelection(1);         
             // next thing are the event listeners
-            //for the logout
+            // for the logout
             Button logout = FindViewById<Button>(Resource.Id.logout);
             logout.Click += Logout_Click;
             // event listeners
@@ -106,6 +119,15 @@ namespace Scanner
             cbReceiveWH.SetTitle("Iskanje");
             cbReceiveWH.SetPositiveButton("Zapri");
         }
+
+        //private void DocumentSelectDefault()
+        //{
+        //    var defDocument = CommonData.GetSetting("DefaultInterWareHouseDocType");
+        //    if (!string.IsNullOrWhiteSpace(defDocument))
+        //    {
+        //        var element = objectDocType.FindIndex(defDocument);
+        //    }
+        //}
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {

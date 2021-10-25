@@ -172,7 +172,9 @@ namespace Scanner
 
 
             spLocation.SetSelection(locations.IndexOf("P01"), true);
-
+            var code = openIdent.GetString("Code");
+            showPictureIdent(code);
+            tbSSCC.FocusedByDefault = true;
         }
 
         private void TbSSCC_LongClick(object sender, View.LongClickEventArgs e)
@@ -345,8 +347,7 @@ namespace Scanner
         {
             StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
         }
-
-
+      
 
 
         private void FillTheIdentLocationList()

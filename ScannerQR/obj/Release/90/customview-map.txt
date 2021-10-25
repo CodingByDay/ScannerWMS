@@ -85,6 +85,7 @@ Button;obj\Release\90\res\layout\mainmenu1.xml
 Button;obj\Release\90\res\layout\mainmenutablet.xml
 Button;obj\Release\90\res\layout\menupallets.xml
 Button;obj\Release\90\res\layout\menupalletstablet.xml
+Button;obj\Release\90\res\layout\morepalletsclass.xml
 Button;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 Button;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
 Button;obj\Release\90\res\layout\packagingsetcontext.xml
@@ -321,6 +322,8 @@ LinearLayout;obj\Release\90\res\layout\mainmenu1.xml
 LinearLayout;obj\Release\90\res\layout\mainmenutablet.xml
 LinearLayout;obj\Release\90\res\layout\menupallets.xml
 LinearLayout;obj\Release\90\res\layout\menupalletstablet.xml
+LinearLayout;obj\Release\90\res\layout\morepalletsclass.xml
+LinearLayout;obj\Release\90\res\layout\morepalletsview.xml
 LinearLayout;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 LinearLayout;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
 LinearLayout;obj\Release\90\res\layout\packaginglistadapterview.xml
@@ -421,6 +424,7 @@ ListView;obj\Release\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Release\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 ListView;obj\Release\90\res\layout\issuedgoodsserialorssccentrytablet.xml
 ListView;obj\Release\90\res\layout\mainmenutablet.xml
+ListView;obj\Release\90\res\layout\morepalletsclass.xml
 ListView;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
 ListView;obj\Release\90\res\layout\packagingsetcontexttablet.xml
 ListView;obj\Release\90\res\layout\packagingunitlisttablet.xml
@@ -581,6 +585,8 @@ TextView;obj\Release\90\res\layout\mainmenu1.xml
 TextView;obj\Release\90\res\layout\mainmenutablet.xml
 TextView;obj\Release\90\res\layout\menupallets.xml
 TextView;obj\Release\90\res\layout\menupalletstablet.xml
+TextView;obj\Release\90\res\layout\morepalletsclass.xml
+TextView;obj\Release\90\res\layout\morepalletsview.xml
 TextView;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 TextView;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
 TextView;obj\Release\90\res\layout\packaginglistadapterview.xml

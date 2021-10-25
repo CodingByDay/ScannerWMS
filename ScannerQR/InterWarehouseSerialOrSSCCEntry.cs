@@ -43,6 +43,7 @@ namespace Scanner
         private Button button5;
         private Button button4;
         private Button button6;
+        private Button btMorePallets;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
     
 
@@ -584,7 +585,8 @@ namespace Scanner
             wh = new NameValueObject();
             tbIdent.KeyPress += TbIdent_KeyPress;
             tbPacking.KeyPress += TbPacking_KeyPress;
-         
+            btMorePallets = FindViewById<Button>(Resource.Id.btMorePallets);
+            btMorePallets.Click += BtMorePallets_Click;
             tbLocation.KeyPress += TbLocation_KeyPress;
             button1 = FindViewById<Button>(Resource.Id.button1);
             button3 = FindViewById<Button>(Resource.Id.button3);
@@ -662,6 +664,12 @@ namespace Scanner
 
             tbSSCC.RequestFocus();
 
+        }
+
+        private void BtMorePallets_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(MorePalletsClass));
+            
         }
 
         private void TbLocation_KeyPress(object sender, View.KeyEventArgs e)

@@ -210,7 +210,7 @@ namespace Scanner
                     tbSerialNum.Text = serial;
                     var location = data.GetString("Location");
                     tbIssueLocation.Text = location;
-                    tbPacking.RequestFocus();
+                    tbLocation.RequestFocus();
                 }
                 else
                 {
@@ -773,7 +773,8 @@ namespace Scanner
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
-
+            tbLocation.SetSelectAllOnFocus(true);
+            tbSSCC.SetSelectAllOnFocus(true);
             barcode2D.open(this, this);
 
          
@@ -813,7 +814,7 @@ namespace Scanner
             }
             else
             {
-                tbIdent.RequestFocus();
+                tbSSCC.RequestFocus();
             }
 
             if (string.IsNullOrEmpty(tbUnits.Text.Trim())) { tbUnits.Text = "1"; }

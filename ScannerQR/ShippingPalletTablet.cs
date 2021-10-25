@@ -83,9 +83,16 @@ namespace Scanner
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
 
-            pallet.RequestFocus();
+            machine.RequestFocus();
+            machine.FocusChange += Machine_FocusChange;
 
         }
+
+        private void Machine_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            pallet.RequestFocus();
+        }
+
         private async Task FinishMethod()
         {
             await Task.Run(() =>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60.0dp"
+        android:orientation="horizontal"
+        android:paddingTop="5px"
+        android:minWidth="25px"
+        android:minHeight="25px">
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px"
+        android:minWidth="25px"
+        android:minHeight="25px">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5px">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_weight="20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="SSCC"
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/sscc" />
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_weight="20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Id."
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/ident" />
+        <TextView
+            android:textStyle="bold"
+            android:layout_weight="20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Naz."
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/name" />
+        <TextView
+            android:textStyle="bold"
+            android:layout_weight="20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Kol."
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/quantity" />
+        <TextView
+            android:textStyle="bold"
+            android:layout_weight="20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:text="Ser. št."
+            android:layout_marginRight="28.0dp"
+            android:id="@+id/serial" />
+    </LinearLayout>
+
+
+
+
+
+
+
+    <ListView
+        android:background="?android:attr/activatedBackgroundIndicator"
+        android:choiceMode="singleChoice"
+        android:layout_width="match_parent"
+        android:id="@+id/lvCardMore"
+        android:layout_height="373.0dp"
+        android:listSelector="@android:drawable/screen_background_dark_transparent"
+        />
+
+    <TextView
+        android:textStyle="bold"
+        android:layout_weight="25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10px"
+        android:paddingTop="5px"
+        android:text=""
+        android:layout_marginRight="28.0dp"
+        android:id="@+id/lbTotalQty" />
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:paddingTop="5px">
+
+        <Button
+            android:background="@drawable/nicelookingbutton"
+            android:text="Potrdi"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="60.0dp"
+            android:textSize="16px"
+            android:paddingLeft="10px"
+            android:drawableLeft="@drawable/confirmation"
+            android:id="@+id/btConfirm" />
+
+        <Button
+            android:layout_weight="1"
+            android:background="@drawable/nicelookingbutton"
+            android:text="Izhod"
+            android:layout_width="match_parent"
+            android:layout_height="60.0dp"
+            android:textSize="16px"
+            android:drawableLeft="@drawable/logout"
+            android:paddingLeft="10px"
+            android:id="@+id/btLogin"
+            android:layout_marginTop="0.0dp"
+            android:layout_marginBottom="0.0dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

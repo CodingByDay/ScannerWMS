@@ -23,11 +23,18 @@ namespace Scanner
         private List<Button> buttons = new List<Button>();
         public static string IDdevice;
         public static string target;
-        public bool result;                        /* Checks to see if the device is a tablet
-                                                   *  or a phone to show
-                                                   *  different layouts. 
-                                                   *  Use this method for navigation. 
-                                                   *  Wms add on for preview. 28.1.2021 */
+        public bool result;
+        private Button button;
+        private Button buttonInterWarehouse;
+        private Button buttonUnfinished;
+        private Button buttonIssued;
+        private Button buttonPrint;
+        private Button btnInventory;
+        private Button btnCheckStock;
+        private Button btnPackaging;
+        private Button btnLogout;
+        private Button PalletsMenu;
+        private Button btRecalculate;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -61,42 +68,42 @@ namespace Scanner
 
             // Rapid takover is taken away from here because its used only in the tablet view.
             // First event...
-            Button button = FindViewById<Button>(Resource.Id.goodsTakeOver);
+            button = FindViewById<Button>(Resource.Id.goodsTakeOver);
             button.Click += Button_Click;
             buttons.Add(button);
             // InterWarehouse redirect...
-            Button buttonInterWarehouse = FindViewById<Button>(Resource.Id.goodsInterWarehouse);
+            buttonInterWarehouse = FindViewById<Button>(Resource.Id.goodsInterWarehouse);
             buttonInterWarehouse.Click += ButtonInterWarehouse_Click;
             buttons.Add(buttonInterWarehouse);
 
             // Third view...
-            Button buttonUnfinished = FindViewById<Button>(Resource.Id.goodsProduction);
+            buttonUnfinished = FindViewById<Button>(Resource.Id.goodsProduction);
             buttonUnfinished.Click += ButtonUnfinished_Click;
             buttons.Add(buttonUnfinished);
             // UnfinishedIssuedGoodsView layout ---> button ---------> goodsIssued
-            Button buttonIssued = FindViewById<Button>(Resource.Id.goodsIssued);
+            buttonIssued = FindViewById<Button>(Resource.Id.goodsIssued);
             buttonIssued.Click += ButtonIssued_Click;
             buttons.Add(buttonIssued);
             // btnPrint-----------PrintingMenu();
-            Button buttonPrint = FindViewById<Button>(Resource.Id.btnPrint);
+            buttonPrint = FindViewById<Button>(Resource.Id.btnPrint);
             buttonPrint.Click += ButtonPrint_Click;
             buttons.Add(buttonPrint);
             // btnInventory-------InventoryMenu();
-            Button btnInventory = FindViewById<Button>(Resource.Id.btnInventory);
+            btnInventory = FindViewById<Button>(Resource.Id.btnInventory);
             btnInventory.Click += BtnInventory_Click;
             buttons.Add(btnInventory);
             // btCheckStock-------CheckStock();
-            Button btnCheckStock = FindViewById<Button>(Resource.Id.btCheckStock);
+            btnCheckStock = FindViewById<Button>(Resource.Id.btCheckStock);
             btnCheckStock.Click += BtnCheckStock_Click;
             buttons.Add(btnCheckStock);
             // goodsPackaging-----PackagingEnteredPositionsView();
-            Button btnPackaging = FindViewById<Button>(Resource.Id.goodsPackaging);
+            btnPackaging = FindViewById<Button>(Resource.Id.goodsPackaging);
             btnPackaging.Click += BtnPackaging_Click;
             buttons.Add(btnPackaging);
             // Logout-------------Close();
-            Button btnLogout = FindViewById<Button>(Resource.Id.logout);
+            btnLogout = FindViewById<Button>(Resource.Id.logout);
             btnLogout.Click += BtnLogout_Click;
-            Button PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
+            PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
             buttons.Add(PalletsMenu);
             // Permisions.
             buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
@@ -108,7 +115,7 @@ namespace Scanner
             buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
             btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
 
-            Button btRecalculate = FindViewById<Button>(Resource.Id.btRecalculate);
+            btRecalculate = FindViewById<Button>(Resource.Id.btRecalculate);
             btRecalculate.Click += BtRecalculate_Click;
 
             // Adding the new pallete permision
@@ -156,43 +163,67 @@ namespace Scanner
             {
                 // In smartphone
                 case Keycode.F1:
-                  
-                        Button_Click(this, null);                               
+
+                    if (button.Enabled == true)
+                    {
+                        Button_Click(this, null);
+
+                    }
                     break;
                 // Return true;
 
                 case Keycode.F2:
-                    
-                    ButtonInterWarehouse_Click(this, null);
+                    if (buttonInterWarehouse.Enabled == true)
+                    {
+                        ButtonInterWarehouse_Click(this, null);
+                    }
 
                     break;
 
 
                 case Keycode.F3:
-                    ButtonUnfinished_Click(this, null);
+                    if (buttonUnfinished.Enabled == true)
+                    {
+                        ButtonUnfinished_Click(this, null);
+                    }
                     break;
 
                 case Keycode.F4:
-                    ButtonIssued_Click(this, null);
+                    if (buttonIssued.Enabled == true)
+                    {
+                        ButtonIssued_Click(this, null);
+                    }
                     break;
 
 
                 case Keycode.F5:
-                    BtnPackaging_Click(this, null);                
+                    if (btnPackaging.Enabled == true)
+                    {
+                        BtnPackaging_Click(this, null);
+                    }              
                         break;
 
 
                 case Keycode.F6:
-                    ButtonPrint_Click(this, null);
+                    if (buttonPrint.Enabled == true)
+                    {
+                        ButtonPrint_Click(this, null);
+                    }
                     break;
 
 
 
                 case Keycode.F7:
-                    BtnInventory_Click(this, null);
+                    if (btnInventory.Enabled == true)
+                    {
+                        BtnInventory_Click(this, null);
+                    }
                     break;
                 case Keycode.F8:
-                    BtnCheckStock_Click(this, null);
+                    if (btnCheckStock.Enabled == true)
+                    {
+                        BtnCheckStock_Click(this, null);
+                    }
                     break;
                     // return true;
             }

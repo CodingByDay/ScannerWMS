@@ -136,6 +136,8 @@
     <Compile Include="App\IssuedEnterAdapter.cs" />
     <Compile Include="App\IssuedEnteredPositionViewList.cs" />
     <Compile Include="App\LocationClass.cs" />
+    <Compile Include="App\MorePallets.cs" />
+    <Compile Include="App\MorePalletsAdapter.cs" />
     <Compile Include="App\PackagingList.cs" />
     <Compile Include="App\packagingListAdapter.cs" />
     <Compile Include="App\ProductionEnteredPositionList.cs" />
@@ -214,6 +216,7 @@
     <Compile Include="MainMenuTablet.cs" />
     <Compile Include="MenuPallets.cs" />
     <Compile Include="MenuPalletsTablet.cs" />
+    <Compile Include="MorePalletsClass.cs" />
     <Compile Include="PackagingEnteredPositionsView.cs" />
     <Compile Include="PackagingEnteredPositionsViewTablet.cs" />
     <Compile Include="PackagingSetContext.cs" />
@@ -1062,6 +1065,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\RecalculateInventoryTablet.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\MorePalletsClass.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\MorePalletsView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

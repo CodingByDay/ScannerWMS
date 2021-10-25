@@ -59,6 +59,7 @@ namespace Scanner
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
+            pallet.RequestFocus();
         }
 
         private void color()

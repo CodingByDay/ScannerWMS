@@ -85,6 +85,7 @@ Button;obj\Debug\90\res\layout\mainmenu1.xml
 Button;obj\Debug\90\res\layout\mainmenutablet.xml
 Button;obj\Debug\90\res\layout\menupallets.xml
 Button;obj\Debug\90\res\layout\menupalletstablet.xml
+Button;obj\Debug\90\res\layout\morepalletsclass.xml
 Button;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 Button;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 Button;obj\Debug\90\res\layout\packagingsetcontext.xml
@@ -168,8 +169,6 @@ com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
 corners;obj\Debug\90\res\drawable\nicelookingbutton.xml
-crc64a4453dc4d6b942b4.SignaturePadCanvasView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\11\jl\res\layout\signature_pad_layout.xml
-crc64a4453dc4d6b942b4.SignaturePadView;obj\Debug\90\res\layout\signatureview.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\1\jl\res\values\values.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\11\jl\res\values\attrs.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\53\jl\res\values\values.xml
@@ -323,6 +322,8 @@ LinearLayout;obj\Debug\90\res\layout\mainmenu1.xml
 LinearLayout;obj\Debug\90\res\layout\mainmenutablet.xml
 LinearLayout;obj\Debug\90\res\layout\menupallets.xml
 LinearLayout;obj\Debug\90\res\layout\menupalletstablet.xml
+LinearLayout;obj\Debug\90\res\layout\morepalletsclass.xml
+LinearLayout;obj\Debug\90\res\layout\morepalletsview.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 LinearLayout;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 LinearLayout;obj\Debug\90\res\layout\packaginglistadapterview.xml
@@ -423,6 +424,7 @@ ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 ListView;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
 ListView;obj\Debug\90\res\layout\mainmenutablet.xml
+ListView;obj\Debug\90\res\layout\morepalletsclass.xml
 ListView;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 ListView;obj\Debug\90\res\layout\packagingsetcontexttablet.xml
 ListView;obj\Debug\90\res\layout\packagingunitlisttablet.xml
@@ -583,6 +585,8 @@ TextView;obj\Debug\90\res\layout\mainmenu1.xml
 TextView;obj\Debug\90\res\layout\mainmenutablet.xml
 TextView;obj\Debug\90\res\layout\menupallets.xml
 TextView;obj\Debug\90\res\layout\menupalletstablet.xml
+TextView;obj\Debug\90\res\layout\morepalletsclass.xml
+TextView;obj\Debug\90\res\layout\morepalletsview.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 TextView;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 TextView;obj\Debug\90\res\layout\packaginglistadapterview.xml
