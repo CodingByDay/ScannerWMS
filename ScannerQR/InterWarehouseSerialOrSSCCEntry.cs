@@ -612,7 +612,7 @@ namespace Scanner
 
             barcode2D.open(this, this);
 
-           
+            tbSerialNum.FocusChange += TbSerialNum_FocusChange;
 
 
             if (InterWarehouseBusinessEventSetup.success == true)
@@ -664,6 +664,11 @@ namespace Scanner
 
             tbSSCC.RequestFocus();
 
+        }
+
+        private void TbSerialNum_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+             FillRelatedData(tbSerialNum.Text);
         }
 
         private void BtMorePallets_Click(object sender, EventArgs e)
