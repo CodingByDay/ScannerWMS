@@ -25,6 +25,16 @@
         android:minWidth="25px"
         android:minHeight="25px">
 
+        <EditText
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="0.0dp"
+        android:layout_weight="0.50"
+        android:paddingTop="5px"
+        android:id="@+id/test"/>
 
     </LinearLayout>
 

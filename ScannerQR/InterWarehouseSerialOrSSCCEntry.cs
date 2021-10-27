@@ -593,7 +593,7 @@ namespace Scanner
             button5 = FindViewById<Button>(Resource.Id.button5);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button6 = FindViewById<Button>(Resource.Id.button6);
-          
+            tbSerialNum.FocusChange += TbSerialNum_FocusChange;
             color();
            
             button6.Click += Button6_Click;
@@ -612,7 +612,6 @@ namespace Scanner
 
             barcode2D.open(this, this);
 
-            tbSerialNum.FocusChange += TbSerialNum_FocusChange;
 
 
             if (InterWarehouseBusinessEventSetup.success == true)
@@ -668,7 +667,14 @@ namespace Scanner
 
         private void TbSerialNum_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
-             FillRelatedData(tbSerialNum.Text);
+            if (FillRelatedBranchIdentData(tbSSCC.Text))
+            {
+
+                FillRelatedData(tbSSCC.Text);
+                tbLocation.RequestFocus();
+                ProcessQty();
+
+            }
         }
 
         private void BtMorePallets_Click(object sender, EventArgs e)

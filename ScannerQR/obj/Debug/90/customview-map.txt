@@ -169,6 +169,8 @@ com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
 corners;obj\Debug\90\res\drawable\nicelookingbutton.xml
+crc64a4453dc4d6b942b4.SignaturePadCanvasView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\11\jl\res\layout\signature_pad_layout.xml
+crc64a4453dc4d6b942b4.SignaturePadView;obj\Debug\90\res\layout\signatureview.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\1\jl\res\values\values.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\11\jl\res\values\attrs.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\53\jl\res\values\values.xml
@@ -198,6 +200,7 @@ EditText;obj\Debug\90\res\layout\issuedgoodsidententrywithtrail.xml
 EditText;obj\Debug\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 EditText;obj\Debug\90\res\layout\issuedgoodsserialorssccentry.xml
 EditText;obj\Debug\90\res\layout\issuedgoodsserialorssccentrytablet.xml
+EditText;obj\Debug\90\res\layout\morepalletsclass.xml
 EditText;obj\Debug\90\res\layout\packagingenteredpositionsview.xml
 EditText;obj\Debug\90\res\layout\packagingenteredpositionsviewtablet.xml
 EditText;obj\Debug\90\res\layout\packagingsetcontext.xml
