@@ -23,13 +23,15 @@ namespace Scanner
         //btLogin
         private ListView lvCardMore;
         private Button btConfirm;
+        private Button btExit;
         private Button btLogin;
         private List<MorePallets> data = new List<MorePallets>();
         private string identMain;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
-        private EditText test;
+        private EditText tbSSCC;
 
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
+        private bool enabledSerial;
 
         public string IdentName { get; private set; }
 
@@ -60,10 +62,16 @@ namespace Scanner
                          MorePallets pallets = new MorePallets();
                          pallets.Ident = ident;
                          pallets.Name = name;
-                         pallets.Quantity = barcode;
-               
+                         pallets.Quantity = barcode;               
                          pallets.SSCC = barcode;
-#nullable enable
+                         pallets.Serial = serial;
+                         var loadIdent = CommonData.LoadIdent(ident);
+
+                         
+                         enabledSerial = loadIdent.GetBool("HasSerialNumber");
+
+
+#nullable enable        
                     MorePallets? obj = ProcessQty(pallets, location);
 #nullable disable
                     /* Adds an object to the list. */
@@ -86,13 +94,19 @@ namespace Scanner
         private MorePallets ProcessQty(MorePallets obj, string location)
         {
             var sscc = obj.SSCC;
-            if (string.IsNullOrEmpty(sscc)) { return null; }
+            if (string.IsNullOrEmpty(sscc)) { 
+                return null;
+            }
 
             var serialNo = obj.Serial;
-            if (string.IsNullOrEmpty(serialNo)) { return null; }
+            if (enabledSerial&&string.IsNullOrEmpty(serialNo)) {
+                return null;
+            }
 
             var ident = obj.Ident;
-            if (string.IsNullOrEmpty(ident)) { return null; }
+            if (string.IsNullOrEmpty(ident)) { 
+                return null;
+            }
 
             var identObj = CommonData.LoadIdent(ident);
             var isEnabled = identObj.GetBool("HasSerialNumber");
@@ -219,11 +233,22 @@ namespace Scanner
                 SetContentView(Resource.Layout.MorePalletsClass);
                 lvCardMore = FindViewById<ListView>(Resource.Id.lvCardMore);
                 btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
-                btLogin = FindViewById<Button>(Resource.Id.btLogin);
+                btExit = FindViewById<Button>(Resource.Id.btExit);
                 MorePalletsAdapter adapter = new MorePalletsAdapter(this, data);
                 lvCardMore.Adapter = adapter;
-            test = FindViewById<EditText>(Resource.Id.test);
+                tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
+                tbSSCC.KeyPress += TbSSCC_KeyPress;
 
+        }
+
+        private void TbSSCC_KeyPress(object sender, View.KeyEventArgs e)
+        {
+            e.Handled = false;
+            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            {
+                // Add your logic here 
+                FilData(tbSSCC.Text);
+            }
         }
     }
 }

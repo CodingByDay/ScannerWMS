@@ -55,8 +55,8 @@ namespace Scanner.App
                 SSCC.Text = sList[position].SSCC;
                 SSCC.SetTextColor(Android.Graphics.Color.Black);
                 TextView Ident = row.FindViewById<TextView>(Resource.Id.ident);
-                Ident.Text = sList[position].Ident;
-                Ident.SetTextColor(Android.Graphics.Color.Black);
+                //Ident.Text = sList[position].Ident;
+                //Ident.SetTextColor(Android.Graphics.Color.Black);
                 TextView Name = row.FindViewById<TextView>(Resource.Id.name);
                 Name.Text = sList[position].Name;
                 Name.SetTextColor(Android.Graphics.Color.Black);
@@ -64,8 +64,8 @@ namespace Scanner.App
                 Quantity.Text = sList[position].Quantity;
                 Quantity.SetTextColor(Android.Graphics.Color.Black);         
                 TextView Serial = row.FindViewById<TextView>(Resource.Id.serial);
-                Serial.Text = sList[position].Serial;
-                Serial.SetTextColor(Android.Graphics.Color.Black);
+                //Serial.Text = sList[position].Serial;
+                //Serial.SetTextColor(Android.Graphics.Color.Black);
                
 
 

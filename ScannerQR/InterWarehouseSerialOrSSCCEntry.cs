@@ -19,6 +19,7 @@ using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
+using static Android.App.ActionBar;
 using WebApp = TrendNET.WMS.Device.Services.WebApp;
 
 namespace Scanner
@@ -45,7 +46,7 @@ namespace Scanner
         private Button button6;
         private Button btMorePallets;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
-    
+        private List<MorePallets> data = new List<MorePallets>();
 
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
         private NameValueObjectList docTypes = null;
@@ -59,6 +60,12 @@ namespace Scanner
         private NameValueObject wh;
         private ImageView imagePNG;
         private ProgressDialogClass progress;
+        private Dialog popupDialog;
+        private Button btConfirm;
+        private Button btExit;
+        private EditText tbSSCCpopup;
+        private ListView lvCardMore;
+        private bool enabledSerial;
 
         // here...
         public void GetBarcode(string barcode)
@@ -418,6 +425,72 @@ namespace Scanner
                 // pass
             }
         }
+        private MorePallets ProcessQtyWithParams(MorePallets obj, string location)
+        {
+            var sscc = obj.SSCC;
+            if (string.IsNullOrEmpty(sscc))
+            {
+                return null;
+            }
+
+            var serialNo = obj.Serial;
+            if (enabledSerial && string.IsNullOrEmpty(serialNo))
+            {
+                return null;
+            }
+
+            var ident = obj.Ident;
+            if (string.IsNullOrEmpty(ident))
+            {
+                return null;
+            }
+
+            var identObj = CommonData.LoadIdent(ident);
+            var isEnabled = identObj.GetBool("HasSerialNumber");
+
+            if (!CommonData.IsValidLocation(moveHead.GetString("Issuer"), location))
+            {
+                string SuccessMessage = string.Format("Izdajna lokacija" + location + "ni veljavna za skladisće" + moveHead.GetString("Issuer") + "'!");
+                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+
+
+                return null;
+            }
+
+            var stockQty = GetStockWithParams(moveHead.GetString("Issuer"), location, sscc, serialNo, ident, isEnabled);
+            if (!Double.IsNaN(stockQty))
+            {
+                obj.Quantity = stockQty.ToString(CommonData.GetQtyPicture());
+
+            }
+            else
+            {
+                Toast.MakeText(this, "Prišlo je do napake.", ToastLength.Long).Show();
+            }
+            return obj;
+
+        }
+
+
+        private double GetStockWithParams(string warehouse, string location, string sscc, string serialNum, string ident, bool serialEnabled)
+        {
+            var wh = CommonData.GetWarehouse(warehouse);
+            if (!wh.GetBool("HasStock"))
+                if (serialEnabled)
+                {
+                    return LoadStockFromPAStockSerialNo(warehouse, ident, serialNum);
+                }
+                else
+                {
+                    return LoadStockFromPAStock(warehouse, ident);
+                }
+
+            else
+            {
+                return LoadStockFromStockSerialNo(warehouse, location, sscc, serialNum, ident);
+            }
+
+        }
 
         private void ProcessQty()
         {
@@ -679,8 +752,93 @@ namespace Scanner
 
         private void BtMorePallets_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MorePalletsClass));
-            
+            //StartActivity(typeof(MorePalletsClass));
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.MorePalletsClass);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+
+            btConfirm = popupDialog.FindViewById<Button>(Resource.Id.btConfirm);
+            btExit = popupDialog.FindViewById<Button>(Resource.Id.btExit);
+            tbSSCCpopup = popupDialog.FindViewById<EditText>(Resource.Id.tbSSCC);
+            tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
+            tbSSCCpopup.FocusChange += TbSSCC_FocusChange;
+            lvCardMore = popupDialog.FindViewById<ListView>(Resource.Id.lvCardMore);
+            MorePalletsAdapter adapter = new MorePalletsAdapter(this, data);
+            lvCardMore.Adapter = adapter;
+
+        }
+
+        private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            FilData(tbSSCCpopup.Text);
+    
+        }
+
+        private void FilData(string barcode)
+        {
+            if (!String.IsNullOrEmpty(barcode))
+            {
+                string error;
+
+                var dataObject = Services.GetObject("sscc", barcode, out error);
+                if (dataObject != null)
+                {
+
+                    var ident = dataObject.GetString("Ident");
+                    var loadIdent = CommonData.LoadIdent(ident);
+
+                    var name = dataObject.GetString("IdentName");
+                    var serial = dataObject.GetString("SerialNo");
+                    var location = dataObject.GetString("Location");
+                    MorePallets pallets = new MorePallets();
+                    pallets.Ident = ident;
+                  
+                        
+                    string idname= loadIdent.GetString("Name");
+                    pallets.Name = idname.Trim().Substring(0, 10);
+                    pallets.Quantity = barcode;
+                    pallets.SSCC = barcode;
+                    pallets.Serial = serial;
+                    
+
+
+                    enabledSerial = loadIdent.GetBool("HasSerialNumber");
+
+
+#nullable enable        
+                    MorePallets? obj = ProcessQtyWithParams(pallets, location);
+#nullable disable
+                    /* Adds an object to the list. */
+                    if (obj is null)
+                    {
+                        Toast.MakeText(this, "Prišlo je do napake.", ToastLength.Long).Show();
+                    }
+                    else
+                    {
+                        data.Add(obj);
+                        // Added to the list
+
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+        private void TbSSCCpopup_KeyPress(object sender, View.KeyEventArgs e)
+        {
+            e.Handled = false;
+            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            {
+                // Add your logic here 
+                FilData(tbSSCCpopup.Text);
+                var fill = 0;
+            }
         }
 
         private void TbLocation_KeyPress(object sender, View.KeyEventArgs e)
