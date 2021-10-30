@@ -15,9 +15,18 @@
         android:minWidth="25px"
         android:minHeight="25px">
 
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:paddingTop="5px"
+            android:gravity="center"
+            android:foregroundGravity="center"
+            android:layout_marginRight="41.5dp" />
 
     </LinearLayout>
-      <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -62,7 +71,7 @@
             android:layout_marginRight="28.0dp"
             android:id="@+id/sscc" />
 
-        
+
         <TextView
             android:textStyle="bold"
             android:layout_weight="20"
@@ -83,7 +92,7 @@
             android:text="Kol."
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
-      
+
     </LinearLayout>
 
 
@@ -97,20 +106,9 @@
         android:choiceMode="singleChoice"
         android:layout_width="match_parent"
         android:id="@+id/lvCardMore"
-        android:layout_height="347.0dp"
+        android:layout_height="278.0dp"
         android:listSelector="@android:color/holo_blue_light"
         />
-
-    <TextView
-        android:textStyle="bold"
-        android:layout_weight="25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
-        android:text=""
-        android:layout_marginRight="28.0dp"
-        android:id="@+id/lbTotalQty" />
 
 
     <LinearLayout

@@ -52,7 +52,7 @@ namespace Scanner.App
                 }
 
                 TextView SSCC = row.FindViewById<TextView>(Resource.Id.sscc);
-                SSCC.Text = sList[position].SSCC;
+                SSCC.Text = sList[position].friendlySSCC;
                 SSCC.SetTextColor(Android.Graphics.Color.Black);
                 TextView Ident = row.FindViewById<TextView>(Resource.Id.ident);
                 //Ident.Text = sList[position].Ident;

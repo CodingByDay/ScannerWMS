@@ -22,5 +22,27 @@ namespace Scanner.App
         public string Quantity { get; set; }
 
         public string Serial { get; set; }
+
+        public string Location  { get; set; }
+
+        public string friendlySSCC { get; set; }
+
+
+
+        public MorePallets()
+        {
+            
+        }
+
+        public MorePallets(string SSCC, string Ident, string Name, string Quantity, string Serial, string friendlySSCC)
+        {
+            this.SSCC = SSCC;
+            this.Ident = Ident;
+            this.Name = Name;
+            this.Quantity = Quantity;
+            this.Serial = Serial;
+            this.friendlySSCC = friendlySSCC;
+            
+        }
     }
 }
