@@ -193,6 +193,7 @@
             android:id="@+id/ivTrail"
             android:layout_height="155.0dp"
             android:listSelector="@android:drawable/screen_background_dark_transparent"
+        
         />
 
 

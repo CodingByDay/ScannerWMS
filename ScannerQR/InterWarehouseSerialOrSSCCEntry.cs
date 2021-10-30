@@ -28,7 +28,6 @@ namespace Scanner
     public class InterWarehouseSerialOrSSCCEntry : Activity, IBarcodeResult
     {
         public string barcode;
-        // Definitions
         private EditText tbIdent;
         private EditText tbSSCC;
         private EditText tbSerialNum;
@@ -47,13 +46,10 @@ namespace Scanner
         private Button btMorePallets;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private List<MorePallets> data = new List<MorePallets>();
-
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
         private NameValueObjectList docTypes = null;
-        private bool target = false;
         private bool editMode = false;
         private EditText lbIdentName;
-        private Button finish;
         private IBarcodeResult result;
         SoundPool soundPool;
         int soundPoolId;
@@ -66,6 +62,9 @@ namespace Scanner
         private EditText tbSSCCpopup;
         private ListView lvCardMore;
         private bool enabledSerial;
+        private Button btnYes;
+        private Button btnNo;
+        private MorePalletsAdapter adapter;
 
         // here...
         public void GetBarcode(string barcode)
@@ -602,7 +601,7 @@ namespace Scanner
             }
             finally
             {
-                //pass
+                
             }
         }
 
@@ -763,19 +762,48 @@ namespace Scanner
             btConfirm = popupDialog.FindViewById<Button>(Resource.Id.btConfirm);
             btExit = popupDialog.FindViewById<Button>(Resource.Id.btExit);
             tbSSCCpopup = popupDialog.FindViewById<EditText>(Resource.Id.tbSSCC);
-            tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbSSCCpopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
-            tbSSCCpopup.FocusChange += TbSSCC_FocusChange;
+            
             lvCardMore = popupDialog.FindViewById<ListView>(Resource.Id.lvCardMore);
-            MorePalletsAdapter adapter = new MorePalletsAdapter(this, data);
+            lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
+            adapter = new MorePalletsAdapter(this, data);
             lvCardMore.Adapter = adapter;
 
         }
 
-        private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)
+        private void LvCardMore_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
-            FilData(tbSSCCpopup.Text);
-    
+            var index = e.Position;
+            DeleteFromTouch(index);
+        }
+        private void DeleteFromTouch(int index)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.YesNoPopUp);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
+
+            // Access Popup layout fields like below
+            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+            btnYes.Click += (e, ev) => { Yes(index); };
+            btnNo.Click += (e, ev) => { No(index); };
+        }
+
+        private void No(int index)
+        {
+           // Pass
+        }
+
+        private void Yes(int index)
+        {
+            data.RemoveAt(index);
+            lvCardMore.Adapter = null;
+            lvCardMore.Adapter = adapter;
         }
 
         private void FilData(string barcode)
@@ -821,6 +849,9 @@ namespace Scanner
                     {
                         data.Add(obj);
                         // Added to the list
+
+                        tbSSCCpopup.Text = "";
+                        tbSSCCpopup.RequestFocus();
 
                     }
                 }
