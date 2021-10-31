@@ -477,12 +477,15 @@ namespace Scanner
                 // Continue on
             }
             var warehouse = moveHead.GetString("Wharehouse");
-
-            fillSugestedLocation(warehouse);
+            if (moveItem != null) { }
+            else
+            {
+                fillSugestedLocation(warehouse);
+            }
 
             tbSSCC.RequestFocus();
-            // Revision 30.6.2021. 
-            // Revision 30.6.2021. 
+            // Revision 1.31.2021
+            // Revision 
         }
      
 

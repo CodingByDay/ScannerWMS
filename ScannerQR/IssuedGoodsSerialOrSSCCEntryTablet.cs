@@ -677,7 +677,9 @@ namespace Scanner
             else
             {
                 tbIdent.Text = openIdent.GetString("Code") + " " + openIdent.GetString("Name");
+                var warehouse = moveHead.GetString("Wharehouse");
 
+                fillSugestedLocation(warehouse);
                 if (extraData != null)
                 {
                     tbLocation.Text = extraData.GetString("Location");
@@ -727,9 +729,7 @@ namespace Scanner
             var location = CommonData.GetSetting("DefaultProductionLocation");
             tbLocation.Text = location;
 
-            var warehouse = moveHead.GetString("Wharehouse");
-
-            fillSugestedLocation(warehouse);
+           
 
             tbSSCC.RequestFocus();
             // Revision 30.6.2021. 

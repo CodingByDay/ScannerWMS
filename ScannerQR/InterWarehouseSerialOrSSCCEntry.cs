@@ -242,7 +242,7 @@ namespace Scanner
             {
                 RunOnUiThread(() =>
                 {
-                    string WebError = string.Format("Serijaska št. je obvezen podatek.");
+                    string WebError = string.Format("Serijska št. je obvezen podatek.");
                     Toast.MakeText(this, WebError, ToastLength.Long).Show();
 
                     tbSerialNum.RequestFocus();
@@ -575,10 +575,16 @@ namespace Scanner
 
             try
             {
+                InUseObjects.Invalidate("MoveItem");
+                
                 moveItem = null;
                 if (moveItem == null) { 
+
                     moveItem = new NameValueObject("MoveItem");
                 }
+                moveHead = null;
+                moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
+
                 moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
                 var number = moveHead.GetInt("HeadID");
                 moveItem.SetString("LinkKey", "");
@@ -994,6 +1000,11 @@ namespace Scanner
         {
             string formatedString = $"{data.Count} skeniranih SSCC koda.";
             tbSSCC.Text = formatedString;
+            tbSerialNum.Text = "...";
+            tbIssueLocation.Text = "...";
+            tbIdent.Text = "...";
+            tbPacking.Text = "..."
+            tbLocation.RequestFocus();
             isBatch = true;
             popupDialogMain.Dismiss();
             popupDialogMain.Hide();
@@ -1044,21 +1055,16 @@ namespace Scanner
             if (!String.IsNullOrEmpty(barcode))
             {
                 string error;
-
                 var dataObject = Services.GetObject("sscc", barcode, out error);
                 if (dataObject != null)
                 {
-
                     var ident = dataObject.GetString("Ident");
                     var loadIdent = CommonData.LoadIdent(ident);
-
                     var name = dataObject.GetString("IdentName");
                     var serial = dataObject.GetString("SerialNo");
                     var location = dataObject.GetString("Location");
                     MorePallets pallets = new MorePallets();
-                    pallets.Ident = ident;
-                  
-                        
+                    pallets.Ident = ident;                       
                     string idname= loadIdent.GetString("Name");
                     pallets.Location = location;
                     pallets.Name = idname.Trim().Substring(0, 10);
@@ -1066,8 +1072,6 @@ namespace Scanner
                     pallets.SSCC = barcode;
                     pallets.Serial = serial;
                     pallets.friendlySSCC = pallets.SSCC.Substring(0, 10);
-
-
                     enabledSerial = loadIdent.GetBool("HasSerialNumber");
 
 
@@ -1292,8 +1296,7 @@ namespace Scanner
 
                         try
                         {
-                            moveHead = null;
-                            moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
+                        
                             var headID = moveHead.GetInt("HeadID");
 
                             string result;
@@ -1323,7 +1326,7 @@ namespace Scanner
                                             {
                                                 alert.Dispose();
                                                 progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
-                                                InUseObjects.Clear();
+                                                
 
                                             }
                                         });
@@ -1371,6 +1374,13 @@ namespace Scanner
                         {
                          
                         }
+                    } else
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            progress.StopDialogSync();
+
+                        });
                     }
                 }
                 RunOnUiThread(() =>
