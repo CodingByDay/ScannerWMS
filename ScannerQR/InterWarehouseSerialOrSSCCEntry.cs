@@ -413,6 +413,7 @@ namespace Scanner
                         Toast.MakeText(this, WebError, ToastLength.Long).Show();
 
                     });
+
                     return false;
                 }
                 else
@@ -423,7 +424,7 @@ namespace Scanner
             }
             finally
             {
-                // pass
+               
             }
         }
 
@@ -574,9 +575,12 @@ namespace Scanner
 
             try
             {
-
-                if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
+                moveItem = null;
+                if (moveItem == null) { 
+                    moveItem = new NameValueObject("MoveItem");
+                }
                 moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
+                var number = moveHead.GetInt("HeadID");
                 moveItem.SetString("LinkKey", "");
                 moveItem.SetInt("LinkNo", 0);
                 moveItem.SetString("Ident", objectItem.Ident.Trim());
@@ -605,6 +609,7 @@ namespace Scanner
                 {
                     InUseObjects.Invalidate("MoveItem");
                     return true;
+                    
                 }
             }
             finally
@@ -1271,19 +1276,24 @@ namespace Scanner
         {
             await Task.Run(async () =>
             {
+                int check=0;
+
+                RunOnUiThread(() =>
+                {
+                    progress = new ProgressDialogClass();
+                    progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
+                });
                 foreach (MorePallets item in data)
                 {
                     if (await SaveMoveItemWithParams(item))
                     {
-                        RunOnUiThread(() =>
-                        {
-                            progress = new ProgressDialogClass();
-                            progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
-                        });
+                       
 
 
                         try
                         {
+                            moveHead = null;
+                            moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
                             var headID = moveHead.GetInt("HeadID");
 
                             string result;
@@ -1292,6 +1302,37 @@ namespace Scanner
                                 if (result.StartsWith("OK!"))
                                 {
 
+                                    check += 1;
+                                    RunOnUiThread(() =>
+                                    {
+                                        progress.StopDialogSync();
+                                        var id = result.Split('+')[1];
+
+                                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                        alert.SetTitle("Zaključevanje uspešno");
+                                        alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+                                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                        {
+                                          
+                                            System.Threading.Thread.Sleep(500);
+                                            if(check==data.Count)
+                                            {
+                                                StartActivity(typeof(MainMenu));
+                                            } else
+                                            {
+                                                alert.Dispose();
+                                                progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
+                                                InUseObjects.Clear();
+
+                                            }
+                                        });
+
+
+
+                                        Dialog dialog = alert.Create();
+                                        dialog.Show();
+                                    });
 
 
                                 }
@@ -1308,7 +1349,7 @@ namespace Scanner
                                         {
                                             alert.Dispose();
                                             System.Threading.Thread.Sleep(500);
-
+                                            StartActivity(typeof(MainMenu));
 
                                         });
 
@@ -1328,14 +1369,15 @@ namespace Scanner
                         }
                         finally
                         {
-                            RunOnUiThread(() =>
-                            {
-                                progress.StopDialogSync();
-
-                            });
+                         
                         }
                     }
                 }
+                RunOnUiThread(() =>
+                {
+                    progress.StopDialogSync();
+
+                });
             });
         }
 
@@ -1349,55 +1391,7 @@ namespace Scanner
             {
                 await FinishMethodBatch();
             }
-            //if (SaveMoveItem())
-            //{
-            //    var progress = new ProgressDialogClass();
-            //    progress.ShowDialogSync(this, "Zaključujem");
-
-            //    try
-            //    {
-            //        var headID = moveHead.GetInt("HeadID");
-
-            //        string result;
-            //        if (WebApp.Get("mode=finish&stock=move&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-            //        {
-            //            if (result.StartsWith("OK!"))
-            //            {
-            //                var id = result.Split('+')[1];
-                         
-            //                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            //                alert.SetTitle("Zaključevanje uspešno");
-            //                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-            //                alert.SetPositiveButton("Ok", (senderAlert, args) =>
-            //                {
-            //                    alert.Dispose();
-            //                    System.Threading.Thread.Sleep(500);
-            //                    StartActivity(typeof(MainMenu));
-            //                });
-
-
-
-            //                Dialog dialog = alert.Create();
-            //                dialog.Show();
-            //            }
-            //            else
-            //            {
-            //                string SuccessMessage = string.Format("Napaka pri zaključevanju");
-            //                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-            //            }
-            //        }
-            //        else
-            //        {
-            //            string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
-            //            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-            //        }
-            //    }
-            //    finally
-            //    {
-            //        progress.StopDialogSync();
-            //    }
-            //}
+            
 
         }
 
