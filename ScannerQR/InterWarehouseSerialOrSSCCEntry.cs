@@ -579,15 +579,15 @@ namespace Scanner
                 moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
                 moveItem.SetString("LinkKey", "");
                 moveItem.SetInt("LinkNo", 0);
-                moveItem.SetString("Ident", tbIdent.Text.Trim());
-                moveItem.SetString("SSCC", tbSSCC.Text.Trim());
-                moveItem.SetString("SerialNo", tbSerialNum.Text.Trim());
-                moveItem.SetDouble("Packing", Convert.ToDouble(tbPacking.Text.Trim()));
+                moveItem.SetString("Ident", objectItem.Ident.Trim());
+                moveItem.SetString("SSCC", objectItem.SSCC.Trim());
+                moveItem.SetString("SerialNo", objectItem.Serial.Trim());
+                moveItem.SetDouble("Packing", Convert.ToDouble(objectItem.Quantity.Trim()));
                 moveItem.SetDouble("Factor", Convert.ToDouble(tbUnits.Text.Trim()));
-                moveItem.SetDouble("Qty", Convert.ToDouble(tbPacking.Text.Trim()) * Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItem.SetDouble("Qty", Convert.ToDouble(objectItem.Quantity.Trim()) * Convert.ToDouble(tbUnits.Text.Trim()));
                 moveItem.SetInt("Clerk", Services.UserID());
                 moveItem.SetString("Location", tbLocation.Text.Trim());
-                moveItem.SetString("IssueLocation", tbIssueLocation.Text.Trim());
+                moveItem.SetString("IssueLocation", objectItem.Location.Trim());
 
                 string error;
                 moveItem = Services.SetObject("mi", moveItem, out error);
@@ -609,7 +609,7 @@ namespace Scanner
             }
             finally
             {
-                // pass
+             
             }
         }
 
@@ -1271,16 +1271,17 @@ namespace Scanner
         {
             await Task.Run(async () =>
             {
-                if (await SaveMoveItem())
+                foreach (MorePallets item in data)
                 {
-                    RunOnUiThread(() =>
+                    if (await SaveMoveItemWithParams(item))
                     {
-                        progress = new ProgressDialogClass();
-                        progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
-                    });
+                        RunOnUiThread(() =>
+                        {
+                            progress = new ProgressDialogClass();
+                            progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
+                        });
 
-                    foreach (MorePallets item in data)
-                    {
+
                         try
                         {
                             var headID = moveHead.GetInt("HeadID");
@@ -1290,8 +1291,8 @@ namespace Scanner
                             {
                                 if (result.StartsWith("OK!"))
                                 {
-                                    
-                                continue;
+
+
 
                                 }
                                 else
@@ -1307,7 +1308,7 @@ namespace Scanner
                                         {
                                             alert.Dispose();
                                             System.Threading.Thread.Sleep(500);
-                                          
+
 
                                         });
 
