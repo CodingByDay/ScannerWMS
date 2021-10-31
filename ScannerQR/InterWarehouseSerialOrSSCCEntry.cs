@@ -582,7 +582,7 @@ namespace Scanner
 
                     moveItem = new NameValueObject("MoveItem");
                 }
-                moveHead = null;
+               
                 moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
 
                 moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
@@ -613,6 +613,7 @@ namespace Scanner
                 }
                 else
                 {
+                    InUseObjects.Invalidate("MoveHead");
                     InUseObjects.Invalidate("MoveItem");
                     return true;
                     
@@ -1003,7 +1004,7 @@ namespace Scanner
             tbSerialNum.Text = "...";
             tbIssueLocation.Text = "...";
             tbIdent.Text = "...";
-            tbPacking.Text = "..."
+            tbPacking.Text = "...";
             tbLocation.RequestFocus();
             isBatch = true;
             popupDialogMain.Dismiss();
@@ -1306,6 +1307,7 @@ namespace Scanner
                                 {
 
                                     check += 1;
+
                                     RunOnUiThread(() =>
                                     {
                                         progress.StopDialogSync();

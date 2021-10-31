@@ -112,9 +112,7 @@ namespace Scanner
            
             
             colorFields();
-            var warehouse = moveHead.GetString("Wharehouse");
-
-            fillSugestedLocation(warehouse);
+           
             if (moveHead == null)
             {
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
