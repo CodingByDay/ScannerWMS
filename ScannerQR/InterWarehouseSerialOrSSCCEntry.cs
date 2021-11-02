@@ -67,6 +67,7 @@ namespace Scanner
         private MorePalletsAdapter adapter;
         private Dialog popupDialogMain;
         private bool isBatch = false;
+        private bool isFirst;
 
         // here...
         public void GetBarcode(string barcode)
@@ -428,8 +429,8 @@ namespace Scanner
             }
         }
 
-
-        private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem)
+        // This method
+        private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem, bool isFirst)
         {
 
             if (string.IsNullOrEmpty(objectItem.Ident.Trim()) && string.IsNullOrEmpty(objectItem.Serial) && string.IsNullOrEmpty(objectItem.Quantity.Trim()))
@@ -584,8 +585,17 @@ namespace Scanner
                 }
                
                 moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
+                if(isFirst)
+                {
+                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
 
-                moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
+                }
+                else
+                {
+                    moveHead.SetInt("HeadID", 0);
+                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
+
+                }
                 var number = moveHead.GetInt("HeadID");
                 moveItem.SetString("LinkKey", "");
                 moveItem.SetInt("LinkNo", 0);
@@ -607,16 +617,16 @@ namespace Scanner
                     {
                         string WebError = string.Format("Napaka pri dostopu do web aplikacije." + error);
                         Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
+                        // There is never an error here
                     });
                     return false;
                 }
                 else
                 {
-                    InUseObjects.Invalidate("MoveHead");
+                   
                     InUseObjects.Invalidate("MoveItem");
                     return true;
-                    
+                    // This always runs.
                 }
             }
             finally
@@ -1288,13 +1298,21 @@ namespace Scanner
                     progress = new ProgressDialogClass();
                     progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
                 });
+                int count = 0;
                 foreach (MorePallets item in data)
                 {
-                    if (await SaveMoveItemWithParams(item))
+                    if(count==0)
                     {
-                       
+                        isFirst = true;
+                    } else
+                    {
+                        isFirst = false;
+                    }
+                    if (await SaveMoveItemWithParams(item, isFirst))
+                    {
 
-
+                        // First iteration is OK. "Zaključevanje uspešno" + ID
+                        // Second "Napaka pri zaključevanju" + ID from before
                         try
                         {
                         
