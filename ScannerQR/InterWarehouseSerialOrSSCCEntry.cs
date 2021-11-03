@@ -922,7 +922,7 @@ namespace Scanner
             button5.Click += Button5_Click;
             button3.Click += Button3_Click;
             button1.Click += Button1_Click;
-
+            tbSSCC.KeyPress += TbSSCC_KeyPress;
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
            
             lbIdentName = FindViewById<EditText>(Resource.Id.lbIdentName);
@@ -984,6 +984,17 @@ namespace Scanner
 
             tbSSCC.RequestFocus();
          
+        }
+
+        private void TbSSCC_KeyPress(object sender, View.KeyEventArgs e)
+        {
+         
+            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            {
+                FillRelatedData(tbSerialNum.Text);
+
+                e.Handled = true;
+            }
         }
 
         private void LvCardMore_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
