@@ -80,6 +80,7 @@ namespace Scanner
         private Button btnNo;
         private bool enabledSerial;
         private bool isBatch;
+        private bool isFirst;
 
 
         // here...
@@ -787,7 +788,7 @@ namespace Scanner
             barcode2D.open(this, this);
             btMorePallets = FindViewById<Button>(Resource.Id.btMorePallets);
             btMorePallets.Click += BtMorePallets_Click;
-
+            
             tbSSCCpopup.FocusChange += TbSSCCpopup_FocusChange;
 
 
@@ -1369,56 +1370,377 @@ namespace Scanner
 
         private async void Button5_Click(object sender, EventArgs e)
         {
-            await FinishMethod();
-            //if (SaveMoveItem())
-            //{
-
-            //    try
-            //    {
-            //        var headID = moveHead.GetInt("HeadID");
-
-            //        string result;
-            //        if (WebApp.Get("mode=finish&stock=move&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-            //        {
-            //            if (result.StartsWith("OK!"))
-            //            {
-            //                var id = result.Split('+')[1];
-            //                string SuccessMessage = string.Format("Zaključevanje uspešno! Št. prenosa: \r\n" + id);
-            //                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-            //                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            //                alert.SetTitle("Zaključevanje uspešno");
-            //                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-            //                alert.SetPositiveButton("Ok", (senderAlert, args) =>
-            //                {
-            //                    alert.Dispose();
-            //                });
-
-
-
-            //                Dialog dialog = alert.Create();
-            //                dialog.Show();
-            //            }
-            //            else
-            //            {
-            //                string SuccessMessage = string.Format("Napaka pri zaključevanju");
-            //                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-            //            }
-            //        }
-            //        else
-            //        {
-            //            string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
-            //            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-            //        }
-            //    }
-            //    finally
-            //    {
-            //        //
-            //    }
-            //}
-
+            if (!isBatch)
+            {
+                await FinishMethod();
+            }
+            else
+            {
+                await FinishMethodBatch();
+            }
         }
 
+
+        private void updateTheHead()
+        {
+            moveHead.SetInt("HeadID", 0); // da ga "mh" API shrani kot novega, ne pod starim ID
+            string error;
+            var savedMoveHead = Services.SetObject("mh", moveHead, out error);
+            if (savedMoveHead == null)
+            {
+                Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
+                return;
+            }
+            else
+            {
+                if (!Services.TryLock("MoveHead" + savedMoveHead.GetInt("HeadID").ToString(), out error))
+                {
+                    Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
+                    return;
+                }
+
+                moveHead.SetInt("HeadID", savedMoveHead.GetInt("HeadID"));
+                moveHead.SetBool("Saved", true);
+                InUseObjects.Set("MoveHead", moveHead);
+
+                var tests = moveHead.GetInt("HeadID");
+                var debug = true;
+            }
+        }
+        private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem, bool isFirst)
+        {
+
+            if (string.IsNullOrEmpty(objectItem.Ident.Trim()) && string.IsNullOrEmpty(objectItem.Serial) && string.IsNullOrEmpty(objectItem.Quantity.Trim()))
+            {
+                return true;
+            }
+
+            if (string.IsNullOrEmpty(objectItem.SSCC))
+            {
+                RunOnUiThread(() =>
+                {
+                    string WebError = string.Format("SSCC koda je obvezen podatek.");
+                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                    tbSSCC.RequestFocus();
+                });
+
+                return false;
+            }
+
+
+            else
+            {
+                try
+                {
+                    var qty = Convert.ToDouble(objectItem.Quantity.Trim());
+                    if (qty == 0.0)
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            string WebError = string.Format("Količina je obvezan podatek in mora biti različna od nič");
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+
+
+                        });
+
+                        return false;
+                    }
+
+                    var stockQty = GetStock(moveHead.GetString("Issuer"), objectItem.Location.Trim(), objectItem.SSCC.Trim(), objectItem.Serial.Trim(), objectItem.Ident.Trim());
+                    if (Double.IsNaN(stockQty))
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            string WebError = string.Format("Zaloga ni znana, vpišite potrebne podatke");
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                        });
+
+
+                        //  SelectNext(tbIdent);
+                        return false;
+                    }
+                    if (Math.Abs(qty) > Math.Abs(stockQty))
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            string WebError = string.Format("Količina ne sme presegati zaloge!");
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+
+
+                        });
+
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    RunOnUiThread(() =>
+                    {
+                        string WebError = string.Format("Količina mora biti število (" + e.Message + ")!");
+                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
+
+                    });
+
+                    return false;
+                }
+            }
+
+            if (string.IsNullOrEmpty(tbUnits.Text.Trim()))
+            {
+                RunOnUiThread(() =>
+                {
+                    string WebError = string.Format("Št. enota je obavezan podatek.");
+                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                });
+
+                return false;
+            }
+            else
+            {
+                try
+                {
+                    var units = Convert.ToDouble(tbUnits.Text.Trim());
+                    if (units == 0.0)
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            string WebError = string.Format("Št. enota je obavezan podatek in mora biti različit od nič.");
+                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                            tbUnits.RequestFocus();
+                        });
+
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+
+
+                    RunOnUiThread(() =>
+                    {
+                        string WebError = string.Format("Št. enot mora biti število (" + e.Message + ")!");
+                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                        tbPacking.RequestFocus();
+                    });
+
+                    return false;
+                }
+            }
+
+            if (!CommonData.IsValidLocation(moveHead.GetString("Issuer"), objectItem.Location.Trim()))
+            {
+                RunOnUiThread(() =>
+                {
+                    string WebError = string.Format("Prejemna lokacija" + tbLocation.Text.Trim() + "ni veljavna za sladišće" + moveHead.GetString("Issuer") + "!");
+                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                    tbIssueLocation.RequestFocus();
+                });
+
+                return false;
+            }
+
+            if (!CommonData.IsValidLocation(moveHead.GetString("Receiver"), tbLocation.Text.Trim()))
+            {
+                RunOnUiThread(() =>
+                {
+                    string WebError = string.Format("Prejemna lokacija" + tbLocation.Text.Trim() + "ni veljavna za sladišće" + moveHead.GetString("Receiver") + "!");
+                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                    tbLocation.RequestFocus();
+                });
+
+                return false;
+            }
+
+            try
+            {
+                InUseObjects.Invalidate("MoveItem");
+
+                moveItem = null;
+                if (moveItem == null)
+                {
+
+                    moveItem = new NameValueObject("MoveItem");
+                }
+
+                moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
+                if (isFirst)
+                {
+                    var test = moveHead.GetInt("HeadID");
+                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
+
+                }
+                else
+                {
+                    updateTheHead();
+                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
+
+                }
+                var number = moveHead.GetInt("HeadID");
+                moveItem.SetString("LinkKey", "");
+                moveItem.SetInt("LinkNo", 0);
+                moveItem.SetString("Ident", objectItem.Ident.Trim());
+                moveItem.SetString("SSCC", objectItem.SSCC.Trim());
+                moveItem.SetString("SerialNo", objectItem.Serial.Trim());
+                moveItem.SetDouble("Packing", Convert.ToDouble(objectItem.Quantity.Trim()));
+                moveItem.SetDouble("Factor", Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItem.SetDouble("Qty", Convert.ToDouble(objectItem.Quantity.Trim()) * Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItem.SetInt("Clerk", Services.UserID());
+                moveItem.SetString("Location", tbLocation.Text.Trim());
+                moveItem.SetString("IssueLocation", objectItem.Location.Trim());
+
+                string error;
+                moveItem = Services.SetObject("mi", moveItem, out error);
+                if (moveItem == null)
+                {
+                    RunOnUiThread(() =>
+                    {
+                        string WebError = string.Format("Napaka pri dostopu do web aplikacije." + error);
+                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                        // There is never an error here
+                    });
+                    return false;
+                }
+                else
+                {
+
+                    InUseObjects.Invalidate("MoveItem");
+                    return true;
+                    // This always runs.
+                }
+            }
+            finally
+            {
+
+            }
+        }
+
+        private async Task FinishMethodBatch()
+        {
+            await Task.Run(async () =>
+            {
+                int check = 0;
+
+                RunOnUiThread(() =>
+                {
+                    progress = new ProgressDialogClass();
+                    progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
+                });
+                int count = 0;
+                foreach (MorePallets item in datax)
+                {
+                    if (count == 0)
+                    {
+                        isFirst = true;
+                    }
+                    else
+                    {
+                        isFirst = false;
+                    }
+                    count += 1;
+                    if (await SaveMoveItemWithParams(item, isFirst))
+                    {
+
+                        // First iteration is OK. "Zaključevanje uspešno" + ID
+                        // Second "Napaka pri zaključevanju" + ID from before
+                        try
+                        {
+
+                            var headID = moveHead.GetInt("HeadID");
+
+                            string result;
+                            if (WebApp.Get("mode=finish&stock=move&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
+                            {
+                                if (result.StartsWith("OK!"))
+                                {
+
+                                    check += 1;
+
+                                    RunOnUiThread(() =>
+                                    {
+                                        progress.StopDialogSync();
+                                        var id = result.Split('+')[1];
+
+                                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                        alert.SetTitle("Zaključevanje uspešno");
+                                        alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+                                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                        {
+
+                                            System.Threading.Thread.Sleep(500);
+                                            if (check == data.Count)
+                                            {
+                                                StartActivity(typeof(MainMenu));
+                                            }
+                                            else
+                                            {
+                                                alert.Dispose();
+                                                progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
+
+
+                                            }
+                                        });
+
+
+
+                                        Dialog dialog = alert.Create();
+                                        dialog.Show();
+                                    });
+
+
+                                }
+                                else
+                                {
+                                    RunOnUiThread(() =>
+                                    {
+                                        progress.StopDialogSync();
+                                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                        alert.SetTitle("Napaka");
+                                        alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                        {
+                                            alert.Dispose();
+                                            System.Threading.Thread.Sleep(500);
+                                            StartActivity(typeof(MainMenu));
+
+                                        });
+
+
+
+                                        Dialog dialog = alert.Create();
+                                        dialog.Show();
+                                    });
+
+                                }
+                            }
+                            else
+                            {
+                                string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
+                                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                            }
+                        }
+                        finally
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            progress.StopDialogSync();
+
+                        });
+                    }
+                }
+                RunOnUiThread(() =>
+                {
+                    progress.StopDialogSync();
+
+                });
+            });
+        }
         private void losesFocusSSCC()
         {
 

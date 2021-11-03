@@ -152,11 +152,11 @@ namespace Scanner
         private void TbSSCC_KeyPress(object sender, View.KeyEventArgs e)
         {
             e.Handled = false;
-            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            if (e.KeyCode == Keycode.Enter)
             {
                 FillRelatedData(tbSerialNum.Text);
 
-                e.Handled = true;
+               
             }
         }
 

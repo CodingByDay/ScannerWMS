@@ -991,11 +991,11 @@ namespace Scanner
             var test = e.KeyCode;
 
             var s = true;
-            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            if (e.KeyCode == Keycode.Enter)
             {
-                FillRelatedData(tbSerialNum.Text);
+                FillRelatedData(tbSSCC.Text);
 
-                e.Handled = true;
+       
             }
         }
 
