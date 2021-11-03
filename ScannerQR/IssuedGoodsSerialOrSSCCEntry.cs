@@ -194,16 +194,19 @@ namespace Scanner
 
         private void BtConfirm_Click(object sender, EventArgs e)
         {
-            string formatedString = $"{data.Count} skeniranih SSCC koda.";
-            tbSSCC.Text = formatedString;
-            tbSerialNum.Text = "...";
-            tbLocation.Text = "...";
-            tbIdent.Text = "...";
-            tbPacking.Text = "...";
-            tbLocation.RequestFocus();
-            isBatch = true;
-            popupDialogMain.Dismiss();
-            popupDialogMain.Hide();
+            if (data.Count != 0)
+            {
+                string formatedString = $"{data.Count} skeniranih SSCC koda.";
+                tbSSCC.Text = formatedString;
+                tbSerialNum.Text = "...";
+                tbLocation.Text = "...";
+                tbIdent.Text = "...";
+                tbPacking.Text = "...";
+                tbLocation.RequestFocus();
+                isBatch = true;
+                popupDialogMain.Dismiss();
+                popupDialogMain.Hide();
+            }
         }
 
         private void LvCardMore_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -584,7 +587,7 @@ namespace Scanner
             await Task.Run(async () =>
             {
                 int count = 0;
-
+                check = 0;
                 foreach (MorePallets item in data)
                 {
                     if (count == 0)
@@ -617,7 +620,7 @@ namespace Scanner
                             {
                                 if (result.StartsWith("OK!"))
                                 {
-
+                                    check += 1;
                                     RunOnUiThread(() =>
                                     {
                                         progress.StopDialogSync();
@@ -638,7 +641,17 @@ namespace Scanner
                                         {
                                             alert.Dispose();
                                             System.Threading.Thread.Sleep(500);
-                                            StartActivity(typeof(MainMenu));
+                                            if (check == data.Count)
+                                            {
+                                                StartActivity(typeof(MainMenu));
+                                            }
+                                            else
+                                            {
+                                                alert.Dispose();
+                                                progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
+
+
+                                            }
                                         });
 
 
@@ -1165,6 +1178,7 @@ namespace Scanner
         private Button btnNo;
         private bool isFirst;
         private bool isBatch;
+        private int check;
 
         private bool CheckIssuedOpenQty()
         {

@@ -988,7 +988,9 @@ namespace Scanner
 
         private void TbSSCC_KeyPress(object sender, View.KeyEventArgs e)
         {
-         
+            var test = e.KeyCode;
+
+            var s = true;
             if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
             {
                 FillRelatedData(tbSerialNum.Text);
@@ -1048,19 +1050,22 @@ namespace Scanner
             popupDialogMain.Dismiss();
             popupDialogMain.Hide();
         }
-
-        private async void BtConfirm_Click(object sender, EventArgs e)
+        
+        private void BtConfirm_Click(object sender, EventArgs e)
         {
-            string formatedString = $"{data.Count} skeniranih SSCC koda.";
-            tbSSCC.Text = formatedString;
-            tbSerialNum.Text = "...";
-            tbIssueLocation.Text = "...";
-            tbIdent.Text = "...";
-            tbPacking.Text = "...";
-            tbLocation.RequestFocus();
-            isBatch = true;
-            popupDialogMain.Dismiss();
-            popupDialogMain.Hide();
+            if (data.Count != 0)
+            {
+                string formatedString = $"{data.Count} skeniranih SSCC koda.";
+                tbSSCC.Text = formatedString;
+                tbSerialNum.Text = "...";
+                tbIssueLocation.Text = "...";
+                tbIdent.Text = "...";
+                tbPacking.Text = "...";
+                tbLocation.RequestFocus();
+                isBatch = true;
+                popupDialogMain.Dismiss();
+                popupDialogMain.Hide();
+            }
             
         }
 

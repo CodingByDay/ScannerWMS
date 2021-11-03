@@ -62,15 +62,24 @@ namespace Scanner
         int soundPoolId;
         private NameValueObject wh;
         private int selected;
-        
+        private List<MorePallets> datax = new List<MorePallets>();
         private ImageView imagePNG;
         private ProgressDialogClass progress;
         private List<LocationClass> items = new List<LocationClass>();
         private Dialog popupDialog;
         private ZoomageView image;
         private Button btnOK;
-
-
+        private Button btMorePallets;
+        private Dialog popupDialogMain;
+        private Button btConfirm;
+        private Button btExit;
+        private EditText tbSSCCpopup;
+        private ListView lvCardMore;
+        private MorePalletsAdapter adapter;
+        private Button btnYes;
+        private Button btnNo;
+        private bool enabledSerial;
+        private bool isBatch;
 
 
         // here...
@@ -776,10 +785,11 @@ namespace Scanner
             tbLocation.SetSelectAllOnFocus(true);
             tbSSCC.SetSelectAllOnFocus(true);
             barcode2D.open(this, this);
+            btMorePallets = FindViewById<Button>(Resource.Id.btMorePallets);
+            btMorePallets.Click += BtMorePallets_Click;
 
-         
-              
-            
+            tbSSCCpopup.FocusChange += TbSSCCpopup_FocusChange;
+
 
             if (InterWarehouseBusinessEventSetup.success == true)
             {
@@ -846,6 +856,247 @@ namespace Scanner
             showPicture();
         }
 
+        private void TbSSCCpopup_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            losesFocusSSCC();
+        }
+
+        private void BtMorePallets_Click(object sender, EventArgs e)
+        {
+            //StartActivity(typeof(MorePalletsClass));
+            popupDialogMain = new Dialog(this);
+            popupDialogMain.SetContentView(Resource.Layout.MorePalletsClass);
+            popupDialogMain.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialogMain.Show();
+
+            popupDialogMain.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+
+            btConfirm = popupDialogMain.FindViewById<Button>(Resource.Id.btConfirm);
+            btExit = popupDialogMain.FindViewById<Button>(Resource.Id.btExit);
+            tbSSCCpopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbSSCC);
+            tbSSCCpopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
+            lvCardMore = popupDialogMain.FindViewById<ListView>(Resource.Id.lvCardMore);
+            lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
+            adapter = new MorePalletsAdapter(this, datax);
+            lvCardMore.Adapter = adapter;
+            lvCardMore.ItemSelected += LvCardMore_ItemSelected;
+            btConfirm.Click += BtConfirm_Click;
+            btExit.Click += BtExit_Click;
+            tbSSCCpopup.RequestFocus();
+        }
+
+
+
+        private void BtExit_Click(object sender, EventArgs e)
+        {
+            popupDialogMain.Dismiss();
+            popupDialogMain.Hide();
+        }
+        private void BtConfirm_Click(object sender, EventArgs e)
+        {
+            if (data.Count != 0)
+            {
+                string formatedString = $"{datax.Count} skeniranih SSCC koda.";
+                tbSSCC.Text = formatedString;
+                tbSerialNum.Text = "...";
+                tbIssueLocation.Text = "...";
+                tbIdent.Text = "...";
+                tbPacking.Text = "...";
+                tbLocation.RequestFocus();
+                isBatch = true;
+                popupDialogMain.Dismiss();
+                popupDialogMain.Hide();
+            }
+
+        }
+        private void LvCardMore_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var index = e.Position;
+            var element = datax.ElementAt(index);
+            string formated = $"Izbrali ste {element.SSCC}.";
+            Toast.MakeText(this, formated, ToastLength.Long).Show();
+        }
+
+        private void LvCardMore_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            var index = e.Position;
+            DeleteFromTouch(index);
+        }
+        private void DeleteFromTouch(int index)
+        {
+            popupDialog = new Dialog(this);
+            popupDialog.SetContentView(Resource.Layout.YesNoPopUp);
+            popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialog.Show();
+
+            popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
+
+            // Access Popup layout fields like below
+            btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+            btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+            btnYes.Click += (e, ev) => { Yes(index); };
+            btnNo.Click += (e, ev) => { No(index); };
+        }
+
+        private void No(int index)
+        {
+            popupDialog.Dismiss();
+            popupDialog.Hide();
+        }
+
+        private void Yes(int index)
+        {
+            data.RemoveAt(index);
+            lvCardMore.Adapter = null;
+            lvCardMore.Adapter = adapter;
+            popupDialog.Dismiss();
+            popupDialog.Hide();
+        }
+        private MorePallets ProcessQtyWithParams(MorePallets obj, string location)
+        {
+            var sscc = obj.SSCC;
+            if (string.IsNullOrEmpty(sscc))
+            {
+                return null;
+            }
+
+            var serialNo = obj.Serial;
+            if (enabledSerial && string.IsNullOrEmpty(serialNo))
+            {
+                return null;
+            }
+
+            var ident = obj.Ident;
+            if (string.IsNullOrEmpty(ident))
+            {
+                return null;
+            }
+
+            var identObj = CommonData.LoadIdent(ident);
+            var isEnabled = identObj.GetBool("HasSerialNumber");
+
+            if (!CommonData.IsValidLocation(moveHead.GetString("Issuer"), location))
+            {
+                string SuccessMessage = string.Format("Izdajna lokacija" + location + "ni veljavna za skladisće" + moveHead.GetString("Issuer") + "'!");
+                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+
+
+                return null;
+            }
+
+            var stockQty = GetStockWithParams(moveHead.GetString("Issuer"), location, sscc, serialNo, ident, isEnabled);
+            if (!Double.IsNaN(stockQty))
+            {
+                obj.Quantity = stockQty.ToString(CommonData.GetQtyPicture());
+
+            }
+            else
+            {
+                Toast.MakeText(this, "Prišlo je do napake.", ToastLength.Long).Show();
+            }
+            return obj;
+
+        }
+
+
+        private double GetStockWithParams(string warehouse, string location, string sscc, string serialNum, string ident, bool serialEnabled)
+        {
+            var wh = CommonData.GetWarehouse(warehouse);
+            if (!wh.GetBool("HasStock"))
+                if (serialEnabled)
+                {
+                    return LoadStockFromPAStockSerialNo(warehouse, ident, serialNum);
+                }
+                else
+                {
+                    return LoadStockFromPAStock(warehouse, ident);
+                }
+
+            else
+            {
+                return LoadStockFromStockSerialNo(warehouse, location, sscc, serialNum, ident);
+            }
+
+        }
+
+        private void FilData(string barcode)
+        {
+            if (!String.IsNullOrEmpty(barcode))
+            {
+                string error;
+                var dataObject = Services.GetObject("sscc", barcode, out error);
+                if (dataObject != null)
+                {
+                    var ident = dataObject.GetString("Ident");
+                    var loadIdent = CommonData.LoadIdent(ident);
+                    var name = dataObject.GetString("IdentName");
+                    var serial = dataObject.GetString("SerialNo");
+                    var location = dataObject.GetString("Location");
+                    MorePallets pallets = new MorePallets();
+                    pallets.Ident = ident;
+                    string idname = loadIdent.GetString("Name");
+                    pallets.Location = location;
+                    if (idname.Length > 10)
+                    {
+                        pallets.Name = idname.Trim().Substring(0, 10);
+                    }
+                    else
+                    {
+                        pallets.Name = idname;
+                    }
+
+                    pallets.Quantity = barcode;
+                    pallets.SSCC = barcode;
+                    pallets.Serial = serial;
+                    if (pallets.SSCC.Length > 10)
+                    {
+                        pallets.friendlySSCC = pallets.SSCC.Substring(0, 10);
+                    }
+                    else
+                    {
+                        pallets.friendlySSCC = pallets.SSCC;
+                    }
+                    enabledSerial = loadIdent.GetBool("HasSerialNumber");
+
+
+#nullable enable        
+                    MorePallets? obj = ProcessQtyWithParams(pallets, location);
+#nullable disable
+                    /* Adds an object to the list. */
+                    if (obj is null)
+                    {
+                        Toast.MakeText(this, "Ne obstaja.", ToastLength.Long).Show();
+                    }
+                    else
+                    {
+                        datax.Add(obj);
+                        // Added to the list
+
+                        tbSSCCpopup.Text = "";
+                        tbSSCCpopup.RequestFocus();
+
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+        private void TbSSCCpopup_KeyPress(object sender, View.KeyEventArgs e)
+        {
+            e.Handled = false;
+            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            {
+                // Add your logic here 
+                FilData(tbSSCCpopup.Text);
+
+            }
+        }
+
+      
         private void TbSSCC_LongClick(object sender, View.LongClickEventArgs e)
         {
             tbSSCC.Text = "";
