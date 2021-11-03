@@ -149,8 +149,18 @@ namespace Scanner
                         ProcessQty();
                     }
                 }
+                else if (tbSSCCpopup.HasFocus)
+                {
+                    if (!String.IsNullOrEmpty(barcode))
+                    {
+                        Sound();
+                        tbSSCCpopup.Text = barcode;
+                        FilData(tbSSCCpopup.Text);
 
-             
+                    }
+                }
+
+
             }
         }
 
@@ -429,7 +439,7 @@ namespace Scanner
             }
         }
 
-        // This method
+       
         private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem, bool isFirst)
         {
 
@@ -1019,6 +1029,7 @@ namespace Scanner
             lvCardMore.ItemSelected += LvCardMore_ItemSelected;
             btConfirm.Click += BtConfirm_Click;
             btExit.Click += BtExit_Click;
+            tbSSCCpopup.RequestFocus();
         }
 
         private void BtExit_Click(object sender, EventArgs e)
@@ -1098,11 +1109,25 @@ namespace Scanner
                     pallets.Ident = ident;                       
                     string idname= loadIdent.GetString("Name");
                     pallets.Location = location;
-                    pallets.Name = idname.Trim().Substring(0, 10);
+                    if (idname.Length > 10)
+                    {
+                        pallets.Name = idname.Trim().Substring(0, 10);
+                    }
+                    else
+                    {
+                        pallets.Name = idname;
+                    }
+
                     pallets.Quantity = barcode;
                     pallets.SSCC = barcode;
                     pallets.Serial = serial;
-                    pallets.friendlySSCC = pallets.SSCC.Substring(0, 10);
+                    if (pallets.SSCC.Length > 10)
+                    {
+                        pallets.friendlySSCC = pallets.SSCC.Substring(0, 10);
+                    } else
+                    {
+                        pallets.friendlySSCC = pallets.SSCC;
+                    }
                     enabledSerial = loadIdent.GetBool("HasSerialNumber");
 
 
@@ -1112,7 +1137,7 @@ namespace Scanner
                     /* Adds an object to the list. */
                     if (obj is null)
                     {
-                        Toast.MakeText(this, "Prišlo je do napake.", ToastLength.Long).Show();
+                        Toast.MakeText(this, "Ne obstaja.", ToastLength.Long).Show();
                     }
                     else
                     {
