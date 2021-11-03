@@ -587,13 +587,13 @@ namespace Scanner
                 moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
                 if(isFirst)
                 {
+                    var test = moveHead.GetInt("HeadID");
                     moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
 
                 }
                 else
                 {
-                    moveHead.SetInt("HeadID", 0);
-                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
+                    updateTheHead();             
 
                 }
                 var number = moveHead.GetInt("HeadID");
@@ -635,13 +635,32 @@ namespace Scanner
             }
         }
 
+        private void updateTheHead()
+        {
+            moveHead.SetInt("HeadID", 0); // da ga "mh" API shrani kot novega, ne pod starim ID
+            string error;
+            var savedMoveHead = Services.SetObject("mh", moveHead, out error);
+            if (savedMoveHead == null)
+            {
+                Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
+                return;
+            }
+            else
+            {
+                if (!Services.TryLock("MoveHead" + savedMoveHead.GetInt("HeadID").ToString(), out error))
+                {
+                    Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
+                    return;
+                }
 
+                moveHead.SetInt("HeadID", savedMoveHead.GetInt("HeadID"));
+                moveHead.SetBool("Saved", true);
+                InUseObjects.Set("MoveHead", moveHead);
 
-
-
-
-
-
+                var tests = moveHead.GetInt("HeadID");
+                var debug = true;
+            }
+        }
 
         private MorePallets ProcessQtyWithParams(MorePallets obj, string location)
         {
@@ -1308,6 +1327,7 @@ namespace Scanner
                     {
                         isFirst = false;
                     }
+                    count += 1; 
                     if (await SaveMoveItemWithParams(item, isFirst))
                     {
 
