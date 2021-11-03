@@ -162,6 +162,7 @@ namespace Scanner
 
         private void BtMorePallets_Click(object sender, EventArgs e)
         {
+
             //StartActivity(typeof(MorePalletsClass));
             popupDialogMain = new Dialog(this);
             popupDialogMain.SetContentView(Resource.Layout.MorePalletsClass);
@@ -187,17 +188,30 @@ namespace Scanner
 
         private void BtExit_Click(object sender, EventArgs e)
         {
-          
+            popupDialogMain.Dismiss();
+            popupDialogMain.Hide();
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
         {
-  
+            string formatedString = $"{data.Count} skeniranih SSCC koda.";
+            tbSSCC.Text = formatedString;
+            tbSerialNum.Text = "...";
+            tbLocation.Text = "...";
+            tbIdent.Text = "...";
+            tbPacking.Text = "...";
+            tbLocation.RequestFocus();
+            isBatch = true;
+            popupDialogMain.Dismiss();
+            popupDialogMain.Hide();
         }
 
         private void LvCardMore_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-     
+            var index = e.Position;
+            var element = data.ElementAt(index);
+            string formated = $"Izbrali ste {element.SSCC}.";
+            Toast.MakeText(this, formated, ToastLength.Long).Show();
         }
 
         private void LvCardMore_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
@@ -340,7 +354,7 @@ namespace Scanner
 
 
 #nullable enable        //ProcessQtyWithParams(pallets, location);
-                    MorePallets? obj = new MorePallets();
+                    MorePallets? obj = ProcessQtyWithParams(pallets,location);
 #nullable disable
                     /* Adds an object to the list. */
                     if (obj is null)
@@ -573,7 +587,6 @@ namespace Scanner
 
                 foreach (MorePallets item in data)
                 {
-
                     if (count == 0)
                     {
                         isFirst = true;
@@ -582,9 +595,11 @@ namespace Scanner
                     {
                         isFirst = false;
                     }
-                    if (await SaveMoveItemWithParams(item, isFirst))
-                {
-                    RunOnUiThread(() =>
+                    count += 1;
+
+                    if (await SaveMoveItemWithParams(item, isFirst)) { 
+
+                        RunOnUiThread(() =>
                     {
                         progress = new ProgressDialogClass();
 
@@ -659,7 +674,12 @@ namespace Scanner
                             }
                             else
                             {
-                                Toast.MakeText(this, "Napaka pri klicu do web aplikacije" + result, ToastLength.Long).Show();
+
+                                RunOnUiThread(() =>
+                                {
+                                    Toast.MakeText(this, "Napaka pri klicu do web aplikacije" + result, ToastLength.Long).Show();
+
+                                });
 
                             }
                         }
@@ -678,7 +698,18 @@ namespace Scanner
 
         private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem, bool isFirst)
         {
-            if (string.IsNullOrEmpty(tbPacking.Text.Trim()))
+            moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
+            if (isFirst)
+            {
+                var test = moveHead.GetInt("HeadID");
+
+            }
+            else
+            {
+                updateTheHead();
+
+            }
+            if (string.IsNullOrEmpty(objectItem.Quantity.Trim()))
             {
                 return true;
             }
@@ -689,7 +720,6 @@ namespace Scanner
                 {
                     Toast.MakeText(this, "SSCC koda je obvezen podatek", ToastLength.Long).Show();
 
-                    tbSSCC.RequestFocus();
                 });
 
                 return false;
@@ -697,28 +727,26 @@ namespace Scanner
 
           
 
-            if (!CommonData.IsValidLocation(moveHead.GetString("Wharehouse"), tbLocation.Text.Trim()))
+            if (!CommonData.IsValidLocation(moveHead.GetString("Wharehouse"), objectItem.Location.Trim()))
             {
                 RunOnUiThread(() =>
                 {
-                    Toast.MakeText(this, "Lokacija '" + tbLocation.Text.Trim() + "' ni veljavna za skladišče '" + moveHead.GetString("Wharehouse") + "'!", ToastLength.Long).Show();
+                    Toast.MakeText(this, "Lokacija '" + objectItem.Location.Trim() + "' ni veljavna za skladišče '" + moveHead.GetString("Wharehouse") + "'!", ToastLength.Long).Show();
 
-                    tbLocation.RequestFocus();
                 });
 
                 return false;
             }
-            if (!LoadStock(moveHead.GetString("Wharehouse"), tbLocation.Text.Trim(), tbSSCC.Text.Trim(), tbSerialNum.Text.Trim(), openIdent.GetString("Code")))
+            if (!LoadStock(moveHead.GetString("Wharehouse"), objectItem.Location.Trim(), objectItem.SSCC.Trim(), objectItem.Serial.Trim(), openIdent.GetString("Code")))
             {
                 return false;
             }
 
-            if (string.IsNullOrEmpty(tbPacking.Text.Trim()))
+            if (string.IsNullOrEmpty(objectItem.Quantity.Trim()))
             {
                 RunOnUiThread(() =>
                 {
                     Toast.MakeText(this, "Količina je obvezen podatek", ToastLength.Long).Show();
-                    tbPacking.RequestFocus();
                 });
 
                 return false;
@@ -727,14 +755,14 @@ namespace Scanner
             {
                 try
                 {
-                    var qty = Convert.ToDouble(tbPacking.Text.Trim());
+                    var qty = Convert.ToDouble(objectItem.Quantity.Trim());
                     if (qty == 0.0)
                     {
                         RunOnUiThread(() =>
                         {
                             Toast.MakeText(this, "Količina je obvezen podatek in mora biti različna od nič.", ToastLength.Long).Show();
 
-                            tbPacking.RequestFocus();
+                         
                         });
 
                         return false;
@@ -771,7 +799,6 @@ namespace Scanner
                     {
                         Toast.MakeText(this, "Količina mora biti število (" + e.Message + ")!", ToastLength.Long).Show();
 
-                        tbPacking.RequestFocus();
                     });
 
                     return false;
@@ -822,13 +849,13 @@ namespace Scanner
 
                 try
                 {
+                    
 
                     var headID = moveHead.GetInt("HeadID");
-                    var serialNo = tbSerialNum.Text.Trim();
-                    var sscc = tbSSCC.Text.Trim();
+                 
 
                     string result;
-                    if (WebApp.Get("mode=canAddSerial&hid=" + headID.ToString() + "&sn=" + serialNo + "&sscc=" + sscc, out result))
+                    if (WebApp.Get("mode=canAddSerial&hid=" + headID.ToString() + "&sn=" + objectItem.Serial + "&sscc=" + objectItem.SSCC, out result))
                     {
                         if (!result.StartsWith("OK!"))
                         {
@@ -860,31 +887,22 @@ namespace Scanner
 
             try
             {
-                if (isFirst)
-                {
-                    var test = moveHead.GetInt("HeadID");
-                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
-
-                }
-                else
-                {
-                    updateTheHead();
-                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
-
-                }
+              
 
                 if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
+
+
                 moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
                 moveItem.SetString("LinkKey", openOrder.GetString("Key"));
                 moveItem.SetInt("LinkNo", openOrder.GetInt("No"));
                 moveItem.SetString("Ident", openIdent.GetString("Code"));
-                moveItem.SetString("SSCC", tbSSCC.Text.Trim());
-                moveItem.SetString("SerialNo", tbSerialNum.Text.Trim());
-                moveItem.SetDouble("Packing", Convert.ToDouble(tbPacking.Text.Trim()));
+                moveItem.SetString("SSCC", objectItem.SSCC.Trim());
+                moveItem.SetString("SerialNo", objectItem.Serial.Trim());
+                moveItem.SetDouble("Packing", Convert.ToDouble(objectItem.Quantity.Trim()));
                 moveItem.SetDouble("Factor", Convert.ToDouble(tbUnits.Text.Trim()));
-                moveItem.SetDouble("Qty", Convert.ToDouble(tbUnits.Text.Trim()) * Convert.ToDouble(tbPacking.Text.Trim()));
+                moveItem.SetDouble("Qty", Convert.ToDouble(tbUnits.Text.Trim()) * Double.Parse(objectItem.Quantity));
                 moveItem.SetInt("Clerk", Services.UserID());
-                moveItem.SetString("Location", tbLocation.Text.Trim());
+                moveItem.SetString("Location", objectItem.Location.Trim());
                 moveItem.SetString("Palette", tbPalette.Text.Trim());
 
                 string error;
@@ -922,14 +940,25 @@ namespace Scanner
             var savedMoveHead = Services.SetObject("mh", moveHead, out error);
             if (savedMoveHead == null)
             {
-                Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
+                RunOnUiThread(() =>
+                {
+                    Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
+
+                });
+               
                 return;
             }
             else
             {
                 if (!Services.TryLock("MoveHead" + savedMoveHead.GetInt("HeadID").ToString(), out error))
                 {
-                    Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
+
+
+                    RunOnUiThread(() =>
+                    {
+                        Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
+
+                    });
                     return;
                 }
 
@@ -944,7 +973,14 @@ namespace Scanner
 
         private async void Button6_Click(object sender, EventArgs e)
         {
+            if (!isBatch)
+            {
                 await FinishMethod();
+            }
+            else
+            {
+                await FinishMethodBatch();
+            }
         }
        
 
@@ -1128,6 +1164,7 @@ namespace Scanner
         private Button btnYes;
         private Button btnNo;
         private bool isFirst;
+        private bool isBatch;
 
         private bool CheckIssuedOpenQty()
         {
@@ -1389,6 +1426,16 @@ namespace Scanner
         }
 
 
+
+      
+
+
+
+
+
+
+
+
         private void ProcessQty()
         {
             if (!CommonData.IsValidLocation(moveHead.GetString("Wharehouse"), tbLocation.Text.Trim()))
@@ -1425,7 +1472,46 @@ namespace Scanner
             }
             
         }
-   
+
+
+        private MorePallets ProcessQtyWithParams(MorePallets obj, string location)
+        {
+            if (!CommonData.IsValidLocation(moveHead.GetString("Wharehouse"), obj.Location.Trim()))
+            {
+                Toast.MakeText(this, "Lokacija '" + obj.Location.Trim() + "' ni veljavna za skladišče '" + moveHead.GetString("Wharehouse") + "'!", ToastLength.Long).Show();
+
+                tbLocation.RequestFocus();
+                return null;
+            }
+
+            if (!LoadStock(moveHead.GetString("Wharehouse"), obj.Location.Trim(), obj.SSCC.Trim(), obj.Serial.Trim(), openIdent.GetString("Code")))
+            {
+                Toast.MakeText(this, "Zaloga za SSCC/Serijsko št. ne obstaja.", ToastLength.Long).Show();
+
+                return null;
+            }
+            else
+            {
+                string error;
+                var fulfilledOrder = Services.GetObject("miho", openOrder.GetString("Key") + "|" + openOrder.GetInt("No") + "|" + openIdent.GetString("Code"), out error);
+                var fulfilledQty = fulfilledOrder == null ? 0.0 : fulfilledOrder.GetDouble("Qty");
+
+                obj.Quantity= stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture());
+                lbQty.Text = "Kol. (" + (openOrder.GetDouble("OpenQty") - fulfilledQty).ToString(CommonData.GetQtyPicture()) + ")";
+
+                /*
+                if (openOrder.GetDouble("OpenQty") > stock.GetDouble("RealStock"))
+                {
+                    MessageForm.Show("Količina (" + openOrder.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture ()) + ") presega zalogo (" + stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture ()) + ")!");
+                }
+                */
+                // 
+                // StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                return obj;
+            }
+
+        }
+
         private void colorFields()
         {
             tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);
