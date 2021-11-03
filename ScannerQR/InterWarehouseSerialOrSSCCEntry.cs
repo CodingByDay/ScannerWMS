@@ -593,7 +593,8 @@ namespace Scanner
                 }
                 else
                 {
-                    updateTheHead();             
+                    updateTheHead();
+                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
 
                 }
                 var number = moveHead.GetInt("HeadID");
