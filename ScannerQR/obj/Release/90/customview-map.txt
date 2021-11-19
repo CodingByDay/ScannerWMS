@@ -198,6 +198,7 @@ EditText;obj\Release\90\res\layout\issuedgoodsidententrywithtrail.xml
 EditText;obj\Release\90\res\layout\issuedgoodsidententrywithtrailtablet.xml
 EditText;obj\Release\90\res\layout\issuedgoodsserialorssccentry.xml
 EditText;obj\Release\90\res\layout\issuedgoodsserialorssccentrytablet.xml
+EditText;obj\Release\90\res\layout\morepalletsclass.xml
 EditText;obj\Release\90\res\layout\packagingenteredpositionsview.xml
 EditText;obj\Release\90\res\layout\packagingenteredpositionsviewtablet.xml
 EditText;obj\Release\90\res\layout\packagingsetcontext.xml

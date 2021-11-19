@@ -88,6 +88,7 @@ namespace Scanner
             lbPalette = FindViewById<TextView>(Resource.Id.lbPalette);
             imagePNG = FindViewById<ZoomageView>(Resource.Id.imagePNG);
             spLocation = FindViewById<Spinner>(Resource.Id.spLocation);
+            btMorePallets = FindViewById<Button>(Resource.Id.btMorePallets);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();

@@ -789,7 +789,7 @@ namespace Scanner
             btMorePallets = FindViewById<Button>(Resource.Id.btMorePallets);
             btMorePallets.Click += BtMorePallets_Click;
             
-            tbSSCCpopup.FocusChange += TbSSCCpopup_FocusChange;
+        
 
 
             if (InterWarehouseBusinessEventSetup.success == true)
@@ -877,6 +877,7 @@ namespace Scanner
             tbSSCCpopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSSCCpopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
+            tbSSCCpopup.FocusChange += TbSSCCpopup_FocusChange;
             lvCardMore = popupDialogMain.FindViewById<ListView>(Resource.Id.lvCardMore);
             lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
             adapter = new MorePalletsAdapter(this, datax);

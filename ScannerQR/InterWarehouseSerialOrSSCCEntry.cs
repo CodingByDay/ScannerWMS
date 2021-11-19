@@ -65,6 +65,7 @@ namespace Scanner
         private Button btnYes;
         private Button btnNo;
         private MorePalletsAdapter adapter;
+        private bool isOkayToCallBarcode;
         private Dialog popupDialogMain;
         private bool isBatch = false;
         private bool isFirst;
@@ -74,7 +75,7 @@ namespace Scanner
         {
             if (!string.IsNullOrEmpty(barcode))
             {
-              if(tbIdent.HasFocus)
+                if (tbIdent.HasFocus && isOkayToCallBarcode == false)
                 {
                     if (barcode != "Scan fail")
                     {
@@ -86,10 +87,10 @@ namespace Scanner
                     {
 
                     }
-                 
+
                     // Here 
 
-                } else if (tbSSCC.HasFocus)
+                } else if (tbSSCC.HasFocus && isOkayToCallBarcode == false)
                 {
                     if (barcode != "Scan fail")
                     {
@@ -102,12 +103,12 @@ namespace Scanner
                         Sound();
                         tbSSCC.Text = barcode;
 
-                        
-                        if(FillRelatedBranchIdentData(tbSSCC.Text)) {
 
-                           FillRelatedData(tbSSCC.Text);
-                           tbLocation.RequestFocus();
-                           ProcessQty();
+                        if (FillRelatedBranchIdentData(tbSSCC.Text) && isOkayToCallBarcode == false) {
+
+                            FillRelatedData(tbSSCC.Text);
+                            tbLocation.RequestFocus();
+                            ProcessQty();
 
                         } else
                         {
@@ -116,10 +117,10 @@ namespace Scanner
                             tbSSCC.RequestFocus();
                         }
 
-                       
+
                     }
-              
-                } else if(tbSerialNum.HasFocus)
+
+                } else if (tbSerialNum.HasFocus && isOkayToCallBarcode == false)
                 {
                     if (barcode != "Scan fail")
                     {
@@ -128,7 +129,7 @@ namespace Scanner
                         tbIssueLocation.RequestFocus();
                     }
 
-                } else if(tbIssueLocation.HasFocus)
+                } else if (tbIssueLocation.HasFocus && isOkayToCallBarcode == false)
                 {
                     if (barcode != "Scan fail")
                     {
@@ -139,7 +140,7 @@ namespace Scanner
                     }
 
 
-                } else if (tbLocation.HasFocus)
+                } else if (tbLocation.HasFocus&&isOkayToCallBarcode==false)
                 {
                     if (!String.IsNullOrEmpty(barcode))
                     {
@@ -149,17 +150,18 @@ namespace Scanner
                         ProcessQty();
                     }
                 }
-                else if (tbSSCCpopup.HasFocus)
-                {
-                    if (!String.IsNullOrEmpty(barcode))
+                else if (isOkayToCallBarcode == true) {
+               if (tbSSCCpopup.HasFocus)
                     {
-                        Sound();
-                        tbSSCCpopup.Text = barcode;
-                        FilData(tbSSCCpopup.Text);
+                        if (!String.IsNullOrEmpty(barcode))
+                        {
+                            Sound();
+                            tbSSCCpopup.Text = barcode;
+                            FilData(tbSSCCpopup.Text);
 
+                        }
                     }
                 }
-
 
             }
         }
@@ -1022,6 +1024,7 @@ namespace Scanner
 
         private void BtMorePallets_Click(object sender, EventArgs e)
         {
+            isOkayToCallBarcode = true;
             //StartActivity(typeof(MorePalletsClass));
             popupDialogMain = new Dialog(this);
             popupDialogMain.SetContentView(Resource.Layout.MorePalletsClass);
@@ -1047,6 +1050,7 @@ namespace Scanner
 
         private void BtExit_Click(object sender, EventArgs e)
         {
+            isOkayToCallBarcode = false;
             popupDialogMain.Dismiss();
             popupDialogMain.Hide();
         }
