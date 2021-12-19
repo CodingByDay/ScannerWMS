@@ -162,7 +162,7 @@ namespace Scanner
 
         private void BtMorePallets_Click(object sender, EventArgs e)
         {
-
+            isOkayToCallBarcode = true;
             //StartActivity(typeof(MorePalletsClass));
             popupDialogMain = new Dialog(this);
             popupDialogMain.SetContentView(Resource.Layout.MorePalletsClass);
@@ -190,6 +190,7 @@ namespace Scanner
         {
             popupDialogMain.Dismiss();
             popupDialogMain.Hide();
+            isOkayToCallBarcode = false;
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
@@ -980,7 +981,7 @@ namespace Scanner
                 InUseObjects.Set("MoveHead", moveHead);
 
                 var tests = moveHead.GetInt("HeadID");
-                var debug = true;
+           
             }
         }
 
@@ -1179,6 +1180,7 @@ namespace Scanner
         private bool isFirst;
         private bool isBatch;
         private int check;
+        private bool isOkayToCallBarcode;
 
         private bool CheckIssuedOpenQty()
         {
@@ -1542,7 +1544,7 @@ namespace Scanner
         {
      
 
-            if(tbSSCC.HasFocus)
+            if(tbSSCC.HasFocus && isOkayToCallBarcode == false)
             {if (barcode != "Scan fail")
                 {
                     tbSSCC.Text = "";
@@ -1550,7 +1552,6 @@ namespace Scanner
                     tbPalette.Text = "";
                     tbPacking.Text = "";
                     tbLocation.Text = "";
-                    tbIdent.Text = "";
 
                     Sound();
                     tbSSCC.Text = barcode;
@@ -1563,7 +1564,7 @@ namespace Scanner
 
 
                 }
-            } else if(tbSerialNum.HasFocus)
+            } else if(tbSerialNum.HasFocus && isOkayToCallBarcode == false)
             {
                 if (barcode != "Scan fail")
                 {
@@ -1571,13 +1572,22 @@ namespace Scanner
                     tbSerialNum.Text = barcode;
                     tbLocation.RequestFocus();
                 }
-            } else if (tbLocation.HasFocus)
+            } else if (tbLocation.HasFocus && isOkayToCallBarcode == false)
             {
                 if (barcode != "Scan fail")
                 {
                     Sound();
                     tbLocation.Text = barcode;
                     tbPacking.RequestFocus();
+                }
+            }
+            else if(isOkayToCallBarcode)
+            {
+                var debug = true;
+                if(tbSSCCpopup.HasFocus)
+                {
+                    FilData(tbSSCCpopup.Text);
+
                 }
             }
         }

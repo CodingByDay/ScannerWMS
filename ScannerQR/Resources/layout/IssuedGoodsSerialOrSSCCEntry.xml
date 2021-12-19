@@ -303,7 +303,7 @@
         android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
-        android:layout_height="64.5dp"
+        android:layout_height="56.5dp"
         android:textSize="16px"
         android:drawableLeft="@drawable/logout"
         android:paddingLeft="10px"

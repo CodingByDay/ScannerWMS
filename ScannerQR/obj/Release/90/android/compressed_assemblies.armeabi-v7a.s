@@ -235,7 +235,7 @@
 
 	/* 23: WMS.dll */
 	/* uncompressed_file_size */
-	.long	679936
+	.long	680448
 	/* loaded */
 	.byte	0
 	/* data */

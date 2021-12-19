@@ -92,7 +92,7 @@
 
 	.type	compressed_assembly_data_23, @object
 	.local	compressed_assembly_data_23
-	.comm	compressed_assembly_data_23,679936,16
+	.comm	compressed_assembly_data_23,680448,16
 
 	.type	compressed_assembly_data_24, @object
 	.local	compressed_assembly_data_24
