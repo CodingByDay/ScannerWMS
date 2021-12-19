@@ -313,7 +313,7 @@ namespace Scanner
         //        }
 
         //    else
-        //    {
+        //    { 
         //        return LoadStockFromStockSerialNo(warehouse, location, sscc, serialNum, ident);
         //    }
 
@@ -1030,13 +1030,11 @@ namespace Scanner
                 else
                 {
                     StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
-                   
-                   
+                                     
                 }
 
                 Finish();
             
-
             }
         }
 
@@ -1399,7 +1397,9 @@ namespace Scanner
             {
            
 
-                if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
+                if (moveItem == null) { 
+                    moveItem = new NameValueObject("MoveItem");
+                }
                 moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
                 moveItem.SetString("LinkKey", openOrder.GetString("Key"));
                 moveItem.SetInt("LinkNo", openOrder.GetInt("No"));
@@ -1586,7 +1586,7 @@ namespace Scanner
                 var debug = true;
                 if(tbSSCCpopup.HasFocus)
                 {
-                    FilData(tbSSCCpopup.Text);
+                    FilData(barcode);
 
                 }
             }

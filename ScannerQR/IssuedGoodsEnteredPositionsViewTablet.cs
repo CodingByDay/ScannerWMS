@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -299,7 +300,7 @@ namespace Scanner
         }
         private void BtLogout_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            StartActivity(typeof(MainMenuTablet));
         }
         private void BtDelete_Click(object sender, EventArgs e)
         {
@@ -435,7 +436,7 @@ namespace Scanner
                 {
                     item.SetString("Ident", openIdent.GetString("Code"));
                     InUseObjects.Set("OpenIdent", openIdent);
-                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
 
                 }
             }
