@@ -62,7 +62,7 @@ namespace Scanner
         {
             if (IsOnline())
             {
-                Password = FindViewById<EditText>(Resource.Id.password);
+                
                 if (string.IsNullOrEmpty(Password.Text.Trim())) { return; }
                 Services.ClearUserInfo();
                 string error;
@@ -141,6 +141,9 @@ namespace Scanner
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
+            Password = FindViewById<EditText>(Resource.Id.password);
+            Password.InputType = Android.Text.InputTypes.NumberVariationPassword |
+                          Android.Text.InputTypes.ClassNumber;
             progressBar1 = FindViewById<ProgressBar>(Resource.Id.progressBar1);
 
             // Registering first event..
