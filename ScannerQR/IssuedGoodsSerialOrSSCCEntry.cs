@@ -412,6 +412,7 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+            Finish();
             InvalidateAndClose();
         }
 
@@ -473,7 +474,7 @@ namespace Scanner
         {
             {
                 StartActivity(typeof(IssuedGoodsEnteredPositionsView));
-
+                Finish();
                 InvalidateAndClose();
             }
 
@@ -1007,11 +1008,14 @@ namespace Scanner
 
                 {
 
-                    StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
+                    StartActivity(typeof(IssuedGoodsIdentEntryWithTrail)); 
+                    Finish();
+
 
                 } else
                 {
                     StartActivity(typeof(IssuedGoodsIdentEntry));
+                    Finish();
                 }
                 InvalidateAndClose();
               
@@ -1020,20 +1024,24 @@ namespace Scanner
 
         private async void BtSaveOrUpdate_Click(object sender, EventArgs e)
         {
-            if (await SaveMoveItem())
+            var result = SaveMoveItem().Result;
+            if (result)
             {
                 if (editMode)
                 {
                     StartActivity(typeof(IssuedGoodsEnteredPositionsView));
-                    
+                    Finish();
+
                 }
                 else
                 {
                     StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
-                                     
+                    Finish();
+
                 }
 
-                Finish();
+
+    
             
             }
         }
@@ -1137,8 +1145,7 @@ namespace Scanner
             }
 
             tbSSCC.RequestFocus();
-            // Revision 1.31.2021
-            // Revision 
+        
         }
      
 
@@ -1442,16 +1449,6 @@ namespace Scanner
         }
 
 
-
-      
-
-
-
-
-
-
-
-
         private void ProcessQty()
         {
             if (!CommonData.IsValidLocation(moveHead.GetString("Wharehouse"), tbLocation.Text.Trim()))
@@ -1538,6 +1535,7 @@ namespace Scanner
         private void Button3_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
+            Finish();
         }
 
         public void GetBarcode(string barcode)
