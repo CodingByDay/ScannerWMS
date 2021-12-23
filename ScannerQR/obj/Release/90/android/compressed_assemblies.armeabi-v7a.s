@@ -127,7 +127,7 @@
 
 	/* 11: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.long	1362432
+	.long	1363968
 	/* loaded */
 	.byte	0
 	/* data */

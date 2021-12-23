@@ -49,68 +49,68 @@
 	.section	.rodata.map_aname.8,"aMS",@progbits,1
 	.type	.L.map_aname.8, @object
 .L.map_aname.8:
-	.asciz	"Mono.Android"
-	.size	.L.map_aname.8, 13
+	.asciz	"Microsoft.AppCenter"
+	.size	.L.map_aname.8, 20
 
 	.section	.rodata.map_aname.9,"aMS",@progbits,1
 	.type	.L.map_aname.9, @object
 .L.map_aname.9:
-	.asciz	"Microsoft.AppCenter"
-	.size	.L.map_aname.9, 20
+	.asciz	"Xamarin.AndroidX.Loader"
+	.size	.L.map_aname.9, 24
 
 	.section	.rodata.map_aname.10,"aMS",@progbits,1
 	.type	.L.map_aname.10, @object
 .L.map_aname.10:
-	.asciz	"Xamarin.AndroidX.Loader"
-	.size	.L.map_aname.10, 24
+	.asciz	"Xamarin.AndroidX.Activity"
+	.size	.L.map_aname.10, 26
 
 	.section	.rodata.map_aname.11,"aMS",@progbits,1
 	.type	.L.map_aname.11, @object
 .L.map_aname.11:
-	.asciz	"Xamarin.AndroidX.Activity"
-	.size	.L.map_aname.11, 26
+	.asciz	"EDMTBinding"
+	.size	.L.map_aname.11, 12
 
 	.section	.rodata.map_aname.12,"aMS",@progbits,1
 	.type	.L.map_aname.12, @object
 .L.map_aname.12:
-	.asciz	"EDMTBinding"
-	.size	.L.map_aname.12, 12
+	.asciz	"Mono.Android"
+	.size	.L.map_aname.12, 13
 
 	.section	.rodata.map_aname.13,"aMS",@progbits,1
 	.type	.L.map_aname.13, @object
 .L.map_aname.13:
-	.asciz	"DeviceAPI"
-	.size	.L.map_aname.13, 10
+	.asciz	"WMS"
+	.size	.L.map_aname.13, 4
 
 	.section	.rodata.map_aname.14,"aMS",@progbits,1
 	.type	.L.map_aname.14, @object
 .L.map_aname.14:
-	.asciz	"Xamarin.AndroidX.Lifecycle.ViewModel"
-	.size	.L.map_aname.14, 37
+	.asciz	"DeviceAPI"
+	.size	.L.map_aname.14, 10
 
 	.section	.rodata.map_aname.15,"aMS",@progbits,1
 	.type	.L.map_aname.15, @object
 .L.map_aname.15:
-	.asciz	"ZoomImage-Xamarin"
-	.size	.L.map_aname.15, 18
+	.asciz	"Xamarin.AndroidX.Lifecycle.ViewModel"
+	.size	.L.map_aname.15, 37
 
 	.section	.rodata.map_aname.16,"aMS",@progbits,1
 	.type	.L.map_aname.16, @object
 .L.map_aname.16:
-	.asciz	"Microsoft.AppCenter.Crashes"
-	.size	.L.map_aname.16, 28
+	.asciz	"ZoomImage-Xamarin"
+	.size	.L.map_aname.16, 18
 
 	.section	.rodata.map_aname.17,"aMS",@progbits,1
 	.type	.L.map_aname.17, @object
 .L.map_aname.17:
-	.asciz	"Microsoft.AppCenter.Distribute"
-	.size	.L.map_aname.17, 31
+	.asciz	"Microsoft.AppCenter.Crashes"
+	.size	.L.map_aname.17, 28
 
 	.section	.rodata.map_aname.18,"aMS",@progbits,1
 	.type	.L.map_aname.18, @object
 .L.map_aname.18:
-	.asciz	"WMS"
-	.size	.L.map_aname.18, 4
+	.asciz	"Microsoft.AppCenter.Distribute"
+	.size	.L.map_aname.18, 31
 
 	.section	.rodata.map_aname.19,"aMS",@progbits,1
 	.type	.L.map_aname.19, @object

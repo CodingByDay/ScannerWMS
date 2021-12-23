@@ -1001,7 +1001,8 @@ namespace Scanner
 
         private async void Button4_Click(object sender, EventArgs e)
         {
-            if (await SaveMoveItem())
+            var result = SaveMoveItem().Result;
+            if (result)
 
             {
                if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")

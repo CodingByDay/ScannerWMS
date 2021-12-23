@@ -1178,7 +1178,9 @@ namespace Scanner
 
         private async void Button4_Click(object sender, EventArgs e)
         {
-            if (await SaveMoveItem())
+
+            var correct = SaveMoveItem().Result;
+            if (correct)
             {
                 if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                 {
@@ -1194,7 +1196,8 @@ namespace Scanner
 
         private async void BtSaveOrUpdate_Click(object sender, EventArgs e)
         {
-            if (await SaveMoveItem())
+            var correct = SaveMoveItem().Result;
+            if (correct)
             {
                 if (editMode)
                 {
@@ -1645,6 +1648,8 @@ namespace Scanner
         private void Button3_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
+            Finish();
+
         }
 
         public void GetBarcode(string barcode)
