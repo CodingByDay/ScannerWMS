@@ -19,6 +19,12 @@ namespace Scanner
     {
         public static string target = App.settings.device;
         public bool result = Services.isTablet(target); /* Is the device tablet. */
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,28 +33,81 @@ namespace Scanner
             // Create your application here
             SetContentView(Resource.Layout.PrintingMenu);
             // button1 PrintingReprintLabels());
-            Button button1 = FindViewById<Button>(Resource.Id.button1);
+            button1 = FindViewById<Button>(Resource.Id.button1);
             button1.Click += Button1_Click;
             // button2 PrintingSSCCCodes());
-            Button button2 = FindViewById<Button>(Resource.Id.button2);
+            button2 = FindViewById<Button>(Resource.Id.button2);
             button2.Click += Button_Click;
             // button3 PrintingProcessControl());
-            Button button3 = FindViewById<Button>(Resource.Id.button3);
+            button3 = FindViewById<Button>(Resource.Id.button3);
             button3.Click += Button3_Click;
             // button4 PrintingInputControl());
-            Button button4 = FindViewById<Button>(Resource.Id.button4);
+            button4 = FindViewById<Button>(Resource.Id.button4);
             button4.Click += Button4_Click;
             // button5 PrintingOutputControl());
-            Button button5 = FindViewById<Button>(Resource.Id.button5);
+            button5 = FindViewById<Button>(Resource.Id.button5);
             button5.Click += Button5_Click;
             // button6 logout
-            Button button6 = FindViewById<Button>(Resource.Id.button6);
+            button6 = FindViewById<Button>(Resource.Id.button6);
             button6.Click += Button6_Click;
         }
 
+
+
+
+
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            switch (keyCode)
+            {
+                // In smartphone
+                case Keycode.F2:
+
+              
+                        Button1_Click(this, null);
+
+                    
+                    break;
+                // Return true;
+
+                case Keycode.F3:
+
+
+                    Button_Click(this, null);
+                    
+
+                    break;
+
+
+                case Keycode.F4:
+
+                    Button1_Click(this, null);
+               
+                    break;
+
+                case Keycode.F5:
+
+                    Button4_Click(this, null);
+              
+                    break;
+                case Keycode.F6:
+
+                    Button5_Click(this, null);
+
+                    break;
+                case Keycode.F8:
+
+                    Button6_Click(this, null);
+
+                    break;
+
+                    // return true;
+            }
+            return base.OnKeyDown(keyCode, e);
+        }
         private void Button6_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu)); /* */
+            StartActivity(typeof(MainMenu)); /* Go back button. */
         }
 
         private void Button5_Click(object sender, EventArgs e)
