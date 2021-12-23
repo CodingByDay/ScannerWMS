@@ -78,6 +78,12 @@ namespace Scanner
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
             warehousePNG = FindViewById<ZoomageView>(Resource.Id.warehousePNG);
             // Buttons.
+            tbIdent.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSerialNum.InputType = Android.Text.InputTypes.ClassNumber;
+            tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
+            tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
+            tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
             AdapterLocation adapter = new AdapterLocation(this, items);
       
             spLocation = FindViewById<Spinner>(Resource.Id.spLocation);

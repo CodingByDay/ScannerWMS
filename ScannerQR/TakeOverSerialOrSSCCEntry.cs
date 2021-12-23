@@ -253,8 +253,9 @@ namespace Scanner
 
         private async void Button4_Click(object sender, EventArgs e)
         {
-            //
-            if (await SaveMoveItem())
+            // Revision
+            var resutAsync = SaveMoveItem().Result;
+            if (resutAsync)
             {
                 StartActivity(typeof(TakeOverIdentEntry));
               
@@ -264,7 +265,8 @@ namespace Scanner
 
         private async void BtSaveOrUpdate_Click(object sender, EventArgs e)
         {
-            if (await SaveMoveItem())
+            var resultAsync = SaveMoveItem().Result;
+            if (resultAsync)
             {
                 if (editMode)
                 {
@@ -287,8 +289,8 @@ namespace Scanner
         {
             await Task.Run(async () =>
             {
-
-                if (await SaveMoveItem())
+                var resultAsync = SaveMoveItem().Result;
+                if (resultAsync)
                 {
                     RunOnUiThread(() =>
                     {

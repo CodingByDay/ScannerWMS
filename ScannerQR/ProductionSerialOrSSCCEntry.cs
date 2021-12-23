@@ -595,7 +595,8 @@ namespace Scanner
         {
             await Task.Run(async () =>
             {
-                if (await SaveMoveItem())
+                var resultAsync = SaveMoveItem().Result;
+                if (resultAsync)
                 {
                     var headID = moveHead.GetInt("HeadID");
                     //

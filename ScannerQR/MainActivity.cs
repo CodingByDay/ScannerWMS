@@ -84,7 +84,7 @@ namespace Scanner
                         if (tablet == true)
                         {
                             StartActivity(typeof(MainMenuTablet));
-                        } /* Entry point for the phone */
+                        } /* Entry point for the phone. */
                         else
                         {
                             StartActivity(typeof(MainMenu));

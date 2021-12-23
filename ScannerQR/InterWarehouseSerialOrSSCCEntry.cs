@@ -900,6 +900,12 @@ namespace Scanner
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
             // labels
+            tbIdent.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSerialNum.InputType = Android.Text.InputTypes.ClassNumber;
+            tbIssueLocation.InputType = Android.Text.InputTypes.ClassNumber;
+            tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
+            tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
             imagePNG = FindViewById<ImageView>(Resource.Id.imagePNG);

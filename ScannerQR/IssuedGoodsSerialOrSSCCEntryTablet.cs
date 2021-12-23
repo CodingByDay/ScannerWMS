@@ -89,6 +89,13 @@ namespace Scanner
             imagePNG = FindViewById<ZoomageView>(Resource.Id.imagePNG);
             spLocation = FindViewById<Spinner>(Resource.Id.spLocation);
             btMorePallets = FindViewById<Button>(Resource.Id.btMorePallets);
+            tbIdent.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSerialNum.InputType = Android.Text.InputTypes.ClassNumber;
+            tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
+            tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
+            tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
+            tbPalette.InputType = Android.Text.InputTypes.ClassNumber;
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
@@ -814,7 +821,8 @@ namespace Scanner
         {
             await Task.Run(async () =>
             {
-                if (await SaveMoveItem())
+                var resultAsync = SaveMoveItem().Result;
+                if (resultAsync)
                 {
                     RunOnUiThread(() =>
                     {

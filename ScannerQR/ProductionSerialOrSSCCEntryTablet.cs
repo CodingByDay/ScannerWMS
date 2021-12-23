@@ -452,6 +452,12 @@ namespace Scanner
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
+            tbIdent.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSerialNum.InputType = Android.Text.InputTypes.ClassNumber;
+            tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
+            tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
+            tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button3 = FindViewById<Button>(Resource.Id.button3);
@@ -632,7 +638,8 @@ namespace Scanner
         {
             await Task.Run(async () =>
             {
-                if (await SaveMoveItem())
+                var resultAsync = SaveMoveItem().Result;
+                if (resultAsync)
                 {
                     var headID = moveHead.GetInt("HeadID");
                     //
