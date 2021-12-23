@@ -545,7 +545,8 @@ namespace Scanner
         {
             await Task.Run(async () =>
             {
-                if (await SaveMoveItem())
+                var resultAsync = SaveMoveItem().Result;
+                if (resultAsync)
                 {
                     RunOnUiThread(() =>
                     {
@@ -1345,7 +1346,8 @@ namespace Scanner
 
         private async void BtSaveOrUpdate_Click(object sender, EventArgs e)
         {
-            if (await SaveMoveItem())
+            var resultAsync = SaveMoveItem().Result;
+            if (resultAsync)
             {
                 if (editMode)
                 {
@@ -1362,7 +1364,8 @@ namespace Scanner
 
         private async void Button3_Click(object sender, EventArgs e)
         {
-            if (await SaveMoveItem())
+            var resultAsync = SaveMoveItem().Result;
+            if (resultAsync)
             {
                 StartActivity(typeof(InterWarehouseSerialOrSSCCEntryTablet));
 
