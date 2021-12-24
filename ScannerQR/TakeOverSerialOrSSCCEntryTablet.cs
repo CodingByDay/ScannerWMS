@@ -65,8 +65,8 @@ namespace Scanner
 
             // Create your application here.
             SetContentView(Resource.Layout.TakeOverSerialOrSSCCEntryTablet);
-            // 
-            //
+        
+       
             listData = FindViewById<ListView>(Resource.Id.listData);
 
             fillItems();

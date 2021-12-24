@@ -463,6 +463,13 @@ namespace Scanner
             button3 = FindViewById<Button>(Resource.Id.button3);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button5 = FindViewById<Button>(Resource.Id.button5);
+            tbIdent.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSerialNum.InputType = Android.Text.InputTypes.ClassNumber;
+            tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
+            tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
+            tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
+
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             color();

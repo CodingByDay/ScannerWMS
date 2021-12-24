@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Scanner.App;
 using TrendNET.WMS.Device.Services;
 
 namespace Scanner
@@ -50,10 +51,22 @@ namespace Scanner
             // button6 logout
             button6 = FindViewById<Button>(Resource.Id.button6);
             button6.Click += Button6_Click;
+            ChangeTheOrientation();
         }
 
 
+        private void ChangeTheOrientation()
+        {
+            if (settings.tablet == true)
+            {
+                RequestedOrientation = Android.Content.PM.ScreenOrientation.Landscape;
+            }
+            else
+            {
+                RequestedOrientation = Android.Content.PM.ScreenOrientation.Portrait;
 
+            }
+        }
 
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

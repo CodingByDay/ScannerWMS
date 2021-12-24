@@ -64,7 +64,12 @@ namespace Scanner
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
-
+            tbIdent.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
+            tbSerialNum.InputType = Android.Text.InputTypes.ClassNumber;
+            tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
+            tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
+            tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
             // Buttons.
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
