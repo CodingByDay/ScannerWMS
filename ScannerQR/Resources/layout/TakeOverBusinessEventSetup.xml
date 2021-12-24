@@ -35,7 +35,7 @@
         android:gravity="center" 
         android:spinnerMode="dialog" />
     <TextView
-        android:textSize="16px"
+    
         android:textStyle="bold"
         android:text="Subjekt"
         android:textAppearance="?android:attr/textAppearanceMedium"

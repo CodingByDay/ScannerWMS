@@ -26,10 +26,6 @@ namespace Scanner
         private int temporaryPositionWarehouse;
         private int temporaryPositionSubject;
         private int temporaryPositioncbDoc;
-
-
-
-
         private Button btnOrder;
         private Button btnOrderMode;
         private Button logout;
@@ -41,7 +37,8 @@ namespace Scanner
         private TextView label1;
         private TextView label2;
         private TextView lbSubject;
-        //
+        private ArrayAdapter<ComboBoxItem> adapterSubject;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -62,10 +59,7 @@ namespace Scanner
             btnOrder.Click += BtnOrder_Click;
             btnOrderMode.Click += BtnOrderMode_Click;
             logout.Click += Logout_Click;
-            //
-
             btnOrderMode.Enabled = Services.HasPermission("TNET_WMS_BLAG_ACQ_NORDER", "R");
-
             var warehouses = CommonData.ListWarehouses();
 
 
@@ -87,10 +81,7 @@ namespace Scanner
 
             UpdateForm();
 
-            var adapterSubject = new ArrayAdapter<ComboBoxItem>(this,
-            Android.Resource.Layout.SimpleSpinnerItem, objectcbSubject);
-            adapterSubject.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            cbSubject.Adapter = adapterSubject;
+         
             var adapterDoc = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectcbDocType);
 
@@ -117,27 +108,19 @@ namespace Scanner
                         BtnOrder_Click(this, null);
                     }
                     break;
-                //return true;
-
-
+                // return true;
                 case Keycode.F3:
                     if (btnOrderMode.Enabled == true)
                     {
                         BtnOrderMode_Click(this, null);
                     }
                     break;
-
-
                 case Keycode.F9:
                     if (logout.Enabled == true)
                     {
                         Logout_Click(this, null);
                     }
                     break;
-
-
-
-
             }
             return base.OnKeyDown(keyCode, e);
         }
@@ -151,14 +134,11 @@ namespace Scanner
             if (byOrder && (CommonData.GetSetting("UseDirectTakeOver") == "1"))
             {
                 StartActivity(typeof(TakeOver2Main));
-             
-
             }
             else
             {
                 byOrder = !byOrder;
                 UpdateForm();
-
             }
         }
     
@@ -198,7 +178,14 @@ namespace Scanner
                         subjects.Items.ForEach(s =>
                         {
                             objectcbSubject.Add(new ComboBoxItem { ID = s.GetString("ID"), Text = s.GetString("ID") });
+                    
                         });
+
+                        adapterSubject = new ArrayAdapter<ComboBoxItem>(this,
+                        Android.Resource.Layout.SimpleSpinnerItem, objectcbSubject);
+                        adapterSubject.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+                        cbSubject.Adapter = adapterSubject;
+                        // Test this.
                     }
 
                     docTypes = CommonData.ListDocTypes("P|F");
@@ -213,7 +200,7 @@ namespace Scanner
             }
             finally
             {
-                //
+                
             }
         }
 

@@ -307,7 +307,7 @@
         android:drawableLeft="@drawable/logout"
         android:paddingRight="10dp"
         android:layout_marginRight="5.0dp"
-        android:background="#ff006064" />
+        android:background="#00aeb5" />
 
 
 

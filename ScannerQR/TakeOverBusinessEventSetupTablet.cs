@@ -86,10 +86,7 @@ namespace Scanner
 
             UpdateForm();
 
-            var adapterSubject = new ArrayAdapter<ComboBoxItem>(this,
-            Android.Resource.Layout.SimpleSpinnerItem, objectcbSubject);
-            adapterSubject.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            cbSubject.Adapter = adapterSubject;
+           
             var adapterDoc = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectcbDocType);
 
@@ -200,7 +197,10 @@ namespace Scanner
                             objectcbSubject.Add(new ComboBoxItem { ID = s.GetString("ID"), Text = s.GetString("ID") });
                         });
                     }
-
+                    var adapterSubject = new ArrayAdapter<ComboBoxItem>(this,
+                    Android.Resource.Layout.SimpleSpinnerItem, objectcbSubject);
+                    adapterSubject.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+                    cbSubject.Adapter = adapterSubject;
                     docTypes = CommonData.ListDocTypes("P|F");
 
                     btnOrderMode.Text = "Z naročilom - F3";
