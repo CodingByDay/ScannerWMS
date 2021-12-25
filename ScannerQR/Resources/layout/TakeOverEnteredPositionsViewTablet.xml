@@ -327,7 +327,7 @@
             android:paddingTop="5px">
              <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Nasl. nar."
+            android:text="Naslednji prev."
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="70.0dp"

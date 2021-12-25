@@ -169,8 +169,6 @@ com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\takeoverbusinesseventsetup.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\90\res\layout\takeoverbusinesseventsetuptablet.xml
 corners;obj\Debug\90\res\drawable\nicelookingbutton.xml
-crc64a4453dc4d6b942b4.SignaturePadCanvasView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\11\jl\res\layout\signature_pad_layout.xml
-crc64a4453dc4d6b942b4.SignaturePadView;obj\Debug\90\res\layout\signatureview.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\1\jl\res\values\values.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\11\jl\res\values\attrs.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\53\jl\res\values\values.xml
@@ -543,7 +541,6 @@ string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\7\jl\res\valu
 string;obj\Debug\90\res\values\strings.xml
 style;obj\Debug\90\res\values\styles.xml
 TextView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\90\lp\11\jl\res\layout\signature_pad_layout.xml
-TextView;obj\Debug\90\res\layout\activity_main.xml
 TextView;obj\Debug\90\res\layout\checkstock.xml
 TextView;obj\Debug\90\res\layout\checkstockaddonview.xml
 TextView;obj\Debug\90\res\layout\checkstocktablet.xml

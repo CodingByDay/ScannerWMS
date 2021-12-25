@@ -541,7 +541,6 @@ string;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\7\jl\res\va
 string;obj\Release\90\res\values\strings.xml
 style;obj\Release\90\res\values\styles.xml
 TextView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Release\90\lp\11\jl\res\layout\signature_pad_layout.xml
-TextView;obj\Release\90\res\layout\activity_main.xml
 TextView;obj\Release\90\res\layout\checkstock.xml
 TextView;obj\Release\90\res\layout\checkstockaddonview.xml
 TextView;obj\Release\90\res\layout\checkstocktablet.xml

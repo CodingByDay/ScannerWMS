@@ -79,14 +79,14 @@
 	.section	.rodata.map_aname.13,"aMS",@progbits,1
 	.type	.L.map_aname.13, @object
 .L.map_aname.13:
-	.asciz	"WMS"
-	.size	.L.map_aname.13, 4
+	.asciz	"DeviceAPI"
+	.size	.L.map_aname.13, 10
 
 	.section	.rodata.map_aname.14,"aMS",@progbits,1
 	.type	.L.map_aname.14, @object
 .L.map_aname.14:
-	.asciz	"DeviceAPI"
-	.size	.L.map_aname.14, 10
+	.asciz	"WMS"
+	.size	.L.map_aname.14, 4
 
 	.section	.rodata.map_aname.15,"aMS",@progbits,1
 	.type	.L.map_aname.15, @object

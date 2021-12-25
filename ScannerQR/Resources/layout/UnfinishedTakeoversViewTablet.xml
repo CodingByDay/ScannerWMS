@@ -317,7 +317,7 @@
 
              <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Nasl. nar."
+            android:text="Naslednji  prev."
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="70.0dp"
@@ -327,7 +327,7 @@
             android:id="@+id/btNext" />
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Zakl./Pop."
+                android:text="Zaključi / Pop."
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:layout_weight="1"

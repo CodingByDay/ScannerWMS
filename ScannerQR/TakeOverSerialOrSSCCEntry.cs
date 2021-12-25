@@ -161,7 +161,7 @@ namespace Scanner
                 // Qty, OpenQty
                 tbIdent.Text = openIdent.GetString("Code") + " " + openIdent.GetString("Name");
             }
-            //
+     
             lbQty.Text = "Količina (" + openOrder.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture()) + ")";
 
             isPackaging = openIdent.GetBool("IsPackaging");
@@ -648,7 +648,7 @@ namespace Scanner
                         var location = x.GetString("Location");
 
 
-                        var debug = true;
+                    
                     });
                 }
 
@@ -734,7 +734,7 @@ namespace Scanner
 
 
             await GetLocationsForGivenWarehouse(moveHead.GetString("Wharehouse"));
-            var str = 3;
+          
         }
         public void GetBarcode(string barcode)
         {
