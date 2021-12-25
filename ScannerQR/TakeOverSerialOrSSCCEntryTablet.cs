@@ -183,7 +183,7 @@ namespace Scanner
 
                 tbSSCC.Text = moveItem.GetString("SSCC");
                 tbLocation.Text = moveItem.GetString("Location");
-                btSaveOrUpdate.Text = "Spremeni serijsko št. - F2";
+                btSaveOrUpdate.Text = "Spr. ser. št. - F2";
             }
             else
             {
@@ -296,7 +296,14 @@ namespace Scanner
             var item = locList.ElementAt(element);
 
             tbLocation.Text = item;
-            tbPacking.RequestFocus();
+            /// Make a check to see if it is the update.
+            if (String.IsNullOrEmpty(tbSerialNum.Text))
+            {
+                tbSerialNum.RequestFocus();
+            }
+            else {
+                tbPacking.RequestFocus(); 
+            }
         }
 
      
