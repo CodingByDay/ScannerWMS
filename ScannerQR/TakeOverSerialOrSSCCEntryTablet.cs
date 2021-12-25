@@ -268,6 +268,7 @@ namespace Scanner
             tbSerialNum.RequestFocus();
             spLocation.SetSelection(locList.IndexOf("P01"), true);
             showPictureIdent(tbIdent.Text);
+            listData.PerformItemClick(listData, 0, 0);
         }
 
       
@@ -291,10 +292,7 @@ namespace Scanner
         private void SpLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             int element = e.Position;
-
-
             var item = locList.ElementAt(element);
-
             tbLocation.Text = item;
             /// Make a check to see if it is the update.
             if (String.IsNullOrEmpty(tbSerialNum.Text))
@@ -302,17 +300,12 @@ namespace Scanner
                 tbSerialNum.RequestFocus();
             }
             else {
+
                 tbPacking.RequestFocus(); 
             }
         }
 
-     
-
-
         // moveHead.GetString("Wharehouse")
-
-
-
         private void FillTheIdentLocationList()
         {
 
@@ -509,8 +502,10 @@ namespace Scanner
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             selected = e.Position;
-            var item = data.ElementAt(selected);
-            tbLocation.Text = item.Location;
+            var item = items.ElementAt(selected);
+            tbLocation.Text = item.location;
+            listData.SetItemChecked(selected, true);
+            listData.SetSelection(selected);
 
         }
         private async Task GetLocationsForGivenWarehouse(string warehouse)
@@ -567,7 +562,7 @@ namespace Scanner
             listData.Adapter = adapter;
 
             var debug = data.Count();
-           
+            var jesus = true;
         }
 
 
