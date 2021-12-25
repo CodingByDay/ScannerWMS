@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Com.Toptoche.Searchablespinnerlibrary;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -40,6 +41,7 @@ namespace Scanner
         private Button btConfirm;
         private Button button4;
         private Button button5;
+        private List<string> identData = new List<string>();
         private ListView listData;
         private List<TakeOverIdentList> data = new List<TakeOverIdentList>();
         SoundPool soundPool;
@@ -48,7 +50,7 @@ namespace Scanner
         public string openQty;
         private int selectedItem= -1;
         public int selected = -1;
-
+        private SearchableSpinner spinnerIdent;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -84,6 +86,32 @@ namespace Scanner
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
             listData.ItemClick += ListData_ItemClick;
+
+
+            identData = MakeTheApiCallForTheIdentData();
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent); // identdata -> Object
+
+            var DataAdapter = new ArrayAdapter<string>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, identData);
+
+            DataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinnerIdent.Adapter = DataAdapter;
+        }
+
+        private List<string> MakeTheApiCallForTheIdentData()
+        {
+            List<string> returnList = new List<string>();
+            // Call the API.
+            string error;
+            var idents = Services.GetObjectList("id", out error, "");
+
+            idents.Items.ForEach(x =>
+            {
+                returnList.Add(x.GetString("Code"));
+            });
+          
+
+            return returnList;
         }
 
         private void BtNext_Click1(object sender, EventArgs e)

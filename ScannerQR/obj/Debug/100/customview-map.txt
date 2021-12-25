@@ -167,7 +167,11 @@ com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\100\res\layout
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\100\res\layout\issuedgoodsbusinesseventsetuptablet.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\100\res\layout\takeoverbusinesseventsetup.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\100\res\layout\takeoverbusinesseventsetuptablet.xml
+com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\100\res\layout\takeoveridententrytablet.xml
+com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\100\res\layout\takeoverserialorssccentrytablet.xml
 corners;obj\Debug\100\res\drawable\nicelookingbutton.xml
+crc64a4453dc4d6b942b4.SignaturePadCanvasView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\100\lp\11\jl\res\layout\signature_pad_layout.xml
+crc64a4453dc4d6b942b4.SignaturePadView;obj\Debug\100\res\layout\signatureview.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\100\lp\1\jl\res\values\values.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\100\lp\11\jl\res\values\attrs.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\100\lp\60\jl\res\values\values.xml
