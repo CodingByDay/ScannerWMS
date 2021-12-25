@@ -80,14 +80,25 @@ namespace Scanner
             btLogout.Click += BtLogout_Click;
             selectedItem = -1;
             dataList.ItemClick += DataList_ItemClick;
+            // here
+            dataList.ItemSelected += DataList_ItemSelected;
             InUseObjects.Clear();
             dataList.ItemLongClick += DataList_ItemLongClick;
             LoadPositions();
             FillItemsList();
+            dataList.PerformItemClick(dataList, 0, 0);
             
 
    
 
+        }
+
+        private void DataList_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var position = e.Position;
+            dataList.RequestFocusFromTouch();
+            dataList.SetItemChecked(position, true);
+            dataList.SetSelection(position);
         }
 
         private void BtNext_Click1(object sender, EventArgs e)
@@ -119,6 +130,9 @@ namespace Scanner
             selected = e.Position;
             Select(selected);
             selectedItem = selected;
+            dataList.RequestFocusFromTouch();
+            dataList.SetItemChecked(selected, true);
+            dataList.SetSelection(selected);
 
         }
 
@@ -129,11 +143,6 @@ namespace Scanner
             switch (keyCode)
             {
                 // in smartphone
-
-        
-
-                // return true;
-
 
                 case Keycode.F2:
                     if (btFinish.Enabled == true)
@@ -376,7 +385,7 @@ namespace Scanner
                 dataList.RequestFocusFromTouch();
                 dataList.SetSelection(selected);
                 dataList.SetItemChecked(selected, true);
-                var debug = true;
+               
             }
 
             dataList.Clickable = true;
@@ -460,8 +469,18 @@ namespace Scanner
             dataList.Adapter = null;
             UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
             dataList.Adapter = adapter;
+            // Selects the first element.
+            //SetAppropriateSelection(dataList);
 
         }
+
+        //private void SetAppropriateSelection(ListView dataList)
+        //{
+        //    dataList.RequestFocusFromTouch();
+        //    dataList.SetItemChecked(0, true);
+        //    dataList.SetSelection(0);
+        //}
+
         private void FillDisplayedItem()
         {
             if ((positions != null) && (positions.Items.Count > 0))

@@ -168,8 +168,6 @@ com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\100\res\layout
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\100\res\layout\takeoverbusinesseventsetup.xml
 com.toptoche.searchablespinnerlibrary.SearchableSpinner;obj\Debug\100\res\layout\takeoverbusinesseventsetuptablet.xml
 corners;obj\Debug\100\res\drawable\nicelookingbutton.xml
-crc64a4453dc4d6b942b4.SignaturePadCanvasView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\100\lp\11\jl\res\layout\signature_pad_layout.xml
-crc64a4453dc4d6b942b4.SignaturePadView;obj\Debug\100\res\layout\signatureview.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\100\lp\1\jl\res\values\values.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\100\lp\11\jl\res\values\attrs.xml
 declare-styleable;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\100\lp\60\jl\res\values\values.xml
@@ -665,4 +663,6 @@ TextView;obj\Debug\100\res\layout\wrappingpallettablet.xml
 TextView;obj\Debug\100\res\layout\yesnogeneric.xml
 TextView;obj\Debug\100\res\layout\yesnopopup.xml
 TextView;obj\Debug\100\res\layout\yesnoproductioncard.xml
-View;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\100\lp\11\jl\res\layout\signature_pad_la
+View;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\100\lp\11\jl\res\layout\signature_pad_layout.xml
+Xamarin.Controls.SignaturePadCanvasView;C:\Users\Janko\Desktop\ScannerWMS\ScannerQR\obj\Debug\100\lp\11\jl\res\layout\signature_pad_layout.xml
+xamarin.controls.SignaturePadView;obj\Debug\100\res\layout\signatureview.xml

@@ -78,7 +78,8 @@ namespace Scanner
             btDelete.Click += BtDelete_Click;
             btLogout.Click += BtLogout_Click;
             listData.ItemClick += ListData_ItemClick;
-            //app 
+
+            // app 
 
             InUseObjects.ClearExcept(new string[] { "MoveHead", "OpenOrder" });
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
@@ -87,6 +88,7 @@ namespace Scanner
 
             fillList();
 
+            listData.PerformItemClick(listData, 0, 0);
         }
 
     
@@ -188,6 +190,12 @@ namespace Scanner
             selected = e.Position;
             Select(selected);
             selectedItem = selected;
+
+
+
+            listData.RequestFocusFromTouch();
+            listData.SetItemChecked(selected, true);
+            listData.SetSelection(selected);
         }
 
         private void fillList()

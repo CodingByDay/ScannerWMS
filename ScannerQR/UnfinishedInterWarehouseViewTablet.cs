@@ -33,8 +33,9 @@ namespace Scanner
         private Button btnLogout;
 
         /// <summary>
-        /// ////////////////
+        /// //////////
         /// </summary>
+        
         private ListView dataList;
         private int displayedPosition = 0;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("InterWarehouseHeads");
@@ -79,6 +80,7 @@ namespace Scanner
 
             LoadPositions();
             FillItemsList();
+            dataList.PerformItemClick(dataList, 0, 0);
         }
 
     
@@ -171,6 +173,9 @@ namespace Scanner
             selected = e.Position;
             Select(selected);
             selectedItem = selected;
+            dataList.RequestFocusFromTouch();
+            dataList.SetItemChecked(selected, true);
+            dataList.SetSelection(selected);
         }
 
         private void Select(int postionOfTheItemInTheList)

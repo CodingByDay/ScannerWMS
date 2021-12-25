@@ -78,7 +78,8 @@ namespace Scanner
             LoadPositions();
             listData.ItemLongClick += ListData_ItemLongClick;
             FillItemsList();
-          
+            listData.PerformItemClick(listData, 0, 0);
+
         }
 
     
@@ -100,6 +101,10 @@ namespace Scanner
             selected = e.Position;
             Select(selected);
             selectedItem = selected;
+            listData.RequestFocusFromTouch();
+            listData.SetItemChecked(selected, true);
+            listData.SetSelection(selected);
+
         }
 
         private void Select(int postionOfTheItemInTheList)

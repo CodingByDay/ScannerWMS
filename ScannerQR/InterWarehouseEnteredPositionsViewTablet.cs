@@ -73,7 +73,7 @@ namespace Scanner
             InterWarehouseEnteredPositionViewAdapter adapter = new InterWarehouseEnteredPositionViewAdapter(this, data);
             listData.Adapter = adapter;
             ////////////////////////////////////////////////////
-            ////////////////////////////////////////////////////
+        
             btUpdate.Click += BtUpdate_Click;
             button4.Click += Button4_Click;
             btFinish.Click += BtFinish_Click;
@@ -86,6 +86,7 @@ namespace Scanner
             LoadPositions();
             fillItems();
 
+            listData.PerformItemClick(listData, 0, 0);
         }
 
     
@@ -180,6 +181,11 @@ namespace Scanner
             selected = e.Position;
             Select(selected);
             selectedItem = selected;
+
+            listData.RequestFocusFromTouch();
+            listData.SetItemChecked(selected, true);
+            listData.SetSelection(selected);
+
         }
         private void Select(int postionOfTheItemInTheList)
         {

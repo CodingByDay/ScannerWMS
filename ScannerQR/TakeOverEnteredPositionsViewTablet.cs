@@ -87,6 +87,7 @@ namespace Scanner
 
             LoadPositions();
             fillList();
+            dataList.PerformItemClick(dataList, 0, 0);
         }
 
    
@@ -184,6 +185,9 @@ namespace Scanner
             selected = e.Position;
             Select(selected);
             selectedItem = selected;
+            dataList.RequestFocusFromTouch();
+            dataList.SetItemChecked(selected, true);
+            dataList.SetSelection(selected);
         }
         private void Select(int postionOfTheItemInTheList)
         {

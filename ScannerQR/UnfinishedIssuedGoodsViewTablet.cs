@@ -80,6 +80,7 @@ namespace Scanner
 
             LoadPositions();
             FillItemsList();
+            issuedData.PerformItemClick(issuedData, 0, 0);
         }
 
        
@@ -97,6 +98,9 @@ namespace Scanner
             selected = e.Position;
             Select(selected);
             selectedItem = selected;
+            issuedData.RequestFocusFromTouch();
+            issuedData.SetItemChecked(selected, true);
+            issuedData.SetSelection(selected);
         }
 
         private void Select(int postionOfTheItemInTheList)
@@ -129,7 +133,7 @@ namespace Scanner
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
             btnYes.Click += (e, ev) => { Yes(index); };
             btnNo.Click += (e, ev) => { No(index); };
-            var debug = 3;
+ 
         }
 
         private void No(int index)

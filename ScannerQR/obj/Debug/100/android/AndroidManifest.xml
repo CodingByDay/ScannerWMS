@@ -87,7 +87,7 @@
     <activity android:name="crc64f0e155b6502ec419.IssuedGoodsIdentEntryWithTrailTablet" android:label="IssuedGoodsIdentEntryWithTrailTablet" android:screenOrientation="landscape" />
     <activity android:name="crc64f0e155b6502ec419.IssuedGoodsSerialOrSSCCEntry" android:label="IssuedGoodsSerialOrSSCCEntry" android:screenOrientation="portrait" />
     <activity android:name="crc64f0e155b6502ec419.IssuedGoodsSerialOrSSCCEntryTablet" android:label="IssuedGoodsSerialOrSSCCEntryTablet" android:screenOrientation="landscape" />
-    <activity android:name="crc64f0e155b6502ec419.MainActivity" android:icon="@drawable/barcode" android:label="WMS" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+    <activity android:name="crc64f0e155b6502ec419.MainActivity" android:exported="true" android:icon="@drawable/barcode" android:label="WMS" android:screenOrientation="portrait" android:theme="@style/AppTheme">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
