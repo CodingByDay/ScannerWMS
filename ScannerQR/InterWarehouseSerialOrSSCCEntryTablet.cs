@@ -536,7 +536,7 @@ namespace Scanner
             }
             finally
             {
-                // pass
+                
             }
         }
         private async Task FinishMethod()

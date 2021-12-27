@@ -266,9 +266,15 @@ namespace Scanner
             spLocation.Adapter = DataAdapter;
 
             tbSerialNum.RequestFocus();
-            spLocation.SetSelection(locList.IndexOf("P01"), true);
+         
             showPictureIdent(tbIdent.Text);
             listData.PerformItemClick(listData, 0, 0);
+
+         
+                
+            spLocation.SetSelection(locList.IndexOf(CommonData.GetSetting("DefaultPaletteLocation")), true);
+
+            
         }
 
       

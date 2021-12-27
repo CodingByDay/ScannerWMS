@@ -220,7 +220,9 @@ namespace Scanner
 
             if(tbLocation.Text=="")
             {
-                tbLocation.Text = "K03";
+                tbLocation.Text = CommonData.GetSetting("DefaultPaletteLocation");
+
+
             }
         }
 
