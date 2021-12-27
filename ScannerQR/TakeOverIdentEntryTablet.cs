@@ -104,8 +104,23 @@ namespace Scanner
             // Change the search title. HERE
             DataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerIdent.Adapter = DataAdapter;
+            // The part for spinner selected index changed.
+            spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
             
         }
+
+        private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var item = e.Position;
+
+            var chosen = spinnerIdent.GetItemAtPosition(item);
+
+
+            var debug = "Clean";
+        }
+
+       
+
         /// <summary>
         ///  Make async.
         /// </summary>
