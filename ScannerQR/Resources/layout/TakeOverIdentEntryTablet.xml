@@ -149,7 +149,7 @@
             android:id="@+id/tbIdent" />
 
         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-        android:layout_width="wrap_content"
+        android:layout_width="50px"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerIdent"
         android:spinnerMode="dialog" />

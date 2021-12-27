@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Media;
@@ -51,12 +52,15 @@ namespace Scanner
         private int selectedItem= -1;
         public int selected = -1;
         private SearchableSpinner spinnerIdent;
-        protected override void OnCreate(Bundle savedInstanceState)
+        private List<string> returnList;
+
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your application here
             SetContentView(Resource.Layout.TakeOverIdentEntryTablet);
+            Toast.MakeText(this, "Nalagam seznam", ToastLength.Long).Show();
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbNaziv = FindViewById<EditText>(Resource.Id.tbNaziv);
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);
@@ -88,29 +92,40 @@ namespace Scanner
             listData.ItemClick += ListData_ItemClick;
 
 
-            identData = MakeTheApiCallForTheIdentData();
-            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent); // identdata -> Object
+            identData = await MakeTheApiCallForTheIdentData();
+            Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
 
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent); // identdata -> Object
+            spinnerIdent.Prompt = "Iskanje";
+            spinnerIdent.SetTitle("Iskanje");
+            spinnerIdent.SetPositiveButton("Zapri");
             var DataAdapter = new ArrayAdapter<string>(this,
             Android.Resource.Layout.SimpleSpinnerItem, identData);
-
+            // Change the search title. HERE
             DataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerIdent.Adapter = DataAdapter;
+            
         }
-
-        private List<string> MakeTheApiCallForTheIdentData()
+        /// <summary>
+        ///  Make async.
+        /// </summary>
+        /// <returns></returns>
+        private async Task <List<string>> MakeTheApiCallForTheIdentData()
         {
-            List<string> returnList = new List<string>();
-            // Call the API.
-            string error;
-            var idents = Services.GetObjectList("id", out error, "");
-
-            idents.Items.ForEach(x =>
+            await Task.Run(() =>
             {
-                returnList.Add(x.GetString("Code"));
-            });
-          
+                returnList = new List<string>();
+                // Call the API.
+                string error;
+                var idents = Services.GetObjectList("id", out error, "");
 
+                idents.Items.ForEach(x =>
+                {
+                    returnList.Add(x.GetString("Code"));
+                });
+
+          
+            });
             return returnList;
         }
 
