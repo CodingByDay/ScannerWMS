@@ -561,8 +561,7 @@ namespace Scanner
             listData.Adapter = null;
             listData.Adapter = adapter;
 
-            var debug = data.Count();
-            var jesus = true;
+   
         }
 
 

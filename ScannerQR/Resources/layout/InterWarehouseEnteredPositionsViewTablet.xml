@@ -343,7 +343,7 @@
                 android:layout_weight="1"
                 android:textSize="18px"
                 android:background="@drawable/nicelookingbutton"
-                android:text="Popravi pozicijo "
+                android:text="Pop. poz. "
                 android:drawableLeft="@drawable/fix"
                 android:paddingLeft="10px"
                 android:layout_width="match_parent"
@@ -366,7 +366,7 @@
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Kreiraj pozicijo "
+                android:text="Kreiraj poz. "
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:textSize="18px"
@@ -377,7 +377,7 @@
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Zaključi medskl. "
+                android:text="Zaklj. med. "
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:layout_weight="1"

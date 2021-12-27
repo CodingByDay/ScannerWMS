@@ -106,17 +106,30 @@ namespace Scanner
             spinnerIdent.Adapter = DataAdapter;
             // The part for spinner selected index changed.
             spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
-            
+            tbIdent.LongClick += ClearTheFields;
+        }   
+
+        private void ClearTheFields(object sender, View.LongClickEventArgs e)
+        {
+            tbIdent.Text = "";
+            tbNaziv.Text = "";
+           
         }
 
         private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             var item = e.Position;
 
-            var chosen = spinnerIdent.GetItemAtPosition(item);
+            var chosen = identData.ElementAt(item);
 
 
-            var debug = "Clean";
+
+
+            // Proccess ident here.
+
+            tbIdent.Text = chosen;
+
+            ProcessIdent();
         }
 
        
@@ -320,7 +333,7 @@ namespace Scanner
                 openIdent = Services.GetObject("id", ident, out error);
                 if (openIdent == null)
                 {
-                    Toast.MakeText(this, "Napaka pri preverjanju indenta" + error, ToastLength.Long).Show();
+                    Toast.MakeText(this, "Napaka pri preverjanju identa" + error, ToastLength.Long).Show();
 
                     tbIdent.Text = "";
                     tbNaziv.Text = "";

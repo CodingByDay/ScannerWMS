@@ -82,8 +82,6 @@ namespace Scanner
         private bool isBatch;
         private bool isFirst;
 
-
-        // here...
         public void GetBarcode(string barcode)
         {
             if (!string.IsNullOrEmpty(barcode))
@@ -467,7 +465,7 @@ namespace Scanner
 
                 return;
             }
-            //var stockQty = LoadStockFromLocation(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), tbIdent.Text.Trim());
+            // var stockQty = LoadStockFromLocation(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), tbIdent.Text.Trim());
 
             var stockQty = GetStock(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), sscc, serialNo, ident);
             string WebError = string.Format(stockQty.ToString());
@@ -483,7 +481,7 @@ namespace Scanner
                 lbQty.Text = "Količina (?)";
             }
 
-            tbPacking.RequestFocus();
+           
             fillItems();
         }
 
@@ -784,7 +782,6 @@ namespace Scanner
             button1.Click += Button1_Click;
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
             imagePNG.Visibility = ViewStates.Invisible;
-            tbPacking.FocusChange += TbPacking_FocusChange1;
             lbIdentName = FindViewById<EditText>(Resource.Id.lbIdentName);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
@@ -1116,10 +1113,7 @@ namespace Scanner
             tbSSCC.RequestFocus();
         }
 
-        private void TbPacking_FocusChange1(object sender, View.FocusChangeEventArgs e)
-        {
-            losesFocusLocation();
-        }
+     
 
         private void TbSerialNum_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
@@ -1414,7 +1408,7 @@ namespace Scanner
                 InUseObjects.Set("MoveHead", moveHead);
 
                 var tests = moveHead.GetInt("HeadID");
-                var debug = true;
+             
             }
         }
         private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem, bool isFirst)
@@ -1759,7 +1753,9 @@ namespace Scanner
                 
 
                 FillRelatedData(tbSSCC.Text);
-               // tbLocation.RequestFocus();
+                // tbLocation.RequestFocus();
+                ProcessQty();
+                tbLocation.RequestFocus();
 
             }
             else
@@ -1770,10 +1766,7 @@ namespace Scanner
             }
         }
 
-        private void losesFocusLocation()
-        {
-            ProcessQty();
-        }
+       
         private void Button4_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(InterWarehouseEnteredPositionsViewTablet));
