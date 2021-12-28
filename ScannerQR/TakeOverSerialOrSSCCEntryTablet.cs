@@ -62,13 +62,9 @@ namespace Scanner
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here.
             SetContentView(Resource.Layout.TakeOverSerialOrSSCCEntryTablet);
-        
-       
             listData = FindViewById<ListView>(Resource.Id.listData);
-
             fillItems();
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
@@ -85,14 +81,12 @@ namespace Scanner
             tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
             tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
             AdapterLocation adapter = new AdapterLocation(this, items);
-      
             spLocation = FindViewById<Spinner>(Resource.Id.spLocation);
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button6 = FindViewById<Button>(Resource.Id.button6);
             button5 = FindViewById<Button>(Resource.Id.button5);
             button7 = FindViewById<Button>(Resource.Id.button7);
-            // 
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
             button1 = FindViewById<Button>(Resource.Id.button1);
@@ -109,13 +103,8 @@ namespace Scanner
             button5.Click += Button5_Click;
             spLocation.ItemSelected += SpLocation_ItemSelected;
             warehousePNG.Visibility = ViewStates.Invisible;
-
             warehousePNG.Click += WarehousePNG_Click;
-
             /// Consider changing this to something else.
-
-
-          
             //
             // Exceptions
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point?!"); }
@@ -190,7 +179,7 @@ namespace Scanner
                 tbIdent.Text = openIdent.GetString("Code") + " " + openIdent.GetString("Name");
             
             }
-            //
+            
             lbQty.Text = "Količina (" + openOrder.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture()) + ")";
 
             isPackaging = openIdent.GetBool("IsPackaging");
@@ -198,15 +187,15 @@ namespace Scanner
             {
                 tbSSCC.Enabled = false;
                 tbSerialNum.Enabled = false;
-                //new Scanner(tbLocation);
+                // new Scanner(tbLocation);
                 tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
                 tbPacking.RequestFocus();
             }
             else
             {
-                //if (tbSSCC.Enabled) { new Scanner(tbSSCC); }
-                //new Scanner(tbSerialNum);
-                //new Scanner(tbLocation);
+                // if (tbSSCC.Enabled) { new Scanner(tbSSCC); }
+                // new Scanner(tbSerialNum);
+                // new Scanner(tbLocation);
 
                 if (tbSSCC.Enabled)
                 { tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua); }
@@ -248,30 +237,15 @@ namespace Scanner
             tbLocation.RequestFocus();
             FillRelatedData();
             tbSerialNum.RequestFocus();
-
-
-
-
             FillTheIdentLocationList();
-
             await GetLocationsForGivenWarehouse(moveHead.GetString("Wharehouse"));
-        
-
-
-
             var DataAdapter = new ArrayAdapter<string>(this,
             Android.Resource.Layout.SimpleSpinnerItem, locList);
-
             DataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spLocation.Adapter = DataAdapter;
-
             tbSerialNum.RequestFocus();
-         
             showPictureIdent(tbIdent.Text);
             listData.PerformItemClick(listData, 0, 0);
-
-         
-                
             spLocation.SetSelection(locList.IndexOf(CommonData.GetSetting("DefaultPaletteLocation")), true);
 
             
@@ -284,13 +258,10 @@ namespace Scanner
             popupDialog.SetContentView(Resource.Layout.WarehousePicture);
             popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialog.Show();
-
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
             image = popupDialog.FindViewById<ZoomageView>(Resource.Id.image);
             // Access Popup layout fields like below
-           
-       
         }
 
    
@@ -444,11 +415,9 @@ namespace Scanner
                 Drawable d = new BitmapDrawable(Resources, show);
                 warehousePNG.SetImageDrawable(d);
                 warehousePNG.Visibility = ViewStates.Visible;
-
-
                 warehousePNG.Click += (e, ev) => { ImageClick(d); };
 
-            } catch(Exception error)
+            } catch(Exception)
             {
                 return;
             }
@@ -472,9 +441,9 @@ namespace Scanner
                 warehousePNG.Click += (e, ev) => { ImageClick(d); };
 
             }
-            catch (Exception error)
+            catch (Exception)
             {
-                var log = error;
+
                 return;
             }
 
@@ -493,6 +462,7 @@ namespace Scanner
             image.SetMinimumHeight(500);
             image.SetMinimumWidth(800);
             image.SetImageDrawable(d);
+
             // Access Popup layout fields like below
   
         }
@@ -562,6 +532,7 @@ namespace Scanner
                 });
 
             }
+
             TakeOverSerialOrSSCCEntryAdapter adapter = new TakeOverSerialOrSSCCEntryAdapter(this, data);
 
             listData.Adapter = null;
@@ -735,7 +706,7 @@ namespace Scanner
             }
             return (bool)checkTakeOverOpenQty;
         }
-        // ---
+        
 
 
         private async Task<bool> SaveMoveItem()
@@ -972,7 +943,7 @@ namespace Scanner
                         Button1_Click(this, null);
                     }
                     break;
-                //return true;
+                // return true;
 
 
                 case Keycode.F2:

@@ -110,6 +110,12 @@ namespace Scanner
                             tbLocation.RequestFocus();
                             ProcessQty();
 
+                            data.Clear();
+
+                            //
+                            TransportOneObject(tbSSCC.Text);
+
+
                         } else
                         {
                             // Go a step back and rescan.
@@ -204,13 +210,14 @@ namespace Scanner
                 {
                     var serial = data.GetString("SerialNo");
                     tbSerialNum.Text = serial;
-                    var location = data.GetString("Location");
+                    var location = data.GetString("IssueLocation");
                     tbIssueLocation.Text = location;
-                   // tbPacking.RequestFocus();
+                    // tbPacking.RequestFocus();
                 }
                 else
                 {
-                    return;
+                    var location = data.GetString("IssueLocation");
+                    tbIssueLocation.Text = location;
                 }
             }
             else
@@ -671,7 +678,7 @@ namespace Scanner
                 InUseObjects.Set("MoveHead", moveHead);
 
                 var tests = moveHead.GetInt("HeadID");
-                var debug = true;
+               
             }
         }
 
@@ -1021,17 +1028,77 @@ namespace Scanner
             {
 
                 FillRelatedData(tbSSCC.Text);
-                tbLocation.RequestFocus();
+            
                 ProcessQty();
                 tbLocation.RequestFocus();
-
+                // Prepare the object and add it to data, but first erase the cache.
+                
             }
         }
+        private void TransportOneObject(string sscc)
+        {
+            if (!String.IsNullOrEmpty(sscc))
+            {
+                string error;
+                var dataObject = Services.GetObject("sscc", sscc, out error);
+                if (dataObject != null)
+                {
+                    var ident = dataObject.GetString("Ident");
+                    var loadIdent = CommonData.LoadIdent(ident);
+                    var name = dataObject.GetString("IdentName");
+                    var serial = dataObject.GetString("SerialNo");
+                    var location = dataObject.GetString("Location");
+                    MorePallets pallets = new MorePallets();
+                    pallets.Ident = ident;
+                    string idname = loadIdent.GetString("Name");
+                    pallets.Location = location;
+                    if (idname.Length > 10)
+                    {
+                        pallets.Name = idname.Trim().Substring(0, 10);
+                    }
+                    else
+                    {
+                        pallets.Name = idname;
+                    }
 
+                    pallets.Quantity = sscc;
+                    pallets.SSCC = sscc;
+                    pallets.Serial = serial;
+                    if (pallets.SSCC.Length > 10)
+                    {
+                        pallets.friendlySSCC = pallets.SSCC.Substring(0, 10);
+                    }
+                    else
+                    {
+                        pallets.friendlySSCC = pallets.SSCC;
+                    }
+                    enabledSerial = loadIdent.GetBool("HasSerialNumber");
+
+
+#nullable enable        
+                    MorePallets? obj = ProcessQtyWithParams(pallets, location);
+#nullable disable
+                    /* Adds an object to the list. */
+                    if (obj is null)
+                    {
+                        Toast.MakeText(this, "Ne obstaja.", ToastLength.Long).Show();
+                    }
+                    else
+                    {
+                        data.Add(obj);
+                        var debug = true;
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
         private void BtMorePallets_Click(object sender, EventArgs e)
         {
             isOkayToCallBarcode = true;
-            //StartActivity(typeof(MorePalletsClass));
+            // StartActivity(typeof(MorePalletsClass));
             popupDialogMain = new Dialog(this);
             popupDialogMain.SetContentView(Resource.Layout.MorePalletsClass);
             popupDialogMain.Window.SetSoftInputMode(SoftInput.AdjustResize);

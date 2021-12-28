@@ -216,13 +216,11 @@ namespace Scanner
                 lbUnits.Visibility = ViewStates.Invisible;
                 tbUnits.Visibility = ViewStates.Invisible;
             }
-            FillRelatedData();
 
+            FillRelatedData();
             if(tbLocation.Text=="")
             {
                 tbLocation.Text = CommonData.GetSetting("DefaultPaletteLocation");
-
-
             }
         }
 
