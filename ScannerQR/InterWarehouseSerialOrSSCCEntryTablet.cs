@@ -188,7 +188,7 @@ namespace Scanner
                 tbIdent.Text = ident;
                 lbIdentName.Text = name;
 
-                // Just to be sure about the values, probably reduntant but hey.
+              
                 if (tbIdent.Text != null && lbIdentName.Text != null) { return true; } else { return false; }
 
 
@@ -867,10 +867,7 @@ namespace Scanner
             showPicture();
         }
 
-        private void TbSSCCpopup_FocusChange(object sender, View.FocusChangeEventArgs e)
-        {
-            losesFocusSSCC();
-        }
+      
 
         private void BtMorePallets_Click(object sender, EventArgs e)
         {
@@ -887,11 +884,9 @@ namespace Scanner
             tbSSCCpopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSSCCpopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
-            tbSSCCpopup.FocusChange += TbSSCCpopup_FocusChange;
             lvCardMore = popupDialogMain.FindViewById<ListView>(Resource.Id.lvCardMore);
             lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
-            adapter = new MorePalletsAdapter(this, datax);
-            lvCardMore.Adapter = adapter;
+      
             lvCardMore.ItemSelected += LvCardMore_ItemSelected;
             btConfirm.Click += BtConfirm_Click;
             btExit.Click += BtExit_Click;
@@ -960,7 +955,7 @@ namespace Scanner
 
         private void Yes(int index)
         {
-            data.RemoveAt(index);
+            datax.RemoveAt(index);
             lvCardMore.Adapter = null;
             lvCardMore.Adapter = adapter;
             popupDialog.Dismiss();
@@ -1083,7 +1078,8 @@ namespace Scanner
                     else
                     {
                         datax.Add(obj);
-                        var debug = true;
+                 
+
                     }
                 }
                 else
@@ -1147,6 +1143,9 @@ namespace Scanner
 
                         tbSSCCpopup.Text = "";
                         tbSSCCpopup.RequestFocus();
+                        adapter = new MorePalletsAdapter(this, datax);
+                  
+                        lvCardMore.Adapter = adapter;
 
                     }
                 }
@@ -1159,7 +1158,7 @@ namespace Scanner
         private void TbSSCCpopup_KeyPress(object sender, View.KeyEventArgs e)
         {
             e.Handled = false;
-            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            if (e.KeyCode == Keycode.Enter && !String.IsNullOrEmpty(tbSSCCpopup.Text))
             {
                 // Add your logic here 
                 FilData(tbSSCCpopup.Text);
