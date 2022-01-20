@@ -39,6 +39,7 @@ namespace Scanner
         private Button btnNo;
         private Button btNew;
         private ListView dataList;
+        private UnfinishedTakeoverAdapter adapter;
         private Button btNext;
         private List<UnfinishedTakeoverList> dataSource = new List<UnfinishedTakeoverList>();
         public int selectedItem = -1;
@@ -63,7 +64,7 @@ namespace Scanner
             tbCreatedBy = FindViewById<EditText>(Resource.Id.tbCreatedBy);
             tbCreatedAt = FindViewById<EditText>(Resource.Id.tbCreatedAt);
             dataList = FindViewById<ListView>(Resource.Id.dataList);
-            UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
+            adapter = new UnfinishedTakeoverAdapter(this, dataSource);
             dataList.Adapter = adapter;
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
@@ -458,6 +459,7 @@ namespace Scanner
                         NumberOfPositions = item.GetInt("ItemCount").ToString(),
                         // tbItemCount.Text = item.GetInt("ItemCount").ToString();
                     });
+                    adapter.NotifyDataSetChanged();
                 }
                 else
                 {
@@ -466,9 +468,9 @@ namespace Scanner
                 }
 
             }
-            dataList.Adapter = null;
-            UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
-            dataList.Adapter = adapter;
+            //dataList.Adapter = null;
+            //UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
+            //dataList.Adapter = adapter;
             // Selects the first element.
             //SetAppropriateSelection(dataList);
 

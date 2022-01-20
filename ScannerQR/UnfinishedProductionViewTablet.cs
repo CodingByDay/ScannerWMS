@@ -46,6 +46,7 @@ namespace Scanner
         private List<UnfinishedProductionList> data = new List<UnfinishedProductionList>();
         private int selected;
         private int selectedItem = -1;
+        private UnfinishedProductionAdapter adapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -67,7 +68,7 @@ namespace Scanner
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btNext.Click += BtNext_Click;
-            UnfinishedProductionAdapter adapter = new UnfinishedProductionAdapter(this, data);
+            adapter = new UnfinishedProductionAdapter(this, data);
             listData.Adapter = adapter;
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
@@ -374,7 +375,7 @@ namespace Scanner
                         Ident = item.GetString("FirstIdent"),
                         NumberOfPositions = item.GetInt("ItemCount").ToString(),
                         // tbItemCount.Text = item.GetInt("ItemCount").ToString();
-                    });
+                    }); adapter.NotifyDataSetChanged();
                 }
                 else
                 {
@@ -383,9 +384,9 @@ namespace Scanner
                 }
 
             }
-            listData.Adapter = null;
-            UnfinishedProductionAdapter adapter = new UnfinishedProductionAdapter(this, data);
-            listData.Adapter = adapter;
+            //listData.Adapter = null;
+            //UnfinishedProductionAdapter adapter = new UnfinishedProductionAdapter(this, data);
+            //listData.Adapter = adapter;
 
         }
         private void LoadPositions()

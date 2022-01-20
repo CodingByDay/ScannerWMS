@@ -37,6 +37,7 @@ namespace Scanner
         /// </summary>
         
         private ListView dataList;
+        private UnfinishedInterwarehouseAdapter adapter;
         private int displayedPosition = 0;
         private NameValueObjectList positions = (NameValueObjectList)InUseObjects.Get("InterWarehouseHeads");
         private Dialog popupDialog;
@@ -68,7 +69,7 @@ namespace Scanner
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btNext.Click += BtNext_Click;
             dataList = FindViewById<ListView>(Resource.Id.dataList);
-            UnfinishedInterwarehouseAdapter adapter = new UnfinishedInterwarehouseAdapter(this, dataMapping);
+            adapter = new UnfinishedInterwarehouseAdapter(this, dataMapping);
             dataList.Adapter = adapter;
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
@@ -359,15 +360,17 @@ namespace Scanner
                         NumberOfPositions = item.GetInt("ItemCount").ToString(),
                         // tbItemCount.Text = item.GetInt("ItemCount").ToString();
                     });
+
+
+
+                     adapter.NotifyDataSetChanged(); 
                 }
                 else
                 {
                     string errorWebApp = string.Format("Kritična napaka...");
                     Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
                 }
-                dataList.Adapter = null;
-                UnfinishedInterwarehouseAdapter adapter = new UnfinishedInterwarehouseAdapter(this, dataMapping);
-                dataList.Adapter = adapter;
+          
             }
 
 

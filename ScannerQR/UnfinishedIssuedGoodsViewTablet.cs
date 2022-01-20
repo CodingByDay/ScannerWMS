@@ -40,6 +40,7 @@ namespace Scanner
         private Button btnYes;
         private Button btnNo;
         private ListView issuedData;
+        private UnfinishedIssuedAdapter adapter;
         private List<UnfinishedIssuedList> data = new List<UnfinishedIssuedList>();
         private int selected;
         private int selectedItem = -1; 
@@ -64,7 +65,7 @@ namespace Scanner
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
             issuedData = FindViewById<ListView>(Resource.Id.issuedData);
-            UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, data);
+            adapter = new UnfinishedIssuedAdapter(this, data);
             issuedData.Adapter = adapter;
             issuedData.ItemClick += IssuedData_ItemClick;
             btFinish.Click += BtFinish_Click; //
@@ -337,7 +338,7 @@ namespace Scanner
                         Date = date,
                         NumberOfPositions = item.GetInt("ItemCount").ToString(),
                         // tbItemCount.Text = item.GetInt("ItemCount").ToString();
-                    });
+                    }); adapter.NotifyDataSetChanged();
                 }
                 else
                 {
@@ -346,11 +347,11 @@ namespace Scanner
                 }
               
             }
-            issuedData.Adapter = null;
+            //issuedData.Adapter = null;
 
-            UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, data);
+            //UnfinishedIssuedAdapter adapter = new UnfinishedIssuedAdapter(this, data);
 
-            issuedData.Adapter = adapter;
+            //issuedData.Adapter = adapter;
 
 
 

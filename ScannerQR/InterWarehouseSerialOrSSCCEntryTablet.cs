@@ -442,7 +442,7 @@ namespace Scanner
             }
             finally
             {
-                // pass
+              
             }
         }
 
@@ -582,7 +582,7 @@ namespace Scanner
                                     {
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
-                                        StartActivity(typeof(MainMenu));
+                                        StartActivity(typeof(MainMenuTablet));
                                     });
 
 
@@ -874,7 +874,7 @@ namespace Scanner
 
         private void BtMorePallets_Click(object sender, EventArgs e)
         {
-            //StartActivity(typeof(MorePalletsClass));
+            // StartActivity(typeof(MorePalletsClass));
             popupDialogMain = new Dialog(this);
             popupDialogMain.SetContentView(Resource.Layout.MorePalletsClass);
             popupDialogMain.Window.SetSoftInputMode(SoftInput.AdjustResize);
@@ -920,6 +920,7 @@ namespace Scanner
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
                 TransportObjectsToBackgroundListView(datax);
+                SavePositions(datax);
             } else
             {
                 popupDialogMain.Dismiss();
@@ -927,6 +928,11 @@ namespace Scanner
                 Toast.MakeText(this, "Niste skenirali nobeno kodo.", ToastLength.Long).Show();
             }
 
+        }
+
+        private void SavePositions(List<MorePallets> datax)
+        {
+        
         }
 
         private async void TransportObjectsToBackgroundListView(List<MorePallets> datax)
