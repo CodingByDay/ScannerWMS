@@ -38,6 +38,7 @@ namespace Scanner
         private EditText tbUnits;
         private TextView lbQty;
         private TextView lbUnits;
+        private AdapterLocation adapterNew;
         private Button button1;
         private Button btSaveOrUpdate;
         private Button button3;
@@ -220,13 +221,13 @@ namespace Scanner
                 {
                     var serial = data.GetString("SerialNo");
                     tbSerialNum.Text = serial;
-                    var location = data.GetString("IssueLocation");
+                    var location = data.GetString("Location");
                     tbIssueLocation.Text = location;
                     tbLocation.RequestFocus();
                 }
                 else
                 {
-                    var location = data.GetString("IssueLocation");
+                    var location = data.GetString("Location");
                     tbIssueLocation.Text = location;
                 
                 }
@@ -488,7 +489,7 @@ namespace Scanner
             }
 
            
-            fillItems();
+          //  fillItems();
         }
 
 
@@ -748,18 +749,16 @@ namespace Scanner
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
-            tbIdent.InputType = Android.Text.InputTypes.ClassNumber;
+         
             tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
-            tbSerialNum.InputType = Android.Text.InputTypes.ClassNumber;
-            tbIssueLocation.InputType = Android.Text.InputTypes.ClassNumber;
-            tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
+  
             tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
             listData = FindViewById<ListView>(Resource.Id.listData);
             // labels
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
-            AdapterLocation adapter = new AdapterLocation(this, items);
-            listData.Adapter = adapter;
+            adapterNew = new AdapterLocation(this, items);
+            listData.Adapter = adapterNew;
             // Buttons
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             wh = new NameValueObject();
@@ -861,6 +860,9 @@ namespace Scanner
 
             tbSSCC.RequestFocus();
 
+         
+            tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
+          
 
             spIssue.SetSelection(receiver.IndexOf("P01"), true);
             spReceive.SetSelection(receiver.IndexOf("P01"), true);
@@ -886,7 +888,9 @@ namespace Scanner
             tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
             lvCardMore = popupDialogMain.FindViewById<ListView>(Resource.Id.lvCardMore);
             lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
-      
+            adapter = new MorePalletsAdapter(this, datax);
+
+            lvCardMore.Adapter = adapter;
             lvCardMore.ItemSelected += LvCardMore_ItemSelected;
             btConfirm.Click += BtConfirm_Click;
             btExit.Click += BtExit_Click;
@@ -902,7 +906,7 @@ namespace Scanner
         }
         private void BtConfirm_Click(object sender, EventArgs e)
         {
-            if (data.Count != 0)
+            if (datax.Count != 0)
             {
                 string formatedString = $"{datax.Count} skeniranih SSCC koda.";
                 tbSSCC.Text = formatedString;
@@ -914,9 +918,57 @@ namespace Scanner
                 isBatch = true;
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
+                TransportObjectsToBackgroundListView(datax);
+            } else
+            {
+                popupDialogMain.Dismiss();
+                popupDialogMain.Hide();
+                Toast.MakeText(this, "Niste skenirali nobeno kodo.", ToastLength.Long).Show();
             }
 
         }
+
+        private async void TransportObjectsToBackgroundListView(List<MorePallets> datax)
+        {
+            items.Clear();
+            foreach (var current in datax)
+            {
+                await AddCurrentDataObject(current);
+            }
+        }
+
+        /// <summary>
+        /// Transport all of the scanned objects to the GUI in the main layout.
+        /// </summary>
+        /// <param name="data"></param>
+
+
+        private async Task AddCurrentDataObject(MorePallets currentDataObject)
+        {
+            // This async method will add the object to the list and will not block the UI.
+            await Task.Run(() =>
+            {
+                // Update on the UI thread.
+                RunOnUiThread(() =>
+                {
+                    var qty = Convert.ToDouble(currentDataObject.Quantity);
+                    var formatted = qty.ToString(CommonData.GetQtyPicture());
+                    items.Add(new LocationClass(currentDataObject.Ident, formatted, currentDataObject.Location));
+                    /* Should work without problems */
+                    listData.Adapter = null;
+
+                    listData.Adapter = adapterNew;
+        
+
+                });
+          
+                
+
+
+            });
+
+        }
+
         private void LvCardMore_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             var index = e.Position;
@@ -940,7 +992,7 @@ namespace Scanner
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
 
-            // Access Popup layout fields like below
+            // Access Pop-up layout fields like below
             btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
             btnYes.Click += (e, ev) => { Yes(index); };
@@ -1044,9 +1096,9 @@ namespace Scanner
                     pallets.Ident = ident;
                     string idname = loadIdent.GetString("Name");
                     pallets.Location = location;
-                    if (idname.Length > 10)
+                    if (idname.Length > 20)
                     {
-                        pallets.Name = idname.Trim().Substring(0, 10);
+                        pallets.Name = idname.Trim().Substring(0, 20);
                     }
                     else
                     {
@@ -1056,14 +1108,10 @@ namespace Scanner
                     pallets.Quantity = sscc;
                     pallets.SSCC = sscc;
                     pallets.Serial = serial;
-                    if (pallets.SSCC.Length > 10)
-                    {
-                        pallets.friendlySSCC = pallets.SSCC.Substring(0, 10);
-                    }
-                    else
-                    {
-                        pallets.friendlySSCC = pallets.SSCC;
-                    }
+                 
+                    pallets.friendlySSCC = pallets.SSCC;
+                    
+
                     enabledSerial = loadIdent.GetBool("HasSerialNumber");
 
 
@@ -1071,6 +1119,7 @@ namespace Scanner
                     MorePallets? obj = ProcessQtyWithParams(pallets, location);
 #nullable disable
                     /* Adds an object to the list. */
+
                     if (obj is null)
                     {
                         Toast.MakeText(this, "Ne obstaja.", ToastLength.Long).Show();
@@ -1105,26 +1154,16 @@ namespace Scanner
                     pallets.Ident = ident;
                     string idname = loadIdent.GetString("Name");
                     pallets.Location = location;
-                    if (idname.Length > 10)
+                    if (idname.Length > 20)
                     {
-                        pallets.Name = idname.Trim().Substring(0, 10);
+                        pallets.Name = idname.Trim().Substring(0, 20);
                     }
-                    else
-                    {
-                        pallets.Name = idname;
-                    }
+                
 
                     pallets.Quantity = barcode;
                     pallets.SSCC = barcode;
                     pallets.Serial = serial;
-                    if (pallets.SSCC.Length > 10)
-                    {
-                        pallets.friendlySSCC = pallets.SSCC.Substring(0, 10);
-                    }
-                    else
-                    {
-                        pallets.friendlySSCC = pallets.SSCC;
-                    }
+                    pallets.friendlySSCC = pallets.SSCC;                     
                     enabledSerial = loadIdent.GetBool("HasSerialNumber");
 
 
@@ -1143,9 +1182,7 @@ namespace Scanner
 
                         tbSSCCpopup.Text = "";
                         tbSSCCpopup.RequestFocus();
-                        adapter = new MorePalletsAdapter(this, datax);
-                  
-                        lvCardMore.Adapter = adapter;
+                     
 
                     }
                 }
@@ -1160,8 +1197,12 @@ namespace Scanner
             e.Handled = false;
             if (e.KeyCode == Keycode.Enter && !String.IsNullOrEmpty(tbSSCCpopup.Text))
             {
+                RunOnUiThread(() =>
+                {
+                    FilData(tbSSCCpopup.Text);
+                });
                 // Add your logic here 
-                FilData(tbSSCCpopup.Text);
+             
 
             }
         }
@@ -1218,8 +1259,8 @@ namespace Scanner
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             selected = e.Position;
-            var item = data.ElementAt(selected);
-            tbLocation.Text = item.Location.ToString();
+            var item = items.ElementAt(selected);
+          
         }
 
 
@@ -1241,8 +1282,6 @@ namespace Scanner
                     issuerLocs.Items.ForEach(x =>
                     {
                         var location = x.GetString("LocationID");
-
-
                         issuer.Add(location);
                     });
 
@@ -1281,13 +1320,14 @@ namespace Scanner
 
             }
 
-
-
         }
 
         private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
-            ProcessQty();
+            if (!editMode)
+            {
+                ProcessQty();
+            }
         }
 
         private void TbLocation_KeyPress(object sender, View.KeyEventArgs e)
@@ -1299,6 +1339,9 @@ namespace Scanner
                 ProcessQty();
                 e.Handled = true;
             }
+
+
+            
         }
 
         private void FillTheIdentLocationList(string ident)
@@ -1330,13 +1373,17 @@ namespace Scanner
 
         private void TbPacking_KeyPress(object sender, View.KeyEventArgs e)
         {
-            e.Handled = false;
-            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+            if (!editMode)
             {
-                // Add your logic here 
-                ProcessIdent();
-                e.Handled = true;
+                e.Handled = false;
+                if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+                {
+                    // Add your logic here 
+                    ProcessIdent();
+                    e.Handled = true;
+                }
             }
+            e.Handled = false;
         }
 
         private void TbIdent_KeyPress(object sender, View.KeyEventArgs e)
@@ -1686,6 +1733,7 @@ namespace Scanner
         {
             await Task.Run(async () =>
             {
+               
                 int check = 0;
 
                 RunOnUiThread(() =>
@@ -1736,9 +1784,9 @@ namespace Scanner
                                         {
 
                                             System.Threading.Thread.Sleep(500);
-                                            if (check == data.Count)
+                                            if (check == datax.Count)
                                             {
-                                                StartActivity(typeof(MainMenu));
+                                                StartActivity(typeof(MainMenuTablet));
                                             }
                                             else
                                             {
