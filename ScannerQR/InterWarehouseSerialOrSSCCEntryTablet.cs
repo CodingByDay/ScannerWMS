@@ -446,6 +446,146 @@ namespace Scanner
             }
         }
 
+
+        private async Task<bool> SaveMoveItemBatch(MorePallets obj)
+        {
+
+            if (string.IsNullOrEmpty(obj.Ident) && string.IsNullOrEmpty(obj.Serial) && string.IsNullOrEmpty(obj.Quantity))
+            {
+                return true;
+            }
+
+            if (tbSSCC.Enabled && string.IsNullOrEmpty(obj.SSCC))
+            {
+                
+
+                return false;
+            }
+
+            if (tbSerialNum.Enabled && string.IsNullOrEmpty(obj.Serial.Trim()))
+            {
+              
+
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(obj.Quantity.Trim()))
+            {
+           
+                return false;
+            }
+            else
+            {
+                try
+                {
+                    var qty = Convert.ToDouble(obj.Quantity.Trim());
+                    if (qty == 0.0)
+                    {
+                    
+
+                        return false;
+                    }
+
+                    var stockQty = GetStock(moveHead.GetString("Issuer"), obj.Location, obj.SSCC.Trim(), obj.Serial.Trim(), obj.Ident.Trim());
+                    if (Double.IsNaN(stockQty))
+                    {
+                     
+
+                        return false;
+                    }
+                    if (Math.Abs(qty) > Math.Abs(stockQty))
+                    {
+
+
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+
+
+                    return false;
+                }
+            }
+
+            if (string.IsNullOrEmpty(tbUnits.Text.Trim()))
+            {
+
+
+                return false;
+            }
+            else
+            {
+                try
+                {
+                    var units = Convert.ToDouble(tbUnits.Text.Trim());
+                    if (units == 0.0)
+                    {
+
+
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+
+
+
+
+                    return false;
+                }
+            }
+
+            if (!CommonData.IsValidLocation(moveHead.GetString("Issuer"), obj.Location))
+            {
+
+
+                return false;
+            }
+
+            if (!CommonData.IsValidLocation(moveHead.GetString("Receiver"), tbLocation.Text.Trim()))
+            {
+
+
+                return false;
+            }
+
+            try
+            {
+                double doubleQuantity = Convert.ToDouble(obj.Quantity.Trim());
+                if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
+                moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
+                moveItem.SetString("LinkKey", "");
+                moveItem.SetInt("LinkNo", 0);
+                moveItem.SetString("Ident", obj.Ident.Trim());
+                moveItem.SetString("SSCC", obj.SSCC.Trim());
+                moveItem.SetString("SerialNo", obj.Serial.Trim());
+                moveItem.SetDouble("Packing", Convert.ToDouble(obj.Quantity.Trim()));
+                moveItem.SetDouble("Factor", Convert.ToDouble(doubleQuantity.ToString(CommonData.GetQtyPicture())));
+                moveItem.SetDouble("Qty", Convert.ToDouble(obj.Quantity.Trim()) * Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItem.SetInt("Clerk", Services.UserID());
+                moveItem.SetString("Location", tbLocation.Text.Trim());
+                moveItem.SetString("IssueLocation", obj.Location.Trim());
+
+                string error;
+                moveItem = Services.SetObject("mi", moveItem, out error);
+                if (moveItem == null)
+                {
+
+                    return false;
+                }
+                else
+                {
+                    InUseObjects.Invalidate("MoveItem");
+                    return true;
+                }
+            }
+            finally
+            {
+
+            }
+        }
+
         private void ProcessQty()
         {
             var sscc = tbSSCC.Text.Trim();
@@ -920,7 +1060,7 @@ namespace Scanner
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
                 TransportObjectsToBackgroundListView(datax);
-                SavePositions(datax);
+                // SavePositions(datax);
             } else
             {
                 popupDialogMain.Dismiss();
@@ -930,9 +1070,15 @@ namespace Scanner
 
         }
 
-        private void SavePositions(List<MorePallets> datax)
+        private async void SavePositions(List<MorePallets> datax)
         {
-        
+            progress = new ProgressDialogClass();
+            progress.ShowDialogSync(this, "Shranjujem pozicije.");
+            foreach (var x in datax)
+            {
+               await SaveMoveItemBatch(x);
+            }
+            progress.StopDialogSync();
         }
 
         private async void TransportObjectsToBackgroundListView(List<MorePallets> datax)
