@@ -775,6 +775,7 @@ namespace Scanner
             spIssue = FindViewById<Spinner>(Resource.Id.spIssue);
             spReceive = FindViewById<Spinner>(Resource.Id.spReceive);
             color();
+            
             tbIdent.KeyPress += TbIdent_KeyPress1;
             spReceive.ItemSelected += SpReceive_ItemSelected;
             spIssue.ItemSelected += SpIssue_ItemSelected;
@@ -1127,7 +1128,7 @@ namespace Scanner
                     else
                     {
                         datax.Add(obj);
-                 
+                    
 
                     }
                 }
@@ -1177,7 +1178,9 @@ namespace Scanner
                     }
                     else
                     {
+
                         datax.Add(obj);
+                      
                         // Added to the list
 
                         tbSSCCpopup.Text = "";
@@ -1197,12 +1200,11 @@ namespace Scanner
             e.Handled = false;
             if (e.KeyCode == Keycode.Enter && !String.IsNullOrEmpty(tbSSCCpopup.Text))
             {
-                RunOnUiThread(() =>
-                {
+          
                     FilData(tbSSCCpopup.Text);
-                });
+
                 // Add your logic here 
-             
+                    adapter.NotifyDataSetChanged();
 
             }
         }
@@ -1335,7 +1337,7 @@ namespace Scanner
             e.Handled = false;
             if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
             {
-                //add your logic here 
+                // add your logic here 
                 ProcessQty();
                 e.Handled = true;
             }

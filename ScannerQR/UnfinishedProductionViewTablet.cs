@@ -91,10 +91,7 @@ namespace Scanner
 
         }
 
-        private void ListData_LongClick(object sender, View.LongClickEventArgs e)
-        {
-            BtDelete_Click(this, null);
-        }
+   
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {

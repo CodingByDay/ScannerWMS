@@ -87,9 +87,12 @@ namespace Scanner
 
         private void DataList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
-
+            
             var index = e.Position;
-            DeleteFromTouch(index);
+           
+            var test = 23;
+
+            DeleteFromTouch(Convert.ToInt32(index));
         }
 
         private void No(int index)
@@ -362,7 +365,9 @@ namespace Scanner
                     string errorWebApp = string.Format("Kritična napaka...");
                     Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
                 }
-
+                dataList.Adapter = null;
+                UnfinishedInterwarehouseAdapter adapter = new UnfinishedInterwarehouseAdapter(this, dataMapping);
+                dataList.Adapter = adapter;
             }
 
 
