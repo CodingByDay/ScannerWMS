@@ -75,16 +75,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="42.5dp"
             android:layout_weight="0.50"
             android:paddingTop="5dp"
             android:id="@+id/tbSSCC" />
 
         <Button
             android:text="..."
-            android:layout_width="74.0dp"
+            android:layout_width="39.0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btMorePallets" />
+            android:id="@+id/btMorePallets"
+            android:layout_marginLeft="0.0dp" />
 
     </LinearLayout>
     <LinearLayout
@@ -106,9 +107,9 @@
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="39.0dp"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="36.0dp"
             android:paddingTop="5dp"
             android:id="@+id/tbSerialNum" />
 
@@ -133,10 +134,9 @@
 
         <EditText
             android:textStyle="bold"
-
             android:singleLine="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40.5dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="40dp"
             android:layout_weight="0.50"
@@ -161,10 +161,9 @@
 
         <EditText
             android:textStyle="bold"
-
             android:singleLine="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="41.0dp"
             android:layout_weight="0.50"
             android:layout_marginLeft="40dp"
             android:paddingTop="5dp"
@@ -193,7 +192,7 @@
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="41.0dp"
             android:layout_weight="0.50"
             android:layout_marginLeft="40dp"
             android:paddingTop="5dp"
@@ -202,7 +201,7 @@
         <Button
             android:text="-(F1)"
             android:layout_width="74.0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="36.5dp"
             android:id="@+id/button1" />
 
     </LinearLayout>
@@ -226,7 +225,7 @@
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="38.0dp"
             android:layout_weight="0.50"
             android:layout_marginLeft="40dp"
             android:paddingTop="5dp"

@@ -78,12 +78,7 @@ namespace Scanner.App
         }
 
 
-        public override void NotifyDataSetChanged()
-        {
-
-
-            NotifyDataSetChanged();
-        }
+ 
 
     }
 }

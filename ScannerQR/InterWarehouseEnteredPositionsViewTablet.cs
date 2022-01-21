@@ -45,6 +45,7 @@ namespace Scanner
         private string tempUnit;
         private int selected;
         private int selectedItem=-1;
+        private InterWarehouseEnteredPositionViewAdapter adapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -70,7 +71,7 @@ namespace Scanner
             listData = FindViewById<ListView>(Resource.Id.listData);
             btNext.Click += BtNext_Click;
             listData.ItemLongClick += ListData_ItemLongClick;
-            InterWarehouseEnteredPositionViewAdapter adapter = new InterWarehouseEnteredPositionViewAdapter(this, data);
+            adapter = new InterWarehouseEnteredPositionViewAdapter(this, data);
             listData.Adapter = adapter;
             ////////////////////////////////////////////////////
         
@@ -139,7 +140,7 @@ namespace Scanner
                     {
                         positions = null;
                         LoadPositions();
-                        data.Clear();
+                       // data.Clear();
                         fillItems();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
@@ -238,8 +239,8 @@ namespace Scanner
                         Name = identName.Trim(),
 
 
-                    });
-                    ;
+                    }); // Add adapter handler.
+                    adapter.NotifyDataSetChanged();
                 }
                 else
                 {
@@ -251,8 +252,7 @@ namespace Scanner
 
 
 
-            InterWarehouseEnteredPositionViewAdapter adapter = new InterWarehouseEnteredPositionViewAdapter(this, data);
-            listData.Adapter = adapter;
+          
         }
     
 
