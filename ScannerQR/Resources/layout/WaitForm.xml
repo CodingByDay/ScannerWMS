@@ -11,8 +11,8 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minWidth="25px"
-        android:minHeight="25px"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
         android:id="@+id/work" />
 
     <TextView

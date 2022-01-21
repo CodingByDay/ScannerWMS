@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
-    android:minWidth="30px"
-    android:minHeight="30px"
+    android:minWidth="30dp"
+    android:minHeight="30dp"
     android:paddingLeft="5dp"
     android:paddingBottom="2dp"
     android:paddingTop="2dp"
@@ -13,51 +13,51 @@
     
 
         <TextView
-            android:textSize="16px"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:layout_weight="25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
            
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:text="Ident"
             android:id="@+id/Ident" />
 
         <TextView
-            android:textSize="16px"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:layout_weight="25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
            
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:text="Lokacija"
             android:id="@+id/Location" />
 
         <TextView
-            android:textSize="16px"
+            android:textSize="16dp"
             android:textStyle="bold" 
             android:layout_weight="25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
           
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:text="Količina"
             android:id="@+id/Qty" />
 
 
         <TextView
-            android:textSize="16px"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:layout_weight="25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
       
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:text="Naziv"
             android:id="@+id/Name" />
    

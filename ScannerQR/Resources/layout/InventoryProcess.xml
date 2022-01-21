@@ -15,22 +15,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:text="Inventura - izvedba inventure"
         android:id="@+id/textView4" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Skladišče"
             android:layout_marginRight="48.5dp" />
 
@@ -46,7 +46,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px"
+        android:paddingTop="5dp"
                                      >
 
         <TextView
@@ -54,8 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lokacija"
-            android:paddingTop="5px"
-            android:paddingLeft="10px"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
             android:id="@+id/textView1"
             android:layout_marginRight="55.0dp" />
 
@@ -65,9 +65,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40px"
+            android:layout_marginLeft="40dp"
             android:layout_weight="0.50"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:id="@+id/tbLocation" />
 
     </LinearLayout>
@@ -75,14 +75,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Ident"
             android:layout_marginRight="73.5dp" />
 
@@ -92,8 +92,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbIdent" />
 
 
@@ -103,7 +103,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px"
+        android:paddingTop="5dp"
         android:id="@+id/linearLayout1"
                                      >
 
@@ -113,8 +113,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Naziv"
-            android:paddingTop="5px"
-            android:paddingLeft="10px"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
             android:layout_marginRight="69.5dp"
             android:id="@+id/textView2" />
 
@@ -124,9 +124,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40px"
+            android:layout_marginLeft="40dp"
             android:layout_weight="0.50"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:id="@+id/tbTitle" />
 
     </LinearLayout>
@@ -134,14 +134,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:textStyle="bold"
             android:layout_width="107.5dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="SSCC koda" />
 
         <EditText
@@ -150,8 +150,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbSSCC" />
 
 
@@ -164,14 +164,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Serijska št."
             android:layout_marginRight="35.0dp"
             android:id="@+id/textView3" />
@@ -182,8 +182,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbSerialNum" />
 
     </LinearLayout>
@@ -191,14 +191,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Količina"
             android:layout_marginRight="54.0dp" />
 
@@ -208,8 +208,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbPacking" />
 
     </LinearLayout>
@@ -217,14 +217,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Št. enot"
             android:layout_marginRight="55.5dp"
             android:id="@+id/lbUnits" />
@@ -235,8 +235,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbUnits" />
 
     </LinearLayout>
@@ -244,8 +244,8 @@
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="14.0dp"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:layout_marginRight="55.5dp"
         android:id="@+id/space" />
      <LinearLayout
@@ -253,28 +253,28 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Tiskaj-f2"
+            android:text="Tiskaj - f2"
             android:layout_width="match_parent"
            android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
             android:drawableLeft="@drawable/printer"
             android:id="@+id/btPrint" />
 
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Potrdi-f3"
+            android:text="Potrdi - f3"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-            android:textSize="16px"
+            android:textSize="20dp"
             android:drawableLeft="@drawable/confirmation"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:id="@+id/button1"
             android:layout_marginTop="0.0dp"
             android:layout_marginBottom="0.0dp" />
@@ -286,28 +286,28 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Briši-F4"
+            android:text="Briši - F4"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="62.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
             android:drawableLeft="@drawable/delete"
             android:id="@+id/btDelete" />
 
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="izhod-f8"
+            android:text="izhod - f8"
             android:layout_width="match_parent"
             android:layout_height="63.0dp"
-            android:textSize="16px"
+            android:textSize="20dp"
             android:drawableLeft="@drawable/logout"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:id="@+id/button2"
             android:layout_marginTop="0.0dp"
             android:layout_marginBottom="0.0dp" />

@@ -11,14 +11,14 @@
         android:layout_toRightOf="@id/app"
       
         android:id="@+id/text"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:layout_marginRight="28.0dp"
             android:id="@+id/ident"
             android:layout_width="match_parent" />
@@ -26,18 +26,18 @@
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:layout_marginRight="28.0dp"
             android:id="@+id/location"
             android:layout_width="match_parent" />
         <TextView
-            android:textSize="16px"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:layout_marginRight="28.0dp"
             android:id="@+id/Količina"
             android:layout_width="match_parent" />
@@ -56,7 +56,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
                                      >
 
             <TextView
@@ -66,8 +66,8 @@
                 android:layout_width="97.5dp"
                 android:layout_height="wrap_content"
                 android:text="SCCC"
-                android:paddingTop="5px"
-                android:paddingLeft="10px"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
                 android:id="@+id/textView1" />
 
             <EditText
@@ -76,9 +76,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="40px"
+                android:layout_marginLeft="40dp"
                 android:layout_weight="0.50"
-                android:paddingTop="5px"
+                android:paddingTop="5dp"
                 android:id="@+id/tbSSCC" />
 
 
@@ -90,7 +90,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
                                      >
 
             <TextView
@@ -99,8 +99,8 @@
                 android:layout_width="97.5dp"
                 android:layout_height="wrap_content"
                 android:text="Ident"
-                android:paddingTop="5px"
-                android:paddingLeft="10px"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
                 android:id="@+id/Idents" />
 
             <EditText
@@ -109,9 +109,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="40px"
+                android:layout_marginLeft="40dp"
                 android:layout_weight="0.50"
-                android:paddingTop="5px"
+                android:paddingTop="5dp"
                 android:id="@+id/tbIdent" />
 
 
@@ -120,7 +120,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
                                      >
 
             <TextView
@@ -129,8 +129,8 @@
                 android:layout_width="97.5dp"
                 android:layout_height="wrap_content"
                 android:text="Lokacija"
-                android:paddingTop="5px"
-                android:paddingLeft="10px"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
                 android:id="@+id/receiveLocation" />
 
             <EditText
@@ -139,9 +139,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="40px"
+                android:layout_marginLeft="40dp"
                 android:layout_weight="0.50"
-                android:paddingTop="5px"
+                android:paddingTop="5dp"
                 android:id="@+id/tbReceiveLocation" />
 
 
@@ -150,7 +150,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
                                      >
 
             <TextView
@@ -159,8 +159,8 @@
                 android:layout_width="97.5dp"
                 android:layout_height="wrap_content"
                 android:text="Zaloga"
-                android:paddingTop="5px"
-                android:paddingLeft="10px"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
                 android:id="@+id/tbStock" />
 
             <EditText
@@ -169,9 +169,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="40px"
+                android:layout_marginLeft="40dp"
                 android:layout_weight="0.50"
-                android:paddingTop="5px"
+                android:paddingTop="5dp"
                 android:id="@+id/tbRealStock" />
 
 
@@ -180,15 +180,15 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="5px">
+            android:paddingTop="5dp">
 
             <TextView
                 android:textStyle="bold"
                 android:singleLine="true"
                 android:layout_width="91.0dp"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10px"
-                android:paddingTop="5px"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
                 android:text="Skladišče"
                 android:layout_marginRight="27.0dp" />
             <Spinner
@@ -206,20 +206,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"/>
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"/>
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="5px">
+            android:paddingTop="5dp">
 
             <TextView
                 android:textStyle="bold"
                 android:layout_width="129.0dp"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10px"
-                android:paddingTop="5px"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
                 android:text="Prej. Lokacija" />
 
             <EditText
@@ -228,8 +228,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.50"
-                android:layout_marginLeft="40px"
-                android:paddingTop="5px"
+                android:layout_marginLeft="40dp"
+                android:paddingTop="5dp"
                 android:id="@+id/tbLocation" />
 
 
@@ -237,18 +237,18 @@
         <TextView
             android:layout_width="95.5dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"/>
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"/>
         <TextView
             android:textStyle="bold"
             android:layout_width="296.0dp"
             android:layout_height="112.0dp"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:textSize="30px"
+            android:textSize="30dp"
             android:textColor="@android:color/black"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:id="@+id/lbStock"
             android:foregroundGravity="center"
             android:gravity="center" />
@@ -258,26 +258,26 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2"
-            android:paddingTop="5px">
+            android:paddingTop="5dp">
 
             <Button
-                android:textSize="16px"
+                android:textSize="20dp"
                 android:background="@drawable/nicelookingbutton"
-                android:text="Potrdi-F2"
+                android:text="Potrdi - F2"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/confirmation"
-                android:paddingLeft="10px"
+                android:paddingLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:id="@+id/btConfirm" />
 
             <Button
-                android:textSize="16px"
+                android:textSize="20dp"
                 android:background="@drawable/nicelookingbutton"
-                android:text="Izhod-f8"
+                android:text="Izhod - f8"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/logout"
-                android:paddingLeft="10px"
+                android:paddingLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
                 android:id="@+id/btLogout" />

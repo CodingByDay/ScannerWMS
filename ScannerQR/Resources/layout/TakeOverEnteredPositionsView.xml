@@ -16,23 +16,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:text="Vnešene pozicije na naročilu"
         android:id="@+id/lbInfo" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
            
             android:textStyle="bold"
             android:layout_width="111.0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Ident" />
 
         <EditText
@@ -42,8 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbIdent" />
 
 
@@ -53,7 +53,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px"
+        android:paddingTop="5dp"
                                      >
 
         <TextView
@@ -62,8 +62,8 @@
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
             android:text="SSCC koda"
-            android:paddingTop="5px"
-            android:paddingLeft="10px"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
             android:id="@+id/textView1" />
 
         <EditText
@@ -73,9 +73,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40px"
+            android:layout_marginLeft="40dp"
             android:layout_weight="0.50"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:id="@+id/tbSSCC" />
 
     </LinearLayout>
@@ -83,15 +83,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
        
             android:textStyle="bold"
             android:layout_width="108.0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Serijska št." />
 
         <EditText
@@ -101,8 +101,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbSerialNumber" />
 
 
@@ -112,7 +112,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px"
+        android:paddingTop="5dp"
                                      >
 
         <TextView
@@ -121,8 +121,8 @@
             android:layout_width="106.0dp"
             android:layout_height="wrap_content"
             android:text="Količina"
-            android:paddingTop="5px"
-            android:paddingLeft="10px"/>
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"/>
 
         <EditText
             
@@ -131,9 +131,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40px"
+            android:layout_marginLeft="40dp"
             android:layout_weight="0.50"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:id="@+id/tbQty"
             android:hint="@+id/tbSerialNumber" />
 
@@ -142,15 +142,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             
             android:textStyle="bold"
             android:layout_width="104.0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Lokacija" />
 
         <EditText
@@ -160,8 +160,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbLocation" />
 
 
@@ -174,14 +174,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:textStyle="bold"
             android:layout_width="105.0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Kreiral" />
 
         <EditText
@@ -190,16 +190,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbCreatedBy" />
 
     </LinearLayout>
     <TextView
         android:layout_width="104.0dp"
         android:layout_height="28.5dp"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"/>
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"/>
 
  
    <LinearLayout
@@ -207,14 +207,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <Button
-            android:textSize="16px"
+            android:textSize="20dp"
             android:background="@drawable/nicelookingbutton"
-            android:text="Naslednja poz. - F1"
+            android:text="Nasled. - F1"
             android:drawableLeft="@drawable/next"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="70.0dp"
@@ -222,11 +222,11 @@
 
         <Button
             android:layout_weight="1"
-            android:textSize="16px"
+            android:textSize="20dp"
             android:background="@drawable/nicelookingbutton"
-            android:text="Popravi pozicijo - F2"
+            android:text="uredi - F2"
             android:drawableLeft="@drawable/fix"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:id="@+id/btUpdate" />
@@ -243,28 +243,28 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Kreiraj pozicijo - F3"
+            android:text="Kreiraj - F3"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
             android:drawableLeft="@drawable/newitem"
             android:id="@+id/button4" />
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Zaključi prevzem. - F4"
+            android:text="Zaključi - F4"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:layout_weight="1"
             android:drawableLeft="@drawable/confirmation"
-            android:textSize="16px"
-            android:paddingLeft="10px"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
             android:id="@+id/btFinish" />
 
 
@@ -276,16 +276,16 @@
         android:layout_height="wrap_content"
         android:weightSum="2"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Izbriši pozicijo - F5"
+            android:text="Izbriši - F5"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-            android:textSize="16px"
+            android:textSize="20dp"
             android:layout_weight="1"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:drawableLeft="@drawable/delete"
             android:id="@+id/btDelete" />
 
@@ -295,9 +295,9 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-           android:textSize="16px"
+           android:textSize="20dp"
             android:drawableLeft="@drawable/logout"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:id="@+id/button5" />
 
 

@@ -15,8 +15,8 @@
         android:layout_width="97.5dp"
         android:layout_height="40.5dp"
         android:text="Pakiranje"
-        android:paddingTop="5px"
-        android:paddingLeft="10px"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
         android:id="@+id/textView1"
         android:layout_marginRight="6.0dp"
         android:layout_marginLeft="0.0dp" />
@@ -24,15 +24,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:singleLine="true"
             android:textStyle="bold"
             android:layout_width="114.5dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Skladišče:"
             android:layout_marginRight="83.0dp" />
 
@@ -52,7 +52,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px"
+        android:paddingTop="5dp"
                                      >
 
         <TextView
@@ -61,8 +61,8 @@
             android:layout_width="97.5dp"
             android:layout_height="wrap_content"
             android:text="Prej. lokacija:"
-            android:paddingTop="5px"
-            android:paddingLeft="10px"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
             android:id="@+id/textView1Location"
             android:layout_marginRight="82.0dp" />
 
@@ -74,7 +74,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="0.0dp"
             android:layout_weight="0.50"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:id="@+id/tbLocation" />
 
 
@@ -85,15 +85,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:singleLine="true"            
             android:textStyle="bold"
             android:layout_width="148.0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="SSCC koda:"
             android:layout_marginRight="32.5dp" />
 
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
             android:layout_marginLeft="0.0dp"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:id="@+id/tbSSCC" />
 
 
@@ -117,9 +117,9 @@
         android:layout_width="fill_parent"
         android:layout_height="6.5dp"
         android:orientation="horizontal"
-        android:paddingTop="5px"
-        android:minWidth="25px"
-        android:minHeight="25px"
+        android:paddingTop="5dp"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
         android:layout_marginBottom="222.5dp"
         android:id="@+id/linearLayout1" >
 
@@ -129,8 +129,8 @@
         android:textStyle="bold"
         android:layout_width="114.5dp"
         android:layout_height="44.5dp"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:layout_marginRight="83.0dp" />
 
  <LinearLayout
@@ -138,25 +138,25 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <Button
             android:layout_weight="1"
-            android:textSize="16px"
+            android:textSize="20dp"
             android:background="@drawable/nicelookingbutton"
-            android:text="Potrdi-f3"
+            android:text="Potrdi - f3"
             android:drawableLeft="@drawable/confirmation"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:id="@+id/btConfirm" />
 
         <Button
-           android:textSize="16px"
+           android:textSize="20dp"
             android:background="@drawable/nicelookingbutton"
-            android:text="Izhod-f8"
+            android:text="Izhod - f8"
             android:drawableLeft="@drawable/logout"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"

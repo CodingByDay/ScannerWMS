@@ -82,6 +82,7 @@ namespace Scanner
         private bool enabledSerial;
         private bool isBatch;
         private bool isFirst;
+        private int lastHeadID;
 
         public void GetBarcode(string barcode)
         {
@@ -447,7 +448,7 @@ namespace Scanner
         }
 
 
-        private async Task<bool> SaveMoveItemBatch(MorePallets obj)
+        private async Task<bool> SaveMoveItemBatch(MorePallets obj, bool isFirst)
         {
 
             if (string.IsNullOrEmpty(obj.Ident) && string.IsNullOrEmpty(obj.Serial) && string.IsNullOrEmpty(obj.Quantity))
@@ -552,17 +553,22 @@ namespace Scanner
 
             try
             {
+             
                 double doubleQuantity = Convert.ToDouble(obj.Quantity.Trim());
                 if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
-                moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
+
+             
+                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
+
+               
                 moveItem.SetString("LinkKey", "");
                 moveItem.SetInt("LinkNo", 0);
                 moveItem.SetString("Ident", obj.Ident.Trim());
                 moveItem.SetString("SSCC", obj.SSCC.Trim());
                 moveItem.SetString("SerialNo", obj.Serial.Trim());
                 moveItem.SetDouble("Packing", Convert.ToDouble(obj.Quantity.Trim()));
-                moveItem.SetDouble("Factor", Convert.ToDouble(doubleQuantity.ToString(CommonData.GetQtyPicture())));
-                moveItem.SetDouble("Qty", Convert.ToDouble(obj.Quantity.Trim()) * Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItem.SetDouble("Factor", Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItem.SetDouble("Qty", Convert.ToDouble(doubleQuantity) * Convert.ToDouble(tbUnits.Text.Trim()));
                 moveItem.SetInt("Clerk", Services.UserID());
                 moveItem.SetString("Location", tbLocation.Text.Trim());
                 moveItem.SetString("IssueLocation", obj.Location.Trim());
@@ -1060,7 +1066,7 @@ namespace Scanner
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
                 TransportObjectsToBackgroundListView(datax);
-                // SavePositions(datax);
+                SavePositions(datax);
             } else
             {
                 popupDialogMain.Dismiss();
@@ -1076,7 +1082,13 @@ namespace Scanner
             progress.ShowDialogSync(this, "Shranjujem pozicije.");
             foreach (var x in datax)
             {
-               await SaveMoveItemBatch(x);
+                if (datax.IndexOf(x) == 0)
+                {
+                    await SaveMoveItemBatch(x, true);
+                } else
+                {
+                    await SaveMoveItemBatch(x, false);
+                }
             }
             progress.StopDialogSync();
         }
@@ -1840,7 +1852,7 @@ namespace Scanner
                 }
                 else
                 {
-                    updateTheHead();
+                    // updateTheHead();
                     moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
 
                 }
@@ -1865,7 +1877,7 @@ namespace Scanner
                     {
                         string WebError = string.Format("Napaka pri dostopu do web aplikacije." + error);
                         Toast.MakeText(this, WebError, ToastLength.Long).Show();
-                        // There is never an error here
+       
                     });
                     return false;
                 }

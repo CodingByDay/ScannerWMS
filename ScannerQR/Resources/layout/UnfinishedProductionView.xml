@@ -11,39 +11,36 @@
     tools:context=".LinearLayout"
     android:foregroundGravity="center">
     <TextView
-     
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:text="Odprti prevzemi na čitalcu"
         android:id="@+id/lbInfo" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
-           
             android:textStyle="bold"
             android:layout_width="115.0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="DN" />
 
         <EditText
-         
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbWorkOrder" />
 
 
@@ -53,29 +50,27 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px"
+        android:paddingTop="5dp"
                                      >
 
         <TextView
-         
             android:textStyle="bold"
             android:layout_width="113.0dp"
             android:layout_height="wrap_content"
             android:text="Naročnik"
-            android:paddingTop="5px"
-            android:paddingLeft="10px"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
             android:id="@+id/textView1" />
 
         <EditText
-           
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40px"
+            android:layout_marginLeft="40dp"
             android:layout_weight="0.50"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:id="@+id/tbClient" />
 
     </LinearLayout>
@@ -83,26 +78,24 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
-           
             android:textStyle="bold"
             android:layout_width="112.0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Ident" />
 
         <EditText
-       
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbIdent" />
 
 
@@ -112,28 +105,26 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px"
+        android:paddingTop="5dp"
                                      >
 
         <TextView
-           
             android:textStyle="bold"
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
             android:text="Št. pozicij"
-            android:paddingTop="5px"
-            android:paddingLeft="10px"/>
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"/>
 
         <EditText
-           
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40px"
+            android:layout_marginLeft="40dp"
             android:layout_weight="0.50"
-            android:paddingTop="5px"
+            android:paddingTop="5dp"
             android:id="@+id/tbItemCount" />
 
     </LinearLayout>
@@ -141,26 +132,24 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
-            
             android:textStyle="bold"
             android:layout_width="110.0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Kreiral" />
 
         <EditText
-           
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbCreatedBy" />
 
 
@@ -173,14 +162,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:textStyle="bold"
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Datum kreiranja" />
 
         <EditText
@@ -189,37 +178,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbCreatedAt" />
 
     </LinearLayout>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="22.5dp"
-        android:layout_gravity="center"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"/>
-    <TextView
         android:layout_width="109.5dp"
         android:layout_height="2.5dp"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"/>
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"/>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-         android:weightSum="2"
-        android:paddingTop="5px">
+        android:weightSum="2"
+        android:paddingTop="5dp">
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Naslednji prevzem-f1"
+            android:text="Nasled. - f1"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
             android:drawableLeft="@drawable/next"
             android:id="@+id/btNext"
             android:layout_marginBottom="0.0dp" />
@@ -227,12 +210,12 @@
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Zaključi/popravi f2"
+            android:text="uredi - f2"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:drawableLeft="@drawable/shipped"
-            android:textSize="16px"
-            android:paddingLeft="10px"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
             android:id="@+id/btFinish"
             android:layout_marginBottom="0.0dp" />
 
@@ -240,33 +223,33 @@
     </LinearLayout>
 
 
- <LinearLayout
+    <LinearLayout
         android:weightSum="2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Izbriši prevzem.-f3"
+            android:text="Izbriši - f3"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-            android:textSize="16px"
-            android:paddingLeft="10px"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
             android:drawableLeft="@drawable/delete"
             android:id="@+id/btDelete" />
 
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="Kreiraj nov-f4"
+            android:text="Kreiraj - f4"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-            android:textSize="16px"
+            android:textSize="20dp"
             android:drawableLeft="@drawable/newitem"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:id="@+id/btNew"
             android:layout_marginTop="0.0dp"
             android:layout_marginBottom="0.0dp" />
@@ -278,9 +261,9 @@
         android:text="Izhod - F8"
         android:layout_width="match_parent"
         android:layout_height="70.0dp"
-        android:textSize="16px"
+        android:textSize="20dp"
         android:drawableLeft="@drawable/logout"
-        android:paddingLeft="10px"
+        android:paddingLeft="10dp"
         android:id="@+id/btLogout"
         android:layout_marginTop="0.0dp" />
 

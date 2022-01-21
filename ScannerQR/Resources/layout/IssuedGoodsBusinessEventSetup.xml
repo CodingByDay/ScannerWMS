@@ -10,8 +10,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="33.0dp"
-        android:minWidth="25px"
-        android:minHeight="25px"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
         android:id="@+id/textView1" />
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="match_parent"
@@ -53,25 +53,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <Button
-            android:textSize="16px"
+            android:textSize="20dp"
             android:background="@drawable/nicelookingbutton"
-            android:text="Potrdi-f3"
+            android:text="Potrdi - f3"
             android:drawableLeft="@drawable/confirmation"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
             android:layout_weight="1"
             android:id="@+id/btnOrder" />
 
         <Button
-            android:textSize="16px"
+            android:textSize="20dp"
             android:background="@drawable/nicelookingbutton"
-            android:text="Brez nar.-f3"
+            android:text="Brez - f3"
             android:drawableLeft="@drawable/order"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
@@ -84,17 +84,17 @@
         android:text="Izhod - F8"
         android:layout_width="match_parent"
         android:layout_height="67.0dp"
-        android:textSize="16px"
+        android:textSize="20dp"
         android:drawableLeft="@drawable/logout"
-        android:paddingLeft="10px"
+        android:paddingLeft="10dp"
         android:id="@+id/btnLogout"
         android:layout_marginTop="0.0dp" />
     <Button
-        android:textSize="8px"
+        android:textSize="8dp"
         android:background="@drawable/nicelookingbutton"
         android:text="Hidden"
         android:drawableLeft="@drawable/confirmation"
-        android:paddingLeft="10px"
+        android:paddingLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="19.5dp"
         android:visibility="invisible"

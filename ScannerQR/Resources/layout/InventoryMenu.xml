@@ -9,12 +9,12 @@
         android:layout_width="wrap_content"
         android:layout_height="65.0dp"
         android:layout_gravity="center"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:text="Meni inventure"
         android:layout_marginTop="0.0dp"
         android:textStyle="bold|italic"
-        android:textSize="18px" />
+        android:textSize="18dp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -32,7 +32,7 @@
             android:layout_height="74.0dp"
             android:background="@android:color/holo_blue_bright"
             android:paddingBottom="5dp"
-             android:textSize="16px"
+             android:textSize="16dp"
             android:paddingLeft="16dp"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
@@ -57,7 +57,7 @@
             android:background="@android:color/holo_green_dark"
             android:drawableLeft="@drawable/inventory"
             android:paddingBottom="5dp"
-             android:textSize="16px"
+             android:textSize="16dp"
             android:paddingLeft="5dp"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
@@ -91,7 +91,7 @@
             android:paddingBottom="5dp"
             android:paddingLeft="16dp"
             android:paddingRight="20dp"
-             android:textSize="16px"
+             android:textSize="16dp"
             android:paddingTop="8dp"
             android:text="Potrdi inventuro-f4"
             android:layout_marginBottom="0.0dp"
@@ -109,7 +109,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-             android:textSize="16px"
+             android:textSize="16dp"
             android:layout_marginBottom="5dp"
             android:background="#ff969eac"
             android:drawableLeft="@drawable/shipped"
@@ -141,7 +141,7 @@
             android:layout_width="match_parent"
          
             android:layout_height="71.5dp"
-             android:textSize="16px"
+             android:textSize="16dp"
             android:background="@android:color/holo_red_light"
             android:drawableLeft="@drawable/printer"
             android:paddingBottom="5dp"
@@ -161,11 +161,11 @@
         android:layout_width="wrap_content"
         android:layout_height="115.0dp"
         android:layout_gravity="center"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:layout_marginTop="0.0dp"
         android:textStyle="bold|italic"
-        android:textSize="18px" />
+        android:textSize="18dp" />
   
     <Button
         android:bottomLeftRadius="7dp"
@@ -175,11 +175,11 @@
         android:text="Odjava "
         android:layout_width="match_parent"
         android:layout_height="67.0dp"
-         android:textSize="16px"
+         android:textSize="16dp"
         android:id="@+id/logout"
         android:layout_marginLeft="4.0dp"
         android:drawableLeft="@drawable/logout"
-        android:paddingLeft="10px"
+        android:paddingLeft="10dp"
         android:layout_marginRight="0.0dp"
         android:background="#ff006064" />
 

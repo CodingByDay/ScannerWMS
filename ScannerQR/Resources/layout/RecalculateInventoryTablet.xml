@@ -8,8 +8,8 @@
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="189.5dp"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:text=""
         android:layout_marginRight="28.5dp" />
 
@@ -17,14 +17,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:textStyle="bold"
             android:layout_width="66.5dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Ident"
             android:layout_marginRight="28.5dp" />
 
@@ -34,8 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/ident" />
 
 
@@ -45,20 +45,20 @@
             android:textStyle="bold"
             android:layout_width="66.5dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text=""
             android:layout_marginRight="28.5dp" />
 
     <Button
         android:background="@drawable/nicelookingbutton"
-        android:text="Izračunaj-F2"
+        android:text="Izračunaj"
         android:layout_width="200dp"
         android:layout_height="70.0dp"
         android:drawableLeft="@drawable/confirmation"
-        android:textSize="18px"
+        android:textSize="20dp"
         android:layout_gravity="center_horizontal"
-        android:paddingLeft="10px"
+        android:paddingLeft="10dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/btCalculate"
              />

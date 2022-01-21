@@ -17,32 +17,32 @@
         android:layout_width="wrap_content"
         android:layout_height="40.5dp"
         android:layout_gravity="center"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:layout_marginTop="0.0dp"
         android:textStyle="bold|italic" />
     <TextView
         android:layout_width="121.5dp"
         android:layout_height="76.0dp"
         android:layout_gravity="center"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:text="Namestite spodaj."
         android:layout_marginTop="0.0dp"
         android:textStyle="bold|italic"
-        android:textSize="18px" />
+        android:textSize="18dp" />
        <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:singleLine="true"
             android:layout_width="77.0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Web App"
             android:layout_marginRight="39.5dp" />
 
@@ -51,8 +51,8 @@
             android:layout_width="633.0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/rootURL" />
 
 
@@ -61,14 +61,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
             android:singleLine="true"
             android:layout_width="77.0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="ID"
             android:layout_marginRight="39.5dp" />
 
@@ -77,8 +77,8 @@
             android:layout_width="638.0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/IDdevice" />
 
 
@@ -87,14 +87,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
           android:singleLine="true"
           android:layout_width="77.0dp"
           android:layout_height="wrap_content"
-          android:paddingLeft="10px"
-          android:paddingTop="5px"
+          android:paddingLeft="10dp"
+          android:paddingTop="5dp"
           android:text="Tip"
           android:layout_marginRight="39.5dp" />
 
@@ -111,7 +111,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <Button
             android:background="@drawable/nicelookingbutton"

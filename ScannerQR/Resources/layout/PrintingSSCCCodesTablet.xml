@@ -37,48 +37,48 @@
       
         android:weightSum="6"
         android:id="@+id/text"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
 
-            android:textSize="18px"
+            android:textSize="18dp"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:layout_marginRight="28.0dp"
             android:id="@+id/ident"
             android:layout_width="match_parent" />
 
         <TextView
-           android:textSize="18px"
+           android:textSize="18dp"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/name" />
 
         <TextView
-            android:textSize="18px"
+            android:textSize="18dp"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/quantity" />
         <TextView
-           android:textSize="18px"
+           android:textSize="18dp"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:layout_width="match_parent"
             android:layout_marginRight="28.0dp"
             android:id="@+id/position" />
@@ -87,24 +87,24 @@
         <TextView
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:textSize="18px"
+            android:textSize="18dp"
             android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:layout_marginRight="28.0dp"
             android:id="@+id/serial" />
 
 
 
         <TextView
-            android:textSize="18px"
+            android:textSize="18dp"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:layout_marginRight="28.0dp"
             android:id="@+id/sscc" />
 
@@ -120,39 +120,39 @@
         android:foregroundGravity="center">
 
       <TextView
-        android:textSize="18px"
+        android:textSize="18dp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="22.5dp"
         android:layout_gravity="center"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:text="Tiskanje etiket - SSCC kode" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <TextView
-            android:textSize="18px"
+            android:textSize="18dp"
             android:textStyle="bold"    
             android:layout_width="114.0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="10px"
-            android:paddingTop="5px"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             android:text="Št. nalepk"
             android:layout_marginRight="27.5dp" />
 
         <EditText
-            android:textSize="18px"
+            android:textSize="18dp"
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_marginLeft="40px"
-            android:paddingTop="5px"
+            android:layout_marginLeft="40dp"
+            android:paddingTop="5dp"
             android:id="@+id/tbNum" />
 
 
@@ -160,8 +160,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="377.5dp"
-        android:paddingLeft="10px"
-        android:paddingTop="5px"/>
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"/>
 
 
 
@@ -170,25 +170,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:paddingTop="5px">
+        android:paddingTop="5dp">
 
         <Button
-            android:textSize="18px"
+            android:textSize="20dp"
             android:background="@drawable/nicelookingbutton"
             android:text="Tiskaj"
             android:drawableLeft="@drawable/printer"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_weight="1"
              android:layout_height="70.0dp"
             android:id="@+id/button1" />
 
         <Button
-           android:textSize="18px"
+           android:textSize="20dp"
             android:background="@drawable/nicelookingbutton"
             android:text="Izhod"
             android:drawableLeft="@drawable/logout"
-            android:paddingLeft="10px"
+            android:paddingLeft="10dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
