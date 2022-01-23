@@ -425,6 +425,9 @@ namespace Scanner
 
                 string error;
                 moveItem = Services.SetObject("mi", moveItem, out error);
+                var test = moveItem.ToString();
+
+                var breakpoint = true;
                 if (moveItem == null)
                 {
                     RunOnUiThread(() =>
@@ -595,7 +598,7 @@ namespace Scanner
 
             try
             {
-                InUseObjects.Invalidate("MoveItem");
+             
                 
                 moveItem = null;
                 if (moveItem == null) { 
@@ -603,19 +606,8 @@ namespace Scanner
                     moveItem = new NameValueObject("MoveItem");
                 }
                
-                moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
-                if(isFirst)
-                {
-                    var test = moveHead.GetInt("HeadID");
-                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
-
-                }
-                else
-                {
-                    updateTheHead();
-                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
-
-                }
+               
+                moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
                 var number = moveHead.GetInt("HeadID");
                 moveItem.SetString("LinkKey", "");
                 moveItem.SetInt("LinkNo", 0);
@@ -971,7 +963,7 @@ namespace Scanner
                 ProcessIdent();
                 tbLocation.Text = moveItem.GetString("Location");
                 tbIssueLocation.Text = moveItem.GetString("IssueLocation");
-                btSaveOrUpdate.Text = "Spremeni ser. št. - F2";
+                btSaveOrUpdate.Text = "Serijska - F2";
 
                 editMode = true;
                 tbSSCC.Enabled = false;
@@ -1142,6 +1134,11 @@ namespace Scanner
                 isBatch = true;
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
+            } else
+            {
+                popupDialogMain.Dismiss();
+                popupDialogMain.Hide();
+                Toast.MakeText(this, "Niste skenirali nobeno kodo.", ToastLength.Long).Show();
             }
             
         }

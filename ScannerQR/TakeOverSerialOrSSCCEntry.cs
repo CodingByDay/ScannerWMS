@@ -154,7 +154,7 @@ namespace Scanner
 
                 tbSSCC.Text = moveItem.GetString("SSCC");
                 tbLocation.Text = moveItem.GetString("Location");
-                btSaveOrUpdate.Text = "Spremeni serijsko št. - F2";
+                btSaveOrUpdate.Text = "Serijska - F2";
             }
             else
             {

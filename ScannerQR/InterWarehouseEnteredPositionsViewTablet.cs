@@ -140,7 +140,7 @@ namespace Scanner
                     {
                         positions = null;
                         LoadPositions();
-                       // data.Clear();
+                        data.Clear();
                         fillItems();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
@@ -240,6 +240,7 @@ namespace Scanner
 
 
                     }); // Add adapter handler.
+
                     adapter.NotifyDataSetChanged();
                 }
                 else
@@ -303,7 +304,7 @@ namespace Scanner
                     }
                     break;
 
-                    //return true;
+                    // return true;
             }
             return base.OnKeyDown(keyCode, e);
         }
@@ -347,6 +348,8 @@ namespace Scanner
                     {
                         positions = null;
                         LoadPositions();
+                        data.Clear();
+                        fillItems();
                         popupDialog.Dismiss();
                         popupDialog.Hide();
                     }

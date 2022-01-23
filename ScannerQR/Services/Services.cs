@@ -319,6 +319,8 @@ namespace TrendNET.WMS.Device.Services
                     var nvo = CompactSerializer.Deserialize<NameValueObject>(result);
                     Log.Write(new LogEntry("END REQUEST: [Device/DeserializeObject];" + (DateTime.Now - startedAt).TotalMilliseconds.ToString()));
                     error = nvo == null ? "Zapis objekta ni uspel!" : "";
+
+         
                     return nvo;
                 }
                 catch (Exception ex)

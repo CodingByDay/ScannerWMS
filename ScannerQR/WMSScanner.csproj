@@ -70,7 +70,8 @@
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidKeyStore>false</AndroidKeyStore>
     <AndroidDexTool>d8</AndroidDexTool>
-    <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>
+    </AndroidSupportedAbis>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
@@ -138,6 +139,7 @@
     <Compile Include="App\LocationClass.cs" />
     <Compile Include="App\MorePallets.cs" />
     <Compile Include="App\MorePalletsAdapter.cs" />
+    <Compile Include="App\moveItem.cs" />
     <Compile Include="App\PackagingList.cs" />
     <Compile Include="App\packagingListAdapter.cs" />
     <Compile Include="App\ProductionEnteredPositionList.cs" />
@@ -322,6 +324,9 @@
     <AndroidResource Include="Resources\drawable\next.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Core">
       <Version>1.6.0.3</Version>
     </PackageReference>

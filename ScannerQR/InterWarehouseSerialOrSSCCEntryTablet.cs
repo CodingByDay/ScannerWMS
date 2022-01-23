@@ -14,6 +14,7 @@ using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Barcode;
 using Com.Jsibbold.Zoomage;
+using Newtonsoft.Json;
 using Scanner;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
@@ -83,6 +84,8 @@ namespace Scanner
         private bool isBatch;
         private bool isFirst;
         private int lastHeadID;
+        private int currentID;
+        private NameValueObject moveItemBatch;
 
         public void GetBarcode(string barcode)
         {
@@ -408,8 +411,11 @@ namespace Scanner
 
             try
             {
-
+                
                 if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
+
+                var dTest = moveHead.GetInt("HeadID");
+
                 moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
                 moveItem.SetString("LinkKey", "");
                 moveItem.SetInt("LinkNo", 0);
@@ -423,8 +429,15 @@ namespace Scanner
                 moveItem.SetString("Location", tbLocation.Text.Trim());
                 moveItem.SetString("IssueLocation", tbIssueLocation.Text.Trim());
 
+
+                
+                
+
+                var t = true;
                 string error;
                 moveItem = Services.SetObject("mi", moveItem, out error);
+
+                var stringTestAPI = GetJSONforMoveItem(moveItem);
                 if (moveItem == null)
                 {
                     RunOnUiThread(() =>
@@ -447,8 +460,35 @@ namespace Scanner
             }
         }
 
+        private string GetJSONforMoveItem(NameValueObject moveItem)
+        {
+            moveItem item = new moveItem();
+            item.HeadID = moveHead.GetInt("HeadID");
+            item.LinkKey = moveItem.GetString("LinkKey");
+            item.LinkNo = moveItem.GetInt("LinkNo");
+            item.Ident = moveItem.GetString("Ident");
+            item.SSCC = moveItem.GetString("SSCC");
+            item.SerialNo = moveItem.GetString("SerialNo");
+            item.Packing = moveItem.GetDouble("Packing");
+            item.Factor = moveItem.GetDouble("Factor");
+            item.Qty = moveItem.GetDouble("Qty");
+            item.Clerk = moveItem.GetInt("Clerk");
+            item.Location = moveItem.GetString("Location"); 
+            item.IssueLocation = moveItem.GetString("IssueLocation");
 
-        private async Task<bool> SaveMoveItemBatch(MorePallets obj, bool isFirst)
+            var jsonString = JsonConvert.SerializeObject(item);
+
+
+            return jsonString;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="isFirst"></param>
+        /// <returns></returns>
+        private async Task<bool> SaveMoveItemBatch(MorePallets obj)
         {
 
             if (string.IsNullOrEmpty(obj.Ident) && string.IsNullOrEmpty(obj.Serial) && string.IsNullOrEmpty(obj.Quantity))
@@ -555,26 +595,29 @@ namespace Scanner
             {
              
                 double doubleQuantity = Convert.ToDouble(obj.Quantity.Trim());
-                if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
+                moveItemBatch = new NameValueObject("MoveItem");
 
-             
-                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
+                // Logic for the same head ID.
 
-               
-                moveItem.SetString("LinkKey", "");
-                moveItem.SetInt("LinkNo", 0);
-                moveItem.SetString("Ident", obj.Ident.Trim());
-                moveItem.SetString("SSCC", obj.SSCC.Trim());
-                moveItem.SetString("SerialNo", obj.Serial.Trim());
-                moveItem.SetDouble("Packing", Convert.ToDouble(obj.Quantity.Trim()));
-                moveItem.SetDouble("Factor", Convert.ToDouble(tbUnits.Text.Trim()));
-                moveItem.SetDouble("Qty", Convert.ToDouble(doubleQuantity) * Convert.ToDouble(tbUnits.Text.Trim()));
-                moveItem.SetInt("Clerk", Services.UserID());
-                moveItem.SetString("Location", tbLocation.Text.Trim());
-                moveItem.SetString("IssueLocation", obj.Location.Trim());
+                moveItemBatch.SetInt("HeadID", moveHead.GetInt("HeadID"));
+
+                moveItemBatch.SetString("LinkKey", "");
+                moveItemBatch.SetInt("LinkNo", 0);
+                moveItemBatch.SetString("Ident", obj.Ident.Trim());
+                moveItemBatch.SetString("SSCC", obj.SSCC.Trim());
+                moveItemBatch.SetString("SerialNo", obj.Serial.Trim());
+                moveItemBatch.SetDouble("Packing", Convert.ToDouble(obj.Quantity.Trim()));
+                moveItemBatch.SetDouble("Factor", Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItemBatch.SetDouble("Qty", Convert.ToDouble(doubleQuantity) * Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItemBatch.SetInt("Clerk", Services.UserID());
+                moveItemBatch.SetString("Location", "");
+                moveItemBatch.SetString("IssueLocation", obj.Location.Trim());
+
+                
 
                 string error;
-                moveItem = Services.SetObject("mi", moveItem, out error);
+                moveItem = Services.SetObject("mi", moveItemBatch, out error);
+                var test = GetJSONforMoveItem(moveItem);
                 if (moveItem == null)
                 {
 
@@ -1066,6 +1109,7 @@ namespace Scanner
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
                 TransportObjectsToBackgroundListView(datax);
+                // This background works
                 SavePositions(datax);
             } else
             {
@@ -1082,13 +1126,9 @@ namespace Scanner
             progress.ShowDialogSync(this, "Shranjujem pozicije.");
             foreach (var x in datax)
             {
-                if (datax.IndexOf(x) == 0)
-                {
-                    await SaveMoveItemBatch(x, true);
-                } else
-                {
-                    await SaveMoveItemBatch(x, false);
-                }
+           
+                    await SaveMoveItemBatch(x);
+         
             }
             progress.StopDialogSync();
         }

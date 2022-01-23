@@ -1083,7 +1083,7 @@ namespace Scanner
                 tbPalette.Text = moveItem.GetString("Palette");
                 tbPacking.Text = moveItem.GetDouble("Packing").ToString();
                 tbUnits.Text = moveItem.GetDouble("Factor").ToString();
-                btSaveOrUpdate.Text = "Spremeni ser. št. - F2";
+                btSaveOrUpdate.Text = "Serijska - F2";
             }
             else
             {
