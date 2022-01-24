@@ -108,16 +108,16 @@
             android:text="Ident"
             android:layout_marginRight="71.5dp" />
 
-        <EditText
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.50"
-            android:layout_marginLeft="40dp"
-            android:paddingTop="5dp"
-            android:id="@+id/tbIdent" />
+            <EditText
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:layout_marginLeft="35.0dp"
+                android:paddingTop="5dp"
+                android:id="@+id/tbIdent" />
 
 
     </LinearLayout>
@@ -129,35 +129,35 @@
         android:paddingTop="5dp"
                                      >
 
-        <TextView
-            android:textStyle="bold"
-           android:textSize="18dp"   
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SSCC koda"
-            android:paddingTop="5dp"
-            android:paddingLeft="10dp"
-            android:id="@+id/textView1"
-            android:layout_marginRight="33.0dp" />
+            <TextView
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_width="91.0dp"
+                android:layout_height="wrap_content"
+                android:text="SSCC "
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/textView1"
+                android:layout_marginRight="33.0dp" />
 
-        <EditText
-            android:textStyle="bold"
-           android:textSize="18dp"
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_weight="0.50"
-            android:paddingTop="5dp"
-            android:id="@+id/tbSSCC" />
+            <EditText
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="35.0dp"
+                android:layout_weight="0.50"
+                android:paddingTop="5dp"
+                android:id="@+id/tbSSCC" />
 
 
-         <Button
-            android:text="..."
-            android:layout_width="74.0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/btMorePallets" />
+            <Button
+                android:text="..."
+                android:layout_width="48.0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btMorePallets" />
 
     </LinearLayout>
     <LinearLayout
@@ -166,26 +166,26 @@
         android:orientation="horizontal"
         android:paddingTop="5dp">
 
-        <TextView
-            android:textStyle="bold"
-           android:textSize="18dp"   
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="Serijska št."
-            android:layout_marginRight="31.5dp" />
+            <TextView
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_width="90.0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="Serijska "
+                android:layout_marginRight="31.5dp" />
 
-        <EditText
-            android:textStyle="bold"
-           android:textSize="18dp"
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.50"
-            android:layout_marginLeft="40dp"
-            android:paddingTop="5dp"
-            android:id="@+id/tbSerialNum" />
+            <EditText
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:layout_marginLeft="34.0dp"
+                android:paddingTop="5dp"
+                android:id="@+id/tbSerialNum" />
 
 
     </LinearLayout>
@@ -197,27 +197,27 @@
         android:paddingTop="5dp"
                                      >
 
-        <TextView
-            android:textStyle="bold"
-           android:textSize="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Izd. lokacija"
-            android:paddingTop="5dp"
-            android:paddingLeft="10dp"
-            android:layout_marginRight="26.0dp" />
+            <TextView
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_width="93.0dp"
+                android:layout_height="wrap_content"
+                android:text="Izdana"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:layout_marginRight="26.0dp" />
 
-        <EditText
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_weight="0.50"
-            android:paddingTop="5dp"
-            android:id="@+id/tbLocation" />
+            <EditText
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="35.0dp"
+                android:layout_weight="0.50"
+                android:paddingTop="5dp"
+                android:id="@+id/tbLocation" />
             
                 <Spinner
                 android:layout_width="71.0dp"
@@ -242,22 +242,22 @@
             android:layout_marginRight="50.0dp"
             android:id="@+id/lbQty" />
 
-        <EditText
-            android:textStyle="bold"
-           android:textSize="18dp"
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.50"
-            android:layout_marginLeft="40dp"
-            android:paddingTop="5dp"
-            android:id="@+id/tbPacking" />
+            <EditText
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:singleLine="true"
+                android:layout_width="150.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:layout_marginLeft="27.0dp"
+                android:paddingTop="5dp"
+                android:id="@+id/tbPacking" />
 
-        <Button
-            android:text="-(F1)"
-            android:layout_width="74.0dp"
-            android:layout_height="52.0dp"
-            android:id="@+id/button1" />
+            <Button
+                android:text="-(F1)"
+                android:layout_width="57.0dp"
+                android:layout_height="52.0dp"
+                android:id="@+id/button1" />
 
     </LinearLayout>
     <LinearLayout
@@ -278,16 +278,16 @@
             android:id="@+id/lbUnits" />
 
 
-        <EditText
-            android:textStyle="bold"
-           android:textSize="18dp"
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.50"
-            android:layout_marginLeft="40dp"
-            android:paddingTop="5dp"
-            android:id="@+id/tbUnits" />
+            <EditText
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:layout_marginLeft="24.0dp"
+                android:paddingTop="5dp"
+                android:id="@+id/tbUnits" />
 
 
     </LinearLayout>
@@ -311,16 +311,16 @@
             android:layout_marginRight="57.0dp"
             android:id="@+id/lbPalette" />
 
-        <EditText
-            android:textStyle="bold"
-           android:textSize="18dp"
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.50"
-            android:layout_marginLeft="40dp"
-            android:paddingTop="5dp"
-            android:id="@+id/tbPalette" />
+            <EditText
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:layout_marginLeft="30.0dp"
+                android:paddingTop="5dp"
+                android:id="@+id/tbPalette" />
 
 
     </LinearLayout>

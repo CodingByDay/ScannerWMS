@@ -146,15 +146,15 @@
         android:paddingTop="5dp"
                                      >
 
-        <TextView
-            android:textSize="18dp"
-            android:textStyle="bold"    
-            android:layout_width="92.5dp"
-            android:layout_height="wrap_content"
-            android:text="SSCC koda"
-            android:paddingTop="5dp"
-            android:paddingLeft="10dp"
-            android:id="@+id/textView1" />
+            <TextView
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_width="92.5dp"
+                android:layout_height="wrap_content"
+                android:text="SSCC "
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/textView1" />
 
         <EditText
             android:textSize="18dp"
@@ -175,14 +175,14 @@
         android:orientation="horizontal"
         android:paddingTop="5dp">
 
-        <TextView
-            android:textSize="18dp"
-            android:textStyle="bold"    
-            android:layout_width="91.0dp"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="Serijska št." />
+            <TextView
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_width="91.0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="Serijska " />
 
         <EditText
             android:textSize="18dp"
@@ -227,8 +227,8 @@
             android:id="@+id/tbLocation" />
 
 
-                <Spinner
-                android:layout_width="71.0dp"
+            <Spinner
+                android:layout_width="62.0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/spLocation" />
 
@@ -262,11 +262,11 @@
             android:paddingTop="5dp"
             android:id="@+id/tbPacking" />
 
-        <Button
-            android:text="-(F1)"
-            android:layout_width="74.0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/button1" />
+            <Button
+                android:text="-(F1)"
+                android:layout_width="62.0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/button1" />
 
     </LinearLayout>
 
@@ -312,11 +312,11 @@
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Vnesi serijsko št."
+                android:text="Serijska"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="70.0dp"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:paddingLeft="10dp"
                 android:drawableLeft="@drawable/newitem"
                 android:id="@+id/btSaveOrUpdate" />
@@ -324,10 +324,10 @@
             <Button
                 android:layout_weight="1"
                 android:background="@drawable/nicelookingbutton"
-                android:text="pregled vnes. poz."
+                android:text="Pregled"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:drawableLeft="@drawable/focus"
                 android:paddingLeft="10dp"
                 android:id="@+id/button3"
@@ -345,11 +345,11 @@
 
             <Button
                 android:background="@drawable/nicelookingbutton"
-                android:text="Zaključi -"
+                android:text="Zaključi "
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="70.0dp"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:paddingLeft="10dp"
                 android:drawableLeft="@drawable/shipped"
                 android:id="@+id/button4" />
@@ -360,7 +360,7 @@
                 android:text="izhod"
                 android:layout_width="match_parent"
                 android:layout_height="70.0dp"
-               android:textSize="18dp"
+               android:textSize="20dp"
                 android:drawableLeft="@drawable/logout"
                 android:paddingLeft="10dp"
                 android:id="@+id/button5"

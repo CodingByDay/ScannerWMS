@@ -50,11 +50,11 @@
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SSCC koda"
+            android:text="SSCC "
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
             android:id="@+id/textView1"
-            android:layout_marginRight="33.0dp" />
+            android:layout_marginRight="66.0dp" />
 
         <EditText
             android:textStyle="bold"
@@ -85,8 +85,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
-            android:text="Serijska št."
-            android:layout_marginRight="31.5dp" />
+            android:text="Serijska "
+            android:layout_marginRight="46.5dp" />
 
         <EditText
             android:textStyle="bold"
@@ -110,9 +110,9 @@
 
         <TextView
             android:textStyle="bold"
-            android:layout_width="wrap_content"
+            android:layout_width="87.0dp"
             android:layout_height="wrap_content"
-            android:text="Izd. lokacija"
+            android:text="Izdana"
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
             android:layout_marginRight="26.0dp" />

@@ -56,11 +56,10 @@
                                      >
 
         <TextView
-
             android:textStyle="bold"
             android:layout_width="92.5dp"
             android:layout_height="wrap_content"
-            android:text="SSCC koda"
+            android:text="SSCC "
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
             android:id="@+id/textView1" />
@@ -85,13 +84,12 @@
         android:paddingTop="5dp">
 
         <TextView
-    
             android:textStyle="bold"
             android:layout_width="91.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
-            android:text="Serijska št." />
+            android:text="Serijska " />
 
         <EditText
 
@@ -213,13 +211,12 @@
         android:paddingTop="5dp">
 
         <Button
-            
             android:background="@drawable/nicelookingbutton"
-            android:text="Vnesi serijsko št.-f2"
+            android:text="Serijska - f2"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="70.0dp"
-            android:textSize="16dp"
+            android:textSize="20dp"
             android:paddingLeft="10dp"
             android:drawableLeft="@drawable/newitem"
             android:id="@+id/btSaveOrUpdate" />
@@ -227,10 +224,10 @@
         <Button
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
-            android:text="pregled vnes. poz.-f3"
+            android:text="pregled - f3"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-            android:textSize="16dp"
+            android:textSize="20dp"
             android:drawableLeft="@drawable/focus"
             android:paddingLeft="10dp"
             android:id="@+id/button3"
@@ -248,11 +245,11 @@
 
         <Button
             android:background="@drawable/nicelookingbutton"
-            android:text="Zaključi prevzem-f4"
+            android:text="Zaključi - f4"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="70.0dp"
-            android:textSize="16dp"
+            android:textSize="20dp"
             android:paddingLeft="10dp"
             android:drawableLeft="@drawable/shipped"
             android:id="@+id/button4" />
@@ -263,7 +260,7 @@
             android:text="izhod-f8"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-            android:textSize="16dp"
+            android:textSize="20dp"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10dp"
             android:id="@+id/button5"
