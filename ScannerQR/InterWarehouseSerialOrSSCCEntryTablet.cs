@@ -50,6 +50,7 @@ namespace Scanner
         private List<string> issuer = new List<string>();
         private List<string> receiver = new List<string>();
         private Button button6;
+        private NameValueObject moveItemCurrent;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject moveItem = (NameValueObject)InUseObjects.Get("MoveItem");
         private NameValueObjectList docTypes = null;
@@ -1728,7 +1729,7 @@ namespace Scanner
              
             }
         }
-        private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem, bool isFirst)
+        private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem)
         {
 
             if (string.IsNullOrEmpty(objectItem.Ident.Trim()) && string.IsNullOrEmpty(objectItem.Serial) && string.IsNullOrEmpty(objectItem.Quantity.Trim()))
@@ -1740,9 +1741,7 @@ namespace Scanner
             {
                 RunOnUiThread(() =>
                 {
-                    string WebError = string.Format("SSCC koda je obvezen podatek.");
-                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
-                    tbSSCC.RequestFocus();
+      
                 });
 
                 return false;
@@ -1758,8 +1757,7 @@ namespace Scanner
                     {
                         RunOnUiThread(() =>
                         {
-                            string WebError = string.Format("Količina je obvezan podatek in mora biti različna od nič");
-                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+               
 
 
                         });
@@ -1772,8 +1770,7 @@ namespace Scanner
                     {
                         RunOnUiThread(() =>
                         {
-                            string WebError = string.Format("Zaloga ni znana, vpišite potrebne podatke");
-                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                          
                         });
 
 
@@ -1784,8 +1781,7 @@ namespace Scanner
                     {
                         RunOnUiThread(() =>
                         {
-                            string WebError = string.Format("Količina ne sme presegati zaloge!");
-                            Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                     
 
 
                         });
@@ -1797,8 +1793,7 @@ namespace Scanner
                 {
                     RunOnUiThread(() =>
                     {
-                        string WebError = string.Format("Količina mora biti število (" + e.Message + ")!");
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                  
 
                     });
 
@@ -1810,8 +1805,7 @@ namespace Scanner
             {
                 RunOnUiThread(() =>
                 {
-                    string WebError = string.Format("Št. enota je obavezan podatek.");
-                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
+             
                 });
 
                 return false;
@@ -1876,42 +1870,38 @@ namespace Scanner
             {
                 InUseObjects.Invalidate("MoveItem");
 
-                moveItem = null;
-                if (moveItem == null)
-                {
+      
+               
 
-                    moveItem = new NameValueObject("MoveItem");
-                }
+               moveItemCurrent = new NameValueObject("MoveItem");
 
-                moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
-                if (isFirst)
-                {
-                    var test = moveHead.GetInt("HeadID");
-                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
 
-                }
-                else
-                {
-                    // updateTheHead();
-                    moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
+                moveHead= (NameValueObject)InUseObjects.Get("MoveHead");
 
-                }
+                moveItemCurrent.SetInt("HeadID", moveHead.GetInt("HeadID"));
+
+                // updateTheHead();
+                moveItemCurrent.SetInt("HeadID", moveHead.GetInt("HeadID"));
+
+                
                 var number = moveHead.GetInt("HeadID");
-                moveItem.SetString("LinkKey", "");
-                moveItem.SetInt("LinkNo", 0);
-                moveItem.SetString("Ident", objectItem.Ident.Trim());
-                moveItem.SetString("SSCC", objectItem.SSCC.Trim());
-                moveItem.SetString("SerialNo", objectItem.Serial.Trim());
-                moveItem.SetDouble("Packing", Convert.ToDouble(objectItem.Quantity.Trim()));
-                moveItem.SetDouble("Factor", Convert.ToDouble(tbUnits.Text.Trim()));
-                moveItem.SetDouble("Qty", Convert.ToDouble(objectItem.Quantity.Trim()) * Convert.ToDouble(tbUnits.Text.Trim()));
-                moveItem.SetInt("Clerk", Services.UserID());
-                moveItem.SetString("Location", tbLocation.Text.Trim());
-                moveItem.SetString("IssueLocation", objectItem.Location.Trim());
+                moveItemCurrent.SetString("LinkKey", "");
+                moveItemCurrent.SetInt("LinkNo", 0);
+                moveItemCurrent.SetString("Ident", objectItem.Ident.Trim());
+                moveItemCurrent.SetString("SSCC", objectItem.SSCC.Trim());
+                moveItemCurrent.SetString("SerialNo", objectItem.Serial.Trim());
+                moveItemCurrent.SetDouble("Packing", Convert.ToDouble(objectItem.Quantity.Trim()));
+                moveItemCurrent.SetDouble("Factor", Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItemCurrent.SetDouble("Qty", Convert.ToDouble(objectItem.Quantity.Trim()) * Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItemCurrent.SetInt("Clerk", Services.UserID());
+                moveItemCurrent.SetString("Location", tbLocation.Text.Trim());
+                moveItemCurrent.SetString("IssueLocation", objectItem.Location.Trim());
 
                 string error;
-                moveItem = Services.SetObject("mi", moveItem, out error);
-                if (moveItem == null)
+                moveItemCurrent = Services.SetObject("mi", moveItem, out error);
+                var std = GetJSONforMoveItem(moveItemCurrent);
+
+                if (moveItemCurrent == null)
                 {
                     RunOnUiThread(() =>
                     {
@@ -1947,23 +1937,7 @@ namespace Scanner
                     progress = new ProgressDialogClass();
                     progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
                 });
-                int count = 0;
-                foreach (MorePallets item in datax)
-                {
-                    if (count == 0)
-                    {
-                        isFirst = true;
-                    }
-                    else
-                    {
-                        isFirst = false;
-                    }
-                    count += 1;
-                    if (await SaveMoveItemWithParams(item, isFirst))
-                    {
 
-                        // First iteration is OK. "Zaključevanje uspešno" + ID
-                        // Second "Napaka pri zaključevanju" + ID from before
                         try
                         {
 
@@ -1974,42 +1948,23 @@ namespace Scanner
                             {
                                 if (result.StartsWith("OK!"))
                                 {
-
-                                    check += 1;
-
+                                
                                     RunOnUiThread(() =>
                                     {
                                         progress.StopDialogSync();
                                         var id = result.Split('+')[1];
-
                                         AlertDialog.Builder alert = new AlertDialog.Builder(this);
                                         alert.SetTitle("Zaključevanje uspešno");
                                         alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
                                         alert.SetPositiveButton("Ok", (senderAlert, args) =>
                                         {
-
                                             System.Threading.Thread.Sleep(500);
-                                            if (check == datax.Count)
-                                            {
-                                                StartActivity(typeof(MainMenuTablet));
-                                            }
-                                            else
-                                            {
-                                                alert.Dispose();
-                                                progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
-
-
-                                            }
+                                           
+                                                StartActivity(typeof(MainMenuTablet));                                                                                   
                                         });
-
-
-
                                         Dialog dialog = alert.Create();
                                         dialog.Show();
                                     });
-
-
                                 }
                                 else
                                 {
@@ -2024,11 +1979,9 @@ namespace Scanner
                                         {
                                             alert.Dispose();
                                             System.Threading.Thread.Sleep(500);
-                                            StartActivity(typeof(MainMenu));
+                                            StartActivity(typeof(MainMenuTablet));
 
                                         });
-
-
 
                                         Dialog dialog = alert.Create();
                                         dialog.Show();
@@ -2044,23 +1997,12 @@ namespace Scanner
                         }
                         finally
                         {
-
-                        }
-                    }
-                    else
-                    {
                         RunOnUiThread(() =>
                         {
                             progress.StopDialogSync();
 
                         });
-                    }
-                }
-                RunOnUiThread(() =>
-                {
-                    progress.StopDialogSync();
-
-                });
+                      }                                                  
             });
         }
         private void losesFocusSSCC()
