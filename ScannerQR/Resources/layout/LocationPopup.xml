@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="49.5dp"
+        android:layout_height="110.0dp"
         android:orientation="horizontal"
         android:paddingTop="5dp"
         android:minWidth="25dp"
@@ -34,98 +34,11 @@
 
         <TextView
             android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="SSCC."
-            android:layout_marginRight="41.5dp" />
-
-        <EditText
-            android:textStyle="bold"
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.50"
-            android:layout_marginLeft="40dp"
-            android:paddingTop="5dp"
-            android:id="@+id/tbSSCC" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="5dp">
-
-        <TextView
-            android:textStyle="bold"
-            android:layout_weight="20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="SSCC"
-            android:layout_marginRight="28.0dp"
-            android:id="@+id/sscc" />
-
-
-        <TextView
-            android:textStyle="bold"
-            android:layout_weight="20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="Naz."
-            android:layout_marginRight="28.0dp"
-            android:id="@+id/name" />
-        <TextView
-            android:textStyle="bold"
-            android:layout_weight="20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="Kol."
-            android:layout_marginRight="28.0dp"
-            android:id="@+id/quantity" />
-
-    </LinearLayout>
-
-
-
-
-
-
-
-    <ListView
-        android:background="?android:attr/activatedBackgroundIndicator"
-        android:choiceMode="singleChoice"
-        android:layout_width="match_parent"
-        android:id="@+id/lvCardMore"
-        android:layout_height="278.0dp"
-        android:listSelector="@android:color/holo_blue_light"
-        />
-
-
-
-
-     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="5dp">
-
-        <TextView
-            android:textStyle="bold"
             android:layout_width="230.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
-            android:text="Lokacija"
+            android:text="Location"
             android:layout_marginRight="41.5dp" />
 
         <EditText
@@ -145,6 +58,22 @@
 
     </LinearLayout>
 
+
+
+
+
+
+
+
+
+    <ListView
+        android:background="?android:attr/activatedBackgroundIndicator"
+        android:choiceMode="singleChoice"
+        android:layout_width="match_parent"
+        android:id="@+id/lvCardMore"
+        android:layout_height="312.0dp"
+        android:listSelector="@android:color/holo_blue_light"
+        />
 
 
     <LinearLayout

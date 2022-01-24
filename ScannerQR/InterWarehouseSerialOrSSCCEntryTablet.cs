@@ -14,6 +14,7 @@ using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Barcode;
 using Com.Jsibbold.Zoomage;
+using Com.Toptoche.Searchablespinnerlibrary;
 using Newtonsoft.Json;
 using Scanner;
 using Scanner.App;
@@ -87,6 +88,16 @@ namespace Scanner
         private int lastHeadID;
         private int currentID;
         private NameValueObject moveItemBatch;
+        private Button btConfirmLocation;
+        private Button btExitLocation;
+        private EditText tbLocationPopup;
+        private Dialog popupDialogLocation;
+        private SearchableSpinner spLocationSpinner;
+        private ArrayAdapter<string> adapterReceive;
+        private ArrayAdapter<string> adapterIssue;
+        private Button btnYesLocationExit;
+        private Button btnNoLocationExit;
+        private Dialog popupDialogSure;
 
         public void GetBarcode(string barcode)
         {
@@ -1040,11 +1051,11 @@ namespace Scanner
 
             await GetLocationsForGivenWarehouseReceiver(moveHead.GetString("Receiver"));
 
-            var adapterIssue = new ArrayAdapter<String>(this,
+            adapterIssue = new ArrayAdapter<String>(this,
             Android.Resource.Layout.SimpleSpinnerItem, issuer);
             adapterIssue.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spIssue.Adapter = adapterIssue;
-            var adapterReceive = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, receiver);
+            adapterReceive = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, receiver);
             adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spReceive.Adapter = adapterReceive;
             tbSSCC.LongClick += TbSSCC_LongClick;
@@ -1060,7 +1071,127 @@ namespace Scanner
             showPicture();
         }
 
-      
+    //private void AskUserForLocation()
+    //      {
+
+    //        popupDialogLocation = new Dialog(this);
+    //        popupDialogLocation.SetContentView(Resource.Layout.LocationPopup);
+    //        popupDialogLocation.Window.SetSoftInputMode(SoftInput.AdjustResize);
+    //        popupDialogLocation.Show();
+    //        popupDialogLocation.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+    //        btConfirmLocation = popupDialogLocation.FindViewById<Button>(Resource.Id.btConfirm);
+    //        btExitLocation = popupDialogLocation.FindViewById<Button>(Resource.Id.btExit);
+    //        tbLocationPopup = popupDialogLocation.FindViewById<EditText>(Resource.Id.tbLocation);
+    //        tbLocationPopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
+    //        spLocationSpinner = popupDialogLocation.FindViewById<SearchableSpinner>(Resource.Id.spLocation);
+
+
+    //        spLocationSpinner.Adapter = (ISpinnerAdapter)receiver;
+    //        spLocationSpinner.ItemSelected += SpLocationSpinner_ItemSelected;
+    //        tbLocationPopup.RequestFocus();
+    //        btConfirmLocation.Click += BtConfirmLocation_Click;
+    //        btExitLocation.Click += BtExitLocation_Click;
+    //    }
+
+    //    private void BtExitLocation_Click(object sender, EventArgs e)
+    //    {
+    //        popupDialogSure = new Dialog(this);
+    //        popupDialogSure.SetContentView(Resource.Layout.YesNoPopUp);
+    //        popupDialogSure.Window.SetSoftInputMode(SoftInput.AdjustResize);
+    //        popupDialogSure.Show();
+    //        var textEdit = popupDialogSure.FindViewById<TextView>(Resource.Id.text);
+    //        textEdit.Text = "Vse skenirane pozicije bodo pobrisane?";
+    //        popupDialogSure.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+    //        popupDialogSure.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
+
+    //        // Access Popup layout fields like below
+    //        btnYesLocationExit = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
+    //        btnNoLocationExit = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
+    //        btnYesLocationExit.Click += (e, ev) => { YesLocationDeleteSure(); };
+    //        btnNoLocationExit.Click += (e, ev) => { NoLocationDeleteSure(); };
+    //    }
+
+    //    private void NoLocationDeleteSure()
+    //    {
+    //        popupDialogSure.Hide();
+    //        popupDialogSure.Dismiss();
+
+    //    }
+
+    //    private void YesLocationDeleteSure()
+    //    {
+    //        popupDialogSure.Hide();
+    //        popupDialogSure.Dismiss();
+
+
+    //        DeleteTheDocument();
+    //    }
+
+    //    private void DeleteTheDocument()
+    //    {
+    //        var id = moveHead.GetInt("HeadID");
+
+
+    //        try
+    //        {
+
+    //            string result;
+    //            if (WebApp.Get("mode=delMoveHead&head=" + id.ToString() + "&deleter=" + Services.UserID().ToString(), out result))
+    //            {
+    //                if (result == "OK!")
+    //                {
+                    
+    //                }
+    //                else
+    //                {
+    //                    string errorWebAppIssued = string.Format("Napaka pri brisanju pozicije " + result);
+    //                    Toast.MakeText(this, errorWebAppIssued, ToastLength.Long).Show();
+                      
+    //                    return;
+    //                }
+    //            }
+    //            else
+    //            {
+            
+
+    //                return;
+    //            }
+    //        }
+    //        finally
+    //        {
+
+    //        }
+
+         
+    //    }
+
+        private void BtConfirmLocation_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tbLocationPopup.Text))
+            {
+               var passed = UpdateTheHeadDocument(tbLocationPopup.Text);
+
+                if(passed) { popupDialogLocation.Dismiss();
+                    popupDialogLocation.Hide();
+                }
+            }
+        }
+
+        /// <summary>
+        ///  Call the API and change the location of the positions on the document.
+        /// </summary>
+        /// <param name="text"></param>
+        private bool UpdateTheHeadDocument(string text)
+        {
+            // Call the API endpoint here.
+
+            return true;
+        }
+
+        private void SpLocationSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            tbLocationPopup.Text = receiver.ElementAt(e.Position);
+        }
 
         private void BtMorePallets_Click(object sender, EventArgs e)
         {
@@ -1069,19 +1200,24 @@ namespace Scanner
             popupDialogMain.SetContentView(Resource.Layout.MorePalletsClass);
             popupDialogMain.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialogMain.Show();
-
             popupDialogMain.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-
             btConfirm = popupDialogMain.FindViewById<Button>(Resource.Id.btConfirm);
             btExit = popupDialogMain.FindViewById<Button>(Resource.Id.btExit);
             tbSSCCpopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSSCCpopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbLocationPopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbLocation);
+            tbLocationPopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            spLocationSpinner = popupDialogMain.FindViewById<SearchableSpinner>(Resource.Id.spLocation);
+
+
+            spLocationSpinner.Adapter = adapterReceive;
+            spLocationSpinner.ItemSelected += SpLocationSpinner_ItemSelected;
             tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
             lvCardMore = popupDialogMain.FindViewById<ListView>(Resource.Id.lvCardMore);
             lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
             adapter = new MorePalletsAdapter(this, datax);
-
             lvCardMore.Adapter = adapter;
+
             lvCardMore.ItemSelected += LvCardMore_ItemSelected;
             btConfirm.Click += BtConfirm_Click;
             btExit.Click += BtExit_Click;
@@ -1097,7 +1233,7 @@ namespace Scanner
         }
         private void BtConfirm_Click(object sender, EventArgs e)
         {
-            if (datax.Count != 0)
+            if (datax.Count != 0 && !String.IsNullOrEmpty(tbLocationPopup.Text))
             {
                 string formatedString = $"{datax.Count} skeniranih SSCC koda.";
                 tbSSCC.Text = formatedString;
@@ -1112,13 +1248,64 @@ namespace Scanner
                 TransportObjectsToBackgroundListView(datax);
                 // This background works
                 SavePositions(datax);
+                UpdateTheLocationAPICall(tbLocationPopup.Text);
             } else
             {
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
-                Toast.MakeText(this, "Niste skenirali nobeno kodo.", ToastLength.Long).Show();
+                Toast.MakeText(this, "Podatki manjkajo.", ToastLength.Long).Show();
             }
 
+        }
+
+        private void UpdateTheLocationAPICall(string location)
+        {
+            //if (WebApp.Get("mode=mhLoc&id=207&loc=A0301", out result))
+            //
+
+
+            try
+            {
+
+                var headID = moveHead.GetInt("HeadID");
+
+                string result;
+                if (WebApp.Get("mode=mhLoc&id=" + headID + "&loc=" + location, out result))
+                {
+                    if (result.StartsWith("OK!"))
+                    {
+
+                        RunOnUiThread(() =>
+                        {
+                            Toast.MakeText(this, "Uspešno kreiran dokument.", ToastLength.Long).Show();
+                        });
+                    }
+                    else
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            var test = 3;
+
+                            var tex = result;
+
+                            var t = 2;
+                           
+
+                        
+                        });
+
+                    }
+                }
+                else
+                {
+                    string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
+                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                }
+            }
+            finally
+            {
+               
+            }
         }
 
         private async void SavePositions(List<MorePallets> datax)

@@ -550,6 +550,12 @@ namespace Scanner
             spLocation.SetTitle("Iskanje");
             spLocation.SetPositiveButton("Zapri");
 
+
+
+            tbLocation.InputType = Android.Text.InputTypes.ClassText;
+            tbPacking.InputType = // Just setting the right keyboard settings.
+                       Android.Text.InputTypes.ClassNumber;
+
         }
 
         private void TbSSCC_LongClick(object sender, View.LongClickEventArgs e)

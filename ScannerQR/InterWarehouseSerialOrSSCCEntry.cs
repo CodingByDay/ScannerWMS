@@ -14,6 +14,7 @@ using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Barcode;
+using Newtonsoft.Json;
 using Scanner;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
@@ -69,6 +70,7 @@ namespace Scanner
         private Dialog popupDialogMain;
         private bool isBatch = false;
         private bool isFirst;
+        private NameValueObject moveItemBatch;
 
         // here...
         public void GetBarcode(string barcode)
@@ -112,7 +114,7 @@ namespace Scanner
 
                             data.Clear();
 
-                            //
+                    
                             TransportOneObject(tbSSCC.Text);
 
 
@@ -1134,7 +1136,10 @@ namespace Scanner
                 isBatch = true;
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
-            } else
+                SavePositions(data);
+
+            }
+            else
             {
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
@@ -1142,8 +1147,185 @@ namespace Scanner
             }
             
         }
+        private async Task<bool> SaveMoveItemBatch(MorePallets obj)
+        {
 
-       
+            if (string.IsNullOrEmpty(obj.Ident) && string.IsNullOrEmpty(obj.Serial) && string.IsNullOrEmpty(obj.Quantity))
+            {
+                return true;
+            }
+
+            if (tbSSCC.Enabled && string.IsNullOrEmpty(obj.SSCC))
+            {
+
+
+                return false;
+            }
+
+            if (tbSerialNum.Enabled && string.IsNullOrEmpty(obj.Serial.Trim()))
+            {
+
+
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(obj.Quantity.Trim()))
+            {
+
+                return false;
+            }
+            else
+            {
+                try
+                {
+                    var qty = Convert.ToDouble(obj.Quantity.Trim());
+                    if (qty == 0.0)
+                    {
+
+
+                        return false;
+                    }
+
+                    var stockQty = GetStock(moveHead.GetString("Issuer"), obj.Location, obj.SSCC.Trim(), obj.Serial.Trim(), obj.Ident.Trim());
+                    if (Double.IsNaN(stockQty))
+                    {
+
+
+                        return false;
+                    }
+                    if (Math.Abs(qty) > Math.Abs(stockQty))
+                    {
+
+
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+
+
+                    return false;
+                }
+            }
+
+            if (string.IsNullOrEmpty(tbUnits.Text.Trim()))
+            {
+
+
+                return false;
+            }
+            else
+            {
+                try
+                {
+                    var units = Convert.ToDouble(tbUnits.Text.Trim());
+                    if (units == 0.0)
+                    {
+
+
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+
+
+
+
+                    return false;
+                }
+            }
+
+            if (!CommonData.IsValidLocation(moveHead.GetString("Issuer"), obj.Location))
+            {
+
+
+                return false;
+            }
+
+            if (!CommonData.IsValidLocation(moveHead.GetString("Receiver"), tbLocation.Text.Trim()))
+            {
+
+
+                return false;
+            }
+
+            try
+            {
+
+                double doubleQuantity = Convert.ToDouble(obj.Quantity.Trim());
+                moveItemBatch = new NameValueObject("MoveItem");
+
+                // Logic for the same head ID.
+
+                moveItemBatch.SetInt("HeadID", moveHead.GetInt("HeadID"));
+
+                moveItemBatch.SetString("LinkKey", "");
+                moveItemBatch.SetInt("LinkNo", 0);
+                moveItemBatch.SetString("Ident", obj.Ident.Trim());
+                moveItemBatch.SetString("SSCC", obj.SSCC.Trim());
+                moveItemBatch.SetString("SerialNo", obj.Serial.Trim());
+                moveItemBatch.SetDouble("Packing", Convert.ToDouble(obj.Quantity.Trim()));
+                moveItemBatch.SetDouble("Factor", Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItemBatch.SetDouble("Qty", Convert.ToDouble(doubleQuantity) * Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItemBatch.SetInt("Clerk", Services.UserID());
+                moveItemBatch.SetString("Location", "");
+                moveItemBatch.SetString("IssueLocation", obj.Location.Trim());
+
+
+
+                string error;
+                moveItem = Services.SetObject("mi", moveItemBatch, out error);
+                var test = GetJSONforMoveItem(moveItem);
+                if (moveItem == null)
+                {
+
+                    return false;
+                }
+                else
+                {
+                    InUseObjects.Invalidate("MoveItem");
+                    return true;
+                }
+            }
+            finally
+            {
+
+            }
+        }
+        private string GetJSONforMoveItem(NameValueObject moveItem)
+        {
+            moveItem item = new moveItem();
+            item.HeadID = moveHead.GetInt("HeadID");
+            item.LinkKey = moveItem.GetString("LinkKey");
+            item.LinkNo = moveItem.GetInt("LinkNo");
+            item.Ident = moveItem.GetString("Ident");
+            item.SSCC = moveItem.GetString("SSCC");
+            item.SerialNo = moveItem.GetString("SerialNo");
+            item.Packing = moveItem.GetDouble("Packing");
+            item.Factor = moveItem.GetDouble("Factor");
+            item.Qty = moveItem.GetDouble("Qty");
+            item.Clerk = moveItem.GetInt("Clerk");
+            item.Location = moveItem.GetString("Location");
+            item.IssueLocation = moveItem.GetString("IssueLocation");
+
+            var jsonString = JsonConvert.SerializeObject(item);
+
+
+            return jsonString;
+        }
+        private async void SavePositions(List<MorePallets> datax)
+        {
+            progress = new ProgressDialogClass();
+            progress.ShowDialogSync(this, "Shranjujem pozicije.");
+            foreach (var x in datax)
+            {
+
+                await SaveMoveItemBatch(x);
+
+            }
+            progress.StopDialogSync();
+        }
 
         private void LvCardMore_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
@@ -1429,127 +1611,82 @@ namespace Scanner
         {
             await Task.Run(async () =>
             {
-                int check=0;
+
+                int check = 0;
 
                 RunOnUiThread(() =>
                 {
                     progress = new ProgressDialogClass();
                     progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
                 });
-                int count = 0;
-                foreach (MorePallets item in data)
+
+                try
                 {
-                    if(count==0)
+
+                    var headID = moveHead.GetInt("HeadID");
+
+                    string result;
+                    if (WebApp.Get("mode=finish&stock=move&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
                     {
-                        isFirst = true;
-                    } else
-                    {
-                        isFirst = false;
+                        if (result.StartsWith("OK!"))
+                        {
+
+                            RunOnUiThread(() =>
+                            {
+                                progress.StopDialogSync();
+                                var id = result.Split('+')[1];
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Zaključevanje uspešno");
+                                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    System.Threading.Thread.Sleep(500);
+
+                                    StartActivity(typeof(MainMenuTablet));
+                                });
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+                        }
+                        else
+                        {
+                            RunOnUiThread(() =>
+                            {
+                                progress.StopDialogSync();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Napaka");
+                                alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenuTablet));
+
+                                });
+
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+
+                        }
                     }
-                    count += 1; 
-                    if (await SaveMoveItemWithParams(item, isFirst))
+                    else
                     {
-
-                        // First iteration is OK. "Zaključevanje uspešno" + ID
-                        // Second "Napaka pri zaključevanju" + ID from before
-                        try
-                        {
-                        
-                            var headID = moveHead.GetInt("HeadID");
-
-                            string result;
-                            if (WebApp.Get("mode=finish&stock=move&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-                            {
-                                if (result.StartsWith("OK!"))
-                                {
-
-                                    check += 1;
-
-                                    RunOnUiThread(() =>
-                                    {
-                                        progress.StopDialogSync();
-                                        var id = result.Split('+')[1];
-
-                                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                                        alert.SetTitle("Zaključevanje uspešno");
-                                        alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-                                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
-                                        {
-                                          
-                                            System.Threading.Thread.Sleep(500);
-                                            if(check==data.Count)
-                                            {
-                                                StartActivity(typeof(MainMenu));
-                                            } else
-                                            {
-                                                alert.Dispose();
-                                                progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
-                                                
-
-                                            }
-                                        });
-
-
-
-                                        Dialog dialog = alert.Create();
-                                        dialog.Show();
-                                    });
-
-
-                                }
-                                else
-                                {
-                                    RunOnUiThread(() =>
-                                    {
-                                        progress.StopDialogSync();
-                                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                                        alert.SetTitle("Napaka");
-                                        alert.SetMessage("Napaka pri zaključevanju: " + result);
-
-                                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
-                                        {
-                                            alert.Dispose();
-                                            System.Threading.Thread.Sleep(500);
-                                            StartActivity(typeof(MainMenu));
-
-                                        });
-
-
-
-                                        Dialog dialog = alert.Create();
-                                        dialog.Show();
-                                    });
-
-                                }
-                            }
-                            else
-                            {
-                                string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
-                                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-                            }
-                        }
-                        finally
-                        {
-                         
-                        }
-                    } else
-                    {
-                        RunOnUiThread(() =>
-                        {
-                            progress.StopDialogSync();
-
-                        });
+                        string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
+                        Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
                     }
                 }
-                RunOnUiThread(() =>
+                finally
                 {
-                    progress.StopDialogSync();
+                    RunOnUiThread(() =>
+                    {
+                        progress.StopDialogSync();
 
-                });
+                    });
+                }
             });
         }
-
 
         private async void Button5_Click(object sender, EventArgs e)
         {
