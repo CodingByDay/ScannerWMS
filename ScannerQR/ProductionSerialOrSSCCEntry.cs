@@ -570,6 +570,9 @@ namespace Scanner
             }
 
             ProcessSerialNum();
+
+
+            if(String.IsNullOrEmpty(tbUnits.Text)) { tbUnits.Text = "1"; }
             
         }
 
@@ -712,84 +715,7 @@ namespace Scanner
         private async void Button4_Click(object sender, EventArgs e)
         {
             await FinishMethod();
-            //if (SaveMoveItem())
-            //{
-            //    var headID = moveHead.GetInt("HeadID");
-            //    //
-            //    SelectSubjectBeforeFinish.ShowIfNeeded(headID);
-
-            //    var progress = new ProgressDialogClass();
-            //    progress.ShowDialogSync(this, "Zaključujem");
-            //    try
-            //    {
-                   
-            //        string result;
-            //        if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-            //        {
-            //            if (result.StartsWith("OK!"))
-            //            {
-            //                var id = result.Split('+')[1];
-                         
-            //                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            //                alert.SetTitle("Zaključevanje uspešno");
-            //                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-            //                alert.SetPositiveButton("Ok", (senderAlert, args) =>
-            //                {alert.Dispose();
-            //                    System.Threading.Thread.Sleep(500);
-            //                    StartActivity(typeof(MainMenu));
-            //                });
-
-
-
-            //                Dialog dialog = alert.Create();
-            //                dialog.Show();
-
-            //            }
-            //            else
-            //            {
-                       
-
-            //                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            //                alert.SetTitle("Napaka");
-            //                alert.SetMessage("Napaka pri zaključevanju: " + result);
-
-            //                alert.SetPositiveButton("Ok", (senderAlert, args) =>
-            //                {
-            //                    alert.Dispose();
-                             
-            //                });
-
-
-
-            //                Dialog dialog = alert.Create();
-            //                dialog.Show();
-            //            }
-            //        }
-            //        else
-            //        {
-                      
-
-            //            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            //            alert.SetTitle("Napaka");
-            //            alert.SetMessage("Napaka pri klicu web aplikacije: " + result);
-
-            //            alert.SetPositiveButton("Ok", (senderAlert, args) =>
-            //            {
-            //                alert.Dispose();
-
-            //            });
-
-            //            Dialog dialog = alert.Create();
-            //            dialog.Show();
-
-            //        }
-            //    }
-            //    finally
-            //    {
-            //        progress.StopDialogSync();
-            //    }
-            //}
+         
         }
         
 
@@ -800,13 +726,16 @@ namespace Scanner
 
         private void BtSaveOrUpdate_Click(object sender, EventArgs e)
         {
-            if (editMode)
+            if (SaveMoveItem().Result)
             {
-                StartActivity(typeof(ProductionEnteredPositionsView));
-            }
-            else
-            {
-                StartActivity(typeof(ProductionSerialOrSSCCEntry));
+                if (editMode)
+                {
+                    StartActivity(typeof(ProductionEnteredPositionsView));
+                }
+                else
+                {
+                    StartActivity(typeof(ProductionSerialOrSSCCEntry));
+                }
             }
         }
     }

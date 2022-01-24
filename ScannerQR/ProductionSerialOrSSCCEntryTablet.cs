@@ -14,6 +14,7 @@ using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Jsibbold.Zoomage;
+using Newtonsoft.Json;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -362,6 +363,8 @@ namespace Scanner
                 moveItem.SetInt("Clerk", Services.UserID());
 
                 moveItem = Services.SetObject("mi", moveItem, out error);
+
+                var test = GetJSONforMoveItem(moveItem);
                 if (moveItem == null)
                 {
                     RunOnUiThread(() =>
@@ -383,6 +386,27 @@ namespace Scanner
             {
 
             }
+        }
+        private string GetJSONforMoveItem(NameValueObject moveItem)
+        {
+            moveItem item = new moveItem();
+            item.HeadID = moveHead.GetInt("HeadID");
+            item.LinkKey = moveItem.GetString("LinkKey");
+            item.LinkNo = moveItem.GetInt("LinkNo");
+            item.Ident = moveItem.GetString("Ident");
+            item.SSCC = moveItem.GetString("SSCC");
+            item.SerialNo = moveItem.GetString("SerialNo");
+            item.Packing = moveItem.GetDouble("Packing");
+            item.Factor = moveItem.GetDouble("Factor");
+            item.Qty = moveItem.GetDouble("Qty");
+            item.Clerk = moveItem.GetInt("Clerk");
+            item.Location = moveItem.GetString("Location");
+            item.IssueLocation = moveItem.GetString("IssueLocation");
+
+            var jsonString = JsonConvert.SerializeObject(item);
+
+
+            return jsonString;
         }
         private void ProcessSerialNum()
         {
@@ -496,6 +520,16 @@ namespace Scanner
             {
                 // Used to be a wait form.
             }
+
+            editMode = moveItem != null;
+            if(editMode)
+            {
+                tbSSCC.Text = moveItem.GetString("SSCC");
+                tbSerialNum.Text = moveItem.GetString("SerialNo");
+                tbPacking.Text = moveItem.GetDouble("Packing").ToString(CommonData.GetQtyPicture());
+                tbUnits.Text = moveItem.GetDouble("Factor").ToString("###,###,##0.00");
+                tbPacking.RequestFocus();
+            }
             var ident = CommonData.LoadIdent(openWorkOrder.GetString("Ident"));
           
             tbIdent.Text = ident.GetString("Code") + " " + ident.GetString("Name");
@@ -503,12 +537,7 @@ namespace Scanner
             tbSSCC.Enabled = ident.GetBool("isSSCC");
             tbSerialNum.Enabled = ident.GetBool("HasSerialNumber");
             fillItems();
-
-
-
             await GetLocationsForGivenWarehouse(moveHead.GetString("Wharehouse"));
-
-
             var adapterReceive = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, locations);
             adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             // Spinner 
@@ -516,6 +545,7 @@ namespace Scanner
             spLocation.SetSelection(locations.IndexOf("P01"), true);
             showPictureIdent(ident.GetString("Code"));
 
+            if (String.IsNullOrEmpty(tbUnits.Text)) { tbUnits.Text = "1"; }
         }
 
         private void TbSSCC_LongClick(object sender, View.LongClickEventArgs e)
@@ -530,9 +560,7 @@ namespace Scanner
         private void SpLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             var element = e.Position;
-
             var item = locations.ElementAt(element);
-
             tbLocation.Text = item;
         }
 
@@ -541,14 +569,10 @@ namespace Scanner
             try
             {
                 Android.Graphics.Bitmap show = Services.GetImageFromServer(moveHead.GetString("Wharehouse"));
-
                 Drawable d = new BitmapDrawable(Resources, show);
-
                 imagePNG.SetImageDrawable(d);
                 imagePNG.Visibility = ViewStates.Visible;
-
                 imagePNG.Click += (e, ev) => { ImageClick(d); };
-
             }
             catch (Exception error)
             {
@@ -621,7 +645,7 @@ namespace Scanner
                 }
                 else
                 {
-                    // Pass for now ie not supported.
+                   
                 }
             }
 
@@ -636,7 +660,7 @@ namespace Scanner
         }
         private async Task FinishMethod()
         {
-            await Task.Run(async () =>
+            await Task.Run(() =>
             {
                 var resultAsync = SaveMoveItem().Result;
                 if (resultAsync)
@@ -820,59 +844,7 @@ namespace Scanner
         private async void Button4_Click(object sender, EventArgs e)
         {
             await FinishMethod();
-            //if (SaveMoveItem())
-            //{
-            //    var headID = moveHead.GetInt("HeadID");
-            //    //
-            //    SelectSubjectBeforeFinish.ShowIfNeeded(headID);
-
-
-            //    try
-            //    {
-
-            //        string result;
-            //        if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-            //        {
-            //            if (result.StartsWith("OK!"))
-            //            {
-            //                var id = result.Split('+')[1];
-            //                string SuccessMessage = string.Format("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
-            //                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-            //                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            //                alert.SetTitle("Zaključevanje uspešno");
-            //                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-            //                alert.SetPositiveButton("Ok", (senderAlert, args) =>
-            //                {
-            //                    alert.Dispose();
-            //                });
-
-
-
-            //                Dialog dialog = alert.Create();
-            //                dialog.Show();
-
-            //            }
-            //            else
-            //            {
-            //                string SuccessMessage = string.Format("Napaka pri zaključevanju: " + result);
-            //                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-
-
-            //            }
-            //        }
-            //        else
-            //        {
-            //            string SuccessMessage = string.Format("Napaka pri klicu web aplikacije: " + result);
-            //            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-
-            //        }
-            //    }
-            //    finally
-            //    {
-            //        //
-            //    }
-            //}
+         
         }
 
 
@@ -883,13 +855,17 @@ namespace Scanner
 
         private void BtSaveOrUpdate_Click(object sender, EventArgs e)
         {
-            if (editMode)
+            if (SaveMoveItem().Result)
             {
-                StartActivity(typeof(ProductionEnteredPositionsViewTablet));
-            }
-            else
-            {
-                StartActivity(typeof(ProductionSerialOrSSCCEntryTablet));
+                // There is something missing here.
+                if (editMode)
+                {
+                    StartActivity(typeof(ProductionEnteredPositionsViewTablet));
+                }
+                else
+                {
+                    StartActivity(typeof(ProductionSerialOrSSCCEntryTablet));
+                }
             }
         }
     }

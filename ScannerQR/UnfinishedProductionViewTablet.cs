@@ -80,7 +80,7 @@ namespace Scanner
             listData.ItemLongClick += ListData_ItemLongClick;
             FillItemsList();
             listData.PerformItemClick(listData, 0, 0);
-
+            
         }
 
     
@@ -330,6 +330,7 @@ namespace Scanner
             InUseObjects.Set("MoveHead", moveHead);
 
             StartActivity(typeof(ProductionEnteredPositionsViewTablet));
+            
 
         }
 
