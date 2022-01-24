@@ -227,7 +227,7 @@
             android:id="@+id/tbLocation" />
 
 
-            <Spinner
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:layout_width="62.0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/spLocation" />

@@ -158,9 +158,14 @@ namespace Scanner
             // Toast.MakeText(this, "Ident: " +  stock.GetDouble("Qty"), ToastLength.Long).Show();
 
             ChangeTheOrientation();
-
+            
         }
+        public override bool DispatchKeyEvent(Android.Views.KeyEvent e)
+        {
+            if(e.KeyCode == Keycode.Enter) { BtnRegistrationEvent_Click(this, null); }
 
+            return base.DispatchKeyEvent(e);
+        }
         private void ChangeTheOrientation()
         {
              if(settings.tablet == true)

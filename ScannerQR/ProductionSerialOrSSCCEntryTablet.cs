@@ -14,6 +14,7 @@ using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Jsibbold.Zoomage;
+using Com.Toptoche.Searchablespinnerlibrary;
 using Newtonsoft.Json;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
@@ -37,7 +38,7 @@ namespace Scanner
         private EditText tbLocation;
         private EditText tbPacking;
         private EditText tbUnits;
-        private Spinner spLocation;
+        private SearchableSpinner spLocation;
         private TextView lbQty;
         private Button btSaveOrUpdate;
         private Button button3;
@@ -470,7 +471,7 @@ namespace Scanner
             SetContentView(Resource.Layout.ProductionSerialOrSSCCEntryTablet);
             //button --------->buttontest
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
-            spLocation = FindViewById<Spinner>(Resource.Id.spLocation);
+            spLocation = FindViewById<SearchableSpinner>(Resource.Id.spLocation);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSerialNum = FindViewById<EditText>(Resource.Id.tbSerialNum);
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
@@ -546,6 +547,9 @@ namespace Scanner
             showPictureIdent(ident.GetString("Code"));
 
             if (String.IsNullOrEmpty(tbUnits.Text)) { tbUnits.Text = "1"; }
+            spLocation.SetTitle("Iskanje");
+            spLocation.SetPositiveButton("Zapri");
+
         }
 
         private void TbSSCC_LongClick(object sender, View.LongClickEventArgs e)
