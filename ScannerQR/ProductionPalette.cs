@@ -239,18 +239,7 @@ namespace Scanner
 
                                 Move(ivis, qty, totalQty);
 
-                                //     result = (bool) await DialogAsync.Show(this, "Vprašanje", "Karton je že rasporejen na drugi paleti. Premestim?");
-                                //   //  initial = true;
-                                //}
-                                //catch (TaskCanceledException ex)
-                                //{
-                                //    Toast.MakeText(this, "Kliknuli ste izven dialoga.", ToastLength.Long).Show();
-                                //}
-                                //if (result == false)
 
-                                //{
-                                //    return;
-                                //}
 
                             }
                             else
@@ -284,12 +273,6 @@ namespace Scanner
                 Toast.MakeText(this, "Nepravilen vnos.", ToastLength.Long).Show();
             }
         }
-
-    //                listItems.RemoveAt(e.Position);
-
-  
-
-    
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -379,11 +362,7 @@ namespace Scanner
             ListViewItem itemPriorToDelete = listItems.ElementAt((int)selectedItemId);
             totalQty = totalQty - Convert.ToDouble(itemPriorToDelete.quantity);
             lbTotalQty.Text = "Količina skupaj: " + (totalQty).ToString("###,###,##0.00"); 
-            listItems.RemoveAt((int)selectedItemId);
-
-
-
-            
+            listItems.RemoveAt((int)selectedItemId);           
             lvCardList.Adapter = null;
             adapterListViewItem adapter = new adapterListViewItem(this, listItems);
             lvCardList.Adapter = adapter;
@@ -405,69 +384,6 @@ namespace Scanner
 
 
 
-
-        /*    try
-            {
-                var progress = new ProgressDialogClass();
-
-                progress.ShowDialogSync(this, "Pošiljam podatke, prosim počakajte.");
-                var palInfo = new NameValueObject("PaletteInfo");
-
-                System.Threading.Thread.Sleep(1000);
-                palInfo.SetString("WorkOrder", tbWorkOrder.Text);
-                palInfo.SetString("Ident", tbIdent.Text);
-                palInfo.SetInt("Clerk", Services.UserID());
-                palInfo.SetString("SerialNum", tbSerialNum.Text);
-                palInfo.SetString("SSCC", tbSSCC.Text);
-                palInfo.SetString("CardNums", string.Join(",", ScannedCardNumbers().Select(x => x.ToString()).ToArray()));
-                palInfo.SetDouble("TotalQty", totalQty);
-                palInfo.SetString("DeviceID", Services.DeviceUser());
-                string error;
-                palInfo = Services.SetObject("cf", palInfo, out error);
-
-                if (palInfo == null)
-                {
-                    progress.StopDialogSync();
-
-                    string WebError = string.Format("Napaka pri potrjevanju palete: " + error);
-                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-                }
-                else
-                {
-                    var result = palInfo.GetString("Result");
-                    if (result.StartsWith("OK!"))
-                    {
-                        progress.StopDialogSync();
-
-                        var id = result.Split('+')[1];
-                      
-                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                        alert.SetTitle("Zaključevanje uspešno");
-                        alert.SetMessage("Paletiranje uspešno! Št. prevzema:\r\n" + id);
-
-                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
-                        {
-                            alert.Dispose();
-                            System.Threading.Thread.Sleep(500);
-                            StartActivity(typeof(MainMenu));
-                        });
-                        Dialog dialog = alert.Create();
-                        dialog.Show();
-                    }
-                    else
-                    {
-                        progress.StopDialogSync();
-
-                        string WebError = string.Format("Napaka pri paletiranju: " + result);
-                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-  
-                    }
-                }
-            }
-            finally
-            {
-            }*/
 
         private async Task runOnBothThreads()
         {
@@ -563,7 +479,7 @@ namespace Scanner
                                 {
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
-                                    StartActivity(typeof(MainMenu));
+                                 
 
                                 });
 

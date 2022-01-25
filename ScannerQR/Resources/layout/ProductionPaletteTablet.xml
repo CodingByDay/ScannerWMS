@@ -186,6 +186,7 @@
         android:paddingTop="5dp">
 
         <TextView
+            android:textSize="18dp"
             android:layout_width="90.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
@@ -244,6 +245,7 @@
         android:paddingTop="5dp">
 
         <TextView
+            android:textSize="18dp"
             android:layout_width="90.5dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"

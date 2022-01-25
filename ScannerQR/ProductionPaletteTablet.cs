@@ -169,7 +169,7 @@ namespace Scanner
                                 {
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
-                                    StartActivity(typeof(MainMenuTablet));
+                                  
 
                                 });
 
@@ -348,19 +348,6 @@ namespace Scanner
 
                                 Move(ivis, qty, totalQty);
 
-                                //     result = (bool) await DialogAsync.Show(this, "Vprašanje", "Karton je že rasporejen na drugi paleti. Premestim?");
-                                //   //  initial = true;
-                                //}
-                                //catch (TaskCanceledException ex)
-                                //{
-                                //    Toast.MakeText(this, "Kliknuli ste izven dialoga.", ToastLength.Long).Show();
-                                //}
-                                //if (result == false)
-
-                                //{
-                                //    return;
-                                //}
-
                             }
                             else
                             {
@@ -490,10 +477,6 @@ namespace Scanner
             totalQty = totalQty - Convert.ToDouble(itemPriorToDelete.quantity);
             lbTotalQty.Text = "Količina skupaj: " + (totalQty).ToString("###,###,##0.00");
             listItems.RemoveAt((int)selectedItemId);
-
-
-
-
             lvCardList.Adapter = null;
             adapterListViewItem adapter = new adapterListViewItem(this, listItems);
             lvCardList.Adapter = adapter;
@@ -527,49 +510,7 @@ namespace Scanner
         {
             await runOnBothThreads();
 
-            //    try
-            //    {
-            //        var palInfo = new NameValueObject("PaletteInfo");
-            //        palInfo.SetString("WorkOrder", tbWorkOrder.Text);
-            //        palInfo.SetString("Ident", tbIdent.Text);
-            //        palInfo.SetInt("Clerk", Services.UserID());
-            //        palInfo.SetString("SerialNum", tbSerialNum.Text);
-            //        palInfo.SetString("SSCC", tbSSCC.Text);
-            //        palInfo.SetString("CardNums", string.Join(",", ScannedCardNumbers().Select(x => x.ToString()).ToArray()));
-            //        palInfo.SetDouble("TotalQty", totalQty);
-            //        palInfo.SetString("DeviceID", Services.DeviceUser());
-
-            //        string error;
-            //        palInfo = Services.SetObject("cf", palInfo, out error);
-            //        if (palInfo == null)
-            //        {
-            //            string WebError = string.Format("Napaka pri potrjevanju palete: " + error);
-            //            Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-            //        }
-            //        else
-            //        {
-            //            var result = palInfo.GetString("Result");
-            //            if (result.StartsWith("OK!"))
-            //            {
-            //                var id = result.Split('+')[1];
-            //                string WebError = string.Format("Paletiranje uspešno! Št. prevzema:\r\n" + id);
-            //                Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-
-            //            }
-            //            else
-            //            {
-            //                string WebError = string.Format("Napaka pri paletiranju: " + result);
-            //                Toast.MakeText(this, WebError, ToastLength.Long).Show();
-
-            //            }
-            //        }
-            //    }
-            //    finally
-            //    {
-            //        //pass
-            //    }
+      
         }
     }
 }

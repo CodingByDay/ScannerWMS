@@ -651,7 +651,10 @@ namespace Scanner
                 var test = result;
                 if (test != "Exception: The remote server returned an error: (404) Not Found.")
                 {
-                    tbLocation.Text = result;
+                    if (!String.IsNullOrEmpty(result))
+                    {
+                        tbLocation.Text = result;
+                    }
                 }
                 else
                 {

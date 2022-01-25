@@ -261,70 +261,7 @@ namespace Scanner
             popupDialog.Dismiss();
             popupDialog.Hide();
         }
-        //private MorePallets ProcessQtyWithParams(MorePallets obj, string location)
-        //{
-        //    var sscc = obj.SSCC;
-        //    if (string.IsNullOrEmpty(sscc))
-        //    {
-        //        return null;
-        //    }
-
-        //    var serialNo = obj.Serial;
-        //    if (enabledSerial && string.IsNullOrEmpty(serialNo))
-        //    {
-        //        return null;
-        //    }
-
-        //    var ident = obj.Ident;
-        //    if (string.IsNullOrEmpty(ident))
-        //    {
-        //        return null;
-        //    }
-
-        //    var identObj = CommonData.LoadIdent(ident);
-        //    var isEnabled = identObj.GetBool("HasSerialNumber");
-
-        //    if (!CommonData.IsValidLocation(moveHead.GetString("Issuer"), location))
-        //    {
-        //        string SuccessMessage = string.Format("Izdajna lokacija" + location + "ni veljavna za skladisće" + moveHead.GetString("Issuer") + "'!");
-        //        Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-
-
-        //        return null;
-        //    }
-
-        //   // var stockQty = GetStockWithParams(moveHead.GetString("Issuer"), location, sscc, serialNo, ident, isEnabled);
-        //    if (!Double.IsNaN(stockQty))
-        //    {
-        //        obj.Quantity = stockQty.ToString(CommonData.GetQtyPicture());
-
-        //    }
-        //    else
-        //    {
-        //        Toast.MakeText(this, "Prišlo je do napake.", ToastLength.Long).Show();
-        //    }
-        //    return obj;
-
-        //}
-        //private double GetStockWithParams(string warehouse, string location, string sscc, string serialNum, string ident, bool serialEnabled)
-        //{
-        //    var wh = CommonData.GetWarehouse(warehouse);
-        //    if (!wh.GetBool("HasStock"))
-        //        if (serialEnabled)
-        //        {
-        //            return LoadStockFromPAStockSerialNo(warehouse, ident, serialNum);
-        //        }
-        //        else
-        //        {
-        //            return LoadStockFromPAStock(warehouse, ident);
-        //        }
-
-        //    else
-        //    { 
-        //        return LoadStockFromStockSerialNo(warehouse, location, sscc, serialNum, ident);
-        //    }
-
-        //}
+     
         private void FilData(string barcode)
         {
             if (!String.IsNullOrEmpty(barcode))
@@ -342,24 +279,25 @@ namespace Scanner
                     pallets.Ident = ident;                       
                     string idname= loadIdent.GetString("Name");
                     pallets.Location = location;
-                    if (idname.Length > 10)
+                    try
                     {
-                        pallets.Name = idname.Trim().Substring(0, 10);
+                        pallets.Name = idname.Trim().Substring(0, 3);
                     }
-                    else
+                    catch (Exception)
                     {
-                        pallets.Name = idname;
+
                     }
 
                     pallets.Quantity = barcode;
                     pallets.SSCC = barcode;
                     pallets.Serial = serial;
-                    if (pallets.SSCC.Length > 10)
+                    try
                     {
-                        pallets.friendlySSCC = pallets.SSCC.Substring(0, 10);
-                    } else
+                        pallets.friendlySSCC = pallets.SSCC.Substring(pallets.SSCC.Length - 3);
+                    }
+                    catch (Exception)
                     {
-                        pallets.friendlySSCC = pallets.SSCC;
+                        pallets.Name = "Error";
                     }
                     enabledSerial = loadIdent.GetBool("HasSerialNumber");
 
@@ -1563,8 +1501,8 @@ namespace Scanner
                     Sound();
                     tbSSCC.Text = barcode;
 
-                    FillRelatedData(tbSerialNum.Text);
-                    
+                    FillRelatedData(tbSSCC.Text);
+                    ProcessQty();
                     tbSerialNum.RequestFocus();
 
 
@@ -1603,7 +1541,7 @@ namespace Scanner
         {
             string error;
 
-            var data = Services.GetObject("sscc", tbSSCC.Text, out error);
+            var data = Services.GetObject("sscc", text, out error);
             if (data != null)
             {
                 if (tbSerialNum.Enabled == true)
@@ -1612,11 +1550,13 @@ namespace Scanner
                     tbSerialNum.Text = serial;
                     var location = data.GetString("Location");
                     tbLocation.Text = location;
-                    tbPacking.RequestFocus();
+                    // tbPacking.RequestFocus();
+                    TransportOneObject(tbSSCC.Text);
                 }
                 else
                 {
-                    return;
+                    var location = data.GetString("Location");
+                    tbLocation.Text = location;
                 }
             }
             else
@@ -1624,7 +1564,72 @@ namespace Scanner
                 return;
             }
         }
+        private void TransportOneObject(string sscc)
+        {
+            if (!String.IsNullOrEmpty(sscc))
+            {
+                string error;
+                var dataObject = Services.GetObject("sscc", sscc, out error);
+                if (dataObject != null)
+                {
+                    var ident = dataObject.GetString("Ident");
+                    var loadIdent = CommonData.LoadIdent(ident);
+                    var name = dataObject.GetString("IdentName");
+                    var serial = dataObject.GetString("SerialNo");
+                    var location = dataObject.GetString("Location");
+                    MorePallets pallets = new MorePallets();
+                    pallets.Ident = ident;
+                    string idname = loadIdent.GetString("Name");
+                    pallets.Location = location;
 
+                    try
+                    {
+                        pallets.Name = idname.Trim().Substring(0, 3);
+
+                    } catch (Exception)
+                    {
+
+                    }
+
+                    pallets.Quantity = sscc;
+                    pallets.SSCC = sscc;
+                    pallets.Serial = serial;
+
+                    try
+                    {
+                        pallets.friendlySSCC = pallets.SSCC.Substring(pallets.SSCC.Length - 3);
+                    }
+                    catch (Exception)
+                    {
+                        pallets.Name = "Error";
+                    }
+
+
+                    enabledSerial = loadIdent.GetBool("HasSerialNumber");
+
+
+#nullable enable        
+                    MorePallets? obj = ProcessQtyWithParams(pallets, location);
+#nullable disable
+                    /* Adds an object to the list. */
+
+                    if (obj is null)
+                    {
+                        Toast.MakeText(this, "Ne obstaja.", ToastLength.Long).Show();
+                    }
+                    else
+                    {
+                        data.Add(obj);
+
+
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
         private void Sound()
         {
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
