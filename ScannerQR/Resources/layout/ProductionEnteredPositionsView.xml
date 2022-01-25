@@ -11,7 +11,7 @@
     tools:context=".LinearLayout"
     android:foregroundGravity="center">
     <TextView
-            android:textStyle="bold"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -34,7 +34,6 @@
             android:text="SSCC koda" />
 
         <EditText
-     
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,8 +53,6 @@
                                      >
 
         <TextView
-            
- 
             android:textStyle="bold"
             android:layout_width="108.0dp"
             android:layout_height="wrap_content"
@@ -65,7 +62,6 @@
             android:id="@+id/textView1" />
 
         <EditText
-       
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,7 +88,6 @@
             android:text="Količina" />
 
         <EditText
-         
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -111,7 +106,7 @@
         android:paddingTop="5dp"
                                      >
 
-      
+
         <TextView
             android:textStyle="bold"
             android:singleLine="true"
@@ -140,7 +135,6 @@
         android:paddingTop="5dp">
 
         <TextView
-        
             android:textStyle="bold"
             android:layout_width="104.5dp"
             android:layout_height="wrap_content"
@@ -149,8 +143,7 @@
             android:text="Kreiral" />
 
         <EditText
-     
-            android:textStyle="bold"           
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -171,7 +164,6 @@
         android:paddingTop="5dp">
 
         <TextView
-  
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -180,7 +172,6 @@
             android:text="Datum kreiranja" />
 
         <EditText
-  
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -191,15 +182,7 @@
             android:id="@+id/tbCreatedAt" />
 
     </LinearLayout>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="28.0dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"
-        android:layout_marginBottom="0.0dp" />
-   <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -235,7 +218,7 @@
 
 
 
-  <LinearLayout
+    <LinearLayout
         android:weightSum="2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -268,7 +251,7 @@
     </LinearLayout>
 
 
- <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

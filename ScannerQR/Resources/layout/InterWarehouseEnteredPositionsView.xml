@@ -66,7 +66,7 @@
 
         <EditText
             android:textStyle="bold"
-             android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -92,7 +92,7 @@
 
         <EditText
             android:textStyle="bold"
-             android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -120,7 +120,7 @@
 
         <EditText
             android:textStyle="bold"
-             android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -146,7 +146,7 @@
 
         <EditText
             android:textStyle="bold"
-             android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -172,7 +172,7 @@
 
         <EditText
             android:textStyle="bold"
-             android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -184,14 +184,7 @@
     </LinearLayout>
 
 
-    <TextView
-        android:layout_width="91.0dp"
-        android:layout_height="18.5dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"/>
-
-
-  <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -227,7 +220,7 @@
 
 
 
-  <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -238,7 +231,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Kreiraj - F3"
             android:layout_width="match_parent"
-             android:layout_height="70.0dp"
+            android:layout_height="70.0dp"
             android:textSize="20dp"
             android:paddingLeft="10dp"
             android:layout_weight="1"
@@ -249,7 +242,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Zaključi - F4"
             android:layout_width="match_parent"
-           android:layout_height="70.0dp"
+            android:layout_height="70.0dp"
             android:layout_weight="1"
             android:drawableLeft="@drawable/confirmation"
             android:textSize="20dp"
@@ -260,7 +253,7 @@
     </LinearLayout>
 
 
- <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -271,7 +264,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Izbriši - F5"
             android:layout_width="match_parent"
-             android:layout_height="70.0dp"
+            android:layout_height="70.0dp"
             android:layout_weight="1"
             android:textSize="20dp"
             android:paddingLeft="10dp"
@@ -283,8 +276,8 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Izhod - F9"
             android:layout_width="match_parent"
-           android:layout_height="70.0dp"
-           android:textSize="20dp"
+            android:layout_height="70.0dp"
+            android:textSize="20dp"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10dp"
             android:id="@+id/button5" />
@@ -292,5 +285,5 @@
 
     </LinearLayout>
 
-    
+
 </LinearLayout>

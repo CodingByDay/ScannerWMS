@@ -14,6 +14,7 @@ using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Barcode;
+using Com.Toptoche.Searchablespinnerlibrary;
 using Newtonsoft.Json;
 using Scanner;
 using Scanner.App;
@@ -69,8 +70,11 @@ namespace Scanner
         private bool isOkayToCallBarcode;
         private Dialog popupDialogMain;
         private bool isBatch = false;
+        private string tbLocationPopupVariable;
         private bool isFirst;
         private NameValueObject moveItemBatch;
+        private SearchableSpinner spLocationSpinner;
+        private EditText tbLocationPopup;
 
         // here...
         public void GetBarcode(string barcode)
@@ -158,18 +162,30 @@ namespace Scanner
                         ProcessQty();
                     }
                 }
-                else if (isOkayToCallBarcode == true) {
-               if (tbSSCCpopup.HasFocus)
-                    {
-                        if (!String.IsNullOrEmpty(barcode))
+            else if (isOkayToCallBarcode == true) {
+                 if (tbSSCCpopup.HasFocus)
+                     {
+                        if (!String.IsNullOrEmpty(barcode) && barcode != "Scan fail")
                         {
                             Sound();
                             tbSSCCpopup.Text = barcode;
                             FilData(tbSSCCpopup.Text);
 
                         }
+                    } else if (tbLocationPopup.HasFocus)
+                    {
+                        
+                            if (!String.IsNullOrEmpty(barcode))
+                            {
+                                Sound();
+                                tbLocationPopup.Text = barcode;
+
+
+                            }
+                        
                     }
                 }
+               
 
             }
         }
@@ -1045,26 +1061,27 @@ namespace Scanner
                     MorePallets pallets = new MorePallets();
                     pallets.Ident = ident;
                     string idname = loadIdent.GetString("Name");
-                    pallets.Location = location;
-                    if (idname.Length > 10)
-                    {
-                        pallets.Name = idname.Trim().Substring(0, 10);
-                    }
-                    else
-                    {
-                        pallets.Name = idname;
-                    }
-
+                    pallets.Location = location;                
                     pallets.Quantity = sscc;
                     pallets.SSCC = sscc;
                     pallets.Serial = serial;
-                    if (pallets.SSCC.Length > 10)
+                    try
                     {
-                        pallets.friendlySSCC = pallets.SSCC.Substring(0, 10);
+                        pallets.Name = idname.Trim().Substring(0, 3);
+                    } catch (Exception)
+                    {
+
                     }
-                    else
+                    pallets.Quantity = barcode;
+                    pallets.SSCC = barcode;
+                    pallets.Serial = serial;
+
+                    try
                     {
-                        pallets.friendlySSCC = pallets.SSCC;
+                        pallets.friendlySSCC = pallets.SSCC.Substring(pallets.SSCC.Length - 3);
+                    } catch (Exception)
+                    {
+                        pallets.Name = "Error";
                     }
                     enabledSerial = loadIdent.GetBool("HasSerialNumber");
 
@@ -1076,11 +1093,12 @@ namespace Scanner
                     if (obj is null)
                     {
                         Toast.MakeText(this, "Ne obstaja.", ToastLength.Long).Show();
+                        tbSSCCpopup.Text = "";
                     }
                     else
                     {
                         data.Add(obj);
-                        var debug = true;
+                        
                     }
                 }
                 else
@@ -1097,15 +1115,21 @@ namespace Scanner
             popupDialogMain.SetContentView(Resource.Layout.MorePalletsClass);
             popupDialogMain.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialogMain.Show();
-
             popupDialogMain.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-
+            spLocationSpinner = popupDialogMain.FindViewById<SearchableSpinner>(Resource.Id.spLocation);
+            spLocationSpinner.Visibility = ViewStates.Invisible;
             btConfirm = popupDialogMain.FindViewById<Button>(Resource.Id.btConfirm);
             btExit = popupDialogMain.FindViewById<Button>(Resource.Id.btExit);
+            tbLocationPopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbLocation);
+
+            tbLocationPopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
+       
             tbSSCCpopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSSCCpopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
+         
             tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
             lvCardMore = popupDialogMain.FindViewById<ListView>(Resource.Id.lvCardMore);
+            
             lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
             adapter = new MorePalletsAdapter(this, data);
             lvCardMore.Adapter = adapter;
@@ -1124,7 +1148,7 @@ namespace Scanner
         
         private void BtConfirm_Click(object sender, EventArgs e)
         {
-            if (data.Count != 0)
+            if (data.Count != 0 && !String.IsNullOrEmpty(tbLocationPopup.Text))
             {
                 string formatedString = $"{data.Count} skeniranih SSCC koda.";
                 tbSSCC.Text = formatedString;
@@ -1134,19 +1158,64 @@ namespace Scanner
                 tbPacking.Text = "...";
                 tbLocation.RequestFocus();
                 isBatch = true;
+                tbLocationPopupVariable = tbLocationPopup.Text;
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
                 SavePositions(data);
+                UpdateTheLocationAPICall(tbLocationPopupVariable);
 
             }
             else
             {
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
-                Toast.MakeText(this, "Niste skenirali nobeno kodo.", ToastLength.Long).Show();
+                Toast.MakeText(this, "Manjkajo podatki.", ToastLength.Long).Show();
             }
             
         }
+        private void UpdateTheLocationAPICall(string location)
+        {
+
+            try
+            {
+
+                var headID = moveHead.GetInt("HeadID");
+
+                string result;
+                if (WebApp.Get("mode=mhLoc&id=" + headID + "&loc=" + location, out result))
+                {
+                    if (result.StartsWith("OK!"))
+                    {
+
+                        RunOnUiThread(() =>
+                        {
+
+                        });
+                    }
+                    else
+                    {
+                        RunOnUiThread(() =>
+                        {
+
+
+
+
+                        });
+
+                    }
+                }
+                else
+                {
+                    string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
+                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                }
+            }
+            finally
+            {
+                tbLocation.Text = location;
+            }
+        }
+
         private async Task<bool> SaveMoveItemBatch(MorePallets obj)
         {
 
@@ -1243,7 +1312,7 @@ namespace Scanner
                 return false;
             }
 
-            if (!CommonData.IsValidLocation(moveHead.GetString("Receiver"), tbLocation.Text.Trim()))
+            if (!CommonData.IsValidLocation(moveHead.GetString("Receiver"), tbLocationPopupVariable))
             {
 
 
@@ -1377,29 +1446,35 @@ namespace Scanner
                     var name = dataObject.GetString("IdentName");
                     var serial = dataObject.GetString("SerialNo");
                     var location = dataObject.GetString("Location");
+                    
                     MorePallets pallets = new MorePallets();
+                    pallets.Location = location;
                     pallets.Ident = ident;                       
                     string idname= loadIdent.GetString("Name");
-                    pallets.Location = location;
-                    if (idname.Length > 10)
-                    {
-                        pallets.Name = idname.Trim().Substring(0, 10);
-                    }
-                    else
-                    {
-                        pallets.Name = idname;
-                    }
+              
+                 
+                     try
+                        {
+                        pallets.Name = idname.Trim().Substring(0, 5) ?? "Not correct.";
+                        } catch(Exception)
+                        {
+                         pallets.Name = "Error";
+                        }
+                    
+              
 
                     pallets.Quantity = barcode;
                     pallets.SSCC = barcode;
                     pallets.Serial = serial;
-                    if (pallets.SSCC.Length > 10)
+
+                    try
                     {
-                        pallets.friendlySSCC = pallets.SSCC.Substring(0, 10);
-                    } else
+                        pallets.friendlySSCC = pallets.SSCC.Substring(pallets.SSCC.Length - 3) ?? "Not correct";
+                    } catch(Exception)
                     {
-                        pallets.friendlySSCC = pallets.SSCC;
+                        pallets.Name = "Error";
                     }
+
                     enabledSerial = loadIdent.GetBool("HasSerialNumber");
 
 
@@ -1642,7 +1717,7 @@ namespace Scanner
                                 {
                                     System.Threading.Thread.Sleep(500);
 
-                                    StartActivity(typeof(MainMenuTablet));
+                                    StartActivity(typeof(MainMenu));
                                 });
                                 Dialog dialog = alert.Create();
                                 dialog.Show();
@@ -1661,7 +1736,7 @@ namespace Scanner
                                 {
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
-                                    StartActivity(typeof(MainMenuTablet));
+                                    StartActivity(typeof(MainMenu));
 
                                 });
 

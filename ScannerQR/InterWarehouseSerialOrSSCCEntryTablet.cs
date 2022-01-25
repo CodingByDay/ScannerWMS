@@ -84,6 +84,7 @@ namespace Scanner
         private Button btnNo;
         private bool enabledSerial;
         private bool isBatch;
+        private string tbLocationPopupVariable;
         private bool isFirst;
         private int lastHeadID;
         private int currentID;
@@ -574,32 +575,22 @@ namespace Scanner
                     var units = Convert.ToDouble(tbUnits.Text.Trim());
                     if (units == 0.0)
                     {
-
-
                         return false;
                     }
                 }
                 catch (Exception e)
                 {
-
-
-
-
                     return false;
                 }
             }
 
             if (!CommonData.IsValidLocation(moveHead.GetString("Issuer"), obj.Location))
             {
-
-
                 return false;
             }
 
-            if (!CommonData.IsValidLocation(moveHead.GetString("Receiver"), tbLocation.Text.Trim()))
+            if (!CommonData.IsValidLocation(moveHead.GetString("Receiver"), tbLocationPopupVariable))
             {
-
-
                 return false;
             }
 
@@ -624,9 +615,6 @@ namespace Scanner
                 moveItemBatch.SetInt("Clerk", Services.UserID());
                 moveItemBatch.SetString("Location", "");
                 moveItemBatch.SetString("IssueLocation", obj.Location.Trim());
-
-                
-
                 string error;
                 moveItem = Services.SetObject("mi", moveItemBatch, out error);
                 var test = GetJSONforMoveItem(moveItem);
@@ -712,14 +700,10 @@ namespace Scanner
                     locations.Items.ForEach(x =>
                     {
                         var location = x.GetString("LocationID");
-
-
                         receiver.Add(location);
                     });
 
                 }
-
-
             });
 
         }
@@ -734,7 +718,6 @@ namespace Scanner
                 {
                     string SuccessMessage = string.Format("Napaka pri preverjenju zaloge." + error);
                     Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-
                     return Double.NaN;
                 }
                 else
@@ -1071,99 +1054,6 @@ namespace Scanner
             showPicture();
         }
 
-    //private void AskUserForLocation()
-    //      {
-
-    //        popupDialogLocation = new Dialog(this);
-    //        popupDialogLocation.SetContentView(Resource.Layout.LocationPopup);
-    //        popupDialogLocation.Window.SetSoftInputMode(SoftInput.AdjustResize);
-    //        popupDialogLocation.Show();
-    //        popupDialogLocation.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-    //        btConfirmLocation = popupDialogLocation.FindViewById<Button>(Resource.Id.btConfirm);
-    //        btExitLocation = popupDialogLocation.FindViewById<Button>(Resource.Id.btExit);
-    //        tbLocationPopup = popupDialogLocation.FindViewById<EditText>(Resource.Id.tbLocation);
-    //        tbLocationPopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
-    //        spLocationSpinner = popupDialogLocation.FindViewById<SearchableSpinner>(Resource.Id.spLocation);
-
-
-    //        spLocationSpinner.Adapter = (ISpinnerAdapter)receiver;
-    //        spLocationSpinner.ItemSelected += SpLocationSpinner_ItemSelected;
-    //        tbLocationPopup.RequestFocus();
-    //        btConfirmLocation.Click += BtConfirmLocation_Click;
-    //        btExitLocation.Click += BtExitLocation_Click;
-    //    }
-
-    //    private void BtExitLocation_Click(object sender, EventArgs e)
-    //    {
-    //        popupDialogSure = new Dialog(this);
-    //        popupDialogSure.SetContentView(Resource.Layout.YesNoPopUp);
-    //        popupDialogSure.Window.SetSoftInputMode(SoftInput.AdjustResize);
-    //        popupDialogSure.Show();
-    //        var textEdit = popupDialogSure.FindViewById<TextView>(Resource.Id.text);
-    //        textEdit.Text = "Vse skenirane pozicije bodo pobrisane?";
-    //        popupDialogSure.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-    //        popupDialogSure.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
-
-    //        // Access Popup layout fields like below
-    //        btnYesLocationExit = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
-    //        btnNoLocationExit = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
-    //        btnYesLocationExit.Click += (e, ev) => { YesLocationDeleteSure(); };
-    //        btnNoLocationExit.Click += (e, ev) => { NoLocationDeleteSure(); };
-    //    }
-
-    //    private void NoLocationDeleteSure()
-    //    {
-    //        popupDialogSure.Hide();
-    //        popupDialogSure.Dismiss();
-
-    //    }
-
-    //    private void YesLocationDeleteSure()
-    //    {
-    //        popupDialogSure.Hide();
-    //        popupDialogSure.Dismiss();
-
-
-    //        DeleteTheDocument();
-    //    }
-
-    //    private void DeleteTheDocument()
-    //    {
-    //        var id = moveHead.GetInt("HeadID");
-
-
-    //        try
-    //        {
-
-    //            string result;
-    //            if (WebApp.Get("mode=delMoveHead&head=" + id.ToString() + "&deleter=" + Services.UserID().ToString(), out result))
-    //            {
-    //                if (result == "OK!")
-    //                {
-                    
-    //                }
-    //                else
-    //                {
-    //                    string errorWebAppIssued = string.Format("Napaka pri brisanju pozicije " + result);
-    //                    Toast.MakeText(this, errorWebAppIssued, ToastLength.Long).Show();
-                      
-    //                    return;
-    //                }
-    //            }
-    //            else
-    //            {
-            
-
-    //                return;
-    //            }
-    //        }
-    //        finally
-    //        {
-
-    //        }
-
-         
-    //    }
 
         private void BtConfirmLocation_Click(object sender, EventArgs e)
         {
@@ -1208,23 +1098,26 @@ namespace Scanner
             tbLocationPopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbLocation);
             tbLocationPopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
             spLocationSpinner = popupDialogMain.FindViewById<SearchableSpinner>(Resource.Id.spLocation);
-
-
             spLocationSpinner.Adapter = adapterReceive;
+            spLocationSpinner.SetTitle("Iskanje");
+            spLocationSpinner.SetPositiveButton("Zapri");
             spLocationSpinner.ItemSelected += SpLocationSpinner_ItemSelected;
             tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
             lvCardMore = popupDialogMain.FindViewById<ListView>(Resource.Id.lvCardMore);
             lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
             adapter = new MorePalletsAdapter(this, datax);
             lvCardMore.Adapter = adapter;
-
+            tbSSCCpopup.LongClick += TbSSCCpopup_LongClick;
             lvCardMore.ItemSelected += LvCardMore_ItemSelected;
             btConfirm.Click += BtConfirm_Click;
             btExit.Click += BtExit_Click;
             tbSSCCpopup.RequestFocus();
         }
 
-
+        private void TbSSCCpopup_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            tbSSCCpopup.Text = ""; 
+        }
 
         private void BtExit_Click(object sender, EventArgs e)
         {
@@ -1243,6 +1136,7 @@ namespace Scanner
                 tbPacking.Text = "...";
                 tbLocation.RequestFocus();
                 isBatch = true;
+                tbLocationPopupVariable = tbLocationPopup.Text;
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
                 TransportObjectsToBackgroundListView(datax);
@@ -1260,10 +1154,7 @@ namespace Scanner
 
         private void UpdateTheLocationAPICall(string location)
         {
-            //if (WebApp.Get("mode=mhLoc&id=207&loc=A0301", out result))
-            //
-
-
+            
             try
             {
 
@@ -1277,18 +1168,14 @@ namespace Scanner
 
                         RunOnUiThread(() =>
                         {
-                            Toast.MakeText(this, "Uspešno kreiran dokument.", ToastLength.Long).Show();
+                           
                         });
                     }
                     else
                     {
                         RunOnUiThread(() =>
                         {
-                            var test = 3;
-
-                            var tex = result;
-
-                            var t = 2;
+                          
                            
 
                         
@@ -1304,7 +1191,7 @@ namespace Scanner
             }
             finally
             {
-               
+                tbLocation.Text = location;
             }
         }
 

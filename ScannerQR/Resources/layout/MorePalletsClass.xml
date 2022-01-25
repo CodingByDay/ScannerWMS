@@ -105,8 +105,9 @@
         android:background="?android:attr/activatedBackgroundIndicator"
         android:choiceMode="singleChoice"
         android:layout_width="match_parent"
+        android:singleLine="true"
         android:id="@+id/lvCardMore"
-        android:layout_height="278.0dp"
+        android:layout_height="246.0dp"
         android:listSelector="@android:color/holo_blue_light"
         />
 
@@ -118,10 +119,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="5dp">
-
-        <TextView
+  <TextView
             android:textStyle="bold"
-            android:layout_width="230.0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
@@ -131,7 +131,7 @@
         <EditText
             android:textStyle="bold"
             android:singleLine="true"
-            android:layout_width="533.0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
             android:layout_marginLeft="40dp"
