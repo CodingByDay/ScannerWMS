@@ -97,7 +97,7 @@ namespace TrendNET.WMS.Device.Services
             t.IsBackground = true;
             t.Start();
             var cnt = timeout / 1500 + 5;
-          //Power.EnterUnattendedMode ();
+      
             try
             {
                 while (--cnt > 0 && !t.Join(1500))

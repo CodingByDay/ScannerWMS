@@ -1478,13 +1478,10 @@ namespace Scanner
         {
             e.Handled = false;
             if (e.KeyCode == Keycode.Enter && !String.IsNullOrEmpty(tbSSCCpopup.Text))
-            {
-          
+            {         
                     FilData(tbSSCCpopup.Text);
-
-                // Add your logic here 
+                    // Add your logic here 
                     adapter.NotifyDataSetChanged();
-
             }
         }
 
@@ -1529,7 +1526,6 @@ namespace Scanner
             if(e.KeyCode == Keycode.Enter)
             {
                 ProcessIdent();
-
                 e.Handled = true;
             } else
             {
@@ -1540,8 +1536,7 @@ namespace Scanner
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             selected = e.Position;
-            var item = items.ElementAt(selected);
-          
+            var item = items.ElementAt(selected);   
         }
 
 
@@ -1556,7 +1551,6 @@ namespace Scanner
                 if (issuerLocs == null)
                 {
                     Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
-
                 }
                 else
                 {
@@ -1565,12 +1559,8 @@ namespace Scanner
                         var location = x.GetString("LocationID");
                         issuer.Add(location);
                     });
-
                 }
-
-
             });
-
         }
 
     
@@ -1578,13 +1568,11 @@ namespace Scanner
 
         private void fillItems()
         {
-
             string error;
             var stock = Services.GetObjectList("str", out error, moveHead.GetString("Issuer") + "||" + tbIdent.Text); /* Defined at the beggining of the activity. */
             var number = stock.Items.Count();
             string SuccessMessage = string.Format(number.ToString());
             Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
-
             if (stock != null)
             {
                 stock.Items.ForEach(x =>
@@ -1619,20 +1607,13 @@ namespace Scanner
                 // add your logic here 
                 ProcessQty();
                 e.Handled = true;
-            }
-
-
-            
+            }           
         }
 
         private void FillTheIdentLocationList(string ident)
-        {
-
-
-         
+        {         
             var wh = moveHead.GetString("Receiver");
             var list = GetIdentLocationList.fillItemsOfList(wh, ident);
-
             Fill(list);
         }
 
@@ -1643,11 +1624,7 @@ namespace Scanner
                 items.Add(obj);
     
             }
-
             listData.Adapter = null;
-
-
-
             AdapterLocation adapter = new AdapterLocation(this, items);
             listData.Adapter = adapter;
         }
@@ -1684,12 +1661,9 @@ namespace Scanner
             try
             {
                 Android.Graphics.Bitmap show = Services.GetImageFromServer(moveHead.GetString("Receiver"));
-
                 Drawable d = new BitmapDrawable(Resources, show);
-
                 imagePNG.SetImageDrawable(d);
                 imagePNG.Visibility = ViewStates.Visible;
-            
                 imagePNG.Click += (e, ev) => { ImageClick(d); };
 
             }

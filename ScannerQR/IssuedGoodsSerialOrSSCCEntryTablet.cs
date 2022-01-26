@@ -15,6 +15,7 @@ using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Jsibbold.Zoomage;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Newtonsoft.Json;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -116,9 +117,9 @@ namespace Scanner
 
             AdapterLocation adapter = new AdapterLocation(this, items);
             listData.Adapter = adapter;
-            
 
-
+            btSaveOrUpdate.LongClick += BtSaveOrUpdate_LongClick;
+            button4.LongClick += Button4_LongClick;
            
             
             colorFields();
@@ -185,6 +186,38 @@ namespace Scanner
             tbSSCC.FocusedByDefault = true;
         }
 
+        private void Button4_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            if(isMorePalletsMode&&data.Count!=0)
+            {
+                isMorePalletsMode = false;
+
+                button4.Enabled = true;
+                tbSSCC.Text = "";
+                tbSerialNum.Text = "";
+                tbPalette.Text = "";
+                tbPacking.Text = "";
+                tbLocation.Text = "";
+                tbSSCC.RequestFocus();
+
+            }
+        }
+
+        private void BtSaveOrUpdate_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            if (isMorePalletsMode && data.Count != 0)
+            {
+                btSaveOrUpdate.Enabled = true;
+                tbSSCC.Text = "";
+                tbSerialNum.Text = "";
+                tbPalette.Text = "";
+                tbPacking.Text = "";
+                tbLocation.Text = "";
+
+                tbSSCC.RequestFocus();
+            }
+        }
+
         private void BtMorePallets_Click(object sender, EventArgs e)
         {
 
@@ -211,8 +244,8 @@ namespace Scanner
             spLocationSpinner.SetTitle("Iskanje");
             spLocationSpinner.SetPositiveButton("Zapri");
             spLocationSpinner.ItemSelected += SpLocationSpinner_ItemSelected;
-            adapter = new MorePalletsAdapter(this, data);
-            lvCardMore.Adapter = adapter;
+            adapterMore = new MorePalletsAdapter(this, data);
+            lvCardMore.Adapter = adapterMore;
             lvCardMore.ItemSelected += LvCardMore_ItemSelected;
             btConfirm.Click += BtConfirm_Click;
             btExit.Click += BtExit_Click;
@@ -242,16 +275,7 @@ namespace Scanner
         private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem, bool isFirst)
         {
             moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
-            if (isFirst)
-            {
-                var test = moveHead.GetInt("HeadID");
-
-            }
-            else
-            {
-                updateTheHead();
-
-            }
+       
             if (string.IsNullOrEmpty(objectItem.Quantity.Trim()))
             {
                 return true;
@@ -517,131 +541,108 @@ namespace Scanner
         {
             await Task.Run(async () =>
             {
-                int count = 0;
-                check = 0;
-                foreach (MorePallets item in data)
+
+                RunOnUiThread(() =>
                 {
-                    if (count == 0)
+                    progress = new ProgressDialogClass();
+
+                    progress.ShowDialogSync(this, "Zaključujem več paleta na odpremi.");
+                });
+
+                try
+                {
+
+                    var headID = moveHead.GetInt("HeadID");
+
+                    string result;
+
+                    if (WebApp.Get("mode=finish&stock=remove&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
                     {
-                        isFirst = true;
-                    }
-                    else
-                    {
-                        isFirst = false;
-                    }
-                    count += 1;
-
-                    if (await SaveMoveItemWithParams(item, isFirst))
-                    {
-
-                        RunOnUiThread(() =>
+                        if (result.StartsWith("OK!"))
                         {
-                            progress = new ProgressDialogClass();
-
-                            progress.ShowDialogSync(this, "Zaključujem več paleta na odpremi.");
-                        });
-
-                        try
-                        {
-
-                            var headID = moveHead.GetInt("HeadID");
-
-                            string result;
-
-                            if (WebApp.Get("mode=finish&stock=remove&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-                            {
-                                if (result.StartsWith("OK!"))
-                                {
-                                    check += 1;
-                                    RunOnUiThread(() =>
-                                    {
-                                        progress.StopDialogSync();
-
-                                        var id = result.Split('+')[1];
-
-                                        Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
-
-                                        InvalidateAndClose();
-
-                                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-
-                                        alert.SetTitle("Zaključevanje uspešno");
-
-                                        alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-                                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
-                                        {
-                                            alert.Dispose();
-                                            System.Threading.Thread.Sleep(500);
-                                            if (check == data.Count)
-                                            {
-                                                StartActivity(typeof(MainMenu));
-                                            }
-                                            else
-                                            {
-                                                alert.Dispose();
-                                                progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
-
-
-                                            }
-                                        });
-
-
-
-                                        Dialog dialog = alert.Create();
-                                        dialog.Show();
-                                    });
-
-                                }
-                                else
-                                {
-                                    RunOnUiThread(() =>
-                                    {
-                                        progress.StopDialogSync();
-                                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                                        alert.SetTitle("Napaka");
-                                        alert.SetMessage("Napaka pri zaključevanju: " + result);
-
-                                        alert.SetPositiveButton("Ok", (senderAlert, args) =>
-                                        {
-                                            alert.Dispose();
-                                            System.Threading.Thread.Sleep(500);
-                                            StartActivity(typeof(MainMenu));
-
-                                        });
-
-
-
-                                        Dialog dialog = alert.Create();
-                                        dialog.Show();
-                                    });
-                                }
-                            }
-                            else
-                            {
-
-                                RunOnUiThread(() =>
-                                {
-                                    Toast.MakeText(this, "Napaka pri klicu do web aplikacije" + result, ToastLength.Long).Show();
-
-                                });
-
-                            }
-                        }
-                        finally
-                        {
+                            check += 1;
                             RunOnUiThread(() =>
                             {
                                 progress.StopDialogSync();
 
+                                var id = result.Split('+')[1];
+
+                                Toast.MakeText(this, "Zaključevanje uspešno! Št. izdaje:\r\n" + id, ToastLength.Long).Show();
+
+                                InvalidateAndClose();
+
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+                                alert.SetTitle("Zaključevanje uspešno");
+
+                                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+
+                                    StartActivity(typeof(MainMenuTablet));
+
+
+                                });
+
+
+
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            });
+
+                        }
+                        else
+                        {
+                            RunOnUiThread(() =>
+                            {
+                                progress.StopDialogSync();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                                alert.SetTitle("Napaka");
+                                alert.SetMessage("Napaka pri zaključevanju: " + result);
+
+                                alert.SetPositiveButton("Ok", (senderAlert, args) =>
+                                {
+                                    alert.Dispose();
+                                    System.Threading.Thread.Sleep(500);
+                                    StartActivity(typeof(MainMenuTablet));
+
+                                });
+
+
+
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
                             });
                         }
                     }
+                    else
+                    {
+
+                        RunOnUiThread(() =>
+                        {
+                            Toast.MakeText(this, "Napaka pri klicu do web aplikacije" + result, ToastLength.Long).Show();
+
+                        });
+
+                    }
+                }
+                finally
+                {
+                    RunOnUiThread(() =>
+                    {
+                        progress.StopDialogSync();
+
+                    });
+
                 }
             });
         }
         private void TbSSCC_LongClick(object sender, View.LongClickEventArgs e)
         {
+            isMorePalletsMode = false;
             tbSSCC.Text = "";
             tbSerialNum.Text = "";
             tbPalette.Text = "";
@@ -685,14 +686,9 @@ namespace Scanner
                     pallets.Quantity = barcode;
                     pallets.SSCC = barcode;
                     pallets.Serial = serial;
-                    if (pallets.SSCC.Length > 10)
-                    {
-                        pallets.friendlySSCC = pallets.SSCC.Substring(0, 10);
-                    }
-                    else
-                    {
-                        pallets.friendlySSCC = pallets.SSCC;
-                    }
+                   
+                    pallets.friendlySSCC = pallets.SSCC;
+                    
                     enabledSerial = loadIdent.GetBool("HasSerialNumber");
 
 
@@ -708,7 +704,7 @@ namespace Scanner
                     {
                         data.Add(obj);
                         // Added to the list
-
+                        adapterMore.NotifyDataSetChanged();
                         tbSSCCpopup.Text = "";
                         tbSSCCpopup.RequestFocus();
 
@@ -939,7 +935,7 @@ namespace Scanner
 
             try
             {
-
+          
 
                 moveItemNew = new NameValueObject("MoveItem");
             
@@ -957,7 +953,8 @@ namespace Scanner
                 moveItemNew.SetString("Palette", "1"); // Ask about this.
 
                 string error;
-                moveItemNew = Services.SetObject("mi", moveItem, out error);
+                moveItemNew = Services.SetObject("mi", moveItemNew, out error);
+                var jsonobj = GetJSONforMoveItem(moveItemNew);
 
                 if (moveItemNew == null)
                 {
@@ -996,6 +993,11 @@ namespace Scanner
                 tbPacking.Text = "...";
                 tbLocation.RequestFocus();
                 isBatch = true;
+                isMorePalletsMode = true;
+
+             
+                btSaveOrUpdate.LongClickable = true;
+                button4.LongClickable = true;
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
                 SavePositions(data);
@@ -1495,42 +1497,56 @@ namespace Scanner
 
         private async void Button4_Click(object sender, EventArgs e)
         {
-
-            var correct = SaveMoveItem().Result;
-            if (correct)
+            if (!isMorePalletsMode)
             {
-                if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
+
+
+                var correct = SaveMoveItem().Result;
+                if (correct)
                 {
-                    StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
+                    if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
+                    {
+                        StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
+                    }
+                    else
+                    {
+                        StartActivity(typeof(IssuedGoodsIdentEntryTablet));
+                    }
+                    InvalidateAndClose();
                 }
-                else
-                {
-                    StartActivity(typeof(IssuedGoodsIdentEntryTablet));
-                }
-                InvalidateAndClose();
-             }
+            } else
+            {
+                Toast.MakeText(this, "Držite gumb za vrnitev na navadno skeniranje.", ToastLength.Long).Show();
+            }
         }
 
         private async void BtSaveOrUpdate_Click(object sender, EventArgs e)
         {
-            var correct = SaveMoveItem().Result;
-            if (correct)
+            if (!isMorePalletsMode)
             {
-                if (editMode)
+                var correct = SaveMoveItem().Result;
+                if (correct)
                 {
-                    StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+                    if (editMode)
+                    {
+                        StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+
+                    }
+
+                    else
+                    {
+                        StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
+                    }
+
+
+
+                    Finish();
 
                 }
-
-                else
-                {
-                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
-                }
-
-               
-
-                Finish();
-
+            } 
+            else
+            {
+                Toast.MakeText(this, "Držite gumb za vrnitev na navadno skeniranje.", ToastLength.Long).Show();
             }
         }
 
@@ -1562,7 +1578,7 @@ namespace Scanner
                 tbPalette.Text = moveItem.GetString("Palette");
                 tbPacking.Text = moveItem.GetDouble("Packing").ToString();
                 tbUnits.Text = moveItem.GetDouble("Factor").ToString();
-                btSaveOrUpdate.Text = "Spremeni ser. št. - F2";
+                btSaveOrUpdate.Text = "Serijska - F2";
             }
             else
             {
@@ -1655,6 +1671,7 @@ namespace Scanner
         private ZoomageView image;
         private Button btnOK;
         private bool isBatch;
+        private bool isMorePalletsMode;
         private int check;
         private bool isFirst;
         private Dialog popupDialogMain;
@@ -1670,6 +1687,7 @@ namespace Scanner
         private SearchableSpinner spLocationSpinner;
         private ArrayAdapter<string> adapterReceive;
         private NameValueObject moveItemNew;
+        private MorePalletsAdapter adapterMore;
 
         private bool CheckIssuedOpenQty()
         {
@@ -1691,7 +1709,27 @@ namespace Scanner
             return (bool)checkIssuedOpenQty;
         }
         // ---
+        private string GetJSONforMoveItem(NameValueObject moveItem)
+        {
+            moveItem item = new moveItem();
+            item.HeadID = moveHead.GetInt("HeadID");
+            item.LinkKey = moveItem.GetString("LinkKey");
+            item.LinkNo = moveItem.GetInt("LinkNo");
+            item.Ident = moveItem.GetString("Ident");
+            item.SSCC = moveItem.GetString("SSCC");
+            item.SerialNo = moveItem.GetString("SerialNo");
+            item.Packing = moveItem.GetDouble("Packing");
+            item.Factor = moveItem.GetDouble("Factor");
+            item.Qty = moveItem.GetDouble("Qty");
+            item.Clerk = moveItem.GetInt("Clerk");
+            item.Location = moveItem.GetString("Location");
+            item.IssueLocation = moveItem.GetString("IssueLocation");
+            item.Pallete = moveItem.GetString("Pallete");
+            var jsonString = JsonConvert.SerializeObject(item);
 
+
+            return jsonString;
+        }
         private async Task<bool> SaveMoveItem()
         {
             if (string.IsNullOrEmpty(tbPacking.Text.Trim()))
@@ -1904,7 +1942,7 @@ namespace Scanner
 
                 string error;
                 moveItem = Services.SetObject("mi", moveItem, out error);
-
+                var jsonobj = GetJSONforMoveItem(moveItem);
                 if (moveItem == null)
                 {
                     RunOnUiThread(() =>

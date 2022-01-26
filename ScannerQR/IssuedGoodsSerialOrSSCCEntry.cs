@@ -14,6 +14,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Com.Toptoche.Searchablespinnerlibrary;
+using Newtonsoft.Json;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -149,11 +151,36 @@ namespace Scanner
 
             LoadRelatedOrder();
             SetUpForm();
-        
+
             // tbLocation.KeyPress += TbLocation_KeyPress;
-            
 
 
+            button4.LongClick += Button4_LongClick; 
+            btSaveOrUpdate.LongClick += BtSaveOrUpdate_LongClick;
+        }
+
+        private void BtSaveOrUpdate_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            isMorePalletsMode = false;
+            tbSSCC.Text = "";
+            tbSerialNum.Text = "";
+            tbPalette.Text = "";
+            tbPacking.Text = "";
+            tbLocation.Text = "";
+            tbIdent.Text = "";
+            tbSSCC.RequestFocus();
+        }
+
+        private void Button4_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            isMorePalletsMode = false;
+            tbSSCC.Text = "";
+            tbSerialNum.Text = "";
+            tbPalette.Text = "";
+            tbPacking.Text = "";
+            tbLocation.Text = "";
+            tbIdent.Text = "";
+            tbSSCC.RequestFocus();
         }
 
         private void TbSSCC_KeyPress(object sender, View.KeyEventArgs e)
@@ -185,8 +212,15 @@ namespace Scanner
             tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
             lvCardMore = popupDialogMain.FindViewById<ListView>(Resource.Id.lvCardMore);
             lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
-            adapter = new MorePalletsAdapter(this, data);
-            lvCardMore.Adapter = adapter;
+
+
+            tbLocationPopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbLocation);
+            tbLocationPopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            spLocationSpinner = popupDialogMain.FindViewById<SearchableSpinner>(Resource.Id.spLocation);
+            spLocationSpinner.Visibility = ViewStates.Invisible;
+
+            adapterNew = new MorePalletsAdapter(this, data);
+            lvCardMore.Adapter = adapterNew;
             lvCardMore.ItemSelected += LvCardMore_ItemSelected;
             btConfirm.Click += BtConfirm_Click;
             btExit.Click += BtExit_Click;
@@ -211,12 +245,268 @@ namespace Scanner
                 tbIdent.Text = "...";
                 tbPacking.Text = "...";
                 tbLocation.RequestFocus();
+                isMorePalletsMode = true;
                 isBatch = true;
                 popupDialogMain.Dismiss();
                 popupDialogMain.Hide();
+                SavePositions(data);
+                UpdateTheLocationAPICall(tbLocationPopup.Text);
             }
         }
 
+
+
+        private async void SavePositions(List<MorePallets> datax)
+        {
+            progress = new ProgressDialogClass();
+            progress.ShowDialogSync(this, "Shranjujem pozicije.");
+            foreach (var x in datax)
+            {
+
+                await SaveMoveItemBatch(x);
+
+            }
+            progress.StopDialogSync();
+        }
+
+        private async Task<bool> SaveMoveItemBatch(MorePallets obj)
+        {
+
+            if (string.IsNullOrEmpty(obj.Quantity.Trim()))
+            {
+                return true;
+            }
+
+            if (tbSSCC.Enabled && string.IsNullOrEmpty(obj.SSCC))
+            {
+                return false;
+            }
+
+            if (tbSerialNum.Enabled && string.IsNullOrEmpty(obj.Serial))
+            {
+
+                return false;
+            }
+
+            if (!CommonData.IsValidLocation(moveHead.GetString("Wharehouse"), obj.Location))
+            {
+                return false;
+            }
+            if (!LoadStock(moveHead.GetString("Wharehouse"), obj.Location, obj.SSCC, obj.Serial, openIdent.GetString("Code")))
+            {
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(tbPacking.Text.Trim()))
+            {
+
+
+                return false;
+            }
+            else
+            {
+                try
+                {
+                    var qty = Convert.ToDouble(obj.Quantity);
+                    if (qty == 0.0)
+                    {
+                        return false;
+                    }
+
+                    if (moveHead.GetBool("ByOrder") && !isPackaging && CheckIssuedOpenQty())
+                    {
+                        var tolerance = openIdent.GetDouble("TolerancePercent");
+                        var maxVal = Math.Abs(openOrder.GetDouble("OpenQty") * (1.0 + tolerance / 100));
+                        if (Math.Abs(qty) > maxVal)
+                        {
+
+                            return false;
+                        }
+                    }
+
+                }
+                catch (Exception e)
+                {
+
+
+                    return false;
+                }
+            }
+
+            if (string.IsNullOrEmpty(tbUnits.Text.Trim()))
+            {
+
+
+                return false;
+            }
+            else
+            {
+                try
+                {
+                    var units = Convert.ToDouble(tbUnits.Text.Trim());
+                    if (units == 0.0)
+                    {
+
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+
+                    return false;
+                }
+            }
+
+            if (CommonData.GetSetting("IssuedGoodsPreventSerialDups") == "1")
+            {
+
+                try
+                {
+
+                    var headID = moveHead.GetInt("HeadID");
+                    var serialNo = obj.Serial;
+                    var sscc = obj.SSCC;
+
+                    string result;
+                    if (WebApp.Get("mode=canAddSerial&hid=" + headID.ToString() + "&sn=" + serialNo + "&sscc=" + sscc, out result))
+                    {
+                        if (!result.StartsWith("OK!"))
+                        {
+                            RunOnUiThread(() =>
+                            {
+                                Toast.MakeText(this, result, ToastLength.Long).Show();
+
+                            });
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        RunOnUiThread(() =>
+                        {
+                            Toast.MakeText(this, "Napaka pri klicu web aplikacije" + result, ToastLength.Long).Show();
+
+
+                        });
+                        return false;
+                    }
+                }
+                finally
+                {
+
+                }
+            }
+
+
+            try
+            {
+
+
+                moveItemNew = new NameValueObject("MoveItem");
+
+                moveItemNew.SetInt("HeadID", moveHead.GetInt("HeadID"));
+                moveItemNew.SetString("LinkKey", openOrder.GetString("Key"));
+                moveItemNew.SetInt("LinkNo", openOrder.GetInt("No"));
+                moveItemNew.SetString("Ident", openIdent.GetString("Code"));
+                moveItemNew.SetString("SSCC", obj.SSCC.Trim());
+                moveItemNew.SetString("SerialNo", obj.Serial.Trim());
+                moveItemNew.SetDouble("Packing", Convert.ToDouble(obj.Quantity.Trim()));
+                moveItemNew.SetDouble("Factor", Convert.ToDouble(tbUnits.Text.Trim()));
+                moveItemNew.SetDouble("Qty", Convert.ToDouble(tbUnits.Text.Trim()) * Convert.ToDouble(obj.Quantity.Trim()));
+                moveItemNew.SetInt("Clerk", Services.UserID());
+                moveItemNew.SetString("Location", obj.Location);
+                moveItemNew.SetString("Palette", "1"); // Ask about this.
+
+                string error;
+                moveItemNew = Services.SetObject("mi", moveItemNew, out error);
+                var jsonobj = GetJSONforMoveItem(moveItemNew);
+
+                if (moveItemNew == null)
+                {
+                    RunOnUiThread(() =>
+                    {
+                        var debug = error;
+
+                        Toast.MakeText(this, "Napaka pri dostopu web aplikacije." + error, ToastLength.Long).Show();
+                    });
+
+                    return false;
+                }
+                else
+                {
+                    var debug = error;
+                    InUseObjects.Invalidate("MoveItem");
+                    return true;
+                }
+            }
+            finally
+            {
+                //pass
+            }
+        }
+        private string GetJSONforMoveItem(NameValueObject moveItem)
+        {
+            moveItem item = new moveItem();
+            item.HeadID = moveHead.GetInt("HeadID");
+            item.LinkKey = moveItem.GetString("LinkKey");
+            item.LinkNo = moveItem.GetInt("LinkNo");
+            item.Ident = moveItem.GetString("Ident");
+            item.SSCC = moveItem.GetString("SSCC");
+            item.SerialNo = moveItem.GetString("SerialNo");
+            item.Packing = moveItem.GetDouble("Packing");
+            item.Factor = moveItem.GetDouble("Factor");
+            item.Qty = moveItem.GetDouble("Qty");
+            item.Clerk = moveItem.GetInt("Clerk");
+            item.Location = moveItem.GetString("Location");
+            item.IssueLocation = moveItem.GetString("IssueLocation");
+            item.Pallete = moveItem.GetString("Pallete");
+            var jsonString = JsonConvert.SerializeObject(item);
+
+
+            return jsonString;
+        }
+        private void UpdateTheLocationAPICall(string location)
+        {
+
+            try
+            {
+
+                var headID = moveHead.GetInt("HeadID");
+
+                string result;
+                if (WebApp.Get("mode=mhLoc&id=" + headID + "&loc=" + location, out result))
+                {
+                    if (result.StartsWith("OK!"))
+                    {
+
+                        RunOnUiThread(() =>
+                        {
+
+                        });
+                    }
+                    else
+                    {
+                        RunOnUiThread(() =>
+                        {
+
+
+
+
+                        });
+
+                    }
+                }
+                else
+                {
+                    string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
+                    Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                }
+            }
+            finally
+            {
+                tbLocation.Text = location;
+            }
+        }
         private void LvCardMore_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             var index = e.Position;
@@ -314,7 +604,7 @@ namespace Scanner
                     {
                         data.Add(obj);
                         // Added to the list
-
+                        adapterNew.NotifyDataSetChanged();
                         tbSSCCpopup.Text = "";
                         tbSSCCpopup.RequestFocus();
 
@@ -535,20 +825,11 @@ namespace Scanner
             await Task.Run(async () =>
             {
                 int count = 0;
-                check = 0;
-                foreach (MorePallets item in data)
-                {
-                    if (count == 0)
-                    {
-                        isFirst = true;
-                    }
-                    else
-                    {
-                        isFirst = false;
-                    }
+     
+         
                     count += 1;
 
-                    if (await SaveMoveItemWithParams(item, isFirst)) { 
+                 
 
                         RunOnUiThread(() =>
                     {
@@ -589,17 +870,9 @@ namespace Scanner
                                         {
                                             alert.Dispose();
                                             System.Threading.Thread.Sleep(500);
-                                            if (check == data.Count)
-                                            {
+                                         
                                                 StartActivity(typeof(MainMenu));
-                                            }
-                                            else
-                                            {
-                                                alert.Dispose();
-                                                progress.ShowDialogSync(this, "Zaključujem več paleta na enkrat.");
-
-
-                                            }
+                                           
                                         });
 
 
@@ -652,8 +925,7 @@ namespace Scanner
 
                             });
                         }
-                    }
-                }
+                               
             });
         }
 
@@ -947,49 +1219,64 @@ namespace Scanner
 
         private async void Button4_Click(object sender, EventArgs e)
         {
-            var result = SaveMoveItem().Result;
-            if (result)
-
+            if (!isMorePalletsMode)
             {
-               if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
+                var result = SaveMoveItem().Result;
+                if (result)
 
                 {
+                    if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
 
-                    StartActivity(typeof(IssuedGoodsIdentEntryWithTrail)); 
-                    Finish();
+                    {
+
+                        StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
+                        Finish();
 
 
-                } else
-                {
-                    StartActivity(typeof(IssuedGoodsIdentEntry));
-                    Finish();
+                    }
+                    else
+                    {
+                        StartActivity(typeof(IssuedGoodsIdentEntry));
+                        Finish();
+                    }
+                    InvalidateAndClose();
+
                 }
-                InvalidateAndClose();
-              
+            }
+            else
+            {
+                Toast.MakeText(this, "Držite gumb za vrnitev na navadno skeniranje.", ToastLength.Long).Show();
             }
         }
 
         private async void BtSaveOrUpdate_Click(object sender, EventArgs e)
         {
-            var result = SaveMoveItem().Result;
-            if (result)
+            if (!isMorePalletsMode)
             {
-                if (editMode)
+                var result = SaveMoveItem().Result;
+                if (result)
                 {
-                    StartActivity(typeof(IssuedGoodsEnteredPositionsView));
-                    Finish();
+                    if (editMode)
+                    {
+                        StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+                        Finish();
+
+                    }
+                    else
+                    {
+                        StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                        Finish();
+
+                    }
+
+
+
 
                 }
-                else
-                {
-                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
-                    Finish();
-
-                }
-
-
-    
-            
+            }
+            else
+            {
+                Toast.MakeText(this, "Držite gumb za vrnitev na navadno skeniranje.", ToastLength.Long).Show();
             }
         }
 
@@ -1130,9 +1417,14 @@ namespace Scanner
         private Button btnYes;
         private Button btnNo;
         private bool isFirst;
+        private bool isMorePalletsMode;
         private bool isBatch;
         private int check;
         private bool isOkayToCallBarcode;
+        private MorePalletsAdapter adapterNew;
+        private EditText tbLocationPopup;
+        private SearchableSpinner spLocationSpinner;
+        private NameValueObject moveItemNew;
 
         private bool CheckIssuedOpenQty()
         {
