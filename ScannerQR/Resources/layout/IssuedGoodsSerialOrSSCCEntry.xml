@@ -62,14 +62,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="38.5dp"
             android:layout_weight="0.50"
             android:paddingTop="5dp"
             android:id="@+id/tbSSCC" />
-            <Button
+        <Button
             android:text="..."
-            android:layout_width="74.0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="48.0dp"
+            android:layout_height="43.0dp"
             android:id="@+id/btMorePallets" />
 
     </LinearLayout>
@@ -92,7 +92,7 @@
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40.0dp"
             android:layout_weight="0.50"
             android:layout_marginLeft="40dp"
             android:paddingTop="5dp"
@@ -129,7 +129,7 @@
             android:id="@+id/tbLocation" />
 
     </LinearLayout>
-      <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -157,8 +157,8 @@
 
         <Button
             android:text="-(F1)"
-            android:layout_width="74.0dp"
-            android:layout_height="52.0dp"
+            android:layout_width="54.0dp"
+            android:layout_height="44.0dp"
             android:id="@+id/button1" />
 
     </LinearLayout>
@@ -183,7 +183,7 @@
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30.5dp"
             android:layout_weight="0.50"
             android:layout_marginLeft="40dp"
             android:paddingTop="5dp"
@@ -192,8 +192,8 @@
 
     </LinearLayout>
 
-    
-   
+
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -214,7 +214,7 @@
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="34.5dp"
             android:layout_weight="0.50"
             android:layout_marginLeft="40dp"
             android:paddingTop="5dp"
@@ -222,15 +222,7 @@
 
 
     </LinearLayout>
-    <TextView
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="5.5dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"
-        android:layout_marginRight="49.5dp"
-        android:id="@+id/space" />
-   <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -238,7 +230,6 @@
         android:paddingTop="5dp">
 
         <Button
-            
             android:layout_weight="1"
             android:background="@drawable/nicelookingbutton"
             android:text="Serijska - f2"
@@ -266,7 +257,7 @@
     </LinearLayout>
 
 
- <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:weightSum="2"
@@ -289,7 +280,7 @@
             android:background="@drawable/nicelookingbutton"
             android:text="Pregled - f5"
             android:layout_width="match_parent"
-           android:layout_height="70.0dp"
+            android:layout_height="70.0dp"
             android:textSize="20dp"
             android:drawableLeft="@drawable/focus"
             android:paddingLeft="10dp"
@@ -303,11 +294,11 @@
         android:background="@drawable/nicelookingbutton"
         android:text="Izhod - F9"
         android:layout_width="match_parent"
-        android:layout_height="56.5dp"
+        android:layout_height="60.5dp"
         android:textSize="20dp"
         android:drawableLeft="@drawable/logout"
         android:paddingLeft="10dp"
         android:id="@+id/button7"
         android:layout_marginTop="0.0dp" />
-    
+
 </LinearLayout>

@@ -442,7 +442,7 @@ namespace Scanner
         {
             byClient = p0;
 
-            // If delete, save time
+            // 
 
             if (byClient.Length >= 3 | byClient.Length == 0)
             {

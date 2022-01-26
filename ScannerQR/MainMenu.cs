@@ -128,7 +128,12 @@ namespace Scanner
 
         private void BtRecalculate_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(RecalculateInventory)); 
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
+                StartActivity(typeof(RecalculateInventory));
+            }
         }
 
         private void HideDisabled(List<Button> buttons)
@@ -148,13 +153,22 @@ namespace Scanner
 
         private void PalletsMenu_Click(object sender, EventArgs e)
         {
-     
-            StartActivity(typeof(MenuPallets));
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
+                StartActivity(typeof(MenuPallets));
+            }
         }
 
         private void RapidTakeover_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(RapidTakeover));
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
+                StartActivity(typeof(RapidTakeover));
+            }
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -242,59 +256,84 @@ namespace Scanner
 
         private void BtnPackaging_Click(object sender, EventArgs e)
         {
-         
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
                 StartActivity(typeof(PackagingEnteredPositionsView));
-            
+            }
         }
 
         private void BtnCheckStock_Click(object sender, EventArgs e)
         {
-          
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
                 StartActivity(typeof(CheckStock));
-            
+            }
         }
 
         private void BtnInventory_Click(object sender, EventArgs e)
         {
-       
-            StartActivity(typeof(InventoryMenu));
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
+                StartActivity(typeof(InventoryMenu));
+            }
         }
 
         private void ButtonPrint_Click(object sender, EventArgs e)
         {
-     
-            StartActivity(typeof(PrintingMenu));
-           
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
+                StartActivity(typeof(PrintingMenu));
+            }
         }
 
         private void ButtonIssued_Click(object sender, EventArgs e)
         {
-          
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
                 StartActivity(typeof(UnfinishedIssuedGoodsView));
-            
+            }
         }
 
         private void ButtonUnfinished_Click(object sender, EventArgs e)
         {
-          
-        
+
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
                 // StartActivity(typeof(UnfinishedProductionView));
                 StartActivity(typeof(choiceProduction));
-            
+            }
         }
       
         private void ButtonInterWarehouse_Click(object sender, EventArgs e)
         {
-        
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
                 StartActivity(typeof(UnfinishedInterWarehouseView));
-            
+            }
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
-         
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
                 StartActivity(typeof(UnfinishedTakeoversView));
-            
+            }
         }
     }
 }

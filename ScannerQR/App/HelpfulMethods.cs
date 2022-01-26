@@ -13,7 +13,25 @@ namespace Scanner.App
 {
     public static class HelpfulMethods
     {
-     
+        private static int count=0;
+        public static bool preventDupUse()
+        {
+                var check = count;
+                count += 1;
+
+                if (count > 1)
+                {
+                
+                    count = 0;
+                    return false;
+
+                } else
+
+                {
+                return true;
+                }
+        }
+            
         
 
     }

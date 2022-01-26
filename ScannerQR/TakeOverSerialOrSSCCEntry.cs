@@ -54,10 +54,8 @@ namespace Scanner
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here.
             SetContentView(Resource.Layout.TakeOverSerialOrSSCCEntry);
-
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSerialNum = FindViewById<EditText>(Resource.Id.tbSerialNum);
@@ -89,7 +87,7 @@ namespace Scanner
             button6.Click += Button6_Click;
             button7.Click += Button7_Click;
             button5.Click += Button5_Click;
-            //
+
             //
             // Exceptions
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point?!"); }
@@ -169,7 +167,7 @@ namespace Scanner
             {
                 tbSSCC.Enabled = false;
                 tbSerialNum.Enabled = false;
-                //new Scanner(tbLocation);
+                // new Scanner(tbLocation);
                 tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
                 tbPacking.RequestFocus();
             }
@@ -388,7 +386,7 @@ namespace Scanner
             await FinishMethod();
        
        
-            }
+        }
         
         private bool CheckTakeOverOpenQty()
         {
@@ -666,7 +664,7 @@ namespace Scanner
                         Button1_Click(this, null);
                     }
                     break;
-                //return true;
+                // return true;
 
 
                 case Keycode.F2:

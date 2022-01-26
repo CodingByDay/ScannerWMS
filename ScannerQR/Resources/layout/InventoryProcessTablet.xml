@@ -150,16 +150,16 @@
         android:paddingTop="5dp"
                                      >
 
-        <TextView
-            android:textSize="18dp"    
-            android:textStyle="bold"    
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lokacija"
-            android:paddingTop="5dp"
-            android:paddingLeft="10dp"
-            android:id="@+id/textView1"
-            android:layout_marginRight="55.0dp" />
+            <TextView
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lokacija"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/textView1"
+                android:layout_marginRight="18.0dp" />
 
         <EditText
             android:textSize="18dp"    
@@ -180,15 +180,15 @@
         android:orientation="horizontal"
         android:paddingTop="5dp">
 
-        <TextView
-            android:textSize="18dp"    
-            android:textStyle="bold"    
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="Ident"
-            android:layout_marginRight="73.5dp" />
+            <TextView
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="Ident"
+                android:layout_marginRight="40.5dp" />
 
         <EditText
             android:textSize="18dp"    
@@ -201,6 +201,11 @@
             android:paddingTop="5dp"
             android:id="@+id/tbIdent" />
 
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerIdent"
+        android:spinnerMode="dialog" />
 
     </LinearLayout>
 
@@ -212,16 +217,16 @@
         android:id="@+id/linearLayout1"
                                      >
 
-        <TextView
-                android:textSize="18dp"    
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Naziv"
-            android:paddingTop="5dp"
-            android:paddingLeft="10dp"
-            android:layout_marginRight="69.5dp"
-            android:id="@+id/textView2" />
+            <TextView
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Naziv"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:layout_marginRight="35.5dp"
+                android:id="@+id/textView2" />
 
         <EditText
                 android:textSize="18dp"    
@@ -242,25 +247,26 @@
         android:orientation="horizontal"
         android:paddingTop="5dp">
 
-        <TextView
-            android:textSize="18dp"    
-            android:textStyle="bold"    
-            android:layout_width="107.5dp"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="SSCC koda" />
+            <TextView
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_width="125.0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="SSCC "
+                android:layout_marginRight="0.0dp" />
 
-        <EditText
-            android:textSize="18dp"    
-            android:textStyle="bold"
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.50"
-            android:layout_marginLeft="40dp"
-            android:paddingTop="5dp"
-            android:id="@+id/tbSSCC" />
+            <EditText
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:layout_marginLeft="5.0dp"
+                android:paddingTop="5dp"
+                android:id="@+id/tbSSCC" />
 
 
 
@@ -274,16 +280,16 @@
         android:orientation="horizontal"
         android:paddingTop="5dp">
 
-        <TextView
-            android:textSize="18dp"    
-            android:textStyle="bold"    
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="Serijska št."
-            android:layout_marginRight="35.0dp"
-            android:id="@+id/textView3" />
+            <TextView
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="Serijska "
+                android:layout_marginRight="5.0dp"
+                android:id="@+id/textView3" />
 
         <EditText
              android:textSize="18dp"    
@@ -303,15 +309,15 @@
         android:orientation="horizontal"
         android:paddingTop="5dp">
 
-        <TextView
-            android:textSize="18dp"    
-            android:textStyle="bold"    
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="Količina"
-            android:layout_marginRight="54.0dp" />
+            <TextView
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_width="80.0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="Količina"
+                android:layout_marginRight="2.0dp" />
 
         <EditText
             android:textSize="18dp"    
@@ -331,16 +337,16 @@
         android:orientation="horizontal"
         android:paddingTop="5dp">
 
-        <TextView
-            android:textSize="18dp"    
-            android:textStyle="bold"    
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="Št. enot"
-            android:layout_marginRight="55.5dp"
-            android:id="@+id/lbUnits" />
+            <TextView
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_width="80.0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="Št. enot"
+                android:layout_marginRight="0.0dp"
+                android:id="@+id/lbUnits" />
 
         <EditText
             android:textSize="18dp"    

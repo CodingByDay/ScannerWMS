@@ -192,7 +192,7 @@
 
     <TextView
         android:layout_width="102.0dp"
-        android:layout_height="77.0dp"
+        android:layout_height="44.5dp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"/>
 

@@ -375,6 +375,7 @@ namespace Scanner
                 dataList.ClearChoices();
                 dataList.RequestFocusFromTouch();
                 dataList.SetSelection(selected);
+                 
                 dataList.SetItemChecked(selected, true);
             }
             else
@@ -468,20 +469,10 @@ namespace Scanner
                 }
 
             }
-            //dataList.Adapter = null;
-            //UnfinishedTakeoverAdapter adapter = new UnfinishedTakeoverAdapter(this, dataSource);
-            //dataList.Adapter = adapter;
-            // Selects the first element.
-            //SetAppropriateSelection(dataList);
+  
 
         }
 
-        //private void SetAppropriateSelection(ListView dataList)
-        //{
-        //    dataList.RequestFocusFromTouch();
-        //    dataList.SetItemChecked(0, true);
-        //    dataList.SetSelection(0);
-        //}
 
         private void FillDisplayedItem()
         {

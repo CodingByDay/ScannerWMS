@@ -11,8 +11,7 @@
     tools:context=".LinearLayout"
     android:foregroundGravity="center">
     <TextView
-       
-         android:textStyle="bold"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -27,7 +26,6 @@
         android:paddingTop="5dp">
 
         <TextView
-           
             android:textStyle="bold"
             android:layout_width="111.0dp"
             android:layout_height="wrap_content"
@@ -36,7 +34,6 @@
             android:text="Ident" />
 
         <EditText
-         
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -57,7 +54,6 @@
                                      >
 
         <TextView
-            
             android:textStyle="bold"
             android:layout_width="109.5dp"
             android:layout_height="wrap_content"
@@ -67,7 +63,6 @@
             android:id="@+id/textView1" />
 
         <EditText
-            
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -86,7 +81,6 @@
         android:paddingTop="5dp">
 
         <TextView
-       
             android:textStyle="bold"
             android:layout_width="108.0dp"
             android:layout_height="wrap_content"
@@ -95,7 +89,6 @@
             android:text="Serijska št." />
 
         <EditText
-        
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -116,7 +109,6 @@
                                      >
 
         <TextView
-      
             android:textStyle="bold"
             android:layout_width="106.0dp"
             android:layout_height="wrap_content"
@@ -125,7 +117,6 @@
             android:paddingLeft="10dp"/>
 
         <EditText
-            
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
@@ -145,7 +136,6 @@
         android:paddingTop="5dp">
 
         <TextView
-            
             android:textStyle="bold"
             android:layout_width="104.0dp"
             android:layout_height="wrap_content"
@@ -154,9 +144,8 @@
             android:text="Lokacija" />
 
         <EditText
-       
             android:textStyle="bold"
-               android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -186,7 +175,7 @@
 
         <EditText
             android:textStyle="bold"
-               android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
@@ -195,14 +184,9 @@
             android:id="@+id/tbCreatedBy" />
 
     </LinearLayout>
-    <TextView
-        android:layout_width="104.0dp"
-        android:layout_height="28.5dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"/>
 
- 
-   <LinearLayout
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -238,7 +222,7 @@
 
 
 
-  <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -271,7 +255,7 @@
     </LinearLayout>
 
 
- <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:weightSum="2"
@@ -295,7 +279,7 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70.0dp"
-           android:textSize="20dp"
+            android:textSize="20dp"
             android:drawableLeft="@drawable/logout"
             android:paddingLeft="10dp"
             android:id="@+id/button5" />

@@ -249,9 +249,12 @@ namespace Scanner
             spLocation.SetSelection(locList.IndexOf(CommonData.GetSetting("DefaultPaletteLocation")), true);
 
             
+            
         }
-
       
+
+       
+
         private void WarehousePNG_Click(object sender, EventArgs e)
         {
             popupDialog = new Dialog(this);
@@ -261,6 +264,7 @@ namespace Scanner
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
             image = popupDialog.FindViewById<ZoomageView>(Resource.Id.image);
+          
             // Access Popup layout fields like below
         }
 

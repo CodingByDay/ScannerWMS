@@ -16,11 +16,12 @@ using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
+using static Com.Toptoche.Searchablespinnerlibrary.SearchableListDialog;
 
 namespace Scanner
 {
     [Activity(Label = "TakeOverIdentEntryTablet", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
-    public class TakeOverIdentEntryTablet : Activity, IBarcodeResult
+    public class TakeOverIdentEntryTablet : Activity, IBarcodeResult, IOnSearchTextChanged, IDialogInterfaceOnClickListener
 
     {
         private int displayedPosition;
@@ -106,9 +107,19 @@ namespace Scanner
             spinnerIdent.Adapter = DataAdapter;
             // The part for spinner selected index changed.
             spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
+            
             tbIdent.LongClick += ClearTheFields;
-        }   
+           
+        }
 
+     
+
+        public async void OnSearchTextChanged(string p0)
+        {
+            var test = p0;
+           
+
+        }
         private void ClearTheFields(object sender, View.LongClickEventArgs e)
         {
             tbIdent.Text = "";
@@ -194,7 +205,7 @@ namespace Scanner
         {
              // Preventing duplicate list filling with idents.
             ProcessIdent();
-          
+            OnSearchTextChanged(tbIdent.Text);
 
         }
         private string LoadStockFromStock(string warehouse, string ident)
@@ -571,5 +582,9 @@ namespace Scanner
             return base.OnKeyDown(keyCode, e);
         }
 
+        public void OnClick(IDialogInterface dialog, int which)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
