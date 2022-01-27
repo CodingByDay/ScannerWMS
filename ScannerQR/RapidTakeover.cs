@@ -122,7 +122,7 @@ namespace Scanner
         private void BtConfirm_Click(object sender, EventArgs e)
         {
 
-            if (saveHead())
+            if (saveHead() &&!String.IsNullOrEmpty(tbIdent.Text) &&!String.IsNullOrEmpty(tbLocation.Text))
             {
 
                 try

@@ -161,17 +161,23 @@
                 android:id="@+id/textView1"
                 android:layout_marginRight="18.0dp" />
 
-        <EditText
-            android:textSize="18dp"    
-            android:textStyle="bold"    
-            android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_weight="0.50"
-            android:paddingTop="5dp"
-            android:id="@+id/tbLocation" />
+            <EditText
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="28.0dp"
+                android:layout_weight="0.50"
+                android:paddingTop="5dp"
+                android:id="@+id/tbLocation" />
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerLocation"
+        android:spinnerMode="dialog" />
 
     </LinearLayout>
     <LinearLayout
@@ -188,7 +194,7 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
                 android:text="Ident"
-                android:layout_marginRight="40.5dp" />
+                android:layout_marginRight="28.5dp" />
 
         <EditText
             android:textSize="18dp"    
@@ -228,17 +234,17 @@
                 android:layout_marginRight="35.5dp"
                 android:id="@+id/textView2" />
 
-        <EditText
-                android:textSize="18dp"    
-            android:textStyle="bold"
-             android:singleLine="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_weight="0.50"
-            android:paddingTop="5dp"
-            android:id="@+id/tbTitle" />
+            <EditText
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="33.0dp"
+                android:layout_weight="0.50"
+                android:paddingTop="5dp"
+                android:id="@+id/tbTitle" />
 
     </LinearLayout>
     <LinearLayout
@@ -264,7 +270,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.50"
-                android:layout_marginLeft="5.0dp"
+                android:layout_marginLeft="0.0dp"
                 android:paddingTop="5dp"
                 android:id="@+id/tbSSCC" />
 

@@ -105,24 +105,24 @@
         android:orientation="horizontal"
         android:paddingTop="5dp">
 
-        <TextView
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:singleLine="true"
-            android:layout_width="67.0dp"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="Skladišče"
-            android:layout_marginRight="27.0dp" />
-        <Spinner
-            android:spinnerMode="dialog"
-            android:layout_width="match_parent"
-            android:layout_height="41.0dp"
-            android:id="@+id/cbWarehouses"
-            android:gravity="center"
-            android:layout_marginLeft="22.5dp"
-            android:layout_marginRight="27.0dp"
+            <TextView
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:singleLine="true"
+                android:layout_width="104.0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="Skladišče"
+                android:layout_marginRight="27.0dp" />
+            <Spinner
+                android:spinnerMode="dialog"
+                android:layout_width="match_parent"
+                android:layout_height="41.0dp"
+                android:id="@+id/cbWarehouses"
+                android:gravity="center"
+                android:layout_marginLeft="164.5dp"
+                android:layout_marginRight="27.0dp"
            />
 
 
@@ -158,6 +158,15 @@
             android:paddingTop="5dp"
             android:id="@+id/tbLocation" />
 
+
+
+
+      <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerLocation"
+        android:spinnerMode="dialog" />
+
     </LinearLayout>
     <TextView
         android:textStyle="bold"
@@ -191,6 +200,13 @@
             android:layout_marginLeft="40dp"
             android:paddingTop="5dp"
             android:id="@+id/tbIdent" />
+
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerIdent"
+        android:spinnerMode="dialog" />
 
 
     </LinearLayout>

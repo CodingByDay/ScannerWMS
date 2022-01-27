@@ -118,7 +118,7 @@ namespace Scanner
             btRecalculate = FindViewById<Button>(Resource.Id.btRecalculate);
             btRecalculate.Click += BtRecalculate_Click;
 
-            // Adding the new pallete permision
+            // Adding the new pallets permission.
             PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
             // Hide those for now.
             PalletsMenu.Click += PalletsMenu_Click;

@@ -6,10 +6,12 @@ using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Jsibbold.Zoomage;
+using Com.Toptoche.Searchablespinnerlibrary;
 using Scanner.App;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 using static Android.App.ActionBar;
@@ -37,6 +39,14 @@ namespace Scanner
         private Dialog popupDialog;
         private ZoomageView image;
         private Button btnOK;
+        private SearchableSpinner spinnerIdent;
+        private SearchableSpinner spinnerLocation;
+        private List<String> identData = new List<string>();
+        private List<string> returnList;
+        private List<String> locationData = new List<String>();
+        private int tempPosition;
+
+        public ArrayAdapter<string> DataAdapterLocation { get; private set; }
 
         public void GetBarcode(string barcode)
         {
@@ -168,7 +178,7 @@ namespace Scanner
             }
             return base.OnKeyDown(keyCode, e);
         }
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -189,8 +199,8 @@ namespace Scanner
             listData.Adapter = adapter;
             imagePNG = FindViewById<ImageView>(Resource.Id.imagePNG);
             cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;
-            color();                      
-            
+            color();
+            spinnerLocation = FindViewById<SearchableSpinner>(Resource.Id.spinnerLocation);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             Barcode2D barcode2D = new Barcode2D();
@@ -213,17 +223,60 @@ namespace Scanner
                 // pass wms select first, nothing happens anyway, 'cause the first one would have already been selected anyway.
             }
             lbStock = FindViewById<TextView>(Resource.Id.lbStock);
-
+       
             var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, spinnerAdapterList);
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouses.Adapter = adapterWarehouse;
+            Toast.MakeText(this, $"Pripravljam seznam.", ToastLength.Long).Show();
 
-
-
+            identData = await MakeTheApiCallForTheIdentData();
+            Toast.MakeText(this, $"Seznam pripravljen.", ToastLength.Long).Show();
             imagePNG.Visibility = ViewStates.Invisible;
 
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
+
+            spinnerIdent.Prompt = "Iskanje";
+            spinnerIdent.SetTitle("Iskanje");
+            spinnerIdent.SetPositiveButton("Zapri");
+            var DataAdapter = new ArrayAdapter<string>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, identData);
+            spinnerIdent.Adapter = DataAdapter;
+            spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
+            spinnerLocation.ItemSelected += SpinnerLocation_ItemSelected;
         }
+
+        private void SpinnerLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            tbLocation.Text = locationData.ElementAt(e.Position);
+            
+            Toast.MakeText(this, $"Izbrali ste  {locationData.ElementAt(e.Position)}.", ToastLength.Long).Show();
+        }
+
+        private async Task<List<string>> MakeTheApiCallForTheIdentData()
+        {
+            await Task.Run(() =>
+            {
+                returnList = new List<string>();
+                // Call the API.
+                string error;
+                var idents = Services.GetObjectList("id", out error, "");
+
+                idents.Items.ForEach(x =>
+                {
+                    returnList.Add(x.GetString("Code"));
+                });
+
+
+            });
+            return returnList;
+        }
+        private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            tbIdent.Text = identData.ElementAt(e.Position);
+            Toast.MakeText(this, $"Izbrali ste  {identData.ElementAt(e.Position)}", ToastLength.Long).Show();
+        }
+
         private void showPictureIdent(string ident, string wh)
         {
             try
@@ -320,11 +373,46 @@ namespace Scanner
              });     
         }
 
-
-
-
-        private void CbWarehouses_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        private async Task GetLocationsForGivenWarehouse()
         {
+            await Task.Run(() =>
+            {
+                locationData.Clear();
+                List<string> result = new List<string>();
+                string error;
+                var issuerLocs = Services.GetObjectList("lo", out error, spinnerAdapterList.ElementAt(tempPosition).Text);
+                var debi = issuerLocs.Items.Count();
+                if (issuerLocs == null)
+                {
+                    Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
+                }
+                else
+                {
+                    issuerLocs.Items.ForEach(x =>
+                    {
+                        var location = x.GetString("LocationID");
+                        locationData.Add(location);
+                        // Notify the adapter state change!
+                    });
+                }
+            });
+        }
+
+
+        private async void CbWarehouses_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            tempPosition = e.Position;
+            Toast.MakeText(this, "Pripravljamo listu lokacija.", ToastLength.Long).Show();
+            await GetLocationsForGivenWarehouse();
+            Toast.MakeText(this, "Lista lokacija pripravljena.", ToastLength.Long).Show();
+
+
+            DataAdapterLocation = new ArrayAdapter<string>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, locationData);
+
+            spinnerLocation.Adapter = null;
+            spinnerLocation.Adapter = DataAdapterLocation;
+
             Spinner spinner = (Spinner)sender;
             if (e.Position != 0)
             {
@@ -336,6 +424,7 @@ namespace Scanner
 
 
                 showPicture(element);
+
             }
         }
     }

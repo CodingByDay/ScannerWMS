@@ -36,7 +36,7 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
-            android:text="proizvodnja - F2"
+            android:text="proizvod.- F2"
             android:layout_marginBottom="5dp"
             android:textColor="#000000"
             android:id="@+id/production" />
@@ -56,7 +56,7 @@
             android:textStyle="bold"
             android:paddingRight="20dp"
             android:paddingTop="8dp"
-            android:text="Hiter - F3"
+            android:text="Hitri - F3"
             android:layout_marginBottom="5dp"
             android:textColor="#000000"
             android:layout_marginLeft="6.0dp"

@@ -50,8 +50,6 @@ namespace Scanner
             IDdevice = settings.ID;
             target = settings.device;
             result = settings.tablet;
-
-
             Button button = FindViewById<Button>(Resource.Id.goodsTakeOver);
             button.Click += Button_Click;
             buttons.Add(button);
@@ -59,7 +57,6 @@ namespace Scanner
             Button buttonInterWarehouse = FindViewById<Button>(Resource.Id.goodsInterWarehouse);
             buttonInterWarehouse.Click += ButtonInterWarehouse_Click;
             buttons.Add(buttonInterWarehouse);
-
             // Third view...
             Button buttonUnfinished = FindViewById<Button>(Resource.Id.goodsProduction);
             buttonUnfinished.Click += ButtonUnfinished_Click;
@@ -91,10 +88,8 @@ namespace Scanner
             buttons.Add(PalletsMenu);
             Button rapidTakeover = FindViewById<Button>(Resource.Id.rapidTakeover);
             rapidTakeover.Click += RapidTakeover_Click1;
-
             Button btRecalculate = FindViewById<Button>(Resource.Id.btRecalculate);
             btRecalculate.Click += BtRecalculate_Click;
-
             PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
             PalletsMenu.Click += PalletsMenu_Click;
             buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
@@ -102,22 +97,33 @@ namespace Scanner
             buttonUnfinished.Enabled = Services.HasPermission("TNET_WMS_BLAG_PROD", "R");
             button.Enabled = Services.HasPermission("TNET_WMS_BLAG_ACQ", "R");
             btnPackaging.Enabled = Services.HasPermission("TNET_WMS_BLAG_PKG", "R");
-
             buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
             btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
             PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
-
             HideDisabled(buttons);
+            rapidListview = FindViewById<ListView>(Resource.Id.rapidListview);
+
+
         }
 
         private void BtRecalculate_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(RecalculateInventoryTablet));
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
+                StartActivity(typeof(RecalculateInventoryTablet));
+            }
         }
 
         private void RapidTakeover_Click1(object sender, EventArgs e)
         {
-            StartActivity(typeof(RapidTakeover));
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
+                StartActivity(typeof(RapidTakeover));
+            }
         }
 
         private void HideDisabled(List<Button> buttons)
@@ -137,7 +143,12 @@ namespace Scanner
         }
         private void PalletsMenu_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MenuPalletsTablet));
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
+                StartActivity(typeof(MenuPalletsTablet));
+            }
         }
 
         private void updateList()
@@ -146,7 +157,12 @@ namespace Scanner
         }
         private void RapidTakeover_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(RapidTakeover));
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
+                StartActivity(typeof(RapidTakeover));
+            }
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -163,25 +179,18 @@ namespace Scanner
                 case Keycode.F2:
                     ButtonInterWarehouse_Click(this, null);
                     break;
-
-
                 case Keycode.F3:
                     ButtonUnfinished_Click(this, null);
                     break;
-
                 case Keycode.F4:
                     ButtonIssued_Click(this, null);
                     break;
-
-
                 case Keycode.F5:
                     ButtonPrint_Click(this, null);
                     break;
-
                 case Keycode.F6:
                     BtnInventory_Click(this, null);
                     break;
-
 
                 case Keycode.F7:
                     BtnCheckStock_Click(this, null);
@@ -205,60 +214,87 @@ namespace Scanner
 
         private void BtnPackaging_Click(object sender, EventArgs e)
         {
+            var dups = HelpfulMethods.preventDupUse();
 
-            StartActivity(typeof(PackagingEnteredPositionsViewTablet));
-
+            if (dups)
+            {
+                StartActivity(typeof(PackagingEnteredPositionsViewTablet));
+            }
 
         }
 
         private void BtnCheckStock_Click(object sender, EventArgs e)
         {
+            var dups = HelpfulMethods.preventDupUse();
 
-            StartActivity(typeof(CheckStockTablet));
-
+            if (dups)
+            {
+                StartActivity(typeof(CheckStockTablet));
+            }
 
         }
 
         private void BtnInventory_Click(object sender, EventArgs e)
         {
+            var dups = HelpfulMethods.preventDupUse();
 
-            StartActivity(typeof(InventoryMenu));
+            if (dups)
+            {
+                StartActivity(typeof(InventoryMenu));
+            }
         }
 
         private void ButtonPrint_Click(object sender, EventArgs e)
         {
+            var dups = HelpfulMethods.preventDupUse();
 
-            StartActivity(typeof(PrintingMenu));
+            if (dups)
+            {
+                StartActivity(typeof(PrintingMenu));
+            }
 
         }
 
         private void ButtonIssued_Click(object sender, EventArgs e)
         {
+            var dups = HelpfulMethods.preventDupUse();
 
-            StartActivity(typeof(UnfinishedIssuedGoodsViewTablet));
+            if (dups)
+            {
 
+                StartActivity(typeof(UnfinishedIssuedGoodsViewTablet));
+            }
 
         }
 
         private void ButtonUnfinished_Click(object sender, EventArgs e)
         {
+            var dups = HelpfulMethods.preventDupUse();
 
-            StartActivity(typeof(UnfinishedProductionViewTablet));
-
+            if (dups)
+            {
+                StartActivity(typeof(UnfinishedProductionViewTablet));
+            }
         }
 
         private void ButtonInterWarehouse_Click(object sender, EventArgs e)
         {
+            var dups = HelpfulMethods.preventDupUse();
 
-            StartActivity(typeof(UnfinishedInterWarehouseViewTablet));
-
-
+            if (dups)
+            {
+                StartActivity(typeof(UnfinishedInterWarehouseViewTablet));
+            }
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
+            var dups = HelpfulMethods.preventDupUse();
 
-            StartActivity(typeof(UnfinishedTakeoversViewTablet));
+            if (dups)
+            {
+                StartActivity(typeof(UnfinishedTakeoversViewTablet));
+            }
 
         }
     }

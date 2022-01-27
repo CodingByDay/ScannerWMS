@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace Scanner
 {
-    [Activity(Label = "WMS", ScreenOrientation =Android.Content.PM.ScreenOrientation.Portrait, Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/barcode")]
+    [Activity(Label = "WMS", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/barcode")]
     public class MainActivity : AppCompatActivity
     {
         private Dialog popupDialog;
@@ -135,8 +135,10 @@ namespace Scanner
             AppCenter.Start("ec2ca4ce-9e86-4620-9e90-6ecc5cda0e0e",
                    typeof(Analytics), typeof(Crashes), typeof(Distribute));
             Crashes.NotifyUserConfirmation(UserConfirmation.AlwaysSend); /* Always send crash reports */ /*https://appcenter.ms/apps */
-            /// Solved anylitics...
-            ///      Analytics.SetEnabledAsync(true);            
+            /// Solved analytics...
+            
+             ChangeTheOrientation();
+            ///Analytics.SetEnabledAsync(true);            
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             // Set our view from the "main" layout resource
@@ -157,7 +159,7 @@ namespace Scanner
             // var stock = Services.GetObject("sts", "038300608700091078", out error);
             // Toast.MakeText(this, "Ident: " +  stock.GetDouble("Qty"), ToastLength.Long).Show();
 
-            ChangeTheOrientation();
+        
             
         }
         public override bool DispatchKeyEvent(Android.Views.KeyEvent e)

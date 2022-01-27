@@ -45,10 +45,16 @@ namespace Scanner
         private List<string> returnList;
         private SearchableSpinner spinnerIdent;
         private List<String> identData = new List<string>();
+        private SearchableSpinner spinnerLocation;
+        private ArrayAdapter<string> locationAdapter;
+        private List<string> locationData = new List<string>();
+
+        public ArrayAdapter<string> DataAdapterLocation { get; private set; }
+
+        // 
         protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
             SetContentView(Resource.Layout.InventoryProcessTablet);
             cbWarehouse = FindViewById<Spinner>(Resource.Id.cbWarehouse);
@@ -66,23 +72,18 @@ namespace Scanner
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
-
+            spinnerLocation = FindViewById<SearchableSpinner>(Resource.Id.spinnerLocation);  
             cbWarehouse.ItemSelected += CbWarehouse_ItemSelected;
             btPrint.Click += BtPrint_Click;
             button1.Click += Button1_Click;
             btDelete.Click += BtDelete_Click;
             button2.Click += Button2_Click;
             tbIdent.FocusChange += TbIdent_FocusChange;
-
             tbUnits.FocusChange += TbUnits_FocusChange;
             tbIdent.KeyPress += TbIdent_KeyPress;
-
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
-
             barcode2D.open(this, this);
-
-
             var warehouses = CommonData.ListWarehouses();
             if (warehouses != null)
             {
@@ -105,7 +106,7 @@ namespace Scanner
             }
 
             var adapterIssue = new ArrayAdapter<ComboBoxItem>(this,
-           Android.Resource.Layout.SimpleSpinnerItem, warehouseAdapter);
+            Android.Resource.Layout.SimpleSpinnerItem, warehouseAdapter);
 
             adapterIssue.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
 
@@ -123,6 +124,14 @@ namespace Scanner
             Android.Resource.Layout.SimpleSpinnerItem, identData);
             spinnerIdent.Adapter = DataAdapter;
             spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
+    
+            spinnerIdent.Adapter = DataAdapter;
+            spinnerLocation.ItemSelected += SpinnerLocation_ItemSelected;
+        }
+
+        private void SpinnerLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            tbLocation.Text = locationData.ElementAt(e.Position);
         }
 
         private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -327,15 +336,65 @@ namespace Scanner
             }
 
         }
+        private async Task GetLocationsForGivenWarehouse(string warehouse)
+        {
+            await Task.Run(() =>
+            {
+                locationAdapter = new ArrayAdapter<string>(this,
+                    Android.Resource.Layout.SimpleSpinnerItem, locationData);
+                
+                locationData.Clear();
+                List<string> result = new List<string>();
+                string error;
+                var issuerLocs = Services.GetObjectList("lo", out error, warehouseAdapter.ElementAt(temporaryPosWarehouse).Text);
+                var debi = issuerLocs.Items.Count();
+                if (issuerLocs == null)
+                {
+                    Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
+                }
+                else
+                {
+                    issuerLocs.Items.ForEach(x =>
+                    {
+                        var location = x.GetString("LocationID");
+                        locationData.Add(location);
+                        // Notify the adapter state change!
+                 
 
-        private void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+
+                   
+                        
+                    });
+                      
+
+                }
+            });
+        }
+
+        private async void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             ClearData();
             tbLocation.Text = "";
             tbLocation.RequestFocus();
             Spinner spinner = (Spinner)sender;
             temporaryPosWarehouse = e.Position;
+            Toast.MakeText(this, "Pripravljamo listu lokacija.", ToastLength.Long).Show();
+            await GetLocationsForGivenWarehouse(warehouseAdapter.ElementAt(temporaryPosWarehouse).Text);
+            Toast.MakeText(this, "Lista lokacija pripravljena.", ToastLength.Long).Show();
+
+
+            DataAdapterLocation = new ArrayAdapter<string>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, locationData);
+
+            spinnerLocation.Adapter = null;
+            spinnerLocation.Adapter = DataAdapterLocation;
+
         }
+        /// <summary>
+        ///  A method to Fill the spinner based on the warehouse.
+        /// </summary>
+        /// <param name="text"></param>
+
 
         private void ProcessIdent()
         {
