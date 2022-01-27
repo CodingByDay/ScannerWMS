@@ -31,6 +31,7 @@ namespace Scanner
         private EditText tbQty;
         private Spinner cbSubject;
         private NameValueObject stock = null;
+        private List<string> locationData = new List<string>();
         private Button btPrint;
         private Button button2;
         private List<ComboBoxItem> warehouseAdapter = new List<ComboBoxItem>();
@@ -49,6 +50,7 @@ namespace Scanner
         private List<String> dataLocation = new List<string>();
         private List<String> dataIdent = new List<string>();
         private List<string> returnList;
+        private ArrayAdapter<string> adapterLocations;
 
         private void color()
         {
@@ -131,6 +133,7 @@ namespace Scanner
             button2 = FindViewById<Button>(Resource.Id.button2);
             soundPool = new SoundPool(10, Stream.Music, 0);
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
+            spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
             spinnerLocation = FindViewById<SearchableSpinner>(Resource.Id.spinnerLocation);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             color();
@@ -181,6 +184,12 @@ namespace Scanner
 
         }
 
+        private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            tbIdent.Text = dataIdent.ElementAt(e.Position);
+            ProcessIdent();
+        }
+
         /// <summary>
         ///  
         /// </summary>
@@ -224,8 +233,55 @@ namespace Scanner
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
             tempPositionWarehouse = e.Position;
+
+
+            FillPositions(tempPositionWarehouse);
         }
 
+        private async void FillPositions(int tempPositionWarehouse)
+        {
+            Toast.MakeText(this, "Pripravljamo listu lokacija.", ToastLength.Long).Show();
+
+            await GetLocationsForGivenWarehouse(tempPositionWarehouse);
+            Toast.MakeText(this, "Lista lokacija pripravljena.", ToastLength.Long).Show();
+
+            adapterLocations = new ArrayAdapter<string>(this,
+                        Android.Resource.Layout.SimpleSpinnerItem, locationData);
+            adapterLocations.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+
+            spinnerLocation.Adapter = null;
+            spinnerLocation.Adapter = adapterLocations;
+           
+
+
+        }
+
+
+
+        private async Task GetLocationsForGivenWarehouse(int temp)
+        {
+            await Task.Run(() =>
+            {
+                locationData.Clear();
+                List<string> result = new List<string>();
+                string error;
+                var issuerLocs = Services.GetObjectList("lo", out error, warehouseAdapter.ElementAt(temp).Text);
+                var debi = issuerLocs.Items.Count();
+                if (issuerLocs == null)
+                {
+                    Toast.MakeText(this, "Prišlo je do napake", ToastLength.Long).Show();
+                }
+                else
+                {
+                    issuerLocs.Items.ForEach(x =>
+                    {
+                        var location = x.GetString("LocationID");
+                        locationData.Add(location);
+                        // Notify the adapter state change!
+                    });
+                }
+            });
+        }
         private bool LoadStock(string warehouse, string location, string sscc, string serialNum, string ident)
         {
 
