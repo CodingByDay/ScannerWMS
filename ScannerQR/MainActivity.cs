@@ -138,7 +138,7 @@ namespace Scanner
             /// Solved analytics...
             
              ChangeTheOrientation();
-            ///Analytics.SetEnabledAsync(true);            
+            // Analytics.SetEnabledAsync(true);            
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             // Set our view from the "main" layout resource
@@ -153,13 +153,14 @@ namespace Scanner
             img = FindViewById<ImageView>(Resource.Id.img);
             
             btnRegistrationEvent.Click += BtnRegistrationEvent_Click;
+
             // string error;
             //// var stock = Services.GetObjectList("str", out error, "||" + "038300608700091078" + );
 
             // var stock = Services.GetObject("sts", "038300608700091078", out error);
             // Toast.MakeText(this, "Ident: " +  stock.GetDouble("Qty"), ToastLength.Long).Show();
 
-        
+            
             
         }
         public override bool DispatchKeyEvent(Android.Views.KeyEvent e)

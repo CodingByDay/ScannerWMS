@@ -121,6 +121,8 @@
     <Compile Include="App\Barcode2D.cs" />
     <Compile Include="App\CheckStockAddonAdapter.cs" />
     <Compile Include="App\CheckStockAddonList.cs" />
+    <Compile Include="App\CleanupAdapter.cs" />
+    <Compile Include="App\CleanupLocation.cs" />
     <Compile Include="App\ComboBoxItem.cs" />
     <Compile Include="App\DateTimeFragment.cs" />
     <Compile Include="App\Echo.cs" />
@@ -1107,6 +1109,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\LocationPopup.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\CleanupView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

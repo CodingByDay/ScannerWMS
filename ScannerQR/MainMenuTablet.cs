@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using TrendNET.WMS.Device.Services;
 
 namespace Scanner
@@ -25,7 +26,10 @@ namespace Scanner
         private List<rapidTakeoverList> data = new List<rapidTakeoverList>();
         private Button PalletsMenu;
         private List<Button> buttons = new List<Button>();
-        protected override void OnCreate(Bundle savedInstanceState)
+        List<CleanupLocation> dataCleanup = new List<CleanupLocation>();
+        private CleanupAdapter cleanupAdapter;
+
+        protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -104,6 +108,47 @@ namespace Scanner
             rapidListview = FindViewById<ListView>(Resource.Id.rapidListview);
 
 
+            dataCleanup = await FillTheCleanupList();
+
+            cleanupAdapter = new CleanupAdapter(this, dataCleanup);
+            rapidListview.Adapter = cleanupAdapter;
+
+        }
+
+        private async Task<List<CleanupLocation>> FillTheCleanupList()
+        {
+            var location = CommonData.GetSetting("DefaultProductionLocation");
+            List<CleanupLocation> data = new List<CleanupLocation>();
+            await Task.Run(async () =>
+            {
+
+                string error;
+                var stock = Services.GetObjectList("strl", out error,  location);
+                if (stock == null)
+                {
+                    string WebError = string.Format("Napaka pri preverjanju zaloge." + error);
+                    RunOnUiThread(() =>
+                    {
+                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                    });
+                 
+                   
+                }
+                else
+                {
+                    stock.Items.ForEach(x =>
+                    {
+                        var ident = x.GetString("Ident");
+                        var location = x.GetString("Location");
+                        var SSCC = x.GetString("SSCC");
+                        data.Add(new CleanupLocation { Ident = x.GetString("Ident"), Location = x.GetString("Location"), SSCC = x.GetString("SSCC") });
+                    });
+                }
+
+
+
+            });
+            return data;
         }
 
         private void BtRecalculate_Click(object sender, EventArgs e)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Media;
@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Com.Toptoche.Searchablespinnerlibrary;
 using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -38,6 +39,16 @@ namespace Scanner
         int soundPoolId;
         private int tempPositionSubject;
         private int tempPositionWarehouse;
+
+        /// <summary>
+        ///  Searchable spinner part.
+        /// </summary>
+        private SearchableSpinner spinnerLocation;
+        private SearchableSpinner spinnerIdent;
+
+        private List<String> dataLocation = new List<string>();
+        private List<String> dataIdent = new List<string>();
+        private List<string> returnList;
 
         private void color()
         {
@@ -103,10 +114,9 @@ namespace Scanner
         {
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
         }
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
             SetContentView(Resource.Layout.PrintingReprintLabelsTablet);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
@@ -120,6 +130,8 @@ namespace Scanner
             btPrint = FindViewById<Button>(Resource.Id.btPrint);
             button2 = FindViewById<Button>(Resource.Id.button2);
             soundPool = new SoundPool(10, Stream.Music, 0);
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
+            spinnerLocation = FindViewById<SearchableSpinner>(Resource.Id.spinnerLocation);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             color();
             Barcode2D barcode2D = new Barcode2D();
@@ -155,11 +167,40 @@ namespace Scanner
 
             adapterSubjects.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbSubject.Adapter = adapterWarehouses;
-
-
             tbIdent.RequestFocus();
 
+           
 
+            Toast.MakeText(this, "Nalagamo seznam.", ToastLength.Long).Show();
+            dataIdent = await MakeTheApiCallForTheIdentData();
+            Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
+
+            var DataAdapter = new ArrayAdapter<string>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, dataIdent);
+            spinnerIdent.Adapter = DataAdapter;
+
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        private async Task<List<string>> MakeTheApiCallForTheIdentData()
+        {
+            await Task.Run(() =>
+            {
+                returnList = new List<string>();
+                // Call the API.
+                string error;
+                var idents = Services.GetObjectList("id", out error, "");
+
+                idents.Items.ForEach(x =>
+                {
+                    returnList.Add(x.GetString("Code"));
+                });
+
+
+            });
+            return returnList;
         }
 
         private void TbTitle_FocusChange(object sender, View.FocusChangeEventArgs e)
@@ -332,7 +373,7 @@ namespace Scanner
             }
             finally
             {
-                /// yayy :)
+             
                 string toast = string.Format("Poslani podatki.");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
             }

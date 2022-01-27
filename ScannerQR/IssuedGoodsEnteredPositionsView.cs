@@ -205,56 +205,7 @@ namespace Scanner
         private async void BtFinish_Click(object sender, EventArgs e)
         {
             await FinishMethod();
-            //var progress = new ProgressDialogClass();
-
-            //progress.ShowDialogSync(this, "Zaključujem");
-
-            //try
-            //{
-            
-            //    var headID = moveHead.GetInt("HeadID");
-
-            //    string result;
-            //    if (WebApp.Get("mode=finish&stock=remove&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-            //    {
-            //        if (result.StartsWith("OK!"))
-            //        {
-            //            var id = result.Split('+')[1];
-            //            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            //            alert.SetTitle("Zaključevanje uspešno");
-            //            alert.SetMessage("Zaključevanje uspešno! Št.izdaje: \r\n" + id);
-
-            //            alert.SetPositiveButton("Ok", (senderAlert, args) =>
-            //            {
-            //                alert.Dispose();
-            //                System.Threading.Thread.Sleep(500);
-            //                StartActivity(typeof(MainMenu));
-            //            });
-
-
-
-            //            Dialog dialog = alert.Create();
-            //            dialog.Show();
-
-
-            //        }
-            //        else
-            //        {
-            //            Toast.MakeText(this, "Napaka pri zaključevanju: " + result, ToastLength.Long).Show();
-
-            //        }
-            //    }
-            //    else
-            //    {
-            //        Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
-
-
-            //    }
-            //}
-            //finally
-            //{
-            //    progress.StopDialogSync();
-            //}
+      
         }
 
 
@@ -318,9 +269,6 @@ namespace Scanner
                                     alert.Dispose();
 
                                 });
-
-
-
                                 Dialog dialog = alert.Create();
                                 dialog.Show();
                             });
@@ -330,8 +278,6 @@ namespace Scanner
                     else
                     {
                         Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
-
-
                     }
                 }
                 finally
@@ -365,25 +311,19 @@ namespace Scanner
         {
             var item = positions.Items[displayedPosition];
             InUseObjects.Set("MoveItem", item);
-
-          
             try
             {
-            
-
                 string error;
                 var openIdent = Services.GetObject("id", item.GetString("Ident"), out error);
                 if (openIdent == null)
                 {
                     Toast.MakeText(this, "Napaka pri preverjanju ident-a: " + error, ToastLength.Long).Show();
-
                 }
                 else
                 {
                     item.SetString("Ident", openIdent.GetString("Code"));
                     InUseObjects.Set("OpenIdent", openIdent);
-                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
-                
+                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));              
                 }
             }
             finally
@@ -450,18 +390,14 @@ namespace Scanner
                     tbQty.Text = item.GetDouble("Qty").ToString();
                 }
                 tbLocation.Text = item.GetString("LocationName");
-
                 var created = item.GetDateTime("DateInserted");
                 tbCreatedBy.Text = created == null ? "" : ((DateTime)created).ToString("dd.MM.") + " " + item.GetString("ClerkName");
-
-
                 tbIdent.Enabled = false;
                 tbSSCC.Enabled = false;
                 tbSerialNumber.Enabled = false;
                 tbQty.Enabled = false;
                 tbLocation.Enabled = false;
                 tbCreatedBy.Enabled = false;
-
                 tbIdent.SetTextColor(Android.Graphics.Color.Black);
                 tbSSCC.SetTextColor(Android.Graphics.Color.Black);
                 tbSerialNumber.SetTextColor(Android.Graphics.Color.Black);
@@ -474,31 +410,24 @@ namespace Scanner
             else
             {
                 lbInfo.Text = "Vnešene pozicije na odpremi (ni)";
-
                 tbIdent.Text = "";
                 tbSSCC.Text = "";
                 tbSerialNumber.Text = "";
                 tbQty.Text = "";
                 tbLocation.Text = "";
                 tbCreatedBy.Text = "";
-
-
                 tbIdent.Enabled = false; 
                 tbSSCC.Enabled = false;
                 tbSerialNumber.Enabled = false;
                 tbQty.Enabled = false;
                 tbLocation.Enabled = false;
                 tbCreatedBy.Enabled = false;
-
-
                 tbIdent.SetTextColor(Android.Graphics.Color.Black);
                 tbSSCC.SetTextColor(Android.Graphics.Color.Black);
                 tbSerialNumber.SetTextColor(Android.Graphics.Color.Black);
                 tbQty.SetTextColor(Android.Graphics.Color.Black);
                 tbLocation.SetTextColor(Android.Graphics.Color.Black);
                 tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
-     
-
                 btNext.Enabled = false;
                 btUpdate.Enabled = false;
                 btDelete.Enabled = false;
