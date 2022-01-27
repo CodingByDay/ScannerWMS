@@ -19,7 +19,7 @@
         android:paddingTop="5dp"
         android:text="Tiskanje - procesna kontrola"
         android:id="@+id/lbInfo" />
-        <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -27,7 +27,6 @@
 
         <TextView
             android:textStyle="bold"
-         
             android:layout_width="138.0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
@@ -36,7 +35,6 @@
 
         <EditText
             android:textStyle="bold"
-      
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +64,6 @@
 
         <TextView
             android:textStyle="bold"
-      
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Uporabnik"
@@ -77,7 +74,6 @@
 
         <EditText
             android:textStyle="bold"
-    
             android:singleLine="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -210,7 +206,7 @@
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="38.0dp"
             android:layout_weight="0.50"
             android:layout_marginLeft="40dp"
             android:paddingTop="5dp"
@@ -234,21 +230,16 @@
 
         <EditText
             android:textStyle="bold"
-             android:singleLine="true"
+            android:singleLine="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30.0dp"
             android:layout_weight="0.50"
             android:layout_marginLeft="40dp"
             android:paddingTop="5dp"
             android:id="@+id/tbTitle" />
 
     </LinearLayout>
-    <TextView
-        android:layout_width="138.0dp"
-        android:layout_height="12.0dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"/>
-<LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

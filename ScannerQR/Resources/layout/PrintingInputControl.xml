@@ -191,7 +191,7 @@
     </LinearLayout>
     <TextView
         android:layout_width="119.5dp"
-        android:layout_height="95.0dp"
+        android:layout_height="76.5dp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"/>
  <LinearLayout

@@ -227,7 +227,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="53.5dp"
+        android:layout_height="18.5dp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:layout_marginRight="55.0dp" />

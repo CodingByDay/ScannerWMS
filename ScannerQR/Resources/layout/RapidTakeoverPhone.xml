@@ -242,7 +242,7 @@
         <TextView
             android:textStyle="bold"
             android:layout_width="296.0dp"
-            android:layout_height="112.0dp"
+            android:layout_height="99.0dp"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:textSize="30dp"

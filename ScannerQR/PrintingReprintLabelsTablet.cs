@@ -41,7 +41,7 @@ namespace Scanner
         private int tempPositionWarehouse;
 
         /// <summary>
-        ///  Searchable spinner part.
+        ///  Search-able spinner part.
         /// </summary>
         private SearchableSpinner spinnerLocation;
         private SearchableSpinner spinnerIdent;

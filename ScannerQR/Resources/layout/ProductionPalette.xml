@@ -178,29 +178,18 @@
 
 
 
-  
-    
-    
-    
+
+
+
+
     <ListView
         android:background="?android:attr/activatedBackgroundIndicator"
         android:choiceMode="singleChoice"
         android:layout_width="match_parent"
         android:id="@+id/lvCardList"
-        android:layout_height="188.5dp"
+        android:layout_height="197.5dp"
         android:listSelector="@android:drawable/screen_background_dark_transparent"
         />
-    
-    <TextView
-        android:textStyle="bold"
-        android:layout_weight="25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"
-        android:text=""
-        android:layout_marginRight="28.0dp"
-        android:id="@+id/lbTotalQty" />
 
 
     <LinearLayout

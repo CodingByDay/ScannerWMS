@@ -185,14 +185,13 @@
     </LinearLayout>
 
 
-  <ListView
-            
-            android:background="?android:attr/activatedBackgroundIndicator"
-            android:choiceMode="singleChoice"
-            android:layout_width="match_parent"
-            android:id="@+id/ivTrail"
-            android:layout_height="155.0dp"
-            android:listSelector="@android:drawable/screen_background_dark_transparent"
+    <ListView
+        android:background="?android:attr/activatedBackgroundIndicator"
+        android:choiceMode="singleChoice"
+        android:layout_width="match_parent"
+        android:id="@+id/ivTrail"
+        android:layout_height="151.0dp"
+        android:listSelector="@android:drawable/screen_background_dark_transparent"
         
         />
 

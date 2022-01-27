@@ -54,7 +54,7 @@
     <TextView
         android:textStyle="bold"
         android:layout_width="91.0dp"
-        android:layout_height="193.5dp"
+        android:layout_height="203.0dp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"/>
 
