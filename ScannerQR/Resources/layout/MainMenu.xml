@@ -292,6 +292,7 @@
     </LinearLayout>
 
     <Button
+        android:layout_marginTop="35dp"
         android:paddingLeft="10dp"
         android:bottomLeftRadius="7dp"
         android:bottomRightRadius="7dp"

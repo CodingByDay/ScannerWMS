@@ -15,7 +15,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace Scanner
 {
-    [Activity(Label = "InventoryMenu", ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "InventoryMenu")]
     public class InventoryMenu : Activity
     {
 
@@ -32,7 +32,7 @@ namespace Scanner
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            ChangeTheOrientation();
             // Create your application here
             SetContentView(Resource.Layout.InventoryMenu);
             button1 = FindViewById<Button>(Resource.Id.button1);
@@ -47,7 +47,7 @@ namespace Scanner
             button4.Click += Button4_Click;
             button7.Click += Button7_Click;
             logout.Click += Logout_Click;
-            ChangeTheOrientation();
+            
 
         }
 
@@ -117,7 +117,14 @@ namespace Scanner
         }
         private void Logout_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(MainMenu));
+            if (result == true)
+            {
+                StartActivity(typeof(MainMenuTablet));
+            }
+            else
+            {
+                StartActivity(typeof(MainMenu));
+            }
         }
 
         private void Button7_Click(object sender, EventArgs e)

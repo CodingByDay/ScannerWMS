@@ -13,14 +13,11 @@ namespace Scanner.App
 {
     class CleanupLocation
     {
-        public string Location { get; set; }
-
-
-        public string SSCC { get; set; }
-
-
+        public string Name { get; set; }
         public string Ident { get; set; }
-
+        public string Location { get; set; }
+        public string SSCC { get; set; }
+        public string Serial { get; set; }
 
 
         /// <summary>
@@ -37,11 +34,13 @@ namespace Scanner.App
         /// <param name="Location"></param>
         /// <param name="SSCC"></param>
         /// <param name="Ident"></param>
-        public CleanupLocation(string Location, string SSCC, string Ident)
+        public CleanupLocation(string Name, string Ident, string Location, string SSCC, string Serial)
         {
+            this.Name = Name;
+            this.Ident = Ident;
             this.Location = Location;
             this.SSCC = SSCC;
-            this.Ident = Ident;
+            this.Serial = Serial;
         }
     }
 }

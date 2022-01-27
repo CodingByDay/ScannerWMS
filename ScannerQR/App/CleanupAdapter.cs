@@ -50,6 +50,16 @@ namespace Scanner.App
                 {
                     row = LayoutInflater.From(sContext).Inflate(Resource.Layout.CleanupView, null, false);
                 }
+
+
+                TextView Name = row.FindViewById<TextView>(Resource.Id.Name);
+                Name.Text = sList[position].Name;
+                Name.SetTextColor(Android.Graphics.Color.Black);
+
+                TextView Ident = row.FindViewById<TextView>(Resource.Id.Ident);
+                Ident.Text = sList[position].Ident;
+                Ident.SetTextColor(Android.Graphics.Color.Black);
+
                 TextView Location = row.FindViewById<TextView>(Resource.Id.Location);
                 Location.Text = sList[position].Location;
                 Location.SetTextColor(Android.Graphics.Color.Black);
@@ -58,11 +68,10 @@ namespace Scanner.App
                 SSCC.Text = sList[position].SSCC;
                 SSCC.SetTextColor(Android.Graphics.Color.Black);
 
-                TextView Ident = row.FindViewById<TextView>(Resource.Id.Ident);
-                Ident.Text = sList[position].Ident;
-                Ident.SetTextColor(Android.Graphics.Color.Black);
-             
-           
+                TextView Serial = row.FindViewById<TextView>(Resource.Id.Serial);
+                Serial.Text = sList[position].Serial;
+                Serial.SetTextColor(Android.Graphics.Color.Black);
+
 
 
             }
