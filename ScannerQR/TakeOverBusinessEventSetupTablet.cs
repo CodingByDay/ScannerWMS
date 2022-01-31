@@ -25,10 +25,6 @@ namespace Scanner
         private int temporaryPositionWarehouse;
         private int temporaryPositionSubject;
         private int temporaryPositioncbDoc;
-
-
-
-
         private Button btnOrder;
         private Button btnOrderMode;
         private Button logout;
@@ -231,7 +227,7 @@ namespace Scanner
                 var itemWH = objectcbWarehouse.ElementAt(temporaryPositionWarehouse);
                 if (itemWH == null)
                 {
-                    string toast = string.Format("Sladište more biti izbrano");
+                    string toast = string.Format("Skladište more biti izbrano");
                     Toast.MakeText(this, toast, ToastLength.Long).Show();
 
                 }

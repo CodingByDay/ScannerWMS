@@ -141,7 +141,7 @@ namespace Scanner
                         var ident = x.GetString("Ident");
                         var location = x.GetString("Location");
                         var SSCC = x.GetString("SSCC");
-                        var Name = x.GetString("IdentName");
+                        var Name = x.GetString("Name");
                         var Serial = x.GetString("SerialNo");
                         data.Add(new CleanupLocation { Ident = x.GetString("Ident"), Location = x.GetString("Location"), SSCC = x.GetString("SSCC"), Name = x.GetString("IdentName"), Serial=x.GetString("SerialNo") });
                     });
@@ -216,7 +216,7 @@ namespace Scanner
         {
             switch (keyCode)
             {
-                // In smartphone
+                // In smart-phone
                 case Keycode.F1:
 
                     Button_Click(this, null);

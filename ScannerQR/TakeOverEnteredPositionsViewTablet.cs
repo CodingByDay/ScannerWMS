@@ -420,40 +420,6 @@ namespace Scanner
         private async void BtFinish_Click(object sender, EventArgs e)
         {
             await FinishMethod();
-            //try
-            //{
-
-            //    var headID = moveHead.GetInt("HeadID");
-
-            //    string result;
-            //    if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-            //    {
-            //        if (result.StartsWith("OK!"))
-            //        {
-            //            var id = result.Split('+')[1];
-            //            Toast.MakeText(this, "Zaključevanje uspešno! Št. prevzema:\r\n" + id, ToastLength.Long).Show();
-
-
-            //        }
-            //        else
-            //        {
-            //            Toast.MakeText(this, "Napaka pri zaključevanju: " + result, ToastLength.Long).Show();
-
-            //        }
-            //    }
-            //    else
-            //    {
-            //        Toast.MakeText(this, "Napaka pri klicu web aplikacije:  " + result, ToastLength.Long).Show();
-
-            //    }
-            //}
-            //finally
-            //{
-            //    //wf
-            //}
-
-
-
         }
 
         private void Button4_Click(object sender, EventArgs e)

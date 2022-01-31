@@ -285,7 +285,7 @@ namespace Scanner
         private void color()
         {
 
-            tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);
+            tbIdent.SetBackgroundColor(Android.Graphics.Color.Aqua);
         }
     }
 }

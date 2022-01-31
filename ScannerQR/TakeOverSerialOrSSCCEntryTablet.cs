@@ -54,11 +54,13 @@ namespace Scanner
         private ListView listData;
         SoundPool soundPool;
         int soundPoolId;
+        private NameValueObjectList positions = null;
         private string ident;
         private List<string> locList = new List<string>();
         private ZoomageView warehousePNG;
         private List<TakeOverSerialOrSSCCEntryList> data = new List<TakeOverSerialOrSSCCEntryList>();
-        private List<LocationClass> items = new List<LocationClass>();
+        private List<TakeoverDocument> items = new List<TakeoverDocument>();
+        private List<TakeoverDocument> dataDocuments = new List<TakeoverDocument>();
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -80,7 +82,7 @@ namespace Scanner
             tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
             tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
             tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
-            AdapterLocation adapter = new AdapterLocation(this, items);
+            TakeoverDocumentAdapter adapter = new TakeoverDocumentAdapter(this, items);
             spLocation = FindViewById<Spinner>(Resource.Id.spLocation);
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
@@ -103,9 +105,9 @@ namespace Scanner
             button5.Click += Button5_Click;
             spLocation.ItemSelected += SpLocation_ItemSelected;
             warehousePNG.Visibility = ViewStates.Invisible;
-            warehousePNG.Click += WarehousePNG_Click;
+          
             /// Consider changing this to something else.
-            //
+            
             // Exceptions
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point?!"); }
             if (openIdent == null) { throw new ApplicationException("openIdent not known at this point?!"); }
@@ -219,7 +221,7 @@ namespace Scanner
             if (tbSSCC.Enabled && (CommonData.GetSetting("AutoCreateSSCC") == "1"))
             {
                 tbSSCC.Text = CommonData.GetNextSSCC();
-                // SelectNext(tbSSCC);
+              
             }
 
             if (string.IsNullOrEmpty(tbUnits.Text.Trim())) { tbUnits.Text = "1"; }
@@ -237,23 +239,111 @@ namespace Scanner
             tbLocation.RequestFocus();
             FillRelatedData();
             tbSerialNum.RequestFocus();
-            FillTheIdentLocationList();
+        
             await GetLocationsForGivenWarehouse(moveHead.GetString("Wharehouse"));
             var DataAdapter = new ArrayAdapter<string>(this,
             Android.Resource.Layout.SimpleSpinnerItem, locList);
             DataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spLocation.Adapter = DataAdapter;
             tbSerialNum.RequestFocus();
-            showPictureIdent(tbIdent.Text);
-            listData.PerformItemClick(listData, 0, 0);
+            showPictureIdent(openIdent.GetString("Code"));
+          //  listData.PerformItemClick(listData, 0, 0);
             spLocation.SetSelection(locList.IndexOf(CommonData.GetSetting("DefaultPaletteLocation")), true);
-
+            FillTheList();
             
             
         }
-      
+        private void fillListAdapter()
+        {
 
-       
+            for (int i = 0; i < positions.Items.Count; i++)
+            {
+                if (i < positions.Items.Count && positions.Items.Count > 0)
+                {
+                    var item = positions.Items.ElementAt(i);
+                    var created = item.GetDateTime("DateInserted");
+                    var numbering = i + 1;
+                    bool setting;
+
+                    if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
+                    {
+                        setting = false;
+                    }
+                    else
+                    {
+                        setting = true;
+                    }
+                    if (setting)
+                    {
+                        tempUnit = item.GetDouble("Qty").ToString();
+
+                    }
+                    else
+                    {
+                        tempUnit = item.GetDouble("Factor").ToString();
+                    }
+                    string error;
+                    var ident = item.GetString("Ident").Trim();
+                    var openIdent = Services.GetObject("id", ident, out error);
+                    //  var ident = CommonData.LoadIdent(item.GetString("Ident"));
+                    var identName = openIdent.GetString("Name");
+                    var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    dataDocuments.Add(new TakeoverDocument
+                    {
+                        ident = item.GetString("Ident"),
+                        serial = item.GetString("SerialNo"),
+                        sscc = item.GetString("SSCC"),
+                        location = item.GetString("Location"),
+                        quantity =tempUnit,
+
+
+
+                    });
+                    ;
+                }
+                else
+                {
+                    string errorWebApp = string.Format("Kritična napaka...");
+                    Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+                }
+
+            }
+            TakeoverDocumentAdapter adapter = new TakeoverDocumentAdapter(this, dataDocuments);
+            listData.Adapter = null;    listData.Adapter = adapter; ;
+        }
+        private void FillTheList()
+        {
+          
+
+                try
+                {
+
+                    if (positions == null)
+                    {
+                        var error = "";
+
+                        if (positions == null)
+                        {
+                            positions = Services.GetObjectList("mi", out error, moveHead.GetInt("HeadID").ToString());
+                            InUseObjects.Set("TakeOverEnteredPositions", positions);
+                        }
+                        if (positions == null)
+                        {
+                            Toast.MakeText(this, "Napaka pri dostopu do web aplikacije: " + error, ToastLength.Long).Show();
+
+                            return;
+                        }
+                    }
+
+             
+                }
+                finally
+                {
+                    fillListAdapter();
+                }
+            
+
+        }
 
         private void WarehousePNG_Click(object sender, EventArgs e)
         {
@@ -264,11 +354,29 @@ namespace Scanner
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
             image = popupDialog.FindViewById<ZoomageView>(Resource.Id.image);
-          
-            // Access Popup layout fields like below
+            popupDialog.KeyPress += PopupDialog_KeyPress;
+            
         }
 
-   
+
+        private void PopupDialog_KeyPress(object sender, DialogKeyEventArgs e)
+        {
+            if (e.KeyCode == Keycode.Back)
+            {
+                popupDialog.Dismiss();
+                popupDialog.Hide();
+             
+            }
+        }
+
+
+        public override void OnBackPressed()
+        {
+
+           
+
+            base.OnBackPressed();
+        }
 
         private void SpLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
@@ -301,7 +409,7 @@ namespace Scanner
 
         private void Fill(System.Collections.ArrayList list)
         {
-            foreach(LocationClass obj in list)
+            foreach(TakeoverDocument obj in list)
             {
                 items.Add(obj);
             }
@@ -310,7 +418,7 @@ namespace Scanner
 
 
 
-            AdapterLocation adapter = new AdapterLocation(this, items);
+            TakeoverDocumentAdapter adapter = new TakeoverDocumentAdapter(this, items);
             listData.Adapter = adapter;
             
         }
@@ -459,6 +567,7 @@ namespace Scanner
             popupDialog.SetContentView(Resource.Layout.WarehousePicture);
             popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialog.Show();
+            popupDialog.KeyPress += PopupDialog_KeyPress;
 
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
@@ -467,8 +576,8 @@ namespace Scanner
             image.SetMinimumWidth(800);
             image.SetImageDrawable(d);
 
-            // Access Popup layout fields like below
-  
+            // Access Pop up layout fields like below
+
         }
 
         private void BtnOK_Click1(object sender, EventArgs e)
@@ -481,11 +590,11 @@ namespace Scanner
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            selected = e.Position;
-            var item = items.ElementAt(selected);
-            tbLocation.Text = item.location;
-            listData.SetItemChecked(selected, true);
-            listData.SetSelection(selected);
+            //selected = e.Position;
+            //var item = items.ElementAt(selected);
+            //tbLocation.Text = item.location;
+            //listData.SetItemChecked(selected, true);
+            //listData.SetSelection(selected);
 
         }
         private async Task GetLocationsForGivenWarehouse(string warehouse)
@@ -612,61 +721,12 @@ namespace Scanner
         private Dialog popupDialog;
         private ZoomageView image;
         private Button btnOK;
+        private string tempUnit;
 
         private async void Button6_Click(object sender, EventArgs e)
         {
             await FinishMethod();
 
-            //Toast.MakeText(this, "Zaključujem... Prosim počakajte.", ToastLength.Long).Show(); //
-            //if (SaveMoveItem())
-            //{
-
-            //    try
-            //    {
-
-            //        var headID = moveHead.GetInt("HeadID");
-
-            //        string result;
-            //        if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-            //        {
-            //            if (result.StartsWith("OK!"))
-            //            {
-            //                var id = result.Split('+')[1];
-            //                Toast.MakeText(this, "Zaključevanje uspešno! Št. prevzema:\r\n" + id, ToastLength.Long).Show();
-            //                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            //                alert.SetTitle("Zaključevanje uspešno");
-            //                alert.SetMessage("Zaključevanje uspešno! Št.prevzema:\r\n" + id);
-
-            //                alert.SetPositiveButton("Ok", (senderAlert, args) =>
-            //                {
-            //                    alert.Dispose();
-            //                });
-
-
-
-            //                Dialog dialog = alert.Create();
-            //                dialog.Show();
-
-            //            }
-            //            else
-            //            {
-            //                Toast.MakeText(this, "Napaka pri zaključevanju: " + result, ToastLength.Long).Show();
-
-            //            }
-            //        }
-            //        else
-            //        {
-            //            Toast.MakeText(this, "Napaka pri klicu web aplikacije: " + result, ToastLength.Long).Show();
-
-            //        }
-            //    }
-            //    finally
-            //    {
-
-            //    }
-
-
-            //}
         }
         private void FillRelatedData()
         {

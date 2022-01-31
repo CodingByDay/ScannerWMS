@@ -199,7 +199,7 @@ namespace Scanner
                 popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
                 popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloRedLight);
 
-                // Access Popup layout fields like below
+                // Access Pop-up layout fields like below
                 btnOk = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
                 btnOk.Click += BtnOk_Click;
             
@@ -260,7 +260,7 @@ namespace Scanner
         {
             switch (keyCode)
             {
-                // in smartphone
+                // in smart-phone
                 case Keycode.Enter:
                     BtnRegistrationEvent_Click(this, null);
                     break;
@@ -270,7 +270,7 @@ namespace Scanner
         }
 
 
-        /* Android specific permisions */
+        /* Android specific permissions */
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

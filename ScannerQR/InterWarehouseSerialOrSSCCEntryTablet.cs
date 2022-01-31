@@ -1681,6 +1681,7 @@ namespace Scanner
             popupDialog.SetContentView(Resource.Layout.WarehousePicture);
             popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialog.Show();
+            popupDialog.KeyPress += PopupDialog_KeyPress;
 
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloBlueBright);
@@ -1688,12 +1689,27 @@ namespace Scanner
             image.SetMinimumHeight(500);
             image.SetMinimumWidth(800);
             image.SetImageDrawable(d);
-            // Access Popup layout fields like below
+            // Access Pop-up layout fields like below
      
         }
 
+        private void PopupDialog_KeyPress(object sender, DialogKeyEventArgs e)
+        {
+           if(e.KeyCode == Keycode.Back)
+            {
+                popupDialog.Dismiss();
+                popupDialog.Hide();
+                popupDialog.Window.Dispose();
+            }
+        }
+
+        public override void OnBackPressed()
+        {
 
       
+
+            base.OnBackPressed();
+        }
 
 
         private void Button1_Click(object sender, EventArgs e)
@@ -1751,32 +1767,32 @@ namespace Scanner
         }
 
 
-        private void updateTheHead()
-        {
-            moveHead.SetInt("HeadID", 0); // da ga "mh" API shrani kot novega, ne pod starim ID
-            string error;
-            var savedMoveHead = Services.SetObject("mh", moveHead, out error);
-            if (savedMoveHead == null)
-            {
-                Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
-                return;
-            }
-            else
-            {
-                if (!Services.TryLock("MoveHead" + savedMoveHead.GetInt("HeadID").ToString(), out error))
-                {
-                    Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
-                    return;
-                }
+        //private void updateTheHead()
+        //{
+        //    moveHead.SetInt("HeadID", 0); // da ga "mh" API shrani kot novega, ne pod starim ID
+        //    string error;
+        //    var savedMoveHead = Services.SetObject("mh", moveHead, out error);
+        //    if (savedMoveHead == null)
+        //    {
+        //        Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        if (!Services.TryLock("MoveHead" + savedMoveHead.GetInt("HeadID").ToString(), out error))
+        //        {
+        //            Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
+        //            return;
+        //        }
 
-                moveHead.SetInt("HeadID", savedMoveHead.GetInt("HeadID"));
-                moveHead.SetBool("Saved", true);
-                InUseObjects.Set("MoveHead", moveHead);
+        //        moveHead.SetInt("HeadID", savedMoveHead.GetInt("HeadID"));
+        //        moveHead.SetBool("Saved", true);
+        //        InUseObjects.Set("MoveHead", moveHead);
 
-                var tests = moveHead.GetInt("HeadID");
+        //        var tests = moveHead.GetInt("HeadID");
              
-            }
-        }
+        //    }
+        //}
         private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem)
         {
 
@@ -1916,22 +1932,12 @@ namespace Scanner
 
             try
             {
-                InUseObjects.Invalidate("MoveItem");
-
-      
-               
-
-               moveItemCurrent = new NameValueObject("MoveItem");
-
-
+                InUseObjects.Invalidate("MoveItem");           
+                moveItemCurrent = new NameValueObject("MoveItem");
                 moveHead= (NameValueObject)InUseObjects.Get("MoveHead");
-
                 moveItemCurrent.SetInt("HeadID", moveHead.GetInt("HeadID"));
-
                 // updateTheHead();
-                moveItemCurrent.SetInt("HeadID", moveHead.GetInt("HeadID"));
-
-                
+                moveItemCurrent.SetInt("HeadID", moveHead.GetInt("HeadID"));               
                 var number = moveHead.GetInt("HeadID");
                 moveItemCurrent.SetString("LinkKey", "");
                 moveItemCurrent.SetInt("LinkNo", 0);

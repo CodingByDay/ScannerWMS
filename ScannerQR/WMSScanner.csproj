@@ -154,6 +154,8 @@
     <Compile Include="App\rapidTakeoverList.cs" />
     <Compile Include="App\ScaleImageView.cs" />
     <Compile Include="App\SignatureClass.cs" />
+    <Compile Include="App\TakeoverDocument.cs" />
+    <Compile Include="App\TakeoverDocumentAdapter.cs" />
     <Compile Include="App\TakeOverEnteredPositionsViewAdapter.cs" />
     <Compile Include="App\TakeOverEnteredPositionsViewListItems.cs" />
     <Compile Include="App\TakeOverIdentAdapter.cs" />
@@ -1114,6 +1116,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\CleanupView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TakeoverDocument.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

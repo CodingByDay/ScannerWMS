@@ -119,15 +119,14 @@
         android:orientation="horizontal"
         android:paddingTop="5dp">
 
-        <TextView
-                
-        android:textSize="18dp"
-        android:textStyle="bold"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:text="Posl. dog. prevz." />
+            <TextView
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="Dogodek" />
 
         <EditText
                 
@@ -273,12 +272,12 @@
         android:paddingTop="5dp">
 
             <TextView
-        android:textSize="18dp"
+                android:textSize="18dp"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
-                android:text="Datum kreiranja"
+                android:text="Datum "
                 android:textStyle="bold" />
 
         <EditText

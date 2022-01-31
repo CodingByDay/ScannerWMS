@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
-                android:text="Pos. dog. medsk."
+                android:text="Dogodek"
                 android:layout_marginRight="5.5dp" />
 
             <EditText
@@ -151,7 +151,7 @@
                 android:textStyle="bold"
                 android:layout_width="99.0dp"
                 android:layout_height="wrap_content"
-                android:text="Izdaj sklad"
+                android:text="Izdano"
                 android:paddingTop="5dp"
                 android:paddingLeft="10dp"
                 android:id="@+id/textView1"
@@ -183,7 +183,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
-                android:text="Prej. sklad."
+                android:text="Prejeto"
                 android:layout_marginRight="44.0dp" />
 
             <EditText
@@ -276,7 +276,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
-                android:text="Datum kreiranja"
+                android:text="Datum "
                 android:layout_marginRight="15.5dp" />
 
             <EditText

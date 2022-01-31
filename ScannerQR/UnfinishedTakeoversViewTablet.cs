@@ -52,11 +52,8 @@ namespace Scanner
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
             SetContentView(Resource.Layout.UnfinishedTakeoversViewTablet);
-
-
             tbBusEvent = FindViewById<EditText>(Resource.Id.tbBusEvent);
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);
             tbSupplier = FindViewById<EditText>(Resource.Id.tbSupplier);
@@ -69,7 +66,6 @@ namespace Scanner
             btFinish = FindViewById<Button>(Resource.Id.btFinish);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
             btNext = FindViewById<Button>(Resource.Id.btNext);
-
             btNew = FindViewById<Button>(Resource.Id.btnew);
             btLogout = FindViewById<Button>(Resource.Id.logout);
             lbInfo = FindViewById<TextView>(Resource.Id.lbInfo);
@@ -88,10 +84,6 @@ namespace Scanner
             LoadPositions();
             FillItemsList();
             dataList.PerformItemClick(dataList, 0, 0);
-            
-
-   
-
         }
 
         private void DataList_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -127,14 +119,12 @@ namespace Scanner
 
         private void DataList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-
             selected = e.Position;
             Select(selected);
             selectedItem = selected;
             dataList.RequestFocusFromTouch();
             dataList.SetItemChecked(selected, true);
             dataList.SetSelection(selected);
-
         }
 
 
@@ -143,8 +133,7 @@ namespace Scanner
         {
             switch (keyCode)
             {
-                // in smartphone
-
+                // in smart-phone
                 case Keycode.F2:
                     if (btFinish.Enabled == true)
                     {
@@ -205,7 +194,7 @@ namespace Scanner
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloGreenDark);
 
-            // Access Popup layout fields like below
+            // Access Pop-up layout fields like below
             btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
             btnYes.Click += BtnYes_Click;
@@ -321,6 +310,7 @@ namespace Scanner
             string errorWebApp = string.Format("Pozicija uspešno zbrisana.");
             Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
         }
+
         private void DeleteFromTouch(int index)
         {
             popupDialog = new Dialog(this);
@@ -354,17 +344,14 @@ namespace Scanner
         }
         private void Select(int postionOfTheItemInTheList)
         {
-
-
             selected = postionOfTheItemInTheList;
             displayedPosition = postionOfTheItemInTheList;
             if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
             FillDisplayedItem();
         }
+
         private void BtNext_Click(object sender, EventArgs e)
         {
-          
-  
             dataList.RequestFocusFromTouch();
             selected++;
             dataList.Clickable = false;
@@ -396,11 +383,9 @@ namespace Scanner
 
             displayedPosition++;
             if (displayedPosition >= positions.Items.Count) { displayedPosition = 0; }
-
-
             FillDisplayedItem();
-
         }
+
 
         // Load position method...
         private void LoadPositions()
@@ -433,6 +418,7 @@ namespace Scanner
 
             }
         }
+
         private void FillItemsList()
         {
 
@@ -447,17 +433,19 @@ namespace Scanner
                     var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
                     if (item.GetString("DocumentTypeName") == "")
                     {
-                        finalString = "Brez ";
+                        var headID = item.GetString("HeadID");
+                        finalString = $"Brez-št. {headID} ";
                     }
                     else
-                        finalString = item.GetString("DocumentTypeName").Substring(0, 4);
+                        finalString = item.GetString("LinkKey");
                     dataSource.Add(new UnfinishedTakeoverList
                     {
 
                         Document = finalString,
-                        Issuer = item.GetString("Issuer"),
+                        Issuer = item.GetString("Receiver"),
                         Date = date,
                         NumberOfPositions = item.GetInt("ItemCount").ToString(),
+
                         // tbItemCount.Text = item.GetInt("ItemCount").ToString();
                     });
                     adapter.NotifyDataSetChanged();
@@ -483,7 +471,13 @@ namespace Scanner
 
                 tbBusEvent.Text = item.GetString("DocumentTypeName");
                 tbOrder.Text = item.GetString("LinkKey");
-                tbSupplier.Text = item.GetString("Issuer");
+                tbSupplier.Text = item.GetString("Receiver");
+
+                var iss1 = item.GetString("Receiver");
+
+  
+
+
                 tbItemCount.Text = item.GetInt("ItemCount").ToString();
                 tbCreatedBy.Text = item.GetString("ClerkName");
 

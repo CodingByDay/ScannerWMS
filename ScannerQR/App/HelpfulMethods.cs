@@ -31,8 +31,20 @@ namespace Scanner.App
                 return true;
                 }
         }
-            
-        
+         
+        /// <summary>
+        ///  Returns the last 5 characters of the reversed string.
+        /// </summary>
+        /// <param name="input">Input string.</param>
+        /// <returns></returns>
+        public static string lastReturn(string input, int noCharacters)
+        {
+            string lastReturn;
+
+            lastReturn = input.Substring(input.Length - noCharacters);
+
+            return lastReturn;
+        }
 
     }
 }

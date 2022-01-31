@@ -20,9 +20,9 @@ namespace Scanner.App
         /// <summary>
         ///   This is a helper method used in tablet classes to get the list of locations for a specific ident in the specified warehouse.
         /// </summary>
-        /// <param name="warehouse"></param>
-        /// <param name="ident"></param>
-        /// <returns></returns>
+        /// <param name="warehouse">The warehouse of the ident.</param>
+        /// <param name="ident">Ident code</param>
+        /// <returns>Returns a list of TakeoverDocument objects.</returns>
 
         public static ArrayList fillItemsOfList(string warehouse, string ident)
         {
@@ -32,12 +32,15 @@ namespace Scanner.App
             //return string.Join("\r\n", stock.Items.Select(x => "L:" + x.GetString("Location") + " = " + x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())).ToArray());
             stock.Items.ForEach(x =>
             {
-                result.Add(new LocationClass
+                result.Add(new TakeoverDocument
                 {
                     ident = x.GetString("Ident"),
+                    sscc = x.GetString("SSCC"),
+                    serial = x.GetString("Serial"),
                     location = x.GetString("Location"),
                     quantity = x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())
                 });
+               
             });
 
             return result;

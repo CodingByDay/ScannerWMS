@@ -54,8 +54,7 @@ namespace Scanner
             target = FindViewById<Button>(Resource.Id.target);
             target.Click += Target_Click;
             btNext = FindViewById<Button>(Resource.Id.btNext);
-            progres = FindViewById<ProgressBar>(Resource.Id.progres);
-            progres.Visibility = ViewStates.Invisible;
+        
             button3 = FindViewById<Button>(Resource.Id.button3);
 
             btNext.Click += BtNext_Click;

@@ -324,7 +324,7 @@ namespace TrendNET.WMS.Device.Services
                 {
                     HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                     request.Method = "GET";
-                    request.Timeout = waitSec * 1000;
+                    request.Timeout = waitSec * 2000;
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                     {
                         var ms = new MemoryStream();

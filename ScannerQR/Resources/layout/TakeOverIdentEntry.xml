@@ -84,7 +84,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
-        android:text="Naročilo"
+        android:text="
+        "
         android:id="@+id/lbOrderInfo" />
     <LinearLayout
         android:layout_width="fill_parent"
