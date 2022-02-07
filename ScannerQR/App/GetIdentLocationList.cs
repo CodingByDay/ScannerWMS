@@ -47,5 +47,26 @@ namespace Scanner.App
 
         }
 
+        public static ArrayList fillItemsOfListLocationClass(string warehouse, string ident)
+        {
+            ArrayList result = new ArrayList();
+            string error;
+            var stock = Services.GetObjectList("str", out error, warehouse + "||" + ident);
+            //return string.Join("\r\n", stock.Items.Select(x => "L:" + x.GetString("Location") + " = " + x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())).ToArray());
+            stock.Items.ForEach(x =>
+            {
+                result.Add(new LocationClass
+                {
+                    ident = x.GetString("Ident"),
+                    location = x.GetString("Location"),
+                    quantity = x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())
+                });
+
+            });
+
+            return result;
+
+        }
+
     }
 }

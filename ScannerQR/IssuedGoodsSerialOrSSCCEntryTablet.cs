@@ -675,14 +675,9 @@ namespace Scanner
                     pallets.Ident = ident;
                     string idname = loadIdent.GetString("Name");
                     pallets.Location = location;
-                    if (idname.Length > 10)
-                    {
-                        pallets.Name = idname.Trim().Substring(0, 10);
-                    }
-                    else
-                    {
-                        pallets.Name = idname;
-                    }
+                   
+                    pallets.Name = idname;
+                    
 
                     pallets.Quantity = barcode;
                     pallets.SSCC = barcode;
@@ -1231,7 +1226,7 @@ namespace Scanner
 
             var wh = moveHead.GetString("Wharehouse");
             // Found the error here the receiver returns not the warehouse but the PETPAK receiver
-            var list = GetIdentLocationList.fillItemsOfList(wh, code);
+            var list = GetIdentLocationList.fillItemsOfListLocationClass(wh, code);
             Fill(list);
         }
 
