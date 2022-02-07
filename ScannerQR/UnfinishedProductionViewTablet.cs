@@ -164,11 +164,13 @@ namespace Scanner
         private void BtNew_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(ProductionWorkOrderSetupTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
 
@@ -330,7 +332,7 @@ namespace Scanner
             InUseObjects.Set("MoveHead", moveHead);
 
             StartActivity(typeof(ProductionEnteredPositionsViewTablet));
-            
+            HelpfulMethods.clearTheStack(this);
 
         }
 

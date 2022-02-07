@@ -84,10 +84,12 @@ namespace Scanner
                         if (tablet == true)
                         {
                             StartActivity(typeof(MainMenuTablet));
+                            HelpfulMethods.clearTheStack(this);
                         } /* Entry point for the phone. */
                         else
                         {
                             StartActivity(typeof(MainMenu));
+                            HelpfulMethods.clearTheStack(this);
                         }
                         Password.Text = "";
                         isValid = true;
@@ -223,6 +225,7 @@ namespace Scanner
                 case Resource.Id.action_setting1:
                     {
                         StartActivity(typeof(Settings));
+                        HelpfulMethods.clearTheStack(this);
                         return true;
                     }
              
@@ -233,6 +236,7 @@ namespace Scanner
         private void Listener_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(Settings));
+            HelpfulMethods.clearTheStack(this);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

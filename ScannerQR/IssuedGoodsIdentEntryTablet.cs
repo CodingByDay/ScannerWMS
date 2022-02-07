@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -95,6 +96,7 @@ namespace Scanner
                         if (SaveMoveHead())
                         {
                             StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
+                            HelpfulMethods.clearTheStack(this);
 
                         }
                         return;
@@ -252,6 +254,7 @@ namespace Scanner
         {
          
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
 
         }
 

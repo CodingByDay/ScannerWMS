@@ -84,6 +84,7 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
 
@@ -310,49 +311,14 @@ namespace Scanner
         private async void BtFinish_Click(object sender, EventArgs e)
         {
             await FinishMethod();
-            //var progress = new ProgressDialogClass();
-
-            //progress.ShowDialogSync(this, "Zaključujem");
-            //try
-            //{
-               
-
-            //    var headID = moveHead.GetInt("HeadID");
-
-            //    string result;
-            //    if (WebApp.Get("mode=finish&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-            //    {
-            //        if (result.StartsWith("OK!"))
-            //        {
-            //            var id = result.Split('+')[1];
-            //            string WebError = string.Format("Zaključevanje uspešno! Št. prenosa:\r\n" + id);
-            //            Toast.MakeText(this, WebError, ToastLength.Long).Show();
-                    
-                  
-            //        }
-            //        else
-            //        {
-            //            string WebError = string.Format("Napaka pri zaključevanju: " + result);
-            //            Toast.MakeText(this, WebError, ToastLength.Long).Show();
-            //        }
-            //    }
-            //    else
-            //    {
-            //        string WebError = string.Format("Napaka pri klicu web aplikacije: " + result);
-            //        Toast.MakeText(this, WebError, ToastLength.Long).Show();
-   
-            //    }
-            //}
-            //finally
-            //{
-            //    progress.StopDialogSync();
-            //}
+         
      
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(InterWarehouseSerialOrSSCCEntry));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtUpdate_Click(object sender, EventArgs e)
@@ -361,6 +327,7 @@ namespace Scanner
             InUseObjects.Set("MoveItem", item);
 
              StartActivity(typeof(InterWarehouseSerialOrSSCCEntry));
+             HelpfulMethods.clearTheStack(this);
         }
 
         private void BtNext_Click(object sender, EventArgs e)

@@ -162,6 +162,7 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtDelete_Click(object sender, EventArgs e)
@@ -286,6 +287,7 @@ namespace Scanner
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
                                     StartActivity(typeof(MainMenu));
+                                    HelpfulMethods.clearTheStack(this);
                                 });
 
 
@@ -311,6 +313,7 @@ namespace Scanner
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
                                     StartActivity(typeof(MainMenu));
+                                    HelpfulMethods.clearTheStack(this);
 
                                 });
 
@@ -344,78 +347,14 @@ namespace Scanner
         private async void BtFinish_Click(object sender, EventArgs e)
         {
             await FinishMethod();
-            //var headID = moveHead.GetInt("HeadID");
-            //SelectSubjectBeforeFinish.ShowIfNeeded(headID);
 
-            //var progress = new ProgressDialogClass();
-
-            //progress.ShowDialogSync(this, "Zaključujem");
-
-            //try
-            //{
-       
-            //    string result;
-            //    if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-            //    {
-            //        if (result.StartsWith("OK!"))
-            //        {
-            //            var id = result.Split('+')[1];
-            //            string errorWebApp = string.Format("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
-            //            Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
-
-            //            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            //            alert.SetTitle("Uspešno zaključevanje");
-            //            alert.SetMessage("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
-
-            //            alert.SetPositiveButton("Ok", (senderAlert, args) =>
-            //            {
-            //                alert.Dispose();
-            //                System.Threading.Thread.Sleep(500);
-            //                StartActivity(typeof(MainMenu));
-            //            });
-
-
-
-            //            Dialog dialog = alert.Create();
-            //            dialog.Show();
-
-            //        }
-            //        else
-            //        {
-                      
-            //            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            //            alert.SetTitle("Napaka");
-            //            alert.SetMessage("Napaka pri zaključevanju: " + result);
-
-            //            alert.SetPositiveButton("Ok", (senderAlert, args) =>
-            //            {
-            //                alert.Dispose();
-                      
-            //            });
-
-
-
-            //            Dialog dialog = alert.Create();
-            //            dialog.Show();
-
-            //        }
-            //    }
-            //    else
-            //    {
-            //        string errorWebApp = string.Format("Napaka pri klicu web aplikacije: " + result);
-            //        Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
-        
-            //    }
-            //}
-            //finally
-            //{
-            //}
     
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
            StartActivity(typeof(ProductionSerialOrSSCCEntry));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtUpdate_Click(object sender, EventArgs e)
@@ -423,7 +362,8 @@ namespace Scanner
             var item = positions.Items[displayedPosition];
             InUseObjects.Set("MoveItem", item);
 
-           StartActivity(typeof(ProductionSerialOrSSCCEntry));
+            StartActivity(typeof(ProductionSerialOrSSCCEntry));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtNext_Click(object sender, EventArgs e)

@@ -11,6 +11,7 @@ using Android.Text;
 using Android.Views;
 using Android.Widget;
 using Microsoft.AppCenter.Crashes;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -169,6 +170,7 @@ namespace Scanner
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtOpen_Click(object sender, EventArgs e)

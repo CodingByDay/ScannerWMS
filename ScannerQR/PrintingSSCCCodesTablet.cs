@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Scanner.App;
 using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 
@@ -60,6 +61,7 @@ namespace Scanner
         private void Button2_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void Button1_Click(object sender, EventArgs e)

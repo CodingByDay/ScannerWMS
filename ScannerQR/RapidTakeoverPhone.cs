@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Scanner.App;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -129,6 +130,7 @@ namespace Scanner
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
@@ -276,12 +278,7 @@ namespace Scanner
 
         }
 
-        // string error;
-
-        // var data = Services.GetObject("sscc", tbSSCC.Text, out error);
-
-        // var ident = data.GetString("Ident");
-        // Toast.MakeText(this, "Ident je: " + ident, ToastLength.Long).Show();
+ 
         private void colorLocation()
         {
             tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);

@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Scanner.App;
 using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -375,6 +376,7 @@ namespace Scanner
         private void Button2_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtPrint_Click(object sender, EventArgs e)

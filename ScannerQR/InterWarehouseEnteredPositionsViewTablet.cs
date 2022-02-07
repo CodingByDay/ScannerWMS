@@ -260,6 +260,7 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -428,6 +429,7 @@ namespace Scanner
         private void Button4_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(InterWarehouseSerialOrSSCCEntryTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtUpdate_Click(object sender, EventArgs e)
@@ -436,6 +438,7 @@ namespace Scanner
             InUseObjects.Set("MoveItem", item);
 
             StartActivity(typeof(InterWarehouseSerialOrSSCCEntryTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtNext_Click(object sender, EventArgs e)

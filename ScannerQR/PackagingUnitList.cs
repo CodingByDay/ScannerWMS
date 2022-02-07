@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -76,6 +77,7 @@ namespace Scanner
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtCreate_Click(object sender, EventArgs e)
@@ -83,6 +85,7 @@ namespace Scanner
 
             InUseObjects.Set("PackagingItem", null);
             StartActivity(typeof(PackagingUnit));
+            HelpfulMethods.clearTheStack(this);
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -199,6 +202,7 @@ namespace Scanner
             var item = positions.Items[displayedPosition];
             InUseObjects.Set("PackagingItem", item);
             StartActivity(typeof(PackagingUnit));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtNext_Click(object sender, EventArgs e)

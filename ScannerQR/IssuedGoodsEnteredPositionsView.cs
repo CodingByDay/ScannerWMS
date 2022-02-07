@@ -244,6 +244,7 @@ namespace Scanner
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
                                     StartActivity(typeof(MainMenu));
+                                    HelpfulMethods.clearTheStack(this);
                                 });
 
 
@@ -323,7 +324,8 @@ namespace Scanner
                 {
                     item.SetString("Ident", openIdent.GetString("Code"));
                     InUseObjects.Set("OpenIdent", openIdent);
-                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));              
+                    StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
+                    HelpfulMethods.clearTheStack(this);
                 }
             }
             finally

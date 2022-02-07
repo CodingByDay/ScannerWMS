@@ -133,6 +133,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(RecalculateInventory));
+      
             }
         }
 
@@ -158,6 +159,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(MenuPallets));
+              
             }
         }
 
@@ -168,6 +170,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(RapidTakeover));
+                
             }
         }
 
@@ -261,6 +264,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(PackagingEnteredPositionsView));
+               
             }
         }
 
@@ -271,6 +275,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(CheckStock));
+             
             }
         }
 
@@ -281,6 +286,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(InventoryMenu));
+               
             }
         }
 
@@ -291,6 +297,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(PrintingMenu));
+             
             }
         }
 
@@ -301,6 +308,8 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(UnfinishedIssuedGoodsView));
+
+     
             }
         }
 
@@ -323,6 +332,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(UnfinishedInterWarehouseView));
+          
             }
         }
 
@@ -333,6 +343,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(UnfinishedTakeoversView));
+                
             }
         }
     }

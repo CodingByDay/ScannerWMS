@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Scanner.App;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,11 +35,13 @@ namespace Scanner
         private void Wrapped_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(WrappingPallet)); // Wrapping pallet new functionality.
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void Shipped_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(ShippingPallet)); // Shipping pallet new functionality.
+            HelpfulMethods.clearTheStack(this);
         }
     }
 }

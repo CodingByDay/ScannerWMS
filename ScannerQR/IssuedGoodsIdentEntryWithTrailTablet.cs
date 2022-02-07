@@ -228,11 +228,13 @@ namespace Scanner
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtDisplayPositions_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
@@ -247,6 +249,7 @@ namespace Scanner
                 }
 
                 StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
+                HelpfulMethods.clearTheStack(this);
 
             }
         }

@@ -46,5 +46,11 @@ namespace Scanner.App
             return lastReturn;
         }
 
+
+        public static void clearTheStack(Activity activity)
+        {
+            activity.Finish();
+        }
+
     }
 }

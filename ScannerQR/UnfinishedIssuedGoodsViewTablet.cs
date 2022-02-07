@@ -198,6 +198,7 @@ namespace Scanner
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
 
         }
 
@@ -207,6 +208,7 @@ namespace Scanner
             moveHead.SetBool("Saved", false);
             InUseObjects.Set("MoveHead", moveHead);
             StartActivity(typeof(IssuedGoodsBusinessEventSetupTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtDelete_Click(object sender, EventArgs e)
@@ -292,6 +294,7 @@ namespace Scanner
             InUseObjects.Set("MoveHead", moveHead);
 
             StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtNext_Click(object sender, EventArgs e)

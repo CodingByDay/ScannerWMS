@@ -274,13 +274,7 @@ namespace Scanner
 
         }
 
-        // string error;
-
-        // var data = Services.GetObject("sscc", tbSSCC.Text, out error);
-
-        // var ident = data.GetString("Ident");
-        // Toast.MakeText(this, "Ident je: " + ident, ToastLength.Long).Show();
-
+  
 
         private void color()
         {

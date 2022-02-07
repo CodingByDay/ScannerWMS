@@ -174,7 +174,7 @@ namespace Scanner
 
                 tbSSCC.Text = moveItem.GetString("SSCC");
                 tbLocation.Text = moveItem.GetString("Location");
-                btSaveOrUpdate.Text = "Spr. ser. št. - F2";
+                btSaveOrUpdate.Text = "Serijska - F2";
             }
             else
             {
@@ -659,6 +659,7 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(TakeOverEnteredPositionsViewTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -685,6 +686,7 @@ namespace Scanner
         private void Button7_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
 
@@ -694,7 +696,8 @@ namespace Scanner
             if (resultAsync)
             {
                 StartActivity(typeof(TakeOverIdentEntryTablet));
-             }
+                HelpfulMethods.clearTheStack(this);
+            }
         }
 
 
@@ -706,10 +709,12 @@ namespace Scanner
                 if (editMode)
                 {
                     StartActivity(typeof(TakeOverEnteredPositionsViewTablet));
+                    HelpfulMethods.clearTheStack(this);
                 }
                 else
                 {
                     StartActivity(typeof(TakeOverSerialOrSSCCEntryTablet));
+                    HelpfulMethods.clearTheStack(this);
                 }
 
             }

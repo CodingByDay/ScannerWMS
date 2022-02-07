@@ -160,6 +160,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(RecalculateInventoryTablet));
+               
             }
         }
 
@@ -170,6 +171,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(RapidTakeover));
+            
             }
         }
 
@@ -195,6 +197,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(MenuPalletsTablet));
+              
             }
         }
 
@@ -209,6 +212,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(RapidTakeover));
+               
             }
         }
 
@@ -266,6 +270,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(PackagingEnteredPositionsViewTablet));
+             
             }
 
         }
@@ -277,6 +282,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(CheckStockTablet));
+            
             }
 
         }
@@ -288,6 +294,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(InventoryMenu));
+          
             }
         }
 
@@ -298,6 +305,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(PrintingMenu));
+               
             }
 
         }
@@ -310,6 +318,7 @@ namespace Scanner
             {
 
                 StartActivity(typeof(UnfinishedIssuedGoodsViewTablet));
+            
             }
 
         }
@@ -321,6 +330,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(UnfinishedProductionViewTablet));
+                
             }
         }
 
@@ -331,6 +341,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(UnfinishedInterWarehouseViewTablet));
+              
             }
         }
 
@@ -341,6 +352,7 @@ namespace Scanner
             if (dups)
             {
                 StartActivity(typeof(UnfinishedTakeoversViewTablet));
+            
             }
 
         }

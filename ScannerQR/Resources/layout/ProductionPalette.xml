@@ -188,7 +188,8 @@
         android:layout_width="match_parent"
         android:id="@+id/lvCardList"
         android:layout_height="197.5dp"
-        android:listSelector="@android:drawable/screen_background_dark_transparent"
+        android:listSelector="@android:color/holo_blue_light"
+
         />
 
 

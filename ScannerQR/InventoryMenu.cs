@@ -120,10 +120,12 @@ namespace Scanner
             if (result == true)
             {
                 StartActivity(typeof(MainMenuTablet));
+                HelpfulMethods.clearTheStack(this);
             }
             else
             {
                 StartActivity(typeof(MainMenu));
+                HelpfulMethods.clearTheStack(this);
             }
         }
 
@@ -132,9 +134,11 @@ namespace Scanner
             if (result == true)
             {
                 StartActivity(typeof(InventoryPrintTablet));
+                HelpfulMethods.clearTheStack(this);
             } else
             {
                 StartActivity(typeof(InventoryPrint));
+                HelpfulMethods.clearTheStack(this);
             }
         }
 
@@ -143,9 +147,11 @@ namespace Scanner
             if (result == true)
             {
                 StartActivity(typeof(InventoryOpenTablet));
+                HelpfulMethods.clearTheStack(this);
             } else
             {
                 StartActivity(typeof(InventoryOpen));
+                HelpfulMethods.clearTheStack(this);
             }
         }
 
@@ -154,9 +160,11 @@ namespace Scanner
             if (result)
             {
                 StartActivity(typeof(InventoryConfirmTablet));
+                HelpfulMethods.clearTheStack(this);
             } else
             {
                 StartActivity(typeof(InventoryConfirm));
+                HelpfulMethods.clearTheStack(this);
             }
         }
 
@@ -165,9 +173,11 @@ namespace Scanner
             if (result == true)
             {
                 StartActivity(typeof(InventoryProcessTablet));
+                HelpfulMethods.clearTheStack(this);
             } else
             {
                 StartActivity(typeof(InventoryProcess));
+                HelpfulMethods.clearTheStack(this);
             }
         }
 
@@ -176,9 +186,11 @@ namespace Scanner
             if (result == true)
             {
                 StartActivity(typeof(InventoryOpenDocumentTablet));
+                HelpfulMethods.clearTheStack(this);
             } else
             {
                 StartActivity(typeof(InventoryOpenDocument));
+                HelpfulMethods.clearTheStack(this);
             }
         }
     }

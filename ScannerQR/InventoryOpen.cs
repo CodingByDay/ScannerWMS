@@ -12,6 +12,7 @@ using Android.Text;
 using Android.Views;
 using Android.Widget;
 using Microsoft.AppCenter.Crashes;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -159,6 +160,7 @@ namespace Scanner
                     if (button2.Enabled == true)
                     {
                         StartActivity(typeof(MainMenu));
+                        HelpfulMethods.clearTheStack(this);
                     }
                     break;
 
@@ -170,6 +172,7 @@ namespace Scanner
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtOpen_Click(object sender, EventArgs e)
@@ -215,6 +218,7 @@ namespace Scanner
                         Toast.MakeText(this, "Inventura odprta!", ToastLength.Long).Show();
               
                         StartActivity(typeof(InventoryConfirm));
+                        HelpfulMethods.clearTheStack(this);
                     }
                 }
                 else

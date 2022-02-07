@@ -1371,6 +1371,8 @@ namespace Scanner
                     var loadIdent = CommonData.LoadIdent(ident);
                     var name = dataObject.GetString("IdentName");
                     var serial = dataObject.GetString("SerialNo");
+                    var qty = dataObject.GetString("Location");
+
                     var location = dataObject.GetString("Location");
                     MorePallets pallets = new MorePallets();
                     pallets.Ident = ident;
@@ -1385,7 +1387,7 @@ namespace Scanner
                         pallets.Name = idname;
                     }
 
-                    pallets.Quantity = sscc;
+                    pallets.Quantity = qty;
                     pallets.SSCC = sscc;
                     pallets.Serial = serial;
                  
@@ -1734,11 +1736,13 @@ namespace Scanner
                 if (editMode)
                 {
                     StartActivity(typeof(InterWarehouseEnteredPositionsViewTablet));
+                    HelpfulMethods.clearTheStack(this);
                 }
                 else
                 {
 
                     StartActivity(typeof(InterWarehouseSerialOrSSCCEntryTablet));
+                    HelpfulMethods.clearTheStack(this);
                 }
                 this.Finish();
             }
@@ -1750,6 +1754,7 @@ namespace Scanner
             if (resultAsync)
             {
                 StartActivity(typeof(InterWarehouseSerialOrSSCCEntryTablet));
+                HelpfulMethods.clearTheStack(this);
 
             }
         }
@@ -2088,12 +2093,15 @@ namespace Scanner
         private void Button4_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(InterWarehouseEnteredPositionsViewTablet));
+            HelpfulMethods.clearTheStack(this); 
+
         }
 
 
         private void Button6_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
 

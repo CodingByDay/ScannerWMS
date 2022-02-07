@@ -339,12 +339,14 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
             SaveItem(true);
             StartActivity(typeof(TakeOverEnteredPositionsView));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -376,6 +378,7 @@ namespace Scanner
             {
                 InUseObjects.Set("MoveItem", null);
                 StartActivity(typeof(TakeOver2Main));
+                HelpfulMethods.clearTheStack(this);
 
             }
         }
@@ -386,7 +389,8 @@ namespace Scanner
             {
                 InUseObjects.Set("MoveItem", moveItem);
                 StartActivity(typeof(TakeOver2Orders));
-         
+                HelpfulMethods.clearTheStack(this);
+
             }
         }
     }

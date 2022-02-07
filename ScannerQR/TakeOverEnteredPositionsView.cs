@@ -75,6 +75,7 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtDelete_Click(object sender, EventArgs e)
@@ -250,6 +251,7 @@ namespace Scanner
             } else
 
             StartActivity(typeof(TakeOverIdentEntry));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtUpdate_Click(object sender, EventArgs e)
@@ -260,6 +262,7 @@ namespace Scanner
             {
                 InUseObjects.Set("MoveHead", moveHead);
                 StartActivity(typeof(TakeOver2Main));
+                HelpfulMethods.clearTheStack(this);
                 return;
             }
             try
@@ -276,6 +279,7 @@ namespace Scanner
                     item.SetString("Ident", openIdent.GetString("Code"));
                     InUseObjects.Set("OpenIdent", openIdent);
                     StartActivity(typeof(TakeOverSerialOrSSCCEntry));
+                    HelpfulMethods.clearTheStack(this);
                 }
             }
             finally

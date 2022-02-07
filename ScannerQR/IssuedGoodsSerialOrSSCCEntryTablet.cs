@@ -583,6 +583,7 @@ namespace Scanner
                                     System.Threading.Thread.Sleep(500);
 
                                     StartActivity(typeof(MainMenuTablet));
+                                    HelpfulMethods.clearTheStack(this);
 
 
                                 });
@@ -1109,6 +1110,7 @@ namespace Scanner
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
                                         StartActivity(typeof(MainMenuTablet));
+                                        HelpfulMethods.clearTheStack(this);
                                     });
 
 
@@ -1132,6 +1134,7 @@ namespace Scanner
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
                                         StartActivity(typeof(MainMenuTablet));
+                                        HelpfulMethods.clearTheStack(this);
 
                                     });
 
@@ -1217,6 +1220,7 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+            HelpfulMethods.clearTheStack(this);
         }
       
 
@@ -1472,6 +1476,7 @@ namespace Scanner
         {
             {
                 StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+                HelpfulMethods.clearTheStack(this);
                 InvalidateAndClose();
             }
 
@@ -1507,10 +1512,12 @@ namespace Scanner
                     if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                     {
                         StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
+                        HelpfulMethods.clearTheStack(this);
                     }
                     else
                     {
                         StartActivity(typeof(IssuedGoodsIdentEntryTablet));
+                        HelpfulMethods.clearTheStack(this);
                     }
                     InvalidateAndClose();
                 }
@@ -1530,12 +1537,14 @@ namespace Scanner
                     if (editMode)
                     {
                         StartActivity(typeof(IssuedGoodsEnteredPositionsViewTablet));
+                        HelpfulMethods.clearTheStack(this);
 
                     }
 
                     else
                     {
                         StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
+                        HelpfulMethods.clearTheStack(this);
                     }
 
 
@@ -2007,6 +2016,7 @@ namespace Scanner
         private void Button3_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
+            HelpfulMethods.clearTheStack(this);
             Finish();
 
         }

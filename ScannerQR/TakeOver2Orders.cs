@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Scanner.App;
 using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -97,6 +98,7 @@ namespace Scanner
         private void Logout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -105,7 +107,8 @@ namespace Scanner
             {
                 InUseObjects.Set("MoveItem", null);
                 StartActivity(typeof(TakeOver2Main));
-                
+                HelpfulMethods.clearTheStack(this);
+
             }
         }
 

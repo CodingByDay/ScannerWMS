@@ -228,13 +228,13 @@ namespace Scanner
                 {
                     var serial = data.GetString("SerialNo");
                     tbSerialNum.Text = serial;
-                    var location = data.GetString("IssueLocation");
+                    var location = data.GetString("Location");
                     tbIssueLocation.Text = location;
                     // tbPacking.RequestFocus();
                 }
                 else
                 {
-                    var location = data.GetString("IssueLocation");
+                    var location = data.GetString("Location");
                     tbIssueLocation.Text = location;
                 }
             }
@@ -1013,12 +1013,12 @@ namespace Scanner
 
         private void TbSSCC_KeyPress(object sender, View.KeyEventArgs e)
         {
-            var test = e.KeyCode;
+            e.Handled = false;
 
-            var s = true;
             if (e.KeyCode == Keycode.Enter)
             {
                 FillRelatedData(tbSSCC.Text);
+                e.Handled = true;
 
        
             }
@@ -1058,11 +1058,12 @@ namespace Scanner
                     var name = dataObject.GetString("IdentName");
                     var serial = dataObject.GetString("SerialNo");
                     var location = dataObject.GetString("Location");
+                    var qty = dataObject.GetString("Location");
                     MorePallets pallets = new MorePallets();
                     pallets.Ident = ident;
                     string idname = loadIdent.GetString("Name");
                     pallets.Location = location;                
-                    pallets.Quantity = sscc;
+                    pallets.Quantity = location;
                     pallets.SSCC = sscc;
                     pallets.Serial = serial;
                     try
@@ -1072,8 +1073,8 @@ namespace Scanner
                     {
 
                     }
-                    pallets.Quantity = barcode;
-                    pallets.SSCC = barcode;
+                    pallets.Quantity = qty;
+                    pallets.SSCC = sscc;
                     pallets.Serial = serial;
 
                     try
@@ -1576,10 +1577,12 @@ namespace Scanner
                 if (editMode)
                 {
                     StartActivity(typeof(InterWarehouseEnteredPositionsView));
+                    HelpfulMethods.clearTheStack(this);
                 }
                 else
                 {
                     StartActivity(typeof(InterWarehouseSerialOrSSCCEntry));
+                    HelpfulMethods.clearTheStack(this);
                 }
                 this.Finish();
              }
@@ -1591,6 +1594,7 @@ namespace Scanner
             if (resultAsync)
             {
                 StartActivity(typeof(InterWarehouseSerialOrSSCCEntry));
+                HelpfulMethods.clearTheStack(this);
             }
         }
         private async Task FinishMethod()
@@ -1630,6 +1634,7 @@ namespace Scanner
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
                                         StartActivity(typeof(MainMenu));
+                                        HelpfulMethods.clearTheStack(this);
                                     });
 
 
@@ -1718,6 +1723,7 @@ namespace Scanner
                                     System.Threading.Thread.Sleep(500);
 
                                     StartActivity(typeof(MainMenu));
+                                    HelpfulMethods.clearTheStack(this);
                                 });
                                 Dialog dialog = alert.Create();
                                 dialog.Show();
@@ -1737,6 +1743,7 @@ namespace Scanner
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
                                     StartActivity(typeof(MainMenu));
+                                    HelpfulMethods.clearTheStack(this);
 
                                 });
 
@@ -1779,12 +1786,14 @@ namespace Scanner
         private void Button4_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(InterWarehouseEnteredPositionsView));
+            HelpfulMethods.clearTheStack(this);
         }
         
 
         private void Button6_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void ProcessIdent()

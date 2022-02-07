@@ -142,6 +142,7 @@ namespace Scanner
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
                                     StartActivity(typeof(MainMenu));
+                                    HelpfulMethods.clearTheStack(this);
 
                                 });
 
@@ -168,6 +169,7 @@ namespace Scanner
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
                                     StartActivity(typeof(MainMenu));
+                                    HelpfulMethods.clearTheStack(this);
 
                                 });
 
@@ -194,6 +196,7 @@ namespace Scanner
                                 alert.Dispose();
                                 System.Threading.Thread.Sleep(500);
                                 StartActivity(typeof(MainMenu));
+                                HelpfulMethods.clearTheStack(this);
 
                             });
 
@@ -225,6 +228,7 @@ namespace Scanner
                             alert.Dispose();
                             System.Threading.Thread.Sleep(500);
                             StartActivity(typeof(MainMenu));
+                            HelpfulMethods.clearTheStack(this);
 
                         });
 

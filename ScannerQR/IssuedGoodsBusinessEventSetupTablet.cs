@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using Com.Toptoche.Searchablespinnerlibrary;
 using Java.Lang;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -214,6 +215,7 @@ namespace Scanner
         private void BtnLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtnOrderMode_Click(object sender, EventArgs e)

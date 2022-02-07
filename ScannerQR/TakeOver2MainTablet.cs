@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Scanner.App;
 using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -310,12 +311,14 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
             SaveItem(true);
             StartActivity(typeof(TakeOverEnteredPositionsViewTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -343,6 +346,7 @@ namespace Scanner
             {
                 InUseObjects.Set("MoveItem", null);
                 StartActivity(typeof(TakeOver2MainTablet));
+                HelpfulMethods.clearTheStack(this);
 
             }
         }
@@ -353,6 +357,7 @@ namespace Scanner
             {
                 InUseObjects.Set("MoveItem", moveItem);
                 StartActivity(typeof(TakeOver2OrdersTablet));
+                HelpfulMethods.clearTheStack(this);
 
             }
         }

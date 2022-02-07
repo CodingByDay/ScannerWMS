@@ -128,18 +128,13 @@ namespace Scanner
         }
 
         private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
-        {
-            var item = e.Position;
-
+        {           
+            var item = e.Position;          
             var chosen = identData.ElementAt(item);
-
-
-
-
-            // Proccess ident here.
-
-            tbIdent.Text = chosen;
-
+            if (chosen != "")
+            {
+                tbIdent.Text = chosen;
+            }
             ProcessIdent();
         }
 
@@ -240,6 +235,7 @@ namespace Scanner
         private void Button4_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(TakeOverEnteredPositionsViewTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
@@ -247,29 +243,31 @@ namespace Scanner
             if (SaveMoveHead())
             {
                 StartActivity(typeof(TakeOverSerialOrSSCCEntryTablet));
+                HelpfulMethods.clearTheStack(this);
             }
         }
 
         private void BtNext_Click(object sender, EventArgs e)
         {
             selected++;
-
-            if (selected <= (openOrders.Items.Count - 1))
-            {
-                listData.RequestFocusFromTouch();
-                listData.SetSelection(selected);
-                listData.SetItemChecked(selected, true);
+            if (openOrders != null) {
+                if (selected <= (openOrders.Items.Count - 1))
+                {
+                    listData.RequestFocusFromTouch();
+                    listData.SetSelection(selected);
+                    listData.SetItemChecked(selected, true);
+                }
+                else
+                {
+                    selected = 0;
+                    listData.RequestFocusFromTouch();
+                    listData.SetSelection(selected);
+                    listData.SetItemChecked(selected, true);
+                }
+                displayedOrder++;
+                if (displayedOrder >= openOrders.Items.Count) { displayedOrder = 0; }
+                FillDisplayedOrderInfo(); 
             }
-            else
-            {
-                selected = 0;
-                listData.RequestFocusFromTouch();
-                listData.SetSelection(selected);
-                listData.SetItemChecked(selected, true);
-            }
-            displayedOrder++;
-            if (displayedOrder >= openOrders.Items.Count) { displayedOrder = 0; }
-            FillDisplayedOrderInfo();
         }
 
 
@@ -363,6 +361,7 @@ namespace Scanner
                         if (SaveMoveHead())
                         {
                             StartActivity(typeof(TakeOverSerialOrSSCCEntryTablet));
+                            HelpfulMethods.clearTheStack(this);
 
                         }
                         return;
@@ -423,25 +422,6 @@ namespace Scanner
                     preventingDups = true;
                 }
 
-                //if (stock != null)
-                //{
-                //    for (int i = 0; i < stock.Items.Count(); i++)
-                //    {
-                //        var current = stock.Items.ForEach(;
-                //        var temporaryQty = current.GetDouble("Qty");
-                //        var temporaryOpenQty = current.GetDouble("OpenQty");
-
-
-                //        data.Add(new TakeOverIdentList
-                //        {
-                //            Ident = identText,
-                //            Location = current.GetString("Location"),
-                //            Open = current.GetDouble("OpenQty").ToString(),
-                //            Ordered = current.GetDouble("Qty").ToString(),
-                //            Received = (temporaryQty - temporaryOpenQty).ToString()
-                //        }) ;
-                //    }
-                //}
                 else
                 {
                     Toast.MakeText(this, "Ni padatkov." + error, ToastLength.Long).Show();
@@ -467,6 +447,11 @@ namespace Scanner
                 string error;
                 var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + tbIdent.Text);
                 btConfirm.Enabled = true;
+
+                tbOrder.Enabled = false;
+                tbConsignee.Enabled = false;
+                tbQty.Enabled = false;
+                tbDeliveryDeadline.Enabled = false;
             }
             else
             {
@@ -495,6 +480,10 @@ namespace Scanner
                 string error;
                 var stock = Services.GetObjectList("str", out error, moveHead.GetString("Wharehouse") + "||" + tbIdent.Text);
                 btConfirm.Enabled = true;
+                tbOrder.Enabled = false;
+                tbConsignee.Enabled = false;
+                tbQty.Enabled = false;
+                tbDeliveryDeadline.Enabled = false;
             }
             else
             {

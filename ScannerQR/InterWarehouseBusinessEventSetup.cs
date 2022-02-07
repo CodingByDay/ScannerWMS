@@ -14,6 +14,7 @@ using TrendNET.WMS.Device.Services;
 using static Android.Widget.AdapterView;
 using Android.Content.PM;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Scanner.App;
 /// <summary>
 /// 
 /// </summary>
@@ -219,7 +220,8 @@ namespace Scanner
                 }
 
                 StartActivity(typeof(InterWarehouseSerialOrSSCCEntry));
-                
+                HelpfulMethods.clearTheStack(this);
+
             } finally
             {
                 success = true;
@@ -278,6 +280,7 @@ namespace Scanner
         private void Logout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
     }
     

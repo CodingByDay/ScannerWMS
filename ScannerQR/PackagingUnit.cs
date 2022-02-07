@@ -395,6 +395,7 @@ namespace Scanner
         private void BtExit_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
         private async Task FinishMethod()
         {
@@ -433,6 +434,7 @@ namespace Scanner
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
                                     StartActivity(typeof(MainMenu));
+                                    HelpfulMethods.clearTheStack(this);
                                 });
 
 
@@ -482,44 +484,7 @@ namespace Scanner
         private async void BtFinish_Click(object sender, EventArgs e)
         {
             await FinishMethod();
-            //if (SavePackagingItem())
-            //{
-            //    var progress = new ProgressDialogClass();
-
-            //    progress.ShowDialogSync(this, "Zaključujem");
-            //    try
-            //    {
-              
-            //        var headID = head.GetInt("HeadID");
-
-            //        string result;
-            //        if (WebApp.Get("mode=finishPack&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
-            //        {
-            //            if (result.StartsWith("OK!"))
-            //            {
-            //                var id = result.Split('+')[1];
-            //                Toast.MakeText(this, "Zaklučevanje uspešno! Št. prenosa \r\n" + id, ToastLength.Long).Show();
-                    
-          
-            //            }
-            //            else
-            //            {
-            //                Toast.MakeText(this, "Napaka pri zaključevanju" + result, ToastLength.Long).Show();
-                     
-            //            }
-            //        }
-            //        else
-            //        {
-            //            Toast.MakeText(this, "Napaka pri klicu web aplikacije:" + result, ToastLength.Long).Show();
-                    
-            //        }
-            //    }
-            //    finally
-            //    {
-            //        progress.StopDialogSync();
-
-            //    }
-            //}
+           
   
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -569,7 +534,8 @@ namespace Scanner
             {
                 InUseObjects.Set("PackagingItem", null);
                  StartActivity(typeof(PackagingUnitList));
-                
+                HelpfulMethods.clearTheStack(this);
+
             }
         
         }
@@ -580,7 +546,8 @@ namespace Scanner
             {
                 InUseObjects.Set("PackagingItem", null);
                StartActivity(typeof(PackagingUnit));
-                
+                HelpfulMethods.clearTheStack(this);
+
             }
         }
     }

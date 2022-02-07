@@ -172,6 +172,7 @@ namespace Scanner
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtNew_Click(object sender, EventArgs e)
@@ -181,7 +182,7 @@ namespace Scanner
             InUseObjects.Set("MoveHead", moveHead);
 
             StartActivity(typeof(TakeOverBusinessEventSetupTablet));
-
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtDelete_Click(object sender, EventArgs e)
@@ -341,6 +342,7 @@ namespace Scanner
             InUseObjects.Set("MoveHead", moveHead);
 
             StartActivity(typeof(TakeOverEnteredPositionsViewTablet));
+            HelpfulMethods.clearTheStack(this);
         }
         private void Select(int postionOfTheItemInTheList)
         {

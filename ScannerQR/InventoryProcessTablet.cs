@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Scanner.App;
 using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -185,6 +186,7 @@ namespace Scanner
         private void Button2_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtDelete_Click(object sender, EventArgs e)
@@ -200,6 +202,7 @@ namespace Scanner
                         Toast.MakeText(this, "Pozicija pobrisana!", ToastLength.Long).Show();
 
                         StartActivity(typeof(InventoryProcess));
+                        HelpfulMethods.clearTheStack(this);
 
                     }
                     else
@@ -290,6 +293,7 @@ namespace Scanner
                         selectedWarehouse = warehouse.ID;
 
                         StartActivity(typeof(InventoryProcessTablet));
+                        HelpfulMethods.clearTheStack(this);
 
                     }
                 }

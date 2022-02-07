@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Scanner.App;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,11 +33,13 @@ namespace Scanner
         private void Rapid_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(RapidTakeoverPhone));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void Production_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(UnfinishedProductionView));
+            HelpfulMethods.clearTheStack(this);
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

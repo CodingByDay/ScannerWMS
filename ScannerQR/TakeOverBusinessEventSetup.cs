@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -127,6 +128,7 @@ namespace Scanner
         private void Logout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtnOrderMode_Click(object sender, EventArgs e)
@@ -134,6 +136,7 @@ namespace Scanner
             if (byOrder && (CommonData.GetSetting("UseDirectTakeOver") == "1"))
             {
                 StartActivity(typeof(TakeOver2Main));
+                HelpfulMethods.clearTheStack(this);
             }
             else
             {
@@ -247,7 +250,8 @@ namespace Scanner
                     }
 
                    StartActivity(typeof(TakeOverIdentEntry));
-                  
+                   HelpfulMethods.clearTheStack(this);
+
                 }
             }
          

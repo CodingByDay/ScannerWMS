@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -131,11 +132,13 @@ namespace Scanner
         private void BtNew_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(ProductionWorkOrderSetup));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtDelete_Click(object sender, EventArgs e)
@@ -219,7 +222,8 @@ namespace Scanner
             InUseObjects.Set("MoveHead", moveHead);
 
             StartActivity(typeof(ProductionEnteredPositionsView));
-           
+            HelpfulMethods.clearTheStack(this);
+
         }
 
         private void BtNext_Click(object sender, EventArgs e)

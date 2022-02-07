@@ -225,6 +225,7 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(TakeOverEnteredPositionsView));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -251,6 +252,7 @@ namespace Scanner
         private void Button7_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
 
@@ -261,7 +263,8 @@ namespace Scanner
             if (resutAsync)
             {
                 StartActivity(typeof(TakeOverIdentEntry));
-              
+                HelpfulMethods.clearTheStack(this);
+
             }
         }
 
@@ -274,10 +277,12 @@ namespace Scanner
                 if (editMode)
                 {
                    StartActivity(typeof(TakeOverEnteredPositionsView));
+                    HelpfulMethods.clearTheStack(this);
                 }
                 else
                 {
                     StartActivity(typeof(TakeOverSerialOrSSCCEntry));
+                    HelpfulMethods.clearTheStack(this);
                 }
 
                 Finish();
@@ -325,7 +330,9 @@ namespace Scanner
                                     {
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
+
                                         StartActivity(typeof(MainMenu));
+                                        HelpfulMethods.clearTheStack(this);
                                     });
 
 
@@ -349,6 +356,7 @@ namespace Scanner
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
                                         StartActivity(typeof(MainMenu));
+                                        HelpfulMethods.clearTheStack(this);
 
                                     });
 

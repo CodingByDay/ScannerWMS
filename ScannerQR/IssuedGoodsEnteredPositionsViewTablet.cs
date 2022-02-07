@@ -309,6 +309,7 @@ namespace Scanner
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
         private void BtDelete_Click(object sender, EventArgs e)
         {
@@ -416,10 +417,12 @@ namespace Scanner
             if (moveHead.GetBool("ByOrder") && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
             {
                 StartActivity(typeof(IssuedGoodsIdentEntryWithTrailTablet));
+                HelpfulMethods.clearTheStack(this);
             }
             else
             {
                 StartActivity(typeof(IssuedGoodsIdentEntryTablet));
+                HelpfulMethods.clearTheStack(this);
             }
         }
 
@@ -445,6 +448,7 @@ namespace Scanner
                     item.SetString("Ident", openIdent.GetString("Code"));
                     InUseObjects.Set("OpenIdent", openIdent);
                     StartActivity(typeof(IssuedGoodsSerialOrSSCCEntryTablet));
+                    HelpfulMethods.clearTheStack(this);
 
                 }
             }

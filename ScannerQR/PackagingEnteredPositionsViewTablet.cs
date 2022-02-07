@@ -219,12 +219,14 @@ namespace Scanner
         private void BtClose_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtCreate_Click(object sender, EventArgs e)
         {
             InUseObjects.Set("PackagingHead", null);
             StartActivity(typeof(PackagingSetContextTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtDelete_Click(object sender, EventArgs e)
@@ -302,6 +304,7 @@ namespace Scanner
             var item = positions.Items[displayedPosition];
             InUseObjects.Set("PackagingHead", item);
             StartActivity(typeof(PackagingUnitListTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtNext_Click(object sender, EventArgs e)

@@ -156,6 +156,7 @@ namespace Scanner
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtCreate_Click(object sender, EventArgs e)
@@ -163,6 +164,7 @@ namespace Scanner
 
             InUseObjects.Set("PackagingItem", null);
             StartActivity(typeof(PackagingUnitTablet));
+            HelpfulMethods.clearTheStack(this);
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -279,6 +281,7 @@ namespace Scanner
             var item = positions.Items[displayedPosition];
             InUseObjects.Set("PackagingItem", item);
             StartActivity(typeof(PackagingUnitTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtNext_Click(object sender, EventArgs e)

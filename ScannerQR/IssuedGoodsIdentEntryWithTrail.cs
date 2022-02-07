@@ -262,11 +262,14 @@ namespace Scanner
         private void BtLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtDisplayPositions_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(IssuedGoodsEnteredPositionsView));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)

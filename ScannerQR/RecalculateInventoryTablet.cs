@@ -195,7 +195,7 @@ namespace Scanner
                                 {
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
-                                    StartActivity(typeof(MainMenu));
+                                    StartActivity(typeof(MainMenuTablet));
 
                                 });
 
@@ -221,7 +221,7 @@ namespace Scanner
                                 {
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
-                                    StartActivity(typeof(MainMenu));
+                                    StartActivity(typeof(MainMenuTablet));
 
                                 });
 
@@ -247,7 +247,7 @@ namespace Scanner
                             {
                                 alert.Dispose();
                                 System.Threading.Thread.Sleep(500);
-                                StartActivity(typeof(MainMenu));
+                                StartActivity(typeof(MainMenuTablet));
 
                             });
 

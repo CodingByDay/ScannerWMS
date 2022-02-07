@@ -247,43 +247,7 @@ namespace Scanner
         private async void BtConfirm_Click(object sender, EventArgs e)
         {
             await FinishMethod();
-            //    // Method scope
-            //    string ETpallet = pallet.Text;
-            //    string ETmachine = machine.Text;
-            //    var progress = new ProgressDialogClass();
 
-            //    progress.ShowDialogSync(this, "Zaključujem");
-
-            //    try
-            //    {
-            //        string result;
-            //        if (WebApp.Get("mode=palMac&pal=" + ETpallet + "&mac=" + ETmachine, out result))
-            //        {
-            //            if (result == "OK")
-            //            {
-            //                Toast.MakeText(this, "Paleta uspešno dostavljena", ToastLength.Long).Show();
-
-            //            }
-            //            else
-            //            {
-            //                Toast.MakeText(this, $"Napaka pri dostavi palete: {result}", ToastLength.Long).Show();
-            //            }
-            //        }
-            //        else
-            //        {
-            //            Toast.MakeText(this, "Napaka pri dostopu do web aplikacije", ToastLength.Long).Show();
-            //        }
-            //    }
-            //    catch(Exception ex)
-            //    {
-            //        Toast.MakeText(this, $"Prišlo je do napake. {ex.Message}", ToastLength.Long).Show();
-            //    }
-            //    finally
-            //    {
-            //        progress.StopDialogSync();
-            //    }
-
-            //}
 
         }
     }

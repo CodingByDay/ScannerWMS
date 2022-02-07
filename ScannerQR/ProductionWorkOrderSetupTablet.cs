@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -99,6 +100,7 @@ namespace Scanner
         private void Button2_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void color()
@@ -116,6 +118,7 @@ namespace Scanner
             InUseObjects.Set("CardInfo", cardInfo);
 
             StartActivity(typeof(ProductionPaletteTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
@@ -123,6 +126,7 @@ namespace Scanner
             if (SaveMoveHead())
             {
                 StartActivity(typeof(ProductionSerialOrSSCCEntryTablet));
+                HelpfulMethods.clearTheStack(this);
             }
         }
 
@@ -135,6 +139,7 @@ namespace Scanner
             cardInfo.SetDouble("UM1toUM3", ident.GetDouble("UM1toUM3"));
             InUseObjects.Set("CardInfo", cardInfo);
             StartActivity(typeof(ProductionCardTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
 

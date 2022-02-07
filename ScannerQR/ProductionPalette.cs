@@ -107,7 +107,6 @@ namespace Scanner
             adapterListViewItem adapter = new adapterListViewItem(this, listItems);
             lvCardList.Adapter = adapter;
             totalQty += qty;
-            lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
             btConfirm.Enabled = true;
 
 
@@ -185,14 +184,18 @@ namespace Scanner
 
         private void ProcessCard(string data)
         {
+            if (data.Length > tbSerialNum.Text.Length)
+            {
+                try
+                {
+                    stKartona = Convert.ToInt32(data.Substring(tbSerialNum.Text.Length)).ToString();
 
-            try
-            {
-                stKartona = Convert.ToInt32(data.Substring(tbSerialNum.Text.Length)).ToString();
-            } catch (Exception error)
-            {
-                Toast.MakeText(this, "Napaka...", ToastLength.Long).Show();
-            }
+                }
+                catch (Exception error)
+                {
+                    Toast.MakeText(this, "Napaka...", ToastLength.Long).Show();
+                }
+            }  else { return; }
 
             if (stKartona != null)
             {
@@ -251,7 +254,6 @@ namespace Scanner
                                 adapterListViewItem adapter = new adapterListViewItem(this, listItems);
                                 lvCardList.Adapter = adapter;
                                 totalQty += qty;
-                                lbTotalQty.Text = "Količina skupaj: " + totalQty.ToString("###,###,##0.00");
                                 btConfirm.Enabled = true;
                             }
                         }
@@ -361,7 +363,6 @@ namespace Scanner
         {
             ListViewItem itemPriorToDelete = listItems.ElementAt((int)selectedItemId);
             totalQty = totalQty - Convert.ToDouble(itemPriorToDelete.quantity);
-            lbTotalQty.Text = "Količina skupaj: " + (totalQty).ToString("###,###,##0.00"); 
             listItems.RemoveAt((int)selectedItemId);           
             lvCardList.Adapter = null;
             adapterListViewItem adapter = new adapterListViewItem(this, listItems);
@@ -380,6 +381,7 @@ namespace Scanner
         private void Button2_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
 

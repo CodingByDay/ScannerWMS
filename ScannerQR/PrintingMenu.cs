@@ -124,10 +124,12 @@ namespace Scanner
             if (result == true)
             {
                 StartActivity(typeof(MainMenuTablet));
+                HelpfulMethods.clearTheStack(this);
             }
             else
             {
                 StartActivity(typeof(MainMenu));
+                HelpfulMethods.clearTheStack(this);
             }
         }
 
@@ -136,9 +138,11 @@ namespace Scanner
             if (result == true)
             {
                 StartActivity(typeof(PrintingOutputControlTablet));
+                HelpfulMethods.clearTheStack(this);
             } else
             {
                 StartActivity(typeof(PrintingOutputControl));
+                HelpfulMethods.clearTheStack(this);
             }
         }
 
@@ -147,9 +151,11 @@ namespace Scanner
             if (result == true)
             {
                 StartActivity(typeof(PrintingProcessControlTablet));
+                HelpfulMethods.clearTheStack(this);
             } else
             {
                 StartActivity(typeof(PrintingProcessControl));
+                HelpfulMethods.clearTheStack(this);
             }
          }
 
@@ -158,9 +164,11 @@ namespace Scanner
             if (result == true)
             {
                 StartActivity(typeof(PrintingInputControlTablet));
+                HelpfulMethods.clearTheStack(this);
             } else
             {
                 StartActivity(typeof(PrintingInputControl));
+                HelpfulMethods.clearTheStack(this);
             } 
         }
 
@@ -169,9 +177,11 @@ namespace Scanner
             if (result == true)
             {
                 StartActivity(typeof(PrintingSSCCCodesTablet));
+                HelpfulMethods.clearTheStack(this);
             } else
             {
                 StartActivity(typeof(PrintingSSCCCodes));
+                HelpfulMethods.clearTheStack(this);
             }
         }
 
@@ -179,10 +189,13 @@ namespace Scanner
         {
             if (result == true)
             {
+
                 StartActivity(typeof(PrintingReprintLabelsTablet));
+                HelpfulMethods.clearTheStack(this);
             } else
             {
                 StartActivity(typeof(PrintingReprintLabels));
+                HelpfulMethods.clearTheStack(this);
             }
         }
     }

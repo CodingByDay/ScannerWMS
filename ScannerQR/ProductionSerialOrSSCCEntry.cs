@@ -597,6 +597,7 @@ namespace Scanner
             private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
 
@@ -640,6 +641,7 @@ namespace Scanner
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
                                         StartActivity(typeof(MainMenu));
+                                        HelpfulMethods.clearTheStack(this);
                                     });
 
 
@@ -664,6 +666,7 @@ namespace Scanner
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
                                         StartActivity(typeof(MainMenu));
+                                        HelpfulMethods.clearTheStack(this);
 
                                     });
 
@@ -722,6 +725,7 @@ namespace Scanner
         private void Button3_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(ProductionEnteredPositionsView));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtSaveOrUpdate_Click(object sender, EventArgs e)
@@ -731,10 +735,12 @@ namespace Scanner
                 if (editMode)
                 {
                     StartActivity(typeof(ProductionEnteredPositionsView));
+                    HelpfulMethods.clearTheStack(this);
                 }
                 else
                 {
                     StartActivity(typeof(ProductionSerialOrSSCCEntry));
+                    HelpfulMethods.clearTheStack(this);
                 }
             }
         }

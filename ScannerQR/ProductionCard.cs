@@ -170,6 +170,7 @@ namespace Scanner
         private void BtExit_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void BtConfirm_Click(object sender, EventArgs e)
@@ -220,6 +221,7 @@ namespace Scanner
                     PrintingCommon.SendToServer(pr);
                     StartActivity(typeof(ProductionCard));
                     this.Finish();
+                    HelpfulMethods.clearTheStack(this);
 
                     //
                 }

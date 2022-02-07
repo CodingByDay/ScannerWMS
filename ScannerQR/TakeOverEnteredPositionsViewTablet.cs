@@ -198,6 +198,7 @@ namespace Scanner
         private void Button5_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenuTablet));
+            HelpfulMethods.clearTheStack(this);
         }
 
         private void fillList()
@@ -232,14 +233,16 @@ namespace Scanner
                     string error;
                     var ident = item.GetString("Ident").Trim();
                     var openIdent = Services.GetObject("id", ident, out error);
-                    //  var ident = CommonData.LoadIdent(item.GetString("Ident"));
+
                     var identName = openIdent.GetString("Name");
                     var date = created == null ? "" : ((DateTime)created).ToString("dd.MM.yyyy");
+                    var friendlySSCC = item.GetString("SSCC");
+                    
                     data.Add(new TakeOverEnteredPositionsViewListItems
                     {
                         Ident = item.GetString("Ident"),
                         SerialNumber = item.GetString("SerialNo"),
-                        SSCC = item.GetString("SSCC"),
+                        SSCC = HelpfulMethods.lastReturn(item.GetString("SSCC"), 5),              
                         Quantity = tempUnit,
                         Position = numbering.ToString(),
                         Name = identName.Trim(),
@@ -262,11 +265,8 @@ namespace Scanner
             popupDialog.SetContentView(Resource.Layout.YesNoPopUp);
             popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialog.Show();
-
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloGreenDark);
-
-            // Access Popup layout fields like below
             btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
             btnYes.Click += BtnYes_Click;
@@ -369,7 +369,7 @@ namespace Scanner
                                 {
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
-                                    StartActivity(typeof(MainMenu));
+                                    StartActivity(typeof(MainMenuTablet));
                                 });
 
 
@@ -424,18 +424,20 @@ namespace Scanner
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            // new
+
             if (CommonData.GetSetting("UseDirectTakeOver") == "1")
             {
                 InUseObjects.Set("MoveHead", moveHead);
                 InUseObjects.Set("MoveItem", null);
                 StartActivity(typeof(TakeOver2MainTablet));
+                HelpfulMethods.clearTheStack(this);
 
                 return;
             }
             else
 
                 StartActivity(typeof(TakeOverIdentEntryTablet));
+                HelpfulMethods.clearTheStack(this);
 
         }
 
@@ -449,6 +451,7 @@ namespace Scanner
             {
                 InUseObjects.Set("MoveHead", moveHead);
                 StartActivity(typeof(TakeOver2Main));
+                HelpfulMethods.clearTheStack(this);
 
                 return;
             }
@@ -471,12 +474,13 @@ namespace Scanner
                     item.SetString("Ident", openIdent.GetString("Code"));
                     InUseObjects.Set("OpenIdent", openIdent);
                     StartActivity(typeof(TakeOverSerialOrSSCCEntryTablet));
+                    HelpfulMethods.clearTheStack(this);
 
                 }
             }
             finally
             {
-                //
+
             }
         }
 
@@ -531,7 +535,7 @@ namespace Scanner
             }
             finally
             {
-                // Used to be a wait form.
+                
             }
         }
 
@@ -539,7 +543,6 @@ namespace Scanner
         {
             switch (keyCode)
             {
-                // Setting F2 to method ProccesStock()
            
 
                 case Keycode.F2:
