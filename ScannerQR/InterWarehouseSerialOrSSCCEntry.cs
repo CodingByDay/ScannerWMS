@@ -1008,6 +1008,8 @@ namespace Scanner
 
 
             tbSSCC.RequestFocus();
+
+           
          
         }
 

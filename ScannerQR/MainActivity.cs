@@ -52,6 +52,7 @@ namespace Scanner
         {
             var cm = (ConnectivityManager) GetSystemService(ConnectivityService);
             return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+            
         }
 
 
@@ -85,7 +86,7 @@ namespace Scanner
                         {
                             StartActivity(typeof(MainMenuTablet));
                             HelpfulMethods.clearTheStack(this);
-                        } /* Entry point for the phone. */
+                        } /* Entry point for the phone mode. */
                         else
                         {
                             StartActivity(typeof(MainMenu));

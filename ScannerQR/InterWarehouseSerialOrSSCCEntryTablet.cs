@@ -789,7 +789,7 @@ namespace Scanner
                                     {
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
-                                        StartActivity(typeof(MainMenu));
+                                        StartActivity(typeof(MainMenuTablet));
 
                                     });
 
@@ -1772,32 +1772,7 @@ namespace Scanner
         }
 
 
-        //private void updateTheHead()
-        //{
-        //    moveHead.SetInt("HeadID", 0); // da ga "mh" API shrani kot novega, ne pod starim ID
-        //    string error;
-        //    var savedMoveHead = Services.SetObject("mh", moveHead, out error);
-        //    if (savedMoveHead == null)
-        //    {
-        //        Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        if (!Services.TryLock("MoveHead" + savedMoveHead.GetInt("HeadID").ToString(), out error))
-        //        {
-        //            Toast.MakeText(this, "Napaka pri zaklepanju nove medskladišnice.", ToastLength.Long).Show();
-        //            return;
-        //        }
-
-        //        moveHead.SetInt("HeadID", savedMoveHead.GetInt("HeadID"));
-        //        moveHead.SetBool("Saved", true);
-        //        InUseObjects.Set("MoveHead", moveHead);
-
-        //        var tests = moveHead.GetInt("HeadID");
-             
-        //    }
-        //}
+     
         private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem)
         {
 
@@ -1989,7 +1964,7 @@ namespace Scanner
             await Task.Run(async () =>
             {
                
-                int check = 0;
+          
 
                 RunOnUiThread(() =>
                 {
@@ -2038,7 +2013,7 @@ namespace Scanner
                                         {
                                             alert.Dispose();
                                             System.Threading.Thread.Sleep(500);
-                                            StartActivity(typeof(MainMenuTablet));
+                                          
 
                                         });
 

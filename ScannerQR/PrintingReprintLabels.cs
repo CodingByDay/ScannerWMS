@@ -58,17 +58,17 @@ namespace Scanner
                 Sound();
                 tbSSCC.Text = barcode;
                 tbSerialNum.RequestFocus();
-            } else if(tbIdent.HasFocus)
+            } else if(tbIdent.HasFocus && barcode!="Scan fail")
             {
                 Sound();
                 tbIdent.Text = barcode;
                 ProcessIdent();
               
-            } else if(tbSerialNum.HasFocus)
+            } else if(tbSerialNum.HasFocus && barcode != "Scan fail")
             {
                 Sound();
                 tbSerialNum.Text = barcode;
-            } else if (tbLocation.HasFocus)
+            } else if (tbLocation.HasFocus && barcode != "Scan fail")
             {
                 Sound();
                 tbLocation.Text = barcode;
@@ -158,7 +158,14 @@ namespace Scanner
 
             tbIdent.RequestFocus();
 
+            SetDefault();
 
+        }
+
+        private void SetDefault()
+        {
+            tbQty.Text = "1";
+            tbLocation.Text = "01";
         }
 
         private void TbTitle_FocusChange(object sender, View.FocusChangeEventArgs e)
@@ -282,18 +289,22 @@ namespace Scanner
 
         private void BtPrint_Click(object sender, EventArgs e)
         {
+
+
+            if (String.IsNullOrEmpty(tbIdent.Text) | String.IsNullOrEmpty(tbTitle.Text))
+            { return; }
+
             var qty = 0.0;
-            try
-            {
+
+                if(!String.IsNullOrEmpty(tbQty.Text)) { 
+
                 qty = Convert.ToDouble(tbQty.Text);
-            }
-            catch (Exception ex)
-            {
-                string toast = string.Format("Količina ni pravilna! (" + ex.Message + ")");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
-       
-                return;
-            }
+
+                } 
+          
+            
+              
+            
 
             if (qty <= 0.0)
             {
@@ -303,21 +314,12 @@ namespace Scanner
                 return;
             }
 
-            if (CommonData.GetSetting("ReprintLabelsUseSubject") == "1")
-            {
-                if (cbSubject.SelectedItem == null)
-                {
-                    string toast = string.Format("Subjekt mora biti izbran!");
-                    Toast.MakeText(this, toast, ToastLength.Long).Show();
-     
-                    return;
-                }
-            }
+            
 
     
             try
             {
-              
+             
                 var nvo = new NameValueObject("ReprintLabels");
                 PrintingCommon.SetNVOCommonData(ref nvo);
                 nvo.SetString("SSCC", tbSSCC.Text);
@@ -326,17 +328,41 @@ namespace Scanner
                 nvo.SetString("Ident", tbIdent.Text);
                 nvo.SetString("Title", tbTitle.Text);
                 nvo.SetDouble("Qty", qty);
-                nvo.SetString("Subject", cbSubject.SelectedItem == null ? "" : subjectsAdapter.ElementAt(tempPositionSubject).ID);
+
+                if (subjectsAdapter.Count > 0)
+                {
+
+                    nvo.SetString("Subject", cbSubject.SelectedItem == null ? "" : subjectsAdapter.ElementAt(tempPositionSubject).ID);
+                } 
+                else
+                {
+                    nvo.SetString("Subject", String.Empty);
+
+                }
                 PrintingCommon.SendToServer(nvo);
-        
+
+                string toast = string.Format("Pošiljam podatke.");
+
+
             }
             finally
             {
-                /// yayy :)
+                
                 string toast = string.Format("Poslani podatki.");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
+                ClearTheScreen();
             }
   
+        }
+
+        private void ClearTheScreen()
+        {
+            tbIdent.Text = String.Empty;
+            tbTitle.Text = String.Empty;
+            tbSerialNum.Text = String.Empty;
+            tbSSCC.Text = String.Empty;
+            tbIdent.RequestFocus();
+
         }
     }
 }

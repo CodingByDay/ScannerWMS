@@ -183,8 +183,18 @@ namespace Scanner
             Android.Resource.Layout.SimpleSpinnerItem, dataIdent);
             spinnerIdent.Adapter = DataAdapter;
 
-        }
 
+            SetDefault();
+        }
+        private void ClearTheScreen()
+        {
+            tbIdent.Text = String.Empty;
+            tbTitle.Text = String.Empty;
+            tbSerialNum.Text = String.Empty;
+            tbSSCC.Text = String.Empty;
+            tbIdent.RequestFocus();
+
+        }
         private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             tbIdent.Text = dataIdent.ElementAt(e.Position);
@@ -378,21 +388,27 @@ namespace Scanner
             StartActivity(typeof(MainMenuTablet));
             HelpfulMethods.clearTheStack(this);
         }
-
+        private void SetDefault()
+        {
+            tbQty.Text = "1";
+            tbLocation.Text = "01";
+        }
         private void BtPrint_Click(object sender, EventArgs e)
         {
             var qty = 0.0;
-            try
-            {
-                qty = Convert.ToDouble(tbQty.Text);
-            }
-            catch (Exception ex)
-            {
-                string toast = string.Format("Količina ni pravilna! (" + ex.Message + ")");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
 
-                return;
+            if (String.IsNullOrEmpty(tbIdent.Text) | String.IsNullOrEmpty(tbTitle.Text))
+            { return; }
+
+
+            if (!String.IsNullOrEmpty(tbQty.Text))
+            {
+
+                qty = Convert.ToDouble(tbQty.Text);
+
             }
+           
+
 
             if (qty <= 0.0)
             {
@@ -402,21 +418,11 @@ namespace Scanner
                 return;
             }
 
-            if (CommonData.GetSetting("ReprintLabelsUseSubject") == "1")
-            {
-                if (cbSubject.SelectedItem == null)
-                {
-                    string toast = string.Format("Subjekt mora biti izbran!");
-                    Toast.MakeText(this, toast, ToastLength.Long).Show();
-
-                    return;
-                }
-            }
 
 
             try
             {
-
+             
                 var nvo = new NameValueObject("ReprintLabels");
                 PrintingCommon.SetNVOCommonData(ref nvo);
                 nvo.SetString("SSCC", tbSSCC.Text);
@@ -425,8 +431,19 @@ namespace Scanner
                 nvo.SetString("Ident", tbIdent.Text);
                 nvo.SetString("Title", tbTitle.Text);
                 nvo.SetDouble("Qty", qty);
-                nvo.SetString("Subject", cbSubject.SelectedItem == null ? "" : subjectsAdapter.ElementAt(tempPositionSubject).ID);
+                if (subjectsAdapter.Count > 0)
+                {
+
+                    nvo.SetString("Subject", cbSubject.SelectedItem == null ? "" : subjectsAdapter.ElementAt(tempPositionSubject).ID);
+                }
+                else
+                {
+                    nvo.SetString("Subject", String.Empty);
+
+                }
                 PrintingCommon.SendToServer(nvo);
+                string toast = string.Format("Pošiljam podatke.");
+
 
             }
             finally
@@ -434,6 +451,7 @@ namespace Scanner
              
                 string toast = string.Format("Poslani podatki.");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
+                ClearTheScreen();
             }
 
         }
