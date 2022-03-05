@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace Scanner
 {
-    [Activity(Label = "WMS", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/barcode")]
+    [Activity(Label = "WMS", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/barcode",  NoHistory = true)]
     public class MainActivity : AppCompatActivity
     {
         private Dialog popupDialog;

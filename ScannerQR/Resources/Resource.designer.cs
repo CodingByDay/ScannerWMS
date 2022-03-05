@@ -5950,43 +5950,46 @@ namespace Scanner
 			public const int useLogo = 2131231269;
 			
 			// aapt resource value: 0x7F080226
-			public const int view = 2131231270;
+			public const int version = 2131231270;
 			
 			// aapt resource value: 0x7F080227
-			public const int view_offset_helper = 2131231271;
+			public const int view = 2131231271;
 			
 			// aapt resource value: 0x7F080228
-			public const int view_tree_lifecycle_owner = 2131231272;
+			public const int view_offset_helper = 2131231272;
 			
 			// aapt resource value: 0x7F080229
-			public const int view_tree_saved_state_registry_owner = 2131231273;
+			public const int view_tree_lifecycle_owner = 2131231273;
 			
 			// aapt resource value: 0x7F08022A
-			public const int visible = 2131231274;
+			public const int view_tree_saved_state_registry_owner = 2131231274;
 			
 			// aapt resource value: 0x7F08022B
-			public const int visible_removing_fragment_view_tag = 2131231275;
+			public const int visible = 2131231275;
 			
 			// aapt resource value: 0x7F08022C
-			public const int volume_item_container = 2131231276;
+			public const int visible_removing_fragment_view_tag = 2131231276;
 			
 			// aapt resource value: 0x7F08022D
-			public const int warehousePNG = 2131231277;
+			public const int volume_item_container = 2131231277;
 			
 			// aapt resource value: 0x7F08022E
-			public const int withText = 2131231278;
+			public const int warehousePNG = 2131231278;
 			
 			// aapt resource value: 0x7F08022F
-			public const int work = 2131231279;
+			public const int withText = 2131231279;
+			
+			// aapt resource value: 0x7F080230
+			public const int work = 2131231280;
 			
 			// aapt resource value: 0x7F080022
 			public const int WorkOrder = 2131230754;
 			
-			// aapt resource value: 0x7F080231
-			public const int wrapped = 2131231281;
+			// aapt resource value: 0x7F080232
+			public const int wrapped = 2131231282;
 			
-			// aapt resource value: 0x7F080230
-			public const int wrap_content = 2131231280;
+			// aapt resource value: 0x7F080231
+			public const int wrap_content = 2131231281;
 			
 			static Id()
 			{

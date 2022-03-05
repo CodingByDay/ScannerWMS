@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Scanner.App;
 using System.Collections.Generic;
 using System.Linq;
 using TrendNET.WMS.Device.App;
@@ -12,7 +13,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace Scanner
 {
-    [Activity(Label = "CheckStock", ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "CheckStock", ScreenOrientation = ScreenOrientation.Portrait, NoHistory = true)]
     public class CheckStock : Activity, IBarcodeResult
     {
         private Spinner cbWarehouses;
@@ -142,8 +143,9 @@ namespace Scanner
         }
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(savedInstanceState);
 
+            base.OnCreate(savedInstanceState);
+            
             // Create your application here.
             SetContentView(Resource.Layout.CheckStock);
             cbWarehouses = FindViewById<Spinner>(Resource.Id.cbWarehouses);
@@ -188,10 +190,25 @@ namespace Scanner
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouses.Adapter = adapterWarehouse;
 
+          
 
+         
+        }
+        public override void OnBackPressed()
+        {
+
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
         }
 
-  
+        //protected override void OnPostCreate(Bundle savedInstanceState)
+        //{
+
+        //    HelpfulMethods.releaseLock();
+        //    base.OnPostCreate(savedInstanceState);
+
+        //}
 
         private void Button1_Click(object sender, System.EventArgs e)
         {

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Xamarin.Essentials;
 
 namespace Scanner
 {
@@ -16,6 +17,7 @@ namespace Scanner
     {
         private EditText ID;
         private EditText rootURL;
+        private TextView version;
         private Button ok;
         public static string deviceInfo;
         private Spinner cbDevice;
@@ -35,7 +37,8 @@ namespace Scanner
             ok = FindViewById<Button>(Resource.Id.ok);
             ok.Click += Ok_Click;
             ID.Text = App.settings.ID;
-
+            version = FindViewById<TextView>(Resource.Id.version);
+            version.Text = $"verzija: 0.{GetAppVersion()}";
             rootURL.Text = App.settings.RootURL;
             var adapter = new ArrayAdapter<String>(this,
            Android.Resource.Layout.SimpleSpinnerItem, arrayData);
@@ -48,7 +51,10 @@ namespace Scanner
             // Create your application here
         }
 
-
+        public string GetAppVersion()
+        {
+            return AppInfo.BuildString;
+        }
         public void maintainSelection()
         {
             if(App.settings.tablet ==true)

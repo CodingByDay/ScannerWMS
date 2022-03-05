@@ -14,6 +14,12 @@ namespace Scanner.App
     public static class HelpfulMethods
     {
         private static int count=0;
+
+
+        /// <summary>
+        ///  A method to prevent duplicate click on the button.
+        /// </summary>
+        /// <returns></returns>
         public static bool preventDupUse()
         {
                 var check = count;
@@ -28,10 +34,21 @@ namespace Scanner.App
                 } else
 
                 {
+                
                 return true;
                 }
         }
-         
+        
+        
+        /// <summary>
+        ///  Releases the lock on the button after the use.
+        /// </summary>
+        public static void releaseLock()
+        {
+            count = 0;
+        }
+
+
         /// <summary>
         ///  Returns the last 5 characters of the reversed string.
         /// </summary>

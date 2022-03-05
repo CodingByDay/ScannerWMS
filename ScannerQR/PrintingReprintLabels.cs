@@ -165,7 +165,7 @@ namespace Scanner
         private void SetDefault()
         {
             tbQty.Text = "1";
-            tbLocation.Text = "01";
+            tbLocation.Text = CommonData.GetSetting("DefaultPaletteLocation");
         }
 
         private void TbTitle_FocusChange(object sender, View.FocusChangeEventArgs e)

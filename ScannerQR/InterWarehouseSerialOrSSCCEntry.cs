@@ -75,6 +75,10 @@ namespace Scanner
         private NameValueObject moveItemBatch;
         private SearchableSpinner spLocationSpinner;
         private EditText tbLocationPopup;
+        private bool isSerial;
+        private double stockQtyLocal;
+        private double stockQtyLocalParams;
+        private double stockQtyLocalBatch;
 
         // here...
         public void GetBarcode(string barcode)
@@ -207,7 +211,6 @@ namespace Scanner
                 tbIdent.Text = ident;
                 lbIdentName.Text = name;
 
-                // Just to be sure about the values, probably reduntant but hey.
                 if(tbIdent.Text != null && lbIdentName.Text != null ) { return true; } else { return false; }
 
 
@@ -255,7 +258,6 @@ namespace Scanner
         }
 
 
-
         private async Task<bool> SaveMoveItem()
         {
 
@@ -266,14 +268,17 @@ namespace Scanner
 
             if (tbSSCC.Enabled && string.IsNullOrEmpty(tbSSCC.Text.Trim()))
             {
-                RunOnUiThread(() =>
+                if (!isSerial)
                 {
-                    string WebError = string.Format("SSCC koda je obvezen podatek.");
-                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
-                    tbSSCC.RequestFocus();
-                });
+                    RunOnUiThread(() =>
+                    {
+                        string WebError = string.Format("SSCC koda je obvezen podatek.");
+                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                        tbSSCC.RequestFocus();
+                    });
 
-                return false;
+                    return false;
+                }
             }
 
             if (tbSerialNum.Enabled && string.IsNullOrEmpty(tbSerialNum.Text.Trim()))
@@ -318,9 +323,16 @@ namespace Scanner
 
                         return false;
                     }
+                    if (!isSerial)
+                    {
+                        stockQtyLocal = GetStock(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), tbSSCC.Text.Trim(), tbSerialNum.Text.Trim(), tbIdent.Text.Trim());
+                    }
+                    else
+                    {
+                        stockQtyLocal = GetStockSerial(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), tbSerialNum.Text.Trim(), tbIdent.Text.Trim());
 
-                    var stockQty = GetStock(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), tbSSCC.Text.Trim(), tbSerialNum.Text.Trim(), tbIdent.Text.Trim());
-                    if (Double.IsNaN(stockQty))
+                    }
+                    if (Double.IsNaN(stockQtyLocal))
                     {
                         RunOnUiThread(() =>
                         {
@@ -332,7 +344,7 @@ namespace Scanner
                         //  SelectNext(tbIdent);
                         return false;
                     }
-                    if (Math.Abs(qty) > Math.Abs(stockQty))
+                    if (Math.Abs(qty) > Math.Abs(stockQtyLocal))
                     {
                         RunOnUiThread(() =>
                         {
@@ -465,11 +477,10 @@ namespace Scanner
             }
             finally
             {
-               
+
             }
         }
 
-       
         private async Task<bool> SaveMoveItemWithParams(MorePallets objectItem, bool isFirst)
         {
 
@@ -480,14 +491,17 @@ namespace Scanner
 
             if (string.IsNullOrEmpty(objectItem.SSCC))
             {
-                RunOnUiThread(() =>
+                if (!isSerial)
                 {
-                    string WebError = string.Format("SSCC koda je obvezen podatek.");
-                    Toast.MakeText(this, WebError, ToastLength.Long).Show();
-                    tbSSCC.RequestFocus();
-                });
+                    RunOnUiThread(() =>
+                    {
+                        string WebError = string.Format("SSCC koda je obvezen podatek.");
+                        Toast.MakeText(this, WebError, ToastLength.Long).Show();
+                        tbSSCC.RequestFocus();
+                    });
 
-                return false;
+                    return false;
+                }
             }
 
           
@@ -508,9 +522,16 @@ namespace Scanner
 
                         return false;
                     }
+                    if (!isSerial)
+                    {
+                        stockQtyLocalParams = GetStock(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), tbSSCC.Text.Trim(), tbSerialNum.Text.Trim(), tbIdent.Text.Trim());
+                    }
+                    else
+                    {
+                        stockQtyLocalParams = GetStockSerial(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), tbSerialNum.Text.Trim(), tbIdent.Text.Trim());
 
-                    var stockQty = GetStock(moveHead.GetString("Issuer"), objectItem.Location.Trim(), objectItem.SSCC.Trim(), objectItem.Serial.Trim(), objectItem.Ident.Trim());
-                    if (Double.IsNaN(stockQty))
+                    }
+                    if (Double.IsNaN(stockQtyLocalParams))
                     {
                         RunOnUiThread(() =>
                         {
@@ -522,7 +543,7 @@ namespace Scanner
                         //  SelectNext(tbIdent);
                         return false;
                     }
-                    if (Math.Abs(qty) > Math.Abs(stockQty))
+                    if (Math.Abs(qty) > Math.Abs(stockQtyLocalParams))
                     {
                         RunOnUiThread(() =>
                         {
@@ -917,11 +938,9 @@ namespace Scanner
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
             // labels
-            tbIdent.InputType = Android.Text.InputTypes.ClassNumber;
             tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
             tbSerialNum.InputType = Android.Text.InputTypes.ClassNumber;
-            tbIssueLocation.InputType = Android.Text.InputTypes.ClassNumber;
-            tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
+          
             tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
@@ -1009,8 +1028,16 @@ namespace Scanner
 
             tbSSCC.RequestFocus();
 
-           
-         
+
+            tbLocation.FocusChange += TbLocation_FocusChange;
+        }
+
+        private void TbLocation_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            if (isSerial)
+            {
+                ProcessQtySerial();
+            }
         }
 
         private void TbSSCC_KeyPress(object sender, View.KeyEventArgs e)
@@ -1019,7 +1046,11 @@ namespace Scanner
 
             if (e.KeyCode == Keycode.Enter)
             {
+                FillRelatedBranchIdentData(tbSSCC.Text);
                 FillRelatedData(tbSSCC.Text);
+
+                ProcessQty();
+                tbLocation.RequestFocus();
                 e.Handled = true;
 
        
@@ -1033,18 +1064,75 @@ namespace Scanner
             string formated = $"Izbrali ste {element.SSCC}.";
             Toast.MakeText(this, formated, ToastLength.Long).Show();
         }
+        private void ProcessQtySerial()
+        {
 
+            var serialNo = tbSerialNum.Text.Trim();
+            if (tbSerialNum.Enabled && string.IsNullOrEmpty(serialNo)) { return; }
+
+            var ident = tbIdent.Text.Trim();
+            if (string.IsNullOrEmpty(ident)) { return; }
+
+            var identObj = CommonData.LoadIdent(ident);
+            if (identObj != null)
+            {
+                ident = identObj.GetString("Code");
+                tbIdent.Text = ident;
+            }
+
+            if (!CommonData.IsValidLocation(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim()))
+            {
+                string SuccessMessage = string.Format("Izdajna lokacija" + tbIssueLocation.Text.Trim() + "ni veljavna za skladisće" + moveHead.GetString("Issuer") + "'!");
+                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                tbIssueLocation.RequestFocus();
+
+                return;
+            }
+
+            var stockQty = GetStockSerial(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), serialNo, ident);
+            if (!Double.IsNaN(stockQty))
+            {
+                tbPacking.Text = stockQty.ToString(CommonData.GetQtyPicture());
+                lbQty.Text = "Količina (" + stockQty.ToString(CommonData.GetQtyPicture()) + ")";
+            }
+            else
+            {
+                tbPacking.Text = "";
+                lbQty.Text = "Količina (?)";
+            }
+
+
+        }
+        private double GetStockSerial(string warehouse, string location, string serialNum, string ident)
+        {
+
+            return LoadStockFromPAStockSerialNo(warehouse, ident, serialNum);
+
+
+        }
         private void TbSerialNum_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
-            if (FillRelatedBranchIdentData(tbSSCC.Text))
+            if (!String.IsNullOrWhiteSpace(tbSSCC.Text))
+            {
+                this.isSerial = false;
+                if (FillRelatedBranchIdentData(tbSSCC.Text))
+                {
+
+                    FillRelatedData(tbSSCC.Text);
+
+                    ProcessQty();
+                    tbLocation.RequestFocus();
+
+
+                }
+            }
+            else
             {
 
-                FillRelatedData(tbSSCC.Text);
-            
-                ProcessQty();
-                tbLocation.RequestFocus();
-                // Prepare the object and add it to data, but first erase the cache.
-                
+             
+
+                this.isSerial = true;
+
             }
         }
         private void TransportOneObject(string sscc)
@@ -1229,9 +1317,11 @@ namespace Scanner
 
             if (tbSSCC.Enabled && string.IsNullOrEmpty(obj.SSCC))
             {
+                if (!isSerial)
+                {
 
-
-                return false;
+                    return false;
+                }
             }
 
             if (tbSerialNum.Enabled && string.IsNullOrEmpty(obj.Serial.Trim()))
@@ -1257,15 +1347,22 @@ namespace Scanner
 
                         return false;
                     }
+                    if (!isSerial)
+                    {
+                        stockQtyLocalBatch = GetStock(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), tbSSCC.Text.Trim(), tbSerialNum.Text.Trim(), tbIdent.Text.Trim());
+                    }
+                    else
+                    {
+                        stockQtyLocalBatch = GetStockSerial(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim(), tbSerialNum.Text.Trim(), tbIdent.Text.Trim());
 
-                    var stockQty = GetStock(moveHead.GetString("Issuer"), obj.Location, obj.SSCC.Trim(), obj.Serial.Trim(), obj.Ident.Trim());
-                    if (Double.IsNaN(stockQty))
+                    }
+                    if (Double.IsNaN(stockQtyLocalBatch))
                     {
 
 
                         return false;
                     }
-                    if (Math.Abs(qty) > Math.Abs(stockQty))
+                    if (Math.Abs(qty) > Math.Abs(stockQtyLocalBatch))
                     {
 
 
@@ -1524,6 +1621,9 @@ namespace Scanner
                 // Add your logic here 
                 ProcessQty();
                 e.Handled = true;
+            } else
+            {
+                e.Handled= false;
             }
         }
 

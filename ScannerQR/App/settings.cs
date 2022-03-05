@@ -21,12 +21,11 @@ namespace Scanner.App
             CrossSettings.Current;
        
 
-     
-
+    
 
     public static string ID
         {
-            get => AppSettings.GetValueOrDefault(nameof(ID), "0003");
+            get => AppSettings.GetValueOrDefault(nameof(ID), string.Empty);
             set => AppSettings.AddOrUpdateValue(nameof(ID), value);
         }
 
@@ -47,7 +46,7 @@ namespace Scanner.App
 
         public static string RootURL
         {
-            get => AppSettings.GetValueOrDefault(nameof(RootURL), "http://10.1.1.8:81");
+            get => AppSettings.GetValueOrDefault(nameof(RootURL), string.Empty);
             set => AppSettings.AddOrUpdateValue(nameof(RootURL), value);
         }
     }

@@ -391,7 +391,7 @@ namespace Scanner
         private void SetDefault()
         {
             tbQty.Text = "1";
-            tbLocation.Text = "01";
+            tbLocation.Text = CommonData.GetSetting("DefaultPaletteLocation");
         }
         private void BtPrint_Click(object sender, EventArgs e)
         {

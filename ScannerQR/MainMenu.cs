@@ -37,8 +37,9 @@ namespace Scanner
         private Button btRecalculate;
         protected override void OnCreate(Bundle savedInstanceState)
         {
+           
             base.OnCreate(savedInstanceState);
-
+            HelpfulMethods.releaseLock();
             // Create your application here
             SetContentView(Resource.Layout.MainMenu);
             var flag = Services.isTablet(App.settings.device);
@@ -50,22 +51,12 @@ namespace Scanner
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 MainActivity.isValid = false;
                 MainActivity.progressBar1.Visibility = ViewStates.Invisible;
-
-                
-
-
-
             }
             // Testing the progress dialog
-
-            
-
             // Testing the config reading ... It works... :)
             IDdevice = settings.ID;
             target = settings.device;
             result = settings.tablet;
-            
-
             // Rapid takover is taken away from here because its used only in the tablet view.
             // First event...
             button = FindViewById<Button>(Resource.Id.goodsTakeOver);
@@ -75,7 +66,6 @@ namespace Scanner
             buttonInterWarehouse = FindViewById<Button>(Resource.Id.goodsInterWarehouse);
             buttonInterWarehouse.Click += ButtonInterWarehouse_Click;
             buttons.Add(buttonInterWarehouse);
-
             // Third view...
             buttonUnfinished = FindViewById<Button>(Resource.Id.goodsProduction);
             buttonUnfinished.Click += ButtonUnfinished_Click;
@@ -111,13 +101,10 @@ namespace Scanner
             buttonUnfinished.Enabled = Services.HasPermission("TNET_WMS_BLAG_PROD", "R");
             button.Enabled = Services.HasPermission("TNET_WMS_BLAG_ACQ", "R");
             btnPackaging.Enabled = Services.HasPermission("TNET_WMS_BLAG_PKG", "R");
-
             buttonPrint.Enabled = Services.HasPermission("TNET_WMS_OTHR_PRINT", "R");
             btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
-
             btRecalculate = FindViewById<Button>(Resource.Id.btRecalculate);
             btRecalculate.Click += BtRecalculate_Click;
-
             // Adding the new pallets permission.
             PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
             // Hide those for now.
@@ -126,6 +113,10 @@ namespace Scanner
             HideDisabled(buttons);
         }
 
+
+
+
+       
         private void BtRecalculate_Click(object sender, EventArgs e)
         {
             var dups = HelpfulMethods.preventDupUse();

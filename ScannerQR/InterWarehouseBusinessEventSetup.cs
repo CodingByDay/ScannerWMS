@@ -119,16 +119,22 @@ namespace Scanner
             cbIssueWH.SetPositiveButton("Zapri");
             cbReceiveWH.SetTitle("Iskanje");
             cbReceiveWH.SetPositiveButton("Zapri");
+
+
+
+
+            for(int i = 0; i < objectDocType.Count; i++)
+            {
+                var current = objectDocType[i];
+              
+                if(current.ID == documentCode)
+                {
+                    cbDocType.SetSelection(i, true);
+                }
+            }
         }
 
-        //private void DocumentSelectDefault()
-        //{
-        //    var defDocument = CommonData.GetSetting("DefaultInterWareHouseDocType");
-        //    if (!string.IsNullOrWhiteSpace(defDocument))
-        //    {
-        //        var element = objectDocType.FindIndex(defDocument);
-        //    }
-        //}
+      
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
