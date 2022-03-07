@@ -98,7 +98,13 @@ namespace Scanner
             btnNo.Click += (e, ev) => { No(index); };
         }
 
+        public override void OnBackPressed()
+        {
 
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
 
 
         private void No(int index)

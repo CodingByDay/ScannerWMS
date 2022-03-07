@@ -92,7 +92,13 @@ namespace Scanner
             DeleteFromTouch(index);
         }
 
- 
+        public override void OnBackPressed()
+        {
+
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
 
         private void IssuedData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {

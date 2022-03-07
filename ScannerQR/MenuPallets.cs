@@ -37,7 +37,13 @@ namespace Scanner
             StartActivity(typeof(WrappingPallet)); // Wrapping pallet new functionality.
             HelpfulMethods.clearTheStack(this);
         }
+        public override void OnBackPressed()
+        {
 
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
         private void Shipped_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(ShippingPallet)); // Shipping pallet new functionality.

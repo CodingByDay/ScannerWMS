@@ -84,8 +84,14 @@ namespace Scanner
             dataList.PerformItemClick(dataList, 0, 0);
         }
 
-    
 
+        public override void OnBackPressed()
+        {
+
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
         private void DataList_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
             

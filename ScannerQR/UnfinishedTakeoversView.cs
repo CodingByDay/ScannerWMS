@@ -84,6 +84,14 @@ namespace Scanner
 
         }
 
+
+        public override void OnBackPressed()
+        {
+
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)

@@ -93,7 +93,13 @@ namespace Scanner
             dataList.SetItemChecked(position, true);
             dataList.SetSelection(position);
         }
+        public override void OnBackPressed()
+        {
 
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
         private void BtNext_Click1(object sender, EventArgs e)
         {
             displayedPosition++;

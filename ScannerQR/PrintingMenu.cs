@@ -54,8 +54,14 @@ namespace Scanner
             button6.Click += Button6_Click;
           
         }
+        public override void OnBackPressed()
+        {
 
+            HelpfulMethods.releaseLock();
 
+            base.OnBackPressed();
+        }
+       
         private void ChangeTheOrientation()
         {
             if (settings.tablet == true)

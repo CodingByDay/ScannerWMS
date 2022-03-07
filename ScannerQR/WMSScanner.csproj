@@ -190,7 +190,7 @@
     <Compile Include="App\WMSDeviceConfig.cs" />
     <Compile Include="CheckStock.cs" />
     <Compile Include="CheckStockTablet.cs" />
-    <Compile Include="choiceProduction.cs" />
+    <Compile Include="Choice.cs" />
     <Compile Include="InterWarehouseBusinessEventSetup.cs" />
     <Compile Include="InterWarehouseBusinessEventSetupTablet.cs" />
     <Compile Include="InterWarehouseEnteredPositionsView.cs" />
@@ -999,7 +999,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\choiceProduction.xml">
+    <AndroidResource Include="Resources\layout\Choice.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

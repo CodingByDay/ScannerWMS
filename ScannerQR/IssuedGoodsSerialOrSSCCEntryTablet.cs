@@ -674,6 +674,14 @@ namespace Scanner
                     MorePallets pallets = new MorePallets();
                     pallets.Ident = ident;
                     string idname = loadIdent.GetString("Name");
+
+
+                    if (String.IsNullOrEmpty(idname))
+                    {
+                        return;
+                    }
+
+
                     pallets.Location = location;
                    
                     pallets.Name = idname;
@@ -1161,10 +1169,24 @@ namespace Scanner
         {
             if (e.KeyCode == Keycode.Enter)
             {
-                // add your logic here 
-                FillRelatedData(tbSSCC.Text);
-                ProcessQty();
-                e.Handled = true;
+                string error;
+                var dataObject = Services.GetObject("sscc", tbSSCC.Text, out error);
+                var ident = dataObject.GetString("Ident");
+                var loadIdent = CommonData.LoadIdent(ident);
+                string idname = loadIdent.GetString("Name");
+                if (!String.IsNullOrEmpty(idname))
+                {
+                    // add your logic here 
+                    FillRelatedData(tbSSCC.Text);
+                    ProcessQty();
+                    e.Handled = true;
+                }
+                else
+                {
+                    tbSSCC.Text = String.Empty;
+                    return;
+                }
+             
             }
             else
             {

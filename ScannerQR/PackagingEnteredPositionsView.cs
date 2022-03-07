@@ -68,7 +68,13 @@ namespace Scanner
             // LoadPosition()
             LoadPositions();
         }
-      
+        public override void OnBackPressed()
+        {
+
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
         private void BtClose_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainMenu));

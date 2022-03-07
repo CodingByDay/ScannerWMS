@@ -125,7 +125,13 @@ namespace Scanner
         }
 
 
+        public override void OnBackPressed()
+        {
 
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
 
 
 

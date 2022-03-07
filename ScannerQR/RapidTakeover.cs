@@ -42,6 +42,14 @@ namespace Scanner
           //
         }
 
+
+        public override void OnBackPressed()
+        {
+
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
         protected override void OnCreate(Bundle savedInstanceState)
         {
 
@@ -84,6 +92,8 @@ namespace Scanner
             listData.ItemClick += ListData_ItemClick;
             
         }
+     
+
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {

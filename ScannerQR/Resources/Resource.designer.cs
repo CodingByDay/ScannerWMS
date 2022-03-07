@@ -6232,7 +6232,7 @@ namespace Scanner
 			public const int CheckStockTablet = 2131427361;
 			
 			// aapt resource value: 0x7F0B0022
-			public const int choiceProduction = 2131427362;
+			public const int Choice = 2131427362;
 			
 			// aapt resource value: 0x7F0B0023
 			public const int CleanupView = 2131427363;

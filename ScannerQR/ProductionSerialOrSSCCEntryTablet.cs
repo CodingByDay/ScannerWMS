@@ -422,7 +422,7 @@ namespace Scanner
                 }
             }
             GetWorkOrderDefaultQty();
-            // ---
+          
         }
         private bool CheckWorkOrderOpenQty()
         {
@@ -467,9 +467,9 @@ namespace Scanner
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            // Create your application here
+            
             SetContentView(Resource.Layout.ProductionSerialOrSSCCEntryTablet);
-            //button --------->buttontest
+            
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             spLocation = FindViewById<SearchableSpinner>(Resource.Id.spLocation);
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
@@ -519,7 +519,7 @@ namespace Scanner
             }
             finally
             {
-                // Used to be a wait form.
+                
             }
 
             editMode = moveItem != null;
@@ -541,7 +541,7 @@ namespace Scanner
             await GetLocationsForGivenWarehouse(moveHead.GetString("Wharehouse"));
             var adapterReceive = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, locations);
             adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            // Spinner 
+            
             spLocation.Adapter = adapterReceive;
             spLocation.SetSelection(locations.IndexOf("P01"), true);
             showPictureIdent(ident.GetString("Code"));
@@ -553,7 +553,7 @@ namespace Scanner
 
 
             tbLocation.InputType = Android.Text.InputTypes.ClassText;
-            tbPacking.InputType = // Just setting the right keyboard settings.
+            tbPacking.InputType = 
                        Android.Text.InputTypes.ClassNumber;
 
         }
@@ -603,7 +603,7 @@ namespace Scanner
             image.SetMinimumHeight(500);
             image.SetMinimumWidth(800);
             image.SetImageDrawable(d);
-            // Access Popup layout fields like below
+            
         }
 
 

@@ -64,11 +64,9 @@ namespace Scanner
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
             tbIdent.InputType = Android.Text.InputTypes.ClassNumber;
             tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
-            tbSerialNum.InputType = Android.Text.InputTypes.ClassNumber;
             tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
             tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
             tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
-            // Buttons.
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button6 = FindViewById<Button>(Resource.Id.button6);
@@ -391,17 +389,13 @@ namespace Scanner
         }
         private async void Button6_Click(object sender, EventArgs e)
         {
-            await FinishMethod();
-       
-       
+            await FinishMethod();      
         }
         
         private bool CheckTakeOverOpenQty()
         {
             if (checkTakeOverOpenQty == null)
-            {
-            
-             
+            {                       
                 try
                 {
                     string error;
@@ -415,13 +409,11 @@ namespace Scanner
             }
             return (bool)checkTakeOverOpenQty;
         }
-        // ---
 
         private async Task<bool> SaveMoveItem()
         {
             if (string.IsNullOrEmpty(tbSSCC.Text.Trim()) && string.IsNullOrEmpty(tbSerialNum.Text.Trim()) && string.IsNullOrEmpty(tbPacking.Text.Trim()))
             {
-
                 return true;
             }
 
@@ -673,16 +665,12 @@ namespace Scanner
                     }
                     break;
                 // return true;
-
-
                 case Keycode.F2:
                     if (btSaveOrUpdate.Enabled == true)
                     {
                         BtSaveOrUpdate_Click(this, null);
                     }
                     break;
-
-
                 case Keycode.F3:
                     if (button4.Enabled == true)
                     {
@@ -736,11 +724,7 @@ namespace Scanner
             {
                 return;
             }
-
-
-
-            await GetLocationsForGivenWarehouse(moveHead.GetString("Wharehouse"));
-          
+            await GetLocationsForGivenWarehouse(moveHead.GetString("Wharehouse"));          
         }
         public void GetBarcode(string barcode)
         {
@@ -751,9 +735,7 @@ namespace Scanner
                     tbSerialNum.Text = "";
                     tbPacking.Text = "";
                     Sound();
-
                     tbSSCC.Text = barcode;
-                    
                     tbSerialNum.RequestFocus();
                 } else
                 {

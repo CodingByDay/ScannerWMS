@@ -1779,8 +1779,6 @@ namespace Scanner
 
         public void GetBarcode(string barcode)
         {
-     
-
             if(tbSSCC.HasFocus && isOkayToCallBarcode == false)
             {if (barcode != "Scan fail")
                 {
@@ -1789,17 +1787,22 @@ namespace Scanner
                     tbPalette.Text = "";
                     tbPacking.Text = "";
                     tbLocation.Text = "";
-
                     Sound();
                     tbSSCC.Text = barcode;
-
                     FillRelatedData(tbSSCC.Text);
-                    ProcessQty();
-                    tbSerialNum.RequestFocus();
-
-
-
-
+                    string error;
+                    var dataObject = Services.GetObject("sscc", tbSSCC.Text, out error);            
+                    var ident = dataObject.GetString("Ident");
+                    var loadIdent = CommonData.LoadIdent(ident);                
+                    string idname = loadIdent.GetString("Name");
+                    if(!String.IsNullOrEmpty(idname)) {
+                        ProcessQty();
+                        tbSerialNum.RequestFocus();
+                    } else
+                    {
+                        tbSSCC.Text = String.Empty; 
+                        return;
+                    }
                 }
             } else if(tbSerialNum.HasFocus && isOkayToCallBarcode == false)
             {
@@ -1820,11 +1823,9 @@ namespace Scanner
             }
             else if(isOkayToCallBarcode)
             {
-                var debug = true;
                 if(tbSSCCpopup.HasFocus)
                 {
                     FilData(barcode);
-
                 }
             }
         }
@@ -1832,7 +1833,6 @@ namespace Scanner
         private void FillRelatedData(string text)
         {
             string error;
-
             var data = Services.GetObject("sscc", text, out error);
             if (data != null)
             {
@@ -1842,7 +1842,6 @@ namespace Scanner
                     tbSerialNum.Text = serial;
                     var location = data.GetString("Location");
                     tbLocation.Text = location;
-                    // tbPacking.RequestFocus();
                     TransportOneObject(tbSSCC.Text);
                 }
                 else
@@ -1872,6 +1871,15 @@ namespace Scanner
                     MorePallets pallets = new MorePallets();
                     pallets.Ident = ident;
                     string idname = loadIdent.GetString("Name");
+
+                    // Validation
+
+                    if (String.IsNullOrEmpty(idname))
+                    {
+                        return ;
+                    }
+
+
                     pallets.Location = location;
 
                     try

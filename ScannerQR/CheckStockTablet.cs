@@ -65,7 +65,13 @@ namespace Scanner
             }
         }
 
+        public override void OnBackPressed()
+        {
 
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
 
         private string LoadStockFromStockSerialNo(string warehouse, string location, string ident)
         {

@@ -13,14 +13,14 @@ using System.Text;
 namespace Scanner
 {
     [Activity(Label = "choiceProduction")]
-    public class choiceProduction : Activity
+    public class Choice : Activity
     {
         private Button production;
         private Button rapid;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.choiceProduction);
+            SetContentView(Resource.Layout.Choice);
             // Create your application here
             production = FindViewById<Button>(Resource.Id.production);
             rapid = FindViewById<Button>(Resource.Id.rapid);
@@ -38,10 +38,16 @@ namespace Scanner
 
         private void Production_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(UnfinishedProductionView));
+            StartActivity(typeof(UnfinishedTakeoversView));
             HelpfulMethods.clearTheStack(this);
         }
+        public override void OnBackPressed()
+        {
 
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)

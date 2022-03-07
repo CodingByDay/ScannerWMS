@@ -312,7 +312,7 @@ namespace Scanner
             if (dups)
             {
                 // StartActivity(typeof(UnfinishedProductionView));
-                StartActivity(typeof(choiceProduction));
+                StartActivity(typeof(UnfinishedProductionView));
             }
         }
       
@@ -333,7 +333,7 @@ namespace Scanner
 
             if (dups)
             {
-                StartActivity(typeof(UnfinishedTakeoversView));
+                StartActivity(typeof(Choice));
                 
             }
         }

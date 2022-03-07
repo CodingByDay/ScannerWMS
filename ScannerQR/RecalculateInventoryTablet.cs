@@ -39,7 +39,13 @@ namespace Scanner
 
             }
         }
+        public override void OnBackPressed()
+        {
 
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
         private void Sound()
         {
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);

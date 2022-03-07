@@ -84,7 +84,7 @@ namespace Scanner
             listData.ItemClick += ListData_ItemClick;
             ProductionEnteredPositionViewAdapter adapter = new ProductionEnteredPositionViewAdapter(this, data);
             listData.Adapter = adapter;
-            /////////////////////
+          
             InUseObjects.ClearExcept(new string[] { "MoveHead" });
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point!?"); }
 
@@ -428,7 +428,7 @@ namespace Scanner
                                 {
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
-                                    StartActivity(typeof(MainMenu));
+                                    StartActivity(typeof(MainMenuTablet));
                                 });
 
 
@@ -453,7 +453,7 @@ namespace Scanner
                                 {
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
-                                    StartActivity(typeof(MainMenu));
+                                    StartActivity(typeof(MainMenuTablet));
 
                                 });
 

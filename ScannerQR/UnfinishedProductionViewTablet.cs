@@ -92,7 +92,13 @@ namespace Scanner
 
         }
 
-   
+        public override void OnBackPressed()
+        {
+
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
 
         private void ListData_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {

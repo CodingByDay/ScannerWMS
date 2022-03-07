@@ -79,6 +79,7 @@ namespace Scanner
         private double stockQtyLocal;
         private double stockQtyLocalParams;
         private double stockQtyLocalBatch;
+        private double totalAmount = 0;
 
         // here...
         public void GetBarcode(string barcode)
@@ -93,14 +94,16 @@ namespace Scanner
                         tbIdent.Text = barcode;
                         ProcessIdent();
                         tbSSCC.RequestFocus();
-                    } else
+                    }
+                    else
                     {
 
                     }
 
                     // Here 
 
-                } else if (tbSSCC.HasFocus && isOkayToCallBarcode == false)
+                }
+                else if (tbSSCC.HasFocus && isOkayToCallBarcode == false)
                 {
                     if (barcode != "Scan fail")
                     {
@@ -114,7 +117,8 @@ namespace Scanner
                         tbSSCC.Text = barcode;
 
 
-                        if (FillRelatedBranchIdentData(tbSSCC.Text) && isOkayToCallBarcode == false) {
+                        if (FillRelatedBranchIdentData(tbSSCC.Text) && isOkayToCallBarcode == false)
+                        {
 
                             FillRelatedData(tbSSCC.Text);
                             tbLocation.RequestFocus();
@@ -122,11 +126,12 @@ namespace Scanner
 
                             data.Clear();
 
-                    
+
                             TransportOneObject(tbSSCC.Text);
 
 
-                        } else
+                        }
+                        else
                         {
                             // Go a step back and rescan.
                             tbSSCC.Text = "";
@@ -136,7 +141,8 @@ namespace Scanner
 
                     }
 
-                } else if (tbSerialNum.HasFocus && isOkayToCallBarcode == false)
+                }
+                else if (tbSerialNum.HasFocus && isOkayToCallBarcode == false)
                 {
                     if (barcode != "Scan fail")
                     {
@@ -145,7 +151,8 @@ namespace Scanner
                         tbIssueLocation.RequestFocus();
                     }
 
-                } else if (tbIssueLocation.HasFocus && isOkayToCallBarcode == false)
+                }
+                else if (tbIssueLocation.HasFocus && isOkayToCallBarcode == false)
                 {
                     if (barcode != "Scan fail")
                     {
@@ -156,7 +163,8 @@ namespace Scanner
                     }
 
 
-                } else if (tbLocation.HasFocus&&isOkayToCallBarcode==false)
+                }
+                else if (tbLocation.HasFocus && isOkayToCallBarcode == false)
                 {
                     if (!String.IsNullOrEmpty(barcode))
                     {
@@ -166,9 +174,10 @@ namespace Scanner
                         ProcessQty();
                     }
                 }
-            else if (isOkayToCallBarcode == true) {
-                 if (tbSSCCpopup.HasFocus)
-                     {
+                else if (isOkayToCallBarcode == true)
+                {
+                    if (tbSSCCpopup.HasFocus)
+                    {
                         if (!String.IsNullOrEmpty(barcode) && barcode != "Scan fail")
                         {
                             Sound();
@@ -176,20 +185,21 @@ namespace Scanner
                             FilData(tbSSCCpopup.Text);
 
                         }
-                    } else if (tbLocationPopup.HasFocus)
+                    }
+                    else if (tbLocationPopup.HasFocus)
                     {
-                        
-                            if (!String.IsNullOrEmpty(barcode))
-                            {
-                                Sound();
-                                tbLocationPopup.Text = barcode;
+
+                        if (!String.IsNullOrEmpty(barcode))
+                        {
+                            Sound();
+                            tbLocationPopup.Text = barcode;
 
 
-                            }
-                        
+                        }
+
                     }
                 }
-               
+
 
             }
         }
@@ -200,9 +210,9 @@ namespace Scanner
 
             var data = Services.GetObject("sscc", text, out error);
 
-          
 
-            if(data!=null)
+
+            if (data != null)
             {
                 var ident = data.GetString("Ident");
                 var name = data.GetString("IdentName");
@@ -211,10 +221,11 @@ namespace Scanner
                 tbIdent.Text = ident;
                 lbIdentName.Text = name;
 
-                if(tbIdent.Text != null && lbIdentName.Text != null ) { return true; } else { return false; }
+                if (tbIdent.Text != null && lbIdentName.Text != null) { return true; } else { return false; }
 
 
-            } else
+            }
+            else
             {
                 return false;
             }
@@ -504,7 +515,7 @@ namespace Scanner
                 }
             }
 
-          
+
             else
             {
                 try
@@ -517,7 +528,7 @@ namespace Scanner
                             string WebError = string.Format("Količina je obvezan podatek in mora biti različna od nič");
                             Toast.MakeText(this, WebError, ToastLength.Long).Show();
 
-                        
+
                         });
 
                         return false;
@@ -550,7 +561,7 @@ namespace Scanner
                             string WebError = string.Format("Količina ne sme presegati zaloge!");
                             Toast.MakeText(this, WebError, ToastLength.Long).Show();
 
-                        
+
                         });
 
                         return false;
@@ -562,7 +573,7 @@ namespace Scanner
                     {
                         string WebError = string.Format("Količina mora biti število (" + e.Message + ")!");
                         Toast.MakeText(this, WebError, ToastLength.Long).Show();
-                  
+
                     });
 
                     return false;
@@ -637,15 +648,16 @@ namespace Scanner
 
             try
             {
-             
-                
+
+
                 moveItem = null;
-                if (moveItem == null) { 
+                if (moveItem == null)
+                {
 
                     moveItem = new NameValueObject("MoveItem");
                 }
-               
-               
+
+
                 moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
                 var number = moveHead.GetInt("HeadID");
                 moveItem.SetString("LinkKey", "");
@@ -674,7 +686,7 @@ namespace Scanner
                 }
                 else
                 {
-                   
+
                     InUseObjects.Invalidate("MoveItem");
                     return true;
                     // This always runs.
@@ -682,7 +694,7 @@ namespace Scanner
             }
             finally
             {
-             
+
             }
         }
 
@@ -709,7 +721,7 @@ namespace Scanner
                 InUseObjects.Set("MoveHead", moveHead);
 
                 var tests = moveHead.GetInt("HeadID");
-               
+
             }
         }
 
@@ -800,7 +812,7 @@ namespace Scanner
 
             if (!CommonData.IsValidLocation(moveHead.GetString("Issuer"), tbIssueLocation.Text.Trim()))
             {
-                string SuccessMessage = string.Format("Izdajna lokacija" +  tbIssueLocation.Text.Trim() + "ni veljavna za skladisće" + moveHead.GetString("Issuer") + "'!") ;
+                string SuccessMessage = string.Format("Izdajna lokacija" + tbIssueLocation.Text.Trim() + "ni veljavna za skladisće" + moveHead.GetString("Issuer") + "'!");
                 Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
                 tbIssueLocation.RequestFocus();
 
@@ -819,12 +831,12 @@ namespace Scanner
                 lbQty.Text = "Količina (?)";
             }
 
-           
+
         }
 
 
-     
-   
+
+
 
         private double GetStock(string warehouse, string location, string sscc, string serialNum, string ident)
         {
@@ -838,17 +850,17 @@ namespace Scanner
                 {
                     return LoadStockFromPAStock(warehouse, ident);
                 }
-   
+
             else
             {
                 return LoadStockFromStockSerialNo(warehouse, location, sscc, serialNum, ident);
             }
-          
+
         }
 
         private Double LoadStockFromStockSerialNo(string warehouse, string location, string sscc, string serialNum, string ident)
         {
-  
+
             try
             {
                 string error;
@@ -867,7 +879,7 @@ namespace Scanner
             }
             finally
             {
-             
+
             }
         }
 
@@ -890,13 +902,13 @@ namespace Scanner
             }
             finally
             {
-                
+
             }
         }
 
         private Double LoadStockFromPAStockSerialNo(string warehouse, string ident, string serialNo)
         {
-        
+
             try
             {
 
@@ -914,16 +926,16 @@ namespace Scanner
             }
             finally
             {
-             // pass 
+                // pass 
             }
         }
 
         private void Sound()
         {
-                  soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
-        
+            soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
+
         }
-      
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -940,7 +952,7 @@ namespace Scanner
             // labels
             tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
             tbSerialNum.InputType = Android.Text.InputTypes.ClassNumber;
-          
+
             tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
             lbQty = FindViewById<TextView>(Resource.Id.lbQty);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
@@ -960,7 +972,7 @@ namespace Scanner
             button6 = FindViewById<Button>(Resource.Id.button6);
             tbSerialNum.FocusChange += TbSerialNum_FocusChange;
             color();
-           
+
             button6.Click += Button6_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
@@ -968,7 +980,7 @@ namespace Scanner
             button1.Click += Button1_Click;
             tbSSCC.KeyPress += TbSSCC_KeyPress;
             btSaveOrUpdate.Click += BtSaveOrUpdate_Click;
-           
+
             lbIdentName = FindViewById<EditText>(Resource.Id.lbIdentName);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
@@ -983,9 +995,9 @@ namespace Scanner
             {
                 string toast = string.Format(moveHead.GetString("Issuer"));
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-         
+
             }
-            
+
             if (moveHead == null) { throw new ApplicationException("moveHead not known at this point?!"); }
 
             docTypes = CommonData.ListDocTypes("I|N");
@@ -1053,7 +1065,7 @@ namespace Scanner
                 tbLocation.RequestFocus();
                 e.Handled = true;
 
-       
+
             }
         }
 
@@ -1129,7 +1141,7 @@ namespace Scanner
             else
             {
 
-             
+
 
                 this.isSerial = true;
 
@@ -1152,14 +1164,17 @@ namespace Scanner
                     MorePallets pallets = new MorePallets();
                     pallets.Ident = ident;
                     string idname = loadIdent.GetString("Name");
-                    pallets.Location = location;                
+                    pallets.Location = location;
                     pallets.Quantity = location;
                     pallets.SSCC = sscc;
                     pallets.Serial = serial;
+
+                    if(String.IsNullOrEmpty(idname)) { return; }
                     try
                     {
                         pallets.Name = idname.Trim().Substring(0, 3);
-                    } catch (Exception)
+                    }
+                    catch (Exception)
                     {
 
                     }
@@ -1170,7 +1185,8 @@ namespace Scanner
                     try
                     {
                         pallets.friendlySSCC = pallets.SSCC.Substring(pallets.SSCC.Length - 3);
-                    } catch (Exception)
+                    }
+                    catch (Exception)
                     {
                         pallets.Name = "Error";
                     }
@@ -1184,12 +1200,15 @@ namespace Scanner
                     if (obj is null)
                     {
                         Toast.MakeText(this, "Ne obstaja.", ToastLength.Long).Show();
-                        tbSSCCpopup.Text = "";
+                        if (isOkayToCallBarcode == true)
+                        {
+                            tbSSCCpopup.Text = "";
+                        }
                     }
                     else
                     {
                         data.Add(obj);
-                        
+                        totalAmount = totalAmount + Convert.ToDouble(obj.Quantity);
                     }
                 }
                 else
@@ -1214,13 +1233,13 @@ namespace Scanner
             tbLocationPopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbLocation);
 
             tbLocationPopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
-       
+
             tbSSCCpopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbSSCC);
             tbSSCCpopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
-         
+
             tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
             lvCardMore = popupDialogMain.FindViewById<ListView>(Resource.Id.lvCardMore);
-            
+
             lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
             adapter = new MorePalletsAdapter(this, data);
             lvCardMore.Adapter = adapter;
@@ -1236,7 +1255,7 @@ namespace Scanner
             popupDialogMain.Dismiss();
             popupDialogMain.Hide();
         }
-        
+
         private void BtConfirm_Click(object sender, EventArgs e)
         {
             if (data.Count != 0 && !String.IsNullOrEmpty(tbLocationPopup.Text))
@@ -1246,7 +1265,7 @@ namespace Scanner
                 tbSerialNum.Text = "...";
                 tbIssueLocation.Text = "...";
                 tbIdent.Text = "...";
-                tbPacking.Text = "...";
+                tbPacking.Text = totalAmount.ToString(CommonData.GetQtyPicture()); 
                 tbLocation.RequestFocus();
                 isBatch = true;
                 tbLocationPopupVariable = tbLocationPopup.Text;
@@ -1262,7 +1281,7 @@ namespace Scanner
                 popupDialogMain.Hide();
                 Toast.MakeText(this, "Manjkajo podatki.", ToastLength.Long).Show();
             }
-            
+
         }
         private void UpdateTheLocationAPICall(string location)
         {
@@ -1526,6 +1545,8 @@ namespace Scanner
 
         private void Yes(int index)
         {
+            var item = data.ElementAt(index);
+            totalAmount = totalAmount - Convert.ToDouble(item.Quantity);
             data.RemoveAt(index);
             lvCardMore.Adapter = null;
             lvCardMore.Adapter = adapter;
@@ -1546,22 +1567,25 @@ namespace Scanner
                     var name = dataObject.GetString("IdentName");
                     var serial = dataObject.GetString("SerialNo");
                     var location = dataObject.GetString("Location");
-                    
+
                     MorePallets pallets = new MorePallets();
                     pallets.Location = location;
-                    pallets.Ident = ident;                       
-                    string idname= loadIdent.GetString("Name");
-              
-                 
-                     try
-                        {
+                    pallets.Ident = ident;
+                    string idname = loadIdent.GetString("Name");
+
+                    if (String.IsNullOrEmpty(idname)) { return; }
+
+
+                    try
+                    {
                         pallets.Name = idname.Trim().Substring(0, 5) ?? "Not correct.";
-                        } catch(Exception)
-                        {
-                         pallets.Name = "Error";
-                        }
-                    
-              
+                    }
+                    catch (Exception)
+                    {
+                        pallets.Name = "Error";
+                    }
+
+
 
                     pallets.Quantity = barcode;
                     pallets.SSCC = barcode;
@@ -1570,7 +1594,8 @@ namespace Scanner
                     try
                     {
                         pallets.friendlySSCC = pallets.SSCC.Substring(pallets.SSCC.Length - 3) ?? "Not correct";
-                    } catch(Exception)
+                    }
+                    catch (Exception)
                     {
                         pallets.Name = "Error";
                     }
@@ -1590,7 +1615,7 @@ namespace Scanner
                     {
                         data.Add(obj);
                         // Added to the list
-
+                        totalAmount = totalAmount + Convert.ToDouble(obj.Quantity);
                         tbSSCCpopup.Text = "";
                         tbSSCCpopup.RequestFocus();
 
@@ -1609,7 +1634,7 @@ namespace Scanner
             {
                 // Add your logic here 
                 FilData(tbSSCCpopup.Text);
-              
+
             }
         }
 
@@ -1621,13 +1646,14 @@ namespace Scanner
                 // Add your logic here 
                 ProcessQty();
                 e.Handled = true;
-            } else
+            }
+            else
             {
-                e.Handled= false;
+                e.Handled = false;
             }
         }
 
-     
+
 
         private void TbPacking_KeyPress(object sender, View.KeyEventArgs e)
         {
@@ -1639,7 +1665,7 @@ namespace Scanner
                 e.Handled = true;
             }
         }
-        
+
         private void TbIdent_KeyPress(object sender, View.KeyEventArgs e)
         {
             if (e.KeyCode == Keycode.Enter)
@@ -1647,15 +1673,16 @@ namespace Scanner
                 //add your logic here 
                 ProcessIdent();
                 e.Handled = true;
-            } else
+            }
+            else
             {
                 e.Handled = false;
             }
         }
 
-      
 
-      
+
+
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -1687,7 +1714,7 @@ namespace Scanner
                     HelpfulMethods.clearTheStack(this);
                 }
                 this.Finish();
-             }
+            }
         }
 
         private async void Button3_Click(object sender, EventArgs e)
@@ -1701,7 +1728,7 @@ namespace Scanner
         }
         private async Task FinishMethod()
         {
-            await Task.Run(async() =>
+            await Task.Run(async () =>
             {
                 var resultAsync = SaveMoveItem().Result;
                 if (resultAsync)
@@ -1711,7 +1738,7 @@ namespace Scanner
                         progress = new ProgressDialogClass();
                         progress.ShowDialogSync(this, "Zaključujem");
                     });
-                
+
 
                     try
                     {
@@ -1744,7 +1771,7 @@ namespace Scanner
                                     Dialog dialog = alert.Create();
                                     dialog.Show();
                                 });
-                               
+
                             }
                             else
                             {
@@ -1877,11 +1904,12 @@ namespace Scanner
             if (!isBatch)
             {
                 await FinishMethod();
-            } else
+            }
+            else
             {
                 await FinishMethodBatch();
             }
-            
+
 
         }
 
@@ -1890,7 +1918,7 @@ namespace Scanner
             StartActivity(typeof(InterWarehouseEnteredPositionsView));
             HelpfulMethods.clearTheStack(this);
         }
-        
+
 
         private void Button6_Click(object sender, EventArgs e)
         {
@@ -1910,10 +1938,10 @@ namespace Scanner
 
             if (CommonData.GetSetting("IgnoreStockHistory") != "1")
             {
-               
+
                 try
                 {
-                   
+
 
                     string error;
                     var recommededLocation = Services.GetObject("rl", ident.GetString("Code") + "|" + moveHead.GetString("Receiver"), out error);
@@ -1934,7 +1962,7 @@ namespace Scanner
             lbIdentName.Text = ident.GetString("Name");
             tbSSCC.Enabled = ident.GetBool("isSSCC");
             tbSerialNum.Enabled = ident.GetBool("HasSerialNumber");
-           
+
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

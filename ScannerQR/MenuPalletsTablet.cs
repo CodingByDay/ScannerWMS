@@ -40,7 +40,13 @@ namespace Scanner
             // New module.
 
         }
+        public override void OnBackPressed()
+        {
 
+            HelpfulMethods.releaseLock();
+
+            base.OnBackPressed();
+        }
         private void Wrapped_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(WrappingPalletTablet));
