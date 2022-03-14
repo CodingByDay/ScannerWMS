@@ -122,12 +122,29 @@ namespace Scanner
 
                             FillRelatedData(tbSSCC.Text);
                             tbLocation.RequestFocus();
-                            ProcessQty();
 
-                            data.Clear();
+                            string error;
+                            var dataObject = Services.GetObject("sscc", tbSSCC.Text, out error);
+                            var ident = dataObject.GetString("Ident");
+                            var loadIdent = CommonData.LoadIdent(ident);
+                            string idname = loadIdent.GetString("Name");
+                            if (!String.IsNullOrEmpty(idname))
+                            {
+                                ProcessQty();
+                                tbSerialNum.RequestFocus();
+                                ProcessQty();
+
+                                data.Clear();
 
 
-                            TransportOneObject(tbSSCC.Text);
+                                TransportOneObject(tbSSCC.Text);
+                            }
+                            else
+                            {
+                                tbSSCC.Text = String.Empty;
+                                return;
+                            }
+                           
 
 
                         }
@@ -1610,6 +1627,7 @@ namespace Scanner
                     if (obj is null)
                     {
                         Toast.MakeText(this, "Ne obstaja.", ToastLength.Long).Show();
+                        tbSSCCpopup.Text = String.Empty;    
                     }
                     else
                     {

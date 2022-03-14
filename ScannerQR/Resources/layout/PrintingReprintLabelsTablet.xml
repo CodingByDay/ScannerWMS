@@ -304,7 +304,30 @@
             android:id="@+id/tbQty" />
 
     </LinearLayout>
+          <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:text="Št. kopija"
+            android:layout_marginRight="33.0dp" />
+
+        <EditText
+            android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="35.0dp"
+            android:layout_weight="0.50"
+            android:layout_marginLeft="34.5dp"
+            android:paddingTop="5dp"
+            android:id="@+id/tbNumberOfCopies" />
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="57.0dp"

@@ -69,7 +69,11 @@
             android:layout_weight="0.50"
             android:paddingTop="5dp"
             android:id="@+id/tbLocation" />
-
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerLocation"
+            android:spinnerMode="dialog" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -96,7 +100,11 @@
             android:paddingTop="5dp"
             android:id="@+id/tbIdent" />
 
-
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerIdent"
+            android:spinnerMode="dialog" />
     </LinearLayout>
 
     <LinearLayout

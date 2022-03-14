@@ -449,7 +449,9 @@ namespace Scanner
 
                 string error;
                 var ident = openWorkOrder.GetString("Ident");
-                var serNumObj = Services.GetObject("sn", ident, out error);
+
+                var workOrder = openWorkOrder.GetString("Key");
+                var serNumObj = Services.GetObject("sn", ident + "|" + workOrder, out error);
                 if (serNumObj != null)
                 {
                     return serNumObj.GetString("SerialNo");

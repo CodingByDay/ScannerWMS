@@ -99,6 +99,8 @@ namespace Scanner
         private Button btnYesLocationExit;
         private Button btnNoLocationExit;
         private Dialog popupDialogSure;
+        private double totalAmount = 0;
+
 
         public void GetBarcode(string barcode)
         {
@@ -1405,6 +1407,7 @@ namespace Scanner
                     if (obj is null)
                     {
                         Toast.MakeText(this, "Ne obstaja.", ToastLength.Long).Show();
+
                     }
                     else
                     {

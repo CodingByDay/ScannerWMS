@@ -40,6 +40,8 @@ namespace Scanner
         int soundPoolId;
         private int tempPositionSubject;
         private int tempPositionWarehouse;
+        private EditText tbNumberOfCopies;
+        private int numberOfCopies;
 
         private void color()
         {
@@ -118,6 +120,7 @@ namespace Scanner
             cbSubject = FindViewById<Spinner>(Resource.Id.cbSubject);
             btPrint = FindViewById<Button>(Resource.Id.btPrint);
             button2 = FindViewById<Button>(Resource.Id.button2);
+            tbNumberOfCopies = FindViewById<EditText>(Resource.Id.tbNumberOfCopies);
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             color();
@@ -319,9 +322,23 @@ namespace Scanner
     
             try
             {
-             
+                // Checking to see if the number of copies is set.
+                try
+                {
+                    numberOfCopies = Convert.ToInt32(tbNumberOfCopies.Text);
+
+
+
+                    if(numberOfCopies <= 0) { numberOfCopies = 1; }
+
+                } catch(Exception)
+                {
+                    numberOfCopies = 1;
+                }
+
                 var nvo = new NameValueObject("ReprintLabels");
                 PrintingCommon.SetNVOCommonData(ref nvo);
+                nvo.SetInt("Copies", numberOfCopies);
                 nvo.SetString("SSCC", tbSSCC.Text);
                 nvo.SetString("SerialNum", tbSerialNum.Text);
                 nvo.SetString("Location", tbLocation.Text);

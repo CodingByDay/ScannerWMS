@@ -569,6 +569,13 @@ namespace Scanner
                     pallets.Ident = ident;                       
                     string idname= loadIdent.GetString("Name");
                     pallets.Location = location;
+
+
+
+                    if (String.IsNullOrEmpty(idname))
+                    {
+                        return;
+                    }
                     try
                     {
                         pallets.Name = idname.Trim().Substring(0, 3);

@@ -35,6 +35,7 @@ namespace Scanner
         private List<string> locationData = new List<string>();
         private Button btPrint;
         private Button button2;
+        private EditText tbNumberOfCopies;
         private List<ComboBoxItem> warehouseAdapter = new List<ComboBoxItem>();
         private List<ComboBoxItem> subjectsAdapter = new List<ComboBoxItem>();
         SoundPool soundPool;
@@ -52,6 +53,7 @@ namespace Scanner
         private List<String> dataIdent = new List<string>();
         private List<string> returnList;
         private ArrayAdapter<string> adapterLocations;
+        private int numberOfCopies;
 
         private void color()
         {
@@ -132,6 +134,8 @@ namespace Scanner
             cbSubject = FindViewById<Spinner>(Resource.Id.cbSubject);
             btPrint = FindViewById<Button>(Resource.Id.btPrint);
             button2 = FindViewById<Button>(Resource.Id.button2);
+            tbNumberOfCopies = FindViewById<EditText>(Resource.Id.tbNumberOfCopies);
+
             soundPool = new SoundPool(10, Stream.Music, 0);
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
             spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
@@ -422,9 +426,26 @@ namespace Scanner
 
             try
             {
-             
+
+
+                // Checking to see if the number of copies is set.
+                try
+                {
+                    numberOfCopies = Convert.ToInt32(tbNumberOfCopies.Text);
+
+
+
+                    if (numberOfCopies <= 0) { numberOfCopies = 1; }
+
+                }
+                catch (Exception)
+                {
+                    numberOfCopies = 1;
+                }
+
                 var nvo = new NameValueObject("ReprintLabels");
                 PrintingCommon.SetNVOCommonData(ref nvo);
+                nvo.SetInt("Copies", numberOfCopies);
                 nvo.SetString("SSCC", tbSSCC.Text);
                 nvo.SetString("SerialNum", tbSerialNum.Text);
                 nvo.SetString("Location", tbLocation.Text);
