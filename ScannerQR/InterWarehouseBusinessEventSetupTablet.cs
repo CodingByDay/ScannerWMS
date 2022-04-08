@@ -179,9 +179,6 @@ namespace Scanner
                     string errorWebApp = string.Format("Napaka pri dostopu do web aplikacije:" + error);
                     Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
 
-                    // show a message
-
-                    // terminate
 
                 }
                 else
@@ -190,9 +187,7 @@ namespace Scanner
                     {
                         string errorWebApp = string.Format("Kritična napaka pri zaklepanju nove medskladiščnice: " + error);
                         Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
-                        // show a message
-                        // terminate
-                        System.Diagnostics.Process.GetCurrentProcess().Kill();
+
                     }
 
                     moveHead.SetInt("HeadID", savedMoveHead.GetInt("HeadID"));

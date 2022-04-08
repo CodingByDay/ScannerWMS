@@ -212,7 +212,6 @@ namespace Scanner
                     {
                         string errorWebApp = string.Format("Napaka pri brisanju pozicije:: " + error);
                         Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
-                        System.Diagnostics.Process.GetCurrentProcess().Kill();
                         return;
                     }
                 }

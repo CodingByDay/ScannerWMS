@@ -26,7 +26,7 @@ namespace Scanner
     {
         private int displayedPosition;
         private bool preventingDups = false;
-        private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead"); // Revision 5.07.2021
+        private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead"); 
         private NameValueObject openIdent = null;
         private NameValueObjectList openOrders = null;
         private int displayedOrder = -1;
@@ -59,7 +59,7 @@ namespace Scanner
         {
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
+
             SetContentView(Resource.Layout.TakeOverIdentEntryTablet);
             Toast.MakeText(this, "Nalagam seznam", ToastLength.Long).Show();
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
@@ -86,30 +86,22 @@ namespace Scanner
             FillDisplayedOrderInfo();
             btNext = FindViewById<Button>(Resource.Id.btNext);
             btNext.Click += BtNext_Click;
-            // uvWMSOpenOrder
             btConfirm.Click += BtConfirm_Click;
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
             listData.ItemClick += ListData_ItemClick;
-
-
             identData = await MakeTheApiCallForTheIdentData();
             Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
-
-            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent); // identdata -> Object
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent); 
             spinnerIdent.Prompt = "Iskanje";
             spinnerIdent.SetTitle("Iskanje");
             spinnerIdent.SetPositiveButton("Zapri");
             var DataAdapter = new ArrayAdapter<string>(this,
             Android.Resource.Layout.SimpleSpinnerItem, identData);
-            // Change the search title. HERE
             DataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerIdent.Adapter = DataAdapter;
-            // The part for spinner selected index changed.
-            spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
-            
-            tbIdent.LongClick += ClearTheFields;
-           
+            spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;        
+            tbIdent.LongClick += ClearTheFields;       
         }
 
      
@@ -141,7 +133,7 @@ namespace Scanner
        
 
         /// <summary>
-        ///  Make async.
+        ///  
         /// </summary>
         /// <returns></returns>
         private async Task <List<string>> MakeTheApiCallForTheIdentData()

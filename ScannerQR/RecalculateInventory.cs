@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Com.Toptoche.Searchablespinnerlibrary;
 using Scanner.App;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,9 @@ namespace Scanner
         SoundPool soundPool;
         int soundPoolId;
         private ProgressDialogClass progress;
+        private SearchableSpinner spinnerIdent;
+        private List<string> identData = new List<string>();
+        private List<string> returnList;
 
         public void GetBarcode(string barcode)
         {
@@ -47,7 +51,7 @@ namespace Scanner
             soundPool.Play(soundPoolId, 1, 1, 0, 0, 1);
         }
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -61,6 +65,7 @@ namespace Scanner
             soundPool = new SoundPool(10, Stream.Music, 0);
 
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
 
             Barcode2D barcode2D = new Barcode2D();
 
@@ -68,8 +73,57 @@ namespace Scanner
 
             color();
 
+            identData = await MakeTheApiCallForTheIdentData();
+
             btCalculate.Click += BtCalculate_Click;
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
+
+            spinnerIdent.Prompt = "Iskanje";
+            spinnerIdent.SetTitle("Iskanje");
+            spinnerIdent.SetPositiveButton("Zapri");
+            var DataAdapter = new ArrayAdapter<string>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, identData);
+            // Change the search title. HERE
+            DataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinnerIdent.Adapter = DataAdapter;
+            // The part for spinner selected index changed.
+            spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
+
+            ident.LongClick += ClearTheFields;
+
         }
+
+        private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var item = e.Position;
+            var chosen = identData.ElementAt(item);
+            ident.Text = chosen;
+        }
+
+
+        private void ClearTheFields(object sender, View.LongClickEventArgs e)
+        {
+            ident.Text = "";
+        }
+        private async Task<List<string>> MakeTheApiCallForTheIdentData()
+        {
+            await Task.Run(() =>
+            {
+                returnList = new List<string>();
+                // Call the API.
+                string error;
+                var idents = Services.GetObjectList("id", out error, "");
+
+                idents.Items.ForEach(x =>
+                {
+                    returnList.Add(x.GetString("Code"));
+                });
+
+
+            });
+            return returnList;
+        }
+
 
         private async void BtCalculate_Click(object sender, EventArgs e)
         {

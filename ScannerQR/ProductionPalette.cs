@@ -44,6 +44,7 @@ namespace Scanner
         private bool target;
         private string stKartona;
         private ProgressDialogClass progress;
+        private double collectiveAmount;
 
         public void GetBarcode(string barcode)
         {
@@ -109,6 +110,7 @@ namespace Scanner
             totalQty += qty;
             btConfirm.Enabled = true;
 
+            lbTotalQty.Text = $"Količina skupaj: {totalQty.ToString("###,###,##0.00")} / {collectiveAmount.ToString("###,###,##0.00")}";
 
             popupDialog.Dismiss();
             popupDialog.Cancel();
@@ -254,6 +256,10 @@ namespace Scanner
                                 adapterListViewItem adapter = new adapterListViewItem(this, listItems);
                                 lvCardList.Adapter = adapter;
                                 totalQty += qty;
+
+
+                                lbTotalQty.Text = $"Količina skupaj: {totalQty.ToString("###,###,##0.00")} / {collectiveAmount.ToString("###,###,##0.00")}";
+
                                 btConfirm.Enabled = true;
                             }
                         }
@@ -307,6 +313,22 @@ namespace Scanner
             tbCard.KeyPress += TbCard_KeyPress;
 
             color();
+
+
+          var ident = cardInfo.GetString("Ident").Trim();
+
+
+          setUpMaximumQuantity(ident);
+
+
+        }
+
+        private void setUpMaximumQuantity(string ident)
+        {
+            string error;
+            var identObject = Services.GetObject("id", ident, out error);
+            
+             collectiveAmount = identObject.GetDouble("UM1toUM2") * identObject.GetDouble("UM1toUM3");
         }
 
         private void TbCard_KeyPress(object sender, View.KeyEventArgs e)
@@ -363,7 +385,9 @@ namespace Scanner
         {
             ListViewItem itemPriorToDelete = listItems.ElementAt((int)selectedItemId);
             totalQty = totalQty - Convert.ToDouble(itemPriorToDelete.quantity);
-            listItems.RemoveAt((int)selectedItemId);           
+            listItems.RemoveAt((int)selectedItemId);
+            lbTotalQty.Text = $"Količina skupaj: {totalQty.ToString("###,###,##0.00")} / {collectiveAmount.ToString("###,###,##0.00")}";
+
             lvCardList.Adapter = null;
             adapterListViewItem adapter = new adapterListViewItem(this, listItems);
             lvCardList.Adapter = adapter;

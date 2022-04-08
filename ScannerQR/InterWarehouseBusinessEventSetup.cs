@@ -43,31 +43,21 @@ namespace Scanner
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-    
             SetContentView(Resource.Layout.InterWarehouseBusinessEventSetup);
             // Views
             var defDocument = CommonData.GetSetting("DefaultInterWareHouseDocType");
-
             if (!string.IsNullOrWhiteSpace(defDocument))
             {
                 documentCode = defDocument;
             }
-
-            cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);
-          
+            cbDocType = FindViewById<Spinner>(Resource.Id.cbDocType);     
             cbIssueWH = FindViewById<SearchableSpinner>(Resource.Id.cbIssueWH);
-            cbReceiveWH = FindViewById<SearchableSpinner>(Resource.Id.cbRecceiveWH);
-         
-            objectDocType.Add(new ComboBoxItem { ID = "Default", Text = "               Izberite poslovni dogodek." });
-         
+            cbReceiveWH = FindViewById<SearchableSpinner>(Resource.Id.cbRecceiveWH);        
+            objectDocType.Add(new ComboBoxItem { ID = "Default", Text = "               Izberite poslovni dogodek." });      
             docTypes = CommonData.ListDocTypes("E|");
             docTypes.Items.ForEach(dt =>
-            { //
-
-                
-                     objectDocType.Add(new ComboBoxItem { ID = dt.GetString("Code"), Text = dt.GetString("Code") + " " + dt.GetString("Name") });
-
-                
+            { //       
+                     objectDocType.Add(new ComboBoxItem { ID = dt.GetString("Code"), Text = dt.GetString("Code") + " " + dt.GetString("Name") });        
             });
             /*
              Aditional comment area. */
@@ -104,25 +94,17 @@ namespace Scanner
             cbIssueWH.Adapter = adapterIssue;
             cbReceiveWH.Adapter = adapterReceive;
             cbDocType.SetSelection(1);         
-            // next thing are the event listeners
-            // for the logout
             Button logout = FindViewById<Button>(Resource.Id.logout);
             logout.Click += Logout_Click;
-            // event listeners
             cbDocType.ItemSelected += CbDocType_ItemSelected;
             cbIssueWH.ItemSelected += CbIssueWH_ItemSelected;
-            cbReceiveWH.ItemSelected += CbReceiveWH_ItemSelected;
-            // confirm button          
+            cbReceiveWH.ItemSelected += CbReceiveWH_ItemSelected;      
             confirm = FindViewById<Button>(Resource.Id.btnConfirm);
             confirm.Click += Confirm_Click;
             cbIssueWH.SetTitle("Iskanje");
             cbIssueWH.SetPositiveButton("Zapri");
             cbReceiveWH.SetTitle("Iskanje");
             cbReceiveWH.SetPositiveButton("Zapri");
-
-
-
-
             for(int i = 0; i < objectDocType.Count; i++)
             {
                 var current = objectDocType[i];
@@ -228,7 +210,12 @@ namespace Scanner
                 StartActivity(typeof(InterWarehouseSerialOrSSCCEntry));
                 HelpfulMethods.clearTheStack(this);
 
-            } finally
+            } catch(Exception errorL)
+            {
+                string errorWebApp = string.Format("Napaka pri dostopu do web aplikacije:" + errorL.Message);
+                Toast.MakeText(this, errorWebApp, ToastLength.Long).Show();
+            }
+            finally
             {
                 success = true;
             }   

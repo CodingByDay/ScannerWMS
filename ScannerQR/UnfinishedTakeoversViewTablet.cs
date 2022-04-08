@@ -413,7 +413,6 @@ namespace Scanner
                     if (positions == null)
                     {
                         // exit 0
-                        System.Diagnostics.Process.GetCurrentProcess().Kill();
                         return;
                     }
                 }

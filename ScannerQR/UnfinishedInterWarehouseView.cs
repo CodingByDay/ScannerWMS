@@ -67,7 +67,7 @@ namespace Scanner
             btnNew = FindViewById<Button>(Resource.Id.btnNew);
             btnLogout = FindViewById<Button>(Resource.Id.btnLogout);
             btDelete = FindViewById<Button>(Resource.Id.btDelete);
-            //
+       
             btNext.Click += BtNext_Click;
             btFinish.Click += BtFinish_Click;
             btDelete.Click += BtDelete_Click;
@@ -264,14 +264,21 @@ namespace Scanner
                     var error = "";
                     if (positions == null)
                     {
-                        positions = Services.GetObjectList("mh", out error, "E");
+                        try
+                        {
+                            positions = Services.GetObjectList("mh", out error, "E");
+                        }
+                         catch (Exception) {
+
+                            var stop = true;
+                        
+                        }
                         InUseObjects.Set("InterWarehouseHeads", positions);
                     }
                     if (positions == null)
                     {
                         string toast = string.Format("Napaka pri dostopu do web aplikacije" + error);
                         Toast.MakeText(this, toast, ToastLength.Long).Show();
-                        System.Diagnostics.Process.GetCurrentProcess().Kill();
                         return;
                     }
                 }

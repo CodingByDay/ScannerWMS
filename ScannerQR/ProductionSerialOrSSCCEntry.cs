@@ -470,7 +470,7 @@ namespace Scanner
             tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
             tbSerialNum.InputType = Android.Text.InputTypes.ClassNumber;
             tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
-            tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
+            tbPacking.InputType = Android.Text.InputTypes.ClassNumber | Android.Text.InputTypes.NumberFlagSigned | Android.Text.InputTypes.NumberFlagDecimal;
             tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
 
             soundPool = new SoundPool(10, Stream.Music, 0);

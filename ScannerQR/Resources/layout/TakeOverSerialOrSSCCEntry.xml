@@ -33,6 +33,8 @@
             android:text="Ident" />
 
         <EditText
+            android:inputType="numberDecimal"
+            android:digits="0123456789."
             android:textStyle="bold"
             android:singleLine="true"
             android:layout_width="wrap_content"

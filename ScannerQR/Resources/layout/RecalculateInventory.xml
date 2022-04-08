@@ -37,6 +37,11 @@
             android:layout_marginLeft="40dp"
             android:paddingTop="5dp"
             android:id="@+id/ident" />
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerIdent"
+        android:spinnerMode="dialog" />
 
 
     </LinearLayout>

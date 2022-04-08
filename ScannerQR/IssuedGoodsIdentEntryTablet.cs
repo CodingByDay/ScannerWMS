@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Media;
@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Com.Toptoche.Searchablespinnerlibrary;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -39,8 +40,9 @@ namespace Scanner
         private NameValueObjectList openOrders = null;
         private int displayedOrder = -1;
         private TextView lbOrderInfo;
-
-
+        private List<string> returnList = new List<string>();
+        private List<string> identData = new List<string>();
+        private SearchableSpinner spinnerIdent;
 
         private void Sound()
         {
@@ -212,10 +214,10 @@ namespace Scanner
             }
         }
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            Toast.MakeText(this, "Pripravljam seznam.", ToastLength.Long).Show();
             // Create your application here
             SetContentView(Resource.Layout.IssuedGoodsIdentEntryTablet);
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);
@@ -242,9 +244,64 @@ namespace Scanner
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
             tbIdent.RequestFocus();
-        }
-      
 
+
+
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
+
+
+            identData = await MakeTheApiCallForTheIdentData();
+            Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
+            spinnerIdent.Prompt = "Iskanje";
+            spinnerIdent.SetTitle("Iskanje");
+            spinnerIdent.SetPositiveButton("Zapri");
+            var DataAdapter = new ArrayAdapter<string>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, identData);
+            DataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinnerIdent.Adapter = DataAdapter;
+            spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
+            tbIdent.LongClick += ClearTheFields;
+        }
+
+        private async Task<List<string>> MakeTheApiCallForTheIdentData()
+        {
+            await Task.Run(() =>
+            {
+                returnList = new List<string>();
+                // Call the API.
+                string error;
+                var idents = Services.GetObjectList("id", out error, "");
+
+                idents.Items.ForEach(x =>
+                {
+                    returnList.Add(x.GetString("Code"));
+                });
+
+
+            });
+            return returnList;
+        }
+        private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+
+            var item = e.Position;
+
+            var chosen = identData.ElementAt(item);
+            if (chosen != "")
+            {
+                tbIdent.Text = chosen;
+            }
+
+            ProcessIdent();
+        }
+
+        private void ClearTheFields(object sender, View.LongClickEventArgs e)
+        {
+            tbIdent.Text = "";
+            tbNaziv.Text = "";
+
+        }
         private void TbNaziv_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessIdent();

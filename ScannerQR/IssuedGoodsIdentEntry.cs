@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -12,6 +12,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Com.Toptoche.Searchablespinnerlibrary;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -41,6 +42,10 @@ namespace Scanner
         private NameValueObjectList openOrders = null;
         private int displayedOrder = -1;
         private TextView lbOrderInfo;
+        private SearchableSpinner spinnerIdent;
+
+        private List<string> returnList = new List<string>();
+        private List<string> identData = new List<string>();
 
 
 
@@ -219,7 +224,7 @@ namespace Scanner
             }
         }
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -236,6 +241,8 @@ namespace Scanner
             button4 = FindViewById<Button>(Resource.Id.button4);
             button5 = FindViewById<Button>(Resource.Id.button5);
             lbOrderInfo = FindViewById<TextView>(Resource.Id.lbOrderInfo);
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
+
             tbQty = FindViewById<EditText>(Resource.Id.tbQty);
             tbNaziv.FocusChange += TbNaziv_FocusChange1;
             color();
@@ -251,8 +258,62 @@ namespace Scanner
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
             tbIdent.RequestFocus();
+
+
+
+            identData = await MakeTheApiCallForTheIdentData();
+            Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
+            spinnerIdent.Prompt = "Iskanje";
+            spinnerIdent.SetTitle("Iskanje");
+            spinnerIdent.SetPositiveButton("Zapri");
+            var DataAdapter = new ArrayAdapter<string>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, identData);
+            DataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinnerIdent.Adapter = DataAdapter;
+            spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
+            tbIdent.LongClick += ClearTheFields;
+
         }
 
+        private void ClearTheFields(object sender, View.LongClickEventArgs e)
+        {
+            tbIdent.Text = "";
+            tbNaziv.Text = "";
+
+        }
+
+        private async Task<List<string>> MakeTheApiCallForTheIdentData()
+        {
+            await Task.Run(() =>
+            {
+                returnList = new List<string>();
+                // Call the API.
+                string error;
+                var idents = Services.GetObjectList("id", out error, "");
+
+                idents.Items.ForEach(x =>
+                {
+                    returnList.Add(x.GetString("Code"));
+                });
+
+
+            });
+            return returnList;
+        }
+        private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+
+            var item = e.Position;
+
+            var chosen = identData.ElementAt(item);
+            if (chosen != "")
+            {
+                tbIdent.Text = chosen;
+            }
+
+            ProcessIdent();
+        }
         private void TbNaziv_FocusChange1(object sender, View.FocusChangeEventArgs e)
         {
             ProcessIdent();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -11,6 +12,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Com.Toptoche.Searchablespinnerlibrary;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -22,7 +24,7 @@ namespace Scanner
     public class TakeOverIdentEntry : Activity, IBarcodeResult
 
     {
-
+        private SearchableSpinner spinnerIdent;
         private NameValueObject moveHead = (NameValueObject)InUseObjects.Get("MoveHead");
         private NameValueObject openIdent = null;
         private NameValueObjectList openOrders = null;
@@ -42,12 +44,13 @@ namespace Scanner
         private Button button5;
         SoundPool soundPool;
         int soundPoolId;
-  
+        private List<string> returnList = new List<string>();
+        private List<string> identData = new List<string>();    
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            Toast.MakeText(this, "Pripravljam seznam.", ToastLength.Long).Show();
             // Create your application here
             SetContentView(Resource.Layout.TakeOverIdentEntry);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
@@ -61,7 +64,7 @@ namespace Scanner
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
             button4 = FindViewById<Button>(Resource.Id.button4);
             button5 = FindViewById<Button>(Resource.Id.button5);
-
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
             color();
   
             soundPool = new SoundPool(10, Stream.Music, 0);
@@ -78,6 +81,58 @@ namespace Scanner
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
             tbIdent.RequestFocus();
+            identData = await MakeTheApiCallForTheIdentData();
+            Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
+            spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
+            spinnerIdent.Prompt = "Iskanje";
+            spinnerIdent.SetTitle("Iskanje");
+            spinnerIdent.SetPositiveButton("Zapri");
+            var DataAdapter = new ArrayAdapter<string>(this,
+            Android.Resource.Layout.SimpleSpinnerItem, identData);
+            DataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinnerIdent.Adapter = DataAdapter;
+            spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
+            tbIdent.LongClick += ClearTheFields;
+        }
+        private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var item = e.Position;
+            var chosen = identData.ElementAt(item);
+            if (chosen != "")
+            {
+                tbIdent.Text = chosen;
+            }
+            ProcessIdent();
+        }
+
+        private void ClearTheFields(object sender, View.LongClickEventArgs e)
+        {
+            tbIdent.Text = "";
+            tbNaziv.Text = "";
+
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <returns></returns>
+        private async Task<List<string>> MakeTheApiCallForTheIdentData()
+        {
+            await Task.Run(() =>
+            {
+                returnList = new List<string>();
+                // Call the API.
+                string error;
+                var idents = Services.GetObjectList("id", out error, "");
+
+                idents.Items.ForEach(x =>
+                {
+                    returnList.Add(x.GetString("Code"));
+                });
+
+
+            });
+            return returnList;
         }
 
         private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
@@ -188,7 +243,7 @@ namespace Scanner
                 openIdent = Services.GetObject("id", ident, out error);
                 if (openIdent == null)
                 {
-                    Toast.MakeText(this, "Napaka pri preverjanju indenta" + error, ToastLength.Long).Show();
+                    Toast.MakeText(this, "Napaka pri preverjanju identa" + error, ToastLength.Long).Show();
 
                     tbIdent.Text = "";                   
                     tbNaziv.Text = "";

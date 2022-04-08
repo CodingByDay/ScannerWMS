@@ -313,18 +313,14 @@ namespace TrendNET.WMS.Device.Services
         private static bool Ping (int waitSec, out string result) {
             try
             {
-                result = "";
-
-                // var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
-
-           
+                result = "";                         
                 var url = RandomizeURL (rootURL + "/Services/Device/?mode=ping&device=" + device);
                 var startedAt = DateTime.Now;
                 try
                 {
                     HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                     request.Method = "GET";
-                    request.Timeout = waitSec * 2000;
+                    request.Timeout = waitSec * 5000;
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                     {
                         var ms = new MemoryStream();
@@ -350,7 +346,7 @@ namespace TrendNET.WMS.Device.Services
                 {
                     Log.Write(new LogEntry("END REQUEST: [Device/Ping] '" + url + "';" + (DateTime.Now - startedAt).TotalMilliseconds.ToString()));
                     
-                    }
+                }
             }
             catch (Exception ex)
             {

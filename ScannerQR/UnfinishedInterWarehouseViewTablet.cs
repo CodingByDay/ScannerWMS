@@ -425,7 +425,6 @@ namespace Scanner
                     {
                         string toast = string.Format("Napaka pri dostopu do web aplikacije" + error);
                         Toast.MakeText(this, toast, ToastLength.Long).Show();
-                        System.Diagnostics.Process.GetCurrentProcess().Kill();
                         return;
                     }
                 }

@@ -61,13 +61,13 @@ namespace TrendNET.WMS.Core.Data
 
         public static T Deserialize<T>(string xml)
         {
-            //Log.Write(new LogEntry("CompactSerializer.Deserialize for " + typeof(T).FullName + " started."));
+            // Log.Write(new LogEntry("CompactSerializer.Deserialize for " + typeof(T).FullName + " started."));
             var startedAt = DateTime.Now;
             try
             {
                 if (string.IsNullOrEmpty(xml))
                 {
-                    //Log.Write(new LogEntry("CompactSerializer.Deserialize for " + typeof(T).FullName + " completed due to null value."));
+                    // Log.Write(new LogEntry("CompactSerializer.Deserialize for " + typeof(T).FullName + " completed due to null value."));
                     return default(T);
                 }
 
@@ -75,11 +75,11 @@ namespace TrendNET.WMS.Core.Data
                 if (serializers.ContainsKey(typeof(T)))
                 {
                     serializer = serializers [typeof(T)];
-                    //Log.Write(new LogEntry("CompactSerializer.Deserialize using existing serializer"));
+                    // Log.Write(new LogEntry("CompactSerializer.Deserialize using existing serializer"));
                 } else {
                     serializer = new XmlSerializer(typeof(T));
                     serializers.Add (typeof(T), serializer);
-                    //Log.Write(new LogEntry("CompactSerializer.Deserialize using new serializer"));
+                    // Log.Write(new LogEntry("CompactSerializer.Deserialize using new serializer"));
                 }                 
 
                 XmlReaderSettings settings = new XmlReaderSettings();
@@ -91,7 +91,7 @@ namespace TrendNET.WMS.Core.Data
                         return (T)serializer.Deserialize(xmlReader);
                     }
                 }
-            }
+            } 
             finally
             {
                 Log.Write(new LogEntry("END REQUEST: [Device/CompactSerializer.Deserialize];" + (DateTime.Now - startedAt).TotalMilliseconds.ToString()));

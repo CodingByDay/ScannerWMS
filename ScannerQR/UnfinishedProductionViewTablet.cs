@@ -486,7 +486,7 @@ namespace Scanner
                 tbItemCount.SetTextColor(Android.Graphics.Color.Black);
                 tbCreatedBy.SetTextColor(Android.Graphics.Color.Black);
                 tbCreatedAt.SetTextColor(Android.Graphics.Color.Black);
-
+                btNext.Enabled = false;
 
                 btDelete.Enabled = false;
                 btFinish.Enabled = false;

@@ -65,7 +65,7 @@ namespace Scanner
             tbIdent.InputType = Android.Text.InputTypes.ClassNumber;
             tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
             tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
-            tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
+            tbPacking.InputType = Android.Text.InputTypes.ClassNumber | Android.Text.InputTypes.NumberFlagSigned | Android.Text.InputTypes.NumberFlagDecimal;
             tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
             btSaveOrUpdate = FindViewById<Button>(Resource.Id.btSaveOrUpdate);
             button4 = FindViewById<Button>(Resource.Id.button4);
@@ -110,7 +110,6 @@ namespace Scanner
                         if (openOrder == null)
                         {
                             Toast.MakeText(this, "Napaka pri dostopu do web aplikacije." + error, ToastLength.Long).Show();
-                            System.Diagnostics.Process.GetCurrentProcess().Kill();
                             return;
                         }
                     }
@@ -563,7 +562,7 @@ namespace Scanner
    
             try
             {
-               
+          
 
                 if (moveItem == null) { moveItem = new NameValueObject("MoveItem"); }
                 moveItem.SetInt("HeadID", moveHead.GetInt("HeadID"));
