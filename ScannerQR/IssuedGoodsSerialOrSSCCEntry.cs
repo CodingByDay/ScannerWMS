@@ -185,11 +185,25 @@ namespace Scanner
         private void TbSSCC_KeyPress(object sender, View.KeyEventArgs e)
         {
             e.Handled = false;
+
             if (e.KeyCode == Keycode.Enter)
             {
-                FillRelatedData(tbSerialNum.Text);
-
-               
+                FillRelatedData(tbSSCC.Text);
+                string error;
+                var dataObject = Services.GetObject("sscc", tbSSCC.Text, out error);
+                var ident = dataObject.GetString("Ident");
+                var loadIdent = CommonData.LoadIdent(ident);
+                string idname = loadIdent.GetString("Name");
+                if (!String.IsNullOrEmpty(idname))
+                {
+                    ProcessQty();
+                    tbSerialNum.RequestFocus();
+                }
+                else
+                {
+                    tbSSCC.Text = String.Empty;
+                    return;
+                }
             }
         }
 
@@ -349,7 +363,7 @@ namespace Scanner
                         return false;
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
 
                     return false;
@@ -399,10 +413,7 @@ namespace Scanner
 
             try
             {
-
-
                 moveItemNew = new NameValueObject("MoveItem");
-
                 moveItemNew.SetInt("HeadID", moveHead.GetInt("HeadID"));
                 moveItemNew.SetString("LinkKey", openOrder.GetString("Key"));
                 moveItemNew.SetInt("LinkNo", openOrder.GetInt("No"));
@@ -415,20 +426,16 @@ namespace Scanner
                 moveItemNew.SetInt("Clerk", Services.UserID());
                 moveItemNew.SetString("Location", obj.Location);
                 moveItemNew.SetString("Palette", "1"); // Ask about this.
-
                 string error;
                 moveItemNew = Services.SetObject("mi", moveItemNew, out error);
                 var jsonobj = GetJSONforMoveItem(moveItemNew);
-
                 if (moveItemNew == null)
                 {
                     RunOnUiThread(() =>
                     {
                         var debug = error;
-
                         Toast.MakeText(this, "Napaka pri dostopu web aplikacije." + error, ToastLength.Long).Show();
                     });
-
                     return false;
                 }
                 else
@@ -440,7 +447,6 @@ namespace Scanner
             }
             finally
             {
-                //pass
             }
         }
         private string GetJSONforMoveItem(NameValueObject moveItem)
@@ -460,8 +466,6 @@ namespace Scanner
             item.IssueLocation = moveItem.GetString("IssueLocation");
             item.Pallete = moveItem.GetString("Pallete");
             var jsonString = JsonConvert.SerializeObject(item);
-
-
             return jsonString;
         }
         private void UpdateTheLocationAPICall(string location)
@@ -469,9 +473,7 @@ namespace Scanner
 
             try
             {
-
                 var headID = moveHead.GetInt("HeadID");
-
                 string result;
                 if (WebApp.Get("mode=mhLoc&id=" + headID + "&loc=" + location, out result))
                 {
@@ -480,19 +482,13 @@ namespace Scanner
 
                         RunOnUiThread(() =>
                         {
-
                         });
                     }
                     else
                     {
                         RunOnUiThread(() =>
                         {
-
-
-
-
                         });
-
                     }
                 }
                 else
@@ -525,10 +521,8 @@ namespace Scanner
             popupDialog.SetContentView(Resource.Layout.YesNoPopUp);
             popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialog.Show();
-
             popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
             popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloOrangeLight);
-
             // Access Popup layout fields like below
             btnYes = popupDialog.FindViewById<Button>(Resource.Id.btnYes);
             btnNo = popupDialog.FindViewById<Button>(Resource.Id.btnNo);
@@ -568,9 +562,6 @@ namespace Scanner
                     pallets.Ident = ident;                       
                     string idname= loadIdent.GetString("Name");
                     pallets.Location = location;
-
-
-
                     if (String.IsNullOrEmpty(idname))
                     {
                         return;
@@ -1354,19 +1345,7 @@ namespace Scanner
 
 
             tbIdent.RequestFocus();
-
             var ident = openIdent.GetString("Code");
-
-            // string error;
-            // var s = moveHead.GetString("Issuer");
-            // var recommededLocation = Services.GetObject("rl", ident + "|" + moveHead.GetString("Issuer"), out error);
-            // if (recommededLocation != null)
-            // {
-
-            //    tbLocation.Text = recommededLocation.GetString("Location");
-            // }
-
-
             var location = CommonData.GetSetting("DefaultProductionLocation");
 
             if (location != null)
@@ -1375,7 +1354,7 @@ namespace Scanner
 
             } else
             {
-                // Continue on
+                
             }
             var warehouse = moveHead.GetString("Wharehouse");
             if (moveItem != null) { }
@@ -1542,15 +1521,6 @@ namespace Scanner
                             return false;
                         }
                     }
-
-                    /*
-                    if ((qty > 0) && (qty > stock.GetDouble("RealStock")))
-                    {
-                        MessageForm.Show("Količina (" + qty.ToString(CommonData.GetQtyPicture ()) + ") presega zalogo (" + stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture ()) + ")!");
-                        tbQty.Focus();
-                        return false;
-                    }
-                    */
                 }
                 catch (Exception e)
                 {
@@ -1605,15 +1575,12 @@ namespace Scanner
             }
 
             if (CommonData.GetSetting("IssuedGoodsPreventSerialDups") == "1")
-            {
-             
+            {            
                 try
-                {
-                 
+                {                 
                     var headID = moveHead.GetInt("HeadID");
                     var serialNo = tbSerialNum.Text.Trim();
                     var sscc = tbSSCC.Text.Trim();
-
                     string result;
                     if (WebApp.Get("mode=canAddSerial&hid=" + headID.ToString() + "&sn=" + serialNo + "&sscc=" + sscc, out result))
                     {
@@ -1622,7 +1589,6 @@ namespace Scanner
                             RunOnUiThread(() =>
                             {
                                 Toast.MakeText(this, result, ToastLength.Long).Show();
-
                             });
                             return false;
                         }
@@ -1632,23 +1598,18 @@ namespace Scanner
                         RunOnUiThread(() =>
                         {
                             Toast.MakeText(this, "Napaka pri klicu web aplikacije" + result, ToastLength.Long).Show();
-
-
                         });
                         return false;
                     }
                 }
                 finally
                 {
-
                 }
             }
 
        
             try
             {
-           
-
                 if (moveItem == null) { 
                     moveItem = new NameValueObject("MoveItem");
                 }
@@ -1664,17 +1625,13 @@ namespace Scanner
                 moveItem.SetInt("Clerk", Services.UserID());
                 moveItem.SetString("Location", tbLocation.Text.Trim());
                 moveItem.SetString("Palette", tbPalette.Text.Trim());
-
                 string error;
-
-                moveItem = Services.SetObject("mi", moveItem, out error);
-                
+                moveItem = Services.SetObject("mi", moveItem, out error);              
                 if (moveItem == null)
                 {
                     RunOnUiThread(() =>
                     {
                         var debug = error;
-
                         Toast.MakeText(this, "Napaka pri dostopu web aplikacije." + error, ToastLength.Long).Show();
                     });
            
@@ -1688,8 +1645,7 @@ namespace Scanner
                 }
             }
             finally
-            {
-             
+            {             
             }
         }
 
@@ -1699,15 +1655,13 @@ namespace Scanner
             if (!CommonData.IsValidLocation(moveHead.GetString("Wharehouse"), tbLocation.Text.Trim()))
             {
                 Toast.MakeText(this, "Lokacija '" + tbLocation.Text.Trim() + "' ni veljavna za skladišče '" + moveHead.GetString("Wharehouse") + "'!", ToastLength.Long).Show();
-
                 tbLocation.RequestFocus();
                 return;
             }
 
             if (!LoadStock(moveHead.GetString("Wharehouse"), tbLocation.Text.Trim(), tbSSCC.Text.Trim(), tbSerialNum.Text.Trim(), openIdent.GetString("Code")))
             {
-                Toast.MakeText(this, "Zaloga za SSCC/Serijsko št. ne obstaja.", ToastLength.Long).Show();
-         
+                Toast.MakeText(this, "Zaloga za SSCC/Serijsko št. ne obstaja.", ToastLength.Long).Show();         
                 return;
             }
             else
@@ -1715,20 +1669,9 @@ namespace Scanner
                 string error;
                 var fulfilledOrder = Services.GetObject("miho", openOrder.GetString("Key") + "|" + openOrder.GetInt("No") + "|" + openIdent.GetString("Code"), out error);
                 var fulfilledQty = fulfilledOrder == null ? 0.0 : fulfilledOrder.GetDouble("Qty");
-
                 tbPacking.Text = stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture());
                 lbQty.Text = "Kol. (" + (openOrder.GetDouble("OpenQty") - fulfilledQty).ToString(CommonData.GetQtyPicture()) + ")";
-
-                /*
-                if (openOrder.GetDouble("OpenQty") > stock.GetDouble("RealStock"))
-                {
-                    MessageForm.Show("Količina (" + openOrder.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture ()) + ") presega zalogo (" + stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture ()) + ")!");
-                }
-                */
-                // 
-               // StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
-            }
-            
+            }          
         }
 
 
@@ -1753,18 +1696,9 @@ namespace Scanner
                 string error;
                 var fulfilledOrder = Services.GetObject("miho", openOrder.GetString("Key") + "|" + openOrder.GetInt("No") + "|" + openIdent.GetString("Code"), out error);
                 var fulfilledQty = fulfilledOrder == null ? 0.0 : fulfilledOrder.GetDouble("Qty");
-
                 obj.Quantity= stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture());
                 lbQty.Text = "Kol. (" + (openOrder.GetDouble("OpenQty") - fulfilledQty).ToString(CommonData.GetQtyPicture()) + ")";
 
-                /*
-                if (openOrder.GetDouble("OpenQty") > stock.GetDouble("RealStock"))
-                {
-                    MessageForm.Show("Količina (" + openOrder.GetDouble("OpenQty").ToString(CommonData.GetQtyPicture ()) + ") presega zalogo (" + stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture ()) + ")!");
-                }
-                */
-                // 
-                // StartActivity(typeof(IssuedGoodsSerialOrSSCCEntry));
                 return obj;
             }
 

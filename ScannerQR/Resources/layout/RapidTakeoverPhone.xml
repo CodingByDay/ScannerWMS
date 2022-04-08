@@ -51,41 +51,6 @@
         android:id="@+id/app"
         android:foregroundGravity="center">
 
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="5dp"
-                                     >
-
-            <TextView
-              
-                android:textStyle="bold"
-                android:singleLine="true"
-                android:layout_width="97.5dp"
-                android:layout_height="wrap_content"
-                android:text="SCCC"
-                android:paddingTop="5dp"
-                android:paddingLeft="10dp"
-                android:id="@+id/textView1" />
-
-            <EditText
-                android:textStyle="bold"
-                android:singleLine="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="40dp"
-                android:layout_weight="0.50"
-                android:paddingTop="5dp"
-                android:id="@+id/tbSSCC" />
-
-
-        </LinearLayout>
-
-
-
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -113,6 +78,40 @@
                 android:layout_weight="0.50"
                 android:paddingTop="5dp"
                 android:id="@+id/tbIdent" />
+
+
+        </LinearLayout>
+      
+
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+                                     >
+
+            <TextView
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_width="97.5dp"
+                android:layout_height="wrap_content"
+                android:text="Serijska"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/serial" />
+
+            <EditText
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="40dp"
+                android:layout_weight="0.50"
+                android:paddingTop="5dp"
+                android:id="@+id/tbSerial" />
 
 
         </LinearLayout>
@@ -234,24 +233,41 @@
 
 
         </LinearLayout>
+          <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+                                     >
+
+            <TextView
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_width="97.5dp"
+                android:layout_height="wrap_content"
+                android:text="SCCC"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/textView1" />
+
+            <EditText
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="40dp"
+                android:layout_weight="0.50"
+                android:paddingTop="5dp"
+                android:id="@+id/tbSSCC" />
+
+
+        </LinearLayout>
         <TextView
             android:layout_width="95.5dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55.5dp"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"/>
-        <TextView
-            android:textStyle="bold"
-            android:layout_width="296.0dp"
-            android:layout_height="99.0dp"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="30dp"
-            android:textColor="@android:color/black"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:id="@+id/lbStock"
-            android:foregroundGravity="center"
-            android:gravity="center" />
 
         <LinearLayout
             android:layout_width="fill_parent"

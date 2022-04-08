@@ -45,52 +45,48 @@ namespace Scanner
 
         public override void OnBackPressed()
         {
-
             HelpfulMethods.releaseLock();
-
             base.OnBackPressed();
         }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
-
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.RapidTakeover);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             // Create your application here
             tbSSCC = FindViewById<EditText>(Resource.Id.tbSSCC);
             cbWarehouses = FindViewById<Spinner>(Resource.Id.cbWarehouses);
+
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
+
             btConfirm = FindViewById<Button>(Resource.Id.btConfirm);
+
             btLogout = FindViewById<Button>(Resource.Id.btLogout);
+
             tbReceiveLocation = FindViewById<EditText>(Resource.Id.tbReceiveLocation);
+
             tbRealStock = FindViewById<EditText>(Resource.Id.tbRealStock);
-            btConfirm.Click += BtConfirm_Click;
-            tbReceiveLocation.Enabled = false;
-            tbRealStock.Enabled = false;
-            tbIdent.Enabled = false;
+
+            btConfirm.Click += BtConfirm_Click;         
             tbLocation.FocusChange += TbLocation_FocusChange;
             listData = FindViewById<ListView>(Resource.Id.listData);
             color();
-
-
             var whs = CommonData.ListWarehouses();
-
             whs.Items.ForEach(wh =>
             {
                 data.Add(new ComboBoxItem { ID = wh.GetString("Subject"), Text = wh.GetString("Name") });
             });
-
             var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, data);
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouses.Adapter = adapterWarehouse;
-
             TakeOverSerialOrSSCCEntryAdapter adapter = new TakeOverSerialOrSSCCEntryAdapter(this, dataX);
             listData.Adapter = adapter;
-
             cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;
             listData.ItemClick += ListData_ItemClick;
-            
+            tbIdent.RequestFocus();
+
         }
      
 

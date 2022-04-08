@@ -40,11 +40,8 @@ namespace Scanner
            
             base.OnCreate(savedInstanceState);
             HelpfulMethods.releaseLock();
-            // Create your application here
             SetContentView(Resource.Layout.MainMenu);
             var flag = Services.isTablet(App.settings.device);
-            // Welcome String.
-
             if (MainActivity.isValid == true)
             {
                 string toast = new string("Uspešna prijava.");             
@@ -52,50 +49,37 @@ namespace Scanner
                 MainActivity.isValid = false;
                 MainActivity.progressBar1.Visibility = ViewStates.Invisible;
             }
-            // Testing the progress dialog
-            // Testing the config reading ... It works... :)
             IDdevice = settings.ID;
             target = settings.device;
             result = settings.tablet;
-            // Rapid takover is taken away from here because its used only in the tablet view.
-            // First event...
             button = FindViewById<Button>(Resource.Id.goodsTakeOver);
             button.Click += Button_Click;
             buttons.Add(button);
-            // InterWarehouse redirect...
             buttonInterWarehouse = FindViewById<Button>(Resource.Id.goodsInterWarehouse);
             buttonInterWarehouse.Click += ButtonInterWarehouse_Click;
             buttons.Add(buttonInterWarehouse);
-            // Third view...
             buttonUnfinished = FindViewById<Button>(Resource.Id.goodsProduction);
             buttonUnfinished.Click += ButtonUnfinished_Click;
             buttons.Add(buttonUnfinished);
-            // UnfinishedIssuedGoodsView layout ---> button ---------> goodsIssued
             buttonIssued = FindViewById<Button>(Resource.Id.goodsIssued);
             buttonIssued.Click += ButtonIssued_Click;
             buttons.Add(buttonIssued);
-            // btnPrint-----------PrintingMenu();
             buttonPrint = FindViewById<Button>(Resource.Id.btnPrint);
             buttonPrint.Click += ButtonPrint_Click;
             buttons.Add(buttonPrint);
-            // btnInventory-------InventoryMenu();
             btnInventory = FindViewById<Button>(Resource.Id.btnInventory);
             btnInventory.Click += BtnInventory_Click;
             buttons.Add(btnInventory);
-            // btCheckStock-------CheckStock();
             btnCheckStock = FindViewById<Button>(Resource.Id.btCheckStock);
             btnCheckStock.Click += BtnCheckStock_Click;
             buttons.Add(btnCheckStock);
-            // goodsPackaging-----PackagingEnteredPositionsView();
             btnPackaging = FindViewById<Button>(Resource.Id.goodsPackaging);
             btnPackaging.Click += BtnPackaging_Click;
             buttons.Add(btnPackaging);
-            // Logout-------------Close();
             btnLogout = FindViewById<Button>(Resource.Id.logout);
             btnLogout.Click += BtnLogout_Click;
             PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
             buttons.Add(PalletsMenu);
-            // Permisions.
             buttonInterWarehouse.Enabled = Services.HasPermission("TNET_WMS_BLAG_TRN", "R");
             buttonIssued.Enabled = Services.HasPermission("TNET_WMS_BLAG_SND", "R");
             buttonUnfinished.Enabled = Services.HasPermission("TNET_WMS_BLAG_PROD", "R");
@@ -105,18 +89,36 @@ namespace Scanner
             btnInventory.Enabled = Services.HasPermission("TNET_WMS_OTHR_INV", "R");
             btRecalculate = FindViewById<Button>(Resource.Id.btRecalculate);
             btRecalculate.Click += BtRecalculate_Click;
-            // Adding the new pallets permission.
             PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
-            // Hide those for now.
             PalletsMenu.Click += PalletsMenu_Click;
-            // HideDisabled(buttons);
             HideDisabled(buttons);
+            ProccessRapidTakeover();
         }
 
 
 
 
-       
+        private void ProccessRapidTakeover()
+        {
+            try
+            {
+                var isShown = CommonData.GetSetting("UseFastTakeOver");
+                if (isShown == "1") {
+                    button.Click += Button_Click;
+                } else
+                {                     
+                    // Reprogram the event listener.
+                    button.Click += (e, ev) => { reprogram(); };                  
+                }
+            } catch(Exception) { return; }
+        }
+
+        private void reprogram()
+        {       
+                StartActivity(typeof(UnfinishedTakeoversView));
+                HelpfulMethods.clearTheStack(this);        
+        }
+
         private void BtRecalculate_Click(object sender, EventArgs e)
         {
             var dups = HelpfulMethods.preventDupUse();
@@ -303,6 +305,22 @@ namespace Scanner
      
             }
         }
+
+
+        private void Button_Click_Without_Inner_Menu(object sender, EventArgs e)
+        {
+            var dups = HelpfulMethods.preventDupUse();
+
+            if (dups)
+            {
+                StartActivity(typeof(UnfinishedTakeoversView));
+                HelpfulMethods.clearTheStack(this);
+
+
+            }
+        }
+
+
 
         private void ButtonUnfinished_Click(object sender, EventArgs e)
         {

@@ -184,10 +184,10 @@ namespace TrendNET.WMS.Device.Services
         public static bool TryLock (string lockID, out string error) {
             if (obtainedLocks.FirstOrDefault(x => x == lockID) != null) { error = "OK!"; return true; }
 
-           // var wf = new WaitForm();
+
             try
             {
-                //wf.Start("Pridobivam dostop");
+
 
                 var obj = new NameValueObject("Lock");
                 obj.SetString("LockID", lockID);

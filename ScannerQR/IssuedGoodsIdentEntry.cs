@@ -227,7 +227,7 @@ namespace Scanner
         protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            Toast.MakeText(this, "Pripravljam seznam", ToastLength.Long).Show();
             // Create your application here
             SetContentView(Resource.Layout.IssuedGoodsIdentEntry);
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);

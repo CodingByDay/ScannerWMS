@@ -225,9 +225,7 @@ namespace Scanner
             popupDialogMain.SetContentView(Resource.Layout.MorePalletsClass);
             popupDialogMain.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialogMain.Show();
-
             popupDialogMain.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-
             btConfirm = popupDialogMain.FindViewById<Button>(Resource.Id.btConfirm);
             btExit = popupDialogMain.FindViewById<Button>(Resource.Id.btExit);
             tbSSCCpopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbSSCC);
@@ -235,7 +233,6 @@ namespace Scanner
             tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
             lvCardMore = popupDialogMain.FindViewById<ListView>(Resource.Id.lvCardMore);
             lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
-
             tbLocationPopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbLocation);
             tbLocationPopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
             spLocationSpinner = popupDialogMain.FindViewById<SearchableSpinner>(Resource.Id.spLocation);

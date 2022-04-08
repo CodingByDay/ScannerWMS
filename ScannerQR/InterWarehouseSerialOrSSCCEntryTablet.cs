@@ -986,10 +986,6 @@ namespace Scanner
             barcode2D.open(this, this);
             btMorePallets = FindViewById<Button>(Resource.Id.btMorePallets);
             btMorePallets.Click += BtMorePallets_Click;
-            
-        
-
-
             if (InterWarehouseBusinessEventSetup.success == true)
             {
                 string toast = string.Format(moveHead.GetString("Issuer"));
@@ -1012,7 +1008,6 @@ namespace Scanner
                 tbLocation.Text = moveItem.GetString("Location");
                 tbIssueLocation.Text = moveItem.GetString("IssueLocation");
                 btSaveOrUpdate.Text = "Spr. ser. št. - F2";
-
                 editMode = true;
                 tbSSCC.Enabled = false;
             }
@@ -1033,11 +1028,8 @@ namespace Scanner
                 lbUnits.Visibility = ViewStates.Visible;
                 tbUnits.Visibility = ViewStates.Visible;
             }
-
             await GetLocationsForGivenWarehouseIssuer(moveHead.GetString("Issuer"));
-
             await GetLocationsForGivenWarehouseReceiver(moveHead.GetString("Receiver"));
-
             adapterIssue = new ArrayAdapter<String>(this,
             Android.Resource.Layout.SimpleSpinnerItem, issuer);
             adapterIssue.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
@@ -1046,13 +1038,8 @@ namespace Scanner
             adapterReceive.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spReceive.Adapter = adapterReceive;
             tbSSCC.LongClick += TbSSCC_LongClick;
-
-            tbSSCC.RequestFocus();
-
-         
-            tbPacking.InputType = Android.Text.InputTypes.ClassNumber;
-          
-
+            tbSSCC.RequestFocus(); 
+            tbPacking.InputType = Android.Text.InputTypes.ClassNumber;         
             spIssue.SetSelection(receiver.IndexOf("P01"), true);
             spReceive.SetSelection(receiver.IndexOf("P01"), true);
             showPicture();

@@ -74,11 +74,8 @@ namespace Scanner
             btLogout.Click += BtLogout_Click; //
             issuedData.ItemLongClick += IssuedData_ItemLongClick;
             btNext = FindViewById<Button>(Resource.Id.btNext);
-            btNext.Click += BtNext_Click;
-    
-            
+            btNext.Click += BtNext_Click;           
             InUseObjects.Clear();
-
             LoadPositions();
             FillItemsList();
             issuedData.PerformItemClick(issuedData, 0, 0);

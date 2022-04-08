@@ -36,61 +36,46 @@ namespace Scanner
             // Create your application here
             SetContentView(Resource.Layout.MainMenuTablet);
             var flag = Services.isTablet(App.settings.device);
-            // Welcome String.
+
             if (MainActivity.isValid == true)
             {
                 string toast = new string("Uspešna prijava.");
-
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 MainActivity.isValid = false;
                 MainActivity.progressBar1.Visibility = ViewStates.Invisible;
-
-
-
-
-
             }
-            // Testing the config reading ... It works... :)
             IDdevice = settings.ID;
             target = settings.device;
             result = settings.tablet;
             Button button = FindViewById<Button>(Resource.Id.goodsTakeOver);
             button.Click += Button_Click;
             buttons.Add(button);
-            // InterWarehouse redirect...
             Button buttonInterWarehouse = FindViewById<Button>(Resource.Id.goodsInterWarehouse);
             buttonInterWarehouse.Click += ButtonInterWarehouse_Click;
             buttons.Add(buttonInterWarehouse);
-            // Third view...
             Button buttonUnfinished = FindViewById<Button>(Resource.Id.goodsProduction);
             buttonUnfinished.Click += ButtonUnfinished_Click;
             buttons.Add(buttonUnfinished);
-            // UnfinishedIssuedGoodsView layout ---> button ---------> goodsIssued
             Button buttonIssued = FindViewById<Button>(Resource.Id.goodsIssued);
             buttonIssued.Click += ButtonIssued_Click;
             buttons.Add(buttonIssued);
-            // btnPrint-----------PrintingMenu();
             Button buttonPrint = FindViewById<Button>(Resource.Id.btnPrint);
             buttonPrint.Click += ButtonPrint_Click;
             buttons.Add(buttonPrint);
-            // btnInventory-------InventoryMenu();
             Button btnInventory = FindViewById<Button>(Resource.Id.btnInventory);
             btnInventory.Click += BtnInventory_Click;
             buttons.Add(btnInventory);
-            // btCheckStock-------CheckStock();
             Button btnCheckStock = FindViewById<Button>(Resource.Id.btCheckStock);
             btnCheckStock.Click += BtnCheckStock_Click;
             buttons.Add(btnCheckStock);
-            // goodsPackaging-----PackagingEnteredPositionsView();
             Button btnPackaging = FindViewById<Button>(Resource.Id.goodsPackaging);
             btnPackaging.Click += BtnPackaging_Click;
             buttons.Add(btnPackaging);
-            // Logout-------------Close();
             Button btnLogout = FindViewById<Button>(Resource.Id.logout);
             btnLogout.Click += BtnLogout_Click;
             Button PalletsMenu = FindViewById<Button>(Resource.Id.PalletsMenu);
             buttons.Add(PalletsMenu);
-            Button rapidTakeover = FindViewById<Button>(Resource.Id.rapidTakeover);
+            rapidTakeover = FindViewById<Button>(Resource.Id.rapidTakeover);
             rapidTakeover.Click += RapidTakeover_Click1;
             Button btRecalculate = FindViewById<Button>(Resource.Id.btRecalculate);
             btRecalculate.Click += BtRecalculate_Click;
@@ -106,15 +91,31 @@ namespace Scanner
             PalletsMenu.Enabled = Services.HasPermission("TNET_WMS_BLAG_PAL", "R");
             HideDisabled(buttons);
             rapidListview = FindViewById<ListView>(Resource.Id.rapidListview);
-
-
             dataCleanup = await FillTheCleanupList();
-
             cleanupAdapter = new CleanupAdapter(this, dataCleanup);
             rapidListview.Adapter = cleanupAdapter;
 
-        }
 
+            ProccessRapidTakeover();
+
+
+        }
+        private void ProccessRapidTakeover()
+        {
+            try
+            {
+                var isShown = CommonData.GetSetting("UseFastTakeOver");
+                if (isShown == "1")
+                {
+                  
+                }
+                else
+                {
+                    rapidTakeover.Visibility = ViewStates.Invisible;
+                }
+            }
+            catch (Exception) { return; }
+        }
         private async Task<List<CleanupLocation>> FillTheCleanupList()
         {
             var location = CommonData.GetSetting("DefaultProductionLocation");
