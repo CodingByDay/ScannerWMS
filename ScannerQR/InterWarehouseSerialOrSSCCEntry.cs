@@ -133,10 +133,7 @@ namespace Scanner
                                 ProcessQty();
                                 tbSerialNum.RequestFocus();
                                 ProcessQty();
-
                                 data.Clear();
-
-
                                 TransportOneObject(tbSSCC.Text);
                             }
                             else
@@ -145,8 +142,6 @@ namespace Scanner
                                 return;
                             }
                            
-
-
                         }
                         else
                         {
@@ -282,7 +277,6 @@ namespace Scanner
             tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbIssueLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbLocation.SetBackgroundColor(Android.Graphics.Color.Aqua);
-
         }
 
 
@@ -1818,8 +1812,12 @@ namespace Scanner
                         }
                         else
                         {
-                            string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
-                            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                            RunOnUiThread(() =>
+                            {
+                                string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
+                                Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                            });
+                           
                         }
                     }
                     finally
@@ -1902,8 +1900,12 @@ namespace Scanner
                     }
                     else
                     {
-                        string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
-                        Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                        RunOnUiThread(() =>
+                        {
+                            string SuccessMessage = string.Format("Napaka pri klicu web aplikacije");
+                            Toast.MakeText(this, SuccessMessage, ToastLength.Long).Show();
+                        });
+                      
                     }
                 }
                 finally

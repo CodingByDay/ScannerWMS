@@ -50,6 +50,11 @@ namespace Scanner
             } else if (tbLocation.HasFocus)
             {
                 tbLocation.Text = barcode;
+            } else if(tbIdent.HasFocus)
+            {             
+                    Sound();
+                    tbIdent.Text = barcode;
+                   // ProcessIdent();                
             }
         }
 
@@ -69,7 +74,6 @@ namespace Scanner
                 case Keycode.F8:
                     BtLogout_Click(this, null);
                     break;
-
             }
             return base.OnKeyDown(keyCode, e);
         }
@@ -100,9 +104,6 @@ namespace Scanner
             tbReceiveLocation = FindViewById<EditText>(Resource.Id.tbReceiveLocation);
             tbRealStock = FindViewById<EditText>(Resource.Id.tbRealStock);
             btConfirm.Click += BtConfirm_Click;
-            tbReceiveLocation.Enabled = false;
-            tbRealStock.Enabled = false;
-            tbIdent.Enabled = false;
             tbLocation.FocusChange += TbLocation_FocusChange;
             btLogout.Click += BtLogout_Click;
             listData = FindViewById<ListView>(Resource.Id.listData);
@@ -120,11 +121,8 @@ namespace Scanner
             Android.Resource.Layout.SimpleSpinnerItem, data);
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouses.Adapter = adapterWarehouse;
-
-
-            cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;
-       
-
+            cbWarehouses.ItemSelected += CbWarehouses_ItemSelected;  
+            tbIdent.RequestFocus();
         }
 
         private void BtLogout_Click(object sender, EventArgs e)
@@ -138,13 +136,9 @@ namespace Scanner
 
             if (saveHead())
             {
-
                 try
                 {
                     var headID = moveItem.GetInt("HeadID");
-                    // move item 
-
-
                     string result;
                     if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
                     {
@@ -247,7 +241,6 @@ namespace Scanner
         {
             var sscc = tbSSCC.Text.Trim();
             if (string.IsNullOrEmpty(sscc)) { return; }
-
 
             try
             {
