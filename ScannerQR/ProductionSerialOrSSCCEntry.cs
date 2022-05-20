@@ -523,13 +523,10 @@ namespace Scanner
             else
 
             {
-
                 if (tbSSCC.Enabled)
 
                 {
-
                     tbSSCC.RequestFocus();
-
                 }
 
                 else if (tbSerialNum.Enabled)
@@ -557,7 +554,6 @@ namespace Scanner
             if (CommonData.GetSetting("ShowNumberOfUnitsField") == "1")
             {
                 tbUnits.Visibility = ViewStates.Visible;
-
             }
 
 
@@ -567,7 +563,6 @@ namespace Scanner
             {
 
                 tbSSCC.Text = CommonData.GetNextSSCC();
-
                 tbPacking.RequestFocus();
 
             }
@@ -585,7 +580,7 @@ namespace Scanner
         {
             var warehouse = moveHead.GetString("Wharehouse");
 
-            fillSugestedLocation(warehouse); // Best location. 12.05.2021.
+            fillSugestedLocation(warehouse); 
         }
 
         private void color()

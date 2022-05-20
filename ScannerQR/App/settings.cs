@@ -16,14 +16,15 @@ namespace Scanner.App
     class settings
     {
 
-
         private static ISettings AppSettings =>
             CrossSettings.Current;
-       
 
-    
+      
 
-    public static string ID
+
+        
+
+        public static string ID
         {
             get => AppSettings.GetValueOrDefault(nameof(ID), string.Empty);
             set => AppSettings.AddOrUpdateValue(nameof(ID), value);

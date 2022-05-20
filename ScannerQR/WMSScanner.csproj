@@ -187,6 +187,8 @@
     <Compile Include="App\WebApp.cs" />
     <Compile Include="App\WindowDispatcher.cs" />
     <Compile Include="App\WMSDeviceConfig.cs" />
+    <Compile Include="Caching\Caching.cs" />
+    <Compile Include="Caching\CachingService.cs" />
     <Compile Include="CheckStock.cs" />
     <Compile Include="CheckStockTablet.cs" />
     <Compile Include="Choice.cs" />
@@ -293,7 +295,6 @@
     <Compile Include="WrappingPalletTablet.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
@@ -334,7 +335,7 @@
     <PackageReference Include="Xamarin.AndroidX.Core">
       <Version>1.6.0.3</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Essentials" Version="0.8.0-preview" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="27.0.2.1" />

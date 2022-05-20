@@ -152,8 +152,6 @@ namespace Scanner
             SetUpForm();
 
             // tbLocation.KeyPress += TbLocation_KeyPress;
-
-
             button4.LongClick += Button4_LongClick; 
             btSaveOrUpdate.LongClick += BtSaveOrUpdate_LongClick;
         }
@@ -338,7 +336,7 @@ namespace Scanner
                     }
 
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
 
 
@@ -1265,9 +1263,6 @@ namespace Scanner
                         Finish();
 
                     }
-
-
-
 
                 }
             }

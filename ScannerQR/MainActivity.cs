@@ -27,6 +27,7 @@ using Scanner.App;
 using Microsoft.AppCenter.Distribute;
 using Uri = System.Uri;
 using System.Threading.Tasks;
+using Scanner.Caching;
 
 namespace Scanner
 {
@@ -61,6 +62,9 @@ namespace Scanner
       
         private void ProcessRegistration()
         {
+            var intent = new Intent(this, typeof(CachingService));
+            StartService(intent);
+
             if (IsOnline())
             {
                 
