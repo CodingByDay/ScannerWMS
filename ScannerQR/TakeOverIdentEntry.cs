@@ -81,7 +81,7 @@ namespace Scanner
             button4.Click += Button4_Click;
             button5.Click += Button5_Click;
             tbIdent.RequestFocus();
-            identData = await MakeTheApiCallForTheIdentData();
+            identData = Caching.Caching.SavedList;
             Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
             spinnerIdent.Prompt = "Iskanje";
@@ -112,28 +112,6 @@ namespace Scanner
 
         }
 
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <returns></returns>
-        private async Task<List<string>> MakeTheApiCallForTheIdentData()
-        {
-            await Task.Run(() =>
-            {
-                returnList = new List<string>();
-                // Call the API.
-                string error;
-                var idents = Services.GetObjectList("id", out error, "");
-
-                idents.Items.ForEach(x =>
-                {
-                    returnList.Add(x.GetString("Code"));
-                });
-
-
-            });
-            return returnList;
-        }
 
         private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
         {

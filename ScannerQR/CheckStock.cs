@@ -203,7 +203,7 @@ namespace Scanner
             cbWarehouses.Adapter = adapterWarehouse;
             Toast.MakeText(this, $"Pripravljam seznam.", ToastLength.Long).Show();
 
-            identData = await MakeTheApiCallForTheIdentData();
+            identData = Caching.Caching.SavedList;
             Toast.MakeText(this, $"Seznam pripravljen.", ToastLength.Long).Show();
 
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
@@ -234,24 +234,7 @@ namespace Scanner
             Toast.MakeText(this, $"Izbrali ste  {identData.ElementAt(e.Position)}", ToastLength.Long).Show();
         }
 
-        private async Task<List<string>> MakeTheApiCallForTheIdentData()
-        {
-            await Task.Run(() =>
-            {
-                returnList = new List<string>();
-                // Call the API.
-                string error;
-                var idents = Services.GetObjectList("id", out error, "");
-
-                idents.Items.ForEach(x =>
-                {
-                    returnList.Add(x.GetString("Code"));
-                });
-
-
-            });
-            return returnList;
-        }
+    
         public override void OnBackPressed()
         {
 

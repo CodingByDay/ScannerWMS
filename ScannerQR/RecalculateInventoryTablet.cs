@@ -71,7 +71,7 @@ namespace Scanner
             barcode2D.open(this, this);
 
             color();
-            identData = await MakeTheApiCallForTheIdentData();
+            identData = Caching.Caching.SavedList;
 
             btCalculate.Click += BtCalculate_Click;
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
@@ -94,24 +94,7 @@ namespace Scanner
 
 
 
-        private async Task<List<string>> MakeTheApiCallForTheIdentData()
-        {
-            await Task.Run(() =>
-            {
-                returnList = new List<string>();
-                // Call the API.
-                string error;
-                var idents = Services.GetObjectList("id", out error, "");
-
-                idents.Items.ForEach(x =>
-                {
-                    returnList.Add(x.GetString("Code"));
-                });
-
-
-            });
-            return returnList;
-        }
+        
         private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             var item = e.Position;

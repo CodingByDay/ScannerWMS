@@ -180,7 +180,7 @@ namespace Scanner
            
 
             Toast.MakeText(this, "Nalagamo seznam.", ToastLength.Long).Show();
-            dataIdent = await MakeTheApiCallForTheIdentData();
+            dataIdent = Caching.Caching.SavedList;
             Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
 
             var DataAdapter = new ArrayAdapter<string>(this,
@@ -205,27 +205,7 @@ namespace Scanner
             ProcessIdent();
         }
 
-        /// <summary>
-        ///  
-        /// </summary>
-        private async Task<List<string>> MakeTheApiCallForTheIdentData()
-        {
-            await Task.Run(() =>
-            {
-                returnList = new List<string>();
-                // Call the API.
-                string error;
-                var idents = Services.GetObjectList("id", out error, "");
-
-                idents.Items.ForEach(x =>
-                {
-                    returnList.Add(x.GetString("Code"));
-                });
-
-
-            });
-            return returnList;
-        }
+      
 
         private void TbTitle_FocusChange(object sender, View.FocusChangeEventArgs e)
         {

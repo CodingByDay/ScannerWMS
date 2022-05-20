@@ -135,29 +135,7 @@ namespace TrendNET.WMS.Device.Services
            
         }
      
-        public static NameValueObjectList ListIdentsAndLocationsMethod()
-        {
-            if(allIdents == null)
-            {
-
-                try
-                {
-                    //  wf.Start("Nalagam seznam izmen iz strežnika...");
-                    string error;
-                    shifts = Services.GetObjectList("id", out error, "");
-                    if (shifts == null)
-                    {
-                        //  Program.Exit(() => { MessageForm.Show("Napaka pri dostopu do web aplikacije: " + error); });
-                        return null;
-                    }
-                }
-                finally
-                {
-                    //  wf.Stop();
-                }
-            }
-            return allIdents;
-        }
+      
         public static NameValueObjectList ListShifts()
         {
             if (shifts == null)

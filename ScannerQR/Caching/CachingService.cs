@@ -48,7 +48,6 @@ namespace Scanner.Caching
         {
             SerializeListCallAPIPersist();
 
-
             return StartCommandResult.NotSticky;
         }
         /// <summary>
@@ -58,8 +57,7 @@ namespace Scanner.Caching
         {
             List<string> list = await MakeTheApiCallForTheIdentData();
             var json = Caching.SavedList = list;
-
-
+   
         }
     }
 }

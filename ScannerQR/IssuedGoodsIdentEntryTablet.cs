@@ -250,7 +250,7 @@ namespace Scanner
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
 
 
-            identData = await MakeTheApiCallForTheIdentData();
+            identData = Caching.Caching.SavedList;
             Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
             spinnerIdent.Prompt = "Iskanje";
@@ -264,24 +264,7 @@ namespace Scanner
             tbIdent.LongClick += ClearTheFields;
         }
 
-        private async Task<List<string>> MakeTheApiCallForTheIdentData()
-        {
-            await Task.Run(() =>
-            {
-                returnList = new List<string>();
-                // Call the API.
-                string error;
-                var idents = Services.GetObjectList("id", out error, "");
-
-                idents.Items.ForEach(x =>
-                {
-                    returnList.Add(x.GetString("Code"));
-                });
-
-
-            });
-            return returnList;
-        }
+      
         private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
 

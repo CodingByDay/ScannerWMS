@@ -73,7 +73,7 @@ namespace Scanner
 
             color();
 
-            identData = await MakeTheApiCallForTheIdentData();
+            identData = Caching.Caching.SavedList;
 
             btCalculate.Click += BtCalculate_Click;
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
@@ -105,25 +105,7 @@ namespace Scanner
         {
             ident.Text = "";
         }
-        private async Task<List<string>> MakeTheApiCallForTheIdentData()
-        {
-            await Task.Run(() =>
-            {
-                returnList = new List<string>();
-                // Call the API.
-                string error;
-                var idents = Services.GetObjectList("id", out error, "");
-
-                idents.Items.ForEach(x =>
-                {
-                    returnList.Add(x.GetString("Code"));
-                });
-
-
-            });
-            return returnList;
-        }
-
+       
 
         private async void BtCalculate_Click(object sender, EventArgs e)
         {

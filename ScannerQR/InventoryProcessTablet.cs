@@ -113,7 +113,7 @@ namespace Scanner
 
             cbWarehouse.Adapter = adapterIssue;
             color();
-            identData = await MakeTheApiCallForTheIdentData();
+            identData = Caching.Caching.SavedList;
             Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
 
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
@@ -140,24 +140,7 @@ namespace Scanner
             tbIdent.Text = identData.ElementAt(e.Position);
         }
 
-        private async Task<List<string>> MakeTheApiCallForTheIdentData()
-        {
-            await Task.Run(() =>
-            {
-                returnList = new List<string>();
-                // Call the API.
-                string error;
-                var idents = Services.GetObjectList("id", out error, "");
-
-                idents.Items.ForEach(x =>
-                {
-                    returnList.Add(x.GetString("Code"));
-                });
-
-
-            });
-            return returnList;
-        }
+       
         private void TbIdent_KeyPress(object sender, View.KeyEventArgs e)
         {
             e.Handled = false;
