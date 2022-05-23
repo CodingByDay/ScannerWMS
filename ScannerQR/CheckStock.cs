@@ -201,10 +201,10 @@ namespace Scanner
          Android.Resource.Layout.SimpleSpinnerItem, spinnerAdapterList);
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouses.Adapter = adapterWarehouse;
-            Toast.MakeText(this, $"Pripravljam seznam.", ToastLength.Long).Show();
+
 
             identData = Caching.Caching.SavedList;
-            Toast.MakeText(this, $"Seznam pripravljen.", ToastLength.Long).Show();
+
 
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
 

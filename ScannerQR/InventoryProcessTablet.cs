@@ -114,7 +114,6 @@ namespace Scanner
             cbWarehouse.Adapter = adapterIssue;
             color();
             identData = Caching.Caching.SavedList;
-            Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
 
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
 

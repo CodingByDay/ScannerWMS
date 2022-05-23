@@ -227,7 +227,6 @@ namespace Scanner
         protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Toast.MakeText(this, "Pripravljam seznam", ToastLength.Long).Show();
             // Create your application here
             SetContentView(Resource.Layout.IssuedGoodsIdentEntry);
             tbOrder = FindViewById<EditText>(Resource.Id.tbOrder);
@@ -262,7 +261,6 @@ namespace Scanner
 
 
             identData = Caching.Caching.SavedList;
-            Toast.MakeText(this, "Seznam pripravljen.", ToastLength.Long).Show();
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
             spinnerIdent.Prompt = "Iskanje";
             spinnerIdent.SetTitle("Iskanje");

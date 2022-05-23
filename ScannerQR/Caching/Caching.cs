@@ -37,7 +37,17 @@ namespace Scanner.Caching
             }
         }
 
-        static T Deserialize<T>(string serializedObject) => JsonConvert.DeserializeObject<T>(serializedObject);
+        static T Deserialize<T>(string serializedObject) {
+
+
+            if (serializedObject != null) {
+                return JsonConvert.DeserializeObject<T>(serializedObject);
+
+
+           }
+            return default(T);
+
+        } 
 
         static string Serialize<T>(T objectToSerialize) => JsonConvert.SerializeObject(objectToSerialize);
     }
