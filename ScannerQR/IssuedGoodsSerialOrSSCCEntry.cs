@@ -77,7 +77,6 @@ namespace Scanner
             tbIdent.InputType = Android.Text.InputTypes.ClassNumber;
             tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
             tbLocation.InputType = Android.Text.InputTypes.ClassNumber;
-            tbPacking.InputType = Android.Text.InputTypes.ClassNumber | Android.Text.InputTypes.NumberFlagSigned | Android.Text.InputTypes.NumberFlagDecimal;
             tbUnits.InputType = Android.Text.InputTypes.ClassNumber;
             tbPalette.InputType = Android.Text.InputTypes.ClassNumber;
             button1 = FindViewById<Button>(Resource.Id.button1);

@@ -935,7 +935,6 @@ namespace Scanner
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbPacking = FindViewById<EditText>(Resource.Id.tbPacking);
             tbUnits = FindViewById<EditText>(Resource.Id.tbUnits);
-            tbPacking.InputType = Android.Text.InputTypes.ClassNumber | Android.Text.InputTypes.NumberFlagSigned | Android.Text.InputTypes.NumberFlagDecimal;
 
 
             tbSSCC.InputType = Android.Text.InputTypes.ClassNumber;
