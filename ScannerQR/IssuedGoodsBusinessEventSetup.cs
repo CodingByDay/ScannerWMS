@@ -80,13 +80,8 @@ namespace Scanner
             });
             var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectWarehouse);
-            ///* 22.12.2020---------------------------------------------------------------
-            ///* Documentation for the spinner objects add method with an adapter...
-            ///*---------------------------------------------------
-            ///
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
             cbWarehouse.Adapter = adapterWarehouse;
-            // Function update form...
             UpdateForm();
 
             var adapterDocType = new ArrayAdapter<ComboBoxItem>(this,
@@ -149,58 +144,66 @@ namespace Scanner
 
         private void FillOpenOrders()
         {
-            if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
+            try
             {
-                string toast = string.Format("Pridobivam seznam odprtih naročila");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
 
-                try
+
+                if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                 {
-                    objectExtra.Clear();
-                    var dt = objectDocType.ElementAt(temporaryPositionDoc);
+                    string toast = string.Format("Pridobivam seznam odprtih naročila");
+                    Toast.MakeText(this, toast, ToastLength.Long).Show();
 
-                    if (dt != null)
+                    try
                     {
+                        objectExtra.Clear();
+                        var dt = objectDocType.ElementAt(temporaryPositionDoc);
 
-                        var wh = objectWarehouse.ElementAt(temporaryPositionWarehouse);
-                        if (wh != null && !string.IsNullOrEmpty(wh.ID))
+                        if (dt != null)
                         {
 
-                            string error;
-
-                            positions = Services.GetObjectList("oodtw", out error, dt.ID + "|" + wh.ID + "|" + byClient);
-                            var t = 1;
-                            if (positions == null)
+                            var wh = objectWarehouse.ElementAt(temporaryPositionWarehouse);
+                            if (wh != null && !string.IsNullOrEmpty(wh.ID))
                             {
-                                string toasted = string.Format("Napaka pri pridobivanju odprtih naročil: " + error);
-                                Toast.MakeText(this, toasted, ToastLength.Long).Show();
-                                return;
-                            }
 
-                            positions.Items.ForEach(p =>
-                            {
-                                if (!string.IsNullOrEmpty(p.GetString("Key")))
+                                string error;
+
+                                positions = Services.GetObjectList("oodtw", out error, dt.ID + "|" + wh.ID + "|" + byClient);
+                                var t = 1;
+                                if (positions == null)
                                 {
-
-                                    objectExtra.Add(new ComboBoxItem { ID = p.GetString("Key"), Text = p.GetString("ShortKey") + " " + p.GetString("FillPercStr") + " " + p.GetString("Receiver") });
-
+                                    string toasted = string.Format("Napaka pri pridobivanju odprtih naročil: " + error);
+                                    Toast.MakeText(this, toasted, ToastLength.Long).Show();
+                                    return;
                                 }
-                            });
-                            var debug = objectExtra.Count;
-                            var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
-                            Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
-                            adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
-                            cbExtra.Adapter = null;
-                            cbExtra.Adapter = adapterExtra;
 
-                            cbExtra.RequestFocus();
+                                positions.Items.ForEach(p =>
+                                {
+                                    if (!string.IsNullOrEmpty(p.GetString("Key")))
+                                    {
+
+                                        objectExtra.Add(new ComboBoxItem { ID = p.GetString("Key"), Text = p.GetString("ShortKey") + " " + p.GetString("FillPercStr") + " " + p.GetString("Receiver") });
+
+                                    }
+                                });
+                                var debug = objectExtra.Count;
+                                var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
+                                Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
+                                adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
+                                cbExtra.Adapter = null;
+                                cbExtra.Adapter = adapterExtra;
+
+                                cbExtra.RequestFocus();
+                            }
                         }
                     }
+                    finally
+                    {
+                        //pass
+                    }
                 }
-                finally
-                {
-                    //pass
-                }
+            } catch
+            {
+                // Log
             }
         }
         private void BtnLogout_Click(object sender, EventArgs e)

@@ -378,7 +378,7 @@ namespace Scanner
                     var sscc = obj.SSCC;
 
                     string result;
-                    if (WebApp.Get("mode=canAddSerial&hid=" + headID.ToString() + "&sn=" + serialNo + "&sscc=" + sscc, out result))
+                    if (WebApp.Get("mode=canAddSerial2&hid=" + headID.ToString() + "&sn=" + serialNo + "&sscc=" + sscc + "&ident=" + openIdent.GetString("Code"), out result))
                     {
                         if (!result.StartsWith("OK!"))
                         {
@@ -1082,7 +1082,8 @@ namespace Scanner
                  
 
                     string result;
-                    if (WebApp.Get("mode=canAddSerial&hid=" + headID.ToString() + "&sn=" + objectItem.Serial + "&sscc=" + objectItem.SSCC, out result))
+
+                    if (WebApp.Get("mode=canAddSerial2&hid=" + headID.ToString() + "&sn=" + objectItem.Serial + "&sscc=" + objectItem.SSCC + "&ident=" + openIdent.GetString("Code"), out result))
                     {
                         if (!result.StartsWith("OK!"))
                         {
@@ -1576,7 +1577,8 @@ namespace Scanner
                     var serialNo = tbSerialNum.Text.Trim();
                     var sscc = tbSSCC.Text.Trim();
                     string result;
-                    if (WebApp.Get("mode=canAddSerial&hid=" + headID.ToString() + "&sn=" + serialNo + "&sscc=" + sscc, out result))
+
+                    if (WebApp.Get("mode=canAddSerial2&hid=" + headID.ToString() + "&sn=" + serialNo + "&sscc=" + sscc + "&ident=" + openIdent.GetString("Code"), out result))
                     {
                         if (!result.StartsWith("OK!"))
                         {
