@@ -5,7 +5,7 @@
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <ActiveDebugProfile>HANDHELD</ActiveDebugProfile>
-    <DefaultDevice>tablet_m-dpi_10_1in_pie_9_0_-_api_28</DefaultDevice>
+    <DefaultDevice>nexus_4_pie_9_0_-_api_28</DefaultDevice>
     <SelectedPlatformGroup>PhysicalDevice</SelectedPlatformGroup>
   </PropertyGroup>
   <PropertyGroup>

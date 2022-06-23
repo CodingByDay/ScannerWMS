@@ -28,6 +28,7 @@ using Microsoft.AppCenter.Distribute;
 using Uri = System.Uri;
 using System.Threading.Tasks;
 using Scanner.Caching;
+using Scanner.Background;
 
 namespace Scanner
 {
@@ -64,7 +65,8 @@ namespace Scanner
         {
             var intent = new Intent(this, typeof(CachingService));
             StartService(intent);
-
+            var inactivity = new Intent(this, typeof(Inactivity));
+            StartService(inactivity);
             if (IsOnline())
             {
                 

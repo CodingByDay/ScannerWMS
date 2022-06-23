@@ -187,6 +187,7 @@
     <Compile Include="App\WebApp.cs" />
     <Compile Include="App\WindowDispatcher.cs" />
     <Compile Include="App\WMSDeviceConfig.cs" />
+    <Compile Include="Background\Inactivity.cs" />
     <Compile Include="Caching\Caching.cs" />
     <Compile Include="Caching\CachingService.cs" />
     <Compile Include="CheckStock.cs" />
