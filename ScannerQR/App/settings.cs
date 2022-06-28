@@ -22,7 +22,11 @@ namespace Scanner.App
       
 
 
-        
+        public static bool restart
+        {
+            get => AppSettings.GetValueOrDefault(nameof(restart), false);
+            set => AppSettings.AddOrUpdateValue(nameof(restart), value);    
+        }
 
         public static string ID
         {

@@ -268,7 +268,7 @@ namespace Scanner
         /* Save move head method. */
         private bool SaveMoveHead()
         {
-            if (selected == 1)
+            if (selected == -1)
             {
                 string WebError = string.Format("Kritična napaka.");
                 Toast.MakeText(this, WebError, ToastLength.Long).Show();

@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
-using Android.Views.InputMethods;
 using Android.Widget;
 using Com.Toptoche.Searchablespinnerlibrary;
-using Java.Lang;
-using Java.Lang.Reflect;
-using Org.Xmlpull.V1.Sax2;
 using Scanner.App;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
-using static Android.Widget.AdapterView;
 using static Com.Toptoche.Searchablespinnerlibrary.SearchableListDialog;
 
 namespace Scanner
@@ -32,9 +26,9 @@ namespace Scanner
         public NameValueObjectList docTypes = null;
         private SearchableSpinner cbWarehouse;
         private SearchableSpinner cbExtra;
-        List<ComboBoxItem> objectDocType = new List<ComboBoxItem>();
-        List<ComboBoxItem> objectWarehouse = new List<ComboBoxItem>();
-        List<ComboBoxItem> objectExtra = new List<ComboBoxItem>();
+        private List<ComboBoxItem> objectDocType = new List<ComboBoxItem>();
+        private List<ComboBoxItem> objectWarehouse = new List<ComboBoxItem>();
+        private List<ComboBoxItem> objectExtra = new List<ComboBoxItem>();
         private int temporaryPositionDoc = 0;
         private int temporaryPositionWarehouse = 0;
         private int temporaryPositionExtra = 0;
@@ -50,7 +44,7 @@ namespace Scanner
         private TextView focus;
         private NameValueObjectList positions = null;
         private IOnSearchTextChanged onSearchTextChanged;
-
+        private Button btnHidden;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -63,6 +57,7 @@ namespace Scanner
             btnOrderMode = FindViewById<Button>(Resource.Id.btnOrderMode);
             btnOrder = FindViewById<Button>(Resource.Id.btnOrder);
             btnLogout = FindViewById<Button>(Resource.Id.btnLogout);
+            btnHidden = FindViewById<Button>(Resource.Id.btnHidden);
             cbDocType.ItemSelected += CbDocType_ItemSelected;
             cbExtra.ItemSelected += CbExtra_ItemSelected;
             cbWarehouse.ItemSelected += CbWarehouse_ItemSelected;
@@ -72,7 +67,6 @@ namespace Scanner
             hidden = FindViewById<Button>(Resource.Id.hidden);
             hidden.Click += Hidden_Click;
             focus = FindViewById<TextView>(Resource.Id.focus);
-            // next
             var warehouses = CommonData.ListWarehouses();
             warehouses.Items.ForEach(wh =>
             {
@@ -83,7 +77,7 @@ namespace Scanner
             adapterWarehouse.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
             cbWarehouse.Adapter = adapterWarehouse;
             UpdateForm();
-
+            btnHidden.Click += BtnHidden_Click;
             var adapterDocType = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectDocType);
             adapterDocType.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
@@ -94,18 +88,40 @@ namespace Scanner
             cbDocType.SetPositiveButton("Zapri");
             cbExtra.Prompt = "Iskanje";
             cbExtra.SetTitle("Iskanje");
+
             cbExtra.SetPositiveButton("Zapri", this);
             cbWarehouse.SetTitle("Iskanje");
             cbWarehouse.SetPositiveButton("Zapri");
-
-            cbExtra.SetOnSearchTextChangedListener(this);
-
             
+            cbExtra.SetOnSearchTextChangedListener(this);
+            BottomSheetActions bottomSheetActions  = new BottomSheetActions();  
+            
+        }
+        internal class BottomSheetActions : Java.Lang.Object, IDialogInterfaceOnClickListener
+        {
+            public void OnClick(IDialogInterface dialog, int which)
+            {
+                Console.WriteLine("Hello fox");
+            }
+
+          
+        }
+        public void OnClick(IDialogInterface dialog, int which)
+        {
+           
+        }
+        public override void OnBackPressed()
+        {
+        
+        }
+        private void BtnHidden_Click(object sender, EventArgs e)
+        {
+            OnBackPressed(); 
+            cbExtra.PerformClick();
         }
 
         private void Hidden_Click(object sender, EventArgs e)
         {
-          
             focus.RequestFocus();
         }
 
@@ -134,20 +150,14 @@ namespace Scanner
                         BtnLogout_Click(this, null);
                     }
                     break;
-
-
-
             }
             return base.OnKeyDown(keyCode, e);
         }
-
 
         private void FillOpenOrders()
         {
             try
             {
-
-
                 if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                 {
                     string toast = string.Format("Pridobivam seznam odprtih naročila");
@@ -160,11 +170,9 @@ namespace Scanner
 
                         if (dt != null)
                         {
-
                             var wh = objectWarehouse.ElementAt(temporaryPositionWarehouse);
                             if (wh != null && !string.IsNullOrEmpty(wh.ID))
                             {
-
                                 string error;
 
                                 positions = Services.GetObjectList("oodtw", out error, dt.ID + "|" + wh.ID + "|" + byClient);
@@ -180,9 +188,7 @@ namespace Scanner
                                 {
                                     if (!string.IsNullOrEmpty(p.GetString("Key")))
                                     {
-
                                         objectExtra.Add(new ComboBoxItem { ID = p.GetString("Key"), Text = p.GetString("ShortKey") + " " + p.GetString("FillPercStr") + " " + p.GetString("Receiver") });
-
                                     }
                                 });
                                 var debug = objectExtra.Count;
@@ -190,22 +196,27 @@ namespace Scanner
                                 Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
                                 adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
                                 cbExtra.Adapter = null;
+                                
                                 cbExtra.Adapter = adapterExtra;
-
+                                adapterExtra.NotifyDataSetChanged();    
+                                cbExtra.RefreshDrawableState();
+                                
                                 cbExtra.RequestFocus();
                             }
                         }
                     }
                     finally
                     {
-                        //pass
+
                     }
                 }
-            } catch
+            }
+            catch
             {
-                // Log
+
             }
         }
+
         private void BtnLogout_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MainActivity));
@@ -234,9 +245,7 @@ namespace Scanner
 
         private void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-
             SearchableSpinner spinner = (SearchableSpinner)sender;
-
 
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
@@ -244,14 +253,19 @@ namespace Scanner
             FillOpenOrders();
         }
 
-        private void CbExtra_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        private async void CbExtra_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             SearchableSpinner spinner = (SearchableSpinner)sender;
-
 
             string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
             temporaryPositionExtra = e.Position;
+
+
+            if(temporaryPositionExtra !=  0)
+            {
+             await SendEvents();
+            }
 
         }
 
@@ -273,10 +287,7 @@ namespace Scanner
                 if (string.IsNullOrEmpty(wh)) { wh = CommonData.GetSetting("DefaultWarehouse"); }
                 ComboBoxItem.Select(cbDocType, objectDocType, "");
                 ComboBoxItem.Select(cbWarehouse, objectWarehouse, wh);
-                
 
-                /// Choosing the right item.
-                /// 
                 if (!byOrder)
                 {
                     var rec = docType.GetString("Receiver");
@@ -300,8 +311,6 @@ namespace Scanner
                     lbExtra.Visibility = ViewStates.Visible;
                     cbExtra.Visibility = ViewStates.Visible;
                     lbExtra.Text = "Naročilo:";
-
-
                 }
                 else
                 {
@@ -311,7 +320,6 @@ namespace Scanner
                 if (initial > 0)
                 {
                     FillOpenOrders();
-
                 }
                 docTypes = CommonData.ListDocTypes("P|N");
                 btnOrderMode.Text = "Brez nar. - F3";
@@ -343,7 +351,6 @@ namespace Scanner
             });
         }
 
-
         private bool isOrderLess()
         {
             if (btnOrderMode.Text == "Brez nar. - F3")
@@ -355,7 +362,6 @@ namespace Scanner
                 return false;
             }
         }
-
 
         private void NextStep()
         {
@@ -403,7 +409,6 @@ namespace Scanner
                             itemSubj = objectExtra.ElementAt(temporaryPositionExtra);
                             if (itemSubj == null)
                             {
-
                                 string toast = string.Format("Subjekt more biti izbran.");
                                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                                 return;
@@ -412,66 +417,53 @@ namespace Scanner
                             InUseObjects.Set("OpenOrder", order);
                         }
 
-
                         if (byOrder && CommonData.GetSetting("UseSingleOrderIssueing") == "1")
                         {
-
                             StartActivity(typeof(IssuedGoodsIdentEntryWithTrail));
                             Finish();
                         }
                         else
                         {
-
                             StartActivity(typeof(IssuedGoodsIdentEntry));
                             Finish();
-
                         }
                     }
                 }
             }
         }
 
-
         private async Task SendEvents()
         {
             await Task.Run(() =>
             {
+                Thread.Sleep(800);
+
                 Instrumentation inst = new Instrumentation();
 
                 inst.SendKeyDownUpSync(Keycode.Escape);
+
+        
 
             });
         }
 
         public async void OnSearchTextChanged(string p0)
         {
-            byClient = p0;
+  
+                byClient = p0;
 
-            // 
-
-            if (byClient.Length >= 3 | byClient.Length == 0)
-            {
-
-
-                FillOpenOrders();
-
-                await SendEvents();
-
-
-            }
+                if (byClient.Length >= 1 | byClient.Length == 0)
+                {
+                    FillOpenOrders();
+                    var adapter = cbExtra.Adapter;
+                    await SendEvents();
+             
+                    cbExtra.PerformClick();              
+                }
 
         }
 
-        public void OnClick(IDialogInterface dialog, int which)
-        {
-            //{android.app.AlertDialog@533ff97}
-            //-a
-            var debug = dialog;
-            var s = which;
-            var sd = 42;
-        }
 
-        
-     
+
     }
 }

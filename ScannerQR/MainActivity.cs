@@ -29,6 +29,7 @@ using Uri = System.Uri;
 using System.Threading.Tasks;
 using Scanner.Caching;
 using Scanner.Background;
+using AlertDialog = Android.App.AlertDialog;
 
 namespace Scanner
 {
@@ -45,7 +46,7 @@ namespace Scanner
         private ImageView img;
         private TextView deviceURL;
         private bool tablet = settings.tablet;
-        private Button btnOk;
+        private Button btnOkRestart;
 
         public object MenuInflaterFinal { get; private set; }
 
@@ -56,17 +57,25 @@ namespace Scanner
             return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
             
         }
+     
+     
+        
+       
 
+        private void BtnOkRestart_Click(object sender, EventArgs e)
+        {
+            var stop = true;
+        }
 
-
-
-      
         private void ProcessRegistration()
         {
             var intent = new Intent(this, typeof(CachingService));
             StartService(intent);
             var inactivity = new Intent(this, typeof(Inactivity));
             StartService(inactivity);
+           
+
+
             if (IsOnline())
             {
                 
@@ -136,8 +145,18 @@ namespace Scanner
             }
 
         }
+
+
+       
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+        }
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            settings.restart = false;
+
             Distribute.ReleaseAvailable = OnReleaseAvailable;
             Distribute.SetEnabledAsync(true);
 
@@ -145,8 +164,7 @@ namespace Scanner
                    typeof(Analytics), typeof(Crashes), typeof(Distribute));
             Crashes.NotifyUserConfirmation(UserConfirmation.AlwaysSend); /* Always send crash reports */ /*https://appcenter.ms/apps */
             /// Solved analytics...
-            
-             ChangeTheOrientation();
+            ChangeTheOrientation();
             // Analytics.SetEnabledAsync(true);            
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
@@ -209,8 +227,8 @@ namespace Scanner
                 popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloRedLight);
 
                 // Access Pop-up layout fields like below
-                btnOk = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
-                btnOk.Click += BtnOk_Click;
+                btnOkRestart = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
+                btnOkRestart.Click += BtnOk_Click;
             
         
        

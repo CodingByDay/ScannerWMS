@@ -14,6 +14,7 @@ using Microsoft.AppCenter.Analytics;
 using Scanner;
 using Scanner.App;
 using TrendNET.WMS.Device.Services;
+using static Android.App.ActionBar;
 
 namespace Scanner
 {
@@ -35,6 +36,9 @@ namespace Scanner
         private Button btnLogout;
         private Button PalletsMenu;
         private Button btRecalculate;
+        private Dialog popupDialog;
+        private Button btnOkRestart;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
            
@@ -96,7 +100,32 @@ namespace Scanner
         }
 
 
+        protected override void OnResume()
+        {
+            var restartNeeded = settings.restart;
+            if (restartNeeded)
+            {
+                popupDialog = new Dialog(this);
+                popupDialog.SetContentView(Resource.Layout.restart);
+                popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+                popupDialog.Show();
 
+                popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+                popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloRedLight);
+
+                // Access Pop-up layout fields like below
+                btnOkRestart = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
+                btnOkRestart.Click += BtnOkRestart_Click;
+
+            }
+            base.OnResume();
+        }
+
+        private void BtnOkRestart_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+          
+        }
 
         private void ProccessRapidTakeover()
         {

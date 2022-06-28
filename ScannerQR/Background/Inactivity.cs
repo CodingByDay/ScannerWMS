@@ -4,7 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-
+using Scanner.App;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +37,10 @@ namespace Scanner.Background
 
         private void Timer1_Elapsed(object sender, ElapsedEventArgs e)
         {
-            Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
+            settings.restart = true;
+
+
+
         }
     }
 }

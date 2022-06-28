@@ -36,8 +36,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/lbExtra" />
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:spinnerMode="dialog"
         android:layout_width="match_parent"
         android:layout_height="69.5dp"
+        android:clickable="true"
         android:id="@+id/cbExtra" />
     <TextView
         android:textStyle="bold"
@@ -54,7 +56,17 @@
         android:orientation="horizontal"
         android:weightSum="2"
         android:paddingTop="5dp">
-
+        <Button
+            android:visibility="gone"
+            android:textSize="20dp"
+            android:background="@drawable/nicelookingbutton"
+            android:text="hidden"
+            android:drawableLeft="@drawable/confirmation"
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="70.0dp"
+            android:layout_weight="1"
+            android:id="@+id/btnHidden" />
         <Button
             android:textSize="20dp"
             android:background="@drawable/nicelookingbutton"
