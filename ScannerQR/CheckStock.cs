@@ -185,16 +185,8 @@ namespace Scanner
             {
                 spinnerAdapterList.Add(new ComboBoxItem { ID = wh.GetString("Subject"), Text = wh.GetString("Name") });
             });
-            var dw = CommonData.GetSetting("DefaultWarehouse");
-            if (!string.IsNullOrEmpty(dw))
-            {
-                ComboBoxItem.Select(cbWarehouses, spinnerAdapterList, dw);
-                tbIdent.RequestFocus();
-            }
-            else
-            {
-                // pass WMS select first, nothing happens anyway, 'cause the first one would have already been selected anyway.
-            }
+         
+        
             lbStock = FindViewById<TextView>(Resource.Id.lbStock);
 
             var adapterWarehouse = new ArrayAdapter<ComboBoxItem>(this,
@@ -220,6 +212,14 @@ namespace Scanner
             spinnerLocation.SetTitle("Iskanje");
             spinnerLocation.SetPositiveButton("Zapri");
 
+
+
+            var dw = CommonData.GetSetting("DefaultWarehouse");
+            if (!string.IsNullOrEmpty(dw))
+            {
+                ComboBoxItem.Select(cbWarehouses, spinnerAdapterList, dw);
+                tbIdent.RequestFocus();
+            }
 
         }
         private void SpinnerLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)

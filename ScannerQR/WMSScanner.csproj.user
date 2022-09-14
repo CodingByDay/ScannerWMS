@@ -4,7 +4,7 @@
     <SelectedDevice>HANDHELD</SelectedDevice>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
-    <ActiveDebugProfile>HANDHELD</ActiveDebugProfile>
+    <ActiveDebugProfile>HANDHELD %28Android 9.0 - API 28%29</ActiveDebugProfile>
     <DefaultDevice>nexus_4_pie_9_0_-_api_28</DefaultDevice>
     <SelectedPlatformGroup>PhysicalDevice</SelectedPlatformGroup>
   </PropertyGroup>

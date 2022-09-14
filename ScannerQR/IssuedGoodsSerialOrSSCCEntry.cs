@@ -683,7 +683,7 @@ namespace Scanner
                 if (WebApp.Get("mode=bestLoc&wh=" + warehouse + "&ident=" + HttpUtility.UrlEncode(ident) + "&locMode=outgoing", out result))
                 {
                     var test = result;
-                    if (test != "Exception: The remote server returned an error: (404) Not Found.")
+                    if (test != "Exception: The remote server returned an error: (404) Not Found." && test!=String.Empty)
                     {
                         tbLocation.Text = result;
                     }
@@ -1132,7 +1132,6 @@ namespace Scanner
                 moveItem.SetInt("Clerk", Services.UserID());
                 moveItem.SetString("Location", objectItem.Location.Trim());
                 moveItem.SetString("Palette", tbPalette.Text.Trim());
-
                 string error;
 
                 moveItem = Services.SetObject("mi", moveItem, out error);
@@ -1308,6 +1307,7 @@ namespace Scanner
 
                 if (extraData != null)
                 {
+                  
                     tbLocation.Text = extraData.GetString("Location");
                     tbPacking.Text = extraData.GetDouble("Qty").ToString();
                 }
@@ -1342,14 +1342,14 @@ namespace Scanner
             tbIdent.RequestFocus();
             var ident = openIdent.GetString("Code");
             var location = CommonData.GetSetting("DefaultProductionLocation");
-
-            if (location != null)
+            if (tbLocation.Text == String.Empty)
             {
-                tbLocation.Text = location;
+                if (location != null)
+                {
+                    tbLocation.Text = location;
 
-            } else
-            {
-                
+                }
+
             }
             var warehouse = moveHead.GetString("Wharehouse");
             if (moveItem != null) { }
