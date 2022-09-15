@@ -264,7 +264,7 @@ namespace Scanner
 
             if(temporaryPositionExtra !=  0)
             {
-             await SendEvents();
+                await SendEvents();
             }
 
         }
@@ -272,32 +272,40 @@ namespace Scanner
         private void CbDocType_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
 
         {
-            SearchableSpinner spinner = (SearchableSpinner)sender;
-
-            string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
-            Toast.MakeText(this, toast, ToastLength.Long).Show();
-            temporaryPositionDoc = e.Position;
-            var dt = (ComboBoxItem)objectDocType.ElementAt(e.Position);
-
-            var docType = docTypes.Items.FirstOrDefault(x => x.GetString("Code") == dt.ID);
-            if (dt != null)
+            try
             {
-                var wh = docType.GetString("IssueWarehouse");
-                if (string.IsNullOrEmpty(wh)) { docType.GetString("ReceiveWarehouse"); }
-                if (string.IsNullOrEmpty(wh)) { wh = CommonData.GetSetting("DefaultWarehouse"); }
-                ComboBoxItem.Select(cbDocType, objectDocType, "");
-                ComboBoxItem.Select(cbWarehouse, objectWarehouse, wh);
+                SearchableSpinner spinner = (SearchableSpinner)sender;
 
-                if (!byOrder)
+                string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                temporaryPositionDoc = e.Position;
+                var dt = (ComboBoxItem)objectDocType.ElementAt(e.Position);
+
+                var docType = docTypes.Items.FirstOrDefault(x => x.GetString("Code") == dt.ID);
+                if (dt != null)
                 {
-                    var rec = docType.GetString("Receiver");
-                    if (!string.IsNullOrEmpty(rec))
+                    var wh = docType.GetString("IssueWarehouse");
+                    if (string.IsNullOrEmpty(wh)) { docType.GetString("ReceiveWarehouse"); }
+                    if (string.IsNullOrEmpty(wh)) { wh = CommonData.GetSetting("DefaultWarehouse"); }
+                    ComboBoxItem.Select(cbDocType, objectDocType, "");
+                    ComboBoxItem.Select(cbWarehouse, objectWarehouse, wh);
+
+                    if (!byOrder)
                     {
-                        ComboBoxItem.Select(cbExtra, objectExtra, rec);
+                        var rec = docType.GetString("Receiver");
+                        if (!string.IsNullOrEmpty(rec))
+                        {
+                            ComboBoxItem.Select(cbExtra, objectExtra, rec);
+                        }
                     }
                 }
+                FillOpenOrders();
             }
-            FillOpenOrders();
+            catch(Exception ex)
+            {
+                string toast = string.Format("Napaka" + ex.ToString());
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+            }
         }
 
         private void UpdateForm()
