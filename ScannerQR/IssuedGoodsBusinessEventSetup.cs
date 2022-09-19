@@ -267,7 +267,6 @@ namespace Scanner
                 {
                     await SendEvents();
                 }
-
                 initialLoad = false;
             } catch
             {
