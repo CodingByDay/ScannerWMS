@@ -299,14 +299,11 @@ namespace Scanner
                     RunOnUiThread(() =>
                     {
                         progress = new ProgressDialogClass();
-
                         progress.ShowDialogSync(this, "Zaključujem");
                     });
                     try
                     {
-
                         var headID = moveHead.GetInt("HeadID");
-
                         string result;
                         if (WebApp.Get("mode=finish&stock=add&print=" + Services.DeviceUser() + "&id=" + headID.ToString(), out result))
                         {
@@ -316,27 +313,19 @@ namespace Scanner
                                 {
                                     progress.StopDialogSync();
                                     var id = result.Split('+')[1];
-
-
                                     AlertDialog.Builder alert = new AlertDialog.Builder(this);
                                     alert.SetTitle("Uspešno zaključevanje");
                                     alert.SetMessage("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
-
                                     alert.SetPositiveButton("Ok", (senderAlert, args) =>
                                     {
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
-
                                         StartActivity(typeof(MainMenu));
                                         HelpfulMethods.clearTheStack(this);
                                     });
-
-
-
                                     Dialog dialog = alert.Create();
                                     dialog.Show();
                                 });
-
                             }
                             else
                             {
@@ -346,18 +335,13 @@ namespace Scanner
                                     AlertDialog.Builder alert = new AlertDialog.Builder(this);
                                     alert.SetTitle("Napaka");
                                     alert.SetMessage("Napaka pri zaključevanju: " + result);
-
                                     alert.SetPositiveButton("Ok", (senderAlert, args) =>
                                     {
                                         alert.Dispose();
                                         System.Threading.Thread.Sleep(500);
                                         StartActivity(typeof(MainMenu));
                                         HelpfulMethods.clearTheStack(this);
-
                                     });
-
-
-
                                     Dialog dialog = alert.Create();
                                     dialog.Show();
                                 });

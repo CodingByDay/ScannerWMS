@@ -153,12 +153,8 @@ namespace Scanner
                 RunOnUiThread(() =>
                 {
                     progress = new ProgressDialogClass();
-
                     progress.ShowDialogSync(this, "Zaključujem");
                 });
-            
-
-
                 try
                 {
 
@@ -173,21 +169,15 @@ namespace Scanner
                             {
                                 progress.StopDialogSync();
                                 var id = result.Split('+')[1];
-
-
                                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                                 alert.SetTitle("Uspešno zaključevanje");
                                 alert.SetMessage("Zaključevanje uspešno! Št. prevzema:\r\n" + id);
-
                                 alert.SetPositiveButton("Ok", (senderAlert, args) =>
                                 {
                                     alert.Dispose();
                                     System.Threading.Thread.Sleep(500);
                                     StartActivity(typeof(MainMenu));
                                 });
-
-
-
                                 Dialog dialog = alert.Create();
                                 dialog.Show();
                             });
@@ -200,7 +190,6 @@ namespace Scanner
                                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                                 alert.SetTitle("Napaka");
                                 alert.SetMessage("Napaka pri zaključevanju: " + result);
-
                                 alert.SetPositiveButton("Ok", (senderAlert, args) =>
                                 {
                                     alert.Dispose();
@@ -208,9 +197,6 @@ namespace Scanner
                                     StartActivity(typeof(MainMenu));
 
                                 });
-
-
-
                                 Dialog dialog = alert.Create();
                                 dialog.Show();
                             });

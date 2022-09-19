@@ -45,6 +45,8 @@ namespace Scanner
         private NameValueObjectList positions = null;
         private IOnSearchTextChanged onSearchTextChanged;
         private Button btnHidden;
+        private bool initialLoad;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -94,8 +96,8 @@ namespace Scanner
             cbWarehouse.SetPositiveButton("Zapri");
             
             cbExtra.SetOnSearchTextChangedListener(this);
-            BottomSheetActions bottomSheetActions  = new BottomSheetActions();  
-            
+            BottomSheetActions bottomSheetActions  = new BottomSheetActions();
+            initialLoad = true;
         }
         internal class BottomSheetActions : Java.Lang.Object, IDialogInterfaceOnClickListener
         {
@@ -255,18 +257,21 @@ namespace Scanner
 
         private async void CbExtra_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            SearchableSpinner spinner = (SearchableSpinner)sender;
-
-            string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
-            Toast.MakeText(this, toast, ToastLength.Long).Show();
-            temporaryPositionExtra = e.Position;
-
-
-            if(temporaryPositionExtra !=  0)
+            try
             {
-                await SendEvents();
-            }
+                SearchableSpinner spinner = (SearchableSpinner)sender;
+                string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                temporaryPositionExtra = e.Position;
+                if (!initialLoad)
+                {
+                    await SendEvents();
+                }
 
+                initialLoad = false;
+            } catch
+            {
+            }
         }
 
         private void CbDocType_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
