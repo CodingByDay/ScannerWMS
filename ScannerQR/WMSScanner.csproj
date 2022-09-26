@@ -125,6 +125,7 @@
     <Compile Include="App\ComboBoxItem.cs" />
     <Compile Include="App\DateTimeFragment.cs" />
     <Compile Include="App\Echo.cs" />
+    <Compile Include="App\ElapsedChange.cs" />
     <Compile Include="App\GetIdentLocationList.cs" />
     <Compile Include="App\HelperMethods.cs" />
     <Compile Include="App\HelpfulMethods.cs" />
@@ -1142,6 +1143,14 @@
     <AndroidResource Include="Resources\layout\restart.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Confirmation.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\finish.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

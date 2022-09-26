@@ -97,6 +97,14 @@ namespace Scanner
             cbSubject.SetPositiveButton("Zapri");
             cbWarehouse.SetTitle("Iskanje");
             cbWarehouse.SetPositiveButton("Zapri");
+
+            var dw = CommonData.GetSetting("DefaultWarehouse");
+            if (!string.IsNullOrEmpty(dw))
+            {
+                ComboBoxItem.Select(cbWarehouse, objectcbWarehouse, dw);
+
+            }
+
         }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {

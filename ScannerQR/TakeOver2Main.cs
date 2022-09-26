@@ -98,20 +98,16 @@ namespace Scanner
             if (!moveHead.GetBool("Saved"))
             {
                 moveHead.SetString("DocumentType", CommonData.GetSetting("DirectTakeOverDocType"));
+
                 if (string.IsNullOrEmpty(moveHead.GetString("DocumentType")))
                 {
                     throw new ApplicationException("Missing setting: DirectTakeOverDocType");
                 }
-                moveHead.SetString("DocumentType", CommonData.GetSetting("DefaultWarehouse"));
+                moveHead.SetString("Wharehouse", CommonData.GetSetting("DefaultWarehouse"));
                 moveHead.SetBool("ByOrder", false);
-                //moveHead.SetString("Receiver", itemSubj.ID);
                 moveHead.SetInt("Clerk", Services.UserID());
                 moveHead.SetString("Type", "I");
-                moveHead.SetString("LinkKey", ""); // TODO ???
-                //moveHead.SetString("LinkNo", order.GetString("No"));
-                //moveHead.SetString("Document1", order.GetString("Document1"));
-                //moveHead.SetDateTime("Document1Date", order.GetDateTime("Document1Date"));
-                //moveHead.SetString("Note", order.GetString("Note"));
+                moveHead.SetString("LinkKey", ""); 
                 string error;
                 var savedMoveHead = Services.SetObject("mh", moveHead, out error);
                 if (savedMoveHead == null)

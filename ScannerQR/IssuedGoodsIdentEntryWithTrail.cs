@@ -139,7 +139,7 @@ namespace Scanner
             }
             finally
             {
-             // pass
+
             }
 
             if ((!string.IsNullOrEmpty(filterLoc) || !string.IsNullOrEmpty(filterIdent)) && (trails.Count == 0))
@@ -160,7 +160,7 @@ namespace Scanner
 
       
         /// <summary>
-        /// Entrz  point for the application.
+        /// Entry  point for the application.
         /// </summary>
         /// <param name="savedInstanceState"></param>
         protected override void OnCreate(Bundle savedInstanceState)

@@ -318,7 +318,6 @@ namespace Scanner
             {
 
                 Toast.MakeText(this, "Za ta ident ni odprtih naročil!", ToastLength.Long).Show();
-                lblOrder.Text = "Naročilo";
                 tbNarocilo.Text = "";
                 tbKupec.Text = "";
                 tbDatumDostave.Text = "";

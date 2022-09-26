@@ -94,7 +94,7 @@ namespace Scanner
                 {
                     throw new ApplicationException("Missing setting: DirectTakeOverDocType");
                 }
-                //moveHead.SetString("Wharehouse", itemWH.ID);
+                moveHead.SetString("Wharehouse", CommonData.GetSetting("DefaultWarehouse"));
                 moveHead.SetBool("ByOrder", false);
                 //moveHead.SetString("Receiver", itemSubj.ID);
                 moveHead.SetInt("Clerk", Services.UserID());

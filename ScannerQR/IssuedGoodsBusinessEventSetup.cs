@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
@@ -263,14 +264,9 @@ namespace Scanner
                 string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 temporaryPositionExtra = e.Position;
-                if (!initialLoad)
-                {
-                    await SendEvents();
-                }
-                initialLoad = false;
+            
             } catch
-            {
-            }
+            {}
         }
 
         private void CbDocType_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -448,31 +444,67 @@ namespace Scanner
         {
             await Task.Run(() =>
             {
-                Thread.Sleep(800);
-
+          
                 Instrumentation inst = new Instrumentation();
-
                 inst.SendKeyDownUpSync(Keycode.Escape);
-
-        
-
             });
         }
-
-        public async void OnSearchTextChanged(string p0)
+        // Specify what you want to happen when the Elapsed event is raised.
+        private async void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-  
-                byClient = p0;
-
-                if (byClient.Length >= 1 | byClient.Length == 0)
+            byClient = currentWord;
+            
+                RunOnUiThread(() =>
                 {
                     FillOpenOrders();
                     var adapter = cbExtra.Adapter;
-                    await SendEvents();
-             
-                    cbExtra.PerformClick();              
-                }
+                });
 
+                RunOnUiThread(() =>
+                {
+                    cbExtra.PerformClick();
+                });
+
+              //  await SendEvents();
+
+                aTimer.Stop();
+
+      
+        }
+
+
+        private void TimerChange(string target, bool cancel)
+        {
+            if (!cancel)
+            {
+
+                aTimer = new System.Timers.Timer();
+                aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+                aTimer.Interval = 2000;
+                aTimer.Enabled = true;
+                aTimer.Start();
+
+
+            } else
+            {
+                if (aTimer != null)
+                {
+                    aTimer.Stop();
+                    aTimer = null;
+                }
+            }
+        }
+
+        private string targetWord = string.Empty;
+        private string currentWord = string.Empty;
+        private System.Timers.Timer aTimer = new System.Timers.Timer();
+
+        public async void OnSearchTextChanged(string p0)
+        {
+            currentWord = p0;
+            TimerChange(p0, true);
+            TimerChange(p0, false);
+               
         }
 
 

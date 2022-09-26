@@ -38,6 +38,7 @@ namespace Scanner
         private List<String> locationData = new List<String>();
         private ArrayAdapter<string> DataAdapterLocation;
         private ArrayAdapter<string> locationAdapter;
+        private bool initial = true;
 
         public void GetBarcode(string barcode)
         {
@@ -73,7 +74,6 @@ namespace Scanner
             }
             finally
             {
-               // 
             }
         }
 
@@ -221,12 +221,21 @@ namespace Scanner
                 tbIdent.RequestFocus();
             }
 
+
+
         }
         private void SpinnerLocation_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            tbLocation.Text = locationData.ElementAt(e.Position);
-
-            Toast.MakeText(this, $"Izbrali ste  {locationData.ElementAt(e.Position)}.", ToastLength.Long).Show();
+            if (!initial)
+            {
+                tbLocation.Text = locationData.ElementAt(e.Position);
+                Toast.MakeText(this, $"Izbrali ste  {locationData.ElementAt(e.Position)}.", ToastLength.Long).Show();
+            }
+            else
+            {
+                tbLocation.Text = string.Empty;
+                initial = false;
+            }
         }
         private void SpinnerIdent_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
@@ -283,14 +292,7 @@ namespace Scanner
                         var location = x.GetString("LocationID");
                         locationData.Add(location);
                         // Notify the adapter state change!
-
-
-
-
-
                     });
-
-
                 }
             });
         }
@@ -306,13 +308,11 @@ namespace Scanner
             Toast.MakeText(this, "Pripravljamo listu lokacija.", ToastLength.Long).Show();
             await GetLocationsForGivenWarehouse(spinnerAdapterList.ElementAt(temporaryPositionWarehouse).Text);
             Toast.MakeText(this, "Lista lokacija pripravljena.", ToastLength.Long).Show();
-
-
             DataAdapterLocation = new ArrayAdapter<string>(this,
             Android.Resource.Layout.SimpleSpinnerItem, locationData);
-
             spinnerLocation.Adapter = null;
             spinnerLocation.Adapter = DataAdapterLocation;
+
         }
     }
 }

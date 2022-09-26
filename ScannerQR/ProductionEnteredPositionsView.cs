@@ -45,6 +45,9 @@ namespace Scanner
         private Button btnYes;
         private Button btnNo;
         private ProgressDialogClass progress;
+        private Dialog popupDialogConfirm;
+        private Button btnYesConfirm;
+        private Button btnNoConfirm;
 
         /////////////////////
         protected override void OnCreate(Bundle savedInstanceState)
@@ -346,9 +349,33 @@ namespace Scanner
         }
         private async void BtFinish_Click(object sender, EventArgs e)
         {
+            popupDialogConfirm = new Dialog(this);
+            popupDialogConfirm.SetContentView(Resource.Layout.Confirmation);
+            popupDialogConfirm.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            popupDialogConfirm.Show();
+
+            popupDialogConfirm.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+            popupDialogConfirm.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloRedLight);
+
+            // Access Popup layout fields like below
+            btnYesConfirm = popupDialogConfirm.FindViewById<Button>(Resource.Id.btnYes);
+            btnNoConfirm = popupDialogConfirm.FindViewById<Button>(Resource.Id.btnNo);
+            btnYesConfirm.Click += BtnYesConfirm_Click;
+            btnNoConfirm.Click += BtnNoConfirm_Click;
+
+
+        }
+
+        private void BtnNoConfirm_Click(object sender, EventArgs e)
+        {
+            popupDialogConfirm.Dismiss();
+            popupDialogConfirm.Hide();
+        }
+
+        private async void BtnYesConfirm_Click(object sender, EventArgs e)
+        {
             await FinishMethod();
 
-    
         }
 
         private void Button4_Click(object sender, EventArgs e)
