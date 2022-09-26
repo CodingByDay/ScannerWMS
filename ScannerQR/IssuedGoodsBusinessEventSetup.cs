@@ -465,7 +465,7 @@ namespace Scanner
                     cbExtra.PerformClick();
                 });
 
-              //  await SendEvents();
+
 
                 aTimer.Stop();
 
