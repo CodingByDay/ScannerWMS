@@ -158,7 +158,71 @@ namespace Scanner
             btConfirm.Enabled = true;
         }
 
-      
+
+
+
+
+        private void FillDisplayedOrderInfoFix()
+        {
+            var filterLoc = string.Empty;
+            var filterIdent = string.Empty;
+
+
+
+            try
+            {
+                tbOrder.Text = openOrder.GetString("Key");
+                tbReceiver.Text = openOrder.GetString("Receiver");
+
+                var warehouse = moveHead.GetString("Wharehouse");
+
+                string error;
+                var qtyByLoc = Services.GetObjectList("stoo", out error, warehouse + "|" + openOrder.GetString("Key") + "|" + moveHead.GetInt("HeadID"));
+                if (qtyByLoc == null)
+                {
+                    throw new ApplicationException("Napaka pri pridobivanju podatkov za vodenje po skladišču: " + error);
+                }
+
+                trails.Clear();
+                qtyByLoc.Items.ForEach(i =>
+                {
+                    var ident = i.GetString("Ident");
+                    var location = i.GetString("Location");
+                    var name = i.GetString("Name");
+
+                    if ((string.IsNullOrEmpty(filterLoc) || (location == filterLoc)) &&
+                        (string.IsNullOrEmpty(filterIdent) || (ident == filterIdent)))
+                    {
+                        var lvi = new Trail();
+                        lvi.Ident = ident;
+                        lvi.Location = location;
+                        lvi.Qty = i.GetDouble("Qty").ToString("###,##0.00");
+                        lvi.Name = name;
+                        trails.Add(lvi);
+                    }
+                });
+            }
+            finally
+            {
+
+            }
+
+            if ((!string.IsNullOrEmpty(filterLoc) || !string.IsNullOrEmpty(filterIdent)) && (trails.Count == 0))
+            {
+                tbLocationFilter.Text = "";
+                tbIdentFilter.Text = "";
+                FillDisplayedOrderInfo();
+                return;
+            }
+
+            trailFilters = new NameValueObject("TrailFilters");
+            trailFilters.SetString("Ident", filterIdent);
+            trailFilters.SetString("Location", filterLoc);
+            InUseObjects.Set("TrailFilters", trailFilters);
+
+            btConfirm.Enabled = true;
+        }
+
         /// <summary>
         /// Entry  point for the application.
         /// </summary>
@@ -184,9 +248,6 @@ namespace Scanner
             color();
             tbLocationFilter.FocusChange += TbLocationFilter_FocusChange;
             trails = new List <Trail>();
-        
-       
-            // Custom adapter that I wrote.
             adapter adapter = new adapter(this, trails);
           
             ivTrail.Adapter = adapter;
@@ -274,6 +335,10 @@ namespace Scanner
 
         private void BtConfirm_Click(object sender, EventArgs e)
         {
+
+            FillDisplayedOrderInfoFix();
+
+
             if (SaveMoveHead())
             {
                 if (trails.Count == 1)
@@ -338,7 +403,7 @@ namespace Scanner
             }
             finally
             {
-              // pass
+
             }
 
             if (!moveHead.GetBool("Saved"))
