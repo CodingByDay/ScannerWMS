@@ -7,6 +7,7 @@ using Android.App;
 using Android.Content;
 using Android.Graphics.Drawables;
 using Android.Media;
+using Android.Net;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -15,6 +16,7 @@ using BarCode2D_Receiver;
 using Com.Barcode;
 using Com.Jsibbold.Zoomage;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using Scanner;
 using Scanner.App;
@@ -1006,7 +1008,7 @@ namespace Scanner
                 tbSSCC.Text = moveItem.GetString("SSCC");
                 tbIdent.Text = moveItem.GetString("Ident");
                 ProcessIdent();
-                tbLocation.Text = moveItem.GetString("Location");
+                tbLocation.Text = moveItem.GetString("IssueLocation");
                 tbIssueLocation.Text = moveItem.GetString("IssueLocation");
                 btSaveOrUpdate.Text = "Spr. ser. št. - F2";
                 editMode = true;
@@ -1044,8 +1046,36 @@ namespace Scanner
             spIssue.SetSelection(receiver.IndexOf("P01"), true);
             spReceive.SetSelection(receiver.IndexOf("P01"), true);
             showPicture();
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
         }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
 
+        }
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
+        }
 
         private void BtConfirmLocation_Click(object sender, EventArgs e)
         {

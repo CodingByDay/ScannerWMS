@@ -5,10 +5,12 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Net;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Microsoft.AppCenter.Crashes;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -57,6 +59,35 @@ namespace Scanner
             ///*-----------------------------------------
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouse.Adapter = adapter;
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
+        }
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
         }
         private void Logout_Click(object sender, EventArgs e)
         {

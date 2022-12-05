@@ -17,6 +17,8 @@ using WebApp = TrendNET.WMS.Device.Services.WebApp;
 using static Android.App.ActionBar;
 using Scanner.App;
 using System.ComponentModel;
+using Android.Net;
+using Microsoft.AppCenter.Crashes;
 
 namespace Scanner
 {
@@ -84,6 +86,36 @@ namespace Scanner
             LoadPositions();
             FillItemsList();
             dataList.PerformItemClick(dataList, 0, 0);
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
+        }
+
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
         }
 
         private void DataList_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)

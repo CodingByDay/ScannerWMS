@@ -7,11 +7,13 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Media;
+using Android.Net;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Microsoft.AppCenter.Crashes;
 using Scanner.App;
 using Scanner.Printing;
 using TrendNET.WMS.Core.Data;
@@ -267,6 +269,36 @@ namespace Scanner
                 tbKolicinaDoSedaj.Text = moveItem == null ? "" : moveItem.GetDouble("Qty").ToString("###,###,##0.00");
                 tbKolicinaNova.Text = "";
                 tbKolicinaNova.RequestFocus();
+            }
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
+        }
+
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
             }
         }
         private void Sound()

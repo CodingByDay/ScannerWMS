@@ -8,6 +8,7 @@ using Android.App;
 using Android.Content;
 using Android.Graphics.Drawables;
 using Android.Media;
+using Android.Net;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -15,6 +16,7 @@ using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Jsibbold.Zoomage;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
@@ -182,6 +184,35 @@ namespace Scanner
             var code = openIdent.GetString("Code");
             showPictureIdent(code);
             tbSSCC.FocusedByDefault = true;
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
+        }
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
         }
 
         private void Button4_LongClick(object sender, View.LongClickEventArgs e)
@@ -787,6 +818,7 @@ namespace Scanner
             finally
             {
                 tbLocation.Text = location;
+                var s = 5;
             }
         }
 
@@ -1679,15 +1711,10 @@ namespace Scanner
             //    tbLocation.Text = recommededLocation.GetString("Location");
             // }
 
-
             var location = CommonData.GetSetting("DefaultProductionLocation");
-            tbLocation.Text = location;
-
-           
-
+            tbLocation.Text = location;     
             tbSSCC.RequestFocus();
-            // Revision 30.6.2021. 
-            // Revision 30.6.2021. 
+
         }
 
 

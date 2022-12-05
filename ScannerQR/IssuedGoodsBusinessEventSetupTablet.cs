@@ -6,17 +6,20 @@ using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Net;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Com.Toptoche.Searchablespinnerlibrary;
 using Java.Lang;
+using Microsoft.AppCenter.Crashes;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
 using TrendNET.WMS.Device.Services;
 using static Com.Toptoche.Searchablespinnerlibrary.SearchableListDialog;
+using Exception = System.Exception;
 
 namespace Scanner
 {
@@ -43,6 +46,8 @@ namespace Scanner
         private Button btnLogout;
 
         private NameValueObjectList positions = null;
+        private ArrayAdapter<ComboBoxItem> adapterExtra;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -80,7 +85,7 @@ namespace Scanner
             // Function update form...
 
             UpdateForm();
-            var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
+            adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
             Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
             adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbExtra.Adapter = adapterExtra;
@@ -98,12 +103,41 @@ namespace Scanner
             cbWarehouse.SetTitle("Iskanje");
             cbWarehouse.SetPositiveButton("Zapri");
 
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
+        }
+
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
         }
 
 
 
 
-      
 
         private async Task SendEvents()
         {
@@ -197,10 +231,7 @@ namespace Scanner
                                     objectExtra.Add(new ComboBoxItem { ID = p.GetString("Key"), Text = p.GetString("ShortKey") + " " + p.GetString("FillPercStr") + " " + p.GetString("Receiver") });
                                 }
                             });
-                            var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
-                            Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
-                            adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-                            cbExtra.Adapter = adapterExtra;
+                            adapterExtra.NotifyDataSetChanged();
 
                             cbExtra.RequestFocus();
                         }
@@ -208,7 +239,13 @@ namespace Scanner
                 }
                 finally
                 {
-                 //pass
+                    var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
+                                  Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
+                    adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
+                    cbExtra.Adapter = null;
+
+                    cbExtra.Adapter = adapterExtra;
+                    adapterExtra.NotifyDataSetChanged();
                 }
             }
         }
@@ -316,14 +353,7 @@ namespace Scanner
                     objectExtra.Add(new ComboBoxItem { ID = s.GetString("ID"), Text = s.GetString("ID") });
 
                 });
-
-                var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
-
-                Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
-
-                adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-
-                cbExtra.Adapter = adapterExtra;
+                adapterExtra.NotifyDataSetChanged();
 
                 docTypes = CommonData.ListDocTypes("I;M|F");
 

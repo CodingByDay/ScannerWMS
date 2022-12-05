@@ -80,9 +80,8 @@ namespace Scanner.App
         
         public void NotifyDataSetChanged()
         {
-           
+            base.NotifyDataSetChanged();
 
-            NotifyDataSetChanged();
         }
     }
 

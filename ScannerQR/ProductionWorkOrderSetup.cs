@@ -7,11 +7,13 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Media;
+using Android.Net;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Microsoft.AppCenter.Crashes;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -93,7 +95,37 @@ namespace Scanner
             btPalette.Enabled = false;
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
-            
+
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
+        }
+
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
         }
         private void TbOpenQty_FocusChange(object sender, View.FocusChangeEventArgs e)
         {

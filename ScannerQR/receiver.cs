@@ -6,6 +6,7 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Media;
+using Android.Net;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -13,6 +14,9 @@ using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Java.Lang;
+using Microsoft.AppCenter.Crashes;
+using Scanner.App;
+using Exception = System.Exception;
 
 namespace Scanner
 {
@@ -60,6 +64,36 @@ namespace Scanner
             Log.Info("1111", "11111");
             new InitTask(this).Execute();// open();
 
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
+        }
+
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
         }
 
         private void BtnOkay_Click(object sender, EventArgs e)

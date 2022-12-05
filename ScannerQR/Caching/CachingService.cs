@@ -19,22 +19,24 @@ namespace Scanner.Caching
 
         private async Task<List<string>> MakeTheApiCallForTheIdentData()
         {
-            var SavedList = new List<string>();
-            await Task.Run(() =>
+            try
             {
-               
-                // Call the API.
-                string error;
-                var idents = Services.GetObjectList("id", out error, "");
-
-                idents.Items.ForEach(x =>
+                var SavedList = new List<string>();
+                await Task.Run(() =>
                 {
-                    SavedList.Add(x.GetString("Code"));
+                    // Call the API.
+                    string error;
+                    var idents = Services.GetObjectList("id", out error, "");
+                    idents.Items.ForEach(x =>
+                    {
+                        SavedList.Add(x.GetString("Code"));
+                    });
                 });
-
-
-            });
-            return SavedList;
+                return SavedList;
+            } catch
+            {
+                return new List<string>();
+            }
         }
 
 

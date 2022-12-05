@@ -131,6 +131,8 @@
     <Compile Include="App\HelpfulMethods.cs" />
     <Compile Include="App\IBarcodeResult.cs" />
     <Compile Include="App\InfinishedProductionListView.cs" />
+    <Compile Include="App\LoaderManifest.cs" />
+    <Compile Include="App\NetworkStatusBroadcastReceiver.cs" />
     <Compile Include="App\InterWarehouseEnteredPositionsViewList.cs" />
     <Compile Include="App\InterWarehouseEnteredPositionViewAdapter.cs" />
     <Compile Include="App\InterwarehouseSerialOrSCCCEntryAdapter.cs" />

@@ -11,10 +11,12 @@ using TrendNET.WMS.Device.App;
 using Scanner.App;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Analytics;
+using Android.Net;
+using Android.Support.V7.App;
 
 namespace TrendNET.WMS.Device.Services
 {
-    public class WebApp
+    public class WebApp 
     {
         private const int x16kb = 16 * 1024;
         public static string rootURL = settings.RootURL;
@@ -31,7 +33,7 @@ namespace TrendNET.WMS.Device.Services
                 var waitFor = TimeSpan.FromMinutes(5);
                 var waitForMs = Convert.ToInt32(waitFor.TotalMilliseconds);
                 var waitUntil = DateTime.Now.Add(waitFor);
-             //   WaitForm wf = null;
+
                 try
                 {
                     var result = "";
@@ -40,11 +42,10 @@ namespace TrendNET.WMS.Device.Services
                     {
                         waitSec++;
                         if (waitSec > 5) { waitSec = 2; }
-                       // if (wf != null)
+
                         {
                             var perc = (waitForMs - Convert.ToInt32((waitUntil - DateTime.Now).TotalMilliseconds)) * 100 / waitForMs;
-                           // wf.Done(perc);
-                          //  Application.DoEvents();
+
                             Thread.Sleep(waitSec * 100);
                         }
                         if (Ping(waitSec, out result))
@@ -58,22 +59,16 @@ namespace TrendNET.WMS.Device.Services
                         else
                         {
                        
-                            {
-                         
-                              
+                            {                                                    
                             }
                         }
-                    }
-
-                   
-                 
+                    }                                  
                     throw new ApplicationException("Dlančnik ima težave z vzpostavitvijo povezave do strežnika (" + settings.RootURL + ")! Napaka: " + result);
                 }
                 finally
                 {
             
-                    {
-                   
+                    {                 
                     }
                 }
             }
@@ -102,8 +97,6 @@ namespace TrendNET.WMS.Device.Services
             {
                 while (--cnt > 0 && !t.Join(1500))
                 {
-                   //Power.SystemIdleTimerReset();
-                 //Application.DoEvents();
                 }
                 if (cnt <= 0)
                 {
@@ -114,7 +107,6 @@ namespace TrendNET.WMS.Device.Services
             }
             finally
             {
-           //Power.ExitUnattendedMode();
             }
             result = threadResult;
             return success;
@@ -167,7 +159,7 @@ namespace TrendNET.WMS.Device.Services
             {
                
                 result = ex.Message;
-                Crashes.TrackError(ex); /* Crash report */
+                Crashes.TrackError(ex); 
                 return false;
             }
         }
@@ -178,7 +170,6 @@ namespace TrendNET.WMS.Device.Services
             {
                 result = "";
               
-                //var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
             
                 var url = RandomizeURL (rootURL + "/Services/Device/?" + rqURL + "&device=" + device);
                 var startedAt = DateTime.Now;
@@ -221,12 +212,14 @@ namespace TrendNET.WMS.Device.Services
             catch (Exception ex)
             {
               
-                result = ex.Message;
-        
+                result = ex.Message;      
                 return false;
 
             }
         }
+
+
+     
 
         public static bool Get(string rqURL, out string result)
         {
@@ -235,7 +228,6 @@ namespace TrendNET.WMS.Device.Services
 
         public static bool Get(string rqURL, out string result, int timeout)
         {
-            WaitForPing();
 
             bool success = false;
             string threadResult = null;
@@ -244,18 +236,16 @@ namespace TrendNET.WMS.Device.Services
             }));
             t.IsBackground = true;
             t.Start();
-          //  Power.EnterUnattendedMode ();
+
             try
             {
                 while (!t.Join(1500))
                 {
-               //     Power.SystemIdleTimerReset();
-                  //  Application.DoEvents();
+
                 }
             }
             finally
             {
-   //            Power.ExitUnattendedMode();
             }
             result = threadResult;
             return success;
@@ -266,7 +256,6 @@ namespace TrendNET.WMS.Device.Services
             try
             {
                 result = "";
-                // var rootURL = WMSDeviceConfig.GetString("WebApp", "http://localhost");
 
                 var url = RandomizeURL(rootURL + "/Services/Device/?" + rqURL + "&device=" + device);
                 var startedAt = DateTime.Now;
@@ -295,15 +284,20 @@ namespace TrendNET.WMS.Device.Services
                             }
                         }
                     }
+                } catch
+                {
+                    Analytics.TrackEvent("END REQUEST: [Device/Get] '" + url + "';" + (DateTime.Now - startedAt).TotalMilliseconds.ToString());
+                    return false;
                 }
                 finally
                 {
-                    Log.Write(new LogEntry("END REQUEST: [Device/Get] '" + url + "';" + (DateTime.Now - startedAt).TotalMilliseconds.ToString()));
+                    Analytics.TrackEvent("END REQUEST: [Device/Get] '" + url + "';" + (DateTime.Now - startedAt).TotalMilliseconds.ToString());
                 }
             }
             catch (Exception ex)
             {
-              
+                Analytics.TrackEvent("Interent went down.");
+
                 result = ex.Message;
                 Crashes.TrackError(ex);
                 return false;

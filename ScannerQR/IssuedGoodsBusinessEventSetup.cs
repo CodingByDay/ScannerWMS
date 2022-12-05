@@ -1,10 +1,12 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Net;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Microsoft.AppCenter.Crashes;
 using Scanner.App;
 using System;
 using System.Collections.Generic;
@@ -99,6 +101,35 @@ namespace Scanner
             cbExtra.SetOnSearchTextChangedListener(this);
             BottomSheetActions bottomSheetActions  = new BottomSheetActions();
             initialLoad = true;
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
+        }
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
         }
         internal class BottomSheetActions : Java.Lang.Object, IDialogInterfaceOnClickListener
         {
@@ -113,10 +144,7 @@ namespace Scanner
         {
            
         }
-        public override void OnBackPressed()
-        {
-        
-        }
+      
         private void BtnHidden_Click(object sender, EventArgs e)
         {
             OnBackPressed(); 
@@ -193,6 +221,7 @@ namespace Scanner
                                     {
                                         objectExtra.Add(new ComboBoxItem { ID = p.GetString("Key"), Text = p.GetString("ShortKey") + " " + p.GetString("FillPercStr") + " " + p.GetString("Receiver") });
                                     }
+
                                 });
                                 var debug = objectExtra.Count;
                                 var adapterExtra = new ArrayAdapter<ComboBoxItem>(this,
@@ -202,9 +231,7 @@ namespace Scanner
                                 
                                 cbExtra.Adapter = adapterExtra;
                                 adapterExtra.NotifyDataSetChanged();    
-                                cbExtra.RefreshDrawableState();
-                                
-                                cbExtra.RequestFocus();
+                              
                             }
                         }
                     }
@@ -248,12 +275,15 @@ namespace Scanner
 
         private void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            SearchableSpinner spinner = (SearchableSpinner)sender;
+            try
+            {
+                SearchableSpinner spinner = (SearchableSpinner)sender;
 
-            string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
-            Toast.MakeText(this, toast, ToastLength.Long).Show();
-            temporaryPositionWarehouse = e.Position;
-            FillOpenOrders();
+                string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                temporaryPositionWarehouse = e.Position;
+                FillOpenOrders();
+            } catch { }
         }
 
         private async void CbExtra_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -261,12 +291,14 @@ namespace Scanner
             try
             {
                 SearchableSpinner spinner = (SearchableSpinner)sender;
-                string toast = string.Format("Izbrali ste: {0}", spinner.GetItemAtPosition(e.Position));
+                string toast = string.Format("Izbrali ste: {0}", objectExtra.ElementAt(e.Position).Text);
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 temporaryPositionExtra = e.Position;
             
             } catch
-            {}
+            {
+            }
+            
         }
 
         private void CbDocType_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -326,6 +358,8 @@ namespace Scanner
                     cbExtra.Visibility = ViewStates.Invisible;
                 }
                 if (initial > 0)
+
+
                 {
                     FillOpenOrders();
                 }
@@ -348,6 +382,7 @@ namespace Scanner
                 Android.Resource.Layout.SimpleSpinnerItem, objectExtra);
                 adapterExtra.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
                 cbExtra.Adapter = adapterExtra;
+                adapterExtra.NotifyDataSetChanged();
                 docTypes = CommonData.ListDocTypes("I;M|F");
 
                 btnOrderMode.Text = "Z naročilom - F3";
@@ -446,30 +481,29 @@ namespace Scanner
             {
           
                 Instrumentation inst = new Instrumentation();
-                inst.SendKeyDownUpSync(Keycode.Escape);
+                inst.SendKeyDownUpSync(Keycode.Back);
+
             });
         }
         // Specify what you want to happen when the Elapsed event is raised.
         private async void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            byClient = currentWord;
-            
+                byClient = currentWord;          
                 RunOnUiThread(() =>
                 {
                     FillOpenOrders();
-                    var adapter = cbExtra.Adapter;
+                    
                 });
-
-                RunOnUiThread(() =>
-                {
-                    cbExtra.PerformClick();
-                });
-
-
-
+                await SendEvents();
                 aTimer.Stop();
 
-      
+            await SendEvents();
+            RunOnUiThread(() =>
+            {
+                Toast.MakeText(this, "Seznam posodobljen", ToastLength.Long).Show();
+            });
+  
+
         }
 
 

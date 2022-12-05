@@ -8,6 +8,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.Graphics.Drawables;
 using Android.Media;
+using Android.Net;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -15,6 +16,7 @@ using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Barcode;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using Scanner;
 using Scanner.App;
@@ -1057,6 +1059,36 @@ namespace Scanner
 
 
             tbLocation.FocusChange += TbLocation_FocusChange;
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
+        }
+
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
         }
 
         private void TbLocation_FocusChange(object sender, View.FocusChangeEventArgs e)

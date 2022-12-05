@@ -15,6 +15,8 @@ using static Android.Widget.AdapterView;
 using Android.Content.PM;
 using Com.Toptoche.Searchablespinnerlibrary;
 using Scanner.App;
+using Android.Net;
+using Microsoft.AppCenter.Crashes;
 /// <summary>
 /// 
 /// </summary>
@@ -114,9 +116,38 @@ namespace Scanner
                     cbDocType.SetSelection(i, true);
                 }
             }
+
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
         }
 
-      
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
+        }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {

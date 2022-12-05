@@ -24,12 +24,18 @@ namespace Scanner.App
 
         public void ShowDialogSync(Context target, string message)
         {
-            dialogSync = new Android.App.ProgressDialog(target);
-            dialogSync.Indeterminate = true;
-            dialogSync.SetProgressStyle(Android.App.ProgressDialogStyle.Spinner);
-            dialogSync.SetMessage(message);
-            dialogSync.SetCancelable(false);
-            dialogSync.Show();
+            try
+            {
+                dialogSync = new Android.App.ProgressDialog(target);
+                dialogSync.Indeterminate = true;
+                dialogSync.SetProgressStyle(Android.App.ProgressDialogStyle.Spinner);
+                dialogSync.SetMessage(message);
+                dialogSync.SetCancelable(false);
+                dialogSync.Show();
+            } catch
+            {
+
+            }
 
         }
 

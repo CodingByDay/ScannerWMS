@@ -59,9 +59,6 @@ namespace Scanner
         }
      
      
-        
-       
-
         private void BtnOkRestart_Click(object sender, EventArgs e)
         {
             var stop = true;
@@ -77,20 +74,18 @@ namespace Scanner
 
 
             if (IsOnline())
-            {
-                
+            {             
                 if (string.IsNullOrEmpty(Password.Text.Trim())) { return; }
                 Services.ClearUserInfo();
                 string error;
                 bool valid = false;
                 try
                 {
-
                     valid = Services.IsValidUser(Password.Text.Trim(), out error);
                 }
                 finally
                 {
-                    // pass
+
                 }
 
                 if (valid)
@@ -113,27 +108,20 @@ namespace Scanner
                     }
                     else
                     {
-
                         Password.Text = "";
                         isValid = false;
                         string toast = new string("Napačno geslo.");
                         Toast.MakeText(this, toast, ToastLength.Long).Show();
                         progressBar1.Visibility = ViewStates.Invisible;
-
-
                     }
                 }
                 else
                 {
-
                     Password.Text = "";
                     isValid = false;
                     string toast = new string("Napačno geslo.");
                     Toast.MakeText(this, toast, ToastLength.Long).Show();
                     progressBar1.Visibility = ViewStates.Invisible;
-
-
-
                 }
             } else
             {
@@ -153,94 +141,89 @@ namespace Scanner
         {
             base.OnPause();
         }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             settings.restart = false;
-
             Distribute.ReleaseAvailable = OnReleaseAvailable;
             Distribute.SetEnabledAsync(true);
-
             AppCenter.Start("ec2ca4ce-9e86-4620-9e90-6ecc5cda0e0e",
                    typeof(Analytics), typeof(Crashes), typeof(Distribute));
             Crashes.NotifyUserConfirmation(UserConfirmation.AlwaysSend); /* Always send crash reports */ /*https://appcenter.ms/apps */
-            /// Solved analytics...
-            ChangeTheOrientation();
-            // Analytics.SetEnabledAsync(true);            
+            ChangeTheOrientation();        
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
             Password = FindViewById<EditText>(Resource.Id.password);
             Password.InputType = Android.Text.InputTypes.NumberVariationPassword |
                           Android.Text.InputTypes.ClassNumber;
             progressBar1 = FindViewById<ProgressBar>(Resource.Id.progressBar1);
-
-            // Registering first event..
             Button btnRegistrationEvent = FindViewById<Button>(Resource.Id.btnRegistration);
             img = FindViewById<ImageView>(Resource.Id.img);
-            
-            btnRegistrationEvent.Click += BtnRegistrationEvent_Click;
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+     
 
-            // string error;
-            //// var stock = Services.GetObjectList("str", out error, "||" + "038300608700091078" + );
-
-            // var stock = Services.GetObject("sts", "038300608700091078", out error);
-            // Toast.MakeText(this, "Ident: " +  stock.GetDouble("Qty"), ToastLength.Long).Show();
-
-            
-            
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                } catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
         }
         public override bool DispatchKeyEvent(Android.Views.KeyEvent e)
         {
             if(e.KeyCode == Keycode.Enter) { BtnRegistrationEvent_Click(this, null); }
-
             return base.DispatchKeyEvent(e);
         }
         private void ChangeTheOrientation()
         {
-             if(settings.tablet == true)
+            if(settings.tablet == true)
             {
                 RequestedOrientation = Android.Content.PM.ScreenOrientation.Landscape;
-            } else
+            } 
+            else
             {
                 RequestedOrientation = Android.Content.PM.ScreenOrientation.Portrait;
-
             }
         }
 
         private bool OnReleaseAvailable(ReleaseDetails releaseDetails)
         {
-        string versionName = releaseDetails.ShortVersion;
-        string versionCodeOrBuildNumber = releaseDetails.Version;
-        string releaseNotes = releaseDetails.ReleaseNotes;
-        Uri releaseNotesUrl = releaseDetails.ReleaseNotesUrl;
-
-        var title = "Version " + versionName + " available!";
-
-       
+                string versionName = releaseDetails.ShortVersion;
+                string versionCodeOrBuildNumber = releaseDetails.Version;
+                string releaseNotes = releaseDetails.ReleaseNotes;
+                Uri releaseNotesUrl = releaseDetails.ReleaseNotesUrl;
+                var title = "Version " + versionName + " available!";      
                 popupDialog = new Dialog(this);
                 popupDialog.SetContentView(Resource.Layout.update);
                 popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
                 popupDialog.Show();
-
                 popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
                 popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.HoloRedLight);
-
                 // Access Pop-up layout fields like below
                 btnOkRestart = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
-                btnOkRestart.Click += BtnOk_Click;
-            
-        
-       
-
-        return true;
+                btnOkRestart.Click += BtnOk_Click;                   
+                return true;
         }
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
             Distribute.NotifyUpdateAction(UpdateAction.Update);
-
-
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -266,14 +249,9 @@ namespace Scanner
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-           MenuInflater.Inflate(Resource.Layout.popup_action, menu);
-
-
+            MenuInflater.Inflate(Resource.Layout.popup_action, menu);
             return base.OnCreateOptionsMenu(menu);
-        }
-
-      
-
+        }     
         /// <summary>
         /// First navigation event.
         /// </summary>
@@ -284,7 +262,6 @@ namespace Scanner
             progressBar1.Visibility = ViewStates.Visible;
             ProcessRegistration();
         }
-
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)
@@ -293,17 +270,14 @@ namespace Scanner
                 case Keycode.Enter:
                     BtnRegistrationEvent_Click(this, null);
                     break;
-                //return true;
+                // return true;
             }
             return base.OnKeyDown(keyCode, e);
         }
-
-
         /* Android specific permissions */
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }

@@ -14,6 +14,8 @@ using TrendNET.WMS.Device.Services;
 using static Android.Widget.AdapterView;
 using Com.Toptoche.Searchablespinnerlibrary;
 using Scanner.App;
+using Android.Net;
+using Microsoft.AppCenter.Crashes;
 /// <summary>
 /// 
 /// </summary>
@@ -104,8 +106,37 @@ namespace Scanner
             cbIssueWH.SetPositiveButton("Zapri");
             cbReceiveWH.SetTitle("Iskanje");
             cbReceiveWH.SetPositiveButton("Zapri");
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
         }
 
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
+        }
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             switch (keyCode)

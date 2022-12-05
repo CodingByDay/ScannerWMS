@@ -9,12 +9,14 @@ using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
 using Android.Media;
+using Android.Net;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
 using Com.Toptoche.Searchablespinnerlibrary;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
@@ -153,8 +155,36 @@ namespace Scanner
             // tbLocation.KeyPress += TbLocation_KeyPress;
             button4.LongClick += Button4_LongClick; 
             btSaveOrUpdate.LongClick += BtSaveOrUpdate_LongClick;
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
         }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
 
+        }
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
+        }
         private void BtSaveOrUpdate_LongClick(object sender, View.LongClickEventArgs e)
         {
             isMorePalletsMode = false;
@@ -212,9 +242,7 @@ namespace Scanner
             popupDialogMain.SetContentView(Resource.Layout.MorePalletsClass);
             popupDialogMain.Window.SetSoftInputMode(SoftInput.AdjustResize);
             popupDialogMain.Show();
-
             popupDialogMain.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
-
             btConfirm = popupDialogMain.FindViewById<Button>(Resource.Id.btConfirm);
             btExit = popupDialogMain.FindViewById<Button>(Resource.Id.btExit);
             tbSSCCpopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbSSCC);
@@ -222,13 +250,10 @@ namespace Scanner
             tbSSCCpopup.KeyPress += TbSSCCpopup_KeyPress;
             lvCardMore = popupDialogMain.FindViewById<ListView>(Resource.Id.lvCardMore);
             lvCardMore.ItemLongClick += LvCardMore_ItemLongClick;
-
-
             tbLocationPopup = popupDialogMain.FindViewById<EditText>(Resource.Id.tbLocation);
             tbLocationPopup.SetBackgroundColor(Android.Graphics.Color.Aqua);
             spLocationSpinner = popupDialogMain.FindViewById<SearchableSpinner>(Resource.Id.spLocation);
             spLocationSpinner.Visibility = ViewStates.Invisible;
-
             adapterNew = new MorePalletsAdapter(this, data);
             lvCardMore.Adapter = adapterNew;
             lvCardMore.ItemSelected += LvCardMore_ItemSelected;
@@ -309,8 +334,6 @@ namespace Scanner
 
             if (string.IsNullOrEmpty(tbPacking.Text.Trim()))
             {
-
-
                 return false;
             }
             else
@@ -333,20 +356,14 @@ namespace Scanner
                             return false;
                         }
                     }
-
                 }
                 catch (Exception)
                 {
-
-
                     return false;
                 }
             }
-
             if (string.IsNullOrEmpty(tbUnits.Text.Trim()))
             {
-
-
                 return false;
             }
             else
@@ -369,10 +386,8 @@ namespace Scanner
 
             if (CommonData.GetSetting("IssuedGoodsPreventSerialDups") == "1")
             {
-
                 try
                 {
-
                     var headID = moveHead.GetInt("HeadID");
                     var serialNo = obj.Serial;
                     var sscc = obj.SSCC;
@@ -406,8 +421,6 @@ namespace Scanner
 
                 }
             }
-
-
             try
             {
                 moveItemNew = new NameValueObject("MoveItem");
@@ -862,8 +875,8 @@ namespace Scanner
 
                                         alert.SetPositiveButton("Ok", (senderAlert, args) =>
                                         {
-                                            alert.Dispose();
-                                            System.Threading.Thread.Sleep(500);
+                                                alert.Dispose();
+                                                System.Threading.Thread.Sleep(500);
                                          
                                                 StartActivity(typeof(MainMenu));
                                            

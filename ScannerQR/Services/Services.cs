@@ -132,28 +132,28 @@ namespace TrendNET.WMS.Device.Services
             }
         }
 
-        public static bool IsDeviceActive(out string error)
-        {
-            string result;
-            if (WebApp.Get("mode=deviceActive", out result))
-            {
-                if (result.Contains("Active!"))
-                {
-                    error = "";
-                    return true;
-                }
-                else
-                {
-                    error = result;
-                    return false;
-                }
-            }
-            else
-            {
-                error = "Napaka pri dostopu do web aplikacije: " + result;
-                return false;
-            }
-        }
+        //public static bool IsDeviceActive(out string error)
+        //{
+        //    string result;
+        //    if (WebApp.Get("mode=deviceActive", out result))
+        //    {
+        //        if (result.Contains("Active!"))
+        //        {
+        //            error = "";
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            error = result;
+        //            return false;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        error = "Napaka pri dostopu do web aplikacije: " + result;
+        //        return false;
+        //    }
+        //}
 
         public static int UserID () { return (int) UserInfo.First(x => x.Name == "UserID").IntValue; }
         public static string UserName() { return (string) UserInfo.First(x => x.Name == "FullName").StringValue; }
@@ -168,7 +168,6 @@ namespace TrendNET.WMS.Device.Services
              
                 try
                 {
-                //    wf.Start("Sproščam dostope");
 
                     string error;
                     obtainedLocks.ForEach(l => WebApp.Get("mode=releaseLock&lockID=" + l, out error));
@@ -239,8 +238,7 @@ namespace TrendNET.WMS.Device.Services
                 }
                 catch (Exception ex)
                 {
-                    error = "Napaka pri tolmačenju odziva web strežnika: " + ex.Message;
-                  
+                    error = "Napaka pri tolmačenju odziva web strežnika: " + ex.Message;                  
                     return false;
                 }
             }

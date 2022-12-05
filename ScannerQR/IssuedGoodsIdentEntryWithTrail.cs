@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 using Android.App;
 using Android.Content;
 using Android.Media;
+using Android.Net;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Microsoft.AppCenter.Crashes;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
 using TrendNET.WMS.Device.App;
@@ -40,6 +43,7 @@ namespace Scanner
         SoundPool soundPool;
         int soundPoolId;
         private List <Trail> trails;
+        private adapter adapterObj;
         public int selected;
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
@@ -97,65 +101,200 @@ namespace Scanner
             FillDisplayedOrderInfo();
         }
 
+        private List<CheckStockAddonList> GetLocationsStock(string wh, string ident)
+        {
+            List<CheckStockAddonList> data = new List<CheckStockAddonList>();
+            string error;
+            var stock = Services.GetObjectList("str", out error, wh + "||" + ident);
+            //return string.Join("\r\n", stock.Items.Select(x => "L:" + x.GetString("Location") + " = " + x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())).ToArray());
+            stock.Items.ForEach(x =>
+            {
+                data.Add(new CheckStockAddonList
+                {
+                    Ident = x.GetString("Ident"),
+                    Location = x.GetString("Location"),
+                    Quantity = x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())
+                });
+            });
+            return data;
+        }
         private void FillDisplayedOrderInfo()
         {
-            var filterLoc = tbLocationFilter.Text;
-            var filterIdent = tbIdentFilter.Text;
-
-  
-           
             try
             {
-                tbOrder.Text = openOrder.GetString("Key");
-                tbReceiver.Text = openOrder.GetString("Receiver");
+                List<Trail> unfiltered = new List<Trail>();
+                var filterLoc = tbLocationFilter.Text;
+                var filterIdent = tbIdentFilter.Text;
 
-                var warehouse = moveHead.GetString("Wharehouse");
 
-                string error;
-                var qtyByLoc = Services.GetObjectList("stoo", out error, warehouse + "|" + openOrder.GetString("Key") + "|" + moveHead.GetInt("HeadID"));
-                if (qtyByLoc == null)
+
+                try
                 {
-                    throw new ApplicationException("Napaka pri pridobivanju podatkov za vodenje po skladišču: " + error);
+                    tbOrder.Text = openOrder.GetString("Key");
+                    tbReceiver.Text = openOrder.GetString("Receiver");
+
+                    var warehouse = moveHead.GetString("Wharehouse");
+
+                    string error;
+                    string password = openOrder.GetString("Key");
+
+                    // var qtyByLoc = Services.GetObjectList("stoo", out error, warehouse + "|" + openOrder.GetString("Key") + "|" + moveHead.GetInt("HeadID"));
+                    var qtyByLoc = Services.GetObjectList("ook", out error, password);
+
+                    if (qtyByLoc == null)
+                    {
+                        throw new ApplicationException("Napaka pri pridobivanju podatkov za vodenje po skladišču: " + error);
+                    }
+                    trails.Clear();
+                    qtyByLoc.Items.ForEach(i =>
+                    {
+                        var ident = i.GetString("Ident");
+                        var location = i.GetString("Location");
+                        var name = i.GetString("Name");
+                        if ((string.IsNullOrEmpty(filterLoc) || (location == filterLoc)) &&
+                            (string.IsNullOrEmpty(filterIdent) || (ident == filterIdent)))
+                        {
+                            var lvi = new Trail();
+                            lvi.Ident = ident;
+                            lvi.Location = location;
+                            lvi.Qty = i.GetDouble("OpenQty").ToString("###,##0.00");
+                            lvi.Name = name;
+                            unfiltered.Add(lvi);
+                           // trails.Add(lvi);
+                        }
+                    });
+                    var old = unfiltered;
+                    var unique = unfiltered.Select(o => o.Ident).Distinct();
+                    unique.ToList().ForEach(x =>
+                    {
+                        unfiltered = old;
+                        var ItemsCaughtInNet = unfiltered.Where(y => y.Ident == x);
+                        var identCaught = ItemsCaughtInNet.First().Ident;
+                        var locations = GetLocationsStock(warehouse, identCaught);
+                        if (ItemsCaughtInNet.Count() > 1 && locations.Count > 0)
+                        {
+                            if (locations.Count >= ItemsCaughtInNet.Count())
+                            {
+
+                                for (int i = 0; i < locations.Count; i++)
+                                {
+                                    ItemsCaughtInNet.ElementAt(i).Location = locations.ElementAt(i).Location;
+                                }
+                                int counter = -1;
+                                // Replace
+                                for (int i = 0; i < unfiltered.Count; i++)
+                                {
+                                    if (unfiltered[i].Ident == identCaught)
+                                    {
+                                        counter += 1;
+                                        unfiltered.ElementAt(i).Location = ItemsCaughtInNet.ElementAt(i).Location;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for (int i = 0; i < unfiltered.Count; i++)
+                                {
+                                    if (unfiltered[i].Ident == identCaught)
+                                    {
+
+                                        unfiltered.ElementAt(i).Location = locations.ElementAt(0).Location;
+                                    }
+                                }
+                            }
+
+                        }
+                        else if (ItemsCaughtInNet.Count() == 1 && locations.Count > 0)
+                        {
+                            int counter = -1;
+                            // Replace
+                            for (int i = 0; i < unfiltered.Count; i++)
+                            {
+                                if (unfiltered[i].Ident == identCaught)
+                                {
+                                    counter += 1;
+                                    unfiltered.ElementAt(i).Location = locations.ElementAt(0).Location;
+                                }
+                            }
+                        }
+                        else if (locations.Count < ItemsCaughtInNet.Count())
+                        {
+                            if (locations.Count > 0)
+                            {
+                                int counter = -1;
+                                for (int i = 0; i < unfiltered.Count; i++)
+                                {
+                                    if (unfiltered[i].Ident == identCaught)
+                                    {
+                                        counter += 1;
+                                        unfiltered.ElementAt(i).Location = locations.ElementAt(0).Location;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for (int i = 0; i < unfiltered.Count; i++)
+                                {
+                                    if (unfiltered[i].Ident == identCaught)
+                                    {
+                                        unfiltered.ElementAt(i).Location = "";
+                                    }
+                                }
+                            }
+
+                        } else
+                        {
+                            if (locations.Count > 0)
+                            {
+                                int counter = -1;
+                                for (int i = 0; i < unfiltered.Count; i++)
+                                {
+                                    if (unfiltered[i].Ident == identCaught)
+                                    {
+                                        counter += 1;
+                                        unfiltered.ElementAt(i).Location = locations.ElementAt(0).Location;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for (int i = 0; i < unfiltered.Count; i++)
+                                {
+                                    if (unfiltered[i].Ident == identCaught)
+                                    {
+                                        unfiltered.ElementAt(i).Location = "";
+                                    }
+                                }
+                            }                            
+                        }                                        
+                    });
+                    foreach (var un in unfiltered)
+                    {
+                        trails.Add(un);
+                    }
+                }
+                catch { }
+                finally
+                {
+                    adapterObj.NotifyDataSetChanged();
+
                 }
 
-                trails.Clear();
-                qtyByLoc.Items.ForEach(i =>
+                if ((!string.IsNullOrEmpty(filterLoc) || !string.IsNullOrEmpty(filterIdent)) && (trails.Count == 0))
                 {
-                    var ident = i.GetString("Ident");
-                    var location = i.GetString("Location");
-                    var name = i.GetString("Name");
+                    tbLocationFilter.Text = "";
+                    tbIdentFilter.Text = "";
+                    FillDisplayedOrderInfo();
+                    return;
+                }
 
-                    if ((string.IsNullOrEmpty(filterLoc) || (location == filterLoc)) &&
-                        (string.IsNullOrEmpty(filterIdent) || (ident == filterIdent)))
-                    {
-                        var lvi = new Trail();
-                        lvi.Ident = ident;
-                        lvi.Location = location;
-                        lvi.Qty = i.GetDouble("Qty").ToString("###,##0.00");
-                        lvi.Name = name;
-                        trails.Add(lvi);
-                    }
-                });
-            }
-            finally
-            {
+                trailFilters = new NameValueObject("TrailFilters");
+                trailFilters.SetString("Ident", filterIdent);
+                trailFilters.SetString("Location", filterLoc);
+                InUseObjects.Set("TrailFilters", trailFilters);
 
-            }
-
-            if ((!string.IsNullOrEmpty(filterLoc) || !string.IsNullOrEmpty(filterIdent)) && (trails.Count == 0))
-            {
-                tbLocationFilter.Text = "";
-                tbIdentFilter.Text = "";
-                FillDisplayedOrderInfo();
-                return;
-            }
-
-            trailFilters = new NameValueObject("TrailFilters");
-            trailFilters.SetString("Ident", filterIdent);
-            trailFilters.SetString("Location", filterLoc);
-            InUseObjects.Set("TrailFilters", trailFilters);
-
-            btConfirm.Enabled = true;
+                btConfirm.Enabled = true;
+            } catch { }
         }
 
 
@@ -204,6 +343,7 @@ namespace Scanner
             }
             finally
             {
+                adapterObj.NotifyDataSetChanged();
 
             }
 
@@ -248,9 +388,9 @@ namespace Scanner
             color();
             tbLocationFilter.FocusChange += TbLocationFilter_FocusChange;
             trails = new List <Trail>();
-            adapter adapter = new adapter(this, trails);
+            adapterObj = new adapter(this, trails);
           
-            ivTrail.Adapter = adapter;
+            ivTrail.Adapter = adapterObj;
 
             ivTrail.ItemClick += IvTrail_ItemClick;
             btConfirm.Click += BtConfirm_Click;
@@ -306,7 +446,36 @@ namespace Scanner
 
             FillDisplayedOrderInfo();
 
-            
+
+            var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
+            _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
+            Application.Context.RegisterReceiver(_broadcastReceiver,
+            new IntentFilter(ConnectivityManager.ConnectivityAction));
+        }
+        public bool IsOnline()
+        {
+            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
+
+        }
+        private void OnNetworkStatusChanged(object sender, EventArgs e)
+        {
+            if (IsOnline())
+            {
+                
+                try
+                {
+                    LoaderManifest.LoaderManifestLoopStop(this);
+                }
+                catch (Exception err)
+                {
+                    Crashes.TrackError(err);
+                }
+            }
+            else
+            {
+                LoaderManifest.LoaderManifestLoop(this);
+            }
         }
 
         private void TbLocationFilter_FocusChange(object sender, View.FocusChangeEventArgs e)
@@ -336,7 +505,7 @@ namespace Scanner
         private void BtConfirm_Click(object sender, EventArgs e)
         {
 
-            FillDisplayedOrderInfoFix();
+            FillDisplayedOrderInfo();
 
 
             if (SaveMoveHead())
@@ -359,6 +528,14 @@ namespace Scanner
            
 
             selected = e.Position;
+            if (trails.ElementAt(selected).Location == string.Empty)
+            {
+                btConfirm.Enabled = false;
+            }
+            else
+            {
+                btConfirm.Enabled = true;
+            }
             string toast = string.Format("Izbrali ste: {0}", trails.ElementAt(selected).Name.ToString());
             Toast.MakeText(this, toast, ToastLength.Long).Show();
           
@@ -420,6 +597,16 @@ namespace Scanner
                     moveHead.SetString("Document1", openOrder.GetString("Document1"));
                     moveHead.SetDateTime("Document1Date", openOrder.GetDateTime("Document1Date"));
                     moveHead.SetString("Note", openOrder.GetString("Note"));
+
+
+                    string testDocument1 = openOrder.GetString("Document1");
+
+
+
+
+
+
+
                     if (moveHead.GetBool("ByOrder"))
                     {
                         moveHead.SetString("Receiver", openOrder.GetString("Receiver"));
