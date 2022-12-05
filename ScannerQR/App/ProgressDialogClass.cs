@@ -19,7 +19,6 @@ namespace Scanner.App
 
         public ProgressDialogClass()
         {
-
         }
 
         public void ShowDialogSync(Context target, string message)
@@ -34,9 +33,7 @@ namespace Scanner.App
                 dialogSync.Show();
             } catch
             {
-
             }
-
         }
 
 

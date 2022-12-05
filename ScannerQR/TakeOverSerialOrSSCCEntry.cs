@@ -794,7 +794,7 @@ namespace Scanner
                 if (barcode != "Scan fail")
                 {
                     Sound();
-                    tbSerialNum.Text = barcode;
+                    tbLocation.Text = barcode;
                     tbLocation.RequestFocus();
                 } else
                 {
