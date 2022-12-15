@@ -14,7 +14,7 @@ namespace Scanner
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.0.0.73")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.1.0.5")]
 	public partial class Resource
 	{
 		
@@ -4798,7 +4798,7 @@ namespace Scanner
 			public const int btnPrint = 2131230860;
 			
 			// aapt resource value: 0x7F08008D
-			public const int btnRegistration = 2131230861;
+			public const int btnRegistrationClick = 2131230861;
 			
 			// aapt resource value: 0x7F08008E
 			public const int btnYes = 2131230862;

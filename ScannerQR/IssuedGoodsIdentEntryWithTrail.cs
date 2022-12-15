@@ -277,7 +277,6 @@ namespace Scanner
                 finally
                 {
                     adapterObj.NotifyDataSetChanged();
-
                 }
 
                 if ((!string.IsNullOrEmpty(filterLoc) || !string.IsNullOrEmpty(filterIdent)) && (trails.Count == 0))

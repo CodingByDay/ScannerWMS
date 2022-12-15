@@ -28,8 +28,7 @@ namespace Scanner.App
         {
             progress = new ProgressDialogClass();
             progress.ShowDialogSync(context, "Ni internetne povezave... Povezovanje...");
-           
-          
+                   
         }
 
 

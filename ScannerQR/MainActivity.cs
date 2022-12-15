@@ -158,15 +158,19 @@ namespace Scanner
             Password.InputType = Android.Text.InputTypes.NumberVariationPassword |
                           Android.Text.InputTypes.ClassNumber;
             progressBar1 = FindViewById<ProgressBar>(Resource.Id.progressBar1);
-            Button btnRegistrationEvent = FindViewById<Button>(Resource.Id.btnRegistration);
             img = FindViewById<ImageView>(Resource.Id.img);
             var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
             _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
             Application.Context.RegisterReceiver(_broadcastReceiver,
             new IntentFilter(ConnectivityManager.ConnectivityAction));
-        }
-     
 
+            Button btnRegistrationEvent = FindViewById<Button>(Resource.Id.btnRegistrationClick);
+            btnRegistrationEvent.Clickable = true;
+            btnRegistrationEvent.Enabled = true;
+            btnRegistrationEvent.Click += BtnRegistrationEvent_Click;
+        }
+
+     
         private void OnNetworkStatusChanged(object sender, EventArgs e)
         {
             if (IsOnline())

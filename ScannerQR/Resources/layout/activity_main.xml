@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:drawableLeft="@drawable/login"
             android:layout_height="45.5dp"
-            android:id="@+id/btnRegistration"
+            android:id="@+id/btnRegistrationClick"
             android:textSize="18sp"
             android:gravity="center_horizontal"
             android:drawablePadding="2sp"

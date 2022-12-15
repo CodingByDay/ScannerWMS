@@ -87,8 +87,7 @@ namespace Scanner
         private void OnNetworkStatusChanged(object sender, EventArgs e)
         {
             if (IsOnline())
-            {
-                
+            {           
                 try
                 {
                     LoaderManifest.LoaderManifestLoopStop(this);
@@ -105,9 +104,7 @@ namespace Scanner
         }
         public override void OnBackPressed()
         {
-
             HelpfulMethods.releaseLock();
-
             base.OnBackPressed();
         }
         private void BtLogout_Click(object sender, EventArgs e)
