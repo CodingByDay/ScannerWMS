@@ -13,7 +13,7 @@ using TrendNET.WMS.Device.Services;
 
 namespace Scanner.Caching
 {
-    [Service]
+    [Service(Exported = true)]
     public class CachingService: Service
     {
 

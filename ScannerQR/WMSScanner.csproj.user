@@ -5,7 +5,7 @@
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <ActiveDebugProfile>Samsung SM-A226B %28Android 13.0 - API 33%29</ActiveDebugProfile>
-    <DefaultDevice>tablet_m-dpi_10_1in_-_api_32_1</DefaultDevice>
+    <DefaultDevice>tablet_m-dpi_10_1in_-_api_30</DefaultDevice>
     <SelectedPlatformGroup>PhysicalDevice</SelectedPlatformGroup>
   </PropertyGroup>
   <PropertyGroup>

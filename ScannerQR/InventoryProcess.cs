@@ -83,7 +83,7 @@ namespace Scanner
             btDelete.Click += BtDelete_Click;
             button2.Click += Button2_Click;
             tbIdent.FocusChange += TbIdent_FocusChange;
-           
+            tbSSCC.FocusChange += TbSSCC_FocusChange;
             tbUnits.FocusChange += TbUnits_FocusChange;
             tbIdent.KeyPress += TbIdent_KeyPress;
          
@@ -116,16 +116,11 @@ namespace Scanner
 
             var adapterIssue = new ArrayAdapter<ComboBoxItem>(this,
            Android.Resource.Layout.SimpleSpinnerItem, warehouseAdapter);
-
             adapterIssue.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-
             cbWarehouse.Adapter = adapterIssue;
             color();
             identData = Caching.Caching.SavedList;
-            
-
             spinnerIdent = FindViewById<SearchableSpinner>(Resource.Id.spinnerIdent);
-
             spinnerIdent.Prompt = "Iskanje";
             spinnerIdent.SetTitle("Iskanje");
             spinnerIdent.SetPositiveButton("Zapri");
@@ -133,14 +128,46 @@ namespace Scanner
             Android.Resource.Layout.SimpleSpinnerItem, identData);
             spinnerIdent.Adapter = DataAdapter;
             spinnerIdent.ItemSelected += SpinnerIdent_ItemSelected;
-
             spinnerIdent.Adapter = DataAdapter;
             spinnerLocation.ItemSelected += SpinnerLocation_ItemSelected;
             var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
             _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
             Application.Context.RegisterReceiver(_broadcastReceiver,
             new IntentFilter(ConnectivityManager.ConnectivityAction));
+            var guided = CommonData.GetSetting("UseGuidedInventory");
+            if(guided != null && guided == "1") { 
+                tbSSCC.RequestFocus();
+            } else
+            {
+                tbLocation.RequestFocus();
+            }
         }
+
+        private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+
+            string error;
+            var dataObject = Services.GetObject("sscc", "038300608702459364", out error);
+            var ident = dataObject.GetString("Ident");
+            var loadIdent = CommonData.LoadIdent(ident);
+            string idname = loadIdent.GetString("Name");
+
+
+            if (string.IsNullOrEmpty(ident)) { return; }
+            if (loadIdent != null)
+            {
+                tbSerialNum.Enabled = loadIdent.GetBool("HasSerialNumber");
+            }
+
+            var serial = dataObject.GetString("SerialNo");
+            var location = dataObject.GetString("Location");
+            var warehouse = dataObject.GetString("Warehouse");
+
+            // All data is present and this is working properly.
+
+
+        }
+
         public bool IsOnline()
         {
             var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
@@ -397,7 +424,11 @@ namespace Scanner
         {
             ClearData();
             tbLocation.Text = "";
-            tbLocation.RequestFocus();
+            var guided = CommonData.GetSetting("UseGuidedInventory");
+            if (guided != "1")
+            {
+                tbLocation.RequestFocus();
+            }
             Spinner spinner = (Spinner)sender;
             temporaryPosWarehouse = e.Position;
             Toast.MakeText(this, "Pripravljamo listu lokacija.", ToastLength.Long).Show();
@@ -544,13 +575,32 @@ namespace Scanner
             {
                 Sound();
                 tbSSCC.Text = barcode;
+                string error;
+                var dataObject = Services.GetObject("sscc", tbSSCC.Text, out error);
+                var ident = dataObject.GetString("Ident");
+                var loadIdent = CommonData.LoadIdent(ident);
+                string idname = loadIdent.GetString("Name");
+
+
+                if (string.IsNullOrEmpty(ident)) { return; }
+                var identObj = CommonData.LoadIdent(ident);
+                if (identObj != null)
+                {
+                    tbSerialNum.Enabled = identObj.GetBool("HasSerialNumber");
+                }
+
+                var serial = dataObject.GetString("SerialNo");
+                var location = dataObject.GetString("Location");
+                var warehouse = dataObject.GetString("Warehouse");
+                var stop = true;
+
             }
             else if (tbLocation.HasFocus)
             {
                 Sound();
                 tbLocation.Text = barcode;
                 ProcessLocation();
-            
+
             }
             else if (tbSerialNum.HasFocus)
             {
@@ -709,7 +759,7 @@ namespace Scanner
                 tbLocation.RequestFocus();
                 return;
             }
-            ClearData();       
+         
         }
 
         private void Sound() /* Sdk contains this method in one class. Probably alot of other possible functionality too. Good resource. */

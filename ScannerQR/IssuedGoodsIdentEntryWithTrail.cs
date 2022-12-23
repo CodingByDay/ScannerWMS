@@ -13,6 +13,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using BarCode2D_Receiver;
+using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Scanner.App;
 using TrendNET.WMS.Core.Data;
@@ -138,6 +139,7 @@ namespace Scanner
                     string error;
                     string password = openOrder.GetString("Key");
 
+
                     // var qtyByLoc = Services.GetObjectList("stoo", out error, warehouse + "|" + openOrder.GetString("Key") + "|" + moveHead.GetInt("HeadID"));
                     var qtyByLoc = Services.GetObjectList("ook", out error, password);
 
@@ -145,7 +147,9 @@ namespace Scanner
                     {
                         throw new ApplicationException("Napaka pri pridobivanju podatkov za vodenje po skladišču: " + error);
                     }
+
                     trails.Clear();
+
                     qtyByLoc.Items.ForEach(i =>
                     {
                         var ident = i.GetString("Ident");
@@ -291,9 +295,16 @@ namespace Scanner
                 trailFilters.SetString("Ident", filterIdent);
                 trailFilters.SetString("Location", filterLoc);
                 InUseObjects.Set("TrailFilters", trailFilters);
-
                 btConfirm.Enabled = true;
-            } catch { }
+
+            } catch(Exception error) {
+                
+                
+                    Crashes.TrackError(error);
+                    
+                    
+             }
+            
         }
 
 

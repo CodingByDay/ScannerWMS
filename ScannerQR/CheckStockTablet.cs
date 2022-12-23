@@ -95,7 +95,7 @@ namespace Scanner
             }
             finally
             {
-                // 
+                
             }
         }
 
@@ -132,11 +132,6 @@ namespace Scanner
 
 
         }
-
-
-
-
-
 
 
         private void isEmptyStock()
@@ -192,8 +187,6 @@ namespace Scanner
             // Create your application here.
             SetContentView(Resource.Layout.CheckStockTablet);
             cbWarehouses = FindViewById<Spinner>(Resource.Id.cbWarehouses);
-
-
             tbLocation = FindViewById<EditText>(Resource.Id.tbLocation);
             tbIdent = FindViewById<EditText>(Resource.Id.tbIdent);
             btShowStock = FindViewById<Button>(Resource.Id.btShowStock);

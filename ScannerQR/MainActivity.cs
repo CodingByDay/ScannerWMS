@@ -159,6 +159,7 @@ namespace Scanner
                           Android.Text.InputTypes.ClassNumber;
             progressBar1 = FindViewById<ProgressBar>(Resource.Id.progressBar1);
             img = FindViewById<ImageView>(Resource.Id.img);
+
             var _broadcastReceiver = new NetworkStatusBroadcastReceiver();
             _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
             Application.Context.RegisterReceiver(_broadcastReceiver,

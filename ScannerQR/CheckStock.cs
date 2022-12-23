@@ -228,6 +228,16 @@ namespace Scanner
             _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
             Application.Context.RegisterReceiver(_broadcastReceiver,
             new IntentFilter(ConnectivityManager.ConnectivityAction));
+
+            var inv = CommonData.GetSetting("UseGuidedInventory");
+
+
+
+            if(inv == "1")
+            {
+
+            }
+
         }
         public bool IsOnline()
         {
