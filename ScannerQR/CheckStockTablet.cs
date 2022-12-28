@@ -360,7 +360,6 @@ namespace Scanner
         private void BtShowStock_Click(object sender, System.EventArgs e)
         {
             data.Clear();
-
             ProcessStock();
             fillItemsOfList();
         }
@@ -371,17 +370,15 @@ namespace Scanner
         private void fillItemsOfList()
         {
             var wh = spinnerAdapterList.ElementAt(temporaryPositionWarehouse);
-
             string error;
             var stock = Services.GetObjectList("str", out error, wh.ID + "||" + tbIdent.Text);
-            //return string.Join("\r\n", stock.Items.Select(x => "L:" + x.GetString("Location") + " = " + x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())).ToArray());
+            // return string.Join("\r\n", stock.Items.Select(x => "L:" + x.GetString("Location") + " = " + x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())).ToArray());
             stock.Items.ForEach(x =>
             {
                 data.Add(new CheckStockAddonList
                 {
                     Ident = x.GetString("Ident"),
                     Location = x.GetString("Location"),
-
                     Quantity = x.GetDouble("RealStock").ToString(CommonData.GetQtyPicture())
                 });
              });     

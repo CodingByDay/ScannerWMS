@@ -43,6 +43,7 @@ namespace Scanner
         private static string selectedWarehouse = "";
         private NameValueObject moveItem = null;
         private TextView lbUnits;
+        private TextView lbPacking;
         SoundPool soundPool;
         int soundPoolId;
         private int temporaryPosWarehouse;
@@ -52,6 +53,9 @@ namespace Scanner
         private ArrayAdapter<string> locationAdapter;
         private List<string> locationData = new List<string>();
         private List<string> returnList;
+        private string guided;
+        private bool afterSerial;
+        private bool leaveClearFunction = false;
 
         public ArrayAdapter<string> DataAdapterLocation { get; private set; }
 
@@ -74,6 +78,8 @@ namespace Scanner
             btDelete = FindViewById<Button>(Resource.Id.btDelete); 
             button2 = FindViewById<Button>(Resource.Id.button2);
             lbUnits = FindViewById<TextView>(Resource.Id.lbUnits);
+            lbPacking = FindViewById<TextView>(Resource.Id.lbPacking);
+
             soundPool = new SoundPool(10, Stream.Music, 0);
             soundPoolId = soundPool.Load(this, Resource.Drawable.beep, 1);
             spinnerLocation = FindViewById<SearchableSpinner>(Resource.Id.spinnerLocation);
@@ -86,7 +92,7 @@ namespace Scanner
             tbSSCC.FocusChange += TbSSCC_FocusChange;
             tbUnits.FocusChange += TbUnits_FocusChange;
             tbIdent.KeyPress += TbIdent_KeyPress;
-         
+            tbPacking.FocusChange += TbPacking_FocusChange;
             Barcode2D barcode2D = new Barcode2D();
             barcode2D.open(this, this);
 
@@ -115,7 +121,7 @@ namespace Scanner
             }
 
             var adapterIssue = new ArrayAdapter<ComboBoxItem>(this,
-           Android.Resource.Layout.SimpleSpinnerItem, warehouseAdapter);
+            Android.Resource.Layout.SimpleSpinnerItem, warehouseAdapter);
             adapterIssue.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             cbWarehouse.Adapter = adapterIssue;
             color();
@@ -134,7 +140,7 @@ namespace Scanner
             _broadcastReceiver.ConnectionStatusChanged += OnNetworkStatusChanged;
             Application.Context.RegisterReceiver(_broadcastReceiver,
             new IntentFilter(ConnectivityManager.ConnectivityAction));
-            var guided = CommonData.GetSetting("UseGuidedInventory");
+            guided = CommonData.GetSetting("UseGuidedInventory");
             if(guided != null && guided == "1") { 
                 tbSSCC.RequestFocus();
             } else
@@ -143,34 +149,66 @@ namespace Scanner
             }
         }
 
+        private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+ 
+                ProcessStock();
+            
+        }
+
         private void TbSSCC_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
-
-            string error;
-            var dataObject = Services.GetObject("sscc", "038300608702459364", out error);
-            var ident = dataObject.GetString("Ident");
-            var loadIdent = CommonData.LoadIdent(ident);
-            string idname = loadIdent.GetString("Name");
-
-
-            if (string.IsNullOrEmpty(ident)) { return; }
-            if (loadIdent != null)
+            if (guided == "1")
             {
-                tbSerialNum.Enabled = loadIdent.GetBool("HasSerialNumber");
+                string error;
+                var dataObject = Services.GetObject("sscc", tbSSCC.Text, out error);
+                var ident = dataObject.GetString("Ident");
+                var loadIdent = CommonData.LoadIdent(ident);
+                string idname = loadIdent.GetString("Name");
+                if (string.IsNullOrEmpty(ident)) { return; }
+                if (loadIdent != null)
+                {
+                    tbSerialNum.Enabled = loadIdent.GetBool("HasSerialNumber");
+                }
+                var serial = dataObject.GetString("SerialNo");
+                var location = dataObject.GetString("Location");
+                var warehouse = dataObject.GetString("Warehouse");
+
+
+
+                ComboBoxItem.Select(cbWarehouse, warehouseAdapter, warehouse);
+                leaveClearFunction = true;
+                // All data is present and this is working properly.
+                tbIdent.Text = ident;
+                tbLocation.Text = location;
+                tbSerialNum.Text = serial;
+
+                if (loadIdent.GetBool("HasSerialNumber"))
+                {
+                    tbSerialNum.Text = serial;
+                    tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Aqua);
+
+                }
+                else
+                {
+                    tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Red);
+                }
+
+                tbLocation.Text = location;
+                tbTitle.Text = idname;
+                ProcessStock();
+
             }
-
-            var serial = dataObject.GetString("SerialNo");
-            var location = dataObject.GetString("Location");
-            var warehouse = dataObject.GetString("Warehouse");
-
-            // All data is present and this is working properly.
 
 
         }
 
+
+
+
         public bool IsOnline()
         {
-            var cm = (ConnectivityManager)GetSystemService(ConnectivityService);
+            var cm = (ConnectivityManager) GetSystemService(ConnectivityService);
             return cm.ActiveNetworkInfo == null ? false : cm.ActiveNetworkInfo.IsConnected;
 
         }
@@ -230,6 +268,28 @@ namespace Scanner
         private void TbIdent_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             ProcessLocation();
+
+            if (guided != "1")
+            {
+                var loadIdent = CommonData.LoadIdent(tbIdent.Text);
+
+                if (loadIdent != null)
+                {
+                    tbSerialNum.Enabled = loadIdent.GetBool("HasSerialNumber");
+
+
+                    if (loadIdent.GetBool("HasSerialNumber"))
+                    {
+                        tbSerialNum.RequestFocus();
+                        afterSerial = true;
+
+                    } else
+                    {
+                        ProcessStock();
+
+                    }
+                }
+            }
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -250,7 +310,7 @@ namespace Scanner
                     {
                         Toast.MakeText(this, "Pozicija pobrisana!", ToastLength.Long).Show();
 
-                       StartActivity(typeof(InventoryProcess));
+                        StartActivity(typeof(InventoryProcess));
                         HelpfulMethods.clearTheStack(this);
 
                     }
@@ -270,7 +330,6 @@ namespace Scanner
             }
             finally
             {
-               //
             }
         }
         private void Button1_Click(object sender, EventArgs e)
@@ -355,7 +414,7 @@ namespace Scanner
             }
             finally
             {
-                //
+               
             }
         }
 
@@ -385,7 +444,6 @@ namespace Scanner
             }
             finally
             {
-              //
             }
 
         }
@@ -412,7 +470,6 @@ namespace Scanner
                         var location = x.GetString("LocationID");
                         locationData.Add(location);
                         // Notify the adapter state change!
-
                     });
 
 
@@ -422,25 +479,37 @@ namespace Scanner
 
         private async void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            ClearData();
-            tbLocation.Text = "";
-            var guided = CommonData.GetSetting("UseGuidedInventory");
-            if (guided != "1")
-            {
-                tbLocation.RequestFocus();
-            }
-            Spinner spinner = (Spinner)sender;
-            temporaryPosWarehouse = e.Position;
-            Toast.MakeText(this, "Pripravljamo listu lokacija.", ToastLength.Long).Show();
-            await GetLocationsForGivenWarehouse(warehouseAdapter.ElementAt(temporaryPosWarehouse).Text);
-            Toast.MakeText(this, "Lista lokacija pripravljena.", ToastLength.Long).Show();
+
+               
+          
+         
+                tbLocation.Text = "";
+                var guided = CommonData.GetSetting("UseGuidedInventory");
+                if (guided != "1")
+                {
+                    tbLocation.RequestFocus();
+                }
+                Spinner spinner = (Spinner)sender;
+
+                if (!leaveClearFunction)
+                {
+                    ClearData();
+                }
+                temporaryPosWarehouse = e.Position;
+                Toast.MakeText(this, "Pripravljamo listu lokacija.", ToastLength.Long).Show();
+                await GetLocationsForGivenWarehouse(warehouseAdapter.ElementAt(temporaryPosWarehouse).Text);
+                Toast.MakeText(this, "Lista lokacija pripravljena.", ToastLength.Long).Show();
 
 
-            DataAdapterLocation = new ArrayAdapter<string>(this,
-            Android.Resource.Layout.SimpleSpinnerItem, locationData);
+                DataAdapterLocation = new ArrayAdapter<string>(this,
+                Android.Resource.Layout.SimpleSpinnerItem, locationData);
 
-            spinnerLocation.Adapter = null;
-            spinnerLocation.Adapter = DataAdapterLocation;
+                spinnerLocation.Adapter = null;
+                spinnerLocation.Adapter = DataAdapterLocation;
+                leaveClearFunction = false;
+           
+
+
         }
 
         private void ProcessIdent()
@@ -562,38 +631,62 @@ namespace Scanner
                     return;
                 }
 
-                tbPacking.RequestFocus();
             }
             finally
             {
-                //
+           
             }
         }
         public void GetBarcode(string barcode)
         {
             if (tbSSCC.HasFocus)
             {
-                Sound();
-                tbSSCC.Text = barcode;
-                string error;
-                var dataObject = Services.GetObject("sscc", tbSSCC.Text, out error);
-                var ident = dataObject.GetString("Ident");
-                var loadIdent = CommonData.LoadIdent(ident);
-                string idname = loadIdent.GetString("Name");
-
-
-                if (string.IsNullOrEmpty(ident)) { return; }
-                var identObj = CommonData.LoadIdent(ident);
-                if (identObj != null)
+                if (guided == "1")
                 {
-                    tbSerialNum.Enabled = identObj.GetBool("HasSerialNumber");
+                    Sound();
+                    tbSSCC.Text = barcode;
+                    string error;
+                    var dataObject = Services.GetObject("sscc", tbSSCC.Text, out error);
+                    var ident = dataObject.GetString("Ident");
+                    var loadIdent = CommonData.LoadIdent(ident);
+                    string idname = loadIdent.GetString("Name");
+                    if (string.IsNullOrEmpty(ident)) { return; }
+                    if (loadIdent != null)
+                    {
+                        tbSerialNum.Enabled = loadIdent.GetBool("HasSerialNumber");
+                    }
+                    var serial = dataObject.GetString("SerialNo");
+                    var location = dataObject.GetString("Location");
+                    var warehouse = dataObject.GetString("Warehouse");
+
+                    ComboBoxItem.Select(cbWarehouse, warehouseAdapter, warehouse);
+                    leaveClearFunction = true;
+
+                    // All data is present and this is working properly.
+                    tbIdent.Text = ident;
+                    tbLocation.Text = location;
+                    tbSerialNum.Text = serial;
+                    if (loadIdent.GetBool("HasSerialNumber"))
+                    {
+                        tbSerialNum.Text = serial;
+                        tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Aqua);
+
+                    }
+                    else
+                    {
+                        tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Red);
+                    }
+                    tbLocation.Text = location;
+                    tbTitle.Text = idname;
+
+
+
+                    ProcessStock();
+                  
+                } else
+                {
+                    tbSSCC.Text = barcode;
                 }
-
-                var serial = dataObject.GetString("SerialNo");
-                var location = dataObject.GetString("Location");
-                var warehouse = dataObject.GetString("Warehouse");
-                var stop = true;
-
             }
             else if (tbLocation.HasFocus)
             {
@@ -626,7 +719,7 @@ namespace Scanner
             tbIdent.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbSSCC.SetBackgroundColor(Android.Graphics.Color.Aqua);
             tbSerialNum.SetBackgroundColor(Android.Graphics.Color.Aqua);
-                
+            tbPacking.SetBackgroundColor(Android.Graphics.Color.Aqua);         
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)

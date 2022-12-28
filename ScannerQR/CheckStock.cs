@@ -57,7 +57,7 @@ namespace Scanner
                 tbLocation.Text = barcode;
             }
         }
-
+              
         private string LoadStockFromStockSerialNo(string warehouse, string location, string ident)
         {
             try
@@ -229,14 +229,7 @@ namespace Scanner
             Application.Context.RegisterReceiver(_broadcastReceiver,
             new IntentFilter(ConnectivityManager.ConnectivityAction));
 
-            var inv = CommonData.GetSetting("UseGuidedInventory");
-
-
-
-            if(inv == "1")
-            {
-
-            }
+           
 
         }
         public bool IsOnline()

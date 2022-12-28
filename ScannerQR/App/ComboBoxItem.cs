@@ -25,7 +25,7 @@ namespace TrendNET.WMS.Device.App
                     int selected = (int)important.SelectedItemId;
                     if (selected != i)
                     {
-                        important.SetSelection(i); 
+                        important.SetSelection(i, true); 
                     }
                     return;
                 }

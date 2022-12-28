@@ -207,6 +207,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
+            android:id="@+id/lbPacking" 
+
             android:text="Količina"
             android:layout_marginRight="54.0dp" />
 

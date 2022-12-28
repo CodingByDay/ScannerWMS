@@ -143,11 +143,11 @@ namespace Scanner
 
             docTypes = CommonData.ListDocTypes("P|N");
 
-            if ((lastItem != null) && lastItem.GetBool("IsLastItem"))
-            {
-                InUseObjects.Invalidate("LastItem");
-                button4.Enabled = false;
-            }
+            //if ((lastItem != null) && lastItem.GetBool("IsLastItem"))
+            //{
+            //    InUseObjects.Invalidate("LastItem");
+            //    button4.Enabled = false;
+            //}
 
             LoadRelatedOrder();
             SetUpForm();

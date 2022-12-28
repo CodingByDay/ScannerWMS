@@ -272,9 +272,20 @@ namespace Scanner
                             }                            
                         }                                        
                     });
+
                     foreach (var un in unfiltered)
                     {
-                        trails.Add(un);
+                        if (un.Location != string.Empty)
+                        {
+                            trails.Add(un);
+                        } else { continue; }
+                    }
+                    foreach(var unf in unfiltered)
+                    {
+                        if(unf.Location == string.Empty)
+                        {
+                            trails.Add(unf);
+                        } else { continue; }
                     }
                 }
                 catch { }
@@ -306,7 +317,6 @@ namespace Scanner
              }
             
         }
-
 
 
 
@@ -514,7 +524,7 @@ namespace Scanner
 
         private void BtConfirm_Click(object sender, EventArgs e)
         {
-
+            ProcessIdent();
             FillDisplayedOrderInfo();
 
 
