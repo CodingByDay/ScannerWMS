@@ -122,6 +122,7 @@ namespace Scanner
             App.settings.ID = ID.Text;
             ID.Text = App.settings.ID;
 
+            Toast.MakeText(this, "Podatki shranjeni uspešno", ToastLength.Long).Show();
 
 
             //deviceURL.Text = App.settings.RootURL

@@ -169,8 +169,11 @@ namespace Scanner
             btnRegistrationEvent.Clickable = true;
             btnRegistrationEvent.Enabled = true;
             btnRegistrationEvent.Click += BtnRegistrationEvent_Click;
+            
+            
         }
 
+      
      
         private void OnNetworkStatusChanged(object sender, EventArgs e)
         {
@@ -237,8 +240,10 @@ namespace Scanner
             {
                 case Resource.Id.action_setting1:
                     {
+                        Finish();
                         StartActivity(typeof(Settings));
                         HelpfulMethods.clearTheStack(this);
+                 
                         return true;
                     }
              

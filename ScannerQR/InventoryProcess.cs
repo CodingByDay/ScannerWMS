@@ -147,12 +147,15 @@ namespace Scanner
             {
                 tbLocation.RequestFocus();
             }
+            tbPacking.Enabled = true;
         }
+
+        
 
         private void TbPacking_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
  
-                ProcessStock();
+         
             
         }
 
@@ -176,7 +179,7 @@ namespace Scanner
 
 
 
-                ComboBoxItem.Select(cbWarehouse, warehouseAdapter, warehouse);
+              //  ComboBoxItem.Select(cbWarehouse, warehouseAdapter, warehouse);
                 leaveClearFunction = true;
                 // All data is present and this is working properly.
                 tbIdent.Text = ident;
@@ -197,6 +200,7 @@ namespace Scanner
                 tbLocation.Text = location;
                 tbTitle.Text = idname;
                 ProcessStock();
+
 
             }
 
@@ -260,7 +264,7 @@ namespace Scanner
       
         private void TbUnits_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
-            ProcessStock();
+         
         }
 
        
@@ -280,9 +284,7 @@ namespace Scanner
 
                     if (loadIdent.GetBool("HasSerialNumber"))
                     {
-                        tbSerialNum.RequestFocus();
                         afterSerial = true;
-
                     } else
                     {
                         ProcessStock();
@@ -332,6 +334,38 @@ namespace Scanner
             {
             }
         }
+
+        private string LoadStock(string warehouse, string location, string sscc, string serialNum, string ident)
+        {
+            try
+            {
+                string error;
+                NameValueObject stock = new NameValueObject();
+                if (!String.IsNullOrEmpty(serialNum) && !String.IsNullOrEmpty(sscc))
+                {
+                     stock = Services.GetObject("str", warehouse + "|" + location + "|" + sscc + "|" + serialNum + "|" + ident, out error);
+                } else if (!String.IsNullOrEmpty(sscc) && String.IsNullOrEmpty(serialNum))
+                {
+                     stock = Services.GetObject("str", warehouse + "|" + location + "|" + sscc + "||" + ident, out error);
+
+                }
+                else if(String.IsNullOrEmpty(sscc) && !String.IsNullOrEmpty(serialNum)) {
+                     stock = Services.GetObject("str", warehouse + "|" + location + "||" + serialNum + "|" + ident, out error);
+
+                } else
+                {
+                    stock = Services.GetObject("str", warehouse + "|" + location + "|||" + ident, out error);
+                }
+
+                return stock.GetDouble("RealStock").ToString(CommonData.GetQtyPicture());
+            }
+            finally
+            {
+
+            }
+        }
+
+
         private void Button1_Click(object sender, EventArgs e)
         {
             double packing, units, qty;
@@ -479,10 +513,19 @@ namespace Scanner
 
         private async void CbWarehouse_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
+                var warehouse = warehouseAdapter.ElementAt(e.Position);
+                string result;
+                if (WebApp.Get("mode=getInventoryHead&wh=" + warehouse.ID, out result))
+                {
+                    var headID = Convert.ToInt32(result);
+                    if (headID < 0)
+                    {
+                        cbWarehouse.SetSelection(temporaryPosWarehouse, true);
+                        Toast.MakeText(this, "Za skladišče ni odprtega dokumenta inventure!", ToastLength.Long).Show();
 
-               
-          
-         
+                        return;
+                    }
+                }
                 tbLocation.Text = "";
                 var guided = CommonData.GetSetting("UseGuidedInventory");
                 if (guided != "1")
@@ -496,9 +539,8 @@ namespace Scanner
                     ClearData();
                 }
                 temporaryPosWarehouse = e.Position;
-                Toast.MakeText(this, "Pripravljamo listu lokacija.", ToastLength.Long).Show();
                 await GetLocationsForGivenWarehouse(warehouseAdapter.ElementAt(temporaryPosWarehouse).Text);
-                Toast.MakeText(this, "Lista lokacija pripravljena.", ToastLength.Long).Show();
+                Toast.MakeText(this, "Lista lokacija pripravljena.", ToastLength.Short).Show();
 
 
                 DataAdapterLocation = new ArrayAdapter<string>(this,
@@ -585,56 +627,37 @@ namespace Scanner
 
                 return;
             }
-
-
             try
             {
-
-
                 var location = tbLocation.Text.Trim();
                 if (!CommonData.IsValidLocation(warehouse.ID, location))
                 {
                     Toast.MakeText(this, "Lokacija '" + location + "' ni veljavna za skladišče '" + warehouse.ID + "'!", ToastLength.Long).Show();
                     return;
                 }
-
                 string result;
-                if (WebApp.Get("mode=getInventoryHead&wh=" + warehouse.ID, out result))
-                {
-                    var headID = Convert.ToInt32(result);
-                    if (headID < 0)
-                    {
-                        cbWarehouse.SetSelection(-1);
-                        Toast.MakeText(this, "Za skladišče ni odprtega dokumenta inventure!", ToastLength.Long).Show();
 
-                        return;
-                    }
+                if(tbSSCC.Enabled&&tbSerialNum.Enabled) {
+                    result = LoadStock(warehouse.ID, location, sscc, serialNum, ident);
 
-                    moveItem = Services.GetObject("miissl", headID.ToString() + "|" + tbIdent.Text.Trim() + "|" + tbSerialNum.Text.Trim() + "|" + tbSSCC.Text.Trim() + "|" + location, out result);
-                    if (moveItem != null)
-                    {
-                        tbPacking.Text = moveItem.GetDouble("Packing").ToString(CommonData.GetQtyPicture());
-                        tbUnits.Text = moveItem.GetDouble("Factor").ToString("###,###,##0.00");
-                        btDelete.Enabled = true;
-                    }
-                    else
-                    {
-                        tbPacking.Text = "";
-                        tbUnits.Text = "1";
-                        btDelete.Enabled = false;
-                    }
+                } else if (tbSSCC.Enabled && !tbSerialNum.Enabled) {
+                    result = LoadStock(warehouse.ID, location, sscc, string.Empty, ident);
                 }
-                else
+                else if (!tbSSCC.Enabled&&tbSerialNum.Enabled)
                 {
-                    Toast.MakeText(this, "Napaka pri dostopu do web aplikacije: " + result, ToastLength.Long).Show();
-
-                    return;
+                    result = LoadStock(warehouse.ID, location, string.Empty, tbSerialNum.Text, ident);
+                } else
+                {
+                    result = LoadStock(warehouse.ID, location, string.Empty, string.Empty, ident);
                 }
+                
+                tbPacking.Enabled = true;
+                lbPacking.Text = $"Zaloga ({result})";
+                tbPacking.Text = result;
 
             }
             finally
             {
-           
             }
         }
         public void GetBarcode(string barcode)
@@ -659,7 +682,6 @@ namespace Scanner
                     var location = dataObject.GetString("Location");
                     var warehouse = dataObject.GetString("Warehouse");
 
-                    ComboBoxItem.Select(cbWarehouse, warehouseAdapter, warehouse);
                     leaveClearFunction = true;
 
                     // All data is present and this is working properly.
